@@ -1,0 +1,8 @@
+ht_secure_data.rb
+logs
+overlap/overlap_umich.tsv
+tmp/
+lib/translation_maps/hlb.json.gz
+lib/translation_maps/umich/libLocInfo.yaml
+.bash_history
+.env

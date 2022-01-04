@@ -1,0 +1,55 @@
+{
+  "location": [
+    {
+      "code": "DISP",
+      "name": "AAEL Display Cases",
+      "external_name": "",
+      "type": {
+        "value": "CLOSED",
+        "desc": "Closed"
+      },
+      "remote_storage": "",
+      "map": "",
+      "suppress_from_publishing": "false",
+      "fulfillment_unit": {
+        "value": "Limited",
+        "desc": "Limited"
+      },
+      "accession_placement": {
+        "value": "none",
+        "desc": "None"
+      },
+      "call_number_type": {
+        "value": "",
+        "desc": null
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/AAEL/locations/DISP"
+    },
+    {
+      "code": "RESI",
+      "name": "Ask at 2nd Floor Desk",
+      "external_name": "Ask at 2nd Floor Desk",
+      "type": {
+        "value": "OPEN",
+        "desc": "Open"
+      },
+      "remote_storage": "",
+      "map": "",
+      "suppress_from_publishing": "false",
+      "fulfillment_unit": {
+        "value": "Reserves",
+        "desc": "Reserves"
+      },
+      "accession_placement": {
+        "value": "",
+        "desc": null
+      },
+      "call_number_type": {
+        "value": "",
+        "desc": null
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/AAEL/locations/RESI"
+    }
+  ],
+   "total_record_count": 2
+}

@@ -1,0 +1,76 @@
+#!/bin/bash
+
+SCRIPTNAME=`basename $0`
+if [ $# -lt 1 -o $# -gt 3 ] 
+then
+  echo
+  echo "$SCRIPTNAME: process alma and zephir update files (delete and index) for a particular date"
+  echo "into http://localhost:$PORT/solr/biblio"
+  echo
+  echo "[\$SOLR_URL will override default core and port ] "
+  echo
+  echo
+  echo "USAGE:"
+  echo "    $SCRIPTNAME date  port <optional1_logfile>"
+  echo
+  echo "DEFAULT VALUES"
+  echo "   logfile: stdout"
+  echo
+  echo "EXAMPLES"
+  echo "    $SCRIPTNAME 20190909 8026"
+  echo "    $SCRIPTNAME 20190909 8025 /path/to/logfile"
+  echo
+  exit
+fi
+
+HERE=`dirname $0`
+SCRIPTDIR=`realpath $HERE`
+ROOTDIR=`realpath $SCRIPTDIR/..`
+DDIR=/l/solr-vufind/data/xml
+#delfile=$1
+date=$1
+
+cd $SCRIPTDIR
+
+# Pull in functions to find marc/del files
+source $SCRIPTDIR/utils.sh
+
+delfile=`find_del_file_for_date $date $DDIR`
+port=$2
+[[ -z "$port" ]] && port=8023
+
+logfile=$3
+[[ ! -z "$logfile" ]] && logfile=`realpath "$3"`
+
+export target_url=`solr_url $port`
+
+jruby_path=`jruby_bin_dir`
+export PATH=$jruby_path:$PATH
+JRUBY="${jruby_path}/jruby"
+
+log "Targeting $target_url"
+
+echo datadir is $DDIR
+echo delfile is $delfile
+
+if [ -f "$delfile" ]; then
+  log  "Deleting from $delfile" $logfile
+  cd $ROOTDIR
+  delout=`bundle exec jruby $SCRIPTDIR/delete_ids "$delfile" "$target_url"`
+  commit
+  log "$delout" "$logfile"
+  echo $delout
+else
+  log "Could not find delfile '$delfile'" $logfile
+fi
+
+PORT=$port $SCRIPTDIR/tindex_xml localhost "$DDIR/$date/search_${date}*.xml" $logfile
+
+DDIR_ZEPHIR=/l/solr-vufind/data/zephir
+zephir_file=`find_zephir_file_for_date $date $DDIR_ZEPHIR`
+echo zephir file is $zephir_file
+if [ -z $zephir_file ]; then
+  echo no zephir file to process
+else
+  PORT=$port $SCRIPTDIR/tindex_json localhost $zephir_file $logfile
+fi

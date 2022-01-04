@@ -1,0 +1,23 @@
+{
+  "library": [
+    {
+      "code": "AAEL",
+      "id": "112092530006381",
+      "name": "Art Architecture & Engineering",
+      "path": "01UMICH.01UMICH_INST.AAEL",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "BKS",
+        "desc": "Book Collection"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/AAEL"
+    }
+  ],
+  "total_record_count": 1 
+}

@@ -1,0 +1,68 @@
+#!/bin/bash
+
+if [[ $# -gt 2 ]] || [[ "$1" == "-h" ]]
+then
+  echo
+  echo "index_today: run the catchup (delete and index) for last night's files"
+  echo "into http://localhost:$PORT/solr/biblio"
+  echo
+  echo "[\$SOLR_URL will override default core and port ] "
+  echo
+  echo "USAGE:"
+  echo "    index_today <optional_port> <optional_logfile>"
+  echo
+  echo "DEFAULT VALUES"
+  echo "   port: 8025"
+  echo "   logfile: logs/daily/daily_YYYYMMDD.txt"
+  echo
+  echo "EXAMPLES"
+  echo "    index_today"
+  echo "    index_today 8026"
+  echo "    index_today 8025 /path/to/logfile"
+  echo
+  exit
+fi
+
+HERE=`dirname $0`
+SCRIPTDIR=`realpath $HERE`
+
+mailto=${MAIL_INDEX_TODAY_RESULTS_TO}
+
+TODAY=`/bin/date +"%Y%m%d"`
+
+port=$1
+[[ -z "$port" ]] && port=8025
+
+LOGFILE=$2
+if [ -z $LOGFILE ]; then
+    logfiledir=`realpath "$SCRIPTDIR/../logs/daily/$port"`
+    mkdir -p $logfiledir
+    LOGFILE="$logfiledir/daily_${TODAY}.txt"
+else
+    LOGFILE=`realpath "$LOGFILE"`
+fi
+
+
+$SCRIPTDIR/index_date $TODAY $port $LOGFILE
+
+traject_exit_value=$?
+hostname=`hostname -s`
+
+tally=`grep finished ${LOGFILE} | tail -1 | cut -f7 -d':' | cut -f1 -d';'`
+
+if grep -q "returning 'false'" $LOGFILE; then
+    subject="FAILURES. ${hostname} catalog, port ${port} did ${tally}"
+    errors=`grep ERROR ${LOGFILE}  | grep "not add"`
+    newlines=$'\n\n'
+    body=$(printf "See ${LOGFILE} for specifics.$newlines${errors}")
+else
+    subject="SUCCESS. ${hostname} catalog, port ${port} did ${tally}"
+fi
+
+
+if [[ ! -z $mailto ]]; then 
+    echo -e "$body" | mail -s "$subject" "$mailto"
+fi
+
+
+

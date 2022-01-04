@@ -1,0 +1,55 @@
+#!/bin/bash
+
+#if [ $# -ne 1 ]  && [ $# -ne 2 ]
+if [ $# -lt 1 -o $# -gt 3 ]
+then
+  echo
+  echo "catchup_since: run all deletes/updates in order since the given date"
+  echo
+  echo "USAGE:"
+  echo "    catchup_since  YYYYMMDD  <optional_port> <optional logfile> "
+  echo
+  echo "[\$SOLR_URL will override default core and port ] "
+  echo
+  echo "DEFAULT VALUES"
+  echo "   port: 8025"
+  echo "   logfile: stdout"
+  echo
+  exit
+fi
+
+
+HERE=`dirname $0`
+SCRIPTDIR=`realpath $HERE`
+TDIR=`realpath $SCRIPTDIR/..`
+
+RAWDATE=$1
+TODAY=`date -d "now" +"%Y%m%d"`
+STARTDATE=`date -d  "$RAWDATE" +"%Y%m%d"`
+
+
+source $SCRIPTDIR/utils.sh
+
+port=$2
+
+[[ -z "$port" ]] && port=8025
+
+logfile=$3
+[[ ! -z "$logfile" ]] && logfile=`realpath "$3"`
+
+
+
+
+fulldate=`date -d $STARTDATE`
+log "Catching up from $STARTDATE aka $fulldate" $logfile
+
+DATESTR=$STARTDATE
+
+until [[ $DATESTR > $TODAY ]]; do
+  log " "
+  log " ------- $DATESTR -----------"
+  log " "
+  $SCRIPTDIR/index_date $DATESTR $port $logfile
+  DATESTR=`date -d "$DATESTR + 1 day" +"%Y%m%d"`
+done
+

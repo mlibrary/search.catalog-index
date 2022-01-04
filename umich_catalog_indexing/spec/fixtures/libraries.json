@@ -1,0 +1,545 @@
+{
+  "library": [
+    {
+      "code": "AAEL",
+      "id": "112092530006381",
+      "name": "Art Architecture & Engineering",
+      "path": "01UMICH.01UMICH_INST.AAEL",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "BKS",
+        "desc": "Book Collection"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/AAEL"
+    },
+    {
+      "code": "FVL",
+      "id": "112089330006381",
+      "name": "Askwith Media Library",
+      "path": "01UMICH.01UMICH_INST.FVL",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/askwith-media-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "H1",
+        "desc": "Room 2002 Shapiro"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/FVL"
+    },
+    {
+      "code": "BENT",
+      "id": "112088230006381",
+      "name": "Bentley Historical",
+      "path": "01UMICH.01UMICH_INST.BENT",
+      "description": "{\"info_link\":\"https://bentley.umich.edu/\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "RR",
+        "desc": "Reading Room"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/BENT"
+    },
+    {
+      "code": "BSTA",
+      "id": "112090480006381",
+      "name": "Biological Station",
+      "path": "01UMICH.01UMICH_INST.BSTA",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/biological-station-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "REF",
+        "desc": "Reference"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/BSTA"
+    },
+    {
+      "code": "BUHR",
+      "id": "112087000006381",
+      "name": "Buhr Shelving Facility",
+      "path": "01UMICH.01UMICH_INST.BUHR",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/buhr-building\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "",
+        "desc": null
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/BUHR"
+    },
+    {
+      "code": "CSCAR",
+      "id": "112091070006381",
+      "name": "CSCAR - Rackham Building",
+      "path": "01UMICH.01UMICH_INST.CSCAR",
+      "description": null,
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "UNASSIGNED",
+        "desc": "UNASSIGNED location"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/CSCAR"
+    },
+    {
+      "code": "DBRN",
+      "id": "16011159930006381",
+      "name": "Dearborn Mardigian Library",
+      "path": "01UMICH.01UMICH_INST.DBRN",
+      "description": "{\"desc\":\"Pick Up Library only - do not use for Acquisitions\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "UNASSIGNED",
+        "desc": "UNASSIGNED location"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/DBRN"
+    },
+    {
+      "code": "DHCL",
+      "id": "112091760006381",
+      "name": "Donald Hall Collection",
+      "path": "01UMICH.01UMICH_INST.DHCL",
+      "description": "{\"info_link\":\"https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "DVD",
+        "desc": "DVDs"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/DHCL"
+    },
+    {
+      "code": "ELEC",
+      "id": "112088690006381",
+      "name": "Electronic Resources",
+      "path": "01UMICH.01UMICH_INST.ELEC",
+      "description": null,
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "UNASSIGNED",
+        "desc": "UNASSIGNED location"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/ELEC"
+    },
+    {
+      "code": "EG",
+      "id": "112088460006381",
+      "name": "Exchange and Gift",
+      "path": "01UMICH.01UMICH_INST.EG",
+      "description": null,
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "UNASSIGNED",
+        "desc": "UNASSIGNED location"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/EG"
+    },
+    {
+      "code": "FINE",
+      "id": "112090020006381",
+      "name": "Fine Arts",
+      "path": "01UMICH.01UMICH_INST.FINE",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/fine-arts-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "RESP",
+        "desc": "Open Reserves Shelving Area"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/FINE"
+    },
+    {
+      "code": "FLINT",
+      "id": "112090250006381",
+      "name": "Flint Frances Willson Thompson Library",
+      "path": "01UMICH.01UMICH_INST.FLINT",
+      "description": "{\"info_link\":\"https://libguides.umflint.edu/library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMFL",
+        "desc": "UM-Flint"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "MAIN",
+        "desc": "Main Collection"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/FLINT"
+    },
+    {
+      "code": "HATCH",
+      "id": "112085900006381",
+      "name": "Hatcher Graduate",
+      "path": "01UMICH.01UMICH_INST.HATCH",
+      "description": "{\"info_link\":\"https://lib.umich.edu/locations-and-hours/hatcher-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "GRAD",
+        "desc": "GRAD"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/HATCH"
+    },
+    {
+      "code": "SDR",
+      "id": "112087460006381",
+      "name": "HathiTrust",
+      "path": "01UMICH.01UMICH_INST.SDR",
+      "description": null,
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "MIU",
+        "desc": "MIU - University of Michigan"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/SDR"
+    },
+    {
+      "code": "HERB",
+      "id": "112089560006381",
+      "name": "Herbarium",
+      "path": "01UMICH.01UMICH_INST.HERB",
+      "description": "{\"info_link\":\"https://lib.umich.edu/locations-and-hours/museums-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "HEBR",
+        "desc": "Reference"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/HERB"
+    },
+    {
+      "code": "MAP",
+      "id": "112086130006381",
+      "name": "Map Library",
+      "path": "01UMICH.01UMICH_INST.MAP",
+      "description": null,
+      "resource_sharing": false,
+      "campus": {
+        "value": "",
+        "desc": null
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "UNASSIGNED",
+        "desc": "UNASSIGNED location"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/MAP"
+    },
+    {
+      "code": "CHES",
+      "id": "112090890006381",
+      "name": "Mark Chesler Library",
+      "path": "01UMICH.01UMICH_INST.CHES",
+      "description": null,
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "UNASSIGNED",
+        "desc": "UNASSIGNED location"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/CHES"
+    },
+    {
+      "code": "MUSIC",
+      "id": "112091530006381",
+      "name": "Music",
+      "path": "01UMICH.01UMICH_INST.MUSIC",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/music-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "REF",
+        "desc": "Reference - 3rd floor"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/MUSIC"
+    },
+    {
+      "code": "OFFS",
+      "id": "112086360006381",
+      "name": "Offsite Shelving",
+      "path": "01UMICH.01UMICH_INST.OFFS",
+      "description": null,
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "STATE",
+        "desc": "STATE"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/OFFS"
+    },
+    {
+      "code": "HSRS",
+      "id": "112090710006381",
+      "name": "Offsite Shelving H",
+      "path": "01UMICH.01UMICH_INST.HSRS",
+      "description": null,
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "MUSM",
+        "desc": "MUSM"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/HSRS"
+    },
+    {
+      "code": "MUSM",
+      "id": "112092300006381",
+      "name": "Research Museums Center",
+      "path": "01UMICH.01UMICH_INST.MUSM",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/museums-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "REF",
+        "desc": "Reference - Rm. 2500"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/MUSM"
+    },
+    {
+      "code": "MUSMO",
+      "id": "112091300006381",
+      "name": "Research Museums Center(MUSMO)",
+      "path": "01UMICH.01UMICH_INST.MUSMO",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/museums-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "",
+        "desc": null
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "UNASSIGNED",
+        "desc": "UNASSIGNED location"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/MUSMO"
+    },
+    {
+      "code": "RES_SHARE",
+      "id": "12900830000231",
+      "name": "Resource Sharing Library",
+      "path": "01UMICH.01UMICH_INST.RES_SHARE",
+      "description": "{\"desc\":\"Temporarily manages inventory sent to or received from resource sharing partners\"}",
+      "resource_sharing": true,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "",
+        "desc": null
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/RES_SHARE"
+    },
+    {
+      "code": "SHAP",
+      "id": "112087640006381",
+      "name": "Shapiro",
+      "path": "01UMICH.01UMICH_INST.SHAP",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/shapiro-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "UNASSIGNED",
+        "desc": "UNASSIGNED location"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/SHAP"
+    },
+    {
+      "code": "UGL",
+      "id": "112089790006381",
+      "name": "Shapiro Undergraduate",
+      "path": "01UMICH.01UMICH_INST.UGL",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/shapiro-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "",
+        "desc": null
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/UGL"
+    },
+    {
+      "code": "SPEC",
+      "id": "112088920006381",
+      "name": "Special Collections",
+      "path": "01UMICH.01UMICH_INST.SPEC",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/special-collections-research-center\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "REFH",
+        "desc": "REFH - Reference Collection"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/SPEC"
+    },
+    {
+      "code": "TOY",
+      "id": "112092120006381",
+      "name": "Spectrum/Jim Toy Library",
+      "path": "01UMICH.01UMICH_INST.TOY",
+      "description": null,
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "UNASSIGNED",
+        "desc": "UNASSIGNED location"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/TOY"
+    },
+    {
+      "code": "STAFF",
+      "id": "112085490006381",
+      "name": "Staff",
+      "path": "01UMICH.01UMICH_INST.STAFF",
+      "description": null,
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "TSACQ",
+        "desc": "TSACQ"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/STAFF"
+    },
+    {
+      "code": "TAUB",
+      "id": "112088000006381",
+      "name": "Taubman Health Sciences",
+      "path": "01UMICH.01UMICH_INST.TAUB",
+      "description": "{\"info_link\":\"http://lib.umich.edu/locations-and-hours/taubman-health-sciences-library\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "STOR",
+        "desc": "Storage - Ask at the Circulation Desk"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/TAUB"
+    },
+    {
+      "code": "CLEM",
+      "id": "112087230006381",
+      "name": "William L. Clements",
+      "path": "01UMICH.01UMICH_INST.CLEM",
+      "description": "{\"info_link\":\"https://clements.umich.edu/\"}",
+      "resource_sharing": false,
+      "campus": {
+        "value": "UMAA",
+        "desc": "UM-Ann Arbor"
+      },
+      "proxy": "",
+      "default_location": {
+        "value": "RBR",
+        "desc": "RBR"
+      },
+      "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/CLEM"
+    }
+  ],
+  "total_record_count": 30
+}

@@ -1,0 +1,61 @@
+#!/bin/bash
+
+echo Not yet functional for umich indexing
+exit 1
+
+if [ $# -gt 1 ] 
+then
+  echo
+  echo "fullindex: empty the catalog and index the most recent monthly"
+  echo
+  echo "USAGE:"
+  echo "    fullindex <optional logfile>"
+  echo
+  exit
+fi
+
+
+HERE=`dirname $0`
+SCRIPTDIR=`realpath $HERE`
+
+logfile=$1
+
+source $SCRIPTDIR/set_java_home.sh
+source $SCRIPTDIR/utils.sh
+
+export SOLR_URL=`solr_url`
+
+
+# Put jruby in the path
+jruby_path=`realpath ../../jruby/bin`
+export PATH=$jruby_path:$PATH
+
+# where do we keep the data?
+
+DDIR=`data_dir`
+
+# Full indexes are dated the last day of the month
+# Let's find it
+
+# First day of this month
+first="$(date +"%Y%m")01"
+# Last day of last month
+last_day_of_last_month=`date -d "$first - 1 day" +"%Y%m%d"`
+marcfile="${DDIR}/vufind_full_${last_day_of_last_month}.seq.gz"
+
+log "Targeting $SOLR_URL" $logfile
+echo "5 second delay if you need it..."
+sleep 5
+
+log "Empty solr" $logfile
+empty_solr
+log "Index $marcfile"  $logfile
+$SCRIPTDIR/bundle exec $SCRIPTDIR/index_file $marcfile $logfile
+
+
+log "Catch up since $last_day_of_last_month"  $logfile
+$SCRIPTDIR/bundle exec $SCRIPTDIR/catchup_since $last_day_of_last_month $logfile
+
+commit
+
+

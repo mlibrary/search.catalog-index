@@ -1,0 +1,239 @@
+<!-- This fine included so attempts to import the default
+     filename in schema.xml don't blow up -->
+
+<!-- TEST -->
+
+<!-- Core Fields  -->
+
+<field name="id_int"          type="long"      indexed="true" stored="true"/>
+<copyField source="id" dest="id_int"/>
+
+<field name="fullrecord"      type="string"     indexed="false" stored="true" docValues="false"/>
+
+<field name="allfields"       type="text"       indexed="true" stored="false"/>
+<field name="allfieldsProper" type="text_no_stem_or_synonyms" indexed="true" stored="false"/>
+
+<!-- legacy aleph -->
+<field name="aleph_id" type="string" indexed="true" stored="true" required="false" multiValued="false"/>
+
+<field name="hol"      type="string" indexed="false" stored="true" multiValued="false" docValues="false"/>
+<field name="record_source" type="string" indexed="true" stored="true" required="false" multiValued="false"/>
+
+<copyField source="allfields" dest="allfieldsProper"/>
+
+    <!-- Institutional Fields -->
+<field name="institution" type="string" indexed="true" stored="true" multiValued="true"/>
+<field name="collection"  type="string" indexed="true" stored="true" multiValued="true"/>
+<field name="building"    type="string" indexed="true" stored="true" multiValued="true"/>
+<field name="location"    type="string" indexed="true" stored="true" multiValued="true"/>
+<field name="fund"    type="exactish" indexed="true" stored="true" multiValued="true"/>
+<field name="fund_display"    type="string" indexed="false" stored="true" multiValued="true"/>
+
+    <!-- Identifiers -->
+
+<field name="lccn"         type="lccn" indexed="true" stored="true"  multiValued="true"/>
+<field name="ctrlnum"      type="exactish"   indexed="true" stored="true"  multiValued="true"/>
+<field name="rptnum"       type="exactish"   indexed="true" stored="true"  multiValued="true"/>
+<field name="sdrnum"       type="exactish"   indexed="true" stored="true"  multiValued="true"/>
+<field name="oclc"         type="oclc"        indexed="true" stored="true"  multiValued="true"/>
+<field name="isbn"         type="isbn"         indexed="true" stored="true"  multiValued="true"/>
+<field name="issn"         type="issn"         indexed="true" stored="true"  multiValued="true"/>
+<field name="isn_related"  type="numericID"         indexed="true" stored="true" multiValued="true"/>
+<field name="barcode"      type="exactish"   indexed="true" stored="true" multiValued="true" />
+    <!-- HT Stuff -->
+
+<field name="ht_count"      type="int"    indexed="true"  stored="true"  multiValued="false"/>
+<field name="ht_id"         type="string"  indexed="true"  stored="true"  multiValued="true"/>
+<field name="htid" type="string" indexed="true" stored="true" multiValued="true" />
+<field name="ht_id_update"  type="int"    indexed="true"  stored="true"  multiValued="true"/>
+<field name="ht_id_display" type="string"  indexed="false" stored="true"  multiValued="true"/>
+<field name="ht_json"       type="string"  indexed="false" stored="true"  multiValued="false" docValues="false"/>
+<field name="ht_searchonly" type="boolean" indexed="true"  stored="true"  multiValued="false"/>
+<field name="htsource"      type="string"  indexed="true"  stored="true"  multiValued="true"/>
+<field name="ht_rightscode" type="string"  indexed="true"  stored="true"  multiValued="true"/>
+<field name="ht_heldby"     type="string"  indexed="true"  stored="true"  multiValued="true"/>
+
+<field name="ht_searchonly_intl"   type="boolean" indexed="true" stored="true" multiValued="false"/>
+<field name="ht_availability"      type="string"  indexed="true" stored="true" multiValued="true"/>
+<field name="ht_availability_intl" type="string"  indexed="true" stored="true" multiValued="true"/>
+
+<copyField source="ht_id" dest="htid"/>
+
+<!-- Call numbers -->
+<field name="sudoc"         type="exactish"       indexed="true" stored="true"  multiValued="true"/>
+
+<!--<field name="callnumber"    type="exactish"       indexed="true" stored="true"  multiValued="true"/>-->
+<!--<field name="callnosearch"    type="lc_callnumber_searchable"  indexed="true" stored="false"  multiValued="true"/>-->
+<!--<field name="callnosort"    type="lc_callnumber_sortable"  indexed="true" stored="false"  multiValued="false"/>-->
+
+<field name="callnumber"   type="lc_callnumber_simple" indexed="true" stored="true" multiValued="true"/>
+<field name="callnosearch" type="lc_callnumber_simple_searchable" indexed="true" stored="false" multiValued="true"/>
+<field name="callnosort"   type="lc_callnumber_simple_passthrough" indexed="true" stored="true" multiValued="false"/>
+
+
+<field name="callnoletters" type="exactish"       indexed="true" stored="false" multiValued="false"/>
+
+<copyField source="callnumber" dest="callnosearch"/>
+
+
+<field name="lc_simple" type="lc_callnumber_simple" indexed="true" stored="true" multiValued="true"/>
+<field name="lc_simple_passthrough" type="lc_callnumber_simple_passthrough" indexed="true" stored="false" multiValued="true"/>
+<field name="lc_simple_searchable" type="lc_callnumber_simple_searchable" indexed="true" stored="false" multiValued="true"/>
+<field name="lc_simple_sortable" type="lc_callnumber_simple_passthrough" indexed="true" stored="true" multiValued="false"/>
+
+
+<copyField source="lc_simple" dest="lc_simple_passthrough"/>
+<copyField source="lc_simple" dest="lc_simple_searchable"/>
+
+
+ 
+
+
+    <!-- Misc fields -->
+
+<field name="language"     type="string"     indexed="true" stored="true"  multiValued="true"/>
+<field name="language008"  type="string"     indexed="true" stored="true"  multiValued="false"/>
+<field name="language008_full" type="string" indexed="true" stored="true"  multiValued="false"/>
+<field name="format"       type="string"     indexed="true" stored="true"  multiValued="true"/>
+<field name="availability" type="string"     indexed="true" stored="true"  multiValued="true"/>
+<field name="publisher"    type="text_no_stem_or_synonyms" indexed="true" stored="true" multiValued="true"/>
+<field name="edition"      type="string"     indexed="true" stored="true" multiValued="true"/>
+<field name="cat_date"     type="int"       indexed="true" stored="true" multiValued="false"/>
+
+
+    <!-- Author fields -->
+
+<field name="mainauthor"      type="text_no_stem_or_synonyms" indexed="true" stored="true"    multiValued="true" />
+<field name="mainauthor_role" type="string" indexed="true" stored="true"    multiValued="true" />
+<field name="author"      type="text_no_stem_or_synonyms" indexed="true" stored="true"    multiValued="true" />
+<field name="authorStr"   type="text_facet"     indexed="true" stored="true"   multiValued="true" />
+<field name="author_top"  type="text_no_stem_or_synonyms" indexed="true" stored="true"   multiValued="true" />
+<field name="author_rest" type="text_no_stem_or_synonyms" indexed="true" stored="true"   multiValued="true" />
+<field name="author2"     type="text_no_stem_or_synonyms" indexed="true" stored="true"   multiValued="true" />
+<field name="authorSort" type="exactishSort" indexed="true" stored="false" multiValued="false"/>
+
+<copyField source="author" dest="authorStr"/>
+
+<!-- Mixed title/author -->
+
+<field name="title_author" type="text" indexed="true" stored="false" multiValued="true"/>
+
+<!-- Title fields -->
+
+<field name="title_common"     type="text"  indexed="true" stored="true" multiValued="true"/>
+<field name="title_equiv"      type="text"  indexed="true" stored="true"  multiValued="true" omitNorms="true"/>
+<field name="title"            type="text"          indexed="true"  stored="true"  multiValued="true" />
+<field name="uniformTitle"            type="text"          indexed="true"  stored="true"  multiValued="true" />
+<field name="titleSort"        type="exactishSort" indexed="true"  stored="false" multiValued="false"/>
+<field name="vtitle"           type="string"        indexed="false" stored="true" multiValued="false" />
+<field name="titleProper"      type="text_no_stem_or_synonyms"    indexed="true"  stored="false" multiValued="true" />
+<field name="title_a"          type="exactish"  indexed="true"  stored="true" multiValued="true"/>
+<field name="title_ab"         type="exactish"  indexed="true"  stored="true" multiValued="true"/>
+<field name="title_c"          type="string"        indexed="false" stored="true" multiValued="true"/>
+<field name="title_top"        type="text"          indexed="true"  stored="true" multiValued="true" />
+<field name="title_top_l"      type="text_leftanchored" indexed="true" stored="false" multiValued="true" />
+<field name="title_topProper"  type="text_no_stem_or_synonyms"    indexed="true"  stored="false" multiValued="true" />
+<field name="title_restProper" type="text_no_stem_or_synonyms"    indexed="true"  stored="false" multiValued="true" />
+<field name="title_rest"       type="text"          indexed="true"  stored="true" multiValued="true" />
+
+<field name="title_l"          type="text_leftanchored" indexed="true" stored="false" multiValued="true" />
+<field name="title_equiv_l"    type="text_leftanchored" indexed="true" stored="false" multiValued="true" />
+
+<field name="title_ab_exact"    type="fully_anchored"  indexed="true"  stored="false" multiValued="true"/>
+<field name="title_a_exact"     type="fully_anchored"  indexed="true"  stored="false" multiValued="true"/>
+<field name="title_common_exact" type="fully_anchored"  indexed="true"  stored="false" multiValued="true"/>
+<field name="title_equiv_exact" type="fully_anchored"  indexed="true"  stored="false" multiValued="true"/>
+<field name="title_display"    type="string"        indexed="false" stored="true" multiValued="true"/>
+
+<field name="series"          type="text"          indexed="true" stored="true" multiValued="true"/>
+<field name="series2"         type="text"          indexed="true" stored="true" multiValued="true"/>
+
+<copyField source="title"      dest="titleProper"/>
+
+<copyField source="title_top"  dest="title_topProper"/>
+<copyField source="title_top"  dest="title_top_l"/>
+
+<copyField source="title_rest"    dest="title_restProper"/>
+
+<copyField source="title_common"  dest="title_common_exact"/>
+<copyField source="title_common"      dest="title_l"/>
+
+
+<copyField source="title_equiv"  dest="title_equiv_exact"/>
+<copyField source="title_equiv"  dest="title_equiv_l"/>
+
+
+<copyField source="title_ab"      dest="title_ab_exact"/>
+<copyField source="title_a"       dest="title_a_exact"/>
+
+<field name="serialTitle_common"    type="exactish" indexed="true" stored="true" multiValued="true"/>
+<field name="serialTitle_equiv"    type="exactish" indexed="true" stored="true" multiValued="true"/>
+<field name="serialTitle_ab"    type="exactish" indexed="true" stored="true" multiValued="true"/>
+<field name="serialTitle_a"     type="exactish" indexed="true" stored="true" multiValued="true"/>
+<field name="serialTitle"       type="text"         indexed="true" stored="true"  multiValued="true" />
+<field name="serialTitleProper" type="text_no_stem_or_synonyms"   indexed="true" stored="false" multiValued="true" />
+<field name="serialTitle_restProper" type="text_no_stem_or_synonyms"   indexed="true" stored="false" multiValued="true" />
+<field name="serialTitle_rest"       type="text"         indexed="true" stored="true" multiValued="true" />
+
+<field name="serialTitle_common_l"    type="text_leftanchored" indexed="true" stored="false" multiValued="true" />
+<field name="serialTitle_common_exact" type="fully_anchored"  indexed="true"  stored="false" multiValued="true"/>
+
+<field name="title_initial" type="title_initial_type" indexed="true" stored="true" multiValued="false"/>
+
+<copyField source="serialTitle" dest="serialTitleProper"/>
+<copyField source="serialTitle_common" dest="serialTitle_common_exact"/>
+<copyField source="serialTitle_common" dest="serialTitle_common_l"/>
+
+    <!-- Categorization -->
+
+<field name="topic"       type="text"       indexed="true" stored="false" multiValued="true"  omitNorms="true"/>
+<field name="topicProper" type="text_no_stem_or_synonyms" indexed="true" stored="false" multiValued="true"  omitNorms="true"  />
+<field name="topicStr"    type="string" indexed="true" stored="true"  multiValued="true"/>
+<field name="lcshID"      type="string"     indexed="true" stored="true"  multiValued="true"/>
+<field name="fullgenre"   type="text"       indexed="true" stored="true"  multiValued="true"  omitNorms="true"/>
+<field name="genre"       type="text"       indexed="true" stored="true"  multiValued="true"  omitNorms="true"/>
+<field name="genreStr"    type="string"     indexed="true" stored="false" multiValued="true"                   />
+<field name="hlb3"    type="text"       indexed="true" stored="false" multiValued="true"  omitNorms="true" />
+<field name="hlb3Str" type="string"     indexed="true" stored="true" multiValued="true"                   />
+<field name="hlb3Delimited" type="string" indexed="false" stored="true" multiValued="true" termVectors="false"/>
+<field name="lc_subject" type="lc_subject" indexed="true" stored="true" multiValued="true"/>
+<copyField source="topic" dest="topicStr"/>
+<copyField source="topic" dest="topicProper"/>
+<copyField source="hlb3" dest="hlb3Str"/>
+<copyField source="genre" dest="genreStr"/>
+
+<field name="lc_subject_display"     type="string" indexed="false" stored="true" multiValued="true"/>
+<field name="non_lc_subject_display" type="string" indexed="false" stored="true" multiValued="true"/>
+
+    <!-- Time and Place -->
+
+<field name="publishDate"      type="string" indexed="true" stored="true"  multiValued="true"/>
+<field name="publishDateTrie"  type="int"   indexed="true" stored="false" multiValued="false" docValues="false" sortMissingLast="true"/>/>
+<field name="publishDateRange" type="string" indexed="true" stored="true" multiValued="true"/>
+<field name="display_date"     type="string" indexed="false" stored="true" multiValued="false"/>
+
+<field name="enum_publishDate"      type="string" indexed="true" stored="true"  multiValued="true"/>
+<field name="enum_publishDateTrie"  type="int"   indexed="true" stored="false" multiValued="true"/>
+<field name="enum_publishDateRange" type="string" indexed="true" stored="true" multiValued="true"/>
+
+
+<field name="era"              type="string" indexed="true" stored="true"  multiValued="true"/>
+
+<field name="fullgeographic"   type="text"   indexed="true" stored="true" multiValued="true"  omitNorms="true"/>
+<field name="geographic"       type="text"   indexed="true" stored="true" multiValued="true"  omitNorms="true"/>
+<field name="geographicStr"    type="string" indexed="true" stored="true" multiValued="true"/>
+<field name="country_of_pub"   type="text"   indexed="true" stored="false" multiValued="true"  omitNorms="true"/>
+<field name="countryOfPubStr"  type="exactish" indexed="true" stored="true" multiValued="true"/>
+
+<field name="place_of_publication" type="string" indexed="true" stored="true" multiValued="true"/>
+<copyField source="country_of_pub" dest="countryOfPubStr"/>
+<copyField source="geographic" dest="geographicStr"/>
+<copyField source="publishDate" dest="publishDateTrie"/>
+<copyField source="publishDate" dest="publishDateRange"/>
+<copyField source="enum_publishDate" dest="enum_publishDateTrie"/>
+<copyField source="enum_publishDate" dest="enum_publishDateRange"/>
+
+
+<!-- weird placeholders -->
+<field name="available_online" type="string" indexed="true" stored="true"/>
+<field name="search_only" type="string" indexed="true" stored="true"/>
