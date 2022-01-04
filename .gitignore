@@ -10,3 +10,4 @@ lib/translation_maps/hlb.json.gz
 lib/translation_maps/umich/libLocInfo.yaml
 .bash_history
 .env
+.bundle
