@@ -34,9 +34,9 @@ end
 
 #### Fund that was used to pay for it ####
 
-to_field 'fund', extract_marc('975a')
+to_field 'fund', extract_marc('949a')
 to_field 'fund_display' do |rec, acc|
-  acc.concat Traject::MarcExtractor.cached('975ad', :separator => ' - ').extract(rec)
+  acc.concat Traject::MarcExtractor.cached('949ad', :separator => ' - ').extract(rec)
 end
 
 
