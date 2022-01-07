@@ -1,0 +1,29 @@
+name: Build latest catalog-solr on push
+
+on: push
+
+env:
+  IMAGE_NAME: catalog-solr-unstable
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Log into Github Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build and Push
+      if: ${{ steps.image_check.outputs.image_exists != 'true' }}
+      uses: docker/build-push-action@v2
+      with:
+        context: biblio/.
+        push: true
+        tags: |
+           ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:latest
+           ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:${{ github.sha }}
