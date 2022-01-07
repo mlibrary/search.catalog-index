@@ -2,9 +2,9 @@ version: '3'
 
 services:
   web:
-    build: .
+    build: umich_catalog_indexing/.
     volumes:
-      - .:/app
+      - ./umich_catalog_indexing/.:/app
       - gem_cache:/gems
     environment:
       - SOLR_URL=http://solr:8026/solr/biblio
@@ -23,7 +23,7 @@ services:
       - .env
 
   solr:
-    image: ghcr.io/mlibrary/library-solr:latest 
+    build: biblio/.
     ports:
      - "8026:8026"
 
