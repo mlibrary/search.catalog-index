@@ -1,5 +1,5 @@
-#FROM jruby:9.2
-FROM ruby:3.1.0
+FROM jruby:9.2
+#FROM ruby:3.1.0
 ARG UNAME=app
 ARG UID=1000
 ARG GID=1000

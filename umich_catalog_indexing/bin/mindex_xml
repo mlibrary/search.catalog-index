@@ -1,0 +1,30 @@
+#!/bin/bash
+
+READER=multim4j
+WRITER=localhost
+HERE=`dirname $0`
+SCRIPTDIR=`realpath $HERE`
+TDIR="/app"
+SCRATCHDIR="/app/scratch"
+pkg_file=$1
+file=${pkg_file##*/}
+base=${file%%.*.*}
+tar xzvf $pkg_file -C $SCRATCHDIR
+filename_glob=`echo ${SCRATCHDIR}/${base}.xml`
+
+
+cmd="bundle exec traject 
+  -c $TDIR/readers/$READER.rb 
+  -c $TDIR/writers/$WRITER.rb 
+  -c $TDIR/indexers/common.rb 
+  -c $TDIR/indexers/common_ht.rb
+  -c $TDIR/indexers/subject_topic.rb
+  -c $TDIR/indexers/umich.rb 
+  -c $TDIR/indexers/umich_alma.rb 
+  -s source_glob="${filename_glob}"
+  -s log.file=STDOUT 
+  $filename"
+
+  $cmd
+rm $filename_glob
+exit $?  
