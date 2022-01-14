@@ -14,9 +14,10 @@ RUN mkdir -p /gems && chown ${UID}:${GID} /gems
 
 
 COPY --chown=${UID}:${GID} Gemfile* /app/
+RUN gem install bundler:2.3.4
+RUN gem update --system 3.2.3
 USER $UNAME
 
-RUN gem install bundler:2.3.4
 ENV BUNDLE_PATH /gems
 
 RUN mkdir -p /gems 

@@ -6,13 +6,24 @@ HERE=`dirname $0`
 SCRIPTDIR=`realpath $HERE`
 TDIR="/app"
 SCRATCHDIR="/app/scratch"
+
+#set up the file
 pkg_file=$1
 file=${pkg_file##*/}
 base=${file%%.*.*}
 tar xzvf $pkg_file -C $SCRATCHDIR
 filename_glob=`echo ${SCRATCHDIR}/${base}.xml`
 
+#fetch high level browse
+echo "Fetching high level browse"
+output=$(bundle exec fetch_new_hlb ./lib/translation_maps)
+echo $output
 
+#fetch library and locations
+echo "Updating libLocInfo.yaml"
+output=$(bundle exec ruby bin/lib_loc_info.rb --path ./lib/translation_maps/umich/libLocInfo.yaml)
+
+#run index the file
 cmd="bundle exec traject 
   -c $TDIR/readers/$READER.rb 
   -c $TDIR/writers/$WRITER.rb 
