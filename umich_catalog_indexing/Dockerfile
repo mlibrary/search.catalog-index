@@ -5,14 +5,14 @@ ARG GID=1000
 
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
   build-essential\
+  libffi-dev \
   git
 
 RUN groupadd -g ${GID} -o ${UNAME}
 RUN useradd -m -d /app -u ${UID} -g ${GID} -o -s /bin/bash ${UNAME}
 RUN mkdir -p /gems && chown ${UID}:${GID} /gems
 
-RUN gem install bundler:2.3.4
-RUN gem update --system 3.2.3
+RUN gem install bundler:2.3
 USER $UNAME
 
 ENV BUNDLE_PATH /gems
@@ -22,7 +22,8 @@ COPY --chown=${UID}:${GID} Gemfile* /app/
 
 WORKDIR /app
 
-RUN bundle install
+#jobs=1 set because ffi not installing properly for traject-marc4j_reader gem
+RUN bundle install --jobs=1
 
 COPY --chown=${UID}:${GID} . /app/
 
