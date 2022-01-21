@@ -25,18 +25,11 @@ services:
       - SOLR_URL=http://solr:8026/solr/biblio
       - REDIS_URL=redis://redis:6379
       - HLB_XML_ENDPOINT=https://apps.lib.umich.edu/browse/categories/xml.php 
-      #- HATHIFILE_HOST=hathidb
-      #- HATHIFILE_DB=hathifiles
-      #- HATHIFILE_USER=root
-      #- HATHIFILE_PASSWORD=pass
-      #- HATHI_OVERLAP_HOST=hathioverlap
-      #- HATHI_OVERLAP_DB=bibliosearch
-      #- HATHI_OVERLAP_USER=root
-      #- HATHI_OVERLAP_PASSWORD=pass
         #- JRUBY_OPTS=--debug
-      - NODB=1
+        # - NODB=1
     env_file:
-      - .env
+      #- ./umich_catalog_indexing/.env
+      - ./umich_catalog_indexing/.env-dev-values
     command: bundle exec sidekiq -r ./bin/jobs.rb
 
   redis:

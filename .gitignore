@@ -12,4 +12,5 @@ lib/translation_maps/umich/libLocInfo.yaml
 .env
 .bundle
 /umich_catalog_indexing/.gem
+/umich_catalog_indexing/.env
 /umich_catalog_indexing/.m2
