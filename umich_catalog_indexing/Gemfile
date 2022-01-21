@@ -10,13 +10,14 @@ end
 
 gem 'yell'
 
+gem 'rack' #for sidekiq
 gem 'traject', '~>3.0'
 gem 'traject_umich_format'
 gem 'match_map'
-gem 'traject_alephsequential_reader'
 gem 'sequel'
 gem 'httpclient'
 gem 'library_stdnums'
+gem 'sidekiq'
 
 if defined? JRUBY_VERSION
   gem 'naconormalizer'
