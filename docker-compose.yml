@@ -28,7 +28,7 @@ services:
         #- JRUBY_OPTS=--debug
         # - NODB=1
     env_file:
-      #- ./umich_catalog_indexing/.env
+      - ./umich_catalog_indexing/.env
       - ./umich_catalog_indexing/.env-dev-values
     command: bundle exec sidekiq -r ./bin/jobs.rb
 
