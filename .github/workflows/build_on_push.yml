@@ -1,9 +1,6 @@
-name: Build latest catalog-solr on push
+name: Build latest catalog-solr and traject on push
 
 on: push
-
-env:
-  IMAGE_NAME: catalog-solr-unstable
 
 jobs:
   build:
@@ -18,11 +15,22 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Build and Push
-      if: ${{ steps.image_check.outputs.image_exists != 'true' }}
+    - name: Build and Push catalog-solr
       uses: docker/build-push-action@v2
       with:
+        env:
+          IMAGE_NAME: catalog-solr-unstable
         context: biblio/.
+        push: true
+        tags: |
+           ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:latest
+           ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:${{ github.sha }}
+    - name: Build and Push catalog-indexer
+      uses: docker/build-push-action@v2
+      with:
+        env:
+          IMAGE_NAME: catalog-indexer-unstable
+        context: umich_catalog_indexing/.
         push: true
         tags: |
            ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:latest
