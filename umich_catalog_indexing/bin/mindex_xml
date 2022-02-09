@@ -1,7 +1,9 @@
 #!/bin/bash
 
+#assumes it will receives the appropriate file path on alma-integrations
 READER=multim4j
 WRITER=localhost
+#WRITER=json
 HERE=`dirname $0`
 SCRIPTDIR=`realpath $HERE`
 TDIR="/app"
@@ -9,19 +11,30 @@ SCRATCHDIR="/app/scratch"
 
 #set up the file
 pkg_file=$1
+
+#copy file from alma-integrations to scratch directory
+sftp -b - alma@sftp << EOT
+@get $pkg_file scratch
+EOT
+
+#gets just the file name without the parent directory info
 file=${pkg_file##*/}
+#filename without the filename extension
 base=${file%%.*.*}
-tar xzvf $pkg_file -C $SCRATCHDIR
+tar xzvf scratch/$file -C $SCRATCHDIR
 filename_glob=`echo ${SCRATCHDIR}/${base}.xml`
 
-#fetch high level browse
+ls scratch
+
+##fetch high level browse
 #echo "Fetching high level browse"
 #output=$(bundle exec fetch_new_hlb ./lib/translation_maps)
 #echo $output
 
-#fetch library and locations
+##fetch library and locations
 #echo "Updating libLocInfo.yaml"
 #output=$(bundle exec ruby bin/lib_loc_info.rb --path ./lib/translation_maps/umich/libLocInfo.yaml)
+#echo $output
 
 #run index the file
 cmd="bundle exec traject 
@@ -38,4 +51,5 @@ cmd="bundle exec traject
 
   $cmd
 rm $filename_glob
+rm scratch/$file
 exit $?  

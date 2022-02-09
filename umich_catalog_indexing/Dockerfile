@@ -6,7 +6,8 @@ ARG GID=1000
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
   build-essential\
   libffi-dev \
-  git
+  git \
+  ssh
 
 RUN groupadd -g ${GID} -o ${UNAME}
 RUN useradd -m -d /app -u ${UID} -g ${GID} -o -s /bin/bash ${UNAME}

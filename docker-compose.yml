@@ -14,6 +14,15 @@ services:
       - SESSION_KEY=session_key
     command: bundle exec rackup -o 0.0.0.0
 
+  sftp:
+    image: 'atmoz/sftp'
+    volumes:
+      - ./sftp/bib_search:/home/alma/bib_search
+      - ./sftp/ssh/id_rsa.pub:/home/alma/.ssh/keys/id_rsa.pub:ro
+      - ./sftp/ssh/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key
+      - ./sftp/ssh/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key
+    command: alma:1001
+
   web:
     build: umich_catalog_indexing/.
     depends_on:
