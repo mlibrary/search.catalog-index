@@ -13,6 +13,7 @@ SCRATCHDIR="/app/scratch"
 pkg_file=$1
 
 #copy file from alma-integrations to scratch directory
+# '@' removes printing interactive session
 sftp -b - alma@sftp << EOT
 @get $pkg_file scratch
 EOT
@@ -26,15 +27,15 @@ filename_glob=`echo ${SCRATCHDIR}/${base}.xml`
 
 ls scratch
 
-##fetch high level browse
-#echo "Fetching high level browse"
-#output=$(bundle exec fetch_new_hlb ./lib/translation_maps)
-#echo $output
+#fetch high level browse
+echo "Fetching high level browse"
+output=$(bundle exec fetch_new_hlb ./lib/translation_maps)
+echo $output
 
-##fetch library and locations
-#echo "Updating libLocInfo.yaml"
-#output=$(bundle exec ruby bin/lib_loc_info.rb --path ./lib/translation_maps/umich/libLocInfo.yaml)
-#echo $output
+#fetch library and locations
+echo "Updating libLocInfo.yaml"
+output=$(bundle exec ruby bin/lib_loc_info.rb --path ./lib/translation_maps/umich/libLocInfo.yaml)
+echo $output
 
 #run index the file
 cmd="bundle exec traject 
