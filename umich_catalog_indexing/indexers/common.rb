@@ -190,6 +190,68 @@ to_field "authorSort", extract_marc_unless("100abcd:110abcd:111abc:110ab:700abcd
   acc.compact!
 end
 
+#changes by mrio Feb 2022
+to_field "main_author_display", extract_marc("100abcdefgjklnpqtu4:101abcdefgjklnpqtu4:110abcdefgjklnpqtu4:111abcdefgjklnpqtu4")
+to_field "main_author", extract_marc("100abcdgjkqu:101abcdgjkqu:110abcdgjkqu:111abcdgjkqu")
+
+def concat_subfields(subfields, f)
+  subfields.split('').map{|x| f[x]}.compact.join(" ")
+end
+to_field "contributors_display" do |rec, acc|
+  ['700','710','711'].each do | tag |
+    rec.each_by_tag([tag]) do |f|
+      if f.indicator2 != "2" && f["t"].nil?
+        acc << concat_subfields('abcdefgjklnpqu4', f)
+      end
+    end
+  end
+end
+to_field "contributors" do |rec, acc|
+  subfields = 'abcdgjkqu'.split('')
+  ['700','710','711'].each do | tag |
+    rec.each_by_tag([tag]) do |f|
+      if f.indicator2 != "2" && f["t"].nil?
+        acc << concat_subfields('abcdgjkqu', f)
+      end
+    end
+  end
+end
+
+to_field "related_title_display" do |rec, acc|
+  rec.each_by_tag(["730"]) do |f|
+    if f.indicator2 == " "
+      acc << concat_subfields("abcdefghjklmnopqrstuvwxyz",f)
+    end
+  end
+  ["700","710","711"].each do |tag|
+    rec.each_by_tag(tag) do |f|
+      if f.indicator2 != "2" && !f["t"].nil?
+        acc << concat_subfields("abcdefgjklmnopqrst",f)
+      end
+    end
+  end
+end
+to_field "related_title" do |rec, acc|
+  rec.each_by_tag(["730"]) do |f|
+    if f.indicator2 == " "
+      acc << concat_subfields("abcdefgjklmnopqrst",f)
+    end
+  end
+  ["700","710"].each do |tag|
+    rec.each_by_tag(tag) do |f|
+      if f.indicator2 != "2" && !f["t"].nil?
+        acc << concat_subfields("fjklmnoprst",f)
+      end
+    end
+  end
+  rec.each_by_tag(["711"]) do |f|
+    if f.indicator2 == " "
+      acc << concat_subfields("fklmnoprst",f)
+    end
+  end
+end
+
+#end of changes by mrio Feb2022
 
 ################################
 ########## TITLES ##############
@@ -233,6 +295,7 @@ to_field 'vtitle', extract_marc('245abdefghknp', :alternate_script => :only, :tr
 
 to_field 'title_equiv', extract_marc_filing_version('245abp:240ap:130apt:247abp', include_original: true)
 to_field 'title_equiv', extract_marc('246abp:505|*0|t:700|*2|t:710|*2|t:711|*2|t:730|*2|apt:740ap')
+
 
 # The initital tests with title_equiv were a disaster -- the data are messy and a lot of weird records got
 # elevated. Ignoring title_equiv in the title_a double-dip code below is a second
@@ -500,7 +563,12 @@ end
 ################################
 
 to_field "publisher", extract_marc('260b:264|*1|:533c')
-to_field "edition", extract_marc('250a')
+
+#mrio: updated Feb 2022 to take out extraneous fields for 264
+to_field "publisher_display", extract_marc('260abc:264|*1|abc')
+
+#mrio: updated Feb 2022 to add "b"
+to_field "edition", extract_marc('250ab')
 
 to_field 'language', marc_languages("008[35-37]:041a:041d:041e:041j")
 

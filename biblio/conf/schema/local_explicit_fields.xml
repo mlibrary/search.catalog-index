@@ -100,12 +100,20 @@
 <field name="format"       type="string"     indexed="true" stored="true"  multiValued="true"/>
 <field name="availability" type="string"     indexed="true" stored="true"  multiValued="true"/>
 <field name="publisher"    type="text_no_stem_or_synonyms" indexed="true" stored="true" multiValued="true"/>
+<field name="publisher_display"    type="text_no_stem_or_synonyms" indexed="true" stored="true" multiValued="true"/>
 <field name="edition"      type="string"     indexed="true" stored="true" multiValued="true"/>
 <field name="cat_date"     type="int"       indexed="true" stored="true" multiValued="false"/>
+<field name="preferred_citation"     type="string"       indexed="true" stored="true" multiValued="false"/>
+<field name="location_of_originals"     type="string"       indexed="true" stored="true" multiValued="true"/>
+<field name="funding_information"     type="string"       indexed="true" stored="true" multiValued="false"/>
+<field name="source_of_acquisition"     type="string"       indexed="true" stored="true" multiValued="false"/>
+<field name="map_scale"     type="string"       indexed="true" stored="true" multiValued="true"/>
 
 
     <!-- Author fields -->
 
+<field name="main_author_display"      type="text_no_stem_or_synonyms" indexed="false" stored="true"    multiValued="true" />
+<field name="main_author"      type="text_no_stem_or_synonyms" indexed="true" stored="true"    multiValued="true" />
 <field name="mainauthor"      type="text_no_stem_or_synonyms" indexed="true" stored="true"    multiValued="true" />
 <field name="mainauthor_role" type="string" indexed="true" stored="true"    multiValued="true" />
 <field name="author"      type="text_no_stem_or_synonyms" indexed="true" stored="true"    multiValued="true" />
@@ -115,6 +123,10 @@
 <field name="author2"     type="text_no_stem_or_synonyms" indexed="true" stored="true"   multiValued="true" />
 <field name="authorSort" type="exactishSort" indexed="true" stored="false" multiValued="false"/>
 
+<field name="contributors_display" type="text_no_stem_or_synonyms" indexed="false" stored="true"   multiValued="true" />
+<field name="contributors" type="text_no_stem_or_synonyms" indexed="true" stored="true"   multiValued="true" />
+<field name="related_title_display" type="text_no_stem_or_synonyms" indexed="false" stored="true"   multiValued="true" />
+<field name="related_title" type="text_no_stem_or_synonyms" indexed="true" stored="true"   multiValued="true" />
 <copyField source="author" dest="authorStr"/>
 
 <!-- Mixed title/author -->

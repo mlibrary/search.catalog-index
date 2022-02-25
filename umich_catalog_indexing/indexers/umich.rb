@@ -39,6 +39,15 @@ to_field 'fund_display' do |rec, acc|
   acc.concat Traject::MarcExtractor.cached('949ad', :separator => ' - ').extract(rec)
 end
 
+### mrio: updated Feb 2022
+to_field 'preferred_citation', extract_marc('524a')
+to_field 'location_of_originals', extract_marc('535')
+to_field 'funding_information', extract_marc('536a')
+to_field 'source_of_acquisition', extract_marc('541a')
+to_field 'map_scale', extract_marc('255a')
+
+###---end Feb 2022 update###
+
 
 ##### Location ####
 
