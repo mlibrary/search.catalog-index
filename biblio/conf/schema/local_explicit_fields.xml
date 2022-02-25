@@ -31,6 +31,7 @@
 <field name="location"    type="string" indexed="true" stored="true" multiValued="true"/>
 <field name="fund"    type="exactish" indexed="true" stored="true" multiValued="true"/>
 <field name="fund_display"    type="string" indexed="false" stored="true" multiValued="true"/>
+<field name="bookplate"    type="string" indexed="true" stored="true" multiValued="false"/>
 
     <!-- Identifiers -->
 
