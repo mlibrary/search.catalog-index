@@ -197,25 +197,25 @@ to_field "main_author", extract_marc("100abcdgjkqu:101abcdgjkqu:110abcdgjkqu:111
 def concat_subfields(subfields, f)
   subfields.split('').map{|x| f[x]}.compact.join(" ")
 end
-to_field "contributors_display" do |rec, acc|
-  ['700','710','711'].each do | tag |
-    rec.each_by_tag([tag]) do |f|
-      if f.indicator2 != "2" && f["t"].nil?
-        acc << concat_subfields('abcdefgjklnpqu4', f)
-      end
-    end
-  end
-end
-to_field "contributors" do |rec, acc|
-  subfields = 'abcdgjkqu'.split('')
-  ['700','710','711'].each do | tag |
-    rec.each_by_tag([tag]) do |f|
-      if f.indicator2 != "2" && f["t"].nil?
-        acc << concat_subfields('abcdgjkqu', f)
-      end
-    end
-  end
-end
+#to_field "contributors_display" do |rec, acc|
+#  ['700','710','711'].each do | tag |
+#    rec.each_by_tag([tag]) do |f|
+#      if f.indicator2 != "2" && f["t"].nil?
+#        acc << concat_subfields('abcdefgjklnpqu4', f)
+#      end
+#    end
+#  end
+#end
+#to_field "contributors" do |rec, acc|
+#  subfields = 'abcdgjkqu'.split('')
+#  ['700','710','711'].each do | tag |
+#    rec.each_by_tag([tag]) do |f|
+#      if f.indicator2 != "2" && f["t"].nil?
+#        acc << concat_subfields('abcdgjkqu', f)
+#      end
+#    end
+#  end
+#end
 
 to_field "related_title_display" do |rec, acc|
   rec.each_by_tag(["730"]) do |f|

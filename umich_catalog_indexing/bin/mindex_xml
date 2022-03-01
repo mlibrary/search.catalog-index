@@ -28,14 +28,14 @@ filename_glob=`echo ${SCRATCHDIR}/${base}.xml`
 ls scratch
 
 #fetch high level browse
-echo "Fetching high level browse"
-output=$(bundle exec fetch_new_hlb ./lib/translation_maps)
-echo $output
+#echo "Fetching high level browse"
+#output=$(bundle exec fetch_new_hlb ./lib/translation_maps)
+#echo $output
 
-#fetch library and locations
-echo "Updating libLocInfo.yaml"
-output=$(bundle exec ruby bin/lib_loc_info.rb --path ./lib/translation_maps/umich/libLocInfo.yaml)
-echo $output
+##fetch library and locations
+#echo "Updating libLocInfo.yaml"
+#output=$(bundle exec ruby bin/lib_loc_info.rb --path ./lib/translation_maps/umich/libLocInfo.yaml)
+#echo $output
 
 #run index the file
 cmd="bundle exec traject 

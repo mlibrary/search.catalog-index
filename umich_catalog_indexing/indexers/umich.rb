@@ -38,7 +38,7 @@ to_field 'fund', extract_marc('949a')
 to_field 'fund_display' do |rec, acc|
   acc.concat Traject::MarcExtractor.cached('949ad', :separator => ' - ').extract(rec)
 end
-to_field 'bookplate', extract_marc('949a',:first => true, :translation_map => "umich/bookplates")
+to_field 'bookplate', extract_marc('949a', :translation_map => "umich/bookplates")
 
 ### mrio: updated Feb 2022
 to_field 'preferred_citation', extract_marc('524a')

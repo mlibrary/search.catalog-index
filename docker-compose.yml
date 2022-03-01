@@ -35,7 +35,7 @@ services:
       - REDIS_URL=redis://redis:6379
       - HLB_XML_ENDPOINT=https://apps.lib.umich.edu/browse/categories/xml.php 
         #- JRUBY_OPTS=--debug
-        # - NODB=1
+      - NODB=1
     env_file:
       - ./umich_catalog_indexing/.env
       - ./umich_catalog_indexing/.env-dev-values
@@ -54,11 +54,11 @@ services:
     ports:
      - "8026:8026"
 
-  hathidb:
-    image: ghcr.io/hathitrust/hathifiles-dev-db:latest
+  #hathidb:
+    #image: ghcr.io/hathitrust/hathifiles-dev-db:latest
 
-  hathioverlap:
-    build: overlap/.
+  #hathioverlap:
+    #build: overlap/.
 
 volumes:
   gem_cache:
