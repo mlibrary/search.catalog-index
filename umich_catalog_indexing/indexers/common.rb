@@ -194,62 +194,16 @@ end
 to_field "main_author_display", extract_marc("100abcdefgjklnpqtu4:101abcdefgjklnpqtu4:110abcdefgjklnpqtu4:111abcdefgjklnpqtu4")
 to_field "main_author", extract_marc("100abcdgjkqu:101abcdgjkqu:110abcdgjkqu:111abcdgjkqu")
 
-def concat_subfields(subfields, f)
-  subfields.split('').map{|x| f[x]}.compact.join(" ")
-end
-#to_field "contributors_display" do |rec, acc|
-#  ['700','710','711'].each do | tag |
-#    rec.each_by_tag([tag]) do |f|
-#      if f.indicator2 != "2" && f["t"].nil?
-#        acc << concat_subfields('abcdefgjklnpqu4', f)
-#      end
-#    end
-#  end
-#end
-#to_field "contributors" do |rec, acc|
-#  subfields = 'abcdgjkqu'.split('')
-#  ['700','710','711'].each do | tag |
-#    rec.each_by_tag([tag]) do |f|
-#      if f.indicator2 != "2" && f["t"].nil?
-#        acc << concat_subfields('abcdgjkqu', f)
-#      end
-#    end
-#  end
-#end
+skip_non_space_indicator_2 = ->(rec, field) { field.indicator2 != " " }
+skip_analytical_entry_or_title = ->(rec, field) { field.indicator2 == "2" || !field["t"].nil? }
+skip_analytical_entry_or_no_title = ->(rec, field) { field.indicator2 == "2" || field["t"].nil? }
 
-to_field "related_title_display" do |rec, acc|
-  rec.each_by_tag(["730"]) do |f|
-    if f.indicator2 == " "
-      acc << concat_subfields("abcdefghjklmnopqrstuvwxyz",f)
-    end
-  end
-  ["700","710","711"].each do |tag|
-    rec.each_by_tag(tag) do |f|
-      if f.indicator2 != "2" && !f["t"].nil?
-        acc << concat_subfields("abcdefgjklmnopqrst",f)
-      end
-    end
-  end
-end
-to_field "related_title" do |rec, acc|
-  rec.each_by_tag(["730"]) do |f|
-    if f.indicator2 == " "
-      acc << concat_subfields("abcdefgjklmnopqrst",f)
-    end
-  end
-  ["700","710"].each do |tag|
-    rec.each_by_tag(tag) do |f|
-      if f.indicator2 != "2" && !f["t"].nil?
-        acc << concat_subfields("fjklmnoprst",f)
-      end
-    end
-  end
-  rec.each_by_tag(["711"]) do |f|
-    if f.indicator2 == " "
-      acc << concat_subfields("fklmnoprst",f)
-    end
-  end
-end
+
+to_field "contributors_display", extract_marc_unless(["700","710","711"].map{|x| "#{x}abcdefgjklnpqu4"}.join(":"), skip_analytical_entry_or_title)
+to_field "contributors", extract_marc_unless(["700","710","711"].map{|x| "#{x}abcdgjkqu"}.join(":"), skip_analytical_entry_or_title)
+
+to_field "related_title", extract_marc_unless("730abcdefgjklmnopqrst", skip_non_space_indicator_2)
+to_field "related_title", extract_marc_unless("700fjklmnoprst:710fjklmnoprst:711fklmnoprst", skip_analytical_entry_or_no_title)
 
 #end of changes by mrio Feb2022
 
