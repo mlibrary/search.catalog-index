@@ -1,0 +1,27 @@
+#!/bin/bash
+
+TDIR="/app"
+SCRATCHDIR="/app/scratch"
+
+#set up the file
+pkg_file=$1
+
+#copy file from alma-integrations to scratch directory
+# '@' removes printing interactive session
+sftp -b - alma@sftp << EOT
+@get $pkg_file scratch
+EOT
+
+#gets just the file name without the parent directory info
+file=${pkg_file##*/}
+#filename without the filename extension
+base=${file%%.*.*}
+tar xzvf scratch/$file -C $SCRATCHDIR
+filename_glob=`echo ${SCRATCHDIR}/${base}.xml`
+
+ls scratch
+
+bundle exec ruby bin/m_delete_ids.rb $filename_glob
+
+
+
