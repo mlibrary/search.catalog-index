@@ -1,6 +1,5 @@
 #!/bin/bash
 
-TDIR="/app"
 SCRATCHDIR="/app/scratch"
 
 #set up the file
@@ -22,6 +21,3 @@ filename_glob=`echo ${SCRATCHDIR}/${base}.xml`
 ls scratch
 
 bundle exec ruby bin/m_delete_ids.rb $filename_glob
-
-
-
