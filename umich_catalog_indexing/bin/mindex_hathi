@@ -1,0 +1,49 @@
+#!/bin/bash
+
+#todo get environment variables with echo
+
+#assumes it will receives the appropriate file path on alma-integrations
+READER=ndj
+WRITER=localhost
+#WRITER=json
+HERE=`dirname $0`
+SCRIPTDIR=`realpath $HERE`
+TDIR="/app"
+SCRATCHDIR="/app/scratch"
+
+#set up the file
+pkg_file=$1
+
+#copy file from alma-integrations to scratch directory
+# '@' removes printing interactive session
+ht_user=`echo $HT_USER`
+ht_password=`echo $HT_PASSWORD`
+ht_host=`echo $HT_HOST`
+curl -u $ht_user:$ht_password $ht_host/catalog/$pkg_file > $SCRATCHDIR/$pkg_file
+
+#gets just the file name without the parent directory info
+file=${pkg_file##*/}
+
+filename_glob=`echo ${SCRATCHDIR}/${file}`
+echo $file
+echo $filename_glob
+
+ls scratch
+
+#run index the file
+cmd="bundle exec traject 
+  -c $TDIR/readers/$READER.rb 
+  -c $TDIR/writers/$WRITER.rb 
+  -c $TDIR/indexers/common.rb 
+  -c $TDIR/indexers/common_ht.rb
+  -c $TDIR/indexers/subject_topic.rb
+  -c $TDIR/indexers/umich.rb 
+  -c $TDIR/indexers/umich_alma.rb 
+  -s source_glob="${filename_glob}"
+  -s log.file=STDOUT 
+  $filename"
+
+$cmd
+
+rm $filename_glob
+exit $?  

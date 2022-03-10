@@ -9,7 +9,13 @@ end
 class DeleteIt
   include Sidekiq::Worker
   def perform(file)
-    puts "indexing #{file}"
+    puts "indexing deletes from #{file}"
     system("bin/m_delete_ids #{file}")
+  end
+end
+class IndexHathi
+  def perform(file)
+    puts "indexing zephir #{file}"
+    system("bin/mindex_hathi #{file}")
   end
 end
