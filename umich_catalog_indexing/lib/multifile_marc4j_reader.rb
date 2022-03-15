@@ -23,6 +23,7 @@ module Traject
         filename = stream.first
         @input_stream = stream.last
         logger.info("Processing #{filename}")
+        ENV['multifile.filename'] = filename
 
         @internal_reader = create_marc_reader!
         self.old_each do |r|
@@ -48,6 +49,9 @@ module Traject
       end
     end
 
+    # Given a set of globs, produce a set of pairs of [filename, stream_from_that_filename]
+    # @param [Array<String>] globs An array of file globs
+    # @return [Array<String, String>] A list of [filename, open_stream_from_that_filename] pairs
     def streams_from_globs(globs)
       streammap = globs.each_with_object({}) { |g, h| h[g] = Dir.glob(g).map { |f| [f, open_stream(f)] } }
       streammap.each_pair do |g, s|
