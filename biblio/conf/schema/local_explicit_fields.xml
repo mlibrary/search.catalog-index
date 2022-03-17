@@ -163,6 +163,7 @@
 
 <field name="series"          type="text"          indexed="true" stored="true" multiValued="true"/>
 <field name="series2"         type="text"          indexed="true" stored="true" multiValued="true"/>
+<field name="series_statement"         type="text"          indexed="true" stored="true" multiValued="true"/>
 
 <copyField source="title"      dest="titleProper"/>
 

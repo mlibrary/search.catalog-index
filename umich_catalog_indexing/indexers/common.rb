@@ -277,6 +277,10 @@ to_field "title_rest", extract_marc("210ab:222ab:242abnpy:243adfgklmnoprs:246abd
 to_field "series", extract_marc("440ap:800abcdfpqt:830ap")
 to_field "series2", extract_marc("490avx")
 
+def atoz
+  ("a".."z").to_a.join('')
+end
+to_field "series_statement", extract_marc(["440","800","810","811","830"].map{|x| "#{x}#{atoz}"})
 # Serial titles count on the format alreayd being set and having the string 'Serial' in it.
 
 each_record do |rec, context|
