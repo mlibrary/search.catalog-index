@@ -1,9 +1,8 @@
 #!/bin/bash
 
 #clear out any current ssh keys
-rm umich_catalog_indexing/.ssh/*
-rm sftp/ssh/ssh_host*
-rm ssh_host*
+rm sftp/ssh/ssh_*
+rm ssh_*
 
 
 #generate the host ssh keys for the sftp service
@@ -24,6 +23,5 @@ rm ssh_host*
 #generate actual host login keys
 ssh-keygen -t rsa -b 4096 -f ssh_client_rsa_key < /dev/null
 
-cp ssh_client_rsa_key.pub sftp/ssh/id_rsa.pub
-mv ssh_client_rsa_key.pub umich_catalog_indexing/.ssh/id_rsa.pub
-mv ssh_client_rsa_key umich_catalog_indexing/.ssh/id_rsa
+mv ssh_client_rsa_key.pub sftp/ssh/
+mv ssh_client_rsa_key sftp/ssh/

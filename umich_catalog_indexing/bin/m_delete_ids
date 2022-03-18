@@ -7,7 +7,7 @@ pkg_file=$1
 
 #copy file from alma-integrations to scratch directory
 # '@' removes printing interactive session
-sftp -b - alma@sftp << EOT
+sftp -oIdentityFile=/etc/secret-volume/id_rsa -b - alma@sftp << EOT
 @get $pkg_file scratch
 EOT
 

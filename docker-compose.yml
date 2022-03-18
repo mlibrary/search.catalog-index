@@ -18,7 +18,7 @@ services:
     image: 'atmoz/sftp'
     volumes:
       - ./sftp/bib_search:/home/alma/bib_search
-      - ./sftp/ssh/id_rsa.pub:/home/alma/.ssh/keys/id_rsa.pub:ro
+      - ./sftp/ssh/ssh_client_rsa_key.pub:/home/alma/.ssh/keys/id_rsa.pub:ro
       - ./sftp/ssh/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key
       - ./sftp/ssh/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key
     command: alma:1001
@@ -29,6 +29,7 @@ services:
       - 'redis'
     volumes:
       - ./umich_catalog_indexing/.:/app
+      - ./sftp/ssh/ssh_client_rsa_key:/etc/secret-volume/id_rsa:ro
       - gem_cache:/gems
     environment:
       - SOLR_URL=http://solr:8026/solr/biblio
