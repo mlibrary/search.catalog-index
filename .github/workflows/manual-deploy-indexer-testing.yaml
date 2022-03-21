@@ -65,6 +65,7 @@ jobs:
       with:
         github_username: ${{ github.actor }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        deployment: "catalog-indexer"
         image: mlibrary/${{ env.IMAGE_NAME }}:${{ steps.tag_check.outputs.tag }}
         cluster_ca: ${{ secrets.HATCHER_CLUSTER_CA }}
         cluster_server: https://hatcher.kubernetes.lib.umich.edu
