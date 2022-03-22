@@ -2,7 +2,12 @@
 
 #assumes it will receives the appropriate file path on alma-integrations
 READER=multim4j
-WRITER=localhost
+if [ $2 == "debug" ]
+then
+  WRITER=debug
+else
+  WRITER=localhost
+fi
 #WRITER=json
 HERE=`dirname $0`
 SCRIPTDIR=`realpath $HERE`
@@ -27,7 +32,7 @@ filename_glob=`echo ${SCRATCHDIR}/${base}.xml`
 
 ls scratch
 
-fetch high level browse
+#fetch high level browse
 echo "Fetching high level browse"
 output=$(bundle exec fetch_new_hlb ./lib/translation_maps)
 echo $output

@@ -4,7 +4,12 @@
 
 #assumes it will receives the appropriate file path on alma-integrations
 READER=ndj
-WRITER=localhost
+if [ $2 == "debug" ]
+then
+  WRITER=debug
+else
+  WRITER=localhost
+fi
 #WRITER=json
 HERE=`dirname $0`
 SCRIPTDIR=`realpath $HERE`
@@ -16,19 +21,16 @@ pkg_file=$1
 
 #copy file from alma-integrations to scratch directory
 # '@' removes printing interactive session
-ht_user=`echo $HT_USER`
-ht_password=`echo $HT_PASSWORD`
-ht_host=`echo $HT_HOST`
-curl -u $ht_user:$ht_password $ht_host/catalog/$pkg_file > $SCRATCHDIR/$pkg_file
+curl -u $HT_USERNAME:$HT_PASSWORD $HT_HOST/catalog/$pkg_file > $SCRATCHDIR/$pkg_file
 
 #gets just the file name without the parent directory info
 file=${pkg_file##*/}
 
-filename_glob=`echo ${SCRATCHDIR}/${file}`
+filename=`echo ${SCRATCHDIR}/${file}`
 echo $file
-echo $filename_glob
+echo $filename
 
-ls scratch
+ls -l scratch
 
 #run index the file
 cmd="bundle exec traject 
@@ -39,11 +41,10 @@ cmd="bundle exec traject
   -c $TDIR/indexers/subject_topic.rb
   -c $TDIR/indexers/umich.rb 
   -c $TDIR/indexers/umich_alma.rb 
-  -s source_glob="${filename_glob}"
   -s log.file=STDOUT 
   $filename"
 
 $cmd
 
-rm $filename_glob
+rm $filename
 exit $?  
