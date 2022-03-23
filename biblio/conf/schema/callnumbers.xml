@@ -1,0 +1,56 @@
+
+<!--  =============================================================
+           Callnumbers (LC and Dewey)
+
+ Our callnumber uses custom solr java code
+ (git@github.com:billdueber/library_identifier_solr_filters) that normalizes
+ LC and Dewey callnumbers for more accurate searching.
+
+ We expose two custom field types and one analysis filter:
+
+   * `edu.umich.library.library_identifier.schema.CallnumberSortableFieldType`
+     will store the value as given, and index a value that is suitable
+     for exact matches (callnumber:"QA 11.2 .C3"), range queries
+     (callnumber:[* TO "QA 11.2 .C3"]), and sorting (if single-valued). It
+     takes an argument "passThroughInvalid" (default: false) to determine
+     whether or not to ignore (default) or pass through normalized values that don't
+     look like call numbers.
+  * `edu.umich.library.library_identifier.schema.CallNumberSortKeyFieldType`
+     is much like the above but the stored value is the same as the indexed value.
+  * `edu.umich.library.lucene.analysis.AnyCallNumberSimpleFilterFactory`
+     does the same transformation on a single token (so, use KeywordTokenizer)
+     as above, but in the analysis chain so it can be combined with
+     `solr.EdgeNGramFilterFactory` to get prefix ("starts-with") searches for LC/Dewey.
+
+============================================================== -->
+
+
+<!-- For sorting and range queries. Stored is what you send it, indexed is the sortable key -->
+<fieldType name="any_callnumber" class="edu.umich.library.library_identifier.schema.CallnumberSortableFieldType"
+           docValues="false" multiValued="true" stored="true" passThroughOnError="true"/>
+
+<fieldType name="any_callnumber_strict" class="edu.umich.library.library_identifier.schema.CallnumberSortableFieldType"
+           docValues="false" multiValued="true" stored="true"/>
+
+<!-- As above, but the index sort key is what's exposed as the stored version, too -->
+<fieldType name="any_callnumber_sort_key" class="edu.umich.library.library_identifier.schema.CallNumberSortKeyFieldType"
+           docValues="false" multiValued="true" stored="true" passThroughOnError="true"/>
+
+<fieldType name="any_callnumber_sort_key_strict" class="edu.umich.library.library_identifier.schema.CallNumberSortKeyFieldType"
+           docValues="false" multiValued="true" stored="true"/>
+
+
+    <!-- for start_with/prefix searches -->
+<fieldType name="any_callnumber_starts_with" class="solr.TextField">
+<analyzer type="index">
+  <tokenizer class="solr.KeywordTokenizerFactory"/>
+  <filter class="solr.ICUFoldingFilterFactory"/>
+  <filter class="edu.umich.library.lucene.analysis.AnyCallNumberSimpleFilterFactory" passThroughOnError="false"/>
+  <filter class="solr.EdgeNGramFilterFactory" maxGramSize="40" minGramSize="1"/>
+</analyzer>
+<analyzer type="query">
+  <tokenizer class="solr.KeywordTokenizerFactory"/>
+  <filter class="solr.ICUFoldingFilterFactory"/>
+  <filter class="edu.umich.library.lucene.analysis.AnyCallNumberSimpleFilterFactory" passThroughOnError="true"/>
+</analyzer>
+</fieldType>

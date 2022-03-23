@@ -59,34 +59,38 @@
 
 <copyField source="ht_id" dest="htid"/>
 
-<!-- Call numbers -->
+<!-- Call numbers and the like -->
 <field name="sudoc"         type="exactish"       indexed="true" stored="true"  multiValued="true"/>
 
-<!--<field name="callnumber"    type="exactish"       indexed="true" stored="true"  multiValued="true"/>-->
-<!--<field name="callnosearch"    type="lc_callnumber_searchable"  indexed="true" stored="false"  multiValued="true"/>-->
-<!--<field name="callnosort"    type="lc_callnumber_sortable"  indexed="true" stored="false"  multiValued="false"/>-->
 
-<field name="callnumber"   type="lc_callnumber_simple" indexed="true" stored="true" multiValued="true"/>
-<field name="callnosearch" type="lc_callnumber_simple_searchable" indexed="true" stored="false" multiValued="true"/>
-<field name="callnosort"   type="lc_callnumber_simple_passthrough" indexed="true" stored="true" multiValued="false"/>
+<!--
+  Index callnumbers a few ways:
+    * callnumber: whatever we get in an 852, and nothing else
+    * callnumber_browse: LC/Dewey callnumbers suitable for the callnumber browse.
+    * callnosort: sortable key for items with LC/Dewey in the 852
+    * callnumber_sort: an in-place rename of the above, so the former can be deprecated
+    * callnosearch: Search for dewey/LC, same normalization as browse.
+    * callnumber_search: rename of the above
+-->
 
+
+<field name="callnumber"   type="any_callnumber" indexed="true" stored="true" multiValued="true"/>
+<field name="callnumber_browse" type="any_callnumber_strict" indexed="true" stored="true" multiValued="true"/>
+
+<field name="callnosort"   type="any_callnumber_sort_key" indexed="true" stored="true" multiValued="false"/>
+<field name="callnumber_sort" type="any_callnumber_sort_key" indexed="true" stored="true" multiValued="false"/>
+
+<field name="callnosearch" type="any_callnumber_starts_with" indexed="true" stored="false" multiValued="true"/>
+<field name="callnumber_search" type="any_callnumber_starts_with" indexed="true" stored="false" multiValued="true"/>
+
+<copyField source="callnumber" dest="callnosearch"/>
+<copyField source="callnumber" dest="callnumber_search"/>
+
+<copyField source="callnosearch" dest="callnumber_search"/>
+<copyField source="callnosort" dest="callnumber_sort"/>
 
 <field name="callnoletters" type="exactish"       indexed="true" stored="false" multiValued="false"/>
 
-<copyField source="callnumber" dest="callnosearch"/>
-
-
-<field name="lc_simple" type="lc_callnumber_simple" indexed="true" stored="true" multiValued="true"/>
-<field name="lc_simple_passthrough" type="lc_callnumber_simple_passthrough" indexed="true" stored="false" multiValued="true"/>
-<field name="lc_simple_searchable" type="lc_callnumber_simple_searchable" indexed="true" stored="false" multiValued="true"/>
-<field name="lc_simple_sortable" type="lc_callnumber_simple_passthrough" indexed="true" stored="true" multiValued="false"/>
-
-
-<copyField source="lc_simple" dest="lc_simple_passthrough"/>
-<copyField source="lc_simple" dest="lc_simple_searchable"/>
-
-
- 
 
 
     <!-- Misc fields -->

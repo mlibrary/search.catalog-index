@@ -111,7 +111,8 @@ cmd="bundle exec traject
   -c $TDIR/indexers/common_ht.rb
   -c $TDIR/indexers/subject_topic.rb
   -c $TDIR/indexers/umich.rb 
-  -c $TDIR/indexers/umich_alma.rb 
+  -c $TDIR/indexers/umich_alma.rb
+  -c $TDIR/indexers/callnumbers.rb
   -s source_glob="${filename_glob}"
   -s log.file=STDOUT 
   $filename"

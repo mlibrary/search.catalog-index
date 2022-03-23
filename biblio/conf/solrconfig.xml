@@ -140,19 +140,6 @@
   <!-- <jmx serviceUrl="service:jmx:rmi:///jndi/rmi://localhost:9999/solr"/>
     -->
 
-  <!-- callno_cmp("cmpfunc", "callnum_prefix", field) is a function that will
-  compare callnumbers of the lc_simple_* variety and return -1, 0, or 1 as per most <=> functions,
-  where:
-     * cmpfunc is one of lt, lte, gt, gte
-     * field (NOT in quotes) is the field that stores the callnumber
-
-  It's useful when paired with the {!frange} handler as follows:
-    {!frange l=1}callno_cmp("gte", "qa", callnosort)
-   -->
-
-  <valueSourceParser name="callno_cmp"
-                     class="edu.umich.library.library_identifier.solrFilter.LCCallNumberSimpleSourceParser"/>
-
   <!-- The default high-performance update handler -->
   <updateHandler class="solr.DirectUpdateHandler2">
 

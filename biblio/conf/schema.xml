@@ -61,7 +61,7 @@
      ====================================================== -->
 
 
-<!-- basic, primative types (int, float, string, etc.) -->
+<!-- basic, primitive types (int, float, string, etc.) -->
 <!ENTITY primative_types SYSTEM "schema/primative_types.xml">
 
 <!-- Constants -->
@@ -201,15 +201,6 @@
 <filter class="solr.FixBrokenOffsetsFilterFactory"/>
 '>
 
-<!--<!ENTITY try_to_parse_callnumber '-->
-<!--  &remove_punctuation_next_to_a_space;-->
-<!--  <filter class="edu.umich.lib.solr_filters.LCCallNumberNormalizerFilterFactory"/>-->
-<!--  &trim_leading_whitespace_and_punctuation;-->
-<!--  &trim_trailing_whitespace_and_punctuation;-->
-<!--  &remove_punctuation_next_to_a_space;-->
-<!--  &icu_case_folding_and_normalization;-->
-<!--'>-->
-
 
 <!ENTITY pre_tokenization_case_folding '
 <charFilter class="solr.ICUNormalizer2CharFilterFactory"/>
@@ -239,6 +230,11 @@
 <!ENTITY tokenize_into_one_big_token '
 <tokenizer class="solr.KeywordTokenizerFactory"/>
 '>
+
+
+<!-- callnumbers -->
+
+<!ENTITY callnumber_fieldtypes SYSTEM "schema/callnumbers.xml">
 
 
 <!-- Some useful repeated chains -->
@@ -572,56 +568,6 @@
     </fieldType>
 
 
-    <fieldType name="lc_callnumber_simple" class="solr.TextField">
-        <analyzer>
-            <tokenizer class="solr.KeywordTokenizerFactory"/>
-            <filter class="edu.umich.library.library_identifier.solrFilter.LCCallNumberSimpleFilterFactory"/>
-        </analyzer>
-    </fieldType>
-
-    <fieldType name="lc_callnumber_simple_passthrough" class="solr.TextField">
-        <analyzer>
-            <tokenizer class="solr.KeywordTokenizerFactory"/>
-            <filter class="edu.umich.library.library_identifier.solrFilter.LCCallNumberSimpleFilterFactory"
-                    allowInvalid="true"/>
-        </analyzer>
-    </fieldType>
-
-
-    <fieldType name="lc_callnumber_simple_searchable" class="solr.TextField">
-        <analyzer type="index">
-            <tokenizer class="solr.KeywordTokenizerFactory"/>
-            <filter class="edu.umich.library.library_identifier.solrFilter.LCCallNumberSimpleFilterFactory"
-                    allowInvalid="true"/>
-            <filter class="solr.EdgeNGramFilterFactory" maxGramSize="40" minGramSize="2"/>
-        </analyzer>
-        <analyzer type="query">
-            <tokenizer class="solr.KeywordTokenizerFactory"/>
-            <filter class="edu.umich.library.library_identifier.solrFilter.LCCallNumberSimpleFilterFactory"
-                    allowInvalid="true"/>
-        </analyzer>
-    </fieldType>
-
-
-    <!--    <fieldType name="lc_callnumber_sortable" class="solr.TextField">-->
-    <!--        <analyzer>-->
-    <!--          <tokenizer class="solr.KeywordTokenizerFactory"/>-->
-    <!--	  &try_to_parse_callnumber;-->
-    <!--        </analyzer>-->
-    <!--    </fieldType>-->
-
-    <!--    <fieldType name="lc_callnumber_searchable" class="solr.TextField"  docValues="false">-->
-    <!--        <analyzer type="index">-->
-    <!--          <tokenizer class="solr.KeywordTokenizerFactory"/>-->
-    <!--    	    &try_to_parse_callnumber;-->
-    <!--            <filter class="solr.EdgeNGramFilterFactory" maxGramSize="40" minGramSize="2"/>-->
-    <!--        </analyzer>-->
-    <!--        <analyzer type="query">-->
-    <!--            <tokenizer class="solr.KeywordTokenizerFactory"/>-->
-    <!--    	    &try_to_parse_callnumber;-->
-    <!--        </analyzer>-->
-    <!--    </fieldType>-->
-
 
     <fieldType name="oclc" class="solr.TextField">
         <analyzer>
@@ -643,6 +589,10 @@
             <filter class="solr.LengthFilterFactory" min="8" max="8"/>
         </analyzer>
     </fieldType>
+
+
+    <!-- callnumbers are in their own file in conf/schema -->
+    &callnumber_fieldtypes;
 
 
     <!-- =============================================================
