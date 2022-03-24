@@ -49,29 +49,11 @@ each_record HathiTrust::Traject::Macros.setup
 ###### BOOKKEEPING #############
 ################################
 
-filename_matcher = /\A.*?search_(?<file_date>\d{8})/
 today = DateTime.now.strftime '%Y%m%d'
-
-def file_date(name)
-  m = filename_matcher.match(name)
-  if m
-    m[:file_date]
-  else nil
-  end
-end
-
-# Add the base fielname and the date extracted from that filename
+# Add the base filename 
 to_field 'input_file_name' do |rec, acc|
   mf = ENV['multifile.filename']
   acc << Pathname.new(mf).basename if mf
-end
-
-to_field 'input_file_date' do |rec, acc|
-  mf = ENV['multifile.filename']
-  if mf
-    m = filename_matcher.match(mf)
-    acc << m[:file_date] if m
-  end
 end
 
 # what day was it actually indexed?
