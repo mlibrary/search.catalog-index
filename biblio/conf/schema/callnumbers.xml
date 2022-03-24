@@ -22,6 +22,8 @@
      as above, but in the analysis chain so it can be combined with
      `solr.EdgeNGramFilterFactory` to get prefix ("starts-with") searches for LC/Dewey.
 
+For reasons I don't yet understand, callnumbers must NOT be declared with docvalues.
+
 ============================================================== -->
 
 
@@ -34,10 +36,10 @@
 
 <!-- As above, but the index sort key is what's exposed as the stored version, too -->
 <fieldType name="any_callnumber_sort_key" class="edu.umich.library.library_identifier.schema.CallNumberSortKeyFieldType"
-           docValues="false" multiValued="true" stored="true" passThroughOnError="true"/>
+           docValues="false" multiValued="false" stored="true" passThroughOnError="true"/>
 
 <fieldType name="any_callnumber_sort_key_strict" class="edu.umich.library.library_identifier.schema.CallNumberSortKeyFieldType"
-           docValues="false" multiValued="true" stored="true"/>
+           docValues="false" multiValued="false" stored="true"/>
 
 
     <!-- for start_with/prefix searches -->
