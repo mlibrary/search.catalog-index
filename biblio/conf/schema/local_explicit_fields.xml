@@ -4,7 +4,6 @@
 <!-- Bookkeeping -->
 
 <field name="input_file_name" type="string" indexed="true" stored="true" docValues="true" multiValued="false"/>
-<field name="input_file_date" type="int" indexed="true" stored="true" docValues="true" multiValued="false"/>
 <field name="indexing_date" type="int" indexed="true" stored="true" docValues="true" multiValued="false"/>
 
 <!-- Core Fields  -->
