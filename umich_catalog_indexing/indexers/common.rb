@@ -50,6 +50,7 @@ each_record HathiTrust::Traject::Macros.setup
 ################################
 
 today = DateTime.now.strftime '%Y%m%d'
+
 # Add the base filename 
 to_field 'input_file_name' do |rec, acc|
   mf = ENV['multifile.filename']
