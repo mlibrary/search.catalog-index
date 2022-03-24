@@ -11,7 +11,8 @@ module UmichUtilities
             libloc = Location.new(lib,loc)
             @library_locations[libloc.key] = {
               "info_link" => libloc.info_link,
-              "name" => libloc.display_text
+              "name" => libloc.display_text,
+              "fulfillment_unit" => libloc.fulfillment_unit
             }
           end
         end
@@ -34,6 +35,9 @@ module UmichUtilities
       def info_link
         @library[:info_link] || ''
       end
+      def fulfillment_unit
+        @location&.dig("fulfillment_unit","value")
+      end
       def display_text
         name = @location["external_name"] 
         name = @location["name"] if name.empty?
@@ -52,6 +56,7 @@ module UmichUtilities
           location_code: location_code,
           info_link: info_link,
           display_text: display_text,
+          fulfillment_unit: fulfillment_unit,
         }
       end
     end

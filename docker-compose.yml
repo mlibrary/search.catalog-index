@@ -36,7 +36,7 @@ services:
       - REDIS_URL=redis://redis:6379
       - HLB_XML_ENDPOINT=https://apps.lib.umich.edu/browse/categories/xml.php 
         #- JRUBY_OPTS=--debug
-        #      - NODB=1
+      - NODB=1
     env_file:
       - ./umich_catalog_indexing/.env
       - ./umich_catalog_indexing/.env-dev-values
