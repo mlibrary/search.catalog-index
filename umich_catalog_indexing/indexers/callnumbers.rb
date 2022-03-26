@@ -24,15 +24,16 @@
 # Helpers
 ##########################################
 
-LOOKS_LIKE_LC    = /\A\s*\p{L}{1,3}\s*\d/ # 1-3 letters, digit
-LOOKS_LIKE_DEWEY = /\A\s*\d{3}\s*\.\d/ # 3 digits, dot, digit
+# regexs are inline because of weird jruby multithreading errors. I think.
 
 def looks_like_lc?(str)
-  LOOKS_LIKE_LC.match?(str)
+  re = /\A\s*\p{L}{1,3}\s*\d/ # 1-3 letters, digit
+  re.match?(str)
 end
 
 def looks_like_dewey?(str)
-  LOOKS_LIKE_DEWEY.match?(str)
+  re = /\A\s*\d{3}\s*\.\d/ # 3 digits, dot, digit
+  re.match?(str)
 end
 
 ##########################################
@@ -108,10 +109,13 @@ end
 # The letters of the first LC we can find, for visualization on the website. Not used
 # in search
 
-to_field 'callnoletters', extract_marc('852hij:050ab:090ab', :first => true) do |rec, acc|
-  acc.select! { |cn| looks_like_lc?(cn) }
-  unless acc.empty?
-    m      = /\A\s*([A-Za-z]+)/.match(acc.first)
-    acc.replace [m[1].upcase]
+to_field 'callnoletters', extract_marc('852|0*|h:050ab:090ab', :first => true) do |rec, acc|
+  letter_re = /\A\s*([A-Za-z]+)/.freeze
+  cn = acc.first
+  m  = letter_re.match(cn)  
+  if looks_like_lc?(cn) and m
+    acc.replace [m[1]]
+  else
+    acc.replace []
   end
 end
