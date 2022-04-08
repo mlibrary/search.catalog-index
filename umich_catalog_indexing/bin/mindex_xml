@@ -2,13 +2,7 @@
 
 #assumes it will receives the appropriate file path on alma-integrations
 READER=multim4j
-if [ $2 == "debug" ]
-then
-  WRITER=debug
-else
-  WRITER=localhost
-fi
-#WRITER=json
+WRITER=solr
 HERE=`dirname $0`
 SCRIPTDIR=`realpath $HERE`
 TDIR="/app"
@@ -16,6 +10,10 @@ SCRATCHDIR="/app/scratch"
 
 #set up the file
 pkg_file=$1
+
+#set the url for Solr
+SOLR_URL=$2
+echo "Indexing into $SOLR_URL"
 
 #copy file from alma-integrations to scratch directory
 # '@' removes printing interactive session
@@ -52,6 +50,7 @@ cmd="bundle exec traject
   -c $TDIR/indexers/umich.rb 
   -c $TDIR/indexers/umich_alma.rb 
   -s source_glob="${filename_glob}"
+  -u $SOLR_URL
   -s log.file=STDOUT 
   $filename"
 

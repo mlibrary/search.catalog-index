@@ -4,7 +4,8 @@ require 'httpclient'
 
 class DeleteIdGetter
   attr_reader :ids
-  def initialize(xml_file)
+  def initialize(xml_file, solr)
+    @solr = solr
     reader = MARC::XMLReader.new(xml_file)
     @ids = []
     reader.each{ |record| @ids << record['001'].value }
@@ -18,7 +19,7 @@ class DeleteIdGetter
     body
   end
   def send
-    url = ENV.fetch('SOLR_URL') + "/update"
+    url = "#{@solr}/update"
     puts url
     #Do I need commit true? When it's not included nothing happens.
     response = HTTParty.post(url, body: body, headers: { 'Content-Type' => 'text/xml' }, query: { commit: true })
@@ -34,6 +35,5 @@ class DeleteIdGetter
 end
 
 filename = ARGV[0]
-DeleteIdGetter.new(filename).send
-#puts DeleteIdGetter.new(filename).ids
-
+solr_url = ARGV[1]
+DeleteIdGetter.new(filename, solr_url).send
