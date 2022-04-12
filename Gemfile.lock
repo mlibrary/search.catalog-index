@@ -74,9 +74,11 @@ GEM
     minitest (5.14.4)
     multi_xml (0.6.0)
     mysql2 (0.5.3)
-    nokogiri (1.12.5-java)
+    nokogiri (1.13.4-java)
       racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-darwin)
+    nokogiri (1.13.4-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.4-x86_64-linux)
       racc (~> 1.4)
     oga (2.15)
       ast
@@ -152,6 +154,7 @@ GEM
 PLATFORMS
   universal-java-1.8
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   alma_rest_client!
