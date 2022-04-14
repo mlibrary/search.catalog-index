@@ -1,6 +1,6 @@
-require_relative "./jobs"
-require "optparse"
+require_relative "../lib/jobs"
 require_relative "../lib/sftp"
+require "optparse"
 require 'logger'
 
 logger = Logger.new($stdout)
