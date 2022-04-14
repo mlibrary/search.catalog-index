@@ -32,7 +32,7 @@ ls scratch
 
 #fetch high level browse
 echo "Fetching high level browse"
-output=$(bundle exec fetch_new_hlb ./lib/translation_maps)
+output=$(bundle exec ruby bin/m_get_high_level_browse.rb)
 echo $output
 
 #fetch library and locations
