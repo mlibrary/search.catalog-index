@@ -1,6 +1,8 @@
 require "optparse"
 require 'logger'
 require 'date'
+require_relative "../lib/index_for_date"
+require_relative "../lib/sftp"
 
 logger = Logger.new($stdout)
 date = '' 
@@ -15,10 +17,12 @@ OptionParser.new do |opts|
   end
 end.parse!
 
+alma_files = SFTP.new.ls(path)
+
 start_date = DateTime.parse(date)
 start_date.upto(DateTime.now) do |date|
   date_string = date.strftime("%Y%m%d")
   logger.info "Indexing #{date_string}"
-  system("bundle", "exec", "ruby", "bin/m_index_date.rb", "-d", date_string, "-s", solr_url) 
+  IndexForDate.new(alma_files: alma_files,date: date_string, solr_url: solr_url).run
 end
 
