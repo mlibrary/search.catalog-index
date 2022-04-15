@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sftp -oIdentityFile=${SSH_KEY_PATH} -oStrictHostKeyChecking=no ${ALMA_FILES_USER}@${ALMA_FILES_HOST}
