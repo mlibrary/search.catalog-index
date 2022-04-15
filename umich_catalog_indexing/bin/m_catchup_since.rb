@@ -7,7 +7,7 @@ require_relative "../lib/sftp"
 logger = Logger.new($stdout)
 date = '' 
 solr_url = ENV.fetch("REINDEX_SOLR_URL") 
-path = "bib_search"
+path = ENV.fetch("DAILY_ALMA_FILES_PATH")
 OptionParser.new do |opts|
   opts.on("-d --date DATE") do |x|
     date = x 
