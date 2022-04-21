@@ -148,27 +148,29 @@ PLATFORMS
 
 DEPENDENCIES
   alma_rest_client!
-  bundler
+  bundler (~> 2.0)
+  byebug
   high_level_browse!
-  httpclient
-  jdbc-mysql
-  library_stdnums
-  marc-fastxmlwriter
-  match_map
+  httpclient (~> 2.0)
+  jdbc-mysql (~> 8.0)
+  library_stdnums (~> 1.0)
+  marc-fastxmlwriter (~> 1.0)
+  match_map (~> 3.0)
+  mysql2
   naconormalizer
   pry
   pry-debugger-jruby
   psych
   rack
-  rake
-  rspec
-  sequel
+  rake (~> 13.0)
+  rspec (~> 3.0)
+  sequel (~> 5.0)
   sidekiq
   traject (~> 3.0)
   traject-marc4j_reader (~> 1.0)
-  traject_umich_format
-  webmock
-  yell
+  traject_umich_format (~> 0.4.0)
+  webmock (~> 3.0)
+  yell (~> 2.0)
 
 BUNDLED WITH
    2.3.10
