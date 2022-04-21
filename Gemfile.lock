@@ -52,6 +52,8 @@ GEM
     httpclient (2.8.3)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    jar-dependencies (0.4.1)
+    jdbc-mysql (8.0.27)
     lcsort (0.9.1)
     library_stdnums (1.6.0)
     llhttp-ffi (0.4.0)
@@ -63,9 +65,8 @@ GEM
       unf
     marc-fastxmlwriter (1.0.0)
       marc (~> 1.0)
-    marc_alephsequential (2.0.0)
+    marc-marc4j (1.0.0-java)
       marc (~> 1)
-      yell (~> 2)
     match_map (3.0.0)
     method_source (1.0.0)
     mime-types (3.3.1)
@@ -74,6 +75,7 @@ GEM
     minitest (5.14.4)
     multi_xml (0.6.0)
     mysql2 (0.5.3)
+    naconormalizer (1.0.1-java)
     nokogiri (1.13.4-java)
       racc (~> 1.4)
     nokogiri (1.13.4-x86_64-darwin)
@@ -93,6 +95,11 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
       spoon (~> 0.0)
+    pry-debugger-jruby (2.1.0-java)
+      pry (>= 0.13, < 0.15)
+      ruby-debug-base (>= 0.10.4, < 0.12)
+    psych (4.0.3-java)
+      jar-dependencies (>= 0.1.7)
     public_suffix (4.0.6)
     racc (1.6.0)
     racc (1.6.0-java)
@@ -111,6 +118,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
+    ruby-debug-base (0.11.0-java)
     ruby-ll (2.1.2)
       ansi
       ast
@@ -133,17 +141,16 @@ GEM
       nokogiri (~> 1.9)
       slop (~> 4.0)
       yell
-    traject_alephsequential_reader (1.1.2)
-      marc (~> 1)
-      marc_alephsequential (~> 2)
-      yell
+    traject-marc4j_reader (1.1.0-java)
+      marc (~> 1.0)
+      marc-marc4j (~> 1.0)
     traject_umich_format (0.4.4)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
     unf (0.1.4-java)
-    unf_ext (0.0.8)
+    unf_ext (0.0.8.1)
     webmock (3.14.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -153,27 +160,32 @@ GEM
 
 PLATFORMS
   universal-java-1.8
+  universal-java-11
   x86_64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
   alma_rest_client!
-  bundler
-  high_level_browse
-  httpclient
-  library_stdnums
-  marc-fastxmlwriter
-  match_map
+  bundler (~> 2.0)
+  high_level_browse (= 0.1.0)
+  httpclient (~> 2.0)
+  jdbc-mysql (~> 8.0)
+  library_stdnums (~> 1.0)
+  marc-fastxmlwriter (~> 1.0)
+  match_map (~> 3.0)
   mysql2
+  naconormalizer
   pry
-  rake
-  rspec
-  sequel
+  pry-debugger-jruby
+  psych
+  rake (~> 13.0)
+  rspec (~> 3.0)
+  sequel (~> 5.0)
   traject (~> 3.0)
-  traject_alephsequential_reader
-  traject_umich_format
-  webmock
-  yell
+  traject-marc4j_reader (~> 1.0)
+  traject_umich_format (~> 0.4.0)
+  webmock (~> 3.0)
+  yell (~> 2.0)
 
 BUNDLED WITH
    2.2.26
