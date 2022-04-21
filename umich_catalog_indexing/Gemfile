@@ -32,7 +32,9 @@ end
 
 
 gem 'marc-fastxmlwriter'
-gem 'high_level_browse'
+gem 'high_level_browse',
+  git: 'https://github.com/billdueber/high_level_browse', 
+  branch: 'nokogiri_not_oga'
 
 gem 'pry'
 
