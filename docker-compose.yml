@@ -17,7 +17,7 @@ services:
   sftp:
     image: 'atmoz/sftp'
     volumes:
-      - ./sftp/bib_search:/home/alma/bib_search
+      - ./sftp/search_daily_bibs:/home/alma/search_daily_bibs
       - ./sftp/ssh/ssh_client_rsa_key.pub:/home/alma/.ssh/keys/id_rsa.pub:ro
       - ./sftp/ssh/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key
       - ./sftp/ssh/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key
