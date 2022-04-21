@@ -50,6 +50,7 @@ each_record HathiTrust::Traject::Macros.setup
 ################################
 
 today = DateTime.now.strftime '%Y%m%d'
+
 # Add the base filename 
 to_field 'input_file_name' do |rec, acc|
   mf = ENV['multifile.filename']
@@ -189,6 +190,22 @@ to_field "authorSort", extract_marc_unless("100abcd:110abcd:111abc:110ab:700abcd
   acc.compact!
 end
 
+#changes by mrio Feb 2022
+to_field "main_author_display", extract_marc("100abcdefgjklnpqtu4:101abcdefgjklnpqtu4:110abcdefgjklnpqtu4:111abcdefgjklnpqtu4")
+to_field "main_author", extract_marc("100abcdgjkqu:101abcdgjkqu:110abcdgjkqu:111abcdgjkqu")
+
+skip_non_space_indicator_2 = ->(rec, field) { field.indicator2 != " " }
+skip_analytical_entry_or_title = ->(rec, field) { field.indicator2 == "2" || !field["t"].nil? }
+skip_analytical_entry_or_no_title = ->(rec, field) { field.indicator2 == "2" || field["t"].nil? }
+
+
+to_field "contributors_display", extract_marc_unless(["700","710","711"].map{|x| "#{x}abcdefgjklnpqu4"}.join(":"), skip_analytical_entry_or_title)
+to_field "contributors", extract_marc_unless(["700","710","711"].map{|x| "#{x}abcdgjkqu"}.join(":"), skip_analytical_entry_or_title)
+
+to_field "related_title", extract_marc_unless("730abcdefgjklmnopqrst", skip_non_space_indicator_2)
+to_field "related_title", extract_marc_unless("700fjklmnoprst:710fjklmnoprst:711fklmnoprst", skip_analytical_entry_or_no_title)
+
+#end of changes by mrio Feb2022
 
 ################################
 ########## TITLES ##############
@@ -233,6 +250,7 @@ to_field 'vtitle', extract_marc('245abdefghknp', :alternate_script => :only, :tr
 to_field 'title_equiv', extract_marc_filing_version('245abp:240ap:130apt:247abp', include_original: true)
 to_field 'title_equiv', extract_marc('246abp:505|*0|t:700|*2|t:710|*2|t:711|*2|t:730|*2|apt:740ap')
 
+
 # The initital tests with title_equiv were a disaster -- the data are messy and a lot of weird records got
 # elevated. Ignoring title_equiv in the title_a double-dip code below is a second
 # attempt. I'm hoping to just replace title_top with title_equiv and get slightly better results.
@@ -259,6 +277,10 @@ to_field "title_rest", extract_marc("210ab:222ab:242abnpy:243adfgklmnoprs:246abd
 to_field "series", extract_marc("440ap:800abcdfpqt:830ap")
 to_field "series2", extract_marc("490avx")
 
+def atoz
+  ("a".."z").to_a.join('')
+end
+to_field "series_statement", extract_marc(["440","800","810","811","830"].map{|x| "#{x}#{atoz}"})
 # Serial titles count on the format alreayd being set and having the string 'Serial' in it.
 
 each_record do |rec, context|
@@ -499,7 +521,12 @@ end
 ################################
 
 to_field "publisher", extract_marc('260b:264|*1|:533c')
-to_field "edition", extract_marc('250a')
+
+#mrio: updated Feb 2022 to take out extraneous fields for 264
+to_field "publisher_display", extract_marc('260abc:264|*1|abc')
+
+#mrio: updated Feb 2022 to add "b"
+to_field "edition", extract_marc('250ab')
 
 to_field 'language', marc_languages("008[35-37]:041a:041d:041e:041j")
 

@@ -38,6 +38,16 @@ to_field 'fund', extract_marc('949a')
 to_field 'fund_display' do |rec, acc|
   acc.concat Traject::MarcExtractor.cached('949ad', :separator => ' - ').extract(rec)
 end
+to_field 'bookplate', extract_marc('949a', :translation_map => "umich/bookplates")
+
+### mrio: updated Feb 2022
+to_field 'preferred_citation', extract_marc('524a')
+to_field 'location_of_originals', extract_marc('535')
+to_field 'funding_information', extract_marc('536a')
+to_field 'source_of_acquisition', extract_marc('541a')
+to_field 'map_scale', extract_marc('255a')
+
+###---end Feb 2022 update###
 
 
 ##### Location ####
@@ -74,19 +84,21 @@ require 'high_level_browse'
 hlb = HighLevelBrowse.load(dir: Pathname.new(__dir__) + "../lib/translation_maps")
 
 #to_field 'hlb3Delimited', extract_marc('050ab:082a:090ab:099|*0|a:086a:086z:852|0*|hij') do |rec, acc, context|
-to_field 'hlb3Delimited', extract_marc('050ab:082a:090ab:099a:086a:086z:852|0*|hij') do |rec, acc, context|
-  acc.map! { |c| hlb[c] }
-  acc.compact!
-  acc.uniq!
-  acc.flatten!(1)
 
-  # Get the individual conmponents and stash them
-  components = acc.flatten.to_a.uniq
-  context.output_hash['hlb3'] = components unless components.empty?
-
-  # Turn them into pipe-delimited strings
-  acc.map! { |c| c.to_a.join(' | ') }
-end
+#mrio should bring this back! took it out because hlb not working with jruby 9.3
+#to_field 'hlb3Delimited', extract_marc('050ab:082a:090ab:099a:086a:086z:852|0*|hij') do |rec, acc, context|
+#  acc.map! { |c| hlb[c] }
+#  acc.compact!
+#  acc.uniq!
+#  acc.flatten!(1)
+#
+#  # Get the individual conmponents and stash them
+#  components = acc.flatten.to_a.uniq
+#  context.output_hash['hlb3'] = components unless components.empty?
+#
+#  # Turn them into pipe-delimited strings
+#  acc.map! { |c| c.to_a.join(' | ') }
+#end
 
 
 # Apply Best Bets

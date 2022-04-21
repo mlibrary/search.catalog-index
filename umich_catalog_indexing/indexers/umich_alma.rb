@@ -124,9 +124,11 @@ each_record do |r, context|
       if libLocInfo[lib_loc]
         item[:info_link] = libLocInfo[lib_loc]["info_link"]
         item[:display_name] = libLocInfo[lib_loc]["name"]
+        item[:fulfillment_unit] = libLocInfo[lib_loc]["fulfillment_unit"]
       else
         item[:info_link] = nil
         item[:display_name] = lib_loc
+        item[:fulfillment_unit] = "General"
       end
       item[:can_reserve] = false # default
       item[:can_reserve] = true if item[:library] =~ /(CLEM|BENT|SPEC)/

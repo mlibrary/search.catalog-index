@@ -1,0 +1,77 @@
+version: '3'
+
+services:
+  sidekiq:
+    build: sidekiq/.
+    depends_on:
+      - 'redis'
+    ports:
+     - "9292:9292"
+    volumes:
+      - ./sidekiq/.:/app
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - SESSION_KEY=session_key
+    command: bundle exec rackup -o 0.0.0.0
+
+  sftp:
+    image: 'atmoz/sftp'
+    volumes:
+      - ./sftp/bib_search:/home/alma/bib_search
+      - ./sftp/ssh/ssh_client_rsa_key.pub:/home/alma/.ssh/keys/id_rsa.pub:ro
+      - ./sftp/ssh/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key
+      - ./sftp/ssh/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key
+    command: alma:1001
+
+  web:
+    build: umich_catalog_indexing/.
+    depends_on:
+      - 'redis'
+    volumes:
+      - ./umich_catalog_indexing/.:/app
+      - ./sftp/ssh/ssh_client_rsa_key:/etc/secret-volume/id_rsa:ro
+      - gem_cache:/gems
+    environment:
+      - SOLR_URL=http://solr:8026/solr/biblio
+      - REDIS_URL=redis://redis:6379
+      - HLB_XML_ENDPOINT=https://apps.lib.umich.edu/browse/categories/xml.php 
+        #- JRUBY_OPTS=--debug
+      - NODB=1
+    env_file:
+      - ./umich_catalog_indexing/.env
+      - ./umich_catalog_indexing/.env-dev-values
+      - ./mock-ht/.env-dev-values
+    command: bundle exec sidekiq -r ./lib/jobs.rb
+
+  redis:
+    image: 'redis:6.2'
+    command: redis-server
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'redis:/data'
+
+  solr:
+    build: biblio/.
+    ports:
+     - "8026:8026"
+  
+  mock-ht:
+    build: mock-ht/.
+    ports:
+      - 4444:4444
+    volumes:
+      - ./mock-ht/.:/app
+    env_file:
+      - ./mock-ht/.env-dev-values
+
+
+  hathidb:
+    image: ghcr.io/hathitrust/hathifiles-dev-db:latest
+
+  hathioverlap:
+    build: overlap/.
+
+volumes:
+  gem_cache:
+  redis:
