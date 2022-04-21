@@ -18,6 +18,10 @@ Copy the `umich_catalog_indexing/.env-example` to `umich_catalog_indexing/.env`
 $ cp umich_catalog_indexing/.env-example to umich_catalog_indexing/.env
 ```
 
+Get the actual Alma API key from a developer.
+
+Get the `overlap_umich.tsv` file from a developer. Put it in the `overlap` folder.
+
 Replace values in `umich_catalog_index/.env` with real keys. Ask a developer for the appropriate value
 
 Build it
@@ -41,6 +45,6 @@ http://localhost:9292/ for the sidekiq admin panel
 
 To index an example record:
 ```
-$ docker-compose run --rm web bundle exec irb -r ./bin/jobs.rb
-irb(main):001:0> IndexIt.perform_async("bib_search/birds_2022021017_21131448650006381_new.tar.gz")
+$ docker-compose run --rm web bundle exec irb -r ./lib/jobs.rb
+irb(main):001:0> IndexIt.perform_async("search_daily_bibs/birds_2022021017_21131448650006381_new.tar.gz", "http://solr:8026/solr/biblio")
 ```
