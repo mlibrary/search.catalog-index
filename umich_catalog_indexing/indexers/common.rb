@@ -132,6 +132,26 @@ to_field "author_top", extract_marc_unless("100abcdefgjklnpqtu0:110abcdefgklnptu
 to_field "author_rest", extract_marc("505r")
 
 
+#### "Authoritative" authors from the 100/110/111 and 700/710/711
+#### Based on communication with Leigh Billings
+# 100: abc*dj*q
+# 110: ab*c*d*
+# 111:ac*d*e*n*
+#
+# It looks essentially like what we've got for author except the subfields are different. Probably
+# a better idea to just change the author definition based on this new information?
+
+aa_00 = "abcdjq" # currently missing j
+aa_01 = "abcd"   # currently the same
+aa_11 = "acden"  # currently addded b, missing e,n
+
+to_field "author_authoritative", extract_marc_unless(%w[
+  100#{aa_00}:700#{aa_00}
+  110:#{aa_10}:710#{aa_10}
+  111#{aa_11}:711#{aa_11}
+], skipWaSeSS)
+
+
 # Naconormalizer for author, only under jruby
 
 if defined? JRUBY_VERSION

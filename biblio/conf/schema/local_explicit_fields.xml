@@ -130,6 +130,8 @@
 <field name="related_title" type="text_no_stem_or_synonyms" indexed="true" stored="true"   multiValued="true" />
 <copyField source="author" dest="authorStr"/>
 
+<field name="author_authoritative" type="text_no_stem_or_synonyms" indexed="true" stored="true" multiValued="true"/>
+
 <!-- Mixed title/author -->
 
 <field name="title_author" type="text" indexed="true" stored="false" multiValued="true"/>
