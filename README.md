@@ -45,6 +45,6 @@ http://localhost:9292/ for the sidekiq admin panel
 
 To index an example record:
 ```
-$ docker-compose run --rm web bundle exec irb -r ./lib/jobs.rb
+$ docker-compose run --rm web bundle exec irb -r ./lib/sidekiq_jobs.rb
 irb(main):001:0> IndexIt.perform_async("search_daily_bibs/birds_2022021017_21131448650006381_new.tar.gz", "http://solr:8026/solr/biblio")
 ```
