@@ -1,6 +1,7 @@
-require_relative "./jobs"
 require 'logger'
 require 'date'
+require "/app/lib/sidekiq_jobs"
+require "/app/lib/jobs"
 
 class IndexForDate
   def initialize(alma_files:,date:,solr_url:,
@@ -27,6 +28,7 @@ class IndexForDate
   end
 
   def run
+    @logger.info("Indexing Alma Medata")
     files_that_match(/_delete\.tar/).each do | file |
       @logger.info("deleting ids from file: #{file}")
       @delete_it.perform(file, @solr_url)

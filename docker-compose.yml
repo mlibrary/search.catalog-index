@@ -41,7 +41,6 @@ services:
       - ./umich_catalog_indexing/.env
       - ./umich_catalog_indexing/.env-dev-values
       - ./mock-ht/.env-dev-values
-    command: bundle exec sidekiq -r ./lib/jobs.rb
 
   redis:
     image: 'redis:6.2'

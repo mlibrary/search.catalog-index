@@ -1,6 +1,6 @@
-require_relative './spec_helper.rb'
-require "alma_file_processor.rb"
-RSpec.describe AlmaFileProcessor do
+require_relative '../spec_helper.rb'
+require "jobs"
+RSpec.describe Jobs::Utilities::AlmaFileProcessor do
   before(:each) do
     @src_path = "search_daily_bibs/file.tar.gz"
   end
@@ -11,7 +11,7 @@ RSpec.describe AlmaFileProcessor do
     before(:each) do
       @tar_double = double("TarDouble", exec: "")
       @run_params = {
-        sftp: instance_double(SFTP, get: ""),
+        sftp: instance_double(Jobs::Utilities::SFTP, get: ""),
         tar: lambda{|path, destination| @tar_double.exec(path, destination)}
       }
     end

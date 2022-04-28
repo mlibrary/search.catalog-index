@@ -4,8 +4,8 @@ require "optparse"
 require "optparse/date"
 require 'logger'
 require 'date'
+require_relative "../lib/sidekiq_jobs"
 require_relative "../lib/index_for_date"
-require_relative "../lib/sftp"
 
 logger = Logger.new($stdout)
 date = DateTime.now.strftime("%Y%m%d") 
@@ -24,7 +24,7 @@ OptionParser.new do |opts|
    end
 end.parse!
 
-alma_files = SFTP.new.ls(path)
+alma_files = Jobs::Utilities::SFTP.new.ls(path)
 
 start_date = DateTime.parse(date)
 start_date.upto(DateTime.now) do |date|
