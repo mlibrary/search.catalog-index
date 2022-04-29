@@ -10,7 +10,7 @@ module Jobs
         @output_file_path = "#{destination}/#{File.basename(path)}"
         @xml_file = "#{@output_file_path.split(".").first}.xml"  
       end
-      def run(sftp: SFTP.new, tar: lambda{|path, destination| system("tar", "xzvf", path, "-C", destination) }, mkdir: lambda{|dir| Dir.mkdir(dir) unless Dir.exists?(dir)})
+      def run(sftp: SFTP.new, tar: lambda{|path, destination| system("tar", "xzvf", path, "-C", destination) }, mkdir: lambda{|dir| Dir.mkdir(dir) unless Dir.exist?(dir)})
         mkdir.call(@destination_dir)
         sftp.get(@src_path, @destination_dir)
         tar.call(@output_file_path, @destination_dir)
