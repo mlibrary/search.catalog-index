@@ -15,8 +15,8 @@ module Jobs
       @logger.info "starting traject process for #{@working_file}"
       run_traject
       @logger.info "finished loading marc data from #{@working_file} into #{@solr_url}"
-      @logger.info "cleaning scratch directory"
-      clean
+      #@logger.info "cleaning scratch directory"
+      #clean
       @logger.info "finished processing #{@file}"
     end
     def fetch_hathi
