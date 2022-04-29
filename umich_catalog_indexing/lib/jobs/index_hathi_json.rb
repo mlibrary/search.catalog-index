@@ -10,6 +10,8 @@ module Jobs
     def run
       @logger.info "fetching #{@file} from #{ENV.fetch("HT_HOST")}"
       fetch_hathi
+      @logger.info "fetching high level browse file"
+      fetch_high_level_browse
       @logger.info "starting traject process for #{@working_file}"
       run_traject
       @logger.info "finished loading marc data from #{@working_file} into #{@solr_url}"
@@ -41,6 +43,25 @@ module Jobs
     end
     def clean
       File.delete(@working_file)
+    end
+    def fetch_high_level_browse
+      if should_fetch?(hlb_file) 
+        HighLevelBrowse.fetch_and_save(dir: hlb_dir)
+        @logger.info "updated #{hlb_file}"
+      else
+        @logger.info "#{hlb_file} is less than one day old. Did not update"
+      end
+    end
+    def should_fetch?(file)
+      #true when file doesn't exit or if file is older than a day
+      !File.exists?(file) or 
+        File.stat(file).mtime < Time.now - (60*60*24) 
+    end
+    def hlb_dir
+      "/app/lib/translation_maps"
+    end
+    def hlb_file
+      "#{hlb_dir}/hlb.json.gz"
     end
   end
 end
