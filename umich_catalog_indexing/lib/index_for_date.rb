@@ -46,7 +46,7 @@ class IndexForDate
     @alma_files.select{|x| x.match?(pattern)}
   end
   def hathi_file
-    "zephir_upd_#{date_string(@date.prev_day)}.json.gz"
+    Jobs::Utilities::ZephirFile.daily_update(@date)
   end
   def date_string(date)
     date.strftime("%Y%m%d") #must be a string in the form YYYYMMDD
