@@ -1,3 +1,4 @@
+#!/usr/local/bin/ruby
 require "date"
 require_relative "../lib/sidekiq_jobs"
 require "logger"
@@ -11,4 +12,4 @@ logger.info "Sending job to index #{hathi_file} into reindex solr: #{ENV.fetch("
 
 IndexHathi.perform_async(hathi_file, ENV.fetch("REINDEX_SOLR_URL"))
 
-logger.info "Finished submitting HathiTrust daily update jobs"
+logger.info "Finished submitting HathiTrust monthly full job"
