@@ -29,4 +29,4 @@ RUN bundle install --jobs=1
 
 COPY --chown=${UID}:${GID} . /app/
 
-CMD ["bundle", "exec", "sidekiq", "-r", "./lib/jobs.rb"]
+CMD ["bundle", "exec", "sidekiq", "-r", "./lib/sidekiq_jobs.rb"]

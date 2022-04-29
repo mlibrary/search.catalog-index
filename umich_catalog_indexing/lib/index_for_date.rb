@@ -1,6 +1,7 @@
-require_relative "./jobs"
 require 'logger'
 require 'date'
+require "/app/lib/sidekiq_jobs"
+require "/app/lib/jobs"
 
 class IndexForDate
   def initialize(alma_files:,date:,solr_url:,
@@ -9,10 +10,10 @@ class IndexForDate
                  index_hathi: IndexHathi.new,
                  logger: Logger.new($stdout)
                 )
-    @date = DateTime.parse(date).strftime("%Y%m%d") #must be a string in the form YYYYMMDD
+    @date = DateTime.parse(date) #must be a string in the form YYYYMMDD
 
     begin
-      @alma_files = alma_files.select{|x| x.match?(@date)} #must be an array of file paths
+      @alma_files = alma_files.select{|x| x.match?(date_string(@date))} #must be an array of file paths
     rescue NoMethodError
       raise StandardError, "alma_files must be an array of file path strings"
     end
@@ -27,6 +28,7 @@ class IndexForDate
   end
 
   def run
+    @logger.info("Indexing Alma Medata")
     files_that_match(/_delete\.tar/).each do | file |
       @logger.info("deleting ids from file: #{file}")
       @delete_it.perform(file, @solr_url)
@@ -44,6 +46,9 @@ class IndexForDate
     @alma_files.select{|x| x.match?(pattern)}
   end
   def hathi_file
-    "zephir_upd_#{@date}.json.gz"
+    Jobs::Utilities::ZephirFile.daily_update(@date)
+  end
+  def date_string(date)
+    date.strftime("%Y%m%d") #must be a string in the form YYYYMMDD
   end
 end

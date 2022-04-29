@@ -1,7 +1,7 @@
 require 'yaml'
-require_relative './spec_helper.rb'
-require 'umich_utilities/umich_utilities.rb'
-RSpec.describe UmichUtilities::LibraryLocationList, "#list" do
+require_relative '../spec_helper.rb'
+require 'jobs'
+RSpec.describe Jobs::LibLocInfo::LibraryLocationList, "#list" do
   before(:each) do
     @libraries = JSON.parse(fixture('/aael.json'))
     @locations = JSON.parse(fixture('/aael_locations_short.json'))
