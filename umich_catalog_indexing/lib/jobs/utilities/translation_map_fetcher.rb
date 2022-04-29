@@ -1,3 +1,4 @@
+require "securerandom"
 module Jobs
   module Utilities
     class TranslationMapFetcher
@@ -21,7 +22,7 @@ module Jobs
       end
       def fetch_lib_loc_info
         if should_fetch?(lib_loc_info_file)
-          temporary_path = "#{lib_loc_info_file}.temporary"
+          temporary_path = "#{lib_loc_info_file}_#{SecureRandom.alphanumeric(8)}.temporary"
           File.open(temporary_path, 'w'){|f| f.write Jobs::LibLocInfo::LibraryLocationList.new.list.to_yaml(line_width: 1000 ) }
           if !File.exists?(temporary_path) || File.size?(temporary_path) < 15
             @logger.error "Did not update #{lib_loc_info_file}. Failed to load file"

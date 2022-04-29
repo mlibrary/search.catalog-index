@@ -1,15 +1,22 @@
 require "logger"
+require "securerandom"
+require "fileutils"
 module Jobs
   class IndexHathiJson
     def initialize(file:, solr_url:, logger: Logger.new($stdout),
+                   scratch_dir: "/app/scratch/#{SecureRandom.alphanumeric(8)}",
                    translation_map_fetcher: Jobs::Utilities::TranslationMapFetcher.new)
       @file = file
-      @working_file = "/app/scratch/#{@file}" 
+      @scratch_dir = scratch_dir
+      @working_file = "#{@scratch_dir}/#{@file}" 
       @logger = logger
       @solr_url = solr_url
       @translation_map_fetcher = translation_map_fetcher
     end
     def run
+      @logger.info "creating scratch directory: #{@scratch_dir}"
+      Dir.mkdir(@scratch_dir) unless Dir.exists?(@scratch_dir)
+
       @logger.info "fetching #{@file} from #{ENV.fetch("HT_HOST")}"
       fetch_hathi
 
@@ -18,8 +25,8 @@ module Jobs
       @logger.info "starting traject process for #{@working_file}"
       run_traject
       @logger.info "finished loading marc data from #{@working_file} into #{@solr_url}"
-      #@logger.info "cleaning scratch directory"
-      #clean
+      @logger.info "cleaning scratch directory"
+      clean
       @logger.info "finished processing #{@file}"
     end
     def fetch_hathi
@@ -45,7 +52,7 @@ module Jobs
       )
     end
     def clean
-      File.delete(@working_file)
+      FileUtils.remove_dir(@scratch_dir)
     end
     def fetch_high_level_browse
       if should_fetch?(hlb_file) 

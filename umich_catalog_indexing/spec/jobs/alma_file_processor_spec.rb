@@ -5,14 +5,16 @@ RSpec.describe Jobs::Utilities::AlmaFileProcessor do
     @src_path = "search_daily_bibs/file.tar.gz"
   end
   subject do
-    described_class.new(path: @src_path)
+    described_class.new(path: @src_path, destination: "/app/scratch")
   end
   context "#run" do
     before(:each) do
       @tar_double = double("TarDouble", exec: "")
+      @mkdir_double = double("MkidrDouble", mkdir: "")
       @run_params = {
         sftp: instance_double(Jobs::Utilities::SFTP, get: ""),
-        tar: lambda{|path, destination| @tar_double.exec(path, destination)}
+        tar: lambda{|path, destination| @tar_double.exec(path, destination)},
+        mkdir: lambda{|dir| @mkdir_double.mkdir(dir)}
       }
     end
     it "calls sftp get function with path and destination" do
@@ -23,6 +25,10 @@ RSpec.describe Jobs::Utilities::AlmaFileProcessor do
       expect(@tar_double).to receive(:exec).with("/app/scratch/file.tar.gz", "/app/scratch")
       subject.run(**@run_params)
     end
+    it "calls mkdir with scratch dir" do
+      expect(@mkdir_double).to receive(:mkdir).with("/app/scratch")
+      subject.run(**@run_params)
+    end
   end 
   context "#xml_file" do
     it "returns the appropriate filename" do
@@ -31,12 +37,11 @@ RSpec.describe Jobs::Utilities::AlmaFileProcessor do
   end
   context "#clean" do
     before(:each) do
-      @file_delete_double = class_double(File, delete: nil)
-      @delete = lambda{|file| @file_delete_double.delete(file)}
+      @dir_delete_double = class_double(FileUtils, remove_dir: nil)
+      @delete = lambda{|file| @dir_delete_double.remove_dir(file)}
     end
     it "removes the files put in the scratch directory" do
-      expect(@file_delete_double).to receive(:delete).with("/app/scratch/file.tar.gz")
-      expect(@file_delete_double).to receive(:delete).with("/app/scratch/file.xml")
+      expect(@dir_delete_double).to receive(:remove_dir).with("/app/scratch")
       subject.clean(@delete) 
     end
   end
