@@ -49,7 +49,7 @@ RSpec.describe IndexForDate  do
       subject.run
     end
     it "calls IndexHathi with appropriate files and solr" do
-      expect(@params[:index_hathi]).to receive(:perform).with("zephir_upd_20220101.json.gz", @params[:solr_url])
+      expect(@params[:index_hathi]).to receive(:perform).with("zephir_upd_20211231.json.gz", @params[:solr_url])
       subject.run
     end
     it "does not call IndexIt when no new files" do

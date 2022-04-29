@@ -10,10 +10,10 @@ class IndexForDate
                  index_hathi: IndexHathi.new,
                  logger: Logger.new($stdout)
                 )
-    @date = DateTime.parse(date).strftime("%Y%m%d") #must be a string in the form YYYYMMDD
+    @date = DateTime.parse(date) #must be a string in the form YYYYMMDD
 
     begin
-      @alma_files = alma_files.select{|x| x.match?(@date)} #must be an array of file paths
+      @alma_files = alma_files.select{|x| x.match?(date_string(@date))} #must be an array of file paths
     rescue NoMethodError
       raise StandardError, "alma_files must be an array of file path strings"
     end
@@ -46,6 +46,9 @@ class IndexForDate
     @alma_files.select{|x| x.match?(pattern)}
   end
   def hathi_file
-    "zephir_upd_#{@date}.json.gz"
+    "zephir_upd_#{date_string(@date.prev_day)}.json.gz"
+  end
+  def date_string(date)
+    date.strftime("%Y%m%d") #must be a string in the form YYYYMMDD
   end
 end
