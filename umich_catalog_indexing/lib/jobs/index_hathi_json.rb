@@ -1,17 +1,20 @@
 require "logger"
 module Jobs
   class IndexHathiJson
-    def initialize(file:, solr_url:, logger: Logger.new($stdout))
+    def initialize(file:, solr_url:, logger: Logger.new($stdout),
+                   translation_map_fetcher: Jobs::Utilities::TranslationMapFetcher.new)
       @file = file
       @working_file = "/app/scratch/#{@file}" 
       @logger = logger
       @solr_url = solr_url
+      @translation_map_fetcher = translation_map_fetcher
     end
     def run
       @logger.info "fetching #{@file} from #{ENV.fetch("HT_HOST")}"
       fetch_hathi
-      @logger.info "fetching high level browse file"
-      fetch_high_level_browse
+
+      @translation_map_fetcher.run
+
       @logger.info "starting traject process for #{@working_file}"
       run_traject
       @logger.info "finished loading marc data from #{@working_file} into #{@solr_url}"
