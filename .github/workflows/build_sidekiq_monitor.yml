@@ -63,7 +63,7 @@ jobs:
       if: ${{ steps.image_check.outputs.image_exists != 'true' }}
       uses: docker/build-push-action@v2
       with:
-        context: ./umich_catalog_indexing/.
+        context: ./sidekiq/.
         push: true
         tags: ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:${{steps.tag_check.outputs.tag}}
 
