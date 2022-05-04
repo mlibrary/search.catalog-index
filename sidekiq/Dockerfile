@@ -1,23 +1,27 @@
-FROM ruby:3.1
+ARG RUBY_VERSION=3.1
+FROM ruby:${RUBY_VERSION}
+
+ARG BUNDLER_VERSION=2.3.13
 ARG UNAME=app
 ARG UID=1000
 ARG GID=1000
 
-RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
-  build-essential\
-  git
+LABEL maintainer="mrio@umich.edu"
+
+RUN gem install bundler:${BUNDLER_VERSION}
+RUN bundle -v
 
 RUN groupadd -g ${GID} -o ${UNAME}
 RUN useradd -m -d /app -u ${UID} -g ${GID} -o -s /bin/bash ${UNAME}
 RUN mkdir -p /gems && chown ${UID}:${GID} /gems
 
-RUN gem install bundler:2.3.4
 USER $UNAME
 
 ENV BUNDLE_PATH /gems
-COPY --chown=${UID}:${GID} Gemfile* /app/
-
-RUN mkdir -p /gems 
 
 WORKDIR /app
-RUN bundle install
+
+COPY --chown=${UID}:${GID} . /app
+RUN bundle _${BUNDLER_VERSION}_ install
+
+CMD ["bundle", "exec", "rackup", "-o", "0.0.0.0"]
