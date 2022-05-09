@@ -4,6 +4,7 @@ require "/app/lib/jobs/utilities"
 require "/app/lib/jobs/utilities/sftp"
 require "/app/lib/jobs/utilities/alma_file_processor"
 require "/app/lib/jobs/utilities/zephir_file"
+require "/app/lib/jobs/utilities/translation_map_fetcher"
 
 require "/app/lib/jobs/lib_loc_info/libraries"
 require "/app/lib/jobs/lib_loc_info/library_location_list"
