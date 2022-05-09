@@ -3,7 +3,7 @@ name: Build latest catalog-solr-unstable and catalog-indexer-unstable on push
 on: push
 
 jobs:
-  build:
+  build-catalog-solr:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -25,6 +25,19 @@ jobs:
         tags: |
            ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:latest
            ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:${{ github.sha }}
+           
+  build-catalog-indexer:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Log into Github Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build and Push catalog-indexer
       env:
         IMAGE_NAME: catalog-indexer-unstable
