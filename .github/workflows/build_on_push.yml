@@ -1,4 +1,4 @@
-name: Build latest catalog-solr and traject on push
+name: Build latest catalog-solr-unstable and catalog-indexer-unstable on push
 
 on: push
 

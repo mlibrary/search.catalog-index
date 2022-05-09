@@ -1,0 +1,57 @@
+name: Deploy Catalog Indexer to Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release
+        required: true
+
+env:
+  IMAGE: ghcr.io/mlibrary/catalog-indexer
+
+jobs:
+  deploy-deployment:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+    - name: Deploy Catalog-Indexer to Production
+      uses: mlibrary/deploy-to-kubernetes@v2
+      with:
+        registry_token: ${{ secrets.GITHUB_TOKEN }}
+        image: ${{ env.IMAGE }}:${{ github.event.inputs.tag }}
+        cluster_ca: ${{ secrets.HATCHER_CLUSTER_CA }}
+        cluster_server: https://hatcher.kubernetes.lib.umich.edu
+        namespace_token: ${{ secrets.HATCHER_TOKEN }}
+        namespace: ${{ secrets.NAMESPACE }}
+        deployment: catalog-indexer
+  deploy-daily-hathi-crojob:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+    - name: Deploy Catalog-Indexer to Production
+      uses: mlibrary/deploy-to-kubernetes@v2
+      with:
+        type: cronjob
+        cronjob_name: daily-hathi-indexer
+        registry_token: ${{ secrets.GITHUB_TOKEN }}
+        image: ${{ env.IMAGE }}:${{ github.event.inputs.tag }}
+        cluster_ca: ${{ secrets.HATCHER_CLUSTER_CA }}
+        cluster_server: https://hatcher.kubernetes.lib.umich.edu
+        namespace_token: ${{ secrets.HATCHER_TOKEN }}
+        namespace: ${{ secrets.NAMESPACE }}
+  deploy-monthly-hathi-crojob:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+    - name: Deploy Catalog-Indexer to Production
+      uses: mlibrary/deploy-to-kubernetes@v2
+      with:
+        type: cronjob
+        cronjob_name: monthly-hathi-indexer
+        registry_token: ${{ secrets.GITHUB_TOKEN }}
+        image: ${{ env.IMAGE }}:${{ github.event.inputs.tag }}
+        cluster_ca: ${{ secrets.HATCHER_CLUSTER_CA }}
+        cluster_server: https://hatcher.kubernetes.lib.umich.edu
+        namespace_token: ${{ secrets.HATCHER_TOKEN }}
+        namespace: ${{ secrets.NAMESPACE }}
