@@ -23,9 +23,17 @@ module Jobs
       @translation_map_fetcher.run
 
       @logger.info "starting traject process for #{@working_file}"
-      run_traject
+      begin
+        run_traject
+      rescue StandardError
+        @logger.error "Traject step failed"
+        @logger.info "cleaning scratch directory: #{@scratch_dir}"
+        clean
+        raise StandardError, "Traject step failed"
+      end
+
       @logger.info "finished loading marc data from #{@working_file} into #{@solr_url}"
-      @logger.info "cleaning scratch directory"
+      @logger.info "cleaning scratch directory: #{@scratch_dir}"
       clean
       @logger.info "finished processing #{@file}"
     end
@@ -37,7 +45,7 @@ module Jobs
             )
     end
     def run_traject
-      system( "bundle", "exec", "traject",
+      success = system( "bundle", "exec", "traject",
              "-c", "/app/readers/ndj.rb",
              "-c", "/app/writers/solr.rb",
              "-c", "/app/indexers/settings.rb",
@@ -50,6 +58,7 @@ module Jobs
              "-u", @solr_url,
              @working_file
       )
+      raise StandardError unless success
     end
     def clean
       FileUtils.remove_dir(@scratch_dir)

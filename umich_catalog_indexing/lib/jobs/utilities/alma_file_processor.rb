@@ -18,6 +18,9 @@ module Jobs
       def clean(delete = lambda{|file| FileUtils.remove_dir(file) })
         delete.call(@destination_dir)
       end
+      def scratch_dir
+        @destination_dir
+      end
     end
   end
 end

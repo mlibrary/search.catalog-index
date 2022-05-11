@@ -11,7 +11,14 @@ module Jobs
       @logger.info "fetching #{@file} from #{ENV.fetch("ALMA_FILES_HOST")}"
       @alma_file_processor.run
       @logger.info "deleting ids in #{@file} from #{@solr_url}"
-      DeleteIdGetter.new(@alma_file_processor.xml_file, @solr_url).send 
+      begin
+        DeleteIdGetter.new(@alma_file_processor.xml_file, @solr_url).send 
+      rescue StandardError => e
+        @logger.error e.message
+        @logger.info "cleaning scratch directory: #{@alma_file_processor.scratch_dir}"
+        @alma_file_processor.clean
+        raise StandardError, e.message
+      end
       @logger.info "cleaning scratch directory"
       @alma_file_processor.clean
       @logger.info "finished processing #{@file}"
