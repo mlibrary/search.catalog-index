@@ -9,6 +9,8 @@ group :development do
 end
 
 gem 'yell', '~>2.0'
+gem "yabeda-sidekiq"
+gem "yabeda-prometheus"
 
 gem 'rack' #for sidekiq
 gem 'traject', '~>3.0'

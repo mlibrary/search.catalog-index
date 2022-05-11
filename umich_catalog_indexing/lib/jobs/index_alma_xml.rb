@@ -20,14 +20,21 @@ module Jobs
       @translation_map_fetcher.run
 
       @logger.info "starting traject process for #{@alma_file_processor.xml_file}"
-      run_traject(@alma_file_processor.xml_file)
+      begin
+        run_traject(@alma_file_processor.xml_file)
+      rescue StandardError
+        @logger.error "Traject step Failed"
+        @logger.info "cleaning scratch directory: #{@alma_file_processor.scratch_dir}"
+        @alma_file_processor.clean
+        raise StandardError, "Traject step failed"
+      end
       @logger.info "finished loading marc data from #{@alma_file_processor.xml_file} into #{@solr_url}"
-      @logger.info "cleaning scratch directory"
+      @logger.info "cleaning scratch directory: #{@alma_file_processor.scratch_dir}"
       @alma_file_processor.clean
       @logger.info "finished processing #{@file}"
     end
     def run_traject(file)
-      system( "bundle", "exec", "traject",
+      success = system( "bundle", "exec", "traject",
              "-c", "/app/readers/m4j.rb",
              "-c", "/app/writers/solr.rb",
              "-c", "/app/indexers/settings.rb",
@@ -39,6 +46,7 @@ module Jobs
              "-u", @solr_url,
              file
       )
+      raise StandardError unless success
     end
   end
 end
