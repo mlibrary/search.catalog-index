@@ -15,7 +15,7 @@ module Jobs
     end
     def run
       @logger.info "creating scratch directory: #{@scratch_dir}"
-      Dir.mkdir(@scratch_dir) unless Dir.exists?(@scratch_dir)
+      Dir.mkdir(@scratch_dir) unless Dir.exist?(@scratch_dir)
 
       @logger.info "fetching #{@file} from #{ENV.fetch("HT_HOST")}"
       fetch_hathi
