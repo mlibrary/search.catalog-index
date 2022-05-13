@@ -43,6 +43,7 @@ In a browser you can look at
 http://localhost:8026 for the solr admin panel
 http://localhost:9292/ for the sidekiq admin panel
 
+## Trying it Out
 Some example commands that should work:
 ```
 docker-compose run --rm web bundle exec irb -r ./lib/sidekiq_jobs.rb
