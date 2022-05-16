@@ -115,6 +115,7 @@ cmd="bundle exec traject
   -c $TDIR/indexers/callnumbers.rb
   -s source_glob="${filename_glob}"
   -s log.file=STDOUT 
+  -s processing_thread_pool=4
   $filename"
 
 if [[ -z $logfile ]]; then

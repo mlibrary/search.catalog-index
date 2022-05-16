@@ -109,13 +109,13 @@ end
 # The letters of the first LC we can find, for visualization on the website. Not used
 # in search
 
-to_field 'callnoletters', extract_marc('852|0*|h:050ab:090ab', :first => true) do |rec, acc|
-  letter_re = /\A\s*([A-Za-z]+)/.freeze
-  cn = acc.first
-  m  = letter_re.match(cn)  
-  if looks_like_lc?(cn) and m
-    acc.replace [m[1]]
-  else
-    acc.replace []
-  end
+def extract_letters(cn)
+  return nil if cn.nil?
+  m      = /\A\s*([A-Za-z]+.*\Z)/.match(cn)
+  m ? m[1].upcase : nil
+end
+
+to_field 'callnoletters', extract_marc('852hij:050ab:090ab', :first => true) do |rec, acc|
+  acc.select! { |cn| looks_like_lc?(cn) }
+  acc.replace [extract_letters(acc.first)].compact
 end

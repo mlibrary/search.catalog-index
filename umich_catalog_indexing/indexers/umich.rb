@@ -1,7 +1,6 @@
 require 'umich_traject'
 
 
-
 ### Last time the record was changed ####
 # cat_date -- the maximum value in a 972c
 
