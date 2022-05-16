@@ -504,7 +504,7 @@
 
 
     <!-- An even less aggressive exactish, primarily for browse matching -->
-    <fieldType name="browse_match" class="solr.TextField" positionIncrmentGap="&pig;">
+    <fieldType name="browse_match" class="solr.TextField" positionIncrementGap="&pig;">
         <analyzer>
             &less_aggressive_pre_tokenization_character_substitution;
             &tokenize_into_one_big_token;
