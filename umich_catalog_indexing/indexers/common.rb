@@ -126,31 +126,10 @@ to_field 'mainauthor_role', extract_marc('100e:110e:111e', :trim_punctuation => 
 to_field 'mainauthor_role', extract_marc('1004:1104:1114', :translation_map => "ht/relators")
 
 
-to_field 'author', extract_marc_unless("100abcdq:110abcd:111abc:700abcdq:710abcd:711abc", skipWaSeSS)
+to_field 'author', extract_marc_unless("100abcdjq:110abcd:111acden:700abcdjq:710abcd:711acden", skipWaSeSS)
 to_field 'author2', extract_marc_unless("110ab:111ab:700abcd:710ab:711ab", skipWaSeSS)
 to_field "author_top", extract_marc_unless("100abcdefgjklnpqtu0:110abcdefgklnptu04:111acdefgjklnpqtu04:700abcdejqux034:710abcdeux034:711acdegjnqux034:720a:765a:767a:770a:772a:774a:775a:776a:777a:780a:785a:786a:787a:245c", skipWaSeSS)
 to_field "author_rest", extract_marc("505r")
-
-
-#### "Authoritative" authors from the 100/110/111 and 700/710/711
-#### Based on communication with Leigh Billings
-# 100: abc*dj*q
-# 110: ab*c*d*
-# 111:ac*d*e*n*
-#
-# It looks essentially like what we've got for author except the subfields are different. Probably
-# a better idea to just change the author definition based on this new information?
-
-aa_00 = "abcdjq" # currently missing j
-aa_01 = "abcd"   # currently the same
-aa_11 = "acden"  # currently addded b, missing e,n
-
-to_field "author_authoritative", extract_marc_unless(%w[
-  100#{aa_00}:700#{aa_00}
-  110:#{aa_10}:710#{aa_10}
-  111#{aa_11}:711#{aa_11}
-], skipWaSeSS)
-
 
 # Naconormalizer for author, only under jruby
 
