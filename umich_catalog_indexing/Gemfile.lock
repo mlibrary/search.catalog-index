@@ -15,6 +15,13 @@ GIT
       activesupport (~> 6.0, >= 4.2)
       httparty
 
+GIT
+  remote: https://github.com/mlibrary/traject_umich_format
+  revision: 583637b1095a11ab2de50b3b03876a46d98378bf
+  branch: master
+  specs:
+    traject_umich_format (0.4.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -137,7 +144,6 @@ GEM
     traject-marc4j_reader (1.1.0-java)
       marc (~> 1.0)
       marc-marc4j (~> 1.0)
-    traject_umich_format (0.4.4)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unf (0.1.4-java)
@@ -185,7 +191,7 @@ DEPENDENCIES
   sidekiq
   traject (~> 3.0)
   traject-marc4j_reader (~> 1.0)
-  traject_umich_format (~> 0.4.0)
+  traject_umich_format!
   webmock (~> 3.0)
   yabeda-prometheus
   yabeda-sidekiq
