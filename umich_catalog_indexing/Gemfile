@@ -14,7 +14,9 @@ gem "yabeda-prometheus"
 
 gem 'rack' #for sidekiq
 gem 'traject', '~>3.0'
-gem 'traject_umich_format', '~>0.4.0'
+gem 'traject_umich_format',
+  git: 'https://github.com/mlibrary/traject_umich_format', 
+  branch: 'master'
 gem 'match_map', '~>3.0'
 gem 'sequel', '~>5.0'
 gem 'httpclient', '~>2.0'
