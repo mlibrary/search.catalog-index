@@ -173,6 +173,7 @@ GEM
 
 PLATFORMS
   universal-java-1.8
+  universal-java-11
 
 DEPENDENCIES
   alma_rest_client!
@@ -204,4 +205,4 @@ DEPENDENCIES
   yell (~> 2.0)
 
 BUNDLED WITH
-   2.3.10
+   2.3.13
