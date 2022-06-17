@@ -131,7 +131,6 @@
 <copyField source="author" dest="authorStr"/>
 
 <field name="author_authoritative" type="browse_match" indexed="true" stored="true" multiValued="true"/>
-<copyField source="author" dest="author_authoritative"/>
 
 <!-- Mixed title/author -->
 
