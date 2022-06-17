@@ -34,7 +34,7 @@ OptionParser.new do |opts|
    end
 end.parse!
 
-alma_files = Jobs::Utilities::SFTP.new.ls(path)
+alma_files = SFTP.client.ls(path)
 
 start_date = DateTime.parse(date)
 start_date.upto(DateTime.now) do |date|

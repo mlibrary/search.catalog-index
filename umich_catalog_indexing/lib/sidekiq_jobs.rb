@@ -12,6 +12,12 @@ Sidekiq.configure_server do |_config|
   Yabeda::Prometheus::Exporter.start_metrics_server!
 end
 
+SFTP.configure do |config|
+  config.user = ENV.fetch("ALMA_FILES_USER")
+  config.host=ENV.fetch("ALMA_FILES_HOST")
+  config.key_path=ENV.fetch("SSH_KEY_PATH")
+end
+
 class IndexIt
   include Sidekiq::Worker
   def perform(file, solr_url)
