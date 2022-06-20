@@ -1,7 +1,7 @@
 require 'alma_rest_client'
+require 'sftp'
 
 require "/app/lib/jobs/utilities"
-require "/app/lib/jobs/utilities/sftp"
 require "/app/lib/jobs/utilities/alma_file_processor"
 require "/app/lib/jobs/utilities/zephir_file"
 require "/app/lib/jobs/utilities/translation_map_fetcher"

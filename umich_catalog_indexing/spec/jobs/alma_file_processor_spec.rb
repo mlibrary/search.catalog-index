@@ -12,7 +12,7 @@ RSpec.describe Jobs::Utilities::AlmaFileProcessor do
       @tar_double = double("TarDouble", exec: "")
       @mkdir_double = double("MkidrDouble", mkdir: "")
       @run_params = {
-        sftp: instance_double(Jobs::Utilities::SFTP, get: ""),
+        sftp: instance_double(SFTP::Client, get: ""),
         tar: lambda{|path, destination| @tar_double.exec(path, destination)},
         mkdir: lambda{|dir| @mkdir_double.mkdir(dir)}
       }

@@ -10,7 +10,7 @@ on:
 
 env:
   environment: testing
-  IMAGE_NAME: catalog-indexer-unstable
+  IMAGE: ghcr.io/mlibrary/catalog-indexer-unstable
 
 jobs:
   deploy:
@@ -42,7 +42,7 @@ jobs:
     - name: Check that the tag exists in container registry
       id: image_check
       run: |
-        if docker manifest inspect ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:${{ steps.tag_check.outputs.tag }} > /dev/null; then
+        if docker manifest inspect ${{ env.IMAGE }}:${{ steps.tag_check.outputs.tag }} > /dev/null; then
           echo '::set-output name=image_exists::true'
           echo "image exists!"
         else
@@ -58,16 +58,18 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: ./umich_catalog_indexing/.
+        file: umich_catalog_indexing/Dockerfile.prod
         push: true
-        tags: ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:${{steps.tag_check.outputs.tag}}
+        secrets: |
+          "gh_package_read_token=${{ secrets.GH_PACKAGE_READ_TOKEN }}"
+        tags: ${{ env.IMAGE }}:${{steps.tag_check.outputs.tag}}
     - name: Deploy to ${{ env.environment }}
-      uses: mlibrary/deploy-to-kubernetes@v1
+      uses: mlibrary/deploy-to-kubernetes@v2
       with:
-        github_username: ${{ github.actor }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        registry_token: ${{ secrets.GITHUB_TOKEN }}
         deployment: catalog-indexer
         container: catalog-indexer
-        image: mlibrary/${{ env.IMAGE_NAME }}:${{ steps.tag_check.outputs.tag }}
+        image: ${{ env.IMAGE }}:${{ steps.tag_check.outputs.tag }}
         cluster_ca: ${{ secrets.HATCHER_CLUSTER_CA }}
         cluster_server: https://hatcher.kubernetes.lib.umich.edu
         namespace_token: ${{ secrets.HATCHER_TOKEN }}
