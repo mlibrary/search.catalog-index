@@ -169,7 +169,7 @@ GEM
 GEM
   remote: https://rubygems.pkg.github.com/mlibrary/
   specs:
-    sftp (0.2.0)
+    sftp (0.2.1)
 
 PLATFORMS
   universal-java-1.8
