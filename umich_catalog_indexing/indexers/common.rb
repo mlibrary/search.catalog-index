@@ -117,6 +117,14 @@ to_field 'barcode', extract_marc('974a')
 ######### AUTHOR FIELDS ########
 ################################
 
+# Naconormalizer for author, only under jruby
+if defined? JRUBY_VERSION
+  require 'naconormalizer'
+  author_normalizer = NacoNormalizer.new
+else
+  author_normalizer = nil
+end
+
 # We need to skip all the 710 with a $9 == 'WaSeSS'
 
 skipWaSeSS = ->(rec, field) { field.tag == '710' and field['9'] =~ /WaSeSS/ }
@@ -126,21 +134,10 @@ to_field 'mainauthor_role', extract_marc('100e:110e:111e', :trim_punctuation => 
 to_field 'mainauthor_role', extract_marc('1004:1104:1114', :translation_map => "ht/relators")
 
 
-to_field 'author', extract_marc_unless("100abcdq:110abcd:111abc:700abcdq:710abcd:711abc", skipWaSeSS)
+to_field 'author', extract_marc_unless("100abcdjq:110abcd:111acden:700abcdjq:710abcd:711acden", skipWaSeSS)
 to_field 'author2', extract_marc_unless("110ab:111ab:700abcd:710ab:711ab", skipWaSeSS)
 to_field "author_top", extract_marc_unless("100abcdefgjklnpqtu0:110abcdefgklnptu04:111acdefgjklnpqtu04:700abcdejqux034:710abcdeux034:711acdegjnqux034:720a:765a:767a:770a:772a:774a:775a:776a:777a:780a:785a:786a:787a:245c", skipWaSeSS)
 to_field "author_rest", extract_marc("505r")
-
-
-# Naconormalizer for author, only under jruby
-
-if defined? JRUBY_VERSION
-  require 'naconormalizer'
-  author_normalizer = NacoNormalizer.new
-else
-  author_normalizer = nil
-end
-
 
 to_field "authorSort", extract_marc_unless("100abcd:110abcd:111abc:110ab:700abcd:710ab:711ab", skipWaSeSS, :first => true) do |rec, acc, context|
   if author_normalizer
@@ -149,10 +146,18 @@ to_field "authorSort", extract_marc_unless("100abcd:110abcd:111abc:110ab:700abcd
   acc.compact!
 end
 
+# For browse entries, we only want teh 100/110/111 and the 7xx counterparts _if_ the 7xx
+# has second-indicator 2 ("authoritative")
+# TODO: Figure out if forcing ind2=2 is too restrictive
+to_field 'author_authoritative', extract_marc_unless(
+  "100abcdjq:110abcd:111acden:700|*2|abcdjq:710|*2|abcd:711|*2|acden",
+skipWaSeSS)
+
 #changes by mrio Feb 2022
 to_field "main_author_display", extract_marc("100abcdefgjklnpqtu4:101abcdefgjklnpqtu4:110abcdefgjklnpqtu4:111abcdefgjklnpqtu4")
 to_field "main_author", extract_marc("100abcdgjkqu:101abcdgjkqu:110abcdgjkqu:111abcdgjkqu")
 
+# TODO: Change traject to allow, e.g., 700|*[^ ]abc where brackets indicate a regex
 skip_non_space_indicator_2 = ->(rec, field) { field.indicator2 != " " }
 skip_analytical_entry_or_title = ->(rec, field) { field.indicator2 == "2" || !field["t"].nil? }
 skip_analytical_entry_or_no_title = ->(rec, field) { field.indicator2 == "2" || field["t"].nil? }

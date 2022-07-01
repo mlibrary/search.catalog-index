@@ -502,6 +502,20 @@
         </analyzer>
     </fieldType>
 
+
+    <!-- An even less aggressive exactish, primarily for browse matching -->
+    <fieldType name="browse_match" class="solr.TextField" positionIncrementGap="&pig;">
+        <analyzer>
+            &less_aggressive_pre_tokenization_character_substitution;
+            &tokenize_into_one_big_token;
+            &trim_leading_and_trailing_whitespace;
+            <filter class="solr.PatternReplaceFilterFactory"
+                    pattern="[;,.]+$" replacement=" " replace="all"
+            />
+            &icu_case_folding_and_normalization;
+        </analyzer>
+    </fieldType>
+
     <fieldType name="lc_subject" class="solr.TextField"
                positionIncrementGap="&pig;">
         <analyzer>
