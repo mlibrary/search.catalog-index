@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/billdueber/high_level_browse
-  revision: 6af3ed8bfeb2022191b75f7d8900f470c68dbf7c
-  branch: nokogiri_not_oga
-  specs:
-    high_level_browse (0.2.0)
-      nokogiri (~> 1.0)
-
-GIT
   remote: https://github.com/mlibrary/alma_rest_client
   revision: 1d41c631573e4585562e06b43df025c2cdac99c6
   tag: 1.1.0
@@ -52,6 +44,8 @@ GEM
       rake
     hashdiff (1.0.1)
     hashie (5.0.0)
+    high_level_browse (1.1.1)
+      nokogiri (~> 1.0)
     http (5.0.4)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
@@ -179,7 +173,7 @@ DEPENDENCIES
   alma_rest_client!
   bundler (~> 2.0)
   byebug
-  high_level_browse!
+  high_level_browse (>= 1.1)
   httpclient (~> 2.0)
   jdbc-mysql (~> 8.0)
   library_stdnums (~> 1.0)
@@ -205,4 +199,4 @@ DEPENDENCIES
   yell (~> 2.0)
 
 BUNDLED WITH
-   2.3.13
+   2.3.10
