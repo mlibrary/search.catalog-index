@@ -23,10 +23,10 @@ to_field 'callnosort' do |record, acc, context|
 end
 
 
-### Last time the record was changed ####
-# cat_date -- the maximum value in a 972c
+###Date the record was added to the catalog####
+# cat_date -- first few digits of the 008 field
 
-to_field 'cat_date', extract_marc('972c') do |rec, acc, context|
+to_field 'cat_date', extract_marc('008[00-05]') do |rec, acc, context|
   acc << '00000000'
   acc.replace [acc.max]
 end
