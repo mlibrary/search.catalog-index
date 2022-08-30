@@ -103,6 +103,11 @@
         replace="all"/>
 '>
 
+<!ENTITY collapse_spaces '
+<filter class="solr.PatternReplaceFilterFactory" pattern="&white;" replacement=" "
+        replace="all"/>
+'>
+
 <!ENTITY trim_leading_and_trailing_whitespace '
 <filter class="solr.TrimFilterFactory"/>
 '>
@@ -138,6 +143,7 @@
 
 <!ENTITY cleanup '
 <filter class="solr.PatternReplaceFilterFactory" pattern="[&control;]" replacement="" replace="all"/>
+&collapse_spaces;
 &trim_leading_whitespace_and_punctuation;
 &trim_trailing_whitespace_and_punctuation;
 '>
