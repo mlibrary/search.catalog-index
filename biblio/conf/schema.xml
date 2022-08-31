@@ -327,11 +327,11 @@
             &expand_state_abbreviations;
             &cleanup;
             &icu_downcase;
-            &stem; <!-- Wait!!! Esty thinks maybe this should go after overlay -->
             &overlay_keyword_token_copies_for_later_processing;
             &remove_english_posessives;
             &keyword_aware_icu_normalization;
             &try_to_deal_with_cjk;
+            &stem;
             &remove_duplicates_at_same_position;
         </analyzer>
         <analyzer type="query">
@@ -340,11 +340,11 @@
             &cleanup;
             &icu_downcase;
             &expand_synonyms_at_query_time_must_come_before_overlay_or_stemming;
-            &stem;
             &overlay_keyword_token_copies_for_later_processing;
             &remove_english_posessives;
             &keyword_aware_icu_normalization;
             &try_to_deal_with_cjk;
+            &stem;
             &remove_duplicates_at_same_position;
         </analyzer>
     </fieldType>
