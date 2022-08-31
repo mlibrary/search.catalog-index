@@ -154,6 +154,11 @@
 '>
 
 
+<!ENTITY cleanup_whitespace '
+&trim_leading_and_trailing_whitespace;
+&collapse_whitespace;
+'>
+
 <!-- stemming -->
 <!-- Note we don't need to pull in the headwords, etc, for kstem since they're hardcoded (!) in.
      See the files at https://github.com/apache/lucene-solr/tree/master/lucene/analysis/common/src/java/org/apache/lucene/analysis/en
@@ -519,10 +524,8 @@
         <analyzer>
             &less_aggressive_pre_tokenization_character_substitution;
             &tokenize_into_one_big_token;
-            &trim_leading_and_trailing_whitespace;
-            <filter class="solr.PatternReplaceFilterFactory"
-                    pattern="[;,.]+$" replacement=" " replace="all"
-            />
+            &cleanup_whitespace;
+            &remove_unnecessary_ending_punctuation;
             &icu_case_folding_and_normalization;
         </analyzer>
     </fieldType>
@@ -567,8 +570,7 @@
         <analyzer>
             &tokenize_into_one_big_token;
             &normalize_numeric_digits;
-            &trim_leading_and_trailing_whitespace;
-            &collapse_whitespace;
+            &cleanup_whitespace;
             &remove_unnecessary_ending_punctuation;
         </analyzer>
     </fieldType>
