@@ -108,6 +108,11 @@
         replace="all"/>
 '>
 
+<!ENTITY remove_unnecessary_ending_punctuation '
+<filter class="solr.PatternReplaceFilterFactory" pattern="[.;,]+$" replacement=""
+        replace="all"/>
+'>
+
 <!ENTITY trim_leading_and_trailing_whitespace '
 <filter class="solr.TrimFilterFactory"/>
 '>
@@ -562,7 +567,9 @@
         <analyzer>
             &tokenize_into_one_big_token;
             &normalize_numeric_digits;
-            &cleanup;
+            &trim_leading_and_trailing_whitespace;
+            &collapse_whitespace;
+            &remove_unnecessary_ending_punctuation;
         </analyzer>
     </fieldType>
 
