@@ -222,8 +222,8 @@
 <copyField source="hlb3" dest="hlb3Str"/>
 <copyField source="genre" dest="genreStr"/>
 
-<field name="lc_subject_display"     type="string" indexed="false" stored="true" multiValued="true"/>
-<field name="non_lc_subject_display" type="string" indexed="false" stored="true" multiValued="true"/>
+<field name="lc_subject_display"     type="text_facet" indexed="true" stored="true" multiValued="true"/>
+<field name="non_lc_subject_display" type="text_facet" indexed="true" stored="true" multiValued="true"/>
 
     <!-- Time and Place -->
 
