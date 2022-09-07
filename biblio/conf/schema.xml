@@ -534,10 +534,14 @@
                positionIncrementGap="&pig;">
         <analyzer>
             &standard_single_token_tokenizer;
-            &remove_all_punctuation;
+            &cleanup_whitespace;
             &icu_downcase;
             <filter class="solr.PatternReplaceFilterFactory"
-                    pattern="\s+" replacement=" " replace="all"
+                    pattern="\s*--\s*" replacement="  "
+                    replace="all"
+            />
+            <filter class="solr.PatternReplaceFilterFactory"
+                    pattern="\p{P}" replacement=" " replace="all"
             />
         </analyzer>
     </fieldType>
@@ -546,12 +550,14 @@
                positionIncrementGap="&pig;">
         <analyzer>
             &standard_single_token_tokenizer;
+            &cleanup_whitespace;
             &icu_downcase;
             <filter class="solr.PatternReplaceFilterFactory"
-                    pattern="\s*--\s*" replacement="|" replace="all"
+                    pattern="\s*--\s*" replacement="  "
+                    replace="all"
             />
             <filter class="solr.PatternReplaceFilterFactory"
-                    pattern="[^\P{P}|]" replacement="" replace="all"
+                    pattern="\p{P}" replacement=" " replace="all"
             />
         </analyzer>
     </fieldType>
