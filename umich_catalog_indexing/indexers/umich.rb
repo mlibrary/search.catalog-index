@@ -34,8 +34,6 @@ to_field 'cat_date', extract_marc('008[00-05]') do |rec, acc, context|
       '00000000'
     end 
   end
-  acc << '00000000'
-  acc.replace [acc.max]
 end
 
 
