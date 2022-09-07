@@ -24,11 +24,16 @@ end
 
 
 ###Date the record was added to the catalog####
-# cat_date -- first few digits of the 008 field
+# cat_date -- first few digits of the 006 field
 
 to_field 'cat_date', extract_marc('008[00-05]') do |rec, acc, context|
-  acc << '00000000'
-  acc.replace [acc.max]
+  acc.map! do |str| 
+    begin
+      Date.parse(str).strftime("%Y%m%d") 
+    rescue
+      '00000000'
+    end 
+  end
 end
 
 
