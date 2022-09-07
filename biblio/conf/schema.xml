@@ -103,6 +103,16 @@
         replace="all"/>
 '>
 
+<!ENTITY collapse_whitespace '
+<filter class="solr.PatternReplaceFilterFactory" pattern="&white;" replacement=" "
+        replace="all"/>
+'>
+
+<!ENTITY remove_unnecessary_ending_punctuation '
+<filter class="solr.PatternReplaceFilterFactory" pattern="[.;,]+$" replacement=""
+        replace="all"/>
+'>
+
 <!ENTITY trim_leading_and_trailing_whitespace '
 <filter class="solr.TrimFilterFactory"/>
 '>
@@ -138,10 +148,16 @@
 
 <!ENTITY cleanup '
 <filter class="solr.PatternReplaceFilterFactory" pattern="[&control;]" replacement="" replace="all"/>
+&collapse_whitespace;
 &trim_leading_whitespace_and_punctuation;
 &trim_trailing_whitespace_and_punctuation;
 '>
 
+
+<!ENTITY cleanup_whitespace '
+&trim_leading_and_trailing_whitespace;
+&collapse_whitespace;
+'>
 
 <!-- stemming -->
 <!-- Note we don't need to pull in the headwords, etc, for kstem since they're hardcoded (!) in.
@@ -508,10 +524,8 @@
         <analyzer>
             &less_aggressive_pre_tokenization_character_substitution;
             &tokenize_into_one_big_token;
-            &trim_leading_and_trailing_whitespace;
-            <filter class="solr.PatternReplaceFilterFactory"
-                    pattern="[;,.]+$" replacement=" " replace="all"
-            />
+            &cleanup_whitespace;
+            &remove_unnecessary_ending_punctuation;
             &icu_case_folding_and_normalization;
         </analyzer>
     </fieldType>
@@ -556,7 +570,8 @@
         <analyzer>
             &tokenize_into_one_big_token;
             &normalize_numeric_digits;
-            &cleanup;
+            &cleanup_whitespace;
+            &remove_unnecessary_ending_punctuation;
         </analyzer>
     </fieldType>
 

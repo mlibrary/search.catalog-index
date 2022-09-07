@@ -149,7 +149,7 @@ end
 # For browse entries, we only want teh 100/110/111 and the 7xx counterparts _if_ the 7xx
 # has second-indicator 2 ("authoritative")
 # TODO: Figure out if forcing ind2=2 is too restrictive
-to_field 'author_authoritative', extract_marc_unless(
+to_field 'author_authoritative_browse', extract_marc_unless(
   "100abcdjq:110abcd:111acden:700|*2|abcdjq:710|*2|abcd:711|*2|acden",
 skipWaSeSS)
 

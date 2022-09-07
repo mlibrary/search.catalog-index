@@ -130,8 +130,9 @@
 <field name="related_title" type="text_no_stem_or_synonyms" indexed="true" stored="true"   multiValued="true" />
 <copyField source="author" dest="authorStr"/>
 
-<field name="author_authoritative" type="browse_match" indexed="true" stored="true" multiValued="true"/>
-
+<field name="author_authoritative_browse" type="text_facet" indexed="true" stored="true" multiValued="true"/>
+<field name="author_authoritative_search" type="browse_match" indexed="true" stored="false" multiValued="true"/>
+<copyField source="author_authoritative_browse" dest="author_authoritative_search"/>
 <!-- Mixed title/author -->
 
 <field name="title_author" type="text" indexed="true" stored="false" multiValued="true"/>
