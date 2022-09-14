@@ -29,11 +29,11 @@ class IndexForDate
 
   def run
     @logger.info("Indexing Alma Medata")
-    files_that_match(/_delete\.tar/).each do | file |
+    files_that_match(/_delete_?\d?\d?\.tar/).each do | file |
       @logger.info("deleting ids from file: #{file}")
       @delete_it.perform(file, @solr_url)
     end
-    files_that_match(/_new\.tar/).each do | file |
+    files_that_match(/_new_?\d?\d?\.tar/).each do | file |
       @logger.info("Indexing metadata from file: #{file}")
       @index_it.perform(file, @solr_url)
     end
