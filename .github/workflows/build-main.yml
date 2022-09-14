@@ -1,6 +1,8 @@
-name: Build latest catalog-solr-unstable and catalog-indexer-unstable on push
+name: Build latest catalog-solr-unstable and catalog-indexer-unstable on push to main
 
-on: push
+on: 
+  push:
+    branches: [ main ]
 
 jobs:
   build-catalog-solr:

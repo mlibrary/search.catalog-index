@@ -1,4 +1,4 @@
-name: Manual Deploy Indexer to Testing
+name: Manual Deploy Reindexer to Testing
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ env:
 
 jobs:
   deploy:
-    name: "Deploy ${{ github.event.inputs.tag }} to indexer"
+    name: "Deploy ${{ github.event.inputs.tag }} to reindexer"
     runs-on: ubuntu-latest
     environment: testing
     steps:
@@ -68,8 +68,8 @@ jobs:
       uses: mlibrary/deploy-to-kubernetes@v2
       with:
         registry_token: ${{ secrets.GITHUB_TOKEN }}
-        deployment: catalog-indexer
-        container: catalog-indexer
+        deployment: catalog-reindexer
+        container: catalog-reindexer
         image: ${{ env.IMAGE }}:${{ steps.tag_check.outputs.tag }}
         cluster_ca: ${{ secrets.HATCHER_CLUSTER_CA }}
         cluster_server: https://hatcher.kubernetes.lib.umich.edu

@@ -12,6 +12,7 @@ env:
 
 jobs:
   deploy-deployment:
+    name: "Deploy ${{ github.event.inputs.tag }} to indexer"
     runs-on: ubuntu-latest
     environment: production
     steps:
