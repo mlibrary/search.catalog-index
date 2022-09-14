@@ -138,6 +138,14 @@
 <filter class="solr.PatternReplaceFilterFactory" pattern="[&punct;]" replacement="" replace="all"/>
 '>
 
+<!ENTITY spacify_all_punctuation '
+<filter class="solr.PatternReplaceFilterFactory" pattern="[&punct;]" replacement=" " replace="all"/>
+'>
+
+<!ENTITY spacify_some_punctuation '
+<filter class="solr.PatternReplaceFilterFactory" pattern="[-:/()\[\]{}=&amp;]" replacement=" " replace="all"/>
+'>
+
 <!ENTITY trim_leading_whitespace_and_punctuation '
 <filter class="solr.PatternReplaceFilterFactory" pattern="^[&punct;&white;]+" replacement="" replace="all"/>
 '>
@@ -209,6 +217,7 @@
 
 <!ENTITY try_to_deal_with_cjk '
 <filter class="solr.CJKWidthFilterFactory"/>
+
 <filter class="solr.CJKBigramFilterFactory"
         han="true" hiragana="true  "
         katakana="false" hangul="false"
@@ -237,6 +246,10 @@
 
 <!ENTITY icu_downcase '
 <filter class="solr.ICUTransformFilterFactory" id="Any-Lower"/>
+'>
+
+<!ENTITY icu_chinese_simplified '
+<filter class="solr.ICUTransformFilterFactory" id="Hant-Hans"/>
 '>
 
 <!ENTITY keyword_aware_icu_normalization '
@@ -399,6 +412,7 @@
             &icu_downcase;
             &overlay_keyword_token_copies_for_later_processing;
             &keyword_aware_icu_normalization;
+            &icu_chinese_simplified;
             &remove_duplicates_at_same_position;
             <filter class="edu.umich.lib.solr_filters.LeftAnchoredSearchFilterFactory"/>
         </analyzer>
@@ -524,9 +538,10 @@
         <analyzer>
             &less_aggressive_pre_tokenization_character_substitution;
             &tokenize_into_one_big_token;
-            &cleanup_whitespace;
-            &remove_unnecessary_ending_punctuation;
             &icu_case_folding_and_normalization;
+            &spacify_some_punctuation;
+            &remove_all_punctuation;
+            &cleanup_whitespace;
         </analyzer>
     </fieldType>
 
