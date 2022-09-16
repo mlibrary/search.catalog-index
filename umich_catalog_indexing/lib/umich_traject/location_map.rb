@@ -4,23 +4,27 @@ module Traject
     def self.location_map
       m = MatchMap.new
       m.echo = :onmiss
-      m[/^SPEC AMS.*/] = "SPEC AMS"
+      #====added 09-2022 for SCRC location addtions
+      m[/^SPEC SCB-CHIL.*/] = "SPEC CHIL"
+      m[/^SPEC SCH-FAUL.*/] = "SPEC FAUL"
+      m[/^SPEC SC[HB]-TAUB.*/] = "SPEC TAUB"
+      m[/^SPEC SC[HB]-CUL/] = "SPEC CUL"
+      m[/^SPEC SC[HB]-JHC.*/] = "SPEC JHC"
+      m[/^SPEC SC[HB]-LA.*/] = "SPEC LABD" #need to fix this later
+      m[/^SPEC SC[HB]-WOR/] = "SPEC WOR" #need to fix this later
+      m[/^SPEC SCB-THC.*/] = "SPEC THC" #need to fix this later
+      #==== end of 09-2022 SCRC additions
       m[/^SPEC RCLC/] = "SPEC CHIL"
       m[/^SPEC GOSL/] = ["SPEC CHIL", "SPEC GOSL"]
       m[/^SPEC CHIL.*/] = "SPEC CHIL"
       m[/^SPEC CUL.*/] = "SPEC CUL"
       m[/^SPEC WALP.*/] = "SPEC CHIL"
       m[/^SPEC FAUL.*/] = "SPEC FAUL"
-      m[/^SPEC RAR.*/] = "SPEC RARE"
-      m[/^SPEC SCI$/] = "SPEC RARE"
-      m[/^SPEC BUHR.*/] = "SPEC RARE"
       m[/^SPEC$/] = "SPEC"
       m[/^SPEC TAUB.*/] = "SPEC TAUB"
       m[/^SPEC LA.*/] = "SPEC LABD"
-      m[/^SPEC MYR.*/] = "SPEC MYERS"
-      m[/^SPEC WALP.*/] = "SPEC WALP"
-      m[/^SPEC WLPR/] = "SPEC WALP"
-#      m[/^HATCH SEM/]   = "HATCH NER"
+      #=== between 09-2022 changes and here should be removed
+      #=== when confirmed that everything in SPEC is cleaned up
       m[/^HATCH MSHLV/] = "HATCH BKS"
       m[/^HATCH MREF/] = "HATCH BKS"
       m[/^HATCH MOVRD/] = "HATCH MAP"
