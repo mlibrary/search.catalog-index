@@ -10,6 +10,6 @@ hathi_file = Jobs::Utilities::ZephirFile.latest_monthly_full
 
 logger.info "Sending job to index #{hathi_file} into reindex solr: #{ENV.fetch("REINDEX_SOLR_URL")}"
 
-IndexHathi.perform_async(hathi_file, ENV.fetch("REINDEX_SOLR_URL"))
+IndexHathi.set(queue: 'reindex').perform_async(hathi_file, ENV.fetch("REINDEX_SOLR_URL"))
 
 logger.info "Finished submitting HathiTrust monthly full job"
