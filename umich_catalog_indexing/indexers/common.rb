@@ -1,5 +1,5 @@
 $:.unshift "#{File.dirname(__FILE__)}/../lib"
-
+require "traject"
 
 #######  COMMON STUFF BETWEEN UMICH AND HT ########
 #######  INDEXING                          ########
@@ -146,12 +146,35 @@ to_field "authorSort", extract_marc_unless("100abcd:110abcd:111abc:110ab:700abcd
   acc.compact!
 end
 
-# For browse entries, we only want teh 100/110/111 and the 7xx counterparts _if_ the 7xx
-# has second-indicator 2 ("authoritative")
-# TODO: Figure out if forcing ind2=2 is too restrictive
+# For browse entries, we only want teh 100/110/111 and their 7xx counterparts
+# The 1XX fields are easy and normal
 to_field 'author_authoritative_browse', extract_marc_unless(
-  "100abcdjq:110abcd:111acden:700|*2|abcdjq:710|*2|abcd:711|*2|acden",
+  "100abcdjq:110abcd:111acden",
 skipWaSeSS)
+
+# Add on to the author_authoritative_browse field with the 7XXs
+# The 7XXs are more complicated. Per Leigh Billings:
+# 1xx fields
+# AND 700*_ without a $t
+# AND 700*2 with a $t [but only use the subfields abcdgq from that string in order to leave the title-related subfields out
+
+author_7xx = Traject::MarcExtractor.cached("700abcdgq:710abcd:711acden")
+def valid_author_700?(field)
+  ind2_blank = [" ", "", nil].include? field.indicator2
+  ind2_2 =  field.indicator2 == "2"
+  has_t = !field['t'].nil?
+  (ind2_blank and !has_t) or (ind2_2 and has_t)
+end
+to_field "author_authoritative_browse" do |rec, acc, _context|
+  authors = []
+  author_7xx.each_matching_line(rec) do |field, spec, extractor|
+    if valid_author_700?(field)
+      authors << extractor.collect_subfields(field, spec)
+    end
+  end
+  acc.replace authors.flatten.compact
+end
+
 
 #changes by mrio Feb 2022
 to_field "main_author_display", extract_marc("100abcdefgjklnpqtu4:101abcdefgjklnpqtu4:110abcdefgjklnpqtu4:111abcdefgjklnpqtu4")

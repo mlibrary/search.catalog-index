@@ -79,6 +79,7 @@
 
 <!ENTITY pre_tokenization_character_substitution '
 <charFilter class="solr.MappingCharFilterFactory" mapping="schema/character_and_symbol_substitutions.txt"/>
+&pre_tokenization_cjk;
 '>
 <!ENTITY normalize_numeric_digits '
 <filter class="solr.DecimalDigitFilterFactory"/>
@@ -86,6 +87,7 @@
 
 <!ENTITY less_aggressive_pre_tokenization_character_substitution '
 <charFilter class="solr.MappingCharFilterFactory" mapping="schema/exactish_char_substitution.txt"/>
+&pre_tokenization_cjk;
 '>
 
 
@@ -207,13 +209,22 @@
 '>
 <!-- Normalization and case folding -->
 
-<!ENTITY try_to_deal_with_cjk '
+<!-- pre/post_tokenization_cjk take whole cloth from Stanford
+  via https://github.com/sul-dlss/CJKFilterUtils -->
+
+<!ENTITY pre_tokenization_cjk '
+<charFilter class="solr.PatternReplaceCharFilterFactory" pattern="([\p{InHangul_Jamo}\p{InHangul_Compatibility_Jamo}\p{InHangul_Syllables}][\p{InBopomofo}\p{InBopomofo_Extended}\p{InCJK_Compatibility}\p{InCJK_Compatibility_Forms}\p{InCJK_Compatibility_Ideographs}\p{InCJK_Compatibility_Ideographs_Supplement}\p{InCJK_Radicals_Supplement}\p{InCJK_Symbols_And_Punctuation}\p{InCJK_Unified_Ideographs}\p{InCJK_Unified_Ideographs_Extension_A}\p{InCJK_Unified_Ideographs_Extension_B}\p{InKangxi_Radicals}\p{InHalfwidth_And_Fullwidth_Forms}\p{InIdeographic_Description_Characters}]*)\s+(?=[\p{InHangul_Jamo}\p{InHangul_Compatibility_Jamo}\p{InHangul_Syllables}\p{InBopomofo}\p{InBopomofo_Extended}\p{InCJK_Compatibility}\p{InCJK_Compatibility_Forms}\p{InCJK_Compatibility_Ideographs}\p{InCJK_Compatibility_Ideographs_Supplement}\p{InCJK_Radicals_Supplement}\p{InCJK_Symbols_And_Punctuation}\p{InCJK_Unified_Ideographs}\p{InCJK_Unified_Ideographs_Extension_A}\p{InCJK_Unified_Ideographs_Extension_B}\p{InKangxi_Radicals}\p{InHalfwidth_And_Fullwidth_Forms}\p{InIdeographic_Description_Characters}])" replacement="$1"/>
+<charFilter class="solr.PatternReplaceCharFilterFactory" pattern="([\p{InHangul_Jamo}\p{InHangul_Compatibility_Jamo}\p{InHangul_Syllables}\p{InBopomofo}\p{InBopomofo_Extended}\p{InCJK_Compatibility}\p{InCJK_Compatibility_Forms}\p{InCJK_Compatibility_Ideographs}\p{InCJK_Compatibility_Ideographs_Supplement}\p{InCJK_Radicals_Supplement}\p{InCJK_Symbols_And_Punctuation}\p{InCJK_Unified_Ideographs}\p{InCJK_Unified_Ideographs_Extension_A}\p{InCJK_Unified_Ideographs_Extension_B}\p{InKangxi_Radicals}\p{InHalfwidth_And_Fullwidth_Forms}\p{InIdeographic_Description_Characters}])\s+(?=[\p{InBopomofo}\p{InBopomofo_Extended}\p{InCJK_Compatibility}\p{InCJK_Compatibility_Forms}\p{InCJK_Compatibility_Ideographs}\p{InCJK_Compatibility_Ideographs_Supplement}\p{InCJK_Radicals_Supplement}\p{InCJK_Symbols_And_Punctuation}\p{InCJK_Unified_Ideographs}\p{InCJK_Unified_Ideographs_Extension_A}\p{InCJK_Unified_Ideographs_Extension_B}\p{InKangxi_Radicals}\p{InHalfwidth_And_Fullwidth_Forms}\p{InIdeographic_Description_Characters}\s]*[\p{InHangul_Jamo}\p{InHangul_Compatibility_Jamo}\p{InHangul_Syllables}])" replacement="$1"/>
+<charFilter class="edu.stanford.lucene.analysis.ICUCustomTransformCharFilterFactory" id="edu/stanford/lucene/analysis/stanford_cjk_transliterations.txt" />
+<charFilter class="edu.stanford.lucene.analysis.ICUTransformCharFilterFactory" id="Traditional-Simplified" />
+<charFilter class="edu.stanford.lucene.analysis.ICUTransformCharFilterFactory" id="Katakana-Hiragana"/>
+'>
+
+<!ENTITY post_tokenization_cjk '
 <filter class="solr.CJKWidthFilterFactory"/>
-<filter class="solr.CJKBigramFilterFactory"
-        han="true" hiragana="true  "
-        katakana="false" hangul="false"
-        outputUnigrams="false"
-/>
+<filter class="solr.ICUTransformFilterFactory" id="Traditional-Simplified"/>
+<filter class="solr.ICUFoldingFilterFactory"/>   <!-- NFKC, case folding, diacritics removed -->
+<filter class="solr.CJKBigramFilterFactory" han="false" hiragana="false" katakana="false" hangul="true" outputUnigrams="true" />
 <filter class="solr.FixBrokenOffsetsFilterFactory"/>
 '>
 
@@ -246,6 +257,7 @@
 <!-- Tokenizing -->
 <!ENTITY tokenize_with_icu '
 <tokenizer class="solr.ICUTokenizerFactory"/>
+&post_tokenization_cjk;
 '>
 
 <!ENTITY tokenize_on_slash '
@@ -254,6 +266,7 @@
 
 <!ENTITY tokenize_into_one_big_token '
 <tokenizer class="solr.KeywordTokenizerFactory"/>
+&post_tokenization_cjk;
 '>
 
 
@@ -330,7 +343,7 @@
             &overlay_keyword_token_copies_for_later_processing;
             &remove_english_posessives;
             &keyword_aware_icu_normalization;
-            &try_to_deal_with_cjk;
+            &post_tokenization_cjk;
             &stem;
             &remove_duplicates_at_same_position;
         </analyzer>
@@ -343,7 +356,7 @@
             &overlay_keyword_token_copies_for_later_processing;
             &remove_english_posessives;
             &keyword_aware_icu_normalization;
-            &try_to_deal_with_cjk;
+            &post_tokenization_cjk;
             &stem;
             &remove_duplicates_at_same_position;
         </analyzer>
@@ -365,7 +378,7 @@
             &overlay_keyword_token_copies_for_later_processing;
             &remove_english_posessives;
             &keyword_aware_icu_normalization;
-            &try_to_deal_with_cjk;
+            &post_tokenization_cjk;
             &remove_duplicates_at_same_position;
         </analyzer>
     </fieldType>
@@ -474,7 +487,7 @@
             &spaceify_dash_and_colon;
             &remove_all_punctuation;
             &icu_case_folding_and_normalization;
-            &try_to_deal_with_cjk;
+            &post_tokenization_cjk;
             &remove_duplicates_at_same_position;
             <!-- Left-pad numbers with zeroes -->
             <filter class="solr.PatternReplaceFilterFactory"
@@ -513,7 +526,7 @@
             &remove_all_punctuation;
             &overlay_keyword_token_copies_for_later_processing;
             &keyword_aware_icu_normalization;
-            &try_to_deal_with_cjk;
+            &post_tokenization_cjk;
             &remove_duplicates_at_same_position;
         </analyzer>
     </fieldType>
