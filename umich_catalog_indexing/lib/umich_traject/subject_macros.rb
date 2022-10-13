@@ -22,7 +22,7 @@ module Traject::Macros::UMich
     def self.eight_eighties_for(r, f)
       vid = f['6']
       if vid
-        r.fields('880').select { |eef| eef['6'].start_with? "#{f.tag}-#{vid.split("-").last}" }
+        r.fields('880').select { |eef| eef['6']&.start_with? "#{f.tag}-#{vid.split("-").last}" }
       else
         []
       end

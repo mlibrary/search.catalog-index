@@ -31,6 +31,7 @@
 <field name="location"    type="string" indexed="true" stored="true" multiValued="true"/>
 <field name="fund"    type="exactish" indexed="true" stored="true" multiValued="true"/>
 <field name="fund_display"    type="string" indexed="false" stored="true" multiValued="true"/>
+<field name="bookplate"    type="string" indexed="true" stored="true" multiValued="true"/>
 
     <!-- Identifiers -->
 
@@ -104,12 +105,20 @@
 <field name="format"       type="string"     indexed="true" stored="true"  multiValued="true"/>
 <field name="availability" type="string"     indexed="true" stored="true"  multiValued="true"/>
 <field name="publisher"    type="text_no_stem_or_synonyms" indexed="true" stored="true" multiValued="true"/>
+<field name="publisher_display"    type="text_no_stem_or_synonyms" indexed="true" stored="true" multiValued="true"/>
 <field name="edition"      type="string"     indexed="true" stored="true" multiValued="true"/>
 <field name="cat_date"     type="int"       indexed="true" stored="true" multiValued="false"/>
+<field name="preferred_citation"     type="string"       indexed="true" stored="true" multiValued="true"/>
+<field name="location_of_originals"     type="string"       indexed="true" stored="true" multiValued="true"/>
+<field name="funding_information"     type="string"       indexed="true" stored="true" multiValued="true"/>
+<field name="source_of_acquisition"     type="string"       indexed="true" stored="true" multiValued="true"/>
+<field name="map_scale"     type="string"       indexed="true" stored="true" multiValued="true"/>
 
 
     <!-- Author fields -->
 
+<field name="main_author_display"      type="text_no_stem_or_synonyms" indexed="false" stored="true"    multiValued="true" />
+<field name="main_author"      type="text_no_stem_or_synonyms" indexed="true" stored="true"    multiValued="true" />
 <field name="mainauthor"      type="text_no_stem_or_synonyms" indexed="true" stored="true"    multiValued="true" />
 <field name="mainauthor_role" type="string" indexed="true" stored="true"    multiValued="true" />
 <field name="author"      type="text_no_stem_or_synonyms" indexed="true" stored="true"    multiValued="true" />
@@ -119,8 +128,15 @@
 <field name="author2"     type="text_no_stem_or_synonyms" indexed="true" stored="true"   multiValued="true" />
 <field name="authorSort" type="exactishSort" indexed="true" stored="false" multiValued="false"/>
 
+<field name="contributors_display" type="text_no_stem_or_synonyms" indexed="false" stored="true"   multiValued="true" />
+<field name="contributors" type="text_no_stem_or_synonyms" indexed="true" stored="true"   multiValued="true" />
+<field name="related_title_display" type="text_no_stem_or_synonyms" indexed="false" stored="true"   multiValued="true" />
+<field name="related_title" type="text_no_stem_or_synonyms" indexed="true" stored="true"   multiValued="true" />
 <copyField source="author" dest="authorStr"/>
 
+<field name="author_authoritative_browse" type="text_facet" indexed="true" stored="true" multiValued="true"/>
+<field name="author_authoritative_search" type="browse_match" indexed="true" stored="true" multiValued="true"/>
+<copyField source="author_authoritative_browse" dest="author_authoritative_search"/>
 <!-- Mixed title/author -->
 
 <field name="title_author" type="text" indexed="true" stored="false" multiValued="true"/>
@@ -154,6 +170,7 @@
 
 <field name="series"          type="text"          indexed="true" stored="true" multiValued="true"/>
 <field name="series2"         type="text"          indexed="true" stored="true" multiValued="true"/>
+<field name="series_statement"         type="text"          indexed="true" stored="true" multiValued="true"/>
 
 <copyField source="title"      dest="titleProper"/>
 
@@ -209,8 +226,8 @@
 <copyField source="hlb3" dest="hlb3Str"/>
 <copyField source="genre" dest="genreStr"/>
 
-<field name="lc_subject_display"     type="string" indexed="false" stored="true" multiValued="true"/>
-<field name="non_lc_subject_display" type="string" indexed="false" stored="true" multiValued="true"/>
+<field name="lc_subject_display"     type="text_facet" indexed="true" stored="true" multiValued="true"/>
+<field name="non_lc_subject_display" type="text_facet" indexed="true" stored="true" multiValued="true"/>
 
     <!-- Time and Place -->
 

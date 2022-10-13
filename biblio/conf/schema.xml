@@ -79,6 +79,7 @@
 
 <!ENTITY pre_tokenization_character_substitution '
 <charFilter class="solr.MappingCharFilterFactory" mapping="schema/character_and_symbol_substitutions.txt"/>
+&pre_tokenization_cjk;
 '>
 <!ENTITY normalize_numeric_digits '
 <filter class="solr.DecimalDigitFilterFactory"/>
@@ -86,6 +87,7 @@
 
 <!ENTITY less_aggressive_pre_tokenization_character_substitution '
 <charFilter class="solr.MappingCharFilterFactory" mapping="schema/exactish_char_substitution.txt"/>
+&pre_tokenization_cjk;
 '>
 
 
@@ -100,6 +102,16 @@
 
 <!ENTITY remove_punctuation_next_to_a_space '
 <filter class="solr.PatternReplaceFilterFactory" pattern="(?:&white;+[&punct;]+)|(?:[&punct;]+&white;+)" replacement=" "
+        replace="all"/>
+'>
+
+<!ENTITY collapse_whitespace '
+<filter class="solr.PatternReplaceFilterFactory" pattern="&white;" replacement=" "
+        replace="all"/>
+'>
+
+<!ENTITY remove_unnecessary_ending_punctuation '
+<filter class="solr.PatternReplaceFilterFactory" pattern="[.;,]+$" replacement=""
         replace="all"/>
 '>
 
@@ -138,10 +150,16 @@
 
 <!ENTITY cleanup '
 <filter class="solr.PatternReplaceFilterFactory" pattern="[&control;]" replacement="" replace="all"/>
+&collapse_whitespace;
 &trim_leading_whitespace_and_punctuation;
 &trim_trailing_whitespace_and_punctuation;
 '>
 
+
+<!ENTITY cleanup_whitespace '
+&trim_leading_and_trailing_whitespace;
+&collapse_whitespace;
+'>
 
 <!-- stemming -->
 <!-- Note we don't need to pull in the headwords, etc, for kstem since they're hardcoded (!) in.
@@ -191,13 +209,22 @@
 '>
 <!-- Normalization and case folding -->
 
-<!ENTITY try_to_deal_with_cjk '
+<!-- pre/post_tokenization_cjk take whole cloth from Stanford
+  via https://github.com/sul-dlss/CJKFilterUtils -->
+
+<!ENTITY pre_tokenization_cjk '
+<charFilter class="solr.PatternReplaceCharFilterFactory" pattern="([\p{InHangul_Jamo}\p{InHangul_Compatibility_Jamo}\p{InHangul_Syllables}][\p{InBopomofo}\p{InBopomofo_Extended}\p{InCJK_Compatibility}\p{InCJK_Compatibility_Forms}\p{InCJK_Compatibility_Ideographs}\p{InCJK_Compatibility_Ideographs_Supplement}\p{InCJK_Radicals_Supplement}\p{InCJK_Symbols_And_Punctuation}\p{InCJK_Unified_Ideographs}\p{InCJK_Unified_Ideographs_Extension_A}\p{InCJK_Unified_Ideographs_Extension_B}\p{InKangxi_Radicals}\p{InHalfwidth_And_Fullwidth_Forms}\p{InIdeographic_Description_Characters}]*)\s+(?=[\p{InHangul_Jamo}\p{InHangul_Compatibility_Jamo}\p{InHangul_Syllables}\p{InBopomofo}\p{InBopomofo_Extended}\p{InCJK_Compatibility}\p{InCJK_Compatibility_Forms}\p{InCJK_Compatibility_Ideographs}\p{InCJK_Compatibility_Ideographs_Supplement}\p{InCJK_Radicals_Supplement}\p{InCJK_Symbols_And_Punctuation}\p{InCJK_Unified_Ideographs}\p{InCJK_Unified_Ideographs_Extension_A}\p{InCJK_Unified_Ideographs_Extension_B}\p{InKangxi_Radicals}\p{InHalfwidth_And_Fullwidth_Forms}\p{InIdeographic_Description_Characters}])" replacement="$1"/>
+<charFilter class="solr.PatternReplaceCharFilterFactory" pattern="([\p{InHangul_Jamo}\p{InHangul_Compatibility_Jamo}\p{InHangul_Syllables}\p{InBopomofo}\p{InBopomofo_Extended}\p{InCJK_Compatibility}\p{InCJK_Compatibility_Forms}\p{InCJK_Compatibility_Ideographs}\p{InCJK_Compatibility_Ideographs_Supplement}\p{InCJK_Radicals_Supplement}\p{InCJK_Symbols_And_Punctuation}\p{InCJK_Unified_Ideographs}\p{InCJK_Unified_Ideographs_Extension_A}\p{InCJK_Unified_Ideographs_Extension_B}\p{InKangxi_Radicals}\p{InHalfwidth_And_Fullwidth_Forms}\p{InIdeographic_Description_Characters}])\s+(?=[\p{InBopomofo}\p{InBopomofo_Extended}\p{InCJK_Compatibility}\p{InCJK_Compatibility_Forms}\p{InCJK_Compatibility_Ideographs}\p{InCJK_Compatibility_Ideographs_Supplement}\p{InCJK_Radicals_Supplement}\p{InCJK_Symbols_And_Punctuation}\p{InCJK_Unified_Ideographs}\p{InCJK_Unified_Ideographs_Extension_A}\p{InCJK_Unified_Ideographs_Extension_B}\p{InKangxi_Radicals}\p{InHalfwidth_And_Fullwidth_Forms}\p{InIdeographic_Description_Characters}\s]*[\p{InHangul_Jamo}\p{InHangul_Compatibility_Jamo}\p{InHangul_Syllables}])" replacement="$1"/>
+<charFilter class="edu.stanford.lucene.analysis.ICUCustomTransformCharFilterFactory" id="edu/stanford/lucene/analysis/stanford_cjk_transliterations.txt" />
+<charFilter class="edu.stanford.lucene.analysis.ICUTransformCharFilterFactory" id="Traditional-Simplified" />
+<charFilter class="edu.stanford.lucene.analysis.ICUTransformCharFilterFactory" id="Katakana-Hiragana"/>
+'>
+
+<!ENTITY post_tokenization_cjk '
 <filter class="solr.CJKWidthFilterFactory"/>
-<filter class="solr.CJKBigramFilterFactory"
-        han="true" hiragana="true  "
-        katakana="false" hangul="false"
-        outputUnigrams="false"
-/>
+<filter class="solr.ICUTransformFilterFactory" id="Traditional-Simplified"/>
+<filter class="solr.ICUFoldingFilterFactory"/>   <!-- NFKC, case folding, diacritics removed -->
+<filter class="solr.CJKBigramFilterFactory" han="false" hiragana="false" katakana="false" hangul="true" outputUnigrams="true" />
 <filter class="solr.FixBrokenOffsetsFilterFactory"/>
 '>
 
@@ -221,6 +248,7 @@
 <!-- Tokenizing -->
 <!ENTITY tokenize_with_icu '
 <tokenizer class="solr.ICUTokenizerFactory"/>
+&post_tokenization_cjk;
 '>
 
 <!ENTITY tokenize_on_slash '
@@ -229,6 +257,7 @@
 
 <!ENTITY tokenize_into_one_big_token '
 <tokenizer class="solr.KeywordTokenizerFactory"/>
+&post_tokenization_cjk;
 '>
 
 
@@ -307,11 +336,11 @@
             &expand_state_abbreviations;
             &cleanup;
             &icu_downcase;
-            &stem; <!-- Wait!!! Esty thinks maybe this should go after overlay -->
             &overlay_keyword_token_copies_for_later_processing;
             &remove_english_posessives;
             &keyword_aware_icu_normalization;
-            &try_to_deal_with_cjk;
+            &post_tokenization_cjk;
+            &stem;
             &remove_duplicates_at_same_position;
         </analyzer>
         <analyzer type="query">
@@ -320,11 +349,11 @@
             &cleanup;
             &icu_downcase;
             &expand_synonyms_at_query_time_must_come_before_overlay_or_stemming;
-            &stem;
             &overlay_keyword_token_copies_for_later_processing;
             &remove_english_posessives;
             &keyword_aware_icu_normalization;
-            &try_to_deal_with_cjk;
+            &post_tokenization_cjk;
+            &stem;
             &remove_duplicates_at_same_position;
         </analyzer>
     </fieldType>
@@ -345,7 +374,7 @@
             &overlay_keyword_token_copies_for_later_processing;
             &remove_english_posessives;
             &keyword_aware_icu_normalization;
-            &try_to_deal_with_cjk;
+            &post_tokenization_cjk;
             &remove_duplicates_at_same_position;
         </analyzer>
     </fieldType>
@@ -454,7 +483,7 @@
             &spaceify_dash_and_colon;
             &remove_all_punctuation;
             &icu_case_folding_and_normalization;
-            &try_to_deal_with_cjk;
+            &post_tokenization_cjk;
             &remove_duplicates_at_same_position;
             <!-- Left-pad numbers with zeroes -->
             <filter class="solr.PatternReplaceFilterFactory"
@@ -493,8 +522,34 @@
             &remove_all_punctuation;
             &overlay_keyword_token_copies_for_later_processing;
             &keyword_aware_icu_normalization;
-            &try_to_deal_with_cjk;
+            &post_tokenization_cjk;
             &remove_duplicates_at_same_position;
+        </analyzer>
+    </fieldType>
+
+
+    <!-- An even less aggressive exactish, primarily for browse matching.
+         This matches the ruby code from the authority_browse code
+
+                WHICH_PUNCT_TO_SPACIFY = /[:\-]+/
+                def sort_key(str)
+                  str = unicode_normalize(str)
+                  str = str.gsub(WHICH_PUNCT_TO_SPACIFY, " ")
+                  str = str.gsub(/\p{P}/, '')
+                  cleanup_spaces(str)
+                end
+     -->
+    <fieldType name="browse_match" class="solr.TextField" positionIncrementGap="&pig;">
+        <analyzer>
+            &less_aggressive_pre_tokenization_character_substitution;
+            &tokenize_into_one_big_token;
+            &icu_case_folding_and_normalization;
+            <filter class="solr.PatternReplaceFilterFactory"
+                    pattern="[:\-]+" replacement=" "
+                    replace="all"
+            />
+            &remove_all_punctuation;
+            &cleanup_whitespace;
         </analyzer>
     </fieldType>
 
@@ -502,10 +557,14 @@
                positionIncrementGap="&pig;">
         <analyzer>
             &standard_single_token_tokenizer;
-            &remove_all_punctuation;
+            &cleanup_whitespace;
             &icu_downcase;
             <filter class="solr.PatternReplaceFilterFactory"
-                    pattern="\s+" replacement=" " replace="all"
+                    pattern="\s*--\s*" replacement="  "
+                    replace="all"
+            />
+            <filter class="solr.PatternReplaceFilterFactory"
+                    pattern="\p{P}" replacement=" " replace="all"
             />
         </analyzer>
     </fieldType>
@@ -514,12 +573,14 @@
                positionIncrementGap="&pig;">
         <analyzer>
             &standard_single_token_tokenizer;
+            &cleanup_whitespace;
             &icu_downcase;
             <filter class="solr.PatternReplaceFilterFactory"
-                    pattern="\s*--\s*" replacement="|" replace="all"
+                    pattern="\s*--\s*" replacement="  "
+                    replace="all"
             />
             <filter class="solr.PatternReplaceFilterFactory"
-                    pattern="[^\P{P}|]" replacement="" replace="all"
+                    pattern="\p{P}" replacement=" " replace="all"
             />
         </analyzer>
     </fieldType>
@@ -538,7 +599,8 @@
         <analyzer>
             &tokenize_into_one_big_token;
             &normalize_numeric_digits;
-            &cleanup;
+            &cleanup_whitespace;
+            &remove_unnecessary_ending_punctuation;
         </analyzer>
     </fieldType>
 

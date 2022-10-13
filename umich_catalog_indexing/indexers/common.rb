@@ -1,46 +1,5 @@
 $:.unshift "#{File.dirname(__FILE__)}/../lib"
-
-
-require 'set'
-
-require 'library_stdnums'
-
-require 'traject/macros/marc21_semantics'
-extend Traject::Macros::Marc21Semantics
-
-require 'traject/macros/marc_format_classifier'
-extend Traject::Macros::MarcFormats
-
-require 'ht_traject'
-extend HathiTrust::Traject::Macros
-extend Traject::UMichFormat::Macros
-
-require 'marc/fastxmlwriter'
-
-require 'marc_record_speed_monkeypatch'
-require 'marc4j_fix'
-
-UmichOverlap = if ENV['NODB']
-                 require "ht_traject/no_db_mocks/ht_overlap"
-                 HathiTrust::NoDB::UmichOverlap
-               else
-                 require 'ht_traject/ht_overlap.rb'
-                 HathiTrust::UmichOverlap
-               end
-
-settings do
-  store "log.batch_progress", 10_000
-end
-
-
-logger.info RUBY_DESCRIPTION
-
-################################
-###### Setup ###################
-################################
-
-# Set up an area in the clipboard for use storing intermediate stuff
-each_record HathiTrust::Traject::Macros.setup
+require "traject"
 
 #######  COMMON STUFF BETWEEN UMICH AND HT ########
 #######  INDEXING                          ########
@@ -50,6 +9,7 @@ each_record HathiTrust::Traject::Macros.setup
 ################################
 
 today = DateTime.now.strftime '%Y%m%d'
+
 # Add the base filename 
 to_field 'input_file_name' do |rec, acc|
   mf = ENV['multifile.filename']
@@ -157,6 +117,14 @@ to_field 'barcode', extract_marc('974a')
 ######### AUTHOR FIELDS ########
 ################################
 
+# Naconormalizer for author, only under jruby
+if defined? JRUBY_VERSION
+  require 'naconormalizer'
+  author_normalizer = NacoNormalizer.new
+else
+  author_normalizer = nil
+end
+
 # We need to skip all the 710 with a $9 == 'WaSeSS'
 
 skipWaSeSS = ->(rec, field) { field.tag == '710' and field['9'] =~ /WaSeSS/ }
@@ -166,21 +134,10 @@ to_field 'mainauthor_role', extract_marc('100e:110e:111e', :trim_punctuation => 
 to_field 'mainauthor_role', extract_marc('1004:1104:1114', :translation_map => "ht/relators")
 
 
-to_field 'author', extract_marc_unless("100abcdq:110abcd:111abc:700abcdq:710abcd:711abc", skipWaSeSS)
+to_field 'author', extract_marc_unless("100abcdjq:110abcd:111acden:700abcdjq:710abcd:711acden", skipWaSeSS)
 to_field 'author2', extract_marc_unless("110ab:111ab:700abcd:710ab:711ab", skipWaSeSS)
 to_field "author_top", extract_marc_unless("100abcdefgjklnpqtu0:110abcdefgklnptu04:111acdefgjklnpqtu04:700abcdejqux034:710abcdeux034:711acdegjnqux034:720a:765a:767a:770a:772a:774a:775a:776a:777a:780a:785a:786a:787a:245c", skipWaSeSS)
 to_field "author_rest", extract_marc("505r")
-
-
-# Naconormalizer for author, only under jruby
-
-if defined? JRUBY_VERSION
-  require 'naconormalizer'
-  author_normalizer = NacoNormalizer.new
-else
-  author_normalizer = nil
-end
-
 
 to_field "authorSort", extract_marc_unless("100abcd:110abcd:111abc:110ab:700abcd:710ab:711ab", skipWaSeSS, :first => true) do |rec, acc, context|
   if author_normalizer
@@ -189,6 +146,53 @@ to_field "authorSort", extract_marc_unless("100abcd:110abcd:111abc:110ab:700abcd
   acc.compact!
 end
 
+# For browse entries, we only want teh 100/110/111 and their 7xx counterparts
+# The 1XX fields are easy and normal
+to_field 'author_authoritative_browse', extract_marc_unless(
+  "100abcdjq:110abcd:111acden",
+skipWaSeSS)
+
+# Add on to the author_authoritative_browse field with the 7XXs
+# The 7XXs are more complicated. Per Leigh Billings:
+# 1xx fields
+# AND 700*_ without a $t
+# AND 700*2 with a $t [but only use the subfields abcdgq from that string in order to leave the title-related subfields out
+
+author_7xx = Traject::MarcExtractor.cached("700abcdgq:710abcd:711acden")
+def valid_author_700?(field)
+  ind2_blank = [" ", "", nil].include? field.indicator2
+  ind2_2 =  field.indicator2 == "2"
+  has_t = !field['t'].nil?
+  (ind2_blank and !has_t) or (ind2_2 and has_t)
+end
+to_field "author_authoritative_browse" do |rec, acc, _context|
+  authors = []
+  author_7xx.each_matching_line(rec) do |field, spec, extractor|
+    if valid_author_700?(field)
+      authors << extractor.collect_subfields(field, spec)
+    end
+  end
+  acc.replace authors.flatten.compact
+end
+
+
+#changes by mrio Feb 2022
+to_field "main_author_display", extract_marc("100abcdefgjklnpqtu4:101abcdefgjklnpqtu4:110abcdefgjklnpqtu4:111abcdefgjklnpqtu4")
+to_field "main_author", extract_marc("100abcdgjkqu:101abcdgjkqu:110abcdgjkqu:111abcdgjkqu")
+
+# TODO: Change traject to allow, e.g., 700|*[^ ]abc where brackets indicate a regex
+skip_non_space_indicator_2 = ->(rec, field) { field.indicator2 != " " }
+skip_analytical_entry_or_title = ->(rec, field) { field.indicator2 == "2" || !field["t"].nil? }
+skip_analytical_entry_or_no_title = ->(rec, field) { field.indicator2 == "2" || field["t"].nil? }
+
+
+to_field "contributors_display", extract_marc_unless(["700","710","711"].map{|x| "#{x}abcdefgjklnpqu4"}.join(":"), skip_analytical_entry_or_title)
+to_field "contributors", extract_marc_unless(["700","710","711"].map{|x| "#{x}abcdgjkqu"}.join(":"), skip_analytical_entry_or_title)
+
+to_field "related_title", extract_marc_unless("730abcdefgjklmnopqrst", skip_non_space_indicator_2)
+to_field "related_title", extract_marc_unless("700fjklmnoprst:710fjklmnoprst:711fklmnoprst", skip_analytical_entry_or_no_title)
+
+#end of changes by mrio Feb2022
 
 ################################
 ########## TITLES ##############
@@ -233,6 +237,7 @@ to_field 'vtitle', extract_marc('245abdefghknp', :alternate_script => :only, :tr
 to_field 'title_equiv', extract_marc_filing_version('245abp:240ap:130apt:247abp', include_original: true)
 to_field 'title_equiv', extract_marc('246abp:505|*0|t:700|*2|t:710|*2|t:711|*2|t:730|*2|apt:740ap')
 
+
 # The initital tests with title_equiv were a disaster -- the data are messy and a lot of weird records got
 # elevated. Ignoring title_equiv in the title_a double-dip code below is a second
 # attempt. I'm hoping to just replace title_top with title_equiv and get slightly better results.
@@ -259,6 +264,10 @@ to_field "title_rest", extract_marc("210ab:222ab:242abnpy:243adfgklmnoprs:246abd
 to_field "series", extract_marc("440ap:800abcdfpqt:830ap")
 to_field "series2", extract_marc("490avx")
 
+def atoz
+  ("a".."z").to_a.join('')
+end
+to_field "series_statement", extract_marc(["440","800","810","811","830"].map{|x| "#{x}#{atoz}"})
 # Serial titles count on the format alreayd being set and having the string 'Serial' in it.
 
 each_record do |rec, context|
@@ -499,7 +508,12 @@ end
 ################################
 
 to_field "publisher", extract_marc('260b:264|*1|:533c')
-to_field "edition", extract_marc('250a')
+
+#mrio: updated Feb 2022 to take out extraneous fields for 264
+to_field "publisher_display", extract_marc('260abc:264|*1|abc')
+
+#mrio: updated Feb 2022 to add "b"
+to_field "edition", extract_marc('250ab')
 
 to_field 'language', marc_languages("008[35-37]:041a:041d:041e:041j")
 
