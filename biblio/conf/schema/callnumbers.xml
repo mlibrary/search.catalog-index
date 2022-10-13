@@ -46,6 +46,8 @@ For reasons I don't yet understand, callnumbers must NOT be declared with docval
 <fieldType name="any_callnumber_starts_with" class="solr.TextField">
 <analyzer type="index">
   <tokenizer class="solr.KeywordTokenizerFactory"/>
+  <filter class="solr.PatternReplaceFilterFactory" pattern="[\p{Cc}]" replacement="" replace="all"/>
+  <filter class="solr.PatternReplaceFilterFactory" pattern="\p{Z}" replacement=" " replace="all"/>
   <filter class="solr.TrimFilterFactory"/>
   <filter class="solr.PatternReplaceFilterFactory" pattern="\p{Z}+" replacement=" " replace="all"/>
   <filter class="solr.ICUFoldingFilterFactory"/>
@@ -54,6 +56,8 @@ For reasons I don't yet understand, callnumbers must NOT be declared with docval
 </analyzer>
 <analyzer type="query">
   <tokenizer class="solr.KeywordTokenizerFactory"/>
+  <filter class="solr.PatternReplaceFilterFactory" pattern="[\p{Cc}]" replacement="" replace="all"/>
+  <filter class="solr.PatternReplaceFilterFactory" pattern="\p{Z}" replacement=" " replace="all"/>
   <filter class="solr.TrimFilterFactory"/>
   <filter class="solr.PatternReplaceFilterFactory" pattern="\p{Z}+" replacement=" " replace="all"/>
   <filter class="solr.ICUFoldingFilterFactory"/>
