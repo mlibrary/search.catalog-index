@@ -457,6 +457,7 @@
         </analyzer>
         <analyzer type="query">
             &standard_single_token_tokenizer;
+            &cleanup;
             &icu_case_folding_and_normalization;
         </analyzer>
     </fieldType>
@@ -546,7 +547,7 @@
                     replace="all"
             />
             &remove_all_punctuation;
-            &cleanup_whitespace;
+            &cleanup;
         </analyzer>
     </fieldType>
 
@@ -587,7 +588,7 @@
                   A Facet type
     ==============================================================
 
-    Here we want to leave everything alone, but strip leading/trailing
+    Here we want to leave everything alone, but strip some trailing
     punctuation and whitespace to make it a little more forgiving.
 
     -->
@@ -596,8 +597,8 @@
         <analyzer>
             &tokenize_into_one_big_token;
             &normalize_numeric_digits;
-            &remove_unnecessary_ending_punctuation;
             &cleanup;
+            &remove_unnecessary_ending_punctuation;
         </analyzer>
     </fieldType>
 
