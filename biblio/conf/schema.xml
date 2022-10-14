@@ -79,17 +79,15 @@
 
 <!ENTITY pre_tokenization_character_substitution '
 <charFilter class="solr.MappingCharFilterFactory" mapping="schema/character_and_symbol_substitutions.txt"/>
-&pre_tokenization_cjk;
-'>
-<!ENTITY normalize_numeric_digits '
-<filter class="solr.DecimalDigitFilterFactory"/>
 '>
 
 <!ENTITY less_aggressive_pre_tokenization_character_substitution '
 <charFilter class="solr.MappingCharFilterFactory" mapping="schema/exactish_char_substitution.txt"/>
-&pre_tokenization_cjk;
 '>
 
+<!ENTITY normalize_numeric_digits '
+<filter class="solr.DecimalDigitFilterFactory"/>
+'>
 
 <!ENTITY spaceify_dash_and_colon '
 <filter class="solr.PatternReplaceFilterFactory"
@@ -150,9 +148,8 @@
 
 <!ENTITY cleanup '
 <filter class="solr.PatternReplaceFilterFactory" pattern="[&control;]" replacement="" replace="all"/>
-&collapse_whitespace;
-&trim_leading_whitespace_and_punctuation;
-&trim_trailing_whitespace_and_punctuation;
+&normalize_numeric_digits;
+&cleanup_whitespace;
 '>
 
 
@@ -223,7 +220,6 @@
 <!ENTITY post_tokenization_cjk '
 <filter class="solr.CJKWidthFilterFactory"/>
 <filter class="solr.ICUTransformFilterFactory" id="Traditional-Simplified"/>
-<filter class="solr.ICUFoldingFilterFactory"/>   <!-- NFKC, case folding, diacritics removed -->
 <filter class="solr.CJKBigramFilterFactory" han="false" hiragana="false" katakana="false" hangul="true" outputUnigrams="true" />
 <filter class="solr.FixBrokenOffsetsFilterFactory"/>
 '>
@@ -248,7 +244,6 @@
 <!-- Tokenizing -->
 <!ENTITY tokenize_with_icu '
 <tokenizer class="solr.ICUTokenizerFactory"/>
-&post_tokenization_cjk;
 '>
 
 <!ENTITY tokenize_on_slash '
@@ -257,7 +252,6 @@
 
 <!ENTITY tokenize_into_one_big_token '
 <tokenizer class="solr.KeywordTokenizerFactory"/>
-&post_tokenization_cjk;
 '>
 
 
@@ -269,18 +263,19 @@
 <!-- Some useful repeated chains -->
 
 
-<!ENTITY standard_tokenization '
+<!ENTITY standard_pretokenization '
 &pre_tokenization_character_substitution;
+&pre_tokenization_cjk;
+'>
+
+<!ENTITY standard_tokenization '
+&standard_pretokenization;
 &tokenize_with_icu;
-&cleanup;
-&normalize_numeric_digits;
 '>
 
 <!ENTITY standard_single_token_tokenizer '
-&pre_tokenization_character_substitution;
+&standard_pretokenization;
 &tokenize_into_one_big_token;
-&cleanup;
-&normalize_numeric_digits;
 '>
 
 ]>
@@ -384,13 +379,15 @@
                positionIncrementGap="&pig;" multiValued="true">
         <analyzer>
             &less_aggressive_pre_tokenization_character_substitution;
+            &pre_tokenization_cjk;
             &tokenize_with_icu;
+            &expand_state_abbreviations;
             &cleanup;
             &spaceify_dash_and_colon;
             &deal_with_english_possives_in_absense_of_stemming;
             &remove_all_punctuation;
             &icu_case_folding_and_normalization;
-            &remove_duplicates_at_same_position;
+            &post_tokenization_cjk;
             <filter class="edu.umich.lib.solr_filters.AnchoredSearchFilterFactory"/>
             &remove_duplicates_at_same_position;
         </analyzer>
@@ -400,16 +397,17 @@
                positionIncrementGap="&pig;">
         <analyzer>
             &less_aggressive_pre_tokenization_character_substitution;
+            &pre_tokenization_cjk;
             &tokenize_with_icu;
+            &expand_state_abbreviations;
             &cleanup;
             &spaceify_dash_and_colon;
             &deal_with_english_possives_in_absense_of_stemming;
             &remove_all_punctuation;
-            &icu_downcase;
-            &overlay_keyword_token_copies_for_later_processing;
-            &keyword_aware_icu_normalization;
-            &remove_duplicates_at_same_position;
+            &icu_case_folding_and_normalization;
+            &post_tokenization_cjk;
             <filter class="edu.umich.lib.solr_filters.LeftAnchoredSearchFilterFactory"/>
+            &remove_duplicates_at_same_position;
         </analyzer>
     </fieldType>
 
@@ -479,6 +477,7 @@
                positionIncrementGap="&pig;">
         <analyzer>
             &less_aggressive_pre_tokenization_character_substitution;
+            &pre_tokenization_cjk;
             &standard_single_token_tokenizer;
             &spaceify_dash_and_colon;
             &remove_all_punctuation;
@@ -514,6 +513,7 @@
                positionIncrementGap="&pig;">
         <analyzer>
             &less_aggressive_pre_tokenization_character_substitution;
+            &pre_tokenization_cjk;
             &standard_single_token_tokenizer;
             &spaceify_dash_and_colon;
             <filter class="solr.PatternReplaceFilterFactory"
@@ -542,8 +542,10 @@
     <fieldType name="browse_match" class="solr.TextField" positionIncrementGap="&pig;">
         <analyzer>
             &less_aggressive_pre_tokenization_character_substitution;
+            &pre_tokenization_cjk;
             &tokenize_into_one_big_token;
             &icu_case_folding_and_normalization;
+            &post_tokenization_cjk;
             <filter class="solr.PatternReplaceFilterFactory"
                     pattern="[:\-]+" replacement=" "
                     replace="all"
@@ -557,8 +559,8 @@
                positionIncrementGap="&pig;">
         <analyzer>
             &standard_single_token_tokenizer;
-            &cleanup_whitespace;
-            &icu_downcase;
+            &cleanup;
+            &icu_case_folding_and_normalization;
             <filter class="solr.PatternReplaceFilterFactory"
                     pattern="\s*--\s*" replacement="  "
                     replace="all"
@@ -573,8 +575,7 @@
                positionIncrementGap="&pig;">
         <analyzer>
             &standard_single_token_tokenizer;
-            &cleanup_whitespace;
-            &icu_downcase;
+            &icu_case_folding_and_normalization;
             <filter class="solr.PatternReplaceFilterFactory"
                     pattern="\s*--\s*" replacement="  "
                     replace="all"
@@ -582,6 +583,7 @@
             <filter class="solr.PatternReplaceFilterFactory"
                     pattern="\p{P}" replacement=" " replace="all"
             />
+            &cleanup;
         </analyzer>
     </fieldType>
 
@@ -599,8 +601,8 @@
         <analyzer>
             &tokenize_into_one_big_token;
             &normalize_numeric_digits;
-            &cleanup_whitespace;
             &remove_unnecessary_ending_punctuation;
+            &cleanup;
         </analyzer>
     </fieldType>
 
@@ -629,7 +631,7 @@
         </analyzer>
     </fieldType>
 
-
+    
 
     <fieldType name="oclc" class="solr.TextField">
         <analyzer>
