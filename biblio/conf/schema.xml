@@ -600,7 +600,6 @@
     <fieldType name="text_facet" class="solr.TextField">
         <analyzer>
             &tokenize_into_one_big_token;
-            &normalize_numeric_digits;
             &remove_unnecessary_ending_punctuation;
             &cleanup;
         </analyzer>
@@ -631,7 +630,7 @@
         </analyzer>
     </fieldType>
 
-    
+
 
     <fieldType name="oclc" class="solr.TextField">
         <analyzer>
