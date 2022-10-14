@@ -25,6 +25,9 @@ end
 
 ###Date the record was added to the catalog####
 # cat_date -- first few digits of the 006 field
+# the acc.replace line is there because sometimes there are multiple
+# 008 fields and that messes stuff up. example: 99187608751706381 
+# from 2022-10-14
 
 to_field 'cat_date', extract_marc('008[00-05]') do |rec, acc, context|
   acc.map! do |str| 
@@ -34,6 +37,7 @@ to_field 'cat_date', extract_marc('008[00-05]') do |rec, acc, context|
       '00000000'
     end 
   end
+  acc.replace [acc.max]
 end
 
 
