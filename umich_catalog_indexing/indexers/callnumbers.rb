@@ -19,9 +19,6 @@
 #   * _callnoletters_: The letter portion from the first LC callnumber
 #     found. Not used in search.
 
-to_field "id", record_id
-
-
 ##########################################
 # Helpers
 ##########################################
@@ -59,8 +56,6 @@ each_record do |rec, context|
     dewey_852: dewey_852_extractor.extract(rec).flatten.compact.uniq.select { |cn| looks_like_dewey?(cn) },
     lc_050:    lc_050_extractor.extract(rec).flatten.compact.uniq.select { |cn| looks_like_lc?(cn) },
   }
-
-  logger.warn context.clipboard["callnumbers"]
 end
 
 # Unrestricted: whatever we have in an 852, put it here
