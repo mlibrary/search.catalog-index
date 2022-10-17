@@ -135,7 +135,7 @@
 <copyField source="author" dest="authorStr"/>
 
 <field name="author_authoritative_browse" type="text_facet" indexed="true" stored="true" multiValued="true"/>
-<field name="author_authoritative_search" type="browse_match" indexed="true" stored="true" multiValued="true"/>
+<field name="author_authoritative_search" type="author_browse_key" indexed="true" stored="true" multiValued="true"/>
 <copyField source="author_authoritative_browse" dest="author_authoritative_search"/>
 <!-- Mixed title/author -->
 

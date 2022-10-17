@@ -528,17 +528,24 @@
     </fieldType>
 
 
-    <!-- An even less aggressive exactish, primarily for browse matching.
-         This matches the ruby code from the authority_browse code
-
-                WHICH_PUNCT_TO_SPACIFY = /[:\-]+/
-                def sort_key(str)
-                  str = unicode_normalize(str)
-                  str = str.gsub(WHICH_PUNCT_TO_SPACIFY, " ")
-                  str = str.gsub(/\p{P}/, '')
-                  cleanup_spaces(str)
-                end
-     -->
+    <fieldType name="author_browse_key" class="solr.TextField" positionIncrementGap="&pig;">
+      <analyzer>
+        &less_aggressive_pre_tokenization_character_substitution;	
+	&tokenize_into_one_big_token;
+	&icu_case_folding_and_normalization;
+	<filter class="solr.PatternReplaceFilterFactory"
+		pattern="^the\s+" replacement=""
+		replace="all"
+		/>
+	<filter class="solr.PatternReplaceFilterFactory"
+		pattern="[:\-]+" replacement=" "
+		replace="all"
+		/>
+	&remove_all_punctuation;
+	&cleanup_whitespace;
+      </analyzer>
+    </fieldType>
+    
     <fieldType name="browse_match" class="solr.TextField" positionIncrementGap="&pig;">
         <analyzer>
             &less_aggressive_pre_tokenization_character_substitution;
