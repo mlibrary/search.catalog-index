@@ -53,6 +53,7 @@ module Jobs
              "-c", "/app/indexers/common_ht.rb",
              "-c", "/app/indexers/subject_topic.rb",
              "-c", "/app/indexers/umich.rb",
+             "-c", "/app/indexers/callnumbers.rb",
              "-c", "/app/indexers/umich_alma.rb",
              #"-s", "log.file=#{$stdout}",
              "-u", @solr_url,

@@ -43,6 +43,7 @@ module Jobs
              "-c", "/app/indexers/subject_topic.rb",
              "-c", "/app/indexers/umich.rb",
              "-c", "/app/indexers/umich_alma.rb",
+             "-c", "/app/indexers/callnumbers.rb",
              "-u", @solr_url,
              file
       )
