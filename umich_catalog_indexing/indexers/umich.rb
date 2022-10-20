@@ -1,27 +1,5 @@
 require 'umich_traject'
 
-## OK, so one weird thing we need to do is have different ht_json docs for mirlyn vs hathitrust, since they have differently-formatted 974s. Pass in the :mirlyn symbol and the to_json will do the Right Thing.
-
-#to_field 'ht_json' do |record, acc, context|
-#  acc << context.clipboard[:ht][:items].to_json(:mirlyn) if context.clipboard[:ht][:has_items]
-#end
-
-
-# callnumber from the items
-to_field 'callnumber', extract_marc('852hij')
-to_field 'callnoletters', extract_marc('852hij:050ab:090ab', :first => true) do |rec, acc|
-  unless acc.empty?
-    m = /\A([A-Za-z]+)/.match(acc[0])
-    acc[0] = m[1].upcase if m
-  end
-end
-
-to_field 'callnosort' do |record, acc, context|
-  if context.output_hash['callnumber']
-    acc << context.output_hash['callnumber'].first
-  end
-end
-
 
 ###Date the record was added to the catalog####
 # cat_date -- first few digits of the 006 field
