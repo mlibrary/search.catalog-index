@@ -113,6 +113,7 @@
 <field name="funding_information"     type="string"       indexed="true" stored="true" multiValued="true"/>
 <field name="source_of_acquisition"     type="string"       indexed="true" stored="true" multiValued="true"/>
 <field name="map_scale"     type="string"       indexed="true" stored="true" multiValued="true"/>
+<field name="content_advice"     type="string"       indexed="false" stored="true" multiValued="true"/>
 
 
     <!-- Author fields -->

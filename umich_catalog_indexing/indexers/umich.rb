@@ -35,6 +35,11 @@ to_field 'source_of_acquisition', extract_marc('541a')
 to_field 'map_scale', extract_marc('255a')
 
 ###---end Feb 2022 update###
+#
+to_field 'content_advice'  do |rec, acc|
+  advice = rec.fields("520").select{|x| x.indicator1 == "4"}.map{|x| x.value}
+  acc.replace advice
+end
 
 
 ##### Location ####
