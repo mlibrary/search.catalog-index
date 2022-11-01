@@ -73,7 +73,8 @@
     * callnumber_browse: LC/Dewey callnumbers suitable for the callnumber browse.
     * callnosort: sortable key for items with LC/Dewey in the 852
     * callnumber_sort: an in-place rename of the above, so the former can be deprecated
-    * callnosearch: Search for dewey/LC, same normalization as browse.
+    * callnosearch: For dewey/LC, same normalization as browse. In addition, any weird
+      stuff we pull out of an 852 will go in here as well (during the indexing process)
     * callnumber_search: rename of the above
 -->
 
