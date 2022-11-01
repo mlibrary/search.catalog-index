@@ -530,6 +530,25 @@
         </analyzer>
     </fieldType>
 
+    <fieldType name="authority_search_analysis" class="solr.TextField" positionIncrementGap="&pig;">
+        <analyzer>
+            &tokenize_into_one_big_token;
+            &icu_case_folding_and_normalization;
+            <filter class="solr.PatternReplaceFilterFactory"
+                    pattern="^the\s+" replacement=""
+                    replace="all"
+            />
+            <filter class="solr.PatternReplaceFilterFactory"
+                    pattern="[:\-]+" replacement=" "
+                    replace="all"
+            />
+            &remove_all_punctuation;
+            &cleanup_whitespace;
+        </analyzer>
+    </fieldType>
+    <fieldType name="authority_search" class="com.billdueber.solr.schema.AnalyzedString" fieldType="authority_search_analysis"/>
+
+
 
     <fieldType name="author_browse_key" class="solr.TextField" positionIncrementGap="&pig;">
       <analyzer>
@@ -548,22 +567,7 @@
 	&cleanup_whitespace;
       </analyzer>
     </fieldType>
-    
-    <fieldType name="browse_match" class="solr.TextField" positionIncrementGap="&pig;">
-        <analyzer>
-            &less_aggressive_pre_tokenization_character_substitution;
-            &pre_tokenization_cjk;
-            &tokenize_into_one_big_token;
-            &icu_case_folding_and_normalization;
-            &post_tokenization_cjk;
-            <filter class="solr.PatternReplaceFilterFactory"
-                    pattern="[:\-]+" replacement=" "
-                    replace="all"
-            />
-            &remove_all_punctuation;
-            &cleanup_whitespace;
-        </analyzer>
-    </fieldType>
+
 
     <fieldType name="lc_subject" class="solr.TextField"
                positionIncrementGap="&pig;">
