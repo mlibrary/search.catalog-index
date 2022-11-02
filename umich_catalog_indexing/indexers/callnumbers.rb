@@ -78,6 +78,22 @@ to_field 'callnumber_browse' do |rec, acc, context|
   end
 end
 
+# In solr, data from callnumber_browse is copied into callnumber_search
+# for use in the "callnumber_starts_with" query.
+#
+# Here we additionally grab  _our_ callnumbers from the 852s, and,
+# regardless of what they are, stick them into the
+# callnumber_search field so they, too, can show up in a
+# callnumber_starts_with query.
+#
+# Some of them will end up in there twice (from here and
+# due to the copyField from callnumber_browse), but it
+# doesn't hurt anything.
+
+
+to_field "callnumber_search", extract_marc('852hij')
+
+
 # For the main sort, we'll restrict to LC/Dewey from an 852
 to_field 'callnosort' do |rec, acc, context|
   lc    = context.clipboard['callnumbers'][:lc_852].first

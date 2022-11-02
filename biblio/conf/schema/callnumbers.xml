@@ -51,15 +51,14 @@ For reasons I don't yet understand, callnumbers must NOT be declared with docval
   <filter class="solr.TrimFilterFactory"/>
   <filter class="solr.PatternReplaceFilterFactory" pattern="\p{Z}+" replacement=" " replace="all"/>
   <filter class="solr.ICUFoldingFilterFactory"/>
-  <filter class="edu.umich.library.lucene.analysis.AnyCallNumberSimpleFilterFactory" passThroughOnError="false"/>
+  <filter class="edu.umich.library.lucene.analysis.AnyCallNumberSimpleFilterFactory" passThroughOnError="true"/>
   <filter class="solr.EdgeNGramFilterFactory" maxGramSize="40" minGramSize="1"/>
 </analyzer>
 <analyzer type="query">
   <tokenizer class="solr.KeywordTokenizerFactory"/>
   <filter class="solr.PatternReplaceFilterFactory" pattern="[\p{Cc}]" replacement="" replace="all"/>
-  <filter class="solr.PatternReplaceFilterFactory" pattern="\p{Z}" replacement=" " replace="all"/>
-  <filter class="solr.TrimFilterFactory"/>
   <filter class="solr.PatternReplaceFilterFactory" pattern="\p{Z}+" replacement=" " replace="all"/>
+  <filter class="solr.TrimFilterFactory"/>
   <filter class="solr.ICUFoldingFilterFactory"/>
   <filter class="edu.umich.library.lucene.analysis.AnyCallNumberSimpleFilterFactory" passThroughOnError="true"/>
 </analyzer>
