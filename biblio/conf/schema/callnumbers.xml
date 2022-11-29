@@ -28,17 +28,17 @@ For reasons I don't yet understand, callnumbers must NOT be declared with docval
 
 
 <!-- For sorting and range queries. Stored is what you send it, indexed is the sortable key -->
-<fieldType name="any_callnumber" class="edu.umich.library.library_identifier.schema.CallnumberSortableFieldType"
+<fieldType name="any_callnumber" class="umich_library_identifier_solr_filters:edu.umich.library.library_identifier.schema.CallnumberSortableFieldType"
            docValues="false" multiValued="true" stored="true" passThroughOnError="true"/>
 
-<fieldType name="any_callnumber_strict" class="edu.umich.library.library_identifier.schema.CallnumberSortableFieldType"
+<fieldType name="any_callnumber_strict" class="umich_library_identifier_solr_filters:edu.umich.library.library_identifier.schema.CallnumberSortableFieldType"
            docValues="false" multiValued="true" stored="true"/>
 
 <!-- As above, but the index sort key is what's exposed as the stored version, too -->
-<fieldType name="any_callnumber_sort_key" class="edu.umich.library.library_identifier.schema.CallNumberSortKeyFieldType"
+<fieldType name="any_callnumber_sort_key" class="umich_library_identifier_solr_filters:edu.umich.library.library_identifier.schema.CallNumberSortKeyFieldType"
            docValues="false" multiValued="false" stored="true" passThroughOnError="true"/>
 
-<fieldType name="any_callnumber_sort_key_strict" class="edu.umich.library.library_identifier.schema.CallNumberSortKeyFieldType"
+<fieldType name="any_callnumber_sort_key_strict" class="umich_library_identifier_solr_filters:edu.umich.library.library_identifier.schema.CallNumberSortKeyFieldType"
            docValues="false" multiValued="false" stored="true"/>
 
 
@@ -51,7 +51,7 @@ For reasons I don't yet understand, callnumbers must NOT be declared with docval
   <filter class="solr.TrimFilterFactory"/>
   <filter class="solr.PatternReplaceFilterFactory" pattern="\p{Z}+" replacement=" " replace="all"/>
   <filter class="solr.ICUFoldingFilterFactory"/>
-  <filter class="edu.umich.library.lucene.analysis.AnyCallNumberSimpleFilterFactory" passThroughOnError="true"/>
+  <filter class="umich_library_identifier_solr_filters:edu.umich.library.lucene.analysis.AnyCallNumberSimpleFilterFactory" passThroughOnError="true"/>
   <filter class="solr.EdgeNGramFilterFactory" maxGramSize="40" minGramSize="1"/>
 </analyzer>
 <analyzer type="query">
@@ -60,7 +60,7 @@ For reasons I don't yet understand, callnumbers must NOT be declared with docval
   <filter class="solr.PatternReplaceFilterFactory" pattern="\p{Z}+" replacement=" " replace="all"/>
   <filter class="solr.TrimFilterFactory"/>
   <filter class="solr.ICUFoldingFilterFactory"/>
-  <filter class="edu.umich.library.lucene.analysis.AnyCallNumberSimpleFilterFactory" passThroughOnError="true"/>
+  <filter class="umich_library_identifier_solr_filters:edu.umich.library.lucene.analysis.AnyCallNumberSimpleFilterFactory" passThroughOnError="true"/>
 </analyzer>
 </fieldType>
 
