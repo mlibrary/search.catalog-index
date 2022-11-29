@@ -1,7 +1,0 @@
-version: '3'
-
-services:
-  solr:
-    build: .
-    ports:
-     - "8026:8026"

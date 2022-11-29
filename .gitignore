@@ -18,10 +18,11 @@ lib/translation_maps/umich/libLocInfo.yaml
 /umich_catalog_indexing/.m2
 /umich_catalog_indexing/.ssh/*
 /sftp/ssh/*
-!sftp/ssh/README.md
-*.xml
-!biblio/**/*.xml
-!/umich_catalog_indexing/spec/fixtures/*.xml
+!/sftp/ssh/README.md
+/sftp/search_daily_bibs/*.xml
+/umich_catalog_indexing/*.xml
+/umich_catalog_indexing/*/*.xml
+/umich_catalog_indexing/*/*/*.xml
 *.tar.gz
 !sftp/search_daily_bibs/sample.tar.gz
 !sftp/search_daily_bibs/birds_2022021017_21131448650006381_new.tar.gz
