@@ -104,7 +104,7 @@
 '>
 
 <!ENTITY collapse_whitespace '
-<filter class="solr.PatternReplaceFilterFactory" pattern="&white;" replacement=" "
+<filter class="solr.PatternReplaceFilterFactory" pattern="&white;+" replacement=" "
         replace="all"/>
 '>
 
@@ -535,7 +535,7 @@
             &tokenize_into_one_big_token;
             &icu_case_folding_and_normalization;
             <filter class="solr.PatternReplaceFilterFactory"
-                    pattern="^the\s+" replacement=""
+                    pattern="^\p{Z}*the\p{Z}+" replacement=""
                     replace="all"
             />
             <filter class="solr.PatternReplaceFilterFactory"
@@ -547,27 +547,6 @@
         </analyzer>
     </fieldType>
     <fieldType name="authority_search" class="com.billdueber.solr.schema.AnalyzedString" fieldType="authority_search_analysis"/>
-
-
-
-    <fieldType name="author_browse_key" class="solr.TextField" positionIncrementGap="&pig;">
-      <analyzer>
-        &less_aggressive_pre_tokenization_character_substitution;	
-	&tokenize_into_one_big_token;
-	&icu_case_folding_and_normalization;
-	<filter class="solr.PatternReplaceFilterFactory"
-		pattern="^the\s+" replacement=""
-		replace="all"
-		/>
-	<filter class="solr.PatternReplaceFilterFactory"
-		pattern="[:\-]+" replacement=" "
-		replace="all"
-		/>
-	&remove_all_punctuation;
-	&cleanup_whitespace;
-      </analyzer>
-    </fieldType>
-
 
     <fieldType name="lc_subject" class="solr.TextField"
                positionIncrementGap="&pig;">
