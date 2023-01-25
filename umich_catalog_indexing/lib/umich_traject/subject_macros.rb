@@ -29,7 +29,7 @@ module Traject::Macros::UMich
     end
 
     def self.subject_string(field)
-      self.normalize_subject(field.subfields.select { |sf| LOWER_LETTER_PAT.match(sf.code) }.map(&:value).join(" -- "))
+      self.normalize_subject(field.subfields.select { |sf| LOWER_LETTER_PAT.match(sf.code) }.map(&:value).join("--"))
     end
 
     def self.subjects_by_ind2(r, ind2_pat)
