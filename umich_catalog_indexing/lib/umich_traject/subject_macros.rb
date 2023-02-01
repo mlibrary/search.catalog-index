@@ -16,7 +16,7 @@ module Traject::Macros::UMich
     STRIP_PUNCT_PAT = /\A\p{Punct}*(.*?)\p{Punct}*\Z/
 
     def self.normalize_subject(str)
-      STRIP_PUNCT_PAT.match(str)[1].gsub("/\s+/", ' ')
+      STRIP_PUNCT_PAT.match(str)[1].gsub("/\s+/", ' ').strip
     end
 
     def self.eight_eighties_for(r, f)
@@ -29,7 +29,7 @@ module Traject::Macros::UMich
     end
 
     def self.subject_string(field)
-      self.normalize_subject(field.subfields.select { |sf| LOWER_LETTER_PAT.match(sf.code) }.map(&:value).join("--"))
+      self.normalize_subject(field.subfields.select { |sf| LOWER_LETTER_PAT.match(sf.code) }.map(&:value).join(" -- "))
     end
 
     def self.subjects_by_ind2(r, ind2_pat)

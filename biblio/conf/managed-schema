@@ -562,7 +562,7 @@
                     pattern="\p{P}" replacement=" " replace="all"
             />
 						<filter class="solr.PatternReplaceFilterFactory"
-							pattern="DOUBLEDASH" replacement="--"
+							pattern="DOUBLEDASH" replacement=" -- "
 							replace="all"
 						/>
         </analyzer>
