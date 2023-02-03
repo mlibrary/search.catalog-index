@@ -231,6 +231,7 @@
 
 <field name="lc_subject_display"     type="text_facet" indexed="true" stored="true" multiValued="true"/>
 <field name="non_lc_subject_display" type="text_facet" indexed="true" stored="true" multiValued="true"/>
+<field name="subject_browse" type="lc_subject" indexed="true" stored="true" multiValued="true"/>
 
     <!-- Time and Place -->
 

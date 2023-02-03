@@ -16,7 +16,7 @@ module Traject::Macros::UMich
     STRIP_PUNCT_PAT = /\A\p{Punct}*(.*?)\p{Punct}*\Z/
 
     def self.normalize_subject(str)
-      STRIP_PUNCT_PAT.match(str)[1].gsub("/\s+/", ' ')
+      STRIP_PUNCT_PAT.match(str)[1].gsub("/\s+/", ' ').strip
     end
 
     def self.eight_eighties_for(r, f)

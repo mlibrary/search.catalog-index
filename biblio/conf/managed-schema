@@ -559,12 +559,16 @@
             &cleanup;
             &icu_case_folding_and_normalization;
             <filter class="solr.PatternReplaceFilterFactory"
-                    pattern="\s*--\s*" replacement="  "
+                    pattern="\s*--\s*" replacement="DOUBLEDASH"
                     replace="all"
             />
             <filter class="solr.PatternReplaceFilterFactory"
                     pattern="\p{P}" replacement=" " replace="all"
             />
+						<filter class="solr.PatternReplaceFilterFactory"
+							pattern="DOUBLEDASH" replacement=" -- "
+							replace="all"
+						/>
         </analyzer>
     </fieldType>
 
