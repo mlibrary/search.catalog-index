@@ -232,6 +232,10 @@
 <charFilter class="solr.ICUNormalizer2CharFilterFactory"/>
 '>
 
+<!ENTITY icu_normalization_no_case_folding '
+<filter class="solr.ICUNormalizer2FilterFactory" name="nfkc" mode="compose"/>
+'>
+
 <!ENTITY icu_case_folding_and_normalization '
 <filter class="solr.ICUFoldingFilterFactory"/>
 '>
@@ -594,6 +598,7 @@
         <analyzer>
             &tokenize_into_one_big_token;
             &remove_unnecessary_ending_punctuation;
+	    &icu_normalization_no_case_folding;
             &cleanup;
         </analyzer>
     </fieldType>
