@@ -54,5 +54,10 @@ IndexHathi.perform_async("zephir_upd_20220301.json.gz", "http://solr:8026/solr/b
 If you have some ready-to-go marcxml, put it somewhere in the `umich_catalog_indexing` directory and 
 run the following while `docker-compose` is `up`:
 ```
-docker-compose run --rm web bundle exec traject -c /app/readers/m4j.rb -c /app/writers/solr.rb -c /app/indexers/settings.rb -c /app/indexers/common.rb -c /app/indexers/common_ht.rb -c /app/indexers/subject_topic.rb -c /app/indexers/umich.rb -c /app/indexers/umich_alma.rb -u "http://solr:8026/solr/biblio" path_to_your_file
+docker-compose run --rm web bundle exec traject -c /app/readers/m4j.rb\
+-c /app/writers/solr.rb -c /app/indexers/settings.rb\
+-c /app/indexers/common.rb -c /app/indexers/common_ht.rb\ 
+-c /app/indexers/subject_topic.rb -c /app/indexers/umich.rb\ 
+-c /app/indexers/umich_alma.rb -u "http://solr:8026/solr/biblio"\
+/app/<path to your file relative to umich_catalog_indexing/>
 ```
