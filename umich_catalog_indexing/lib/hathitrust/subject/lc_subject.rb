@@ -79,12 +79,12 @@ module HathiTrust::Subject
           when 'c'
             " [#{sf.value}]"
           when 'd'
-            "#{DELIM}#{sf.value}"
+            "#{delimiter}#{sf.value}"
           else
             " #{sf.value}"
-        end.join('').gsub(/\A\s*#{delimiter}/, '')
-        normalize(str)
-      end
+        end
+      end.join('').gsub(/\A\s*#{delimiter}/, '')
+      normalize(str)
     end
   end
 
@@ -92,8 +92,8 @@ module HathiTrust::Subject
   # joined together with the delimiter
   class LCSubjectHierarchical < LCSubject
 
-    # At least one subject field in LC, the 652, just gets delimiters everywhere
-    # Format taken from the MARC 652 documentation
+    # At least one subject field in LC, the 662, just gets delimiters everywhere
+    # Format taken from the MARC 662 documentation
     # @return [String] Subject string ready for output
     def subject_string
       normalize(subject_data_subfield_codes.map(&:value).join(delimiter))

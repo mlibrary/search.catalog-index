@@ -1,15 +1,14 @@
 require 'hathitrust/subject.rb'
 require 'marc'
 RSpec.describe HathiTrust::Subject do
-  before(:each) do
+  let(:record) do
     reader = MARC::XMLReader.new('./spec/fixtures/unauthorized_immigrants.xml')
-    @record = nil
     for r in reader
-      @record = r
+      return r
     end
   end
   let(:subject_fields) do
-    described_class.subject_fields(@record)
+    described_class.subject_fields(record)
   end
   let(:lc_subject_field) do
     subject_fields.first
@@ -41,7 +40,7 @@ RSpec.describe HathiTrust::Subject do
   end
   context ".subject_fields" do
     it "returns subject fields including non_lc" do
-      subjects = described_class.subject_fields(@record)
+      subjects = described_class.subject_fields(record)
       expect(subjects.first.tag).to eq("610")
       expect(subjects.count).to eq(4)
     end
@@ -50,7 +49,7 @@ RSpec.describe HathiTrust::Subject do
   end
   context ".lc_subject_fields" do
     it "returns just the lc_subject_fields" do
-      subjects = described_class.lc_subject_fields(@record)
+      subjects = described_class.lc_subject_fields(record)
       expect(subjects.first.tag).to eq("610")
       expect(subjects.count).to eq(3)
     end
