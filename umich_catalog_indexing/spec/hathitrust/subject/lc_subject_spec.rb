@@ -43,7 +43,7 @@ RSpec.describe HathiTrust::Subject::LCSubject658 do
   context "#subject_string" do
     it "returns expected output" do
       output = described_class.new(subject_field).subject_string
-      expect(output).to eq("Health objective 1: handicapped awareness [NHP01-1991]--highly correlated. ")
+      expect(output).to eq("Health objective 1: handicapped awareness [NHP01-1991]--highly correlated")
     end
   end
 end
