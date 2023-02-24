@@ -8,5 +8,11 @@ module HathiTrust::Subject
   # between every subfield value
   class NonLCSubject < HathiTrust::Subject::LCSubjectHierarchical
 
+    # Here for testing purposes to distinguish from the LC subjects
+    # @return [Boolean]
+    def lc_subject_field? 
+      false
+    end
+
   end
 end

@@ -41,6 +41,12 @@ module HathiTrust::Subject
       "--"
     end
 
+    # Here for testing purposes to distinguish from the Non LC subjects
+    # @return [Boolean]
+    def lc_subject_field?
+      true
+    end
+
     # Only some fields get delimiters before them in a standard LC Subject field
     DELIMITED_FIELDS = %w(v x y z)
 
@@ -92,6 +98,7 @@ module HathiTrust::Subject
     def subject_string
       normalize(subject_data_subfield_codes.map(&:value).join(delimiter))
     end
+
   end
 
 end
