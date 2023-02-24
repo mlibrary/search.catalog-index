@@ -2,7 +2,8 @@
 
 module HathiTrust::Subject
   module Normalize
-
+    #This enables the use of the method HathiTrust::Subject::Normalize.normalize
+    extend self
 
     # Mostly, we want to ditch punctuation, symbols, and spaces
     REMOVE = %q(\p{P}\p{S}\p{Z})
@@ -21,10 +22,6 @@ module HathiTrust::Subject
     CLEANER = /\A[#{REMOVE}&&[^#{FRONT_ALLOW}]]*(.*?)[#{REMOVE}&&[^#{BACK_ALLOW}]]*\Z/
 
     # Normalization is just turning tabs into spaces and the applying the cleaner.
-    def self.normalize(str)
-      CLEANER.match(str.gsub("\t", " "))[1]
-    end
-
     def normalize(str)
       CLEANER.match(str.gsub("\t", " "))[1]
     end
