@@ -5,15 +5,10 @@ RSpec.describe HathiTrust::Subject::Normalize do
       @input_string = ""
     end
     subject do
-      klass.new.test_normalize(@input_string)
+      klass.new.normalize(@input_string)
     end
     let(:klass) do
-      Class.new do
-        include HathiTrust::Subject::Normalize
-        def test_normalize(str)
-          normalize(str)
-        end
-      end
+      Class.new { include HathiTrust::Subject::Normalize }
     end
     it "replaces tabs with spaces" do
       @input_string = "too\tmany\ttabs" 
