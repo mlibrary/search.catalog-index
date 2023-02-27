@@ -268,8 +268,8 @@ each_record do |r, context|
 
     # add hol for HT volumes
     bib_nums = Array.new()
-    bib_nums << '.' + context.output_hash['id'].first
-    bib_nums << context.output_hash['aleph_id'].first if context.output_hash['aleph_id']
+    bib_nums << '.' + (context.output_hash['id']&.first || "")
+    bib_nums << context.output_hash['aleph_id']&.first if context.output_hash['aleph_id']
     oclc_nums = context.output_hash['oclc']
     #etas_status = context.clipboard[:ht][:overlap][:count_etas] > 0
     #hf_item_list = HathiTrust::Hathifiles.get_hf_info(oclc_nums, bib_nums, etas_status)
