@@ -1,11 +1,17 @@
 require 'hathitrust/subject.rb'
 require 'marc'
 RSpec.describe HathiTrust::Subject do
-  let(:record) do
-    reader = MARC::XMLReader.new('./spec/fixtures/unauthorized_immigrants.xml')
+  def get_record(path) 
+    reader = MARC::XMLReader.new(path)
     for r in reader
       return r
     end
+  end
+  let(:record) do
+    get_record('./spec/fixtures/unauthorized_immigrants.xml')
+  end
+  let(:record_with_880) do
+    get_record('./spec/fixtures/subject_with_880.xml')
   end
   let(:subject_fields) do
     described_class.subject_fields(record)
@@ -34,8 +40,13 @@ RSpec.describe HathiTrust::Subject do
       expect(described_class.lc_subject_field?(not_lc_subject)).to eq(false)
     end
   end
-  xcontext ".linked_fields_for" do
+  context ".linked_fields_for" do
     it "returns a linking field?" do
+      rec = record_with_880
+      field = rec["630"]
+      linked_fields = described_class.linked_fields_for(record_with_880, field)
+      expect(linked_fields.first.value).to eq("630-05/大武經.")
+
     end
   end
   context ".subject_fields" do
@@ -44,7 +55,11 @@ RSpec.describe HathiTrust::Subject do
       expect(subjects.first.tag).to eq("610")
       expect(subjects.count).to eq(4)
     end
-    xit "returns subject fields and linked subject fields" do
+    it "returns subject fields and linked subject fields" do
+      subjects = described_class.subject_fields(record_with_880)
+      expect(subjects[0].tag).to eq("630")
+      expect(subjects[3].tag).to eq("880")
+      expect(subjects.count).to eq(4)
     end
   end
   context ".lc_subject_fields" do
@@ -53,7 +68,11 @@ RSpec.describe HathiTrust::Subject do
       expect(subjects.first.tag).to eq("610")
       expect(subjects.count).to eq(3)
     end
-    xit "returns subject fields and linked subject fields" do
+    it "returns subject fields and linked subject fields" do
+      subjects = described_class.lc_subject_fields(record_with_880)
+      expect(subjects[0].tag).to eq("630")
+      expect(subjects[3].tag).to eq("880")
+      expect(subjects.count).to eq(4)
     end
   end
   context ".new" do
