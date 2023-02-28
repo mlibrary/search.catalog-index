@@ -50,8 +50,8 @@ describe "subject_topic" do
     indexer.process_record(@record).output_hash
   end
   it "has expected hol" do
-    item_policy = @record["974"].subfields.find{|s| s.code == "p" }
-    item_policy.value = "08"
+    #item_policy = @record["974"].subfields.find{|s| s.code == "p" }
+    #item_policy.value = "08"
     hol = JSON.parse(subject["hol"].first)
     expect(hol).to eq(@expected_output)
   end
