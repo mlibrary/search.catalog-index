@@ -19,7 +19,7 @@ jobs:
           BUNDLE_RUBYGEMS__PKG__GITHUB__COM: ${{secrets.GH_PACKAGE_READ_TOKEN}}
       - name: Create .env file
         working-directory: ./umich_catalog_indexing
-        run: cat .env-dev-values > .env
+        run: cat .env-dev-values .env-example > .env
       - name: Load .env file
         uses: xom9ikk/dotenv@v1.0.2
         with:
