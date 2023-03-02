@@ -1,7 +1,8 @@
+$:.unshift "#{File.dirname(__FILE__)}"
 require 'logger'
 require 'date'
-require "/app/lib/sidekiq_jobs"
-require "/app/lib/jobs"
+require "sidekiq_jobs"
+require "jobs"
 
 class IndexForDate
   def initialize(alma_files:,date:,solr_url:,
