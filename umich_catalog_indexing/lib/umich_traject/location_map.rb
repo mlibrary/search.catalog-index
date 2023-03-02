@@ -4,6 +4,14 @@ module Traject
     def self.location_map
       m = MatchMap.new
       m.echo = :onmiss
+      #====added 03-2023 for SCRC location additions
+      m[/^SPEC SC[HB]-RARE.*/] = "SPEC RARE"
+      m[/^SPEC SCB-SCI/] = "SPEC RARE"
+      m[/^SPEC SCH-BUHR/] = "SPEC RARE"
+      m[/^SPEC SCH-HAFTER/] = "SPEC RARE"
+      m[/^SPEC SCB-BIND/] = "SPEC BIND"
+      m[/^SPEC SC[HB]-REF/] = "SPEC REF"
+      #====end of 03-2023 SCRC additions
       #====added 09-2022 for SCRC location addtions
       m[/^SPEC SCB-CHIL.*/] = "SPEC CHIL"
       m[/^SPEC SCH-FAUL.*/] = "SPEC FAUL"
