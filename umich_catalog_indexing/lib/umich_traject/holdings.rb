@@ -14,6 +14,16 @@ module Traject
       def libLocInfo
         @libLocInfo
       end
+      def enumcronSort a, b
+        return a[:sortstring] <=> b[:sortstring]
+      end
+      def enumcronSortString str
+        rv = '0'
+        str.scan(/\d+/).each do |nums|
+          rv += nums.size.to_s + nums
+        end
+        return rv
+      end
       def sortItems(arr)
         # Only one? Never mind
         return arr if arr.size == 1
@@ -38,7 +48,9 @@ module Traject
         return arr
       end
       def run
-
+        physical_holding_ids.each do |id|
+          PhysicalHolding.new(record: @record, holding_id: id)
+        end
         locations = Array.new()
         inst_codes = Array.new()
         availability = Array.new()
@@ -254,6 +266,16 @@ module Traject
           hol_list
         ]
       end
+
+      def physical_items
+        @record.find_all {|f| f.tag == "974" }
+      end
+      def physical_holding_ids
+        physical_items.map do |h|
+          h["8"]
+        end.uniq
+      end
     end
   end
 end
+
