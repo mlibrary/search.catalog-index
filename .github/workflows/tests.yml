@@ -1,0 +1,21 @@
+name: Run Tests
+
+on: push
+
+jobs:
+  # Run tests
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      #- name: Set up JRuby 9.3
+        #working-directory: ./umich_catalog_indexing
+        #uses: ruby/setup-ruby@v1
+        #with:
+          #ruby-version: jruby-9.3
+          #bundler-cache: true
+      - name: copy libLocInfo.yaml
+        run: cp .github/fixtures/libLocInfo.yaml umich_catalog_indexing/lib/translation_maps/umich/libLocInfo.yaml
+      #- name: Run tests
+        #working-directory: ./umich_catalog_indexing
+        #run: bundle exec rspec
