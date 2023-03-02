@@ -79,6 +79,8 @@ module HathiTrust::Subject
           when 'c'
             " [#{sf.value}]"
           when 'd'
+            # we do "--" instead of "-" because a single hyphen is too
+            # confusing
             "#{delimiter}#{sf.value}"
           else
             " #{sf.value}"
