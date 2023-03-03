@@ -89,6 +89,10 @@ describe Traject::UMich::PhysicalHolding do
     it "returns an array of items" do
       expect(subject.items.count).to eq(2)
     end
+    it "doesn't include process type CA" do
+      @record["974"].append(MARC::Subfield.new("y","Process Status: CA"))
+      expect(subject.items.count).to eq(1)
+    end
   end
   context "finding_aid?" do
     it "returns the appropriate finding_aid?" do
@@ -105,5 +109,12 @@ describe Traject::UMich::PhysicalHolding do
       expect(subject.finding_aid?).to eq(false)
     end
   end
-
+  context "to_h" do
+    it "returns a hash with the expected keys" do
+      keys = [:callnumber, :display_name, :floor_location, :hol_mmsid,
+              :info_link, :items, :library, :location, :public_note,
+              :record_has_finding_aid, :summary_holdings]
+      expect(subject.to_h.keys).to eq(keys)
+    end
+  end
 end

@@ -17,7 +17,9 @@ module Traject
       end
 
       def items
-        f974.map { |i| Traject::UMich::PhysicalItem.new(item: i, has_finding_aid: finding_aid?) }
+        f974.map { |i| Traject::UMich::PhysicalItem.new(item: i, has_finding_aid: finding_aid?) }.reject do |x|
+          x.should_be_suppressed
+        end
       end
 
       def callnumber
@@ -49,6 +51,7 @@ module Traject
         f852["z"]
       end
 
+
       def field_is_finding_aid?(f)
         link_text = f["y"]
         link = f["u"]
@@ -57,6 +60,57 @@ module Traject
 
       def finding_aid?
         @record.fields("856").any? { |f| field_is_finding_aid?(f) }
+      end
+      def to_h 
+        {
+          callnumber: callnumber,
+          display_name: display_name,
+          floor_location: floor_location,
+          hol_mmsid: holding_id,
+          info_link: info_link,
+          items: items.map{|x| x.to_h},
+          library: library,
+          location: location,
+          public_note: public_note,
+          record_has_finding_aid: finding_aid?,
+          summary_holdings: summary_holdings
+        }
+      end
+
+      def enumcronSort a, b
+        return a[:sortstring] <=> b[:sortstring]
+      end
+
+      def enumcronSortString str
+        rv = '0'
+        str.scan(/\d+/).each do |nums|
+          rv += nums.size.to_s + nums
+        end
+        return rv
+      end
+
+      def sortItems(arr)
+        # Only one? Never mind
+        return arr if arr.size == 1
+      
+        # First, add the _sortstring entries
+        arr.each do |h|
+          #if h.has_key? 'description'
+          if h[:description]
+            h[:sortstring] = enumcronSortString(h[:description])
+          else
+            h[:sortstring] = '0'
+          end
+        end
+      
+        # Then sort it
+        arr.sort! { |a, b| self.enumcronSort(a, b) }
+      
+        # Then remove the sortstrings
+        arr.each do |h|
+          h.delete(:sortstring)
+        end
+        return arr
       end
 
       def f852
