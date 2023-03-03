@@ -17,6 +17,11 @@ describe Traject::UMich::PhysicalHolding do
   subject do
     described_class.new(record: @record, holding_id: holding_id) 
   end
+  context "#institution_code" do
+    it "returns the institution code" do
+      expect(subject.institution_code).to eq("MiU")
+    end
+  end
   context "#holding_id" do
     it "returns the holding_id" do
       expect(subject.holding_id).to eq(holding_id)
@@ -52,14 +57,16 @@ describe Traject::UMich::PhysicalHolding do
       expect(subject.floor_location).to eq("3 South")
     end
     it "handles nil callnumber" do
-      @record["852"].subfields.each do |s|
-        case s.code
-        when "b"
-          s.value = "HATCH"
-        when "c"
-          s.value = "GRAD"
-        when "h"
-          s.value = nil 
+      @record.fields("852").each do |f|
+        f.subfields.each do |s|
+          case s.code
+          when "b"
+            s.value = "HATCH"
+          when "c"
+            s.value = "GRAD"
+          when "h"
+            s.value = nil 
+          end
         end
       end
       expect(subject.floor_location).to eq("")
@@ -78,6 +85,49 @@ describe Traject::UMich::PhysicalHolding do
   context "location" do
     it "returns the appropriate location" do
       expect(subject.location).to eq("SOVR")
+    end
+  end
+  context "#circulating?" do
+    it "is true if any of the 974s have f=1" do
+      expect(subject.circulating?).to eq(true)
+    end
+    it "is false if none of the 974s have f = 1" do 
+      @record.fields("974").each do |f|
+        f.subfields.each do |s|
+          s.value = "0" if s.code == "f"
+        end
+      end
+      expect(subject.circulating?).to eq(false)
+    end
+  end
+  context "#locations" do
+    it "returns an array of library and library plus location" do
+      expect(subject.locations).to eq(["SHAP", "SHAP SOVR"])
+    end
+    it "returns only the library if there is no location in the holding or item record" do
+      @record["974"].subfields.each do |s|
+        s.value = "LOCATION" if s.code == "c"
+        s.value = "LIBRARY" if s.code == "b"
+      end
+      expect(subject.locations).to eq(["SHAP", "SHAP SOVR", "LIBRARY", "LIBRARY LOCATION"])
+    end
+    it "returns only the library if there is no location in the holding or item record" do
+      @record.fields("852").each do |f|
+        f.subfields.each do |s|
+          if s.code == "c"
+            s.value = nil 
+          end
+        end
+      end
+
+      @record.fields("974").each do |f|
+        f.subfields.each do |s|
+          if s.code == "c"
+            s.value = nil 
+          end
+        end
+      end
+      expect(subject.locations).to eq(["SHAP"])
     end
   end
   context "public_note" do

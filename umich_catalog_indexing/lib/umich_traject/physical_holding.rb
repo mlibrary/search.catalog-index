@@ -8,16 +8,21 @@ module Traject
         @record = record
       end
 
+      def institution_code
+        f852["a"]
+      end
+
       def summary_holdings
         output = []
         @record.each_by_tag("866") do |f|
           output.push(f['a']) if f["8"] == holding_id
         end
-        output.join(" : ")
+        str = output.join(" : ")
+        str == "" ? nil : str
       end
 
       def items
-        Traject::UMich::EnumcronSorter.sort( 
+        @items ||= Traject::UMich::EnumcronSorter.sort( 
           f974.map do |i| 
             Traject::UMich::PhysicalItem.new(item: i, has_finding_aid: finding_aid?) 
           end.reject do |x|
@@ -51,10 +56,16 @@ module Traject
         f852["c"]
       end
 
+      def locations
+        [library, "#{library} #{location}".strip].push( items.map{|x| x.locations } ).flatten.uniq
+      end
+      def circulating?
+        items.any?{ |x| x.circulating? }
+      end
+
       def public_note
         f852["z"]
       end
-
 
       def field_is_finding_aid?(f)
         link_text = f["y"]
@@ -79,42 +90,6 @@ module Traject
           record_has_finding_aid: finding_aid?,
           summary_holdings: summary_holdings
         }
-      end
-
-      def enumcronSort a, b
-        return a[:sortstring] <=> b[:sortstring]
-      end
-
-      def enumcronSortString str
-        rv = '0'
-        str.scan(/\d+/).each do |nums|
-          rv += nums.size.to_s + nums
-        end
-        return rv
-      end
-
-      def sortItems(arr)
-        # Only one? Never mind
-        return arr if arr.size == 1
-      
-        # First, add the _sortstring entries
-        arr.each do |h|
-          #if h.has_key? 'description'
-          if h[:description]
-            h[:sortstring] = enumcronSortString(h[:description])
-          else
-            h[:sortstring] = '0'
-          end
-        end
-      
-        # Then sort it
-        arr.sort! { |a, b| self.enumcronSort(a, b) }
-      
-        # Then remove the sortstrings
-        arr.each do |h|
-          h.delete(:sortstring)
-        end
-        return arr
       end
 
       def f852
