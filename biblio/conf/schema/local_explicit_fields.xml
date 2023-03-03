@@ -137,10 +137,18 @@
 <field name="related_title" type="text_no_stem_or_synonyms" indexed="true" stored="true"   multiValued="true" />
 <copyField source="author" dest="authorStr"/>
 
+<field name="author_browse_terms" type="text_facet" indexed="true" stored="true" multiValued="true"/>
+<field name="author_browse_search" type="authority_search" indexed="true" stored="true" multiValued="true"/>
+<copyField source="author_browse_terms" dest="author_browse_search"/>
+
+<!-- Old author terms, left here until we switch everything over -->
 <field name="author_authoritative_browse" type="text_facet" indexed="true" stored="true" multiValued="true"/>
 <field name="author_authoritative_search" type="authority_search" indexed="true" stored="true" multiValued="true"/>
-<copyField source="author_authoritative_browse" dest="author_authoritative_search"/>
-<!-- Mixed title/author -->
+<copyField source="author_browse_terms" dest="author_authoritative_browse"/>
+<copyField source="author_browse_terms" dest="author_authoritative_search"/>
+
+
+    <!-- Mixed title/author -->
 
 <field name="title_author" type="text" indexed="true" stored="false" multiValued="true"/>
 
@@ -149,7 +157,7 @@
 <field name="title_common"     type="text"  indexed="true" stored="true" multiValued="true"/>
 <field name="title_equiv"      type="text"  indexed="true" stored="true"  multiValued="true" omitNorms="true"/>
 <field name="title"            type="text"          indexed="true"  stored="true"  multiValued="true" />
-<field name="uniformTitle"            type="text"          indexed="true"  stored="true"  multiValued="true" />
+<field name="uniformTitle"     type="text"          indexed="true"  stored="true"  multiValued="true" />
 <field name="titleSort"        type="exactishSort" indexed="true"  stored="false" multiValued="false"/>
 <field name="vtitle"           type="string"        indexed="false" stored="true" multiValued="false" />
 <field name="titleProper"      type="text_no_stem_or_synonyms"    indexed="true"  stored="false" multiValued="true" />
@@ -231,7 +239,12 @@
 
 <field name="lc_subject_display"     type="text_facet" indexed="true" stored="true" multiValued="true"/>
 <field name="non_lc_subject_display" type="text_facet" indexed="true" stored="true" multiValued="true"/>
-<field name="subject_browse" type="lc_subject" indexed="true" stored="true" multiValued="true"/>
+
+<field name="subject_browse_terms" type="text_facet" indexed="true" stored="true" multiValued="true"/>
+<field name="subject_browse_search" type="lc_subject" indexed="true" stored="false" multiValued="true"/>
+<copyField source="subject_browse_terms" dest="subject_browse_search"/>
+
+
 
     <!-- Time and Place -->
 

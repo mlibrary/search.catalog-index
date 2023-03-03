@@ -1,7 +1,9 @@
+$:.unshift "#{File.dirname(__FILE__)}"
 require "sidekiq"
 require "yabeda/sidekiq"
 require "yabeda/prometheus"
-require "/app/lib/jobs"
+require "jobs"
+require "sftp"
 
 Yabeda.configure do
   gauge :indexing_job_last_success, comment: "Time the indexing last succeeded", tags: [:destination, :type]
