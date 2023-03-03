@@ -4,7 +4,11 @@ module Traject
     def self.location_map
       m = MatchMap.new
       m.echo = :onmiss
-      #====added 03-2023 for SCRC location additions
+      #====added 03-2023 for SCRC and HERB location additions
+      m[/^MUSM HEBC/] = ["HERB HEBC", "HERB"]
+      m[/^MUSM HEBO/] = ["HERB HEBO", "HERB"]
+      m[/^MUSM HEBR/] = ["HERB HEBR", "HERB"]
+      m[/^MUSM HERB/] = ["HERB HERB", "HERB"]
       m[/^SPEC SC[HB]-RARE.*/] = "SPEC RARE"
       m[/^SPEC SCB-SCI/] = "SPEC RARE"
       m[/^SPEC SCH-BUHR/] = "SPEC RARE"
