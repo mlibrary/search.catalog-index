@@ -17,9 +17,13 @@ module Traject
       end
 
       def items
-        f974.map { |i| Traject::UMich::PhysicalItem.new(item: i, has_finding_aid: finding_aid?) }.reject do |x|
-          x.should_be_suppressed
-        end
+        Traject::UMich::EnumcronSorter.sort( 
+          f974.map do |i| 
+            Traject::UMich::PhysicalItem.new(item: i, has_finding_aid: finding_aid?) 
+          end.reject do |x|
+            x.should_be_suppressed
+          end
+        )
       end
 
       def callnumber
