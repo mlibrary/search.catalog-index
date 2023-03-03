@@ -1,7 +1,7 @@
 $:.unshift "#{File.dirname(__FILE__)}/../lib"
 
-require "traject/macros/hathitrust/subject"
-extend Traject::Macros::HathiTrust::Subject
+require "traject/macros/common/subject"
+extend Traject::Macros::Common::Subject
 
 ################################
 ######## SUBJECT / TOPIC  ######

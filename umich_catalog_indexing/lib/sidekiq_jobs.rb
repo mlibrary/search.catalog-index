@@ -2,6 +2,7 @@ $:.unshift "#{File.dirname(__FILE__)}"
 require "sidekiq"
 require "yabeda/sidekiq"
 require "yabeda/prometheus"
+require "jobs"
 require "sftp"
 
 Yabeda.configure do

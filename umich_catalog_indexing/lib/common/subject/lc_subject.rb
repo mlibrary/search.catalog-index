@@ -2,10 +2,10 @@
 
 require_relative "normalize"
 
-module HathiTrust::Subject
+module Common::Subject
 
   class LCSubject
-    include HathiTrust::Subject::Normalize
+    include Common::Subject::Normalize
 
     # Create an LC Subject object from the passed field
     # @param [MARC::DataField] field _that has already been determined to be LC_

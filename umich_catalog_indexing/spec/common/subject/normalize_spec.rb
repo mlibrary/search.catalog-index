@@ -1,5 +1,5 @@
-require 'hathitrust/subject.rb'
-RSpec.describe HathiTrust::Subject::Normalize do
+require 'common/subject.rb'
+RSpec.describe Common::Subject::Normalize do
   context "#normalize as included behavior" do
     before(:each) do
       @input_string = ""
@@ -8,7 +8,7 @@ RSpec.describe HathiTrust::Subject::Normalize do
       klass.new.normalize(@input_string)
     end
     let(:klass) do
-      Class.new { include HathiTrust::Subject::Normalize }
+      Class.new { include Common::Subject::Normalize }
     end
     it "replaces tabs with spaces" do
       @input_string = "too\tmany\ttabs" 

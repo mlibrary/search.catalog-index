@@ -1,6 +1,6 @@
-require 'hathitrust/subject.rb'
+require 'common/subject.rb'
 require 'marc'
-RSpec.describe HathiTrust::Subject::NonLCSubject do
+RSpec.describe Common::Subject::NonLCSubject do
   let(:non_lc_subject_field) do
     MARC::DataField.new( "650", "", "7", 
       ["a", "a"], 
@@ -9,7 +9,7 @@ RSpec.describe HathiTrust::Subject::NonLCSubject do
     )
   end
   subject do
-    HathiTrust::Subject.new(non_lc_subject_field)
+    Common::Subject.new(non_lc_subject_field)
   end
   
   context "lc_subject_field?" do

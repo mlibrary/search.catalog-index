@@ -1,6 +1,6 @@
-require 'hathitrust/subject.rb'
+require 'common/subject.rb'
 require 'marc'
-RSpec.describe HathiTrust::Subject do
+RSpec.describe Common::Subject do
   def get_record(path) 
     reader = MARC::XMLReader.new(path)
     for r in reader

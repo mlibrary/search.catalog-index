@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module HathiTrust::Subject
+module Common::Subject
   module Normalize
-    #This enables the use of the method HathiTrust::Subject::Normalize.normalize
+    #This enables the use of the method Common::Subject::Normalize.normalize
     extend self
 
     # Mostly, we want to ditch punctuation, symbols, and spaces

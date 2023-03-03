@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
-module HathiTrust
+module Common
   module Subject
   end
 end
 
 require_relative "subject/lc_subject"
 require_relative "subject/non_lc_subject"
+require_relative "subject/normalize"
 
-module HathiTrust::Subject
+module Common::Subject
 
   # We define subjects as being in any of these fields:
   SUBJECT_FIELDS = %q(600 610 611 630 648 650 651 653 654 655 656 657 658 662 690)

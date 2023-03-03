@@ -1,6 +1,6 @@
-require 'hathitrust/subject.rb'
+require 'common/subject.rb'
 require 'marc'
-RSpec.describe HathiTrust::Subject::LCSubject do
+RSpec.describe Common::Subject::LCSubject do
   let(:record) do
     reader = MARC::XMLReader.new('./spec/fixtures/unauthorized_immigrants.xml')
     for r in reader
@@ -8,7 +8,7 @@ RSpec.describe HathiTrust::Subject::LCSubject do
     end
   end
   let(:subject_field) do
-    HathiTrust::Subject.lc_subject_fields(record).first
+    Common::Subject.lc_subject_fields(record).first
   end
   context "#subject_data_subfield_codes" do
     it "returns array of subfields with a-z codes" do
@@ -32,7 +32,7 @@ RSpec.describe HathiTrust::Subject::LCSubject do
   end
 end
 
-RSpec.describe HathiTrust::Subject::LCSubject658 do
+RSpec.describe Common::Subject::LCSubject658 do
   let(:subject_field) do
     MARC::DataField.new( "658", "1", "0", 
       ["a","Health objective 1"],
@@ -47,7 +47,7 @@ RSpec.describe HathiTrust::Subject::LCSubject658 do
     end
   end
 end
-RSpec.describe HathiTrust::Subject::LCSubjectHierarchical do
+RSpec.describe Common::Subject::LCSubjectHierarchical do
   let(:subject_field) do
     MARC::DataField.new( "662", "", "", 
       ["a","World"],

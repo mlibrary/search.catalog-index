@@ -1,6 +1,6 @@
 require "traject"
-require "traject/macros/hathitrust/subject"
-RSpec.describe Traject::Macros::HathiTrust::Subject do
+require "traject/macros/common/subject"
+RSpec.describe Traject::Macros::Common::Subject do
   let(:record) do
     reader = MARC::XMLReader.new('./spec/fixtures/unauthorized_immigrants.xml')
     for r in reader
@@ -8,7 +8,7 @@ RSpec.describe Traject::Macros::HathiTrust::Subject do
     end
   end
   let(:klass) do
-    Class.new { extend Traject::Macros::HathiTrust::Subject }
+    Class.new { extend Traject::Macros::Common::Subject }
   end
   context "lcsh_subjects" do
     it "gets the lc subjects" do
