@@ -9,7 +9,7 @@ module Traject
       end
 
       def institution_code
-        f852["a"]
+        f852["a"].upcase
       end
 
       def summary_holdings
@@ -78,17 +78,17 @@ module Traject
       end
       def to_h 
         {
-          callnumber: callnumber,
-          display_name: display_name,
-          floor_location: floor_location,
           hol_mmsid: holding_id,
-          info_link: info_link,
-          items: items.map{|x| x.to_h},
+          callnumber: callnumber,
           library: library,
           location: location,
+          info_link: info_link,
+          display_name: display_name,
+          floor_location: floor_location,
           public_note: public_note,
+          items: items.map{|x| x.to_h},
+          summary_holdings: summary_holdings,
           record_has_finding_aid: finding_aid?,
-          summary_holdings: summary_holdings
         }
       end
 

@@ -72,23 +72,23 @@ module Traject
       def to_h
         {
           barcode: barcode,
-          callnumber: callnumber,
-          can_reserve: can_reserve?,
-          description: description,
-          display_name: display_name,
-          fulfillment_unit: fulfillment_unit,
-          info_link: info_link,
-          inventory_number: inventory_number,
-          item_id: item_id,
-          item_policy: item_policy,
           library: library,
           location: location,
+          info_link: info_link,
+          display_name: display_name,
+          fulfillment_unit: fulfillment_unit,
+          can_reserve: can_reserve?,
           permanent_library: permanent_library,
           permanent_location: permanent_location,
-          process_type: process_type,
+          temp_location: temp_location?,
+          callnumber: callnumber,
           public_note: public_note,
+          process_type: process_type,
+          item_policy: item_policy,
+          description: description,
+          inventory_number: inventory_number,
+          item_id: item_id,
           record_has_finding_aid: finding_aid?,
-          temp_location: temp_location?
         }
       end
     end

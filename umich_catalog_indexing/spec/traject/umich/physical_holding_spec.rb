@@ -18,8 +18,8 @@ describe Traject::UMich::PhysicalHolding do
     described_class.new(record: @record, holding_id: holding_id) 
   end
   context "#institution_code" do
-    it "returns the institution code" do
-      expect(subject.institution_code).to eq("MiU")
+    it "returns upcased institution code" do
+      expect(subject.institution_code).to eq("MIU")
     end
   end
   context "#holding_id" do
