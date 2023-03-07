@@ -135,7 +135,7 @@ module Traject
 
         physical_holdings = physical_holding_ids.map do |id|
           PhysicalHolding.new(record: @record, holding_id: id)
-        end
+        end.reject{|x| x.items.empty? }
         physical_holdings.each do |holding|
           hol_list << holding.to_h
           locations << holding.institution_code
@@ -172,12 +172,12 @@ module Traject
           end
           #availability << 'avail_ht_etas' if context.clipboard[:ht][:overlap][:count_etas] > 0
         end
-        [
-          locations,
-          inst_codes,
-          availability,
-          hol_list
-        ]
+        {
+          locations: locations,
+          inst_codes: inst_codes,
+          availability: availability,
+          hol_list: hol_list
+        }
       end
 
       def physical_items

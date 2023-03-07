@@ -95,14 +95,17 @@ each_record do |r, context|
   else
      holdings = Traject::UMich::Holdings.new(r, context, libLocInfo, UMich::FloorLocation, HathiFiles).run
 
-    locations, inst_codes, availability, hol_list = *holdings
+    locations.push(*holdings[:locations])
+    inst_codes.push(*holdings[:inst_codes])
+    availability.push(*holdings[:availability])
+    hol_list.push(*holdings[:hol_list])
   end
   
 
   context.clipboard[:ht][:hol_list] = hol_list
-  context.clipboard[:ht][:availability] = availability.uniq
-  context.clipboard[:ht][:locations] = locations.uniq
-  context.clipboard[:ht][:inst_codes] = inst_codes.uniq
+  context.clipboard[:ht][:availability] = availability.uniq.sort
+  context.clipboard[:ht][:locations] = locations.uniq.sort
+  context.clipboard[:ht][:inst_codes] = inst_codes.uniq.sort
 
 end
 

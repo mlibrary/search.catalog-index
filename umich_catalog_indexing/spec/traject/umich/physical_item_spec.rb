@@ -183,7 +183,7 @@ describe Traject::UMich::PhysicalItem do
               :permanent_location, :process_type, :public_note,
               :record_has_finding_aid, :temp_location
       ]
-      expect(subject.to_h.keys).to eq(keys)
+      expect(subject.to_h.keys.sort).to eq(keys.sort)
     end
   end
 end

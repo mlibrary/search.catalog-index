@@ -164,7 +164,7 @@ describe Traject::UMich::PhysicalHolding do
       keys = [:callnumber, :display_name, :floor_location, :hol_mmsid,
               :info_link, :items, :library, :location, :public_note,
               :record_has_finding_aid, :summary_holdings]
-      expect(subject.to_h.keys).to eq(keys)
+      expect(subject.to_h.keys.sort).to eq(keys)
     end
   end
 end
