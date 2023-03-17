@@ -21,7 +21,7 @@ jobs:
         working-directory: ./umich_catalog_indexing
         run: cat .env-dev-values .env-example > .env
       - name: Load .env file
-        uses: xom9ikk/dotenv@v1.0.2
+        uses: xom9ikk/dotenv@v2
         with:
           path: umich_catalog_indexing
       - name: copy libLocInfo.yaml
