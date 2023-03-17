@@ -101,7 +101,18 @@ each_record do |r, context|
     hol_list.push(*holdings[:hol_list])
   end
   
+  #TODO This is how to empty it
+  if hol_list.empty? 
+    #id = context.output_hash['id'] || ""
+    #this message is in debug
+    #I think this will be check for level url (from the translation map from
+    #alma api.) If so, add in that electronic item. 
+    # maybe look for the coming soon? I need to go look elsewhere probably
+    # else suppress
+    context.skip!("empty holdings structure")
 
+  
+  end
   context.clipboard[:ht][:hol_list] = hol_list
   context.clipboard[:ht][:availability] = availability.compact.uniq.sort
   context.clipboard[:ht][:locations] = locations.compact.uniq.sort
