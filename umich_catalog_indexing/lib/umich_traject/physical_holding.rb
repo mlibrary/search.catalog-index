@@ -9,7 +9,7 @@ module Traject
       end
 
       def institution_code
-        f852["a"].upcase
+        f852["a"]&.upcase
       end
 
       def summary_holdings

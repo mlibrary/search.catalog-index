@@ -186,7 +186,20 @@ module Traject
       def physical_holding_ids
         physical_items.map do |h|
           h["8"]
-        end.uniq
+        end.uniq.select do |h|
+          @record.fields("852").any? {|f| f["8"] == h }
+        end
+      end
+      
+      def statusFromRights(rights, etas = false)
+
+        if rights =~ /^(pd|world|cc|und-world|ic-world)/
+          status = "Full text";
+        elsif etas
+          status = "Full text available, simultaneous access is limited (HathiTrust log in required)"
+        else
+          status = "Search only (no full text)"
+        end
       end
     end
   end

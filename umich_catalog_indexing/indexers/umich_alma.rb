@@ -103,9 +103,9 @@ each_record do |r, context|
   
 
   context.clipboard[:ht][:hol_list] = hol_list
-  context.clipboard[:ht][:availability] = availability.uniq.sort
-  context.clipboard[:ht][:locations] = locations.uniq.sort
-  context.clipboard[:ht][:inst_codes] = inst_codes.uniq.sort
+  context.clipboard[:ht][:availability] = availability.compact.uniq.sort
+  context.clipboard[:ht][:locations] = locations.compact.uniq.sort
+  context.clipboard[:ht][:inst_codes] = inst_codes.compact.uniq.sort
 
 end
 
