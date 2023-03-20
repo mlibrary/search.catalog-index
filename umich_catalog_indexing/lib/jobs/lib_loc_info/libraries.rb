@@ -3,8 +3,8 @@ module Jobs
     class Libraries
       def initialize
         response = ::AlmaRestClient.client.get('/conf/libraries')
-        if response.code == 200 
-          @data = response.parsed_response
+        if response.status == 200 
+          @data = response.body
         else
           @data = {}
         end

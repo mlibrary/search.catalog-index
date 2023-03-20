@@ -67,7 +67,7 @@ module Traject
         @record.each_by_tag('E56') do |f|
           next unless f['u']
           hol = Hash.new()
-          hol[:link] = URI.escape(f['u'])
+          hol[:link] = URI::Parser.new.escape(f['u'])
           hol[:library] = 'ELEC'
           hol[:status] = f['s'] if f['s']
           hol[:link_text] = 'Available online'

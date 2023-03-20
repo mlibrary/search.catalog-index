@@ -11,9 +11,11 @@ end
 gem 'yell', '~>2.0'
 gem "yabeda-sidekiq"
 gem "yabeda-prometheus"
+gem "httparty"
 
 source "https://rubygems.pkg.github.com/mlibrary" do
   gem "sftp"
+  gem "alma_rest_client", "2.0.0"
 end
 
 gem 'rack' #for sidekiq
@@ -49,6 +51,6 @@ gem 'pry'
 
 
 #For liblocyaml
-gem 'alma_rest_client',
-  git: 'https://github.com/mlibrary/alma_rest_client', 
-  tag: '1.1.0'
+#gem 'alma_rest_client',
+  #git: 'https://github.com/mlibrary/alma_rest_client', 
+  #tag: '1.1.0'

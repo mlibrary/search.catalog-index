@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/mlibrary/alma_rest_client
-  revision: 1d41c631573e4585562e06b43df025c2cdac99c6
-  tag: 1.1.0
-  specs:
-    alma_rest_client (1.1.0)
-      activesupport (~> 6.0, >= 4.2)
-      httparty
-
-GIT
   remote: https://github.com/mlibrary/traject_umich_format
   revision: 583637b1095a11ab2de50b3b03876a46d98378bf
   branch: master
@@ -17,12 +8,11 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.5)
+    activesupport (7.0.4.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-      zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     anyway_config (2.3.0)
@@ -39,6 +29,12 @@ GEM
     dot-properties (0.1.4)
       bundler (>= 2.2.33)
     dry-initializer (3.0.4)
+    faraday (2.7.4)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
+    faraday-retry (2.1.0)
+      faraday (~> 2.0)
     ffi (1.15.5)
     ffi (1.15.5-java)
     ffi-compiler (1.0.1)
@@ -48,6 +44,7 @@ GEM
     hashie (5.0.0)
     high_level_browse (1.1.1)
       nokogiri (~> 1.0)
+    http-2-next (0.5.1)
     http (5.0.4)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
@@ -56,11 +53,13 @@ GEM
     http-cookie (1.0.4)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
-    httparty (0.20.0)
-      mime-types (~> 3.0)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
-    i18n (1.10.0)
+    httpx (0.22.4)
+      http-2-next (>= 0.4.1)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jar-dependencies (0.4.1)
     jdbc-mysql (8.0.27)
@@ -78,10 +77,8 @@ GEM
       marc (~> 1)
     match_map (3.0.0)
     method_source (1.0.0)
-    mime-types (3.4.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2022.0105)
-    minitest (5.15.0)
+    mini_mime (1.1.2)
+    minitest (5.18.0)
     multi_xml (0.6.0)
     mysql2 (0.5.4)
     naconormalizer (1.0.1-java)
@@ -124,6 +121,7 @@ GEM
     rspec-support (3.11.0)
     ruby-debug-base (0.11.0-java)
     ruby-next-core (0.15.1)
+    ruby2_keywords (0.0.5)
     scrub_rb (1.0.1)
     sequel (5.55.0)
     sidekiq (6.4.2)
@@ -147,11 +145,12 @@ GEM
     traject-marc4j_reader (1.1.0-java)
       marc (~> 1.0)
       marc-marc4j (~> 1.0)
-    tzinfo (2.0.4)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
     unf (0.1.4-java)
+    unf_ext (0.0.8.2)
     webmock (3.14.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -169,13 +168,17 @@ GEM
       sidekiq
       yabeda (~> 0.6)
     yell (2.2.2)
-    zeitwerk (2.5.4)
 
 GEM
   remote: https://rubygems.pkg.github.com/mlibrary/
   specs:
+    alma_rest_client (2.0.0)
+      activesupport (~> 7.0, >= 4.2)
+      faraday
+      faraday-retry
+      httpx
+      rexml
     sftp (0.2.1)
-    unf_ext (0.0.8.2)
 
 PLATFORMS
   universal-java-1.8
@@ -183,10 +186,11 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
-  alma_rest_client!
+  alma_rest_client (= 2.0.0)!
   bundler (~> 2.0)
   byebug
   high_level_browse (>= 1.1)
+  httparty
   httpclient (~> 2.0)
   jdbc-mysql (~> 8.0)
   library_stdnums (~> 1.0)
@@ -212,4 +216,4 @@ DEPENDENCIES
   yell (~> 2.0)
 
 BUNDLED WITH
-   2.3.10
+   2.4.8
