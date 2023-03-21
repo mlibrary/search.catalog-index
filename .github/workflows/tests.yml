@@ -25,7 +25,9 @@ jobs:
         with:
           path: umich_catalog_indexing
       - name: copy libLocInfo.yaml
-        run: cp .github/fixtures/libLocInfo.yaml umich_catalog_indexing/lib/translation_maps/umich/libLocInfo.yaml
+        run: |
+          cp .github/fixtures/libLocInfo.yaml umich_catalog_indexing/lib/translation_maps/umich/libLocInfo.yaml
+          cp .github/fixtures/electronic_collections.yaml umich_catalog_indexing/lib/translation_maps/umich/electronic_collections.yaml
       - name: Run tests
         working-directory: ./umich_catalog_indexing
         run: bundle exec rspec
