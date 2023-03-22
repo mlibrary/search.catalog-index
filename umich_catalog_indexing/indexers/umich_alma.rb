@@ -116,6 +116,7 @@ each_record do |r, context|
           link: x["link"],
           library: "ELEC",
           link_text: "Available online",
+          status: x["status"],
           note: x["note"],
           collection_name: x["collection_name"],
           interface_name: x["interface_name"],

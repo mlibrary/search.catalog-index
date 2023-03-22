@@ -9,17 +9,31 @@ module Jobs
         @data = data
       end
       def items 
-        @data.map{|x| Item.new(x)}
+        @data.map{|x| Item.for(x)}
       end
       def to_h 
-        #create a Hash where values are uniq empty arrays
+        #create a Hash where values are unique empty arrays
         output = Hash.new { |h, k| h[k] = [] }
         items.each {|x| output[x.mms_id].push(x.to_h) }
+
+        # Sometimes there are collections that would have duplicate collection
+        # link info. This only grabs the unique collection info for Library
+        # Search. 
+        output.each do |k,v|
+          output[k] = v.uniq
+        end
         output
       end
     end
 
     class Item
+      def self.for(data)
+        if data["Electronic Collection Level URL (override)"] || data["Electronic Collection Level URL"]
+          AvailableItem.new(data)
+        else
+          UnavailableItem.new(data)
+        end
+      end
       # The ElectronicCollections::Item object calculates the appropriate values
       # for an Electronic Collection record to fill out an Electronic Holding
       # entry in the :hol field in the solr document
@@ -65,7 +79,8 @@ module Jobs
          "collection_name",
          "interface_name",
          "note",
-         "link"
+         "link",
+         "status"
         ].map do |x|
           [x, send(x)]
         end.to_h
@@ -73,6 +88,16 @@ module Jobs
       private
       def preferred_value(key)
         @data["#{key} (override)"] || @data[key]
+      end
+    end
+    class UnavailableItem < Item
+      def status
+        "Not Available"
+      end
+    end
+    class AvailableItem < Item
+      def status
+        "Available"
       end
     end
   end

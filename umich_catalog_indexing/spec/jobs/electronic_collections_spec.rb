@@ -20,10 +20,7 @@ RSpec.describe Jobs::ElectronicCollections::List do
   subject do
     described_class.new(@collection)
   end
-  context "#to_h" do
-    it "returns a hash with a key of mms_id and a value of an array of hashes with
-    collection info for the hol structure" do
-      expect(subject.to_h).to eq(
+  let(:expected_output) { 
         {
           "99187703610206381" =>
           [
@@ -31,11 +28,20 @@ RSpec.describe Jobs::ElectronicCollections::List do
               "collection_name" => "OVERRIDE_NAME",
               "interface_name" => "OVERRIDE_INTERFACE",
               "note" => "AUTH_NOTE",
-              "link" => "OVERRIDE_URL"
+              "link" => "OVERRIDE_URL",
+              "status" => "Available"
             }  
           ]
         }
-      )
+  }
+  context "#to_h" do
+    it "returns a hash with a key of mms_id and a value of an array of hashes with
+    collection info for the hol structure" do
+      expect(subject.to_h).to eq(expected_output)
+    end
+    it "collapses duplicate items" do
+      @collection[1] = @collection[0]
+      expect(subject.to_h).to eq(expected_output)
     end
   end
 end
@@ -57,7 +63,7 @@ RSpec.describe Jobs::ElectronicCollections::Item do
     }
   end
   subject do
-    described_class.new(@item)
+    described_class.for(@item)
   end
   context "#mms_id" do
     it "returns the mms_id" do
@@ -85,6 +91,16 @@ RSpec.describe Jobs::ElectronicCollections::Item do
       @item["Electronic Collection Level URL (override)"] = nil
       @item["Electronic Collection Level URL"] = nil
       expect(subject.link).to eq("")
+    end
+  end
+  context "#status" do
+    it "is 'Available' if there is a Level url" do
+      expect(subject.status).to eq("Available")
+    end
+    it "is 'Not Available' if there is no level url" do
+      @item["Electronic Collection Level URL (override)"] = nil
+      @item["Electronic Collection Level URL"] = nil
+      expect(subject.status).to eq("Not Available")
     end
   end
   context "#collection_name" do
@@ -141,7 +157,8 @@ RSpec.describe Jobs::ElectronicCollections::Item do
         "collection_name" => "OVERRIDE_NAME",
         "interface_name" => "OVERRIDE_INTERFACE",
         "note" => "AUTH_NOTE",
-        "link" => "OVERRIDE_URL"
+        "link" => "OVERRIDE_URL",
+        "status" => "Available"
       })
     end
   end
