@@ -95,6 +95,7 @@ each_record do |r, context|
       #availability << 'avail_ht_etas' if context.clipboard[:ht][:overlap][:count_etas] > 0
     end
   else
+
      holdings = Traject::UMich::Holdings.new(r, context, libLocInfo, UMich::FloorLocation, HathiFiles).run
 
     locations.push(*holdings[:locations])
@@ -125,13 +126,13 @@ each_record do |r, context|
       availability << 'avail_online'
       locations << "ELEC"
     else
+      context.skip!("empty holdings structure")
       puts "EMPTY HOLDING #{id}"
     #this message is in debug
     #I think this will be check for level url (from the translation map from
     #alma api.) If so, add in that electronic item. 
     # maybe look for the coming soon? I need to go look elsewhere probably
     # else suppress
-      context.skip!("empty holdings structure")
     end
   end
   context.clipboard[:ht][:hol_list] = hol_list

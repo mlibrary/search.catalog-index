@@ -113,7 +113,7 @@ module Traject
           link_text = f['y'] if f['y']
           if (link_text =~ /finding aid/i) or !has_e56
             hol = Hash.new()
-            hol[:link] = URI.escape(f['u'])
+            hol[:link] = URI::Parser.new.escape(f['u'])
             hol[:library] = 'ELEC'
             hol[:status] = f['s'] if f['s']
             hol[:link_text] = 'Available online'
