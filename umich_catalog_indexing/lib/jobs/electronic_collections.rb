@@ -4,6 +4,11 @@ module Jobs
       response = AlmaRestClient.client.get_report(path: '/shared/University of Michigan 01UMICH_INST/Reports/apps/library-search/electronic-collections')
       List.new(response.body).to_h
     end
+    # This is used for debugging. 
+    def self.all
+      response = AlmaRestClient.client.get_report(path: '/shared/University of Michigan 01UMICH_INST/Reports/apps/library-search/electronic-collections')
+      List.new(response.body)
+    end
     class List
       def initialize(data)
         @data = data

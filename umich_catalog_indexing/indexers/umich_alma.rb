@@ -108,7 +108,6 @@ each_record do |r, context|
     id = context.output_hash['id']&.first || ""
     electronic_collections_for_id = electronic_collections[id] 
 
-    puts electronic_collections[id].class
     if electronic_collections_for_id
       
       hol_list = electronic_collections_for_id.map do |x|
@@ -126,6 +125,7 @@ each_record do |r, context|
       availability << 'avail_online'
       locations << "ELEC"
     else
+      puts "EMPTY HOLDING #{id}"
     #this message is in debug
     #I think this will be check for level url (from the translation map from
     #alma api.) If so, add in that electronic item. 
