@@ -12,6 +12,7 @@ gem 'yell', '~>2.0'
 gem "yabeda-sidekiq"
 gem "yabeda-prometheus"
 gem "httparty"
+gem "webrick"
 
 source "https://rubygems.pkg.github.com/mlibrary" do
   gem "sftp"
