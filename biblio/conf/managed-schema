@@ -588,6 +588,22 @@
         </analyzer>
     </fieldType>
 
+		<fieldType name="lc_subject_left_anchored" class="solr.TextField" positionIncrementGap="&pig;">
+			<analyzer>
+		    &tokenize_with_icu;
+				&icu_case_folding_and_normalization;
+				<filter class="solr.PatternReplaceFilterFactory"
+				pattern="\s*--\s*" replacement="  "
+				replace="all"
+				/>
+				<filter class="solr.PatternReplaceFilterFactory"
+				pattern="\p{P}" replacement=" " replace="all"
+				/>
+				&cleanup;
+				<filter class="edu.umich.lib.solr_filters.LeftAnchoredSearchFilterFactory"/>
+		</analyzer>
+		</fieldType>
+
 
     <!-- =============================================================
                   A Facet type

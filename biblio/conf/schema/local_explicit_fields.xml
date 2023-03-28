@@ -242,7 +242,10 @@
 
 <field name="subject_browse_terms" type="text_facet" indexed="true" stored="true" multiValued="true"/>
 <field name="subject_browse_search" type="lc_subject" indexed="true" stored="false" multiValued="true"/>
+<field name="subject_browse_leftanchored" type="lc_subject_left_anchored" indexed="true" stored="false" multiValued="true"/>
+
 <copyField source="subject_browse_terms" dest="subject_browse_search"/>
+<copyField source="subject_browse_terms" dest="subject_browse_leftanchored"/>
 
 
 
