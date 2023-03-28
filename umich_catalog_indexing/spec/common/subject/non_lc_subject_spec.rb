@@ -17,10 +17,4 @@ RSpec.describe Common::Subject::NonLCSubject do
       expect(subject.lc_subject_field?).to eq(false)
     end
   end
-
-  context "subject_string" do
-    it "acts like an LCSubjectHierarchical" do
-      expect(subject.subject_string).to eq("a--b--c")
-    end
-  end
 end

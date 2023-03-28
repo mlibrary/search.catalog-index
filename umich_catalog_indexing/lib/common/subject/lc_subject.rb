@@ -21,18 +21,22 @@ module Common::Subject
       end
     end
 
-    # Define an LC subject field as any 6xx with ind2==0
-    # @param [MARC::DataField] field
+    # In theory, an LC subject field is any 6xx with ind2==0
+    # Sometimes we get subject fields with ind2=0 that are NOT LC. In many of theses
+    # cases, the field correctly has a $2 ("Source of heading or term"). If that $2 exists,
+    # and isn't "lcsh", we designate the field as "not LCSH".
+    # @param [MARC::DataField] field A 6XX field
     # @return [Boolean]
     def self.lc_subject_field?(field)
       SUBJECT_FIELDS.include?(field.tag) and
-        field.indicator2 == '0'
+        field.indicator2 == '0' and field["2"] != "lcsh"
     end
 
     def initialize(field)
       @field = field
     end
 
+    # Get all the subfields that have data (as opposed to field-level metadata, like a $2)
     def subject_data_subfield_codes
       @field.select { |sf| ('a'..'z').cover?(sf.code) }
     end
@@ -61,7 +65,8 @@ module Common::Subject
           else
             " #{sf.value}"
         end
-      end.join('').gsub(/\A\s*#{delimiter}/, '')
+      end.join('').gsub(/\A\s*#{delimiter}/, '') # pull off a leading delimiter if it's there
+
       normalize(str)
     end
 

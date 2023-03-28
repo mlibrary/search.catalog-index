@@ -22,6 +22,9 @@ RSpec.describe Common::Subject do
   let(:non_lc_subject_field) do
     subject_fields[2]
   end
+  let(:wrongindicator_subject_field) do
+    MARC::DataField.new("650", "0", "0", ["a", "subjectA"], ["2" "gnd"])
+  end
   context ".subject_field?" do
     it "returns true for appropriate subject field" do
       expect(described_class.subject_field?(lc_subject_field)).to eq(true)
@@ -38,6 +41,9 @@ RSpec.describe Common::Subject do
     it "returns false for field with incorrect tag" do
       not_lc_subject = instance_double(MARC::DataField, tag: "600", indicator2: "1")
       expect(described_class.lc_subject_field?(not_lc_subject)).to eq(false)
+    end
+    it "returns false for a field with ind2=0 but a $2 that says otherwise" do
+      expect(described_class.lc_subject_field?(wrongindicator_subject_field)).to eq(false)
     end
   end
   context ".linked_fields_for" do
