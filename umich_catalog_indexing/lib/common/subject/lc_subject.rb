@@ -28,8 +28,14 @@ module Common::Subject
     # @param [MARC::DataField] field A 6XX field
     # @return [Boolean]
     def self.lc_subject_field?(field)
-      SUBJECT_FIELDS.include?(field.tag) and
-        field.indicator2 == '0' and field["2"] != "lcsh"
+      return false unless SUBJECT_FIELDS.include?(field.tag)
+      return false if bad_ind2_subject_field?(field)
+      return true if field.indicator2 == "0"
+    end
+
+    # @param [MARC::DataField] field A 6xx field
+    def bad_ind2_subject_field?(field)
+      field.indicator2 == "0" and (field["2"] != "lcsh")
     end
 
     def initialize(field)
