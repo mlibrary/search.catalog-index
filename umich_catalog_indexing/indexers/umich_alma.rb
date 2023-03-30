@@ -125,15 +125,12 @@ each_record do |r, context|
       end
       availability << 'avail_online'
       locations << "ELEC"
-    else
-      context.skip!("empty holdings structure")
-      puts "EMPTY HOLDING #{id}"
+    end
     #this message is in debug
     #I think this will be check for level url (from the translation map from
     #alma api.) If so, add in that electronic item. 
     # maybe look for the coming soon? I need to go look elsewhere probably
     # else suppress
-    end
   end
   context.clipboard[:ht][:hol_list] = hol_list
   context.clipboard[:ht][:availability] = availability.compact.uniq.sort
