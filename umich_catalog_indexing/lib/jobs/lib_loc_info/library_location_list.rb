@@ -6,8 +6,8 @@ module Jobs
         @library_locations = {} 
         libraries.to_a&.each do |lib|
           resp = AlmaRestClient.client.get("/conf/libraries/#{lib[:code]}/locations")
-          if resp.code == 200
-            resp.parsed_response["location"]&.each do |loc|
+          if resp.status == 200
+            resp.body["location"]&.each do |loc|
               next if loc["code"].match?(/^\d+$/) #skip numerical locations
               libloc = Location.new(lib,loc)
               @library_locations[libloc.key] = {

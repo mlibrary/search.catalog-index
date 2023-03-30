@@ -13,8 +13,10 @@ HathiFiles = if ENV['NODB']
              end
 
 libLocInfo = Traject::TranslationMap.new('umich/libLocInfo')
+electronic_collections = Traject::TranslationMap.new('umich/electronic_collections')
 
 UMich::FloorLocation.configure('lib/translation_maps/umich/floor_locations.json')
+
 
 # skip course reserve records 
 
@@ -93,6 +95,7 @@ each_record do |r, context|
       #availability << 'avail_ht_etas' if context.clipboard[:ht][:overlap][:count_etas] > 0
     end
   else
+
      holdings = Traject::UMich::Holdings.new(r, context, libLocInfo, UMich::FloorLocation, HathiFiles).run
 
     locations.push(*holdings[:locations])
@@ -101,7 +104,34 @@ each_record do |r, context|
     hol_list.push(*holdings[:hol_list])
   end
   
+  #TODO This is how to empty it
+  if hol_list.empty? 
+    id = context.output_hash['id']&.first || ""
+    electronic_collections_for_id = electronic_collections[id] 
 
+    if electronic_collections_for_id
+      
+      hol_list = electronic_collections_for_id.map do |x|
+        {
+          link: x["link"],
+          library: "ELEC",
+          link_text: "Available online",
+          status: x["status"],
+          note: x["note"],
+          collection_name: x["collection_name"],
+          interface_name: x["interface_name"],
+          finding_aid: false
+        }
+      end
+      availability << 'avail_online'
+      locations << "ELEC"
+    end
+    #this message is in debug
+    #I think this will be check for level url (from the translation map from
+    #alma api.) If so, add in that electronic item. 
+    # maybe look for the coming soon? I need to go look elsewhere probably
+    # else suppress
+  end
   context.clipboard[:ht][:hol_list] = hol_list
   context.clipboard[:ht][:availability] = availability.compact.uniq.sort
   context.clipboard[:ht][:locations] = locations.compact.uniq.sort
