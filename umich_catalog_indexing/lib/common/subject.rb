@@ -23,7 +23,7 @@ module Common::Subject
     LCSubject.lc_subject_field?(field)
   end
 
-  # Determin the 880 (linking fields) for the given field. Should probably be pulled
+  # Determine the 880 (linking fields) for the given field. Should probably be pulled
   # out into a more generically-available macro
   # @param [MARC::Record] record The record
   # @param [MARC::DataField] field The field you want to try to match
