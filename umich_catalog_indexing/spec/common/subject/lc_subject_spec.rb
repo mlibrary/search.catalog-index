@@ -7,8 +7,29 @@ RSpec.describe Common::Subject::LCSubject do
       return r
     end
   end
+  let(:subject_fields) do
+    Common::Subject.lc_subject_fields(record)
+  end
   let(:subject_field) do
-    Common::Subject.lc_subject_fields(record).first
+    subject_fields.first
+  end
+  let(:non_lc_subject_field) do
+    subject_fields[2]
+  end
+  let(:wrongindicator_subject_field) do
+    MARC::DataField.new("650", "0", "0", ["a", "subjectA"], ["2", "gnd"])
+  end
+  context ".lc_subject_field?" do
+    it "returns true for appropriate subject field" do
+      expect(described_class.lc_subject_field?(subject_field)).to eq(true)
+    end
+    it "returns false for field with incorrect tag" do
+      not_lc_subject = instance_double(MARC::DataField, tag: "600", indicator2: "1")
+      expect(described_class.lc_subject_field?(not_lc_subject)).to eq(false)
+    end
+    it "returns false for a field with ind2=0 but a $2 that says otherwise" do
+      expect(described_class.lc_subject_field?(wrongindicator_subject_field)).to eq(false)
+    end
   end
   context "#subject_data_subfield_codes" do
     it "returns array of subfields with a-z codes" do
