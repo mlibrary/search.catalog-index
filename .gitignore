@@ -49,3 +49,6 @@ monitor/tmp/storage/*
 
 # Ignore master key for decrypting credentials and more.
 monitor/config/master.key
+
+monitor/.rdbg_history
+
