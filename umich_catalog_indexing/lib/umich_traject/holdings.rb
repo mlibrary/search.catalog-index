@@ -99,7 +99,7 @@ module Traject
             inst_codes << 'MIFLIC'
             hol[:link].sub!("openurl", "openurl-UMFL") 
           else 	# should't occur
-            logge@record.info "#{id} : can't process campus info for E56 (#{sub_c_list})"
+            logger @record.info "#{id} : can't process campus info for E56 (#{sub_c_list})"
           end
           has_e56 = true
         end
@@ -132,6 +132,16 @@ module Traject
 
           end
         end
+        digital_holdings = avd.map do |field|
+          DigitalHolding.new(field)
+        end
+        digital_holdings.each do |holding|
+          hol_list << holding.to_h
+          locations << holding.library
+          inst_codes << "MIU"
+          availability << "avail_online"
+        end
+        
 
         physical_holdings = physical_holding_ids.map do |id|
           PhysicalHolding.new(record: @record, holding_id: id)
@@ -189,6 +199,10 @@ module Traject
         end.uniq.select do |h|
           @record.fields("852").any? {|f| f["8"] == h }
         end
+      end
+
+      def avd
+        @avd ||= @record.fields("AVD")
       end
       
       def statusFromRights(rights, etas = false)
