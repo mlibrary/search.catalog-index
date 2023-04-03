@@ -24,3 +24,28 @@ lib/translation_maps/umich/libLocInfo.yaml
 *.tar.gz
 !sftp/search_daily_bibs/sample.tar.gz
 !sftp/search_daily_bibs/birds_2022021017_21131448650006381_new.tar.gz
+
+#Below is for monitor rails app
+# Ignore bundler config.
+monitor/.bundle
+
+# Ignore all logfiles and tempfiles.
+monitor/log/*
+monitor/tmp/*
+!monitor/log/.keep
+!monitor/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+monitor/tmp/pids/*
+!monitor/tmp/pids/
+!monitor/tmp/pids/.keep
+
+# Ignore uploaded files in development.
+monitor/storage/*
+!monitor/storage/.keep
+monitor/tmp/storage/*
+!monitor/tmp/storage/
+!monitor/tmp/storage/.keep
+
+# Ignore master key for decrypting credentials and more.
+monitor/config/master.key

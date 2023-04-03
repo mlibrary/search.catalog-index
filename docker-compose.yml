@@ -1,10 +1,26 @@
 version: '3'
 
 services:
+  monitor:
+    build: monitor/.
+    ports: 
+      - "3000:3000"
+    volumes:
+      - ./monitor/.:/app
+      - monitor_gem_cache:/gems
+    env_file:
+      - ./monitor/.env
+      - ./monitor/.env-dev-values
+
+  monitor-db:
+    image: mariadb
+    volumes:
+      - monitor_db_data:/var/lib/mysql
+    env_file:
+      - ./monitor/.env-dev-values
+
   sidekiq:
     build: sidekiq/.
-    depends_on:
-      - 'redis'
     ports:
      - "9292:9292"
     volumes:
@@ -25,8 +41,6 @@ services:
 
   web:
     build: umich_catalog_indexing/.
-    depends_on:
-      - 'redis'
     ports:
       - 9394:9394
     volumes:
@@ -57,29 +71,35 @@ services:
     ports:
      - "8026:8026"
   
-  mock-ht:
-    build: mock-ht/.
-    ports:
-      - 4444:4444
-    volumes:
-      - ./mock-ht/.:/app
-    env_file:
-      - ./mock-ht/.env-dev-values
+  #mock-ht:
+    #build: mock-ht/.
+    #ports:
+      #- 4444:4444
+    #volumes:
+      #- ./mock-ht/.:/app
+    #env_file:
+      #- ./mock-ht/.env-dev-values
 
+  #hathidb:
+    #image: ghcr.io/hathitrust/hathifiles-dev-db:latest
 
-  hathidb:
-    image: ghcr.io/hathitrust/hathifiles-dev-db:latest
+  #hathioverlap:
+    #build: overlap/.
 
-  hathioverlap:
-    build: overlap/.
+  #prometheus:
+    #image: prom/prometheus
+    #ports:
+      #- 9090:9090
+    #volumes:
+      #- ./prometheus.yml:/etc/prometheus/prometheus.yml
 
-  prometheus:
-    image: prom/prometheus
-    ports:
-      - 9090:9090
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+#networks:
+  #default:
+    #external:
+      #name: example
 
 volumes:
   gem_cache:
   redis:
+  monitor_db_data:
+  monitor_gem_cache:
