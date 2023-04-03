@@ -31,3 +31,54 @@ jobs:
       - name: Run tests
         working-directory: ./umich_catalog_indexing
         run: bundle exec rspec
+  monitor_test: 
+    runs-on: ubuntu-latest
+
+    services:
+      mariadb:
+        image: mariadb:10
+        env:
+          MARIADB_USER: monitor
+          MARIADB_PASSWORD: monitor_password
+          MARIADB_DATABASE: monitor_test
+          MARIADB_ROOT_PASSWORD: pass
+        ports: ["3306:3306"]
+        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
+    env:  
+      BUNDLE_GEMFILE: ${{ github.workspace }}/monitor/Gemfile
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up ruby 3.2
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2" 
+          bundler-cache: true
+      - name: Create .env file
+        working-directory: ./monitor
+        run: |
+          sed 's/DATABASE_HOST=monitor-db/DATABASE_HOST=127.0.0.1/' .env-dev-values > .env-actions
+          cat .env-actions .env-example > .env
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v2
+        with:
+          path: monitor
+      - name: Setup up node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Verify MariaDB connection
+        run: | 
+          while ! mysqladmin ping -h"127.0.0.1" -P"3306" --silent; do
+            sleep 1
+          done   
+      - name: Set up DB
+        working-directory: ./monitor
+        run: bundle exec rails db:schema:load RAILS_ENV=test
+      #- name: Run linter for Ruby
+        #run: bundle exec standardrb
+      - name: Run tests
+        working-directory: ./monitor
+        run: bundle exec rspec
+
+    
+
