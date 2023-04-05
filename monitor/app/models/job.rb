@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
   has_many :statuses
-
+  validates :job_id, :arguments, :job_class, presence: true
   after_create :mark_as_started
 
   def status
