@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_200455) do
     t.string "job_id"
     t.string "job_class"
     t.string "arguments"
+    t.string "queue"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

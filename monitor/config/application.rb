@@ -2,6 +2,7 @@ require_relative "boot"
 
 #require "rails/all"
 require "rails"
+require "sidekiq"
 
 #this is documentation of what's been removed
 removed = %(
@@ -25,9 +26,29 @@ removed = %(
   end
 end
 
+# This sidekiq middleware creates calls this api to create a new job
+class JobStarted
+  def call(worker, job, queue, redis_pool)
+    response = Faraday.post("http://localhost:3000/api/v1/jobs", {
+      job_id: job["jid"],
+      arguments: job["args"].to_json,
+      job_class: job["class"],
+      queue: queue
+    })
+    yield
+  end
+end
+
+Sidekiq.configure_client do |config|
+  config.client_middleware do |chain|
+    chain.add JobStarted
+  end
+end
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
 
 module App
   class Application < Rails::Application

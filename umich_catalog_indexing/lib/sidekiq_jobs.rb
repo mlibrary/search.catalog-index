@@ -10,8 +10,43 @@ Yabeda.configure do
 end
 Yabeda.configure!
 
-Sidekiq.configure_server do |_config|
+
+class JobStarted
+  def call(worker, job, queue, redis_pool)
+    response = Faraday.post("#{ENV.fetch("INDEXING_MONITOR_HOST")}/api/v1/jobs", {
+      job_id: job["jid"],
+      arguments: job["args"].to_json,
+      job_class: job["class"],
+      queue: queue
+    })
+    puts response.status
+    yield
+  end
+end
+
+class JobFinished
+  def call(worker, job, queue)
+    yield
+    response = Faraday.post("#{ENV.fetch("INDEXING_MONITOR_HOST")}/api/v1/jobs/#{job["jid"]}/complete", {
+      arguments: job["args"].to_json,
+      job_class: job["class"],
+      queue: queue
+    })
+    puts response.status
+  end
+end
+
+Sidekiq.configure_client do |config|
+  config.client_middleware do |chain|
+    chain.add JobStarted
+  end
+end
+
+Sidekiq.configure_server do |config|
   Yabeda::Prometheus::Exporter.start_metrics_server!
+  config.server_middleware do |chain|
+    chain.add JobFinished
+  end
 end
 
 SFTP.configure do |config|
