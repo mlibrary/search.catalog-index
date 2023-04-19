@@ -1,12 +1,12 @@
 require 'common/subject.rb'
 require 'marc'
+require "traject/macros/common/subject"
+
 RSpec.describe Common::Subject do
-  def get_record(path) 
-    reader = MARC::XMLReader.new(path)
-    for r in reader
-      return r
-    end
+  def get_record(path)
+    MARC::XMLReader.new(path).first
   end
+
   let(:record) do
     get_record('./spec/fixtures/unauthorized_immigrants.xml')
   end
@@ -20,7 +20,7 @@ RSpec.describe Common::Subject do
     subject_fields.first
   end
   let(:non_lc_subject_field) do
-    subject_fields[2]
+    subject_fields[4]
   end
   let(:wrongindicator_subject_field) do
     MARC::DataField.new("650", "0", "0", ["a", "subjectA"], ["2" "gnd"])
@@ -47,7 +47,8 @@ RSpec.describe Common::Subject do
     it "returns subject fields including non_lc" do
       subjects = described_class.subject_fields(record)
       expect(subjects.first.tag).to eq("610")
-      expect(subjects.count).to eq(4)
+      expect(subjects.last.tag).to eq("600")
+      expect(subjects.count).to eq(5)
     end
     it "returns subject fields and linked subject fields" do
       subjects = described_class.subject_fields(record_with_880)
@@ -58,15 +59,20 @@ RSpec.describe Common::Subject do
   end
   context ".lc_subject_fields" do
     it "returns just the lc_subject_fields" do
-      subjects = described_class.lc_subject_fields(record)
+      subjects = described_class.only_lc_subject_fields(record)
       expect(subjects.first.tag).to eq("610")
       expect(subjects.count).to eq(3)
     end
     it "returns subject fields and linked subject fields" do
-      subjects = described_class.lc_subject_fields(record_with_880)
+      subjects = described_class.only_lc_subject_fields(record_with_880)
       expect(subjects[0].tag).to eq("630")
       expect(subjects[3].tag).to eq("880")
       expect(subjects.count).to eq(4)
+    end
+
+    it "returns lc_like umich-local subject field" do
+      subjects = described_class.only_lc_pretender_subject_fields(record)
+      expect(subjects.count).to eq(1)
     end
   end
   context ".new" do
@@ -76,5 +82,22 @@ RSpec.describe Common::Subject do
     it "returns an object that knows it's an Non LCSubject" do
       expect(described_class.new(non_lc_subject_field).lc_subject_field?).to eq(false)
     end
+  end
+
+  context "subject macros" do
+    let(:macros) { Class.new { extend Traject::Macros::Common::Subject } }
+    it "correctly returns both local and 'real' lc subjects" do
+      acc = []
+      macros.lcsh_subjects.call(record, acc)
+      expect(acc.count).to eq(4)
+    end
+
+    it "correctly returns non-lc fields, counting umich-local as lc" do
+      acc = []
+      macros.non_lcsh_subjects.call(record, acc)
+      expect(acc.count).to eq(1)
+    end
+
+
   end
 end

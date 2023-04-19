@@ -118,6 +118,10 @@
     <subfield code="z">United States.</subfield>
     <subfield code="0">http://id.loc.gov/authorities/subjects/sh85108855</subfield>
   </datafield>
+  <datafield tag="600" ind1=" " ind2="2">
+    <subfield code="a">Non-LC</subfield>
+    <subfield code="z">Subject</subfield>
+  </datafield>
   <datafield tag="710" ind1="2" ind2=" ">
     <subfield code="a">Library of Congress.</subfield>
     <subfield code="b">Congressional Research Service.</subfield>

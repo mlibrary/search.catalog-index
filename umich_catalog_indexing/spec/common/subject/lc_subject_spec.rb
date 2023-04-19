@@ -1,14 +1,12 @@
 require 'common/subject.rb'
 require 'marc'
+
 RSpec.describe Common::Subject::LCSubject do
   let(:record) do
-    reader = MARC::XMLReader.new('./spec/fixtures/unauthorized_immigrants.xml')
-    for r in reader
-      return r
-    end
+    MARC::XMLReader.new('./spec/fixtures/unauthorized_immigrants.xml').first
   end
   let(:subject_fields) do
-    Common::Subject.lc_subject_fields(record)
+    Common::Subject.only_lc_subject_fields(record)
   end
   let(:subject_field) do
     subject_fields.first
