@@ -19,9 +19,19 @@ module Common::Subject
   end
 
   # Delegate LC determination to the class itself.
+  # @param [MARC::DataField] field The field you want to try to match
   def self.lc_subject_field?(field)
     LCSubject.lc_subject_field?(field)
   end
+
+  # Other things we want to _treat_ like LC Subject fields
+  # @param [MARC::DataField] field The field you want to try to match
+  def self.lc_like_subject_field?(field)
+    SUBJECT_FIELDS.include?(field.tag) and
+      field.indicator2 == "7" and
+      field["2"] == "miush"
+  end
+
 
   # Determine the 880 (linking fields) for the given field. Should probably be pulled
   # out into a more generically-available macro
@@ -52,6 +62,15 @@ module Common::Subject
   # linked counterparts, if any
   def self.lc_subject_fields(record)
     sfields = record.select { |field| lc_subject_field?(field) }
+    sfields + sfields.flat_map { |field| linked_fields_for(record, field) }.compact
+  end
+
+  # Other fields that we want to treat like lc
+  # @param [MARC::Record] record The record
+  # @return [Array<MARC::DataField>] A (possibly empty) array of LC subject fields and their
+  # linked counterparts, if any
+  def self.lc_like_subject_fields(record)
+    sfields = record.select { |field| lc_like_subject_field?(field) }
     sfields + sfields.flat_map { |field| linked_fields_for(record, field) }.compact
   end
 

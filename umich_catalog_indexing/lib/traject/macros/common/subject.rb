@@ -9,7 +9,7 @@ module Traject::Macros::Common
   module Subject
     def lcsh_subjects
       ->(record, accumulator) do
-        subject_fields = Common::Subject.lc_subject_fields(record)
+        subject_fields = Common::Subject.lc_subject_fields(record) + Common::Subject.lc_like_subject_fields(record)
         subjects = subject_fields.map{|f| Common::Subject.new(f)}
         accumulator.replace subjects.map { |s| s.subject_string }
       end

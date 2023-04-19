@@ -2,10 +2,7 @@ require 'common/subject.rb'
 require 'marc'
 RSpec.describe Common::Subject do
   def get_record(path) 
-    reader = MARC::XMLReader.new(path)
-    for r in reader
-      return r
-    end
+    MARC::XMLReader.new(path).first
   end
   let(:record) do
     get_record('./spec/fixtures/unauthorized_immigrants.xml')
@@ -52,8 +49,8 @@ RSpec.describe Common::Subject do
     it "returns subject fields and linked subject fields" do
       subjects = described_class.subject_fields(record_with_880)
       expect(subjects[0].tag).to eq("630")
-      expect(subjects[3].tag).to eq("880")
-      expect(subjects.count).to eq(4)
+      expect(subjects[4].tag).to eq("880")
+      expect(subjects.count).to eq(5)
     end
   end
   context ".lc_subject_fields" do
@@ -67,6 +64,11 @@ RSpec.describe Common::Subject do
       expect(subjects[0].tag).to eq("630")
       expect(subjects[3].tag).to eq("880")
       expect(subjects.count).to eq(4)
+    end
+
+    it "returns lc_like umich-local subject field" do
+      subjects = described_class.lc_like_subject_fields(record_with_880)
+      expect(subjects.count).to eq(1)
     end
   end
   context ".new" do

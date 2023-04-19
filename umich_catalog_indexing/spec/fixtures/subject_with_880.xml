@@ -1,1 +1,183 @@
-<?xml version="1.0" encoding="UTF-8"?><collection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/MARC21/slim" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd"><record><leader>01782nam a22004091a 4500</leader><controlfield tag="001">000800450</controlfield><controlfield tag="003">MiAaHDL</controlfield><controlfield tag="005">20210817000000.0</controlfield><controlfield tag="006">m        d        </controlfield><controlfield tag="007">cr bn ---auaua</controlfield><controlfield tag="008">010425s1984    cc af         00000 chi  </controlfield><datafield tag="010" ind1=" " ind2=" "><subfield code="a">85207961 /ACN</subfield></datafield><datafield tag="020" ind1=" " ind2=" "><subfield code="c">RMBY1.05</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(MiU)990008004500106381</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">sdr-miu.990008004500106381</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(OCoLC)15409483</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="a">(RLIN)MIUO86-B3947</subfield></datafield><datafield tag="035" ind1=" " ind2=" "><subfield code="z">(MiU)Aleph000800450</subfield></datafield><datafield tag="040" ind1=" " ind2=" "><subfield code="d">CStRLIN</subfield></datafield><datafield tag="043" ind1=" " ind2=" "><subfield code="a">a-cc---</subfield></datafield><datafield tag="050" ind1="0" ind2=" "><subfield code="a">SF961</subfield><subfield code="b">.T3 1984 &lt;Orien China&gt;</subfield></datafield><datafield tag="082" ind1="0" ind2=" "><subfield code="a">636.2/089</subfield><subfield code="2">19</subfield></datafield><datafield tag="245" ind1="0" ind2="0"><subfield code="6">880-01</subfield><subfield code="a">Da wu jing jiao ju :</subfield><subfield code="b">niu jing da quan /</subfield><subfield code="c">Hunan sheng Changde xian xu mu shui chan ju "Da wu jing" jiao zhu xiao zu jiao zhu.</subfield></datafield><datafield tag="250" ind1=" " ind2=" "><subfield code="6">880-02</subfield><subfield code="a">Di 1 ban.</subfield></datafield><datafield tag="260" ind1=" " ind2=" "><subfield code="6">880-03</subfield><subfield code="a">Beijing :</subfield><subfield code="b">Nong ye chu ban she :</subfield><subfield code="b">Xin hua shu dian Beijing fa xing suo fa xing,</subfield><subfield code="c">1984.</subfield></datafield><datafield tag="300" ind1=" " ind2=" "><subfield code="a">2, 2, 5, 157 p., [2] leaves of plates :</subfield><subfield code="b">ill. ;</subfield><subfield code="c">20 cm.</subfield></datafield><datafield tag="490" ind1="0" ind2=" "><subfield code="6">880-04</subfield><subfield code="a">Zhongguo nong shu cong kan. Xu mu shou yi zhi bu</subfield></datafield><datafield tag="538" ind1=" " ind2=" "><subfield code="a">Mode of access: Internet.</subfield></datafield><datafield tag="630" ind1="0" ind2="0"><subfield code="6">880-05</subfield><subfield code="a">Da wu jing.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Medicine, Chinese.</subfield></datafield><datafield tag="650" ind1=" " ind2="0"><subfield code="a">Cattle</subfield><subfield code="x">Diseases.</subfield></datafield><datafield tag="710" ind1="2" ind2=" "><subfield code="6">880-06</subfield><subfield code="a">Hunan Sheng Changde Xian xu mu shui chan ju "Da wu jing" jiao zhu xiao zu.</subfield></datafield><datafield tag="730" ind1="0" ind2="2"><subfield code="6">880-07</subfield><subfield code="a">Da wu jing.</subfield><subfield code="f">1984.</subfield></datafield><datafield tag="880" ind1=" " ind2="0"><subfield code="6">830-08/</subfield><subfield code="a">中国农书丛刊.</subfield><subfield code="p">畜牧兽医之部</subfield></datafield><datafield tag="880" ind1="0" ind2="2"><subfield code="6">730-07/</subfield><subfield code="a">大武经.</subfield><subfield code="f">1984.</subfield></datafield><datafield tag="880" ind1="2" ind2=" "><subfield code="6">710-06/</subfield><subfield code="a">湖南省常德县畜牧水产局《大武经》校注小组.</subfield></datafield><datafield tag="880" ind1="0" ind2="4"><subfield code="6">630-05/</subfield><subfield code="a">大武經.</subfield></datafield><datafield tag="880" ind1="1" ind2=" "><subfield code="6">490-04/</subfield><subfield code="a">中国农书丛刊. 畜牧兽医之部</subfield></datafield><datafield tag="880" ind1=" " ind2=" "><subfield code="6">260-03/</subfield><subfield code="a">北京 :</subfield><subfield code="b">农业出版社 :</subfield><subfield code="b">新华书店北京发行所发行,</subfield><subfield code="c">1984.</subfield></datafield><datafield tag="880" ind1=" " ind2=" "><subfield code="6">250-02/</subfield><subfield code="a">第1版.</subfield></datafield><datafield tag="880" ind1="0" ind2="0"><subfield code="6">245-01/</subfield><subfield code="a">大武经校注 :</subfield><subfield code="b">牛经大全 /</subfield><subfield code="c">湖南省常德县畜牧水产局《大武经》校注小组校注.</subfield></datafield><datafield tag="CID" ind1=" " ind2=" "><subfield code="a">000800450</subfield></datafield><datafield tag="DAT" ind1="0" ind2=" "><subfield code="a">20010425000000.0</subfield><subfield code="b">20210817000000.0</subfield></datafield><datafield tag="DAT" ind1="1" ind2=" "><subfield code="a">20210927060711.0</subfield><subfield code="b">2021-09-27T18:48:01Z</subfield></datafield><datafield tag="DAT" ind1="2" ind2=" "><subfield code="a">2020-05-09T17:30:02Z</subfield></datafield><datafield tag="CAT" ind1=" " ind2=" "><subfield code="a">SDR-MIU</subfield><subfield code="d">ALMA</subfield><subfield code="l">prepare.pl-004-008</subfield></datafield><datafield tag="FMT" ind1=" " ind2=" "><subfield code="a">BK</subfield></datafield><datafield tag="HOL" ind1=" " ind2=" "><subfield code="0">sdr-miu.990008004500106381</subfield><subfield code="a">MiU</subfield><subfield code="b">SDR</subfield><subfield code="c">MIU</subfield><subfield code="p">mdp.39015065683172</subfield><subfield code="s">MIU</subfield><subfield code="1">990008004500106381</subfield></datafield><datafield tag="974" ind1=" " ind2=" "><subfield code="b">MIU</subfield><subfield code="c">MIU</subfield><subfield code="d">20210927</subfield><subfield code="s">google</subfield><subfield code="u">mdp.39015065683172</subfield><subfield code="y">1984</subfield><subfield code="r">ic</subfield><subfield code="q">bib</subfield><subfield code="t">non-US bib date1 &gt;= 1928</subfield></datafield></record></collection>
+<?xml version="1.0" encoding="UTF-8"?>
+<collection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/MARC21/slim"
+            xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+  <record>
+    <leader>01782nam a22004091a 4500</leader>
+    <controlfield tag="001">000800450</controlfield>
+    <controlfield tag="003">MiAaHDL</controlfield>
+    <controlfield tag="005">20210817000000.0</controlfield>
+    <controlfield tag="006">m d</controlfield>
+    <controlfield tag="007">cr bn ---auaua</controlfield>
+    <controlfield tag="008">010425s1984 cc af 00000 chi</controlfield>
+    <datafield tag="010" ind1=" " ind2=" ">
+      <subfield code="a">85207961 /ACN</subfield>
+    </datafield>
+    <datafield tag="020" ind1=" " ind2=" ">
+      <subfield code="c">RMBY1.05</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(MiU)990008004500106381</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">sdr-miu.990008004500106381</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(OCoLC)15409483</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="a">(RLIN)MIUO86-B3947</subfield>
+    </datafield>
+    <datafield tag="035" ind1=" " ind2=" ">
+      <subfield code="z">(MiU)Aleph000800450</subfield>
+    </datafield>
+    <datafield tag="040" ind1=" " ind2=" ">
+      <subfield code="d">CStRLIN</subfield>
+    </datafield>
+    <datafield tag="043" ind1=" " ind2=" ">
+      <subfield code="a">a-cc---</subfield>
+    </datafield>
+    <datafield tag="050" ind1="0" ind2=" ">
+      <subfield code="a">SF961</subfield>
+      <subfield code="b">.T3 1984 &lt;Orien China&gt;</subfield>
+    </datafield>
+    <datafield tag="082" ind1="0" ind2=" ">
+      <subfield code="a">636.2/089</subfield>
+      <subfield code="2">19</subfield>
+    </datafield>
+    <datafield tag="245" ind1="0" ind2="0">
+      <subfield code="6">880-01</subfield>
+      <subfield code="a">Da wu jing jiao ju :</subfield>
+      <subfield code="b">niu jing da quan /</subfield>
+      <subfield code="c">Hunan sheng Changde xian xu mu shui chan ju "Da wu jing" jiao zhu xiao zu jiao zhu.</subfield>
+    </datafield>
+    <datafield tag="250" ind1=" " ind2=" ">
+      <subfield code="6">880-02</subfield>
+      <subfield code="a">Di 1 ban.</subfield>
+    </datafield>
+    <datafield tag="260" ind1=" " ind2=" ">
+      <subfield code="6">880-03</subfield>
+      <subfield code="a">Beijing :</subfield>
+      <subfield code="b">Nong ye chu ban she :</subfield>
+      <subfield code="b">Xin hua shu dian Beijing fa xing suo fa xing,</subfield>
+      <subfield code="c">1984.</subfield>
+    </datafield>
+    <datafield tag="300" ind1=" " ind2=" ">
+      <subfield code="a">2, 2, 5, 157 p., [2] leaves of plates :</subfield>
+      <subfield code="b">ill. ;</subfield>
+      <subfield code="c">20 cm.</subfield>
+    </datafield>
+    <datafield tag="490" ind1="0" ind2=" ">
+      <subfield code="6">880-04</subfield>
+      <subfield code="a">Zhongguo nong shu cong kan. Xu mu shou yi zhi bu</subfield>
+    </datafield>
+    <datafield tag="538" ind1=" " ind2=" ">
+      <subfield code="a">Mode of access: Internet.</subfield>
+    </datafield>
+    <datafield tag="630" ind1="0" ind2="0">
+      <subfield code="6">880-05</subfield>
+      <subfield code="a">Da wu jing.</subfield>
+    </datafield>
+    <datafield tag="650" ind1=" " ind2="0">
+      <subfield code="a">Medicine, Chinese.</subfield>
+    </datafield>
+    <datafield tag="650" ind1=" " ind2="0">
+      <subfield code="a">Cattle</subfield>
+      <subfield code="x">Diseases.</subfield>
+    </datafield>
+    <datafield tag="650" ind1=" " ind2="7">
+      <subfield code="2">miush</subfield>
+      <subfield code="a">Cattle</subfield>
+      <subfield code="x">Diseases.</subfield>
+    </datafield>
+    <datafield tag="710" ind1="2" ind2=" ">
+      <subfield code="6">880-06</subfield>
+      <subfield code="a">Hunan Sheng Changde Xian xu mu shui chan ju "Da wu jing" jiao zhu xiao zu.</subfield>
+    </datafield>
+    <datafield tag="730" ind1="0" ind2="2">
+      <subfield code="6">880-07</subfield>
+      <subfield code="a">Da wu jing.</subfield>
+      <subfield code="f">1984.</subfield>
+    </datafield>
+    <datafield tag="880" ind1=" " ind2="0">
+      <subfield code="6">830-08/</subfield>
+      <subfield code="a">中国农书丛刊.</subfield>
+      <subfield code="p">畜牧兽医之部</subfield>
+    </datafield>
+    <datafield tag="880" ind1="0" ind2="2">
+      <subfield code="6">730-07/</subfield>
+      <subfield code="a">大武经.</subfield>
+      <subfield code="f">1984.</subfield>
+    </datafield>
+    <datafield tag="880" ind1="2" ind2=" ">
+      <subfield code="6">710-06/</subfield>
+      <subfield code="a">湖南省常德县畜牧水产局《大武经》校注小组.</subfield>
+    </datafield>
+    <datafield tag="880" ind1="0" ind2="4">
+      <subfield code="6">630-05/</subfield>
+      <subfield code="a">大武經.</subfield>
+    </datafield>
+    <datafield tag="880" ind1="1" ind2=" ">
+      <subfield code="6">490-04/</subfield>
+      <subfield code="a">中国农书丛刊. 畜牧兽医之部</subfield>
+    </datafield>
+    <datafield tag="880" ind1=" " ind2=" ">
+      <subfield code="6">260-03/</subfield>
+      <subfield code="a">北京 :</subfield>
+      <subfield code="b">农业出版社 :</subfield>
+      <subfield code="b">新华书店北京发行所发行,</subfield>
+      <subfield code="c">1984.</subfield>
+    </datafield>
+    <datafield tag="880" ind1=" " ind2=" ">
+      <subfield code="6">250-02/</subfield>
+      <subfield code="a">第1版.</subfield>
+    </datafield>
+    <datafield tag="880" ind1="0" ind2="0">
+      <subfield code="6">245-01/</subfield>
+      <subfield code="a">大武经校注 :</subfield>
+      <subfield code="b">牛经大全 /</subfield>
+      <subfield code="c">湖南省常德县畜牧水产局《大武经》校注小组校注.</subfield>
+    </datafield>
+    <datafield tag="CID" ind1=" " ind2=" ">
+      <subfield code="a">000800450</subfield>
+    </datafield>
+    <datafield tag="DAT" ind1="0" ind2=" ">
+      <subfield code="a">20010425000000.0</subfield>
+      <subfield code="b">20210817000000.0</subfield>
+    </datafield>
+    <datafield tag="DAT" ind1="1" ind2=" ">
+      <subfield code="a">20210927060711.0</subfield>
+      <subfield code="b">2021-09-27T18:48:01Z</subfield>
+    </datafield>
+    <datafield tag="DAT" ind1="2" ind2=" ">
+      <subfield code="a">2020-05-09T17:30:02Z</subfield>
+    </datafield>
+    <datafield tag="CAT" ind1=" " ind2=" ">
+      <subfield code="a">SDR-MIU</subfield>
+      <subfield code="d">ALMA</subfield>
+      <subfield code="l">prepare.pl-004-008</subfield>
+    </datafield>
+    <datafield tag="FMT" ind1=" " ind2=" ">
+      <subfield code="a">BK</subfield>
+    </datafield>
+    <datafield tag="HOL" ind1=" " ind2=" ">
+      <subfield code="0">sdr-miu.990008004500106381</subfield>
+      <subfield code="a">MiU</subfield>
+      <subfield code="b">SDR</subfield>
+      <subfield code="c">MIU</subfield>
+      <subfield code="p">mdp.39015065683172</subfield>
+      <subfield code="s">MIU</subfield>
+      <subfield code="1">990008004500106381</subfield>
+    </datafield>
+    <datafield tag="974" ind1=" " ind2=" ">
+      <subfield code="b">MIU</subfield>
+      <subfield code="c">MIU</subfield>
+      <subfield code="d">20210927</subfield>
+      <subfield code="s">google</subfield>
+      <subfield code="u">mdp.39015065683172</subfield>
+      <subfield code="y">1984</subfield>
+      <subfield code="r">ic</subfield>
+      <subfield code="q">bib</subfield>
+      <subfield code="t">non-US bib date1 &gt;= 1928</subfield>
+    </datafield>
+  </record>
+</collection>
