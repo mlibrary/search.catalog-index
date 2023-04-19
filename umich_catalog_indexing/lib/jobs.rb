@@ -10,6 +10,8 @@ require "jobs/utilities/translation_map_fetcher"
 require "jobs/lib_loc_info/libraries"
 require "jobs/lib_loc_info/library_location_list"
 
+require "jobs/electronic_collections"
+
 require "jobs/delete_id_getter"
 require "jobs/delete_alma_ids"
 

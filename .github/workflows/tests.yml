@@ -10,10 +10,10 @@ jobs:
       BUNDLE_GEMFILE: ${{ github.workspace }}/umich_catalog_indexing/Gemfile
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JRuby 9.3
+      - name: Set up JRuby 9.4
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "jruby-9.3"
+          ruby-version: "jruby-9.4"
           bundler-cache: true
         env: 
           BUNDLE_RUBYGEMS__PKG__GITHUB__COM: ${{secrets.GH_PACKAGE_READ_TOKEN}}
@@ -25,7 +25,9 @@ jobs:
         with:
           path: umich_catalog_indexing
       - name: copy libLocInfo.yaml
-        run: cp .github/fixtures/libLocInfo.yaml umich_catalog_indexing/lib/translation_maps/umich/libLocInfo.yaml
+        run: |
+          cp .github/fixtures/libLocInfo.yaml umich_catalog_indexing/lib/translation_maps/umich/libLocInfo.yaml
+          cp .github/fixtures/electronic_collections.yaml umich_catalog_indexing/lib/translation_maps/umich/electronic_collections.yaml
       - name: Run tests
         working-directory: ./umich_catalog_indexing
         run: bundle exec rspec
