@@ -1,18 +1,28 @@
 version: '3'
 
 services:
-  sidekiq:
-    build: sidekiq/.
-    depends_on:
-      - 'redis'
+  supervisor:
+    image: "ghcr.io/mlibrary/sidekiq-supervisor-unstable:latest"
     ports:
-     - "9292:9292"
-    volumes:
-      - ./sidekiq/.:/app
+     - "3000:3000"
     environment:
       - REDIS_URL=redis://redis:6379
-      - SESSION_KEY=session_key
-    command: bundle exec rackup -o 0.0.0.0
+      - MARIADB_USER=supervisor
+      - MARIADB_PASSWORD=supervisor_password
+      - MARIADB_DATABASE=supervisor
+      - MARIADB_ROOT_PASSWORD=pass
+      - DATABASE_HOST=database
+
+
+  database:
+    image: mariadb
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      - MARIADB_USER=supervisor
+      - MARIADB_PASSWORD=supervisor_password
+      - MARIADB_DATABASE=supervisor
+      - MARIADB_ROOT_PASSWORD=pass
 
   sftp:
     image: 'atmoz/sftp'
@@ -83,3 +93,4 @@ services:
 volumes:
   gem_cache:
   redis:
+  db_data:
