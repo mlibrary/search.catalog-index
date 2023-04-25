@@ -2,6 +2,7 @@ data
 start_solr.sh
 stop_solr.sh
 .idea
+.irb_history
 ht_secure_data.rb
 logs
 overlap/overlap_umich.tsv
