@@ -413,7 +413,7 @@
             &remove_all_punctuation;
             &icu_case_folding_and_normalization;
             &post_tokenization_cjk;
-            <filter class="edu.umich.lib.solr_filters.LeftAnchoredSearchFilterFactory"/> 
+            <filter class="edu.umich.lib.solr_filters.LeftAnchoredSearchFilterFactory"/>
             &remove_duplicates_at_same_position;
         </analyzer>
     </fieldType>
@@ -550,7 +550,8 @@
             &cleanup_whitespace;
         </analyzer>
     </fieldType>
-    <fieldType name="authority_search" class="umich_solr_analyzed_string:com.billdueber.solr.schema.AnalyzedString" fieldType="authority_search_analysis"/>
+    <!--<fieldType name="authority_search" class="umich_solr_analyzed_string:com.billdueber.solr.schema.AnalyzedString" fieldType="authority_search_analysis"/>-->
+    <fieldType name="authority_search" class="com.billdueber.solr.schema.AnalyzedString" fieldType="authority_search_analysis"/>
 
     <fieldType name="lc_subject" class="solr.TextField"
                positionIncrementGap="&pig;">

@@ -11,4 +11,4 @@ usage: bundle exec index_sample.rb [file_basename]
   return
 end
 basename = ARGV[0] || "sample"
-IndexIt.perform_async("search_daily_bibs/#{basename}.tar.gz", "http://solr:8026/solr/biblio")
+IndexIt.perform_async("search_daily_bibs/#{basename}.tar.gz", "http://solr:8983/solr/biblio")

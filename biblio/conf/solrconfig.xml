@@ -10,8 +10,6 @@
   <!--This is where the dockerfile puts stuff-->
   <lib dir="${solr.solr.home}/../lib" regex=".*\.jar"/>
 
-  <!-- Where to look for .jar files -->
-  <!--<lib dir="." regex=".*\.jar"/>-->
   <directoryFactory name="DirectoryFactory"
                     class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}"/>
   <codecFactory class="solr.SchemaCodecFactory"/>
@@ -20,8 +18,8 @@
     <lockType>${solr.lock.type:native}</lockType>
   </indexConfig>
 
-
-
+  <!-- Olde location for jars; TBDeleted when we are in SolrCloud only -->
+  <lib dir="${solr.core.config}/lib" regex=".*\.jar"/>
 
 
   <updateHandler class="solr.DirectUpdateHandler2">
