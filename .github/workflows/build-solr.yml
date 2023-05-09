@@ -39,10 +39,10 @@ jobs:
 
   build-production:
     needs: tag-commit
-    uses: mlibrary/platform-engineering-workflows/.github/workflows/build-unstable.yml@v1
+    uses: mlibrary/platform-engineering-workflows/.github/workflows/build-production.yml@v1
     with:
       image_name: "search-solr"
       tag: ${{ github.event.inputs.tag-to-be-created }}
-      dockerfile: Dockerfile.prod
+      dockerfile: "biblio/Dockerfile.prod"
       docker_context: "biblio/."
     secrets: inherit
