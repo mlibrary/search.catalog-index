@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+  <luceneMatchVersion>8.11.1</luceneMatchVersion>
+  <dataDir>${solr.data.dir:}</dataDir>
+
+  <directoryFactory name="DirectoryFactory"
+                    class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}"/>
+  <codecFactory class="solr.SchemaCodecFactory"/>
+
+  <indexConfig>
+    <lockType>${solr.lock.type:native}</lockType>
+  </indexConfig>
+
+  <!-- Olde location for jars; TBDeleted when we are in SolrCloud only -->
+  <lib dir="${solr.core.config}/lib" regex=".*\.jar"/>
+
+
+  <updateHandler class="solr.DirectUpdateHandler2">
+    <updateLog>
+      <str name="dir">${solr.ulog.dir:}</str>
+      <int name="numVersionBuckets">${solr.ulog.numVersionBuckets:65536}</int>
+    </updateLog>
+
+    <autoCommit>
+      <maxTime>${solr.autoCommit.maxTime:15000}</maxTime>
+      <openSearcher>false</openSearcher>
+    </autoCommit>
+
+    <autoSoftCommit>
+      <maxTime>${solr.autoSoftCommit.maxTime:-1}</maxTime>
+    </autoSoftCommit>
+  </updateHandler>
+
+  <query>
+    <maxBooleanClauses>${solr.max.booleanClauses:1024}</maxBooleanClauses>
+    <filterCache size="512"
+                 initialSize="512"
+                 autowarmCount="0"/>
+
+    <queryResultCache size="512"
+                      initialSize="512"
+                      autowarmCount="0"/>
+
+    <documentCache size="512"
+                   initialSize="512"
+                   autowarmCount="0"/>
+
+    <enableLazyFieldLoading>true</enableLazyFieldLoading>
+    <queryResultWindowSize>20</queryResultWindowSize>
+    <queryResultMaxDocsCached>200</queryResultMaxDocsCached>
+  </query>
+
+  <requestDispatcher>
+    <httpCaching never304="true" />
+  </requestDispatcher>
+
+  <requestHandler name="/select" class="solr.SearchHandler">
+    <lst name="defaults">
+      <str name="echoParams">explicit</str>
+      <int name="rows">10</int>
+      <str name="wt">json</str> 
+      <str name="indent">true</str>
+    </lst>
+  </requestHandler>
+
+  <requestHandler name="standard" class="solr.SearchHandler">
+    <lst name="defaults">
+      <str name="echoParams">explicit</str>
+      <int name="rows">10</int>
+      <str name="fl">*</str>
+    </lst>
+
+  </requestHandler>
+
+
+  <requestHandler name="edismax" class="solr.SearchHandler">
+    <lst name="defaults">
+      <str name="defType">edismax</str>
+      <str name="echoParams">all</str>
+      <float name="tie">0.01</float>
+      <bool name="lowercaseOperators">false</bool>
+      <bool name="sow">false</bool>
+    </lst>
+  </requestHandler>
+
+</config>
