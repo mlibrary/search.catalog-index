@@ -1,4 +1,4 @@
-require_relative "../lib/hathifiles_database_actions"
+require_relative "../sidekiq"
 
-date_input = ARGV[1] || Date.today.to_s
-HathifilesDatabaseActions::Updater.new(date: date_input).run
+date = ARGV[1] || Date.today.to_s
+HathifilesDatabaseUpdate.perform_async(date)
