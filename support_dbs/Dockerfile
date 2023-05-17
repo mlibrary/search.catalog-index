@@ -20,7 +20,7 @@ ENV BUNDLE_PATH /gems
 
 WORKDIR /app
 
-CMD ["tail", "-f", "/dev/null"]
+CMD ["bundle", "exec", "sidekiq", "-r", "./sidekiq.rb"]
 
 FROM development AS production
 

@@ -6,6 +6,7 @@ gem "hathifiles_database",
   branch: "main"
 
 gem "faraday"
+gem "sidekiq"
 
 group :development do
   gem "rspec"
