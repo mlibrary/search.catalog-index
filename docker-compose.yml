@@ -101,7 +101,7 @@ services:
       - ./mock-ht/.env-dev-values
 
 
-  hathidb:
+  hathifiles:
     image: mariadb
     volumes:
       - hathidb:/var/lib/mysql

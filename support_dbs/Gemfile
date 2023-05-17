@@ -5,4 +5,12 @@ gem "hathifiles_database",
   git: "https://github.com/hathitrust/hathifiles_database",
   branch: "main"
 
-gem "byebug"
+gem "faraday"
+
+group :development do
+  gem "rspec"
+  gem "standard"
+  gem "byebug"
+  gem "webmock"
+end
+
