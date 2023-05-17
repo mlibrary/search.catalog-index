@@ -25,3 +25,5 @@ lib/translation_maps/umich/libLocInfo.yaml
 *.tar.gz
 !sftp/search_daily_bibs/sample.tar.gz
 !sftp/search_daily_bibs/birds_2022021017_21131448650006381_new.tar.gz
+support_dbs/scratch/*
+!support_dbs/scratch/.keep
