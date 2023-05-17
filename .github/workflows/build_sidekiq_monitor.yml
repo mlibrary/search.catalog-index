@@ -1,87 +1,53 @@
-name: Build and Deploy Sidekiq Monitor
+name: Build Support Image
 
 on:
   workflow_dispatch:
     inputs:
-      tag:
+      tag-to-be-created:
         description: tag
         required: true
-      environment:
-        type: choice
-        description: if/where to deploy Sidekiq Monitor
-        options:
-          - testing
-          - none
-        default: "none"
-
+      commit-sha:
+        description: github commit hash
+        required: true
 
 env:
-  environment: testing
-  IMAGE_NAME: sidekiq-monitor
+  TAG_PREFIX: "support"
 
 jobs:
-  build:
+  tag-commit:
     runs-on: ubuntu-latest
     steps:
-    - name: Clone latest repository
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
-        fetch-depth: 0
-    - name: Check that the tag exists in repo
+        fetch-depth: 5
+        ref: ${{ github.event.inputs.commit-sha }}
+    - name: Check that tag doesn't already exist
       id: tag_check
+      env:
+        TAG: ${{ env.TAG_PREFIX }}-${{ github.event.inputs.tag-to-be-created }}
       run: |
-        if git rev-parse 'refs/tags/${{ github.event.inputs.tag }}' &> /dev/null; then
-          echo '::set-output name=tag::${{ github.event.inputs.tag }}'
-        elif git rev-parse '${{ github.event.inputs.tag }}' &> /dev/null; then
-          echo "::set-output name=tag::`git rev-parse '${{ github.event.inputs.tag }}'`"
-        else
-          echo "Couldn't figure out tag from input: ${{ github.event.inputs.tag }}"
-          echo "Aborting deployment."
+        echo "checking if tag exists: $TAG"
+        if git rev-parse "refs/tags/$TAG" &> /dev/null; then
+          echo "tag: $TAG already exists; delete it before continuing"
           false
-        fi
-    - name: Log into Github Container Registry
-      uses: docker/login-action@v1
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Check that the tag exists in container registry
-      id: image_check
-      run: |
-        if docker manifest inspect ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:${{ steps.tag_check.outputs.tag }} > /dev/null; then
-          echo '::set-output name=image_exists::true'
-          echo "image exists!"
         else
-          echo "image doesn't exist; Starting to Build and push image"
+          echo "tag doesn't exist yet. will continue to creating tag"
         fi
-    - name: Checkout Correct repository
-      if: ${{ steps.image_check.outputs.image_exists != 'true' }}
-      uses: actions/checkout@v2
-      with:
-        ref: ${{ github.event.inputs.tag }}
-    - name: Build and Push
-      if: ${{ steps.image_check.outputs.image_exists != 'true' }}
-      uses: docker/build-push-action@v2
-      with:
-        context: ./sidekiq/.
-        push: true
-        tags: ghcr.io/mlibrary/${{ env.IMAGE_NAME }}:${{steps.tag_check.outputs.tag}}
+    - name: Tag commit
+      env: 
+        TAG: support-${{ github.event.inputs.tag-to-be-created }}
+      run: |
+        git config user.name github-actions[bot]
+        git config user.email github-actions[bot]@users.noreply.github.com
+        git tag $TAG
+        git push origin $TAG
 
-  deploy:
-    needs: build
-    if: github.envent.inputs.environment != 'none'
-    runs-on: ubuntu-latest
-    environment: github.event.inputs.environment
-    steps:
-    - name: Deploy to ${{ github.event.inputs.environment }}
-      uses: mlibrary/deploy-to-kubernetes@v1
-      with:
-        github_username: ${{ github.actor }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        deployment: sidekiq-monitor
-        container: sidekiq-monitor
-        image: mlibrary/${{ env.IMAGE_NAME }}:${{ steps.tag_check.outputs.tag }}
-        cluster_ca: ${{ secrets.HATCHER_CLUSTER_CA }}
-        cluster_server: https://hatcher.kubernetes.lib.umich.edu
-        namespace_token: ${{ secrets.HATCHER_TOKEN }}
-        namespace: ${{ secrets.NAMESPACE }}
+  build-production:
+    needs: tag-commit
+    uses: mlibrary/platform-engineering-workflows/.github/workflows/build-production.yml@v1
+    with:
+      image_name: "catalog-support"
+      tag: support-${{ github.event.inputs.tag-to-be-created }}
+      dockerfile: "support_dbs/Dockerfile"
+      docker_context: "support_dbs/."
+    secrets: inherit
