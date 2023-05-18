@@ -1,3 +1,5 @@
+#!/usr/local/bin/ruby
+
 require_relative "../lib/hathifiles_database_actions"
 
 date_input = ARGV[0] || Date.today.to_s
