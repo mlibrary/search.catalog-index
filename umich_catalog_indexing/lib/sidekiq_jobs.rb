@@ -24,7 +24,7 @@ end
 
 Sidekiq.configure_client do |config|
   config.client_middleware do |chain|
-    chain.add JobQueued
+    chain.add JobQueued if ENV.fetch("SUPERVISOR_ON") == "true"
   end
 end
 
@@ -47,7 +47,7 @@ end
 Sidekiq.configure_server do |config|
   Yabeda::Prometheus::Exporter.start_metrics_server!
   config.server_middleware do |chain|
-    chain.add CheckInCheckOut
+    chain.add CheckInCheckOut if ENV.fetch("SUPERVISOR_ON") == "true"
   end
 end
 
