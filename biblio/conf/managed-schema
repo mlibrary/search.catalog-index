@@ -550,6 +550,7 @@
             &cleanup_whitespace;
         </analyzer>
     </fieldType>
+    <!--<fieldType name="authority_search" class="umich_solr_analyzed_string:com.billdueber.solr.schema.AnalyzedString" fieldType="authority_search_analysis"/>-->
     <fieldType name="authority_search" class="com.billdueber.solr.schema.AnalyzedString" fieldType="authority_search_analysis"/>
 
     <fieldType name="lc_subject" class="solr.TextField"

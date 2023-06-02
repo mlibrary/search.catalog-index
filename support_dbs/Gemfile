@@ -1,0 +1,17 @@
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+gem "hathifiles_database",
+  git: "https://github.com/hathitrust/hathifiles_database",
+  branch: "main"
+
+gem "faraday"
+gem "sidekiq"
+
+group :development do
+  gem "rspec"
+  gem "standard"
+  gem "byebug"
+  gem "webmock"
+end
+

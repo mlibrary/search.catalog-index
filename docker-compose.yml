@@ -1,18 +1,28 @@
-version: '3'
+version: '3.8'
 
 services:
-  sidekiq:
-    build: sidekiq/.
-    depends_on:
-      - 'redis'
+  supervisor:
+    image: "ghcr.io/mlibrary/sidekiq-supervisor-unstable:latest"
     ports:
-     - "9292:9292"
-    volumes:
-      - ./sidekiq/.:/app
+     - "3000:3000"
     environment:
       - REDIS_URL=redis://redis:6379
-      - SESSION_KEY=session_key
-    command: bundle exec rackup -o 0.0.0.0
+      - MARIADB_USER=supervisor
+      - MARIADB_PASSWORD=supervisor_password
+      - MARIADB_DATABASE=supervisor
+      - MARIADB_ROOT_PASSWORD=pass
+      - DATABASE_HOST=database
+
+
+  database:
+    image: mariadb
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      - MARIADB_USER=supervisor
+      - MARIADB_PASSWORD=supervisor_password
+      - MARIADB_DATABASE=supervisor
+      - MARIADB_ROOT_PASSWORD=pass
 
   sftp:
     image: 'atmoz/sftp'
@@ -22,6 +32,18 @@ services:
       - ./sftp/ssh/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key
       - ./sftp/ssh/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key
     command: alma:1001
+
+  support:
+    build: 
+      context: support_dbs/.
+      target: development 
+    volumes:
+      - ./support_dbs/.:/app
+      - support_gem_cache:/gems
+    environment:
+      - HATHIFILES_MYSQL_CONNECTION=mysql2://root:pass@hathifiles/hathifiles
+      - HT_HOST=https://www.hathitrust.org
+      - REDIS_URL=redis://redis:6379
 
   web:
     build: umich_catalog_indexing/.
@@ -55,8 +77,21 @@ services:
   solr:
     build: biblio/.
     ports:
-     - "8026:8026"
-  
+      - "8983:8983"
+    environment:
+      - ZK_HOST=zoo:2181
+    depends_on:
+      - zoo
+    command: solr-foreground
+
+  zoo:
+    image: zookeeper
+    ports:
+      - 2181:2181
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181
+
   mock-ht:
     build: mock-ht/.
     ports:
@@ -67,19 +102,37 @@ services:
       - ./mock-ht/.env-dev-values
 
 
-  hathidb:
-    image: ghcr.io/hathitrust/hathifiles-dev-db:latest
+  hathifiles:
+    image: mariadb
+    volumes:
+      - hathidb:/var/lib/mysql
+    environment:
+      - MARIADB_ROOT_PASSWORD=pass
+      - MARIADB_USER=user
+      - MARIADB_PASSWORD=password
+      - MARIADB_DATABASE=hathifiles
 
   hathioverlap:
-    build: overlap/.
-
-  prometheus:
-    image: prom/prometheus
-    ports:
-      - 9090:9090
+    image: mariadb
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - overlap:/var/lib/mysql
+    environment:
+      - MARIADB_ROOT_PASSWORD=pass
+      - MARIADB_USER=user
+      - MARIADB_PASSWORD=password
+      - MARIADB_DATABASE=overlap
+
+  #prometheus:
+    #image: prom/prometheus
+    #ports:
+      #- 9090:9090
+    #volumes:
+      #- ./prometheus.yml:/etc/prometheus/prometheus.yml
 
 volumes:
   gem_cache:
+  support_gem_cache:
   redis:
+  db_data:
+  hathidb:
+  overlap:

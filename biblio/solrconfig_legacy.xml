@@ -2,13 +2,6 @@
 <config>
   <luceneMatchVersion>8.11.1</luceneMatchVersion>
   <dataDir>${solr.data.dir:}</dataDir>
-  <!-- 
-   mrio:  added to solr cloud can find contrib directories
-  -->
-  <lib dir="${solr.install.dir}/contrib/analysis-extras/lucene-libs" regex=".*\.jar"/>
-  <lib dir="${solr.install.dir}/contrib/analysis-extras/lib" regex=".*\.jar"/>
-  <!--This is where the dockerfile puts stuff-->
-  <lib dir="${solr.solr.home}/../lib" regex=".*\.jar"/>
 
   <directoryFactory name="DirectoryFactory"
                     class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}"/>
