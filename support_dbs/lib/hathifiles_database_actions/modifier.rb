@@ -22,7 +22,7 @@ module HathifilesDatabaseActions
         builder.adapter Faraday.default_adapter
       end 
       response = http_conn.get @hathifile_url
-      raise StandardError, "Did not successfully download #{@hathifile_url}"
+      raise StandardError, "Did not successfully download #{@hathifile_url}" if response.status != 200
       File.open("#{@scratch_dir}/#{hathifile}", 'wb') { |f| f.write(response.body) }
    
       command
