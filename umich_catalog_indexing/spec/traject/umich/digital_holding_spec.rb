@@ -21,19 +21,9 @@ describe Traject::UMich::DigitalHolding do
       expect(subject.link).to eq("https://umich-psb.alma.exlibrisgroup.com/discovery/delivery/01UMICH_INST:UMICH/121230624780006381")
     end
   end
-  context "#note" do
-    it "returns the delivery description (i.e. the file type) and the z field" do
-      expect(subject.note).to eq("2 file/s (Mixed); This is a Public Note")
-    end
-  end
   context "#library" do
-    it "shows ELEC" do
-      expect(subject.library).to eq("ELEC")
-    end
-  end
-  context "#status" do
-    it "shows Available" do
-      expect(subject.status).to eq("Available")
+    it "shows ALMA_DIGITAL" do
+      expect(subject.library).to eq("ALMA_DIGITAL")
     end
   end
   context "#link_text" do
@@ -41,27 +31,31 @@ describe Traject::UMich::DigitalHolding do
       expect(subject.link_text).to eq("Available online")
     end
   end
-  context "#description" do
+  context "#label" do
     it "shows the label from subfield l" do
-      expect(subject.description).to eq("This is a label")
+      expect(subject.label).to eq("This is a label")
     end
   end
-  context "#finding_aid" do
-    it "is false" do
-      expect(subject.finding_aid).to eq(false)
+  context "#public_note" do
+    it "shows the public note from subfield z" do
+      expect(subject.public_note).to eq("This is a Public Note")
+    end
+  end
+  context "#delivery_description" do
+    it "show the delivery_description from subfield d" do
+      expect(subject.delivery_description).to eq("2 file/s (Mixed)")
     end
   end
   context "#to_h" do
     it "returns expected hash" do
       expect(subject.to_h).to eq( 
         {
-          finding_aid: false,
-          library: "ELEC",
+          library: "ALMA_DIGITAL",
           link: "https://umich-psb.alma.exlibrisgroup.com/discovery/delivery/01UMICH_INST:UMICH/121230624780006381",
           link_text: "Available online",
-          note: "2 file/s (Mixed); This is a Public Note",
-          status: "Available",
-          description: "This is a label"
+          delivery_description: "2 file/s (Mixed)",
+          label: "This is a label",
+          public_note: "This is a Public Note"
         }
       )
     end

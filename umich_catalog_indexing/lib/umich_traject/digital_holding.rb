@@ -5,37 +5,36 @@ module Traject
         @avd = avd
       end
       # This concatenates the file type and the public note
-      def note
-        [@avd["d"],@avd["z"]].compact.join("; ")
+      def public_note
+        @avd["z"]
       end
       def link
         URI::Parser.new.escape(@avd["u"].sub("01UMICH_INST:FLINT","01UMICH_INST:UMICH"))
       end
       def library
-        "ELEC"
-      end
-      def status
-        "Available"
+        "ALMA_DIGITAL"
       end
       def link_text
         "Available online"
       end
-      # This is the label
-      def description
+      def label
         @avd["l"]
+      end
+      # This is effectively the file type(s)
+      def delivery_description
+        @avd["d"]
       end
       def finding_aid
         false
       end
       def to_h
         {
-          finding_aid: finding_aid,
           library: library,
           link: link,
           link_text: link_text,
-          note: note,
-          status: status,
-          description: description
+          delivery_description: delivery_description,
+          label: label,
+          public_note: public_note,
         }
       end
 
