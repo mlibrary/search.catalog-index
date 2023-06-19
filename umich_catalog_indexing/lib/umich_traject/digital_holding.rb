@@ -4,8 +4,9 @@ module Traject
       def initialize(avd)
         @avd = avd
       end
+      # This concatenates the file type and the public note
       def note
-        @avd["z"]
+        [@avd["d"],@avd["z"]].compact.join("; ")
       end
       def link
         URI::Parser.new.escape(@avd["u"].sub("01UMICH_INST:FLINT","01UMICH_INST:UMICH"))
@@ -19,8 +20,9 @@ module Traject
       def link_text
         "Available online"
       end
+      # This is the label
       def description
-        ""
+        @avd["l"]
       end
       def finding_aid
         false

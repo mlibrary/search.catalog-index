@@ -22,8 +22,8 @@ describe Traject::UMich::DigitalHolding do
     end
   end
   context "#note" do
-    it "returns the z field" do
-      expect(subject.note).to eq("This is a Public Note")
+    it "returns the delivery description (i.e. the file type) and the z field" do
+      expect(subject.note).to eq("2 file/s (Mixed); This is a Public Note")
     end
   end
   context "#library" do
@@ -42,8 +42,8 @@ describe Traject::UMich::DigitalHolding do
     end
   end
   context "#description" do
-    it "shows empty string" do
-      expect(subject.description).to eq("")
+    it "shows the label from subfield l" do
+      expect(subject.description).to eq("This is a label")
     end
   end
   context "#finding_aid" do
@@ -59,9 +59,9 @@ describe Traject::UMich::DigitalHolding do
           library: "ELEC",
           link: "https://umich-psb.alma.exlibrisgroup.com/discovery/delivery/01UMICH_INST:UMICH/121230624780006381",
           link_text: "Available online",
-          note: "This is a Public Note",
+          note: "2 file/s (Mixed); This is a Public Note",
           status: "Available",
-          description: ""
+          description: "This is a label"
         }
       )
     end
