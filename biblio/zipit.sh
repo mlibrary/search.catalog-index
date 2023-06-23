@@ -1,6 +1,3 @@
-#user=admin
-#password='b(@2]UDcua#Y8XpI'
-#host='https://index-search-solrcloud.search.lib.umich.edu'
 user=solr
 password=SolrRocks
 host=http://localhost:8983
