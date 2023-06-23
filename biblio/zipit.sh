@@ -1,6 +1,4 @@
-user=solr
-password=SolrRocks
-host=http://localhost:8983
+export $(grep -v '^#' .env | xargs -d '\n')
 cd conf
 rm ../biblio.zip
 zip -r ../biblio.zip .
