@@ -1,4 +1,5 @@
-name: Manual Deploy Indexer to Testing
+#saved so that I can have a workflow to try out in a branch
+name: Scratch
 
 on:
   workflow_dispatch:
