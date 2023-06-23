@@ -2,7 +2,9 @@ AAEL DISP:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering AAEL Display Cases
   fulfillment_unit: Limited
+  location_type: CLOSED
 AAEL RESI:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Ask at 2nd Floor Desk
   fulfillment_unit: Reserves
+  location_type: OPEN

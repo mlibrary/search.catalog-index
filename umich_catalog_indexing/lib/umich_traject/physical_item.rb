@@ -56,6 +56,9 @@ module Traject
       def fulfillment_unit
         ::UMich::LibLocInfo.fulfillment_unit(library, location) 
       end
+      def location_type
+        ::UMich::LibLocInfo.location_type(library, location) 
+      end
       def info_link
         ::UMich::LibLocInfo.info_link(library, location) 
       end
@@ -115,6 +118,7 @@ module Traject
           info_link: info_link,
           display_name: display_name,
           fulfillment_unit: fulfillment_unit,
+          location_type: location_type,
           can_reserve: can_reserve?,
           permanent_library: permanent_library,
           permanent_location: permanent_location,

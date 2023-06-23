@@ -4,7 +4,7 @@ services:
   supervisor:
     image: "ghcr.io/mlibrary/sidekiq-supervisor-unstable:latest"
     ports:
-     - "3000:3000"
+     - "3333:3000"
     environment:
       - REDIS_URL=redis://redis:6379
       - MARIADB_USER=supervisor
@@ -65,6 +65,8 @@ services:
       - ./umich_catalog_indexing/.env
       - ./umich_catalog_indexing/.env-dev-values
       - ./mock-ht/.env-dev-values
+    networks:
+      - mynetwork
 
   redis:
     image: 'redis:6.2'
@@ -73,6 +75,8 @@ services:
       - '6379:6379'
     volumes:
       - 'redis:/data'
+    networks:
+      - mynetwork
 
   solr:
     build: biblio/.
@@ -83,6 +87,8 @@ services:
     depends_on:
       - zoo
     command: solr-foreground
+    networks:
+      - mynetwork
 
   zoo:
     image: zookeeper
@@ -91,6 +97,8 @@ services:
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181
+    networks:
+      - mynetwork
 
   mock-ht:
     build: mock-ht/.
@@ -100,6 +108,8 @@ services:
       - ./mock-ht/.:/app
     env_file:
       - ./mock-ht/.env-dev-values
+    networks:
+      - mynetwork
 
 
   hathifiles:
@@ -111,6 +121,8 @@ services:
       - MARIADB_USER=user
       - MARIADB_PASSWORD=password
       - MARIADB_DATABASE=hathifiles
+    networks:
+      - mynetwork
 
   hathioverlap:
     image: mariadb
@@ -121,6 +133,8 @@ services:
       - MARIADB_USER=user
       - MARIADB_PASSWORD=password
       - MARIADB_DATABASE=overlap
+    networks:
+      - mynetwork
 
   #prometheus:
     #image: prom/prometheus
@@ -128,6 +142,10 @@ services:
       #- 9090:9090
     #volumes:
       #- ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+networks:
+  mynetwork:
+    external: true
 
 volumes:
   gem_cache:

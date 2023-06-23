@@ -1,0 +1,40 @@
+name: Production Deploy Catalog Indexer Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: tag
+        required: true
+      kind:
+        type: choice
+        required: true
+        default: 'indexer'
+        description: (re)indexer?
+        options:
+          - indexer
+          - reindexer
+
+
+jobs:
+  build-production:
+    name: Build production ${{ github.event.inputs.tag }}
+    uses: mlibrary/platform-engineering-workflows/.github/workflows/build-production.yml@v1
+    with:
+      image_name: ${{ vars.INDEXER_IMAGE_NAME }}
+      tag: ${{ github.event.inputs.tag }}
+      dockerfile: umich_catalog_indexing/Dockerfile.prod
+      docker_context: umich_catalog_indexing/.
+    secrets: inherit
+
+  deploy-image:
+    needs: build-production
+    name: Deploy ${{ github.event.inputs.kind }} to production
+    uses: mlibrary/platform-engineering-workflows/.github/workflows/deploy.yml@v1
+    with:
+      image: ghcr.io/mlibrary/${{ vars.INDEXER_IMAGE_NAME }}:${{ github.event.inputs.tag }}
+      file: environments/catalog-indexer/production/${{ github.event.inputs.kind }}-image.txt
+      CONFIG_REPO_RW_APP_ID: ${{ vars.CONFIG_REPO_RW_APP_ID }}
+      CONFIG_REPO_RW_INSTALL_ID: ${{ vars.CONFIG_REPO_RW_INSTALL_ID }}
+      CONFIG_REPO_FULL_NAME: ${{ vars.CONFIG_REPO_FULL_NAME }}
+    secrets: inherit

@@ -3,1459 +3,1849 @@ AAEL BKART:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Book Arts 2nd floor - ask at service desk
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 AAEL BKS:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Book Collection
   fulfillment_unit: General
+  location_type: OPEN
 AAEL CAR:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Career Collection - 2nd Floor
-  fulfillment_unit: Reserves
+  fulfillment_unit: General
+  location_type: OPEN
 AAEL DISP:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering AAEL Display Cases
   fulfillment_unit: Limited
+  location_type: CLOSED
 AAEL FUN:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Recreational Reading - 2nd Floor - shelved by author
   fulfillment_unit: General
+  location_type: OPEN
 AAEL MICE:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Microfiche - Basement
   fulfillment_unit: Limited
+  location_type: OPEN
 AAEL MICM:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Microfilm - Basement
   fulfillment_unit: Limited
+  location_type: OPEN
 AAEL NONE:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering
   fulfillment_unit: General
+  location_type: OPEN
 AAEL OPEN:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Open Reserves - No Loan
   fulfillment_unit: Reserves
+  location_type: OPEN
 AAEL OVR:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Book Collection - Oversize
   fulfillment_unit: General
+  location_type: OPEN
 AAEL PER:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Journal Collection
   fulfillment_unit: General
+  location_type: OPEN
 AAEL PERU:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Current Journals - 2nd floor
   fulfillment_unit: Limited
+  location_type: OPEN
 AAEL RAR:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Special Coll. - By appt. only
   fulfillment_unit: Limited
+  location_type: OPEN
 AAEL REF:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Reference - 2nd Floor
   fulfillment_unit: Limited
+  location_type: OPEN
 AAEL RESC:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Course Reserve - 2nd Floor
   fulfillment_unit: Reserves
+  location_type: OPEN
 AAEL RESI:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Ask at 2nd Floor Desk
   fulfillment_unit: Reserves
+  location_type: OPEN
 AAEL RESP:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Reserves - 2nd Floor
   fulfillment_unit: Reserves
+  location_type: OPEN
 AAEL SECD:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering 2nd Floor - 2321 M
   fulfillment_unit: Media
+  location_type: OPEN
 AAEL SLD:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering 2nd Floor Service Desk
   fulfillment_unit: Media
+  location_type: OPEN
+AAEL STNO:
+  info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
+  name: Art Architecture & Engineering Closed shelving - ask at circ desk
+  fulfillment_unit: General
+  location_type: OPEN
 AAEL STO:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Closed shelving - Ask at Circ
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 AAEL STOF:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering Folio closed shelving - Ask at Circ
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 AAEL UNASSIGNED:
   info_link: http://lib.umich.edu/locations-and-hours/art-architecture-engineering-library
   name: Art Architecture & Engineering
   fulfillment_unit: General
+  location_type: OPEN
 BENT ELEC:
   info_link: https://bentley.umich.edu/
   name: Bentley Historical Electronic resources
   fulfillment_unit: Limited
+  location_type: OPEN
 BENT NONE:
   info_link: https://bentley.umich.edu/
   name: Bentley Historical
   fulfillment_unit: Limited
+  location_type: CLOSED
 BENT RR:
   info_link: https://bentley.umich.edu/
   name: Bentley Historical Reading Room
   fulfillment_unit: Limited
+  location_type: CLOSED
 BENT SF:
   info_link: https://bentley.umich.edu/
   name: Bentley Historical Security File
   fulfillment_unit: Limited
+  location_type: CLOSED
 BENT STOR:
   info_link: https://bentley.umich.edu/
   name: Bentley Historical Storage - Ask at library
   fulfillment_unit: Limited
+  location_type: CLOSED
 BENT UNASSIGNED:
   info_link: https://bentley.umich.edu/
   name: Bentley Historical
   fulfillment_unit: Limited
+  location_type: OPEN
 BSTA CAGE:
   info_link: http://lib.umich.edu/locations-and-hours/biological-station-library
   name: Biological Station Cage - Ask Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 BSTA ERES:
   info_link: http://lib.umich.edu/locations-and-hours/biological-station-library
   name: Biological Station Reserves - Electronic Resource
   fulfillment_unit: Limited
+  location_type: OPEN
 BSTA NONE:
   info_link: http://lib.umich.edu/locations-and-hours/biological-station-library
   name: Biological Station
   fulfillment_unit: Limited
+  location_type: OPEN
 BSTA OVR:
   info_link: http://lib.umich.edu/locations-and-hours/biological-station-library
   name: Biological Station Oversize
   fulfillment_unit: Limited
+  location_type: OPEN
 BSTA REF:
   info_link: http://lib.umich.edu/locations-and-hours/biological-station-library
   name: Biological Station Reference
   fulfillment_unit: Limited
+  location_type: OPEN
 BSTA RESC:
   info_link: http://lib.umich.edu/locations-and-hours/biological-station-library
   name: Biological Station Course Reserve
   fulfillment_unit: Limited
+  location_type: OPEN
 BSTA UNASSIGNED:
   info_link: http://lib.umich.edu/locations-and-hours/biological-station-library
   name: Biological Station
   fulfillment_unit: Limited
+  location_type: OPEN
 BUHR MAIN:
   info_link: http://lib.umich.edu/locations-and-hours/buhr-building
   name: Buhr Shelving Facility
-  fulfillment_unit: General
+  fulfillment_unit: Closed Stacks
+  location_type: REMOTE
 BUHR WARE:
   info_link: http://lib.umich.edu/locations-and-hours/buhr-building
   name: Buhr Shelving Facility Ask at any library
-  fulfillment_unit: General
+  fulfillment_unit: Closed Stacks
+  location_type: REMOTE
 CLEM NONE:
   info_link: https://clements.umich.edu/
   name: William L. Clements
   fulfillment_unit: Limited
+  location_type: CLOSED
 CLEM OVFL:
   info_link: https://clements.umich.edu/
   name: William L. Clements Overflow
   fulfillment_unit: Limited
+  location_type: CLOSED
 CLEM RBR:
   info_link: https://clements.umich.edu/
   name: William L. Clements Rare Book Room
   fulfillment_unit: Limited
+  location_type: CLOSED
 CLEM RSTO:
   info_link: https://clements.umich.edu/
   name: William L. Clements Remote Storage - Ask in advance
   fulfillment_unit: Limited
+  location_type: CLOSED
 CLEM UNASSIGNED:
   info_link: https://clements.umich.edu/
   name: William L. Clements
   fulfillment_unit: Limited
+  location_type: CLOSED
 DBRN UNASSIGNED:
   info_link: ''
   name: Dearborn Mardigian Library
   fulfillment_unit: Limited
+  location_type: OPEN
 DHCL BOOK:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection Monographs
   fulfillment_unit: General
+  location_type: OPEN
 DHCL BRD:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection Blu-ray Disc
   fulfillment_unit: Media
+  location_type: OPEN
 DHCL BRR:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection Blu-ray ROM
   fulfillment_unit: Media
+  location_type: OPEN
 DHCL CDROM:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection CD-ROM
   fulfillment_unit: Media
+  location_type: OPEN
 DHCL DISC:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection Audio Disc
   fulfillment_unit: Media
+  location_type: OPEN
 DHCL DVD:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection DVDs
   fulfillment_unit: Media
+  location_type: OPEN
 DHCL DVROM:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection DVD-ROM
   fulfillment_unit: Media
+  location_type: OPEN
 DHCL GAME:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection Video Games
   fulfillment_unit: Media
+  location_type: OPEN
 DHCL LASER:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection Laserdiscs
   fulfillment_unit: Media
+  location_type: OPEN
 DHCL OVR:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection Oversize
   fulfillment_unit: General
+  location_type: OPEN
 DHCL SCRN:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection Screenplays
   fulfillment_unit: General
+  location_type: OPEN
 DHCL TAPEC:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection Sound Cassette
   fulfillment_unit: Media
+  location_type: OPEN
 DHCL UNASSIGNED:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection
   fulfillment_unit: General
+  location_type: OPEN
 DHCL VHS:
   info_link: https://lsa.umich.edu/ftvm/resources/donald-hall-collection.html
   name: Donald Hall Collection VHS Tapes
   fulfillment_unit: Media
+  location_type: OPEN
 EG UNASSIGNED:
   info_link: ''
   name: Exchange and Gift
   fulfillment_unit: Limited
+  location_type: OPEN
 ELEC UNASSIGNED:
   info_link: ''
   name: Electronic Resources
   fulfillment_unit: Limited
+  location_type: OPEN
 FINE ADM:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Staff Offices
   fulfillment_unit: General
+  location_type: OPEN
 FINE FOL:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Flat Folio Collection
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FINE MAIN:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Fine Arts Main Collection
   fulfillment_unit: General
+  location_type: OPEN
 FINE NEW:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: 'Fine Arts Fine Arts: New Book Shelf'
   fulfillment_unit: General
+  location_type: OPEN
 FINE OSFF:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Oriental Seminar Rm. Flat Folios
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FINE OSR:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Oriental Seminar Rm.
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FINE OSRF:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Oriental Seminar Rm. Folios
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FINE OSRJ:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Oriental Seminar Rm. Journals
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FINE OSRR:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Oriental Seminar Rm. Reference
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FINE OVR:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Oversize - 1st floor
   fulfillment_unit: General
+  location_type: OPEN
 FINE PER:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Journals
   fulfillment_unit: Limited
+  location_type: OPEN
 FINE PERC:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Current Journals
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FINE REF:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Reference
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FINE RESC:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Reserves - Circulation Desk
   fulfillment_unit: Reserves
+  location_type: OPEN
 FINE RESP:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Open Reserves Shelving Area
   fulfillment_unit: Reserves
+  location_type: OPEN
 FINE SPE:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Special Collections
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FINE SPO:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts Special Collections Oversize
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FINE UNASSIGNED:
   info_link: http://lib.umich.edu/locations-and-hours/fine-arts-library
   name: Fine Arts
   fulfillment_unit: General
+  location_type: OPEN
 FLINT ABST:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Indexes & Abstracts
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT ARCH:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Archives
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT ATLAS:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Atlas Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT BROWS:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Browsing Collection
   fulfillment_unit: General
+  location_type: OPEN
 FLINT CHILD:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Children's Literature
   fulfillment_unit: General
+  location_type: OPEN
 FLINT DISP:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Flint Display
   fulfillment_unit: General
+  location_type: OPEN
 FLINT ELEC:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Electronic resources
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT ELP1:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library English Language Program 1
   fulfillment_unit: General
+  location_type: OPEN
 FLINT ELP2:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library English Language Program 2
   fulfillment_unit: General
+  location_type: OPEN
 FLINT ELP3:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library English Language Program 3
   fulfillment_unit: General
+  location_type: OPEN
 FLINT FSPAM:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Pamphlets
   fulfillment_unit: General
+  location_type: OPEN
 FLINT MAIN:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Main Collection
   fulfillment_unit: General
+  location_type: OPEN
 FLINT MCARD:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Microcard
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT MEDIA:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Media Collection
   fulfillment_unit: General
+  location_type: OPEN
 FLINT MFICH:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Microfiche
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT MFILM:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Microfilm
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT MODEL:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Anatomical Models
   fulfillment_unit: Reserves
+  location_type: OPEN
 FLINT MSTR:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Masters Theses
   fulfillment_unit: General
+  location_type: OPEN
 FLINT NEWB:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library New Books
   fulfillment_unit: General
+  location_type: OPEN
 FLINT NONE:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library
   fulfillment_unit: General
+  location_type: OPEN
 FLINT OVERZ:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Oversized Collection
   fulfillment_unit: General
+  location_type: OPEN
 FLINT PERI:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Periodicals
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT REF:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Reference Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT REFD:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Reference, Ready
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT RESV:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Reserved Readings
   fulfillment_unit: Reserves
+  location_type: OPEN
 FLINT SPEC:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Archives - Special Collections
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT TECH:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Technical Services Department
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT TIME:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library Time Capsule
   fulfillment_unit: Limited
+  location_type: OPEN
 FLINT UNASSIGNED:
   info_link: https://libguides.umflint.edu/library
   name: Flint Frances Willson Thompson Library
   fulfillment_unit: General
+  location_type: OPEN
 FVL BUH:
   info_link: http://lib.umich.edu/locations-and-hours/askwith-media-library
   name: Askwith Media Library Offsite Shelving - please allow 3 days for delivery
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FVL ELL:
   info_link: http://lib.umich.edu/locations-and-hours/askwith-media-library
   name: Askwith Media Library Offsite Shelving - please allow 3 days for delivery
   fulfillment_unit: Closed Stacks
+  location_type: REMOTE
 FVL F2:
   info_link: http://lib.umich.edu/locations-and-hours/askwith-media-library
   name: Askwith Media Library Room 2002 Shapiro - Non-circulating
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FVL H1:
   info_link: http://lib.umich.edu/locations-and-hours/askwith-media-library
   name: Askwith Media Library Room 2002 Shapiro
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FVL LOA:
   info_link: http://lib.umich.edu/locations-and-hours/askwith-media-library
   name: Askwith Media Library Library staff loaners
   fulfillment_unit: Limited
+  location_type: CLOSED
 FVL LRC:
   info_link: http://lib.umich.edu/locations-and-hours/askwith-media-library
   name: Askwith Media Library Language Research Center
   fulfillment_unit: Limited
+  location_type: UNAVAIL
 FVL NONE:
   info_link: http://lib.umich.edu/locations-and-hours/askwith-media-library
   name: Askwith Media Library
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 FVL RESC:
   info_link: http://lib.umich.edu/locations-and-hours/askwith-media-library
   name: Askwith Media Library University Reserves - Askwith Media Lib, 2002 Shapiro
   fulfillment_unit: Reserves
+  location_type: CLOSED
 FVL UNASSIGNED:
   info_link: http://lib.umich.edu/locations-and-hours/askwith-media-library
   name: Askwith Media Library
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 HATCH ACQ:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Acquisitions
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH AMHC:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate The Azad and Margaret Hogikyan Armenian Studies Collection - 100 Hatcher North
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 HATCH AMIC:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Asia Library Microforms - Ask at Office - Rm. 418 N
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 HATCH AOFF:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Asia Library Office - Rm. 418 N
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 HATCH AOFFNC:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Asia Library Office - Rm. 418 N
   fulfillment_unit: Limited
+  location_type: CLOSED
 HATCH AOKA:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Asia Oka
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH AOVR:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Asia Library Oversized - East Attic
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 HATCH AREF:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Asia Library Reference - Rm. 421 N
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH ARGM:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Argus - MoA
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH ASIA:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Asia Library Stacks
   fulfillment_unit: General
+  location_type: OPEN
 HATCH ASPEC:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Asia Library Special Collections
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH BACK:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate In process
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLARK:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Book Shelves - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLATL:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Atlas Shelves - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLBKS:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Book Shelves - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLBKS-CIRC:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Book Shelves - Circulating - 2nd Floor S
   fulfillment_unit: General
+  location_type: OPEN
 HATCH CLC:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Children's Literature Collection - 3rd floor S
   fulfillment_unit: General
+  location_type: OPEN
 HATCH CLFIL:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library File Cabinets - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLFIR:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Rare File - Ask at Clark Library - 2nd floor S
   fulfillment_unit: Closed Stacks
+  location_type: OPEN
 HATCH CLFOL:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Folio - Ask at Clark Library - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLLAB:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Lab - Ask at Clark Library - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLMAP:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Map Cases - Ask at Clark Library - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLOFF:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Office - Ask at Clark Library - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLOS:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Closed Shelving
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 HATCH CLOVD:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Oversize Drawer - Ask at Clark Library - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLOVR:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Oversize - Ask at Clark Library - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLRAR:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Rare Cases - Ask at Clark Library - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLSOF:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Software - Ask at Clark Library - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH CLSTR:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Library Storage - Ask at Clark Library - 2nd floor S
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH DISP-C:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Clark Display Cases
   fulfillment_unit: Limited
+  location_type: CLOSED
 HATCH DISP-I:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate International Studies Reading Room Display Case
   fulfillment_unit: Limited
+  location_type: CLOSED
 HATCH DISP-N:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate North Hatcher Display Cases
   fulfillment_unit: Limited
+  location_type: CLOSED
 HATCH FAC:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate 2nd Floor U-M Faculty Authors - Shelved by author
   fulfillment_unit: General
+  location_type: OPEN
 HATCH GDESK:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Reference Desk - 2nd floor N
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH GFOL:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Folio - Ask at Circ, Rm. 104 N
   fulfillment_unit: General
+  location_type: OPEN
 HATCH GLMR:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Serials and Microforms - 203 N. Hatcher
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH GLRF:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Reference Rm. - 2nd floor N
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH GRAD:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate
   fulfillment_unit: General
+  location_type: OPEN
 HATCH GRNT:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Reference - Grants collection - 2nd floor N
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH IS-SEEES:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate International Studies In Process Closed Shelving
   fulfillment_unit: General
+  location_type: OPEN
 HATCH JUV:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Juvenile Collection - 3rd floor N
   fulfillment_unit: General
+  location_type: OPEN
 HATCH MIXM:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Graduate Library Mixed Media - 203 N. Hatcher
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH MONO:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate MonoCat
   fulfillment_unit: Limited
+  location_type: OPEN
+HATCH NELP:
+  info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
+  name: Hatcher Graduate New England Literature Program
+  fulfillment_unit: Limited
+  location_type: UNAVAIL
 HATCH NER:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Middle East Reference - 1 West
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 HATCH NONE:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate
   fulfillment_unit: General
+  location_type: OPEN
 HATCH PAPY:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Papyrology Collection (807 S. Hatcher)
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH SAR:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate South Asia Reference - 1 West
   fulfillment_unit: Closed Stacks
+  location_type: OPEN
 HATCH SEAR:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Southeast Asia Reference - 1 West
   fulfillment_unit: Closed Stacks
+  location_type: OPEN
 HATCH SEM:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Near East Seminar - Rm. 3020 Thayer Academic Bldg (Dept of Middle East Studies)
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH SLVR:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Slavic Reference - 1 West
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 HATCH SLVRH:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Slavic Reference - Holtzman - Restricted - Ask at Rm. 110F for access
   fulfillment_unit: Closed Stacks
+  location_type: OPEN
 HATCH SSBU:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Serials Set - 1 East
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 HATCH TECH:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate Technical Services Backlog
   fulfillment_unit: Limited
+  location_type: OPEN
 HATCH UNASSIGNED:
   info_link: https://lib.umich.edu/locations-and-hours/hatcher-library
   name: Hatcher Graduate
   fulfillment_unit: General
+  location_type: OPEN
 HSRS BUHR:
   info_link: ''
   name: HSRS Buhr Storage
   fulfillment_unit: General
+  location_type: OPEN
 HSRS IND:
   info_link: ''
   name: HSRS
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 HSRS NONE:
   info_link: ''
   name: HSRS
-  fulfillment_unit: General
+  fulfillment_unit: Closed Stacks
+  location_type: REMOTE
 HSRS OVR:
   info_link: ''
   name: HSRS
   fulfillment_unit: Closed Stacks
+  location_type: OPEN
 HSRS PER:
   info_link: ''
   name: HSRS
   fulfillment_unit: General
+  location_type: OPEN
 HSRS SCI:
   info_link: ''
   name: HSRS Science
   fulfillment_unit: General
+  location_type: OPEN
 HSRS STOR:
   info_link: ''
   name: HSRS
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 HSRS UNASSIGNED:
   info_link: ''
   name: HSRS
   fulfillment_unit: General
+  location_type: OPEN
 MUSIC ADM:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Staff Offices
   fulfillment_unit: Limited
+  location_type: OPEN
 MUSIC DIS:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Dissertations - 4th floor
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 MUSIC DVD:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music DVD Collection
   fulfillment_unit: Media
+  location_type: OPEN
 MUSIC EDIS:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music American Sheet Music
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 MUSIC FOLIO:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Folio Collection - 3rd floor
   fulfillment_unit: General
+  location_type: OPEN
 MUSIC MINI:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Miniatures - 4th floor
   fulfillment_unit: General
+  location_type: OPEN
+MUSIC NEW:
+  info_link: http://lib.umich.edu/locations-and-hours/music-library
+  name: Music Music New Book Shelf
+  fulfillment_unit: General
+  location_type: OPEN
 MUSIC NONE:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music
   fulfillment_unit: General
+  location_type: OPEN
 MUSIC OVCD:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Oversize Recordings - Circulation Desk
   fulfillment_unit: Media
+  location_type: OPEN
 MUSIC OVR:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Oversize Shelves - 4th floor
   fulfillment_unit: General
+  location_type: OPEN
 MUSIC PER:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Periodicals Rack - 3rd floor
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 MUSIC RAR:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Rare Book Rm.
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 MUSIC RARS:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Sheet Music Collection
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 MUSIC RARW:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Women Composers Collection
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 MUSIC REC:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Recordings - Circulation Desk
   fulfillment_unit: Media
+  location_type: OPEN
 MUSIC REF:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Reference - 3rd floor
   fulfillment_unit: Closed Stacks
+  location_type: CLOSED
 MUSIC RESC:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Reserves - Circulation Desk
   fulfillment_unit: Reserves
+  location_type: OPEN
 MUSIC SOFT:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Software - Circulation Desk
   fulfillment_unit: Media
+  location_type: OPEN
 MUSIC UNASSIGNED:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music
   fulfillment_unit: General
+  location_type: OPEN
 MUSIC VID:
   info_link: http://lib.umich.edu/locations-and-hours/music-library
   name: Music Videos- Circulation Desk
   fulfillment_unit: Media
+  location_type: OPEN
 MUSM ANT:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Anthropology Division
   fulfillment_unit: General
+  location_type: OPEN
 MUSM ANTE:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Anthro. Div. - Ethnobotany
   fulfillment_unit: General
+  location_type: OPEN
 MUSM ANTO:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Anthro. Div. - Oversize
   fulfillment_unit: General
+  location_type: OPEN
 MUSM BIR:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Birds Division
   fulfillment_unit: General
+  location_type: OPEN
 MUSM BIRC:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Birds Division - Case
   fulfillment_unit: General
+  location_type: OPEN
 MUSM CAGE:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Cage - by appointment only
   fulfillment_unit: Limited
+  location_type: OPEN
 MUSM ERES:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Reserves - Electronic Resource
   fulfillment_unit: Limited
+  location_type: OPEN
 MUSM FIS:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Fish Division
   fulfillment_unit: General
+  location_type: OPEN
 MUSM FISO:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Fish Division - Oversize
   fulfillment_unit: General
+  location_type: OPEN
 MUSM HEBC:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Cage - By appointment only
   fulfillment_unit: Limited
+  location_type: OPEN
 MUSM HEBO:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Oversize
   fulfillment_unit: General
+  location_type: OPEN
 MUSM HEBR:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Reference
   fulfillment_unit: General
+  location_type: OPEN
 MUSM HEP:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Herpetology Division
   fulfillment_unit: General
+  location_type: OPEN
 MUSM HEPO:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Herpetology Division - Oversize
   fulfillment_unit: General
+  location_type: OPEN
 MUSM HERB:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Herbarium Stacks
   fulfillment_unit: General
+  location_type: OPEN
 MUSM INS:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Insect Division
   fulfillment_unit: General
+  location_type: OPEN
 MUSM INSO:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Insect Division - Oversize
   fulfillment_unit: General
+  location_type: OPEN
 MUSM INST:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Insect Division - Orthoptera
   fulfillment_unit: General
+  location_type: OPEN
 MUSM MAIN:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Room 2500
   fulfillment_unit: General
+  location_type: OPEN
 MUSM MAM:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Mammals Division
   fulfillment_unit: General
+  location_type: OPEN
 MUSM MAMO:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Mammals Division - Oversize
   fulfillment_unit: General
+  location_type: OPEN
 MUSM MIC:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Microform Collection - Rm. 2500
   fulfillment_unit: General
+  location_type: OPEN
 MUSM MOL:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Mollusks Division
   fulfillment_unit: General
+  location_type: OPEN
 MUSM MOLO:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Mollusks Division - Oversize
   fulfillment_unit: General
+  location_type: OPEN
 MUSM NONE:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center
   fulfillment_unit: General
+  location_type: OPEN
 MUSM OVR:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Room 2500 - Oversize
   fulfillment_unit: General
+  location_type: OPEN
 MUSM PAL:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Paleontology Division
   fulfillment_unit: General
+  location_type: OPEN
 MUSM PALO:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Paleontology - Oversize
   fulfillment_unit: General
+  location_type: OPEN
 MUSM PALR:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Paleontology - Reference
   fulfillment_unit: General
+  location_type: OPEN
 MUSM PER:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Journals
   fulfillment_unit: General
+  location_type: OPEN
 MUSM REF:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Reference - Rm. 2500
   fulfillment_unit: General
+  location_type: OPEN
 MUSM RESC:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Course Reserves - Rm. 2500
   fulfillment_unit: Limited
+  location_type: OPEN
 MUSM RESP:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Permanent Reserves - Rm. 2500
   fulfillment_unit: Limited
+  location_type: OPEN
 MUSM SPE:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center Special Formats - Ask Staff
   fulfillment_unit: General
+  location_type: OPEN
 MUSM UNASSIGNED:
   info_link: http://lib.umich.edu/locations-and-hours/museums-library
   name: Research Museums Center
   fulfillment_unit: General
+  location_type: OPEN
 OFFS DEEP:
   info_link: ''
   name: Offsite Shelving Deep Storage
   fulfillment_unit: Limited
+  location_type: UNAVAIL
 OFFS ELLS:
   info_link: ''
   name: Offsite Shelving
-  fulfillment_unit: General
+  fulfillment_unit: Closed Stacks
+  location_type: REMOTE
 OFFS SPR:
   info_link: ''
   name: Offsite Shelving Shared Print Repository (SPR)
   fulfillment_unit: Limited
+  location_type: UNAVAIL
 OFFS STATE:
   info_link: ''
   name: Offsite Shelving
-  fulfillment_unit: General
+  fulfillment_unit: Closed Stacks
+  location_type: REMOTE
 OFFS UNASSIGNED:
   info_link: ''
   name: Offsite Shelving
-  fulfillment_unit: General
+  fulfillment_unit: Closed Stacks
+  location_type: REMOTE
 RES_SHARE IN_RS_REQ:
   info_link: ''
   name: Resource Sharing Library Lending Resource Sharing Requests
   fulfillment_unit: RES_FU
+  location_type: CLOSED
+RES_SHARE MELLONG:
+  info_link: ''
+  name: Resource Sharing Library MEL Long Loan Outgoing
+  fulfillment_unit: RES_FU
+  location_type: CLOSED
+RES_SHARE MELREG:
+  info_link: ''
+  name: Resource Sharing Library MEL Regular Loan Outgoing
+  fulfillment_unit: RES_FU
+  location_type: CLOSED
 RES_SHARE OUT_RS_REQ:
   info_link: ''
   name: Resource Sharing Library Borrowing Resource Sharing Requests
   fulfillment_unit: RES_FU
+  location_type: CLOSED
 SDR EO:
   info_link: ''
   name: HathiTrust Electronic Only
   fulfillment_unit: Limited
+  location_type: OPEN
 SDR GWLA:
   info_link: ''
   name: HathiTrust Technical Report Archive & Image Library
   fulfillment_unit: Limited
+  location_type: OPEN
 SDR MIU:
   info_link: ''
   name: HathiTrust University of Michigan
   fulfillment_unit: Limited
+  location_type: OPEN
 SDR NBB:
   info_link: ''
   name: HathiTrust Brooklyn Museum
   fulfillment_unit: Limited
+  location_type: OPEN
 SDR PRIV:
   info_link: ''
   name: HathiTrust Private Donor
   fulfillment_unit: Limited
+  location_type: OPEN
 SDR UMBUS:
   info_link: ''
   name: HathiTrust University of Michigan
   fulfillment_unit: Limited
+  location_type: OPEN
 SDR UMDB:
   info_link: ''
   name: HathiTrust University of Michigan
   fulfillment_unit: Limited
+  location_type: OPEN
 SDR UMLAW:
   info_link: ''
   name: HathiTrust University of Michigan
   fulfillment_unit: Limited
+  location_type: OPEN
 SHAP ATL:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Atlases & Maps - 4th floor
   fulfillment_unit: Limited
+  location_type: OPEN
 SHAP COLSC:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro College and Career Success Collection - 1st Floor
   fulfillment_unit: General
+  location_type: OPEN
 SHAP DIS:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Dissertations/Masters - 4th floor
   fulfillment_unit: General
+  location_type: OPEN
 SHAP DISP:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro On Display - Hatcher/Shapiro
   fulfillment_unit: General
+  location_type: OPEN
 SHAP DLAB:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Design Lab
   fulfillment_unit: General
+  location_type: OPEN
 SHAP GAME:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Video Games 4th Floor
   fulfillment_unit: Media
+  location_type: OPEN
 SHAP GAMEB:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Video Games 4th Floor
   fulfillment_unit: Media
+  location_type: OPEN
 SHAP MAS:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Masters Theses Archival Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SHAP OVR:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Undergrad Oversize - basement
   fulfillment_unit: General
+  location_type: OPEN
 SHAP PER:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Undergrad Periodical Shelves - 2nd Floor
   fulfillment_unit: General
+  location_type: OPEN
 SHAP PRON:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro 2nd floor Browsing Collection - Shelved by author
   fulfillment_unit: General
+  location_type: OPEN
 SHAP REFU:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Reference - The Wu Reading Room - 3rd floor
   fulfillment_unit: Limited
+  location_type: OPEN
 SHAP RESP:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Science Media Cabinet - 3rd floor
   fulfillment_unit: Limited
+  location_type: OPEN
 SHAP SBCS:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Shapiro Basement Compact Shelving
   fulfillment_unit: General
+  location_type: OPEN
 SHAP SCI:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Science Book Stacks - 4th floor
   fulfillment_unit: General
+  location_type: OPEN
 SHAP SER:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Science Journals - Basement
   fulfillment_unit: General
+  location_type: OPEN
 SHAP SOVR:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Science Oversize Stacks - 4th floor
   fulfillment_unit: General
+  location_type: OPEN
 SHAP UGL:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro Undergraduate stacks
   fulfillment_unit: General
+  location_type: OPEN
 SHAP UNASSIGNED:
   info_link: http://lib.umich.edu/locations-and-hours/shapiro-library
   name: Shapiro
   fulfillment_unit: General
+  location_type: OPEN
 SPEC NONE:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-AMS:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Archival and Manuscript Collections (Building 550)
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-ASG:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Asa Gray Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-BIND:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
-  name: Special Collections Publishers Bindings
+  name: Special Collections Publishers' Bindings
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-CHIL:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Children's Literature
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-CHILO:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Children's Literature
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-CUL:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Janice Bluestein Longone Culinary Archive
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-GOSL:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Pop-Up and Movable Books
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-HUB:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Hubbard Imaginary Voyages Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-JHC:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Jewish Heritage Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-JHCO:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Jewish Heritage Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-LABD:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Joseph A. Labadie Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-LABH2:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Joseph A. Labadie Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-LABS2:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Joseph A. Labadie Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-LABSF:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Joseph A. Labadie Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-LAOV:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Joseph A. Labadie Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-LASTR:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Joseph A. Labadie Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-MYERS:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Myers Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-PARS:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Parsons-Rau Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-RARE:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections General and Rare
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-RAREO:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections General and Rare
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-REF:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Reference Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-SCFI:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Science Fiction Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-SCI:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections General and Rare
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-SHA:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Shakespeare Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-TAUBS:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections History of Medicine Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-THC:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Transportation History Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-THCO:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Transportation History Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-WALP:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Children's Literature (Lee Walp Family Collection)
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-WALPO:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Children's Literature (Lee Walp Family Collection)
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCB-WOR:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Philippine History Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-AMS:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Archival and Manuscript Collections (Hatcher)
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-BUHR:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections General and Rare (Buhr)
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-CUL:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Janice Bluestein Longone Culinary Archive
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-FAUL:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Faulkner Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-FAULX:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Faulkner Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-HAFTER:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections General and Rare
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-ISLM:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Islamic Manuscripts
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-JHC:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Jewish Heritage Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-LABD:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Joseph A. Labadie Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-LABH1:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Joseph A. Labadie Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-LABHC:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Joseph A. Labadie Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-LAFO:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Joseph A. Labadie Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-LAPA:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Joseph A. Labadie Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-MICH:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Michigan Manuscripts
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-RARE:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections General and Rare
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-RAREO:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections General and Rare
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-REF:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Reference Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-TAUBC:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections History of Medicine (LeRoy Crummer Collection)
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-TAUBD:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections History of Medicine Collection (Dock)
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-TAUBF:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections History of Medicine Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-TAUBH:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections History of Medicine (Frank Livingstone Huntley Collection)
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-TAUBI:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections History of Medicine Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-TAUBL:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections History of Medicine (Carl Vernon Weller Collection)
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-TAUBM:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections History of Medicine Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-TAUBO:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections History of Medicine Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-TAUBP:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections History of Medicine (Lewis Stephen Pilcher Collection)
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-TAUBR:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections History of Medicine Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-TAUBW:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections History of Medicine (Aldred Scott Warthin Collection)
   fulfillment_unit: Limited
+  location_type: OPEN
 SPEC SCH-WOR:
   info_link: http://lib.umich.edu/locations-and-hours/special-collections-research-center
   name: Special Collections Philippine History Collection
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF AAEL:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF ADMIN:
   info_link: ''
   name: Staff Administration
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF ASIA:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF BSTA:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF BUHR:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF CLARK:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF COPYR:
   info_link: ''
   name: Staff Copyright
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF DEV:
   info_link: ''
   name: Staff Development
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF FINE:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF FVL:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF HERB:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF ILL:
   info_link: ''
   name: Staff Doc Delivery
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF IS:
   info_link: ''
   name: Staff Intl Studies
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF LIT:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF MUSIC:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF MUSM:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF NCRC:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF NONE:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF OPS:
   info_link: ''
   name: Staff Operations
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF PRES:
   info_link: ''
   name: Staff Preservation
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF PRESS:
   info_link: ''
   name: Staff UM Press
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF PRESV:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF SCI:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF SPEC:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF TAUB:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF TSACQ:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF TSCAT:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF TSMDU:
   info_link: ''
   name: Staff TS Metadata Unit
   fulfillment_unit: Limited
+  location_type: OPEN
 STAFF UGL:
   info_link: ''
   name: Staff
   fulfillment_unit: Limited
+  location_type: OPEN
 TAUB ILL:
   info_link: http://lib.umich.edu/locations-and-hours/taubman-health-sciences-library
   name: Taubman Health Sciences Interlibrary Loan
   fulfillment_unit: Limited
+  location_type: OPEN
 TAUB IND:
   info_link: http://lib.umich.edu/locations-and-hours/taubman-health-sciences-library
   name: Taubman Health Sciences Indexes - Reference Rm.
   fulfillment_unit: Limited
+  location_type: OPEN
 TAUB INDA:
   info_link: http://lib.umich.edu/locations-and-hours/taubman-health-sciences-library
   name: Taubman Health Sciences Indexes - 5th floor alcove
   fulfillment_unit: Limited
+  location_type: OPEN
 TAUB MIC:
   info_link: http://lib.umich.edu/locations-and-hours/taubman-health-sciences-library
   name: Taubman Health Sciences Microforms - Reference Rm.
   fulfillment_unit: Limited
+  location_type: OPEN
 TAUB NONE:
   info_link: http://lib.umich.edu/locations-and-hours/taubman-health-sciences-library
   name: Taubman Health Sciences
   fulfillment_unit: General
+  location_type: OPEN
 TAUB OVR:
   info_link: http://lib.umich.edu/locations-and-hours/taubman-health-sciences-library
   name: Taubman Health Sciences Oversize - 6th floor
   fulfillment_unit: Limited
+  location_type: OPEN
 TAUB PER:
   info_link: http://lib.umich.edu/locations-and-hours/taubman-health-sciences-library
   name: Taubman Health Sciences Journals
   fulfillment_unit: Limited
+  location_type: OPEN
 TAUB REF:
   info_link: http://lib.umich.edu/locations-and-hours/taubman-health-sciences-library
   name: Taubman Health Sciences Reference
   fulfillment_unit: Limited
+  location_type: OPEN
 TAUB RESC:
   info_link: http://lib.umich.edu/locations-and-hours/taubman-health-sciences-library
   name: Taubman Health Sciences Reserves - Ask at the Circulation Desk
   fulfillment_unit: Reserves
+  location_type: OPEN
 TAUB STOR:
   info_link: http://lib.umich.edu/locations-and-hours/taubman-health-sciences-library
   name: Taubman Health Sciences Storage - Ask at the Circulation Desk
   fulfillment_unit: Limited
+  location_type: OPEN
 TAUB UNASSIGNED:
   info_link: http://lib.umich.edu/locations-and-hours/taubman-health-sciences-library
   name: Taubman Health Sciences
   fulfillment_unit: General
+  location_type: OPEN

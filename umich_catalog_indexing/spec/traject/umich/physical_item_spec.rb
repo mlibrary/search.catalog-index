@@ -64,6 +64,11 @@ describe Traject::UMich::PhysicalItem do
       expect(subject.fulfillment_unit).to eq("General")
     end
   end
+  context "#location_type" do
+    it "has an appropriate location_type" do
+      expect(subject.location_type).to eq("OPEN")
+    end
+  end
   context "#info_link" do
     it "has an appropriate info_link" do
       expect(subject.info_link).to eq("http://lib.umich.edu/locations-and-hours/shapiro-library")
@@ -181,7 +186,7 @@ describe Traject::UMich::PhysicalItem do
               :fulfillment_unit, :info_link, :inventory_number, :item_id,
               :item_policy, :library, :location, :permanent_library,
               :permanent_location, :process_type, :public_note,
-              :record_has_finding_aid, :temp_location
+              :record_has_finding_aid, :temp_location, :location_type
       ]
       expect(subject.to_h.keys.sort).to eq(keys.sort)
     end

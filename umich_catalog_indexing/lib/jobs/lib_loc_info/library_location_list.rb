@@ -13,7 +13,8 @@ module Jobs
               @library_locations[libloc.key] = {
                 "info_link" => libloc.info_link,
                 "name" => libloc.display_text,
-                "fulfillment_unit" => libloc.fulfillment_unit
+                "fulfillment_unit" => libloc.fulfillment_unit,
+                "location_type" => libloc.location_type
               }
             end
           end
@@ -39,6 +40,9 @@ module Jobs
         def fulfillment_unit
           @location&.dig("fulfillment_unit","value")
         end
+        def location_type
+          @location&.dig("type","value")
+        end
         def display_text
           name = @location["external_name"] 
           name = @location["name"] if name.empty?
@@ -49,16 +53,6 @@ module Jobs
         end
         def key
           [library_code, location_code].join(" ")
-        end
-        def to_h
-          {
-            key: key,
-            library_code: library_code,
-            location_code: location_code,
-            info_link: info_link,
-            display_text: display_text,
-            fulfillment_unit: fulfillment_unit,
-          }
         end
       end
     end
