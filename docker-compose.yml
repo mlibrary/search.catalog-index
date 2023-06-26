@@ -44,6 +44,8 @@ services:
       - HATHIFILES_MYSQL_CONNECTION=mysql2://root:pass@hathifiles/hathifiles
       - HT_HOST=https://www.hathitrust.org
       - REDIS_URL=redis://redis:6379
+    networks:
+      - mynetwork
 
   web:
     build: umich_catalog_indexing/.
