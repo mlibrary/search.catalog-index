@@ -30,7 +30,7 @@ module HathifilesDatabaseActions
       @logger.error(e.message)
       raise e
     ensure
-      @connection.rawdb.disconnect
+      @connection&.rawdb&.disconnect
       clean
     end
 
