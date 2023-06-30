@@ -100,6 +100,9 @@ module Traject
       def finding_aid?
         @has_finding_aid
       end
+      def material_type
+        @item["m"]
+      end
       def temp_location?
         library != permanent_library || location != permanent_location
       end
@@ -130,6 +133,7 @@ module Traject
           description: description,
           inventory_number: inventory_number,
           item_id: item_id,
+          material_type: material_type,
           record_has_finding_aid: finding_aid?,
         }
       end

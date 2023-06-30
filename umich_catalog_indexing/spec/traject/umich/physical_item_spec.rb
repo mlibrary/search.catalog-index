@@ -142,6 +142,11 @@ describe Traject::UMich::PhysicalItem do
       expect(subject.locations).to eq(["SHAP"])
     end
   end
+  context "#material_type" do
+    it "has the appropriate material type" do
+      expect(subject.material_type).to eq("ISSUE")
+    end
+  end
   context "#circulating?" do
     it "is true when field 'f' is '1'" do
       expect(subject.circulating?).to eq(true)
@@ -186,7 +191,7 @@ describe Traject::UMich::PhysicalItem do
               :fulfillment_unit, :info_link, :inventory_number, :item_id,
               :item_policy, :library, :location, :permanent_library,
               :permanent_location, :process_type, :public_note,
-              :record_has_finding_aid, :temp_location, :location_type
+              :record_has_finding_aid, :temp_location, :location_type, :material_type
       ]
       expect(subject.to_h.keys.sort).to eq(keys.sort)
     end
