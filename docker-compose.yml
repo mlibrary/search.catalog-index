@@ -12,6 +12,8 @@ services:
       - MARIADB_DATABASE=supervisor
       - MARIADB_ROOT_PASSWORD=pass
       - DATABASE_HOST=database
+    networks:
+      - mynetwork
 
 
   database:
@@ -23,6 +25,8 @@ services:
       - MARIADB_PASSWORD=supervisor_password
       - MARIADB_DATABASE=supervisor
       - MARIADB_ROOT_PASSWORD=pass
+    networks:
+      - mynetwork
 
   sftp:
     image: 'atmoz/sftp'
@@ -32,6 +36,8 @@ services:
       - ./sftp/ssh/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key
       - ./sftp/ssh/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key
     command: alma:1001
+    networks:
+      - mynetwork
 
   support:
     build: 
