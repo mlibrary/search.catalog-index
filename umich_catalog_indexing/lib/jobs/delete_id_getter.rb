@@ -18,9 +18,24 @@ module Jobs
       body << "</delete>"
       body
     end
+    def options
+      o = {
+        body: body,
+        headers: { 'Content-Type' => 'text/xml' },
+        query: { commit: true }
+      }
+      o[:basic_auth] = auth if ENV.fetch("SOLRCLOUD_ON")
+      o
+    end
     def send
-      response = HTTParty.post(@url, body: body, headers: { 'Content-Type' => 'text/xml' }, query: { commit: true })
+      response = HTTParty.post(@url, options)
       @logger.info response.body
+    end
+    def auth
+      {
+        username: ENV.fetch("SOLR_USER"),
+        password: ENV.fetch("SOLR_PASSWORD")
+      }
     end
   end
 end
