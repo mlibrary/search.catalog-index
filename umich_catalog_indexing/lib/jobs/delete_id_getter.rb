@@ -33,8 +33,8 @@ module Jobs
     end
     def auth
       {
-        username: ENV.fetch("SOLR_USER"),
-        password: ENV.fetch("SOLR_PASSWORD")
+        username: ENV.fetch("SOLR_USER", nil),
+        password: ENV.fetch("SOLR_PASSWORD", nil)
       }
     end
   end
