@@ -61,36 +61,28 @@ to_field 'building', extract_marc('852bc:971a') do |rec, acc|
   acc.uniq!
 end
 
-# location has been moved to umich_alma, getting data from hol structure
-# done for efficiency but also because alma publishing doesn't write 974 subfields in alpha order, so can't rely on subfields b and c in order
-#location_map = Traject::UMich.location_map
-#to_field 'location', extract_marc('971a:852b:852bc:974b:974bc') do |rec, acc|
-#  acc.map! { |code| location_map[code.strip] }
-#  acc.flatten!
-#  acc.uniq!
-#end
 
+##mrio: 2023-08-03 taking this out because indexing is hanging on this.
 ### High Level Browse ###
-require 'high_level_browse'
+#require 'high_level_browse'
 
-hlb = HighLevelBrowse.load(dir: Pathname.new(__dir__) + "../lib/translation_maps")
+#hlb = HighLevelBrowse.load(dir: Pathname.new(__dir__) + "../lib/translation_maps")
 
-#to_field 'hlb3Delimited', extract_marc('050ab:082a:090ab:099|*0|a:086a:086z:852|0*|hij') do |rec, acc, context|
+##to_field 'hlb3Delimited', extract_marc('050ab:082a:090ab:099|*0|a:086a:086z:852|0*|hij') do |rec, acc, context|
 
-#mrio should bring this back! took it out because hlb not working with jruby 9.3
-to_field 'hlb3Delimited', extract_marc('050ab:082a:090ab:099a:086a:086z:852|0*|hij') do |rec, acc, context|
-  acc.map! { |c| hlb[c] }
-  acc.compact!
-  acc.uniq!
-  acc.flatten!(1)
+#to_field 'hlb3Delimited', extract_marc('050ab:082a:090ab:099a:086a:086z:852|0*|hij') do |rec, acc, context|
+  #acc.map! { |c| hlb[c] }
+  #acc.compact!
+  #acc.uniq!
+  #acc.flatten!(1)
 
-  # Get the individual conmponents and stash them
-  components = acc.flatten.to_a.uniq
-  context.output_hash['hlb3'] = components unless components.empty?
+  ## Get the individual conmponents and stash them
+  #components = acc.flatten.to_a.uniq
+  #context.output_hash['hlb3'] = components unless components.empty?
 
-  # Turn them into pipe-delimited strings
-  acc.map! { |c| c.to_a.join(' | ') }
-end
+  ## Turn them into pipe-delimited strings
+  #acc.map! { |c| c.to_a.join(' | ') }
+#end
 
 
 # Apply Best Bets
@@ -136,7 +128,7 @@ end
 
 
 to_field 'ht_searchonly' do |record, acc, context|
-  has_ht_fulltext = context.clipboard[:ht][:items].us_fulltext?
+  has_ht_fulltext = context.clipboard[:ht][:items]&.us_fulltext? || false
   if has_ht_fulltext or context.clipboard[:ht][:has_non_ht_holding] or context.clipboard[:ht][:record_source] == 'alma'
     acc << false
   else
@@ -145,7 +137,7 @@ to_field 'ht_searchonly' do |record, acc, context|
 end
 
 to_field 'ht_searchonly_intl' do |record, acc, context|
-  has_ht_fulltext = context.clipboard[:ht][:items].intl_fulltext?
+  has_ht_fulltext = context.clipboard[:ht][:items]&.intl_fulltext? || false
   if has_ht_fulltext or context.clipboard[:ht][:has_non_ht_holding]
     acc << false
   else
