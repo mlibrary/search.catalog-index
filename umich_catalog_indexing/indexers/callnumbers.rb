@@ -134,3 +134,23 @@ to_field 'callnoletters', extract_marc('852hij:050ab:090ab', :first => true) do 
   acc.select! { |cn| looks_like_lc?(cn) }
   acc.replace [extract_letters(acc.first)].compact
 end
+
+### High Level Browse ###
+require 'high_level_browse'
+
+hlb = HighLevelBrowse.load(dir: Pathname.new(__dir__) + "../lib/translation_maps")
+to_field 'hlb3Delimited', extract_marc('050ab:082a:090ab:099a:086a:086z:852|0*|hij') do |rec, acc, context|
+  acc.select! { |cn| looks_like_lc?(cn) }
+  acc.map! { |c| hlb[c] }
+  acc.compact!
+  acc.uniq!
+  acc.flatten!(1)
+
+  # Get the individual conmponents and stash them
+  components = acc.flatten.to_a.uniq
+  context.output_hash['hlb3'] = components unless components.empty?
+
+  # Turn them into pipe-delimited strings
+  acc.map! { |c| c.to_a.join(' | ') }
+end
+

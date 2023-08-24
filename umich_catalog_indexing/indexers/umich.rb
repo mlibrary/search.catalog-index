@@ -62,29 +62,6 @@ to_field 'building', extract_marc('852bc:971a') do |rec, acc|
 end
 
 
-##mrio: 2023-08-03 taking this out because indexing is hanging on this.
-### High Level Browse ###
-#require 'high_level_browse'
-
-#hlb = HighLevelBrowse.load(dir: Pathname.new(__dir__) + "../lib/translation_maps")
-
-##to_field 'hlb3Delimited', extract_marc('050ab:082a:090ab:099|*0|a:086a:086z:852|0*|hij') do |rec, acc, context|
-
-#to_field 'hlb3Delimited', extract_marc('050ab:082a:090ab:099a:086a:086z:852|0*|hij') do |rec, acc, context|
-  #acc.map! { |c| hlb[c] }
-  #acc.compact!
-  #acc.uniq!
-  #acc.flatten!(1)
-
-  ## Get the individual conmponents and stash them
-  #components = acc.flatten.to_a.uniq
-  #context.output_hash['hlb3'] = components unless components.empty?
-
-  ## Turn them into pipe-delimited strings
-  #acc.map! { |c| c.to_a.join(' | ') }
-#end
-
-
 # Apply Best Bets
 require 'best_bets'
 
