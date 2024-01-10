@@ -10,6 +10,9 @@ RSpec.describe Common::Subject do
   let(:record) do
     get_record("./spec/fixtures/unauthorized_immigrants.xml")
   end
+  let(:deprecated_record) do
+    MARC::XMLReader.new("./spec/fixtures/deprecated_subject.xml").first
+  end
   let(:record_with_880) do
     get_record("./spec/fixtures/subject_with_880.xml")
   end
@@ -68,6 +71,17 @@ RSpec.describe Common::Subject do
       expect(subjects.count).to eq(4)
     end
   end
+
+  context ".remediated_subject_fields" do
+    it "returns the remediated subjects" do
+      subjects = described_class.remediated_subject_fields(deprecated_record)
+      expect(subjects[0].tag).to eq("650")
+      expect(subjects[0]["a"]).to eq("Undocumented immigrants")
+      expect(subjects[0]["x"]).to eq("Government policy")
+      expect(subjects[0]["z"]).to eq("United States.")
+    end
+  end
+
   context ".new" do
     it "returns an object that knows it's an LCSubject" do
       expect(described_class.new(lc_subject_field).lc_subject_field?).to eq(true)

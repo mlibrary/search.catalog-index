@@ -29,7 +29,15 @@ module Common::Subject
     def self.lc_subject_field?(field)
       SUBJECT_FIELDS.include?(field.tag) &&
         field.indicator2 == "0" &&
-        lcsh_subject_field_2?(field)
+        lcsh_subject_field_2?(field) &&
+        !remediated_subject_field?(field)
+    end
+
+    def self.remediated_subject_field?(field)
+      REMEDIATEABLE_FIELDS.include?(field.tag) &&
+        ["a", "z"].any? do |x|
+          SH_DEPRECATED_TO_REMEDIATED[field[x]]
+        end
     end
 
     # @param [MARC::DataField] field A 6xx field

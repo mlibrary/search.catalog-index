@@ -3,9 +3,14 @@ require "marc"
 RSpec.describe Common::Subject::LCSubject do
   let(:record) do
     reader = MARC::XMLReader.new("./spec/fixtures/unauthorized_immigrants.xml")
-    for r in reader
+    reader.each do |r|
       return r
     end
+  end
+  let(:deprecated_subject_field) do
+    rec = MARC::XMLReader.new("./spec/fixtures/deprecated_subject.xml")
+      .first
+    rec.fields("650").first
   end
   let(:subject_fields) do
     Common::Subject.lc_subject_fields(record)
@@ -29,6 +34,9 @@ RSpec.describe Common::Subject::LCSubject do
     end
     it "returns false for a field with ind2=0 but a $2 that says otherwise" do
       expect(described_class.lc_subject_field?(wrongindicator_subject_field)).to eq(false)
+    end
+    it "returns false for term that needs to be remediated" do
+      expect(Common::Subject::LCSubject.lc_subject_field?(deprecated_subject_field)).to eq(false)
     end
   end
   context "#subject_data_subfield_codes" do
