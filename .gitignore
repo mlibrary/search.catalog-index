@@ -1,6 +1,8 @@
 data
 start_solr.sh
 stop_solr.sh
+.local
+.solargraph.yml
 .idea
 .irb_history
 ht_secure_data.rb
