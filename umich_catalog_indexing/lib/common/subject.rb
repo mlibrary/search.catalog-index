@@ -30,7 +30,7 @@ module Common::Subject
   def self.linked_fields_for(record, field)
     linking_id = field["6"]
     if linking_id
-      record.fields('880').select { |eef| eef['6']&.start_with? "#{field.tag}-#{linking_id.split("-").last}" }
+      record.fields("880").select { |eef| eef["6"]&.start_with? "#{field.tag}-#{linking_id.split("-").last}" }
     else
       []
     end
@@ -63,4 +63,3 @@ module Common::Subject
     end
   end
 end
-

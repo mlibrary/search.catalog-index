@@ -2,7 +2,7 @@
 
 module Common::Subject
   module Normalize
-    #This enables the use of the method Common::Subject::Normalize.normalize
+    # This enables the use of the method Common::Subject::Normalize.normalize
     extend self
 
     # Mostly, we want to ditch punctuation, symbols, and spaces
@@ -23,8 +23,7 @@ module Common::Subject
 
     # Normalization is just turning tabs into spaces and the applying the cleaner.
     def normalize(str)
-      CLEANER.match(str.gsub("\t", " "))[1]
+      CLEANER.match(str.tr("\t", " "))[1]
     end
-
   end
 end
