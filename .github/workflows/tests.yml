@@ -10,10 +10,10 @@ jobs:
       BUNDLE_GEMFILE: ${{ github.workspace }}/umich_catalog_indexing/Gemfile
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JRuby 9.4
+      - name: Set up ruby 3.2
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "jruby-9.4"
+          ruby-version: "3.2"
           bundler-cache: true
         env: 
           BUNDLE_RUBYGEMS__PKG__GITHUB__COM: ${{secrets.GH_PACKAGE_READ_TOKEN}}

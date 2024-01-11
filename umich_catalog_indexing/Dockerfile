@@ -1,12 +1,12 @@
-FROM jruby:9.4
+FROM ruby:3.2
 ARG UNAME=app
 ARG UID=1000
 ARG GID=1000
 
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
   build-essential\
-  netbase\
-  libffi-dev \
+  #netbase\
+  #libffi-dev \
   git \
   vim-tiny \
   ssh

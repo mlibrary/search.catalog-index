@@ -49,9 +49,3 @@ gem 'marc-fastxmlwriter', '~>1.0'
 gem 'high_level_browse', '>=1.1'
 
 gem 'pry'
-
-
-#For liblocyaml
-#gem 'alma_rest_client',
-  #git: 'https://github.com/mlibrary/alma_rest_client', 
-  #tag: '1.1.0'
