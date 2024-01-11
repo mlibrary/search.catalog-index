@@ -1,12 +1,11 @@
-FROM ruby:3.2
+FROM ruby:3.2 AS development
+
 ARG UNAME=app
 ARG UID=1000
 ARG GID=1000
 
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
   build-essential\
-  #netbase\
-  #libffi-dev \
   git \
   vim-tiny \
   ssh
@@ -16,13 +15,19 @@ RUN useradd -m -d /app -u ${UID} -g ${GID} -o -s /bin/bash ${UNAME}
 RUN mkdir -p /gems && chown ${UID}:${GID} /gems
 
 RUN gem install bundler
+
 USER $UNAME
 
 ENV BUNDLE_PATH /gems
-RUN mkdir -p /gems 
-
-COPY --chown=${UID}:${GID} Gemfile* /app/
 
 WORKDIR /app
 
 CMD ["bundle", "exec", "sidekiq", "-r", "./lib/sidekiq_jobs.rb"]
+
+FROM development AS production
+
+COPY --chown=${UID}:${GID} . /app
+
+RUN --mount=type=secret,id=gh_package_read_token,uid=1000 \
+  read_token="$(cat /run/secrets/gh_package_read_token)" \
+  && BUNDLE_RUBYGEMS__PKG__GITHUB__COM=${read_token} bundle install
