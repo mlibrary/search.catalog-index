@@ -165,7 +165,7 @@ def valid_author_700?(field)
   has_t = !field['t'].nil?
   (ind2_blank and !has_t) or (ind2_2 and has_t)
 end
-to_field "author_authoritative_browse" do |rec, acc, _context|
+to_field "author_browse_terms" do |rec, acc, _context|
   authors = []
   author_7xx.each_matching_line(rec) do |field, spec, extractor|
     if valid_author_700?(field)
