@@ -6,10 +6,7 @@ ENV SOLR_OPTS="-Denable.packages=true"
 
 COPY --chown=solr:solr conf /biblio
 
-#the one I can't get rid of.
-COPY --chown=solr:solr lib/lucene-umich-solr-filters-2.1-solr-8.8.2.jar  /var/solr/lib/lucene-umich-solr-filters-2.1-solr-8.8.2.jar
-COPY --chown=solr:solr lib/solr_analyzed_string-1.0.jar /var/solr/lib/solr_analyzed_string-1.0.jar
-COPY --chown=solr:solr lib/library_identifier_solr_filters-0.9.6-solr8.8.2.jar /var/solr/lib/library_identifier_solr_filters-0.9.6-solr8.8.2.jar
+COPY --chown=solr:solr lib/*.jar /var/solr/lib/
 
 COPY --chown=solr:solr dev_init/security.json /var/solr/data/security.json
 COPY --chown=solr:solr dev_init/solr_init.sh /usr/bin/solr_init.sh
