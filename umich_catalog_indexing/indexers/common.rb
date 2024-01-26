@@ -146,13 +146,13 @@ to_field "authorSort", extract_marc_unless("100abcd:110abcd:111abc:110ab:700abcd
   acc.compact!
 end
 
-# For browse entries, we only want teh 100/110/111 and their 7xx counterparts
+# For browse entries, we only want the 100/110/111 and their 7xx counterparts
 # The 1XX fields are easy and normal
-to_field 'author_authoritative_browse', extract_marc_unless(
+to_field 'author_browse_terms', extract_marc_unless(
   "100abcdjq:110abcd:111acden",
 skipWaSeSS)
 
-# Add on to the author_authoritative_browse field with the 7XXs
+# Add on to the author_browse_terms field with the 7XXs
 # The 7XXs are more complicated. Per Leigh Billings:
 # 1xx fields
 # AND 700*_ without a $t
