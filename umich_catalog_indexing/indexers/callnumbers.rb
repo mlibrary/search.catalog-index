@@ -30,11 +30,6 @@ def looks_like_lc?(str)
   re.match?(str)
 end
 
-def looks_like_dewey?(str)
-  re = /\A\s*\d{3}\s*\.\d/ # 3 digits, dot, digit
-  re.match?(str)
-end
-
 ##########################################
 # Standalone extractors
 ##########################################
@@ -52,9 +47,9 @@ lc_050_extractor    = Traject::MarcExtractor.cached('050ab', { alternate_script:
 
 each_record do |rec, context|
   context.clipboard['callnumbers'] = {
-    lc_852:    lc_852_extractor.extract(rec).flatten.compact.uniq.select { |cn| looks_like_lc?(cn) },
-    dewey_852: dewey_852_extractor.extract(rec).flatten.compact.uniq.select { |cn| looks_like_dewey?(cn) },
-    lc_050:    lc_050_extractor.extract(rec).flatten.compact.uniq.select { |cn| looks_like_lc?(cn) },
+    lc_852:    lc_852_extractor.extract(rec).flatten.compact.uniq,
+    dewey_852: dewey_852_extractor.extract(rec).flatten.compact.uniq,
+    lc_050:    lc_050_extractor.extract(rec).flatten.compact.uniq,
   }
 end
 
