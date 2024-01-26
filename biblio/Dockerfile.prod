@@ -1,5 +1,3 @@
 FROM solr:8.11.2
 
-COPY --chown=solr:solr lib/lucene-umich-solr-filters-2.1-solr-8.8.2.jar  /var/solr/lib/lucene-umich-solr-filters-2.1-solr-8.8.2.jar
-COPY --chown=solr:solr lib/solr_analyzed_string-1.0.jar /var/solr/lib/solr_analyzed_string-1.0.jar
-COPY --chown=solr:solr lib/library_identifier_solr_filters-0.9.6-solr8.8.2.jar /var/solr/lib/library_identifier_solr_filters-0.9.6-solr8.8.2.jar
+COPY --chown=solr:solr lib/*.jar /var/solr/lib/
