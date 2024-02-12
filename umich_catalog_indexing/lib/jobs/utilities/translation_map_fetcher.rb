@@ -60,7 +60,7 @@ module Jobs
         if should_fetch?(path)
           temporary_path = "#{path}_#{SecureRandom.alphanumeric(8)}.temporary"
           File.open(temporary_path, 'w'){|f| f.write fetcher.call }
-          if !File.exists?(temporary_path) || File.size?(temporary_path) < 15
+          if !File.exist?(temporary_path) || File.size?(temporary_path) < 15
             @logger.error "Did not update #{path}. Failed to load file"
           else
             File.rename(temporary_path, path)
@@ -73,7 +73,7 @@ module Jobs
       end
       def should_fetch?(file)
         #true when file doesn't exit or if file is older than a day
-        !File.exists?(file) or 
+        !File.exist?(file) or 
           File.stat(file).mtime < Time.now - (60*60*24) 
       end
       def hlb_dir

@@ -1,18 +1,13 @@
-FROM ruby:3.1
-
-LABEL maintainer="mrio@umich.edu"
+FROM ruby:3.2
 
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
   apt-transport-https
 
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
-  nodejs \
-  vim
+  vim-tiny
 
-RUN gem install bundler:2.3
-
+RUN gem install bundler
 
 RUN mkdir -p /gems 
 
