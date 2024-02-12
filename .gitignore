@@ -4,6 +4,7 @@ stop_solr.sh
 .local
 .solargraph.yml
 .idea
+.cache
 .irb_history
 ht_secure_data.rb
 logs

@@ -1,6 +1,6 @@
 $:.unshift "#{File.dirname(__FILE__)}"
-require 'alma_rest_client'
-require 'sftp'
+require "alma_rest_client"
+require "sftp"
 require "prometheus/client"
 require "prometheus/client/push"
 require "prometheus/client/registry"
