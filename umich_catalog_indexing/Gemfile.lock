@@ -20,8 +20,6 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
-    anyway_config (2.6.2)
-      ruby-next-core (~> 1.0)
     base64 (0.2.0)
     bigdecimal (3.1.5)
     byebug (11.1.3)
@@ -36,7 +34,6 @@ GEM
       bundler (>= 2.2.33)
     drb (2.2.0)
       ruby2_keywords
-    dry-initializer (3.1.1)
     faraday (2.9.0)
       faraday-net_http (>= 2.0, < 3.2)
     faraday-net_http (3.1.0)
@@ -123,7 +120,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.1)
-    ruby-next-core (1.0.0)
     ruby2_keywords (0.0.5)
     scrub_rb (1.0.1)
     sequel (5.76.0)
@@ -156,18 +152,6 @@ GEM
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
     webrick (1.8.1)
-    yabeda (0.12.0)
-      anyway_config (>= 1.0, < 3)
-      concurrent-ruby
-      dry-initializer
-    yabeda-prometheus (0.9.1)
-      prometheus-client (>= 3.0, < 5.0)
-      rack
-      yabeda (~> 0.10)
-    yabeda-sidekiq (0.10.0)
-      anyway_config (>= 1.3, < 3)
-      sidekiq
-      yabeda (~> 0.6)
     yell (2.2.2)
 
 GEM
@@ -202,6 +186,7 @@ DEPENDENCIES
   match_map (~> 3.0)
   mysql2
   naconormalizer
+  prometheus-client
   pry
   pry-debugger-jruby
   psych
@@ -216,8 +201,6 @@ DEPENDENCIES
   traject_umich_format!
   webmock (~> 3.0)
   webrick
-  yabeda-prometheus
-  yabeda-sidekiq
   yell (~> 2.0)
 
 BUNDLED WITH

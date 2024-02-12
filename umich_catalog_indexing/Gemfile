@@ -9,8 +9,9 @@ group :development do
 end
 
 gem 'yell', '~>2.0'
-gem "yabeda-sidekiq"
-gem "yabeda-prometheus"
+gem "prometheus-client"
+#gem "yabeda-sidekiq"
+#gem "yabeda-prometheus"
 gem "httparty"
 gem "webrick"
 

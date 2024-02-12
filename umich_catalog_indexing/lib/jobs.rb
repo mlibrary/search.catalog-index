@@ -1,7 +1,11 @@
 $:.unshift "#{File.dirname(__FILE__)}"
 require 'alma_rest_client'
 require 'sftp'
+require "prometheus/client"
+require "prometheus/client/push"
+require "prometheus/client/registry"
 
+require "jobs/catalog_indexing_metrics"
 require "jobs/utilities"
 require "jobs/utilities/alma_file_processor"
 require "jobs/utilities/zephir_file"
