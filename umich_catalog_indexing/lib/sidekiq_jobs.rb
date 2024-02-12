@@ -37,7 +37,6 @@ class CheckInCheckOut
 end
 
 Sidekiq.configure_server do |config|
-  # Yabeda::Prometheus::Exporter.start_metrics_server!
   config.server_middleware do |chain|
     chain.add CheckInCheckOut if ENV.fetch("SUPERVISOR_ON") == "true"
   end
