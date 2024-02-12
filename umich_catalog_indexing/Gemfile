@@ -1,16 +1,18 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 group :development do
-  gem "bundler", '~>2.0'
-  gem 'rake', '~>13.0'
-  gem 'rspec', '~>3.0'
-  gem 'webmock', '~>3.0'
+  gem "bundler", "~>2.0"
+  gem "rake", "~>13.0"
+  gem "rspec", "~>3.0"
+  gem "webmock", "~>3.0"
+  gem "standard"
 end
 
-gem 'yell', '~>2.0'
-gem "yabeda-sidekiq"
-gem "yabeda-prometheus"
+gem "yell", "~>2.0"
+gem "prometheus-client"
+# gem "yabeda-sidekiq"
+# gem "yabeda-prometheus"
 gem "httparty"
 gem "webrick"
 
@@ -19,33 +21,32 @@ source "https://rubygems.pkg.github.com/mlibrary" do
   gem "alma_rest_client", "2.0.0"
 end
 
-gem 'rack' #for sidekiq
-gem 'traject', '~>3.0'
-gem 'traject_umich_format',
-  git: 'https://github.com/mlibrary/traject_umich_format', 
-  branch: 'master'
-gem 'match_map', '~>3.0'
-gem 'sequel', '~>5.0'
-gem 'httpclient', '~>2.0'
-gem 'library_stdnums', '~>1.0'
-gem 'sidekiq'
+gem "rack" # for sidekiq
+gem "traject", "~>3.0"
+gem "traject_umich_format",
+  git: "https://github.com/mlibrary/traject_umich_format",
+  branch: "master"
+gem "match_map", "~>3.0"
+gem "sequel", "~>5.0"
+gem "httpclient", "~>2.0"
+gem "library_stdnums", "~>1.0"
+gem "sidekiq"
 
 platforms :jruby do
-  gem 'naconormalizer'
-  gem 'jdbc-mysql', '~>8.0'
-  gem 'psych'
+  gem "naconormalizer"
+  gem "jdbc-mysql", "~>8.0"
+  gem "psych"
   gem "traject-marc4j_reader", "~> 1.0"
-  gem 'pry-debugger-jruby'
+  gem "pry-debugger-jruby"
 end
 
 platforms :mri do
-  gem 'mysql2'
-  gem 'byebug'
+  gem "mysql2"
+  gem "byebug"
 end
 
+gem "marc-fastxmlwriter", "~>1.0"
 
-gem 'marc-fastxmlwriter', '~>1.0'
+gem "high_level_browse", ">=1.1"
 
-gem 'high_level_browse', '>=1.1'
-
-gem 'pry'
+gem "pry"
