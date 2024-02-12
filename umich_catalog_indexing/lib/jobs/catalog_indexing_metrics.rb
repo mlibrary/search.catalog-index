@@ -1,5 +1,9 @@
 module Jobs
   class CatalogIndexingMetrics
+    
+    # for being unable to contact the push gateway
+    class PushGatewayClientError < StandardError; end
+
     def initialize(labels)
       @labels = labels
       @start_time = current_timestamp
@@ -9,6 +13,8 @@ module Jobs
       indexing_job_duration_seconds.set(current_timestamp - @start_time)
       indexing_job_last_success.set(current_timestamp)
       gateway.add(registry)
+    rescue
+      raise PushGatewayClientError
     end
 
     private

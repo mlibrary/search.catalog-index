@@ -56,6 +56,8 @@ class IndexIt
     metrics = Jobs::CatalogIndexingMetrics.new({type: "IndexIt", destination: solr_url})
     Jobs::IndexAlmaXml.new(file: file, solr_url: solr_url).run
     metrics.push
+  rescue Jobs::CatalogIndexingMetrics::PushGatewayClientError
+    puts "Error: Failed contact the Push Gateway"
   end
 end
 
@@ -66,6 +68,8 @@ class DeleteIt
     metrics = Jobs::CatalogIndexingMetrics.new({type: "DeleteIt", destination: solr_url})
     Jobs::DeleteAlmaIds.new(file: file, solr_url: solr_url).run
     metrics.push
+  rescue Jobs::CatalogIndexingMetrics::PushGatewayClientError
+    puts "Error: Failed contact the Push Gateway"
   end
 end
 
@@ -76,5 +80,7 @@ class IndexHathi
     metrics = Jobs::CatalogIndexingMetrics.new({type: "IndexHathi", destination: solr_url})
     Jobs::IndexHathiJson.new(file: file, solr_url: solr_url).run
     metrics.push
+  rescue Jobs::CatalogIndexingMetrics::PushGatewayClientError
+    puts "Error: Failed contact the Push Gateway"
   end
 end
