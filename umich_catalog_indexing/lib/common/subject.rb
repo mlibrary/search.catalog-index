@@ -115,7 +115,8 @@ module Common::Subject
 
   def self.subject_browse_fields(record)
     lc_subject_fields(record) +
-      remediated_subject_fields(record)
+      remediated_subject_fields(record) +
+      already_remediated_subject_fields(record) 
   end
 
   def self.topics(record)
