@@ -34,6 +34,7 @@ module Common::Subject
   SUBJECT_FIELDS = TOPICS.keys
   REMEDIATEABLE_FIELDS = "650 651 653 654 655 656 657 658"
   SH_DEPRECATED_TO_REMEDIATED = ::Traject::TranslationMap.new("umich/sh_deprecated_to_remediated")
+  SH_REMEDIATED_TO_DEPRECATED = ::Traject::TranslationMap.new("umich/sh_remediated_to_deprecated")
 
   def self.subject_field?(field)
     SUBJECT_FIELDS.include?(field.tag)
@@ -58,13 +59,27 @@ module Common::Subject
     end
   end
 
+  def self.deprecated_subject_fields(record)
+    already_remediated_subject_fields(record).map do |field|
+      f = _clone_field(field)
+      f.each do |sf|
+        if ["a", "z"].any?(sf.code)
+          if SH_REMEDIATED_TO_DEPRECATED[_normalize_sf(sf.value)]
+            sf.value = SH_REMEDIATED_TO_DEPRECATED[_normalize_sf(sf.value)]
+          end
+        end
+      end
+      f
+    end
+  end
+
   def self.remediated_subject_fields(record)
     remediateable_subject_fields(record).map do |field|
       f = _clone_field(field)
       f.each do |sf|
         if ["a", "z"].any?(sf.code)
-          if SH_DEPRECATED_TO_REMEDIATED[sf.value]
-            sf.value = SH_DEPRECATED_TO_REMEDIATED[sf.value]
+          if SH_DEPRECATED_TO_REMEDIATED[_normalize_sf(sf.value)]
+            sf.value = SH_DEPRECATED_TO_REMEDIATED[_normalize_sf(sf.value)]
           end
         end
       end
@@ -105,6 +120,7 @@ module Common::Subject
 
   def self.topics(record)
     (subject_fields(record) +
+     deprecated_subject_fields(record) +
     remediated_subject_fields(record)).filter_map do |field|
       unless field.indicator2 == '7' and field['2'] =~ /fast/
         a = field["a"]
@@ -123,13 +139,29 @@ module Common::Subject
     end
   end
 
-  def self._remediateable_subject_field?(field)
+  def self.already_remediated_subject_fields(record)
+    (subject_fields(record) - lc_subject_fields(record)).filter_map do |field|
+      field if _already_remediated_subject_field?(field)
+    end
+  end
+
+  def self._already_remediated_subject_field?(field)
     REMEDIATEABLE_FIELDS.include?(field.tag) &&
       ["a", "z"].any? do |x|
-        SH_DEPRECATED_TO_REMEDIATED[field[x]]
+        SH_REMEDIATED_TO_DEPRECATED[_normalize_sf(field[x])]
       end
   end
 
+  def self._remediateable_subject_field?(field)
+    REMEDIATEABLE_FIELDS.include?(field.tag) &&
+      ["a", "z"].any? do |x|
+        SH_DEPRECATED_TO_REMEDIATED[_normalize_sf(field[x])]
+      end
+  end
+
+  def self._normalize_sf(str)
+    str&.downcase&.gsub(/[^A-Za-z0-9\s]/i, "")
+  end
   def self._clone_field(field)
     sfields = field.subfields.map do |sf|
       MARC::Subfield.new(sf.code, sf.value)

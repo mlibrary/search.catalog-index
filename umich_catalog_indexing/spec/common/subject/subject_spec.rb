@@ -2,16 +2,16 @@ require "common/subject"
 require "marc"
 RSpec.describe Common::Subject do
   def get_record(path)
-    reader = MARC::XMLReader.new(path)
-    for r in reader
-      return r
-    end
+    MARC::XMLReader.new(path).first
   end
   let(:record) do
     get_record("./spec/fixtures/unauthorized_immigrants.xml")
   end
   let(:deprecated_record) do
-    MARC::XMLReader.new("./spec/fixtures/deprecated_subject.xml").first
+    get_record("./spec/fixtures/deprecated_subject.xml")
+  end
+  let(:remediated_record) do
+    get_record("./spec/fixtures/remediated_subject.xml")
   end
   let(:record_with_880) do
     get_record("./spec/fixtures/subject_with_880.xml")
@@ -85,6 +85,16 @@ RSpec.describe Common::Subject do
         "Undocumented immigrants United States."
       )
     end
+
+    it "returns topics including deprecated ones" do
+      expect(described_class.topics(remediated_record)).to contain_exactly(
+        "Illegal aliens",
+        "Undocumented immigrants.",
+        "Emigration and immigration law.",
+        "Noncitizens.",
+        "Right to counsel."
+      )
+    end
   end
 
   context ".remediated_subject_fields" do
@@ -99,6 +109,17 @@ RSpec.describe Common::Subject do
       expect(subjects[0]["z"]).to eq("Undocumented immigrants")
       expect(subjects[0]["2"]).to eq("miush")
     end
+  end
+  context ".already_remediated_subject_fields" do
+    it "returns the non_lcsh already remediated subject fields" do
+      subjects = described_class.already_remediated_subject_fields(remediated_record)
+      expect(subjects[0].tag).to eq("650")
+      expect(subjects[0]["a"]).to eq("Undocumented immigrants.")
+    end
+  end
+
+  context ".deprecated_subject_fields" do
+
   end
 
   context ".new" do
