@@ -42,18 +42,18 @@ module Common::Subject
   end
 
   def self.remediated_subject_fields(record)
-    @remediated_subject_fields ||= subject_fields(record).filter_map do |field|
-      if _remediateable_subject_field?(field)
-        f = _clone_field(field)
-        f.each do |sf|
-          if ["a","z"].any?(sf.code)
-            if SH_DEPRECATED_TO_REMEDIATED[sf.value]
-              sf.value = SH_DEPRECATED_TO_REMEDIATED[sf.value]
-            end
+    remediateable_subject_fields(record).map do |field|
+      f = _clone_field(field)
+      f.each do |sf|
+        if ["a", "z"].any?(sf.code)
+          if SH_DEPRECATED_TO_REMEDIATED[sf.value]
+            sf.value = SH_DEPRECATED_TO_REMEDIATED[sf.value]
           end
         end
-        f
       end
+      f.indicator2 = "7"
+      f.append(MARC::Subfield.new("2", "miush"))
+      f
     end
   end
   # Get all the subject fields including associated 880 linked fields
@@ -72,6 +72,12 @@ module Common::Subject
   def self.lc_subject_fields(record)
     sfields = record.select { |field| lc_subject_field?(field) }
     sfields + sfields.flat_map { |field| linked_fields_for(record, field) }.compact
+  end
+
+  def self.remediateable_subject_fields(record)
+    subject_fields(record).filter_map do |field|
+      field if _remediateable_subject_field?(field)
+    end
   end
 
   def self._remediateable_subject_field?(field)

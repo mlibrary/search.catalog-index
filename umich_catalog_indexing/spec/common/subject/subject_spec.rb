@@ -73,12 +73,16 @@ RSpec.describe Common::Subject do
   end
 
   context ".remediated_subject_fields" do
-    it "returns the remediated subjects" do
-      subjects = described_class.remediated_subject_fields(deprecated_record)
+    it "returns remediated a and z fields" do
+      d = deprecated_record
+      d.fields("650").first.subfields.last.value = "Illegal aliens"
+      subjects = described_class.remediated_subject_fields(d)
       expect(subjects[0].tag).to eq("650")
+      expect(subjects[0].indicator2).to eq("7")
       expect(subjects[0]["a"]).to eq("Undocumented immigrants")
       expect(subjects[0]["x"]).to eq("Government policy")
-      expect(subjects[0]["z"]).to eq("United States.")
+      expect(subjects[0]["z"]).to eq("Undocumented immigrants")
+      expect(subjects[0]["2"]).to eq("miush")
     end
   end
 
