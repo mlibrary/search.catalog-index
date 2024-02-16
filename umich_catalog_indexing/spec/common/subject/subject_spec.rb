@@ -73,7 +73,7 @@ RSpec.describe Common::Subject do
   end
 
   context ".remediated_subject_fields" do
-    it "returns remediated a and z fields" do
+    it "returns remediated a and z fields;adds indications that its been remediated" do
       d = deprecated_record
       d.fields("650").first.subfields.last.value = "Illegal aliens"
       subjects = described_class.remediated_subject_fields(d)

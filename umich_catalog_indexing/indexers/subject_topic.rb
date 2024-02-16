@@ -16,25 +16,30 @@ skip_FAST = ->(rec, field) do
 end
 
 to_field "topic", extract_marc_unless(%w(
-  600a  600abcdefghjklmnopqrstuvxyz
-  610a  610abcdefghklmnoprstuvxyz
-  611a  611acdefghjklnpqstuvxyz
-  630a  630adefghklmnoprstvxyz
-  648a  648avxyz
-  650a  650abcdevxyz
-  651a  651aevxyz
-  653a  653abevyz
-  654a  654abevyz
-  655a  655abvxyz
-  656a  656akvxyz
-  657a  657avxyz
-  658a  658ab
-  662a  662abcdefgh
-  690a   690abcdevxyz
+  600a 600abcdefghjklmnopqrstuvxyz
+  610a 610abcdefghklmnoprstuvxyz
+  611a 611acdefghjklnpqstuvxyz
+  630a 630adefghklmnoprstvxyz
+  648a 648avxyz
+  650a 650abcdevxyz
+  651a 651aevxyz
+  653a 653abevyz
+  654a 654abevyz
+  655a 655abvxyz
+  656a 656akvxyz
+  657a 657avxyz
+  658a 658ab
+  662a 662abcdefgh
+  690a 690abcdevxyz
 
-  ), skip_FAST, :trim_punctuation => true)
+  ), skip_FAST, :trim_punctuation => true) do |rec, acc|
+   acc << "whatever" 
+   acc << "something else"
+   acc << "whatever" 
+   acc.uniq!
+  end
 
 to_field 'lc_subject_display', lcsh_subjects, unique
 to_field 'non_lc_subject_display', non_lcsh_subjects, unique
 
-to_field "subject_browse_terms", lcsh_subjects, unique
+to_field "subject_browse_terms", subject_browse_subjects, unique

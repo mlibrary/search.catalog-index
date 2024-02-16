@@ -74,6 +74,19 @@ module Common::Subject
     sfields + sfields.flat_map { |field| linked_fields_for(record, field) }.compact
   end
 
+  def self.non_lc_subject_fields(record)
+    subject_fields(record) -
+      lc_subject_fields(record) -
+      remediateable_subject_fields(record) +
+      remediated_subject_fields(record)
+  end
+
+  def self.subject_browse_fields(record)
+    lc_subject_fields(record) +
+      remediated_subject_fields(record)
+  end
+
+
   def self.remediateable_subject_fields(record)
     subject_fields(record).filter_map do |field|
       field if _remediateable_subject_field?(field)
