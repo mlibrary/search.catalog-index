@@ -14,7 +14,24 @@ require_relative "subject/normalize"
 module Common::Subject
   attr_accessor :sh_deprecated_to_remediated
   # We define subjects as being in any of these fields:
-  SUBJECT_FIELDS = "600 610 611 630 648 650 651 653 654 655 656 657 658 662 690"
+  TOPICS = {
+    "600" => "abcdefghjklmnopqrstuvxyz",
+    "610" => "abcdefghklmnoprstuvxyz",
+    "611" => "acdefghjklnpqstuvxyz",
+    "630" => "adefghklmnoprstvxyz",
+    "648" => "avxyz",
+    "650" => "abcdevxyz",
+    "651" => "aevxyz",
+    "653" => "abevyz",
+    "654" => "abevyz",
+    "655" => "abvxyz",
+    "656" => "akvxyz",
+    "657" => "avxyz",
+    "658" => "ab",
+    "662" => "abcdefgh",
+    "690" => "abcdevxyz"
+  }
+  SUBJECT_FIELDS = TOPICS.keys
   REMEDIATEABLE_FIELDS = "650 651 653 654 655 656 657 658"
   SH_DEPRECATED_TO_REMEDIATED = ::Traject::TranslationMap.new("umich/sh_deprecated_to_remediated")
 
@@ -86,6 +103,19 @@ module Common::Subject
       remediated_subject_fields(record)
   end
 
+  def self.topics(record)
+    (subject_fields(record) +
+    remediated_subject_fields(record)).filter_map do |field|
+      unless field.indicator2 == '7' and field['2'] =~ /fast/
+        a = field["a"]
+        more = []
+        field.each do |sf|
+          more.push sf.value if TOPICS[field.tag].chars.include?(sf.code)
+        end
+        [a, more.join(" ")]
+      end
+    end.flatten.uniq
+  end
 
   def self.remediateable_subject_fields(record)
     subject_fields(record).filter_map do |field|

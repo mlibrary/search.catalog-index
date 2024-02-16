@@ -29,5 +29,11 @@ module Traject::Macros::Common
         accumulator.replace subjects.map { |s| s.subject_string }
       end
     end
+
+    def topics
+      ->(record, accumulator) do
+        accumulator.replace Common::Subject.topics(record)
+      end
+    end
   end
 end

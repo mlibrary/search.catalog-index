@@ -72,6 +72,21 @@ RSpec.describe Common::Subject do
     end
   end
 
+  context ".topics" do
+    it "returns topics including remediated ones" do
+      expect(described_class.topics(deprecated_record)).to contain_exactly(
+        "United States",
+        "United States Emigration and immigration Government policy.",
+        "Illegal aliens",
+        "Illegal aliens Government policy United States.",
+        "Illegal aliens United States.",
+        "Undocumented immigrants",
+        "Undocumented immigrants Government policy United States.",
+        "Undocumented immigrants United States."
+      )
+    end
+  end
+
   context ".remediated_subject_fields" do
     it "returns remediated a and z fields;adds indications that its been remediated" do
       d = deprecated_record
