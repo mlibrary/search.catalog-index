@@ -22,7 +22,7 @@ source "https://rubygems.pkg.github.com/mlibrary" do
 end
 
 gem "rack" # for sidekiq
-gem "traject", "~>3.0"
+gem "traject", "~>3.0", ">=3.8.2"
 gem "traject_umich_format",
   git: "https://github.com/mlibrary/traject_umich_format",
   branch: "master"
