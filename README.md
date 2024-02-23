@@ -26,28 +26,32 @@ Replace values in `umich_catalog_index/.env` with real keys. Ask a developer for
 
 Build it
 ```
-$ docker-compose build
+$ docker compose build
 ```
 
 Build the gems for the web service (the one that has traject)
 ```
-$ docker-compose run --rm web bundle install
+$ docker compose run --rm web bundle install
 ```
 
 Turn it on in detached mode
 ```
-$ docker-compose up -d
+$ docker compose up -d
 ```
 
 In a browser you can look at
-http://localhost:8026 for the solr admin panel
+http://localhost:8983 for the solr admin panel
 http://localhost:9292/ for the sidekiq admin panel
 
 ## Trying it Out
 Some example commands that should work:
 ```
 docker-compose run --rm web bundle exec irb -r ./lib/sidekiq_jobs.rb
-IndexIt.perform_async("search_daily_bibs/birds_2022021017_21131448650006381_new.tar.gz", "http://solr:8983/solr/biblio")
+
+IndexIt.perform_async("search_daily_bibs/birds.tar.gz", "http://solr:8983/solr/biblio")
+
+IndexIt.new.perform("search_daily_bibs/sample.tar.gz", "http://solr:8983/solr/biblio")
+
 IndexHathi.perform_async("zephir_upd_20220301.json.gz", "http://solr:8983/solr/biblio")
 ```
 

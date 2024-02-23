@@ -18,7 +18,7 @@ jobs:
     with:
       image_name: ${{ vars.INDEXER_IMAGE_NAME }}
       tag: ${{ github.event.inputs.tag }}
-      dockerfile: umich_catalog_indexing/Dockerfile.prod
+      dockerfile: umich_catalog_indexing/Dockerfile
       docker_context: umich_catalog_indexing/.
     secrets: inherit
       
