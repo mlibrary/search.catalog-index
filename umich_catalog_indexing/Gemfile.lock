@@ -1,14 +1,31 @@
 GIT
-  remote: https://github.com/mlibrary/traject_umich_format
+  remote: https://github.com/mlibrary/alma_rest_client.git
+  revision: 9606225d82480b6d1568902813ae9018dd8c1acc
+  tag: v2.0.0
+  specs:
+    alma_rest_client (2.0.0)
+      activesupport (~> 7.0, >= 4.2)
+      faraday
+      faraday-retry
+      httpx
+      rexml
+
+GIT
+  remote: https://github.com/mlibrary/sftp.git
+  revision: bf22dd9881f03776a5e5a3c14a77a2028ff374a3
+  specs:
+    sftp (0.3.0)
+
+GIT
+  remote: https://github.com/mlibrary/traject_umich_format.git
   revision: 583637b1095a11ab2de50b3b03876a46d98378bf
-  branch: master
   specs:
     traject_umich_format (0.4.5)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.1.2)
+    activesupport (7.1.3.2)
       base64
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
@@ -49,12 +66,13 @@ GEM
     hashie (5.0.0)
     high_level_browse (1.1.1)
       nokogiri (~> 1.0)
-    http-2-next (1.0.2)
-    http (5.1.1)
+    http-2-next (1.0.3)
+    http (5.2.0)
       addressable (~> 2.8)
+      base64 (~> 0.1)
       http-cookie (~> 1.0)
       http-form_data (~> 2.2)
-      llhttp-ffi (~> 0.4.0)
+      llhttp-ffi (~> 0.5.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
@@ -62,15 +80,15 @@ GEM
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
-    httpx (1.2.0)
-      http-2-next (>= 1.0.1)
+    httpx (1.2.2)
+      http-2-next (>= 1.0.3)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     json (2.7.1)
     language_server-protocol (3.17.0.3)
     library_stdnums (1.6.0)
     lint_roller (1.1.0)
-    llhttp-ffi (0.4.0)
+    llhttp-ffi (0.5.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
     marc (1.2.0)
@@ -82,7 +100,7 @@ GEM
     match_map (3.0.0)
     method_source (1.0.0)
     mini_mime (1.1.5)
-    minitest (5.20.0)
+    minitest (5.22.2)
     multi_xml (0.6.0)
     mutex_m (0.2.0)
     mysql2 (0.5.5)
@@ -169,7 +187,7 @@ GEM
     standard-performance (1.3.1)
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.20.2)
-    traject (3.8.1)
+    traject (3.8.2)
       concurrent-ruby (>= 0.8.0)
       dot-properties (>= 0.1.1)
       hashie (>= 3.1, < 6)
@@ -194,17 +212,6 @@ GEM
     webrick (1.8.1)
     yell (2.2.2)
 
-GEM
-  remote: https://rubygems.pkg.github.com/mlibrary/
-  specs:
-    alma_rest_client (2.0.0)
-      activesupport (~> 7.0, >= 4.2)
-      faraday
-      faraday-retry
-      httpx
-      rexml
-    sftp (0.2.1)
-
 PLATFORMS
   aarch64-linux
   arm-linux
@@ -214,7 +221,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  alma_rest_client (= 2.0.0)!
+  alma_rest_client!
   bundler (~> 2.0)
   byebug
   high_level_browse (>= 1.1)
@@ -237,7 +244,7 @@ DEPENDENCIES
   sftp!
   sidekiq
   standard
-  traject (~> 3.0)
+  traject (~> 3.0, >= 3.8.2)
   traject-marc4j_reader (~> 1.0)
   traject_umich_format!
   webmock (~> 3.0)
