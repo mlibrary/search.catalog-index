@@ -11,21 +11,15 @@ end
 
 gem "yell", "~>2.0"
 gem "prometheus-client"
-# gem "yabeda-sidekiq"
-# gem "yabeda-prometheus"
 gem "httparty"
 gem "webrick"
 
-source "https://rubygems.pkg.github.com/mlibrary" do
-  gem "sftp"
-  gem "alma_rest_client", "2.0.0"
-end
+gem "sftp", github: "mlibrary/sftp"
+gem "alma_rest_client", github: "mlibrary/alma_rest_client", tag: "v2.0.0"
+gem "traject_umich_format", github: "mlibrary/traject_umich_format"
 
 gem "rack" # for sidekiq
-gem "traject", "~>3.0"
-gem "traject_umich_format",
-  git: "https://github.com/mlibrary/traject_umich_format",
-  branch: "master"
+gem "traject", "~>3.0", ">=3.8.2"
 gem "match_map", "~>3.0"
 gem "sequel", "~>5.0"
 gem "httpclient", "~>2.0"

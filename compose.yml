@@ -61,8 +61,8 @@ services:
       - NODB=1
     env_file:
       - ./umich_catalog_indexing/.env
-      - ./umich_catalog_indexing/.env-dev-values
-      - ./mock-ht/.env-dev-values
+      - ./umich_catalog_indexing/env.development
+      - ./mock-ht/env.development
 
   redis:
     image: 'redis:6.2'
@@ -97,7 +97,7 @@ services:
     volumes:
       - ./mock-ht/.:/app
     env_file:
-      - ./mock-ht/.env-dev-values
+      - ./mock-ht/env.development
 
   #hathifiles:
     #image: mariadb

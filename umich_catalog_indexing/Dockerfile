@@ -28,6 +28,4 @@ FROM development AS production
 
 COPY --chown=${UID}:${GID} . /app
 
-RUN --mount=type=secret,id=gh_package_read_token,uid=1000 \
-  read_token="$(cat /run/secrets/gh_package_read_token)" \
-  && BUNDLE_RUBYGEMS__PKG__GITHUB__COM=${read_token} bundle install
+RUN bundle install
