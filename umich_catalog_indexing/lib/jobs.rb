@@ -6,16 +6,14 @@ require "prometheus/client"
 require "prometheus/client/push"
 require "prometheus/client/registry"
 
+require "services"
+
 require "jobs/catalog_indexing_metrics"
 require "jobs/utilities"
-
 require "jobs/lib_loc_info"
-
 require "jobs/electronic_collections"
-
 require "jobs/delete_id_getter"
 require "jobs/delete_alma_ids"
-
 require "jobs/index_alma_xml"
 require "jobs/index_hathi_json"
 

@@ -2,7 +2,7 @@ require "securerandom"
 module Jobs
   module Utilities
     class TranslationMapFetcher
-      def initialize(logger = Logger.new($stdout))
+      def initialize(logger = S.logger)
         @logger = logger
       end
 
