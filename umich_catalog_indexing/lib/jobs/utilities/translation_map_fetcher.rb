@@ -27,11 +27,11 @@ module Jobs
       end
 
       def fetch_lib_loc_info
-        fetch_translation_map(path: lib_loc_info_file, fetcher: lambda { Jobs::LibLocInfo::LibraryLocationList.new.list.to_yaml(line_width: 1000) })
+        fetch_translation_map(path: lib_loc_info_file, fetcher: lambda { Jobs::LibLocInfo.generate_translation_map })
       end
 
       def fetch_electronic_collections
-        fetch_translation_map(path: electronic_collection_file, fetcher: lambda { Jobs::ElectronicCollections.fetch.to_yaml(line_width: 1000) })
+        fetch_translation_map(path: electronic_collection_file, fetcher: lambda { Jobs::ElectronicCollections.generate_translation_map })
       end
 
       # @param path [String] [path to where the translation map should be saved]
