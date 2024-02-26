@@ -1,5 +1,3 @@
-# require_relative "./alma_file_processor"
-# require_relative './umich_utilities/umich_utilities'
 require "high_level_browse"
 
 module Jobs

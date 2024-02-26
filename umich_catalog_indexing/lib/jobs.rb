@@ -1,18 +1,15 @@
 $:.unshift "#{File.dirname(__FILE__)}"
 require "alma_rest_client"
 require "sftp"
+require "yaml"
 require "prometheus/client"
 require "prometheus/client/push"
 require "prometheus/client/registry"
 
 require "jobs/catalog_indexing_metrics"
 require "jobs/utilities"
-require "jobs/utilities/alma_file_processor"
-require "jobs/utilities/zephir_file"
-require "jobs/utilities/translation_map_fetcher"
 
-require "jobs/lib_loc_info/libraries"
-require "jobs/lib_loc_info/library_location_list"
+require "jobs/lib_loc_info"
 
 require "jobs/electronic_collections"
 
