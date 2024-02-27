@@ -2,8 +2,17 @@ require "securerandom"
 module Jobs
   module Utilities
     class TranslationMapFetcher
-      def initialize(logger = S.logger)
-        @logger = logger
+      def initialize(
+        lib_loc_info_klass: Jobs::LibLocInfo,
+        electronic_collections_klass: Jobs::ElectronicCollections,
+        high_level_browse_klass: HighLevelBrowse,
+        translation_map_dir: "/app/lib/translation_maps"
+      )
+        @logger = S.logger
+        @lib_loc_info_klass = lib_loc_info_klass
+        @electronic_collections_klass = electronic_collections_klass
+        @high_level_browse_klass = high_level_browse_klass
+        @translation_map_dir = translation_map_dir
       end
 
       def run
@@ -19,7 +28,7 @@ module Jobs
 
       def fetch_high_level_browse
         if should_fetch?(hlb_file)
-          HighLevelBrowse.fetch_and_save(dir: hlb_dir)
+          @high_level_browse_klass.fetch_and_save(dir: hlb_dir)
           @logger.info "updated #{hlb_file}"
         else
           @logger.info "#{hlb_file} is less than one day old. Did not update"
@@ -27,11 +36,11 @@ module Jobs
       end
 
       def fetch_lib_loc_info
-        fetch_translation_map(path: lib_loc_info_file, fetcher: lambda { Jobs::LibLocInfo.generate_translation_map })
+        fetch_translation_map(path: lib_loc_info_file, fetcher: lambda { @lib_loc_info_klass.generate_translation_map })
       end
 
       def fetch_electronic_collections
-        fetch_translation_map(path: electronic_collection_file, fetcher: lambda { Jobs::ElectronicCollections.generate_translation_map })
+        fetch_translation_map(path: electronic_collection_file, fetcher: lambda { @electronic_collections_klass.generate_translation_map })
       end
 
       # @param path [String] [path to where the translation map should be saved]
@@ -41,12 +50,10 @@ module Jobs
         if should_fetch?(path)
           temporary_path = "#{path}_#{SecureRandom.alphanumeric(8)}.temporary"
           File.write(temporary_path, fetcher.call)
-          if !File.exist?(temporary_path) || File.size?(temporary_path) < 15
-            @logger.error "Did not update #{path}. Failed to load file"
-          else
-            File.rename(temporary_path, path)
-            @logger.info "updated #{path}"
-          end
+          raise StandardError, "#{temporary_path} does not exist; Failed to load file" if !File.exist?(temporary_path)
+          raise StandardError, "#{temporary_path} is too small; Failed to load file" if File.size?(temporary_path) < 15
+          File.rename(temporary_path, path)
+          @logger.info "updated #{path}"
         else
           @logger.info "#{path} is less than one day old. Did not update"
         end
@@ -59,19 +66,19 @@ module Jobs
       end
 
       def hlb_dir
-        "/app/lib/translation_maps"
+        @translation_map_dir
       end
 
       def hlb_file
-        "#{hlb_dir}/hlb.json.gz"
+        "#{@translation_map_dir}/hlb.json.gz"
       end
 
       def lib_loc_info_file
-        "/app/lib/translation_maps/umich/libLocInfo.yaml"
+        "#{@translation_map_dir}/umich/libLocInfo.yaml"
       end
 
       def electronic_collection_file
-        "/app/lib/translation_maps/umich/electronic_collections.yaml"
+        "#{@translation_map_dir}/umich/electronic_collections.yaml"
       end
     end
   end
