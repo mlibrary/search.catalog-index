@@ -8,14 +8,17 @@ RSpec.describe Jobs::Utilities::TranslationMapFetcher do
     @umich_dir = File.join(@tmp_dir, "umich")
     @hlb_path = File.join(@tmp_dir, "hlb.json.gz")
     @lib_loc_info_path = File.join(@umich_dir, "libLocInfo.yaml")
+    @lib_loc_info_klass = class_double(Jobs::LibLocInfo, generate_translation_map: string_of_size(20), file_path: Jobs::LibLocInfo.file_path)
     @electronic_collections_path = File.join(@umich_dir, "electronic_collections.yaml")
+    @electronic_collections_klass = class_double(Jobs::ElectronicCollections, generate_translation_map: string_of_size(20), file_path: Jobs::ElectronicCollections.file_path)
+
     Dir.mkdir(@tmp_dir) unless File.exist?(@tmp_dir)
     Dir.mkdir(@umich_dir) unless File.exist?(@umich_dir)
     @params = {
-      lib_loc_info_klass: class_double(Jobs::LibLocInfo, generate_translation_map: string_of_size(20)),
-      electronic_collections_klass: class_double(Jobs::ElectronicCollections, generate_translation_map: string_of_size(20)),
       high_level_browse_klass: class_double(HighLevelBrowse, fetch_and_save: nil),
+      translation_map_generators: [@lib_loc_info_klass, @electronic_collections_klass],
       translation_map_dir: @tmp_dir
+
     }
   end
   after(:each) do
@@ -48,8 +51,8 @@ RSpec.describe Jobs::Utilities::TranslationMapFetcher do
         `touch #{@hlb_path}`
         subject.run
         expect(@params[:high_level_browse_klass]).not_to have_received(:fetch_and_save)
-        expect(@params[:lib_loc_info_klass]).not_to have_received(:generate_translation_map)
-        expect(@params[:electronic_collections_klass]).not_to have_received(:generate_translation_map)
+        expect(@lib_loc_info_klass).not_to have_received(:generate_translation_map)
+        expect(@electronic_collections_klass).not_to have_received(:generate_translation_map)
       end
     end
     context "has old translation map files" do
@@ -59,17 +62,17 @@ RSpec.describe Jobs::Utilities::TranslationMapFetcher do
         `touch -d "-2 days" #{@hlb_path}`
         subject.run
         expect(@params[:high_level_browse_klass]).to have_received(:fetch_and_save)
-        # expect(@params[:lib_loc_info_klass]).to have_received(:generate_translation_map)
-        expect(@params[:electronic_collections_klass]).to have_received(:generate_translation_map)
+        expect(@lib_loc_info_klass).to have_received(:generate_translation_map)
+        expect(@electronic_collections_klass).to have_received(:generate_translation_map)
       end
     end
     context "fails to generate big enough files" do
       it "errors out for too small lib_loc_info" do
-        allow(@params[:lib_loc_info_klass]).to receive(:generate_translation_map).and_return(string_of_size(2))
+        allow(@lib_loc_info_klass).to receive(:generate_translation_map).and_return(string_of_size(2))
         expect { subject.run }.to raise_error(StandardError)
       end
       it "errors out for too small electronic_collections_file" do
-        allow(@params[:electronic_collections_klass]).to receive(:generate_translation_map).and_return(string_of_size(2))
+        allow(@electronic_collections_klass).to receive(:generate_translation_map).and_return(string_of_size(2))
         expect { subject.run }.to raise_error(StandardError)
       end
     end

@@ -1,18 +1,32 @@
 module Jobs
   module ElectronicCollections
-    def self.generate_translation_map
-      fetch.to_yaml(line_width: 1000)
-    end
+    class << self
+      # @returns [String] name of the translation map
+      def name
+        "Electronic Collections"
+      end
 
-    def self.fetch
-      response = AlmaRestClient.client.get_report(path: "/shared/University of Michigan 01UMICH_INST/Reports/apps/library-search/electronic-collections")
-      List.new(response.body).to_h
-    end
+      # @returns [String] where in the translation map directory the file
+      # should go
+      def file_path
+        File.join("umich", "electronic_collections.yaml")
+      end
 
-    # This is used for debugging.
-    def self.all
-      response = AlmaRestClient.client.get_report(path: "/shared/University of Michigan 01UMICH_INST/Reports/apps/library-search/electronic-collections")
-      List.new(response.body)
+      # @returns [String] YAML string of translation map
+      def generate_translation_map
+        fetch.to_yaml(line_width: 1000)
+      end
+
+      def fetch
+        response = AlmaRestClient.client.get_report(path: "/shared/University of Michigan 01UMICH_INST/Reports/apps/library-search/electronic-collections")
+        List.new(response.body).to_h
+      end
+
+      # This is used for debugging.
+      def all
+        response = AlmaRestClient.client.get_report(path: "/shared/University of Michigan 01UMICH_INST/Reports/apps/library-search/electronic-collections")
+        List.new(response.body)
+      end
     end
 
     class List

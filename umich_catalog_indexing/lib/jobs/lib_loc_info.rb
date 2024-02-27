@@ -3,8 +3,22 @@ require "jobs/lib_loc_info/library_location_list"
 
 module Jobs
   module LibLocInfo
-    def self.generate_translation_map
-      LibraryLocationList.new.list.to_yaml(line_width: 1000)
+    class << self
+      # @returns [String] name of the translation map
+      def name
+        "Library and Location Information"
+      end
+
+      # @returns [String] where in the translation map directory the file
+      # should go
+      def file_path
+        File.join("umich", "libLocInfo.yaml")
+      end
+
+      # @returns [String] YAML string of translation map
+      def generate_translation_map
+        LibraryLocationList.new.list.to_yaml(line_width: 1000)
+      end
     end
   end
 end
