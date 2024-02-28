@@ -5,7 +5,7 @@ module Jobs
       def initialize(
         high_level_browse_klass: HighLevelBrowse,
         translation_map_generators: [
-          Jobs::LibLocInfo,
+          Jobs::TranslationMapGenerator::LibLocInfo,
           Jobs::TranslationMapGenerator::ElectronicCollections
         ],
         translation_map_dir: "/app/lib/translation_maps"

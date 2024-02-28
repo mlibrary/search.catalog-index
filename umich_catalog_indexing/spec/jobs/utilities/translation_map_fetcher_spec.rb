@@ -8,7 +8,7 @@ RSpec.describe Jobs::Utilities::TranslationMapFetcher do
     @umich_dir = File.join(@tmp_dir, "umich")
     @hlb_path = File.join(@tmp_dir, "hlb.json.gz")
     @lib_loc_info_path = File.join(@umich_dir, "libLocInfo.yaml")
-    @lib_loc_info_klass = class_double(Jobs::LibLocInfo, generate_translation_map: string_of_size(20), file_path: Jobs::LibLocInfo.file_path)
+    @lib_loc_info_klass = class_double(Jobs::TranslationMapGenerator::LibLocInfo, generate_translation_map: string_of_size(20), file_path: Jobs::TranslationMapGenerator::LibLocInfo.file_path)
     @electronic_collections_path = File.join(@umich_dir, "electronic_collections.yaml")
     @electronic_collections_klass = class_double(Jobs::TranslationMapGenerator::ElectronicCollections, generate_translation_map: string_of_size(20), file_path: Jobs::TranslationMapGenerator::ElectronicCollections.file_path)
 
