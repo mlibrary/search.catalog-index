@@ -5,6 +5,7 @@ module Jobs
   module TranslationMapGenerator
     module LibLocInfo
       class << self
+        include FileWriter
         # @returns [String] name of the translation map
         def name
           "Library and Location Information"
