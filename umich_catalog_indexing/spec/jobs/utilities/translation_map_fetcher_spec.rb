@@ -2,25 +2,37 @@ require_relative "../../spec_helper"
 require "jobs"
 require "securerandom"
 
+class TranslationMapGeneratorDouble
+  attr_reader :name, :file_path
+  def initialize(file_size: 20)
+    @name = "name"
+    @file_path = "translation_map.yaml"
+    @file_size = file_size
+  end
+
+  def generate_translation_map
+    SecureRandom.random_bytes(@file_size)
+  end
+end
+
 RSpec.describe Jobs::Utilities::TranslationMapFetcher do
   before(:each) do
     @tmp_dir = File.join(S.project_root, "tmp")
     @umich_dir = File.join(@tmp_dir, "umich")
     @hlb_path = File.join(@tmp_dir, "hlb.json.gz")
-    @lib_loc_info_path = File.join(@umich_dir, "libLocInfo.yaml")
-    @lib_loc_info_klass = class_double(Jobs::TranslationMapGenerator::LibLocInfo, generate_translation_map: string_of_size(20), file_path: Jobs::TranslationMapGenerator::LibLocInfo.file_path)
-    @electronic_collections_path = File.join(@umich_dir, "electronic_collections.yaml")
-    @electronic_collections_klass = class_double(Jobs::TranslationMapGenerator::ElectronicCollections, generate_translation_map: string_of_size(20), file_path: Jobs::TranslationMapGenerator::ElectronicCollections.file_path)
 
     Dir.mkdir(@tmp_dir) unless File.exist?(@tmp_dir)
     Dir.mkdir(@umich_dir) unless File.exist?(@umich_dir)
+
     @params = {
       high_level_browse_klass: class_double(HighLevelBrowse, fetch_and_save: nil),
-      translation_map_generators: [@lib_loc_info_klass, @electronic_collections_klass],
+      translation_map_generators: [TranslationMapGeneratorDouble.new],
       translation_map_dir: @tmp_dir
-
     }
   end
+
+  let(:tm_path) { File.join(@tmp_dir, @params[:translation_map_generators][0].file_path) }
+
   after(:each) do
     FileUtils.remove_dir(@tmp_dir, "true")
   end
@@ -36,43 +48,35 @@ RSpec.describe Jobs::Utilities::TranslationMapFetcher do
   context "#run" do
     context "empty translation map directory" do
       it "generates translation maps" do
-        expect(File.exist?(@lib_loc_info_path)).to eq(false)
-        expect(File.exist?(@electronic_collections_path)).to eq(false)
+        expect(File.exist?(tm_path)).to eq(false)
         subject.run
-        expect(File.exist?(@lib_loc_info_path)).to eq(true)
-        expect(File.exist?(@electronic_collections_path)).to eq(true)
+        expect(File.exist?(tm_path)).to eq(true)
         expect(@params[:high_level_browse_klass]).to have_received(:fetch_and_save)
       end
     end
     context "has new translation map files" do
       it "does not generate new translation maps" do
-        `touch #{@lib_loc_info_path}`
-        `touch #{@electronic_collections_path}`
+        `touch #{tm_path}`
         `touch #{@hlb_path}`
         subject.run
+        # This means that the empty touched file hasn't been replaced
+        expect(File.size?(tm_path)).to be_nil
         expect(@params[:high_level_browse_klass]).not_to have_received(:fetch_and_save)
-        expect(@lib_loc_info_klass).not_to have_received(:generate_translation_map)
-        expect(@electronic_collections_klass).not_to have_received(:generate_translation_map)
       end
     end
     context "has old translation map files" do
       it "generates new files" do
-        `touch -d "-2 days" #{@lib_loc_info_path} `
-        `touch -d "-2 days" #{@electronic_collections_path}`
+        `touch -d "-2 days" #{tm_path}`
         `touch -d "-2 days" #{@hlb_path}`
         subject.run
+        # this means the empty file has been replaced
+        expect(File.size?(tm_path)).to eq(20)
         expect(@params[:high_level_browse_klass]).to have_received(:fetch_and_save)
-        expect(@lib_loc_info_klass).to have_received(:generate_translation_map)
-        expect(@electronic_collections_klass).to have_received(:generate_translation_map)
       end
     end
-    context "fails to generate big enough files" do
+    context "fails to write a big enough file" do
       it "errors out for too small lib_loc_info" do
-        allow(@lib_loc_info_klass).to receive(:generate_translation_map).and_return(string_of_size(2))
-        expect { subject.run }.to raise_error(StandardError)
-      end
-      it "errors out for too small electronic_collections_file" do
-        allow(@electronic_collections_klass).to receive(:generate_translation_map).and_return(string_of_size(2))
+        @params[:translation_map_generators][0] = TranslationMapGeneratorDouble.new(file_size: 2)
         expect { subject.run }.to raise_error(StandardError)
       end
     end
