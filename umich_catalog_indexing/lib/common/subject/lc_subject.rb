@@ -5,44 +5,50 @@ require_relative "normalize"
 module Common::Subject
   class LCSubject
     include Common::Subject::Normalize
-
-    # Create an LC Subject object from the passed field
-    # @param [MARC::DataField] field _that has already been determined to be LC_
-    # @return [LCSubject] An LC Subject or appropriate subclass
-    def self.from_field(field)
-      case field.tag
-      when "658"
-        LCSubject658.new(field)
-      when "662"
-        LCSubjectHierarchical(field)
-      else
-        new(field)
-      end
-    end
-
-    # In theory, an LC subject field is any 6xx with ind2==0
-    # Sometimes we get subject fields with ind2=0 that are NOT LC. In many of theses
-    # cases, the field correctly has a $2 ("Source of heading or term"). If that $2 exists,
-    # and isn't "lcsh", we designate the field as "not LCSH".
-    # @param [MARC::DataField] field A 6XX field
-    # @return [Boolean]
-    def self.lc_subject_field?(field)
-      SUBJECT_FIELDS.include?(field.tag) &&
-        field.indicator2 == "0" &&
-        lcsh_subject_field_2?(field) &&
-        !remediated_subject_field?(field)
-    end
-
-    def self.remediated_subject_field?(field)
-      REMEDIATEABLE_FIELDS.include?(field.tag) &&
-        ["a", "z"].any? do |x|
-          SH_DEPRECATED_TO_REMEDIATED[field[x]]
+    class << self
+      # Create an LC Subject object from the passed field
+      # @param [MARC::DataField] field _that has already been determined to be LC_
+      # @return [LCSubject] An LC Subject or appropriate subclass
+      def from_field(field)
+        case field.tag
+        when "658"
+          LCSubject658.new(field)
+        when "662"
+          LCSubjectHierarchical(field)
+        else
+          new(field)
         end
-    end
+      end
 
-    # @param [MARC::DataField] field A 6xx field
-    def self.lcsh_subject_field_2?(field)
-      field["2"].nil? || field["2"] == "lsch"
+      # In theory, an LC subject field is any 6xx with ind2==0
+      # Sometimes we get subject fields with ind2=0 that are NOT LC. In many of theses
+      # cases, the field correctly has a $2 ("Source of heading or term"). If that $2 exists,
+      # and isn't "lcsh", we designate the field as "not LCSH".
+      # @param [MARC::DataField] field A 6XX field
+      # @return [Boolean]
+      def lc_subject_field?(field)
+        SUBJECT_FIELDS.include?(field.tag) &&
+          field.indicator2 == "0" &&
+          lcsh_subject_field_2?(field) &&
+          !remediated_subject_field?(field)
+      end
+
+      def remediated_subject_field?(field)
+        REMEDIATEABLE_FIELDS.include?(field.tag) &&
+          ["a", "z"].any? do |x|
+            SH_DEPRECATED_TO_REMEDIATED[_tm_normalize(field[x])]
+          end
+      end
+
+      def _tm_normalize(str)
+        return if str.nil?
+        Normalize.normalize(str)&.downcase
+      end
+
+      # @param [MARC::DataField] field A 6xx field
+      def lcsh_subject_field_2?(field)
+        field["2"].nil? || field["2"] == "lsch"
+      end
     end
 
     def initialize(field)

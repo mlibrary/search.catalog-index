@@ -1,7 +1,7 @@
 require "traject"
 describe "subject_topic" do
   let(:record) do
-    reader = MARC::XMLReader.new('./spec/fixtures/unauthorized_immigrants.xml')
+    reader = MARC::XMLReader.new("./spec/fixtures/unauthorized_immigrants.xml")
     for r in reader
       return r
     end
@@ -16,17 +16,34 @@ describe "subject_topic" do
     indexer.process_record(record).output_hash
   end
   it "has expected topic" do
-    expect(subject["topic"]).to eq(["United States", "United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996", "COVID-19 (Disease)", "Undocumented immigrants", "Undocumented immigrants United States", "Public welfare", "Public welfare United States"])
+    expect(subject["topic"]).to contain_exactly(
+      "United States",
+      "United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996",
+      "COVID-19 (Disease)",
+      "Undocumented immigrants",
+      "Undocumented immigrants United States",
+      "Public welfare", "Public welfare United States",
+      "Illegal aliens",
+      "Illegal aliens United States"
+    )
   end
 
   it "has the expected  lc_subject_display" do
-    expect(subject["lc_subject_display"]).to eq(["United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996", "COVID-19 (Disease)", "Public welfare--United States"])
+    expect(subject["lc_subject_display"]).to contain_exactly(
+      "United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996",
+      "COVID-19 (Disease)",
+      "Public welfare--United States"
+    )
   end
   it "has the expected non_lc_subject_display" do
-    expect(subject["non_lc_subject_display"]).to eq(["Undocumented immigrants--United States"])
+    expect(subject["non_lc_subject_display"]).to contain_exactly("Undocumented immigrants--United States")
   end
   it "has the expected  subject_browse_terms" do
-    expect(subject["subject_browse_terms"]).to eq(["United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996", "COVID-19 (Disease)", "Public welfare--United States"])
+    expect(subject["subject_browse_terms"]).to contain_exactly(
+      "United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996",
+      "COVID-19 (Disease)",
+      "Public welfare--United States",
+      "Undocumented immigrants--United States"
+    )
   end
-  
 end
