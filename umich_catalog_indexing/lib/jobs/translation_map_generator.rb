@@ -54,3 +54,4 @@ end
 require_relative "translation_map_generator/electronic_collections"
 require_relative "translation_map_generator/lib_loc_info"
 require_relative "translation_map_generator/high_level_browse"
+require_relative "translation_map_generator/subject_heading_remediation"

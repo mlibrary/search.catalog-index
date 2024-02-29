@@ -1,0 +1,23 @@
+{
+  "mms_id": 98187481368106380,
+  "record_format": "marc21_authority",
+  "title": "Undocumented immigrants",
+  "created_by": "System",
+  "created_date": "2021-11-17Z",
+  "last_modified_by": "rednaal",
+  "last_modified_date": "2023-03-29Z",
+  "originating_system": "LIBRARY_OF_CONGRESS",
+  "originating_system_id": "98184898010106381",
+  "cataloging_level": {
+    "value": "00",
+    "desc": "Default Level"
+  },
+  "vocabulary": {
+    "value": "MIUSH",
+    "desc": "miush"
+  },
+  "anies": [
+    "<?xml version=\"1.0\" encoding=\"UTF-16\"?><record><leader>01200cz  a2200301n  4500</leader><controlfield tag=\"005\">20230329130030.0</controlfield><controlfield tag=\"008\">030627i| anannbabn          |a ana      </controlfield><controlfield tag=\"001\">98187481368106381</controlfield><datafield ind1=\" \" ind2=\" \" tag=\"010\"><subfield code=\"a\">sh 85003553</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"035\"><subfield code=\"a\">(DLC)sh 85003553</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"035\"><subfield code=\"a\">(LIBRARY_OF_CONGRESS)98171057700000041</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"040\"><subfield code=\"a\">DLC</subfield><subfield code=\"c\">DLC</subfield><subfield code=\"d\">DLC</subfield><subfield code=\"d\">WaU</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"150\"><subfield code=\"a\">Undocumented immigrants</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"450\"><subfield code=\"a\">Undocumented foreign nationals</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"450\"><subfield code=\"a\">Illegal aliens</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"450\"><subfield code=\"a\">Aliens</subfield><subfield code=\"x\">Legal status, laws, etc.</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"450\"><subfield code=\"w\">nne</subfield><subfield code=\"a\">Aliens, Illegal</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"450\"><subfield code=\"a\">Illegal aliens</subfield><subfield code=\"x\">Legal status, laws, etc.</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"450\"><subfield code=\"a\">Illegal immigrants</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"450\"><subfield code=\"a\">Undocumented noncitizens</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"550\"><subfield code=\"w\">g</subfield><subfield code=\"a\">Aliens</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"550\"><subfield code=\"a\">Immigrant detention centers</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"550\"><subfield code=\"a\">Human smuggling</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"550\"><subfield code=\"a\">Noncitizens</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"550\"><subfield code=\"a\">Illegal immigration</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"670\"><subfield code=\"a\">Work cat.: 2007017970: Illegal immigration, 2007:</subfield><subfield code=\"b\">eCIP data sheet (Illegal immigrants)</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"690\"><subfield code=\"a\">sla-lab updated based on DEIA Catalog Working Group changes May 2021; \"Undocumented immigrants\" term borrowed from Sears ; \"undocumented foreign national\" term from Bill H.R. 3776 (116th Congress)</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"690\"><subfield code=\"a\">sla-lab updated to include 550s for LCSH headings as references March 2023</subfield></datafield></record>"
+  ],
+  "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/authorities/98187481368106381"
+}
