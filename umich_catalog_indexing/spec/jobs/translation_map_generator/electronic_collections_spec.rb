@@ -1,38 +1,37 @@
-require_relative "../spec_helper.rb"
+require_relative "../../spec_helper"
 require "jobs"
-RSpec.describe Jobs::ElectronicCollections::List do
+RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::List do
   before(:each) do
     @collection = [
-      {"0"=>"0",
-        "E-Collection Bib - MMS Id"=>"99187703610206381",
-        "Electronic Collection Level URL (override)"=>"OVERRIDE_URL",
-        "Electronic Collection Level URL"=>"LEVEL_URL",
-        "Electronic Collection Authentication Note"=>"AUTH_NOTE",
-        "Electronic Collection Id"=>"611232981160006381",
-        "Electronic Collection Interface Name (override)"=>"OVERRIDE_INTERFACE",
-        "Electronic Collection Interface Name"=>"INTERFACE",
-        "Electronic Collection Public Name (override)"=>"OVERRIDE_NAME",
-        "Electronic Collection Public Name"=>"NAME",
-        "Electronic Collection Public Note"=>"PUBLIC_NOTE"
-      }
+      {"0" => "0",
+       "E-Collection Bib - MMS Id" => "99187703610206381",
+       "Electronic Collection Level URL (override)" => "OVERRIDE_URL",
+       "Electronic Collection Level URL" => "LEVEL_URL",
+       "Electronic Collection Authentication Note" => "AUTH_NOTE",
+       "Electronic Collection Id" => "611232981160006381",
+       "Electronic Collection Interface Name (override)" => "OVERRIDE_INTERFACE",
+       "Electronic Collection Interface Name" => "INTERFACE",
+       "Electronic Collection Public Name (override)" => "OVERRIDE_NAME",
+       "Electronic Collection Public Name" => "NAME",
+       "Electronic Collection Public Note" => "PUBLIC_NOTE"}
     ]
   end
   subject do
     described_class.new(@collection)
   end
-  let(:expected_output) { 
+  let(:expected_output) {
+    {
+      "99187703610206381" =>
+      [
         {
-          "99187703610206381" =>
-          [
-            {
-              "collection_name" => "OVERRIDE_NAME",
-              "interface_name" => "OVERRIDE_INTERFACE",
-              "note" => "AUTH_NOTE",
-              "link" => "OVERRIDE_URL",
-              "status" => "Available"
-            }  
-          ]
+          "collection_name" => "OVERRIDE_NAME",
+          "interface_name" => "OVERRIDE_INTERFACE",
+          "note" => "AUTH_NOTE",
+          "link" => "OVERRIDE_URL",
+          "status" => "Available"
         }
+      ]
+    }
   }
   context "#to_h" do
     it "returns a hash with a key of mms_id and a value of an array of hashes with
@@ -46,20 +45,20 @@ RSpec.describe Jobs::ElectronicCollections::List do
   end
 end
 
-RSpec.describe Jobs::ElectronicCollections::Item do
+RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::Item do
   before(:each) do
     @item = {
-      "0"=>"0",
-      "E-Collection Bib - MMS Id"=>"99187703610206381",
-      "Electronic Collection Level URL (override)"=>"OVERRIDE_URL",
-      "Electronic Collection Level URL"=>"LEVEL_URL",
-      "Electronic Collection Authentication Note"=>"AUTH_NOTE",
-      "Electronic Collection Id"=>"611232981160006381",
-      "Electronic Collection Interface Name (override)"=>"OVERRIDE_INTERFACE",
-      "Electronic Collection Interface Name"=>"INTERFACE",
-      "Electronic Collection Public Name (override)"=>"OVERRIDE_NAME",
-      "Electronic Collection Public Name"=>"NAME",
-      "Electronic Collection Public Note"=>"PUBLIC_NOTE"
+      "0" => "0",
+      "E-Collection Bib - MMS Id" => "99187703610206381",
+      "Electronic Collection Level URL (override)" => "OVERRIDE_URL",
+      "Electronic Collection Level URL" => "LEVEL_URL",
+      "Electronic Collection Authentication Note" => "AUTH_NOTE",
+      "Electronic Collection Id" => "611232981160006381",
+      "Electronic Collection Interface Name (override)" => "OVERRIDE_INTERFACE",
+      "Electronic Collection Interface Name" => "INTERFACE",
+      "Electronic Collection Public Name (override)" => "OVERRIDE_NAME",
+      "Electronic Collection Public Name" => "NAME",
+      "Electronic Collection Public Note" => "PUBLIC_NOTE"
     }
   end
   subject do
@@ -162,5 +161,4 @@ RSpec.describe Jobs::ElectronicCollections::Item do
       })
     end
   end
-
 end

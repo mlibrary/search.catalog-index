@@ -6,6 +6,7 @@ stop_solr.sh
 .idea
 .cache
 .irb_history
+.byebug_history
 ht_secure_data.rb
 logs
 overlap/overlap_umich.tsv
@@ -20,6 +21,7 @@ lib/translation_maps/umich/libLocInfo.yaml
 /umich_catalog_indexing/debug*
 /umich_catalog_indexing/.m2
 /umich_catalog_indexing/.ssh/*
+umich_catalog_indexing/coverage/
 /sftp/ssh/*
 !/sftp/ssh/README.md
 /sftp/search_daily_bibs/*.xml
@@ -31,3 +33,4 @@ lib/translation_maps/umich/libLocInfo.yaml
 !sftp/search_daily_bibs/birds_2022021017_21131448650006381_new.tar.gz
 support_dbs/scratch/*
 !support_dbs/scratch/.keep
+biblio/biblio.zip

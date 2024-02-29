@@ -1,24 +1,22 @@
-# require_relative "./alma_file_processor"
-# require_relative './umich_utilities/umich_utilities'
 require "high_level_browse"
 
 module Jobs
   class IndexAlmaXml
     def initialize(file:, solr_url:, logger: Logger.new($stdout),
-      translation_map_fetcher: Jobs::Utilities::TranslationMapFetcher.new,
+      translation_map_generator: TranslationMapGenerator,
       alma_file_processor: Jobs::Utilities::AlmaFileProcessor.new(path: file))
       @file = file
       @logger = logger
       @solr_url = solr_url
       @alma_file_processor = alma_file_processor
-      @translation_map_fetcher = translation_map_fetcher
+      @translation_map_generator = translation_map_generator
     end
 
     def run
       @logger.info "fetching #{@file} from #{ENV.fetch("ALMA_FILES_HOST")}"
       @alma_file_processor.run
 
-      @translation_map_fetcher.run
+      @translation_map_generator.generate_all
 
       @logger.info "starting traject process for #{@alma_file_processor.xml_file}"
       begin

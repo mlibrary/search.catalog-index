@@ -7,6 +7,7 @@ group :development do
   gem "rspec", "~>3.0"
   gem "webmock", "~>3.0"
   gem "standard"
+  gem "simplecov"
 end
 
 gem "yell", "~>2.0"
@@ -17,6 +18,9 @@ gem "webrick"
 gem "sftp", github: "mlibrary/sftp"
 gem "alma_rest_client", github: "mlibrary/alma_rest_client", tag: "v2.0.0"
 gem "traject_umich_format", github: "mlibrary/traject_umich_format"
+
+gem "canister"
+gem "semantic_logger"
 
 gem "rack" # for sidekiq
 gem "traject", "~>3.0", ">=3.8.2"

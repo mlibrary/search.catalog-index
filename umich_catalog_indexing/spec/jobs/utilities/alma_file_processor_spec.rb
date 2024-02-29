@@ -1,4 +1,4 @@
-require_relative '../spec_helper.rb'
+require_relative "../../spec_helper"
 require "jobs"
 RSpec.describe Jobs::Utilities::AlmaFileProcessor do
   before(:each) do
@@ -13,8 +13,8 @@ RSpec.describe Jobs::Utilities::AlmaFileProcessor do
       @mkdir_double = double("MkidrDouble", mkdir: "")
       @run_params = {
         sftp: instance_double(SFTP::Client, get: ""),
-        tar: lambda{|path, destination| @tar_double.exec(path, destination)},
-        mkdir: lambda{|dir| @mkdir_double.mkdir(dir)}
+        tar: lambda { |path, destination| @tar_double.exec(path, destination) },
+        mkdir: lambda { |dir| @mkdir_double.mkdir(dir) }
       }
     end
     it "calls sftp get function with path and destination" do
@@ -29,7 +29,7 @@ RSpec.describe Jobs::Utilities::AlmaFileProcessor do
       expect(@mkdir_double).to receive(:mkdir).with("/app/scratch")
       subject.run(**@run_params)
     end
-  end 
+  end
   context "#xml_file" do
     it "returns the appropriate filename" do
       expect(subject.xml_file).to eq("/app/scratch/file.xml")
@@ -38,11 +38,11 @@ RSpec.describe Jobs::Utilities::AlmaFileProcessor do
   context "#clean" do
     before(:each) do
       @dir_delete_double = class_double(FileUtils, remove_dir: nil)
-      @delete = lambda{|file| @dir_delete_double.remove_dir(file)}
+      @delete = lambda { |file| @dir_delete_double.remove_dir(file) }
     end
     it "removes the files put in the scratch directory" do
       expect(@dir_delete_double).to receive(:remove_dir).with("/app/scratch")
-      subject.clean(@delete) 
+      subject.clean(@delete)
     end
   end
 end
