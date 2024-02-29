@@ -18,7 +18,7 @@ module Jobs
         end
 
         # @returns [String] YAML string of translation map
-        def generate_translation_map
+        def generate
           LibraryLocationList.new.list.to_yaml(line_width: 1000)
         end
       end

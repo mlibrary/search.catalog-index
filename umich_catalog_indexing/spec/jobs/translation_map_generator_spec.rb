@@ -13,5 +13,9 @@ Jobs::TranslationMapGenerator.all.each do |klass|
     it "has a write_to_file method" do
       expect(klass).to respond_to(:write_to_file)
     end
+
+    it "has a generate method" do
+      expect(klass).to respond_to(:generate)
+    end
   end
 end

@@ -13,14 +13,14 @@ module Jobs
           "High Level Browse"
         end
 
-        def generate_translation_map
+        def generate
           db = ::HighLevelBrowse.fetch
           JSON.fast_generate(db.instance_variable_get(:@all))
         end
 
         def write_to_file(path)
           Zlib::GzipWriter.open(path) do |out|
-            out.puts generate_translation_map
+            out.puts generate
           end
         end
       end
