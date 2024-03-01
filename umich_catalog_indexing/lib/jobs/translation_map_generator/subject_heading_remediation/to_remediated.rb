@@ -1,4 +1,5 @@
 require "marc"
+require "json"
 module Jobs
   module TranslationMapGenerator
     module SubjectHeadingRemediation
@@ -18,6 +19,9 @@ module Jobs
 
           # @returns [String] YAML string of translation map
           def generate
+            # path = File.join(S.project_root, "scratch", "set_members.json")
+            # data = JSON.parse(File.read(path))
+            # Set.new(data).to_h.to_yaml(line_width: 1000)
             Set.for(S.subject_heading_remediation_set_id).to_h.to_yaml(line_width: 1000)
           end
         end
@@ -63,16 +67,14 @@ module Jobs
           end
 
           def deprecated_terms
-            ["450", "550"].map do |tag|
-              @record.fields(tag).map do |field|
-                field["a"]
-              end
-            end.flatten.uniq
+            @record.fields("450").map do |field|
+              field["a"]
+            end.uniq
           end
 
           def to_h
             deprecated_terms.map do |term|
-              [term.downcase, remediated_term.downcase]
+              [term.downcase, remediated_term]
             end.to_h
           end
         end

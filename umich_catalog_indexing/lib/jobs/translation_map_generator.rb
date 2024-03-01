@@ -5,8 +5,7 @@ module Jobs
         [
           HighLevelBrowse,
           ElectronicCollections,
-          LibLocInfo,
-          SubjectHeadingRemediation::ToRemediated
+          LibLocInfo
         ]
       end
 

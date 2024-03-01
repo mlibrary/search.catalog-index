@@ -57,17 +57,13 @@ describe Jobs::TranslationMapGenerator::SubjectHeadingRemediation::ToRemediated:
       stub_second_authority_request
 
       expect(subject.to_h).to eq({
-        "undocumented foreign nationals" => "undocumented immigrants",
-        "illegal aliens" => "undocumented immigrants",
-        "aliens" => "undocumented immigrants",
-        "aliens, illegal" => "undocumented immigrants",
-        "illegal immigrants" => "undocumented immigrants",
-        "undocumented noncitizens" => "undocumented immigrants",
-        "immigrant detention centers" => "undocumented immigrants",
-        "human smuggling" => "undocumented immigrants",
-        "noncitizens" => "undocumented immigrants",
-        "illegal immigration" => "undocumented immigrants",
-        "stuff" => "whatever"
+        "undocumented foreign nationals" => "Undocumented immigrants",
+        "illegal aliens" => "Undocumented immigrants",
+        "aliens" => "Undocumented immigrants",
+        "aliens, illegal" => "Undocumented immigrants",
+        "illegal immigrants" => "Undocumented immigrants",
+        "undocumented noncitizens" => "Undocumented immigrants",
+        "stuff" => "Whatever"
       })
     end
   end
@@ -110,34 +106,26 @@ describe Jobs::TranslationMapGenerator::SubjectHeadingRemediation::ToRemediated:
     end
   end
   context "#deprecated_terms" do
-    it "returns the deprecated terms" do
+    it "returns the deprecated terms from the 450 field" do
       expect(subject.deprecated_terms).to contain_exactly(
         "Undocumented foreign nationals",
         "Illegal aliens",
         "Aliens",
         "Aliens, Illegal",
         "Illegal immigrants",
-        "Undocumented noncitizens",
-        "Immigrant detention centers",
-        "Human smuggling",
-        "Noncitizens",
-        "Illegal immigration"
+        "Undocumented noncitizens"
       )
     end
   end
   context "#to_h" do
     it "returns the expected deprecated_to_remediated hash with downcased terms" do
       expect(subject.to_h).to eq({
-        "undocumented foreign nationals" => "undocumented immigrants",
-        "illegal aliens" => "undocumented immigrants",
-        "aliens" => "undocumented immigrants",
-        "aliens, illegal" => "undocumented immigrants",
-        "illegal immigrants" => "undocumented immigrants",
-        "undocumented noncitizens" => "undocumented immigrants",
-        "immigrant detention centers" => "undocumented immigrants",
-        "human smuggling" => "undocumented immigrants",
-        "noncitizens" => "undocumented immigrants",
-        "illegal immigration" => "undocumented immigrants"
+        "undocumented foreign nationals" => "Undocumented immigrants",
+        "illegal aliens" => "Undocumented immigrants",
+        "aliens" => "Undocumented immigrants",
+        "aliens, illegal" => "Undocumented immigrants",
+        "illegal immigrants" => "Undocumented immigrants",
+        "undocumented noncitizens" => "Undocumented immigrants"
       })
     end
   end
