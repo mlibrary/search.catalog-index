@@ -3,7 +3,39 @@ module Jobs
   module TranslationMapGenerator
     module SubjectHeadingRemediation
       class ToRemediated
+        class Set
+          def self.for(id)
+            resp = AlmaRestClient.client.get_all(url: "conf/sets/#{id}/members", record_key: "members")
+            raise StandardError, "Couldn't retrieve authority set data for #{id}" if resp.status != 200
+            new(resp.body)
+          end
+
+          def initialize(data)
+            @data = data
+          end
+
+          def ids
+            @data["member"].map { |x| x["id"] }
+          end
+
+          def authority_records
+            ids.map do |id|
+              Authority.for(id)
+            end
+          end
+
+          def to_h
+            authority_records.map { |x| x.to_h }.inject(:merge)
+          end
+        end
+
         class Authority
+          def self.for(authority_record_id)
+            resp = AlmaRestClient.client.get("bibs/authorities/#{authority_record_id}", query: {view: "full"})
+            raise StandardError, "Couldn't retrieve authority data for #{authority_record_id}" if resp.status != 200
+            new(resp.body)
+          end
+
           def initialize(data)
             @record = MARC::XMLReader.new(StringIO.new(data["anies"]&.first)).first
           end
