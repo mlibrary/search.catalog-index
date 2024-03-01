@@ -5,7 +5,8 @@ module Jobs
         [
           HighLevelBrowse,
           ElectronicCollections,
-          LibLocInfo
+          LibLocInfo,
+          SubjectHeadingRemediation::ToRemediated
         ]
       end
 
@@ -20,7 +21,7 @@ module Jobs
       end
 
       def generate(generator:, dir: translation_map_directory)
-        S.logger "fetching #{generator.name}"
+        S.logger.info "fetching #{generator.name}"
         path = File.join(dir, generator.file_path)
         if _should_fetch?(path)
           temporary_path = "#{path}_#{SecureRandom.alphanumeric(8)}.temporary"
