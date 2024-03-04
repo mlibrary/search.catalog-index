@@ -110,7 +110,6 @@ RSpec.describe Common::Subject do
       expect(subjects[0].tag).to eq("650")
       expect(subjects[0].indicator2).to eq("7")
       expect(subjects[0]["a"]).to eq("Undocumented immigrants")
-      expect(subjects[0]["x"]).to eq("Government policy")
       expect(subjects[0]["z"]).to eq("Undocumented immigrants")
       expect(subjects[0]["2"]).to eq("miush")
     end

@@ -1,0 +1,129 @@
+<record xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" xmlns="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <leader>01584nam a2200409 i 4500</leader>
+  <controlfield tag="005">20211119093742.0</controlfield>
+  <controlfield tag="006">m     o  d f</controlfield>
+  <controlfield tag="007">cr bn|||||||||</controlfield>
+  <controlfield tag="008">171201s2017    dcu     ob   f000 0 eng c</controlfield>
+  <controlfield tag="001">990159372260106381</controlfield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(MiU)015937226MIU01</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)on1013747602</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="a">GPO</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="e">rda</subfield>
+    <subfield code="e">pn</subfield>
+    <subfield code="c">GPO</subfield>
+    <subfield code="d">MvI</subfield>
+  </datafield>
+  <datafield tag="042" ind1=" " ind2=" ">
+    <subfield code="a">pcc</subfield>
+  </datafield>
+  <datafield tag="049" ind1=" " ind2=" ">
+    <subfield code="a">EY2L</subfield>
+  </datafield>
+  <datafield tag="074" ind1=" " ind2=" ">
+    <subfield code="a">0818-J (online)</subfield>
+  </datafield>
+  <datafield tag="086" ind1="0" ind2=" ">
+    <subfield code="a">LC 42.2:M 58</subfield>
+  </datafield>
+  <datafield tag="245" ind1="0" ind2="0">
+    <subfield code="a">Right to counsel for detained migrants in selected jurisdictions.</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="1">
+    <subfield code="a">[Washingon, D.C.] :</subfield>
+    <subfield code="b">The Law Library of Congress, Global Legal Research Center,</subfield>
+    <subfield code="c">2017.</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 online resource (9 pages)</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">text</subfield>
+    <subfield code="b">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">computer</subfield>
+    <subfield code="b">c</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="a">online resource</subfield>
+    <subfield code="b">cr</subfield>
+    <subfield code="2">rdacarrier</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">"May 2017."</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">"Australia, Canada, France, Germany, Israel, Sweden, United Kingdom."</subfield>
+  </datafield>
+  <datafield tag="504" ind1=" " ind2=" ">
+    <subfield code="a">Includes bibliographical references.</subfield>
+  </datafield>
+  <datafield tag="538" ind1=" " ind2=" ">
+    <subfield code="a">Mode of access: Internet</subfield>
+  </datafield>
+  <datafield tag="588" ind1=" " ind2=" ">
+    <subfield code="a">Description based on online resource, PDF version; title from cover (Law Library of Congress, viewed Dec. 1, 2017).</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Noncitizens.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/subjects/sh85003545</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Emigration and immigration law.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/subjects/sh85042790</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Undocumented immigrants.</subfield>
+    <subfield code="2">miush</subfield>
+    <subfield code="0">https://open-na.hosted.exlibrisgroup.com/alma/01UMICH_INST/authorities/98187481368106381.jsonld</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Right to counsel.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/subjects/sh85114083</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Law Library of Congress (U.S.).</subfield>
+    <subfield code="b">Global Legal Research Directorate.</subfield>
+    <subfield code="e">issuing body.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/names/no2014072308</subfield>
+    <subfield code="0">http://viaf.org/viaf/sourceID/LC|no2014072308</subfield>
+  </datafield>
+  <datafield tag="776" ind1="0" ind2="8">
+    <subfield code="i">Print version:</subfield>
+    <subfield code="t">Right to counsel for detained migrants in selected jurisdictions</subfield>
+    <subfield code="w">(DLC) 2017299989</subfield>
+    <subfield code="w">(OCoLC)1012667180</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="0">
+    <subfield code="u">https://purl.fdlp.gov/GPO/gpo87038</subfield>
+  </datafield>
+  <datafield tag="958" ind1=" " ind2=" ">
+    <subfield code="a">MiU</subfield>
+  </datafield>
+  <datafield tag="995" ind1=" " ind2=" ">
+    <subfield code="a">20</subfield>
+  </datafield>
+  <datafield tag="BIB" ind1=" " ind2=" ">
+    <subfield code="u">2023-03-30 06:47:09 US/Eastern</subfield>
+    <subfield code="c">2021-06-21 16:51:52 US/Eastern</subfield>
+    <subfield code="s">false</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="l">ELEC</subfield>
+    <subfield code="t">static</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531018511990006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2021-06-23 21:10:38</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=990159372260106381</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531018511990006381</subfield>
+  </datafield>
+</record>
