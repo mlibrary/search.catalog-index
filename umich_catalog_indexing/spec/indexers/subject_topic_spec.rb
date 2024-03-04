@@ -23,8 +23,18 @@ describe "subject_topic" do
       "Undocumented immigrants",
       "Undocumented immigrants United States",
       "Public welfare", "Public welfare United States",
-      "Illegal aliens",
-      "Illegal aliens United States"
+      "undocumented foreign nationals",
+      "illegal aliens",
+      "aliens",
+      "aliens, illegal",
+      "illegal immigrants",
+      "undocumented noncitizens",
+      "undocumented foreign nationals United States",
+      "illegal aliens United States",
+      "aliens United States",
+      "aliens, illegal United States",
+      "illegal immigrants United States",
+      "undocumented noncitizens United States"
     )
   end
 

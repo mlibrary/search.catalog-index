@@ -1,6 +1,25 @@
 require_relative "../../spec_helper"
 require "jobs"
 
+describe Jobs::TranslationMapGenerator::SubjectHeadingRemediation::ToDeprecated do
+  before(:each) do
+    @data = {
+      "illegal aliens" => "Undocumented immigrants",
+      "aliens" => "Undocumented immigrants",
+      "aliens, illegal" => "Undocumented immigrants",
+      "illegal immigrants" => "Undocumented immigrants",
+      "children of illegal aliens" => "Children of undocumented immigrants"
+    }
+  end
+  context ".reverse_it" do
+    it "reverses the input, using pipes as delimeters" do
+      expect(described_class.reverse_it(@data)).to eq({
+        "undocumented immigrants" => "illegal aliens||aliens||aliens, illegal||illegal immigrants",
+        "children of undocumented immigrants" => "children of illegal aliens"
+      })
+    end
+  end
+end
 describe Jobs::TranslationMapGenerator::SubjectHeadingRemediation::ToRemediated::Set do
   before(:each) do
     @data = fixture("authority_set.json")

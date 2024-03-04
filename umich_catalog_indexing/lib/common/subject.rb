@@ -61,16 +61,28 @@ module Common::Subject
 
   def self.deprecated_subject_fields(record)
     already_remediated_subject_fields(record).map do |field|
-      f = _clone_field(field)
-      f.each do |sf|
+      remediated_terms = []
+      field.each do |sf|
         if ["a", "z"].any?(sf.code)
           if SH_REMEDIATED_TO_DEPRECATED[_normalize_sf(sf.value)]
-            sf.value = SH_REMEDIATED_TO_DEPRECATED[_normalize_sf(sf.value)]
+            remediated_terms.push(sf.value)
           end
         end
       end
-      f
-    end
+      remediated_terms.uniq.map do |remediated_term|
+        SH_REMEDIATED_TO_DEPRECATED[_normalize_sf(remediated_term)].split("||").map do |deprecated_term|
+          f = _clone_field(field)
+          f.each do |sf|
+            if ["a", "z"].any?(sf.code)
+              if sf.value == remediated_term
+                sf.value = deprecated_term
+              end
+            end
+          end
+          f
+        end
+      end
+    end.flatten
   end
 
   def self.remediated_subject_fields(record)
@@ -88,6 +100,7 @@ module Common::Subject
       f
     end
   end
+
   # Get all the subject fields including associated 880 linked fields
   # @param [MARC::Record] record The record
   # @return [Array<MARC::DataField>] A (possibly empty) array of subject fields and their
@@ -116,14 +129,14 @@ module Common::Subject
   def self.subject_browse_fields(record)
     lc_subject_fields(record) +
       remediated_subject_fields(record) +
-      already_remediated_subject_fields(record) 
+      already_remediated_subject_fields(record)
   end
 
   def self.topics(record)
     (subject_fields(record) +
      deprecated_subject_fields(record) +
     remediated_subject_fields(record)).filter_map do |field|
-      unless field.indicator2 == '7' and field['2'] =~ /fast/
+      unless field.indicator2 == "7" and field["2"] =~ /fast/
         a = field["a"]
         more = []
         field.each do |sf|
@@ -163,6 +176,7 @@ module Common::Subject
   def self._normalize_sf(str)
     str&.downcase&.gsub(/[^A-Za-z0-9\s]/i, "")
   end
+
   def self._clone_field(field)
     sfields = field.subfields.map do |sf|
       MARC::Subfield.new(sf.code, sf.value)

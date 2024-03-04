@@ -88,11 +88,16 @@ RSpec.describe Common::Subject do
 
     it "returns topics including deprecated ones" do
       expect(described_class.topics(remediated_record)).to contain_exactly(
-        "Illegal aliens",
         "Undocumented immigrants.",
         "Emigration and immigration law.",
         "Noncitizens.",
-        "Right to counsel."
+        "Right to counsel.",
+        "undocumented foreign nationals",
+        "illegal aliens",
+        "aliens",
+        "aliens, illegal",
+        "illegal immigrants",
+        "undocumented noncitizens"
       )
     end
   end
@@ -119,7 +124,35 @@ RSpec.describe Common::Subject do
   end
 
   context ".deprecated_subject_fields" do
-
+    it "returns an array of all the deprecated subject fields" do
+      r = remediated_record
+      # adding repeatable field z to test if we get all deprecated fields
+      r.fields("650")[2].append(MARC::Subfield.new("z", "Human smuggling"))
+      r.fields("650")[2].append(MARC::Subfield.new("z", "Undocumented immigrant children"))
+      fields = described_class.deprecated_subject_fields(r)
+      filtered_fields = fields.map do |x|
+        x.subfields.filter_map do |y|
+          y.value if ["a", "z"].include?(y.code)
+        end
+      end.flatten
+      expect(filtered_fields).to include(
+        "undocumented foreign nationals",
+        "illegal aliens",
+        "aliens",
+        "aliens, illegal",
+        "illegal immigrants",
+        "undocumented noncitizens",
+        "immigrant smuggling",
+        "migrant smuggling",
+        "people smuggling",
+        "undocumented foreign national children",
+        "illegal alien children",
+        "illegal immigrant children",
+        "undocumented children",
+        "undocumented child immigrants",
+        "unaccompanied noncitizen children"
+      )
+    end
   end
 
   context ".new" do
