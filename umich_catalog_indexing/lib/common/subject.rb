@@ -133,14 +133,16 @@ module Common::Subject
   end
 
   def self.topics(record)
-    (subject_fields(record) +
-     deprecated_subject_fields(record) +
-    remediated_subject_fields(record)).filter_map do |field|
-      unless field.indicator2 == "7" and field["2"] =~ /fast/
+    (
+      subject_fields(record) +
+      deprecated_subject_fields(record) +
+      remediated_subject_fields(record)
+    ).filter_map do |field|
+      unless field.indicator2 == "7" && field["2"] =~ /fast/
         a = field["a"]
         more = []
         field.each do |sf|
-          more.push sf.value if TOPICS[field.tag].chars.include?(sf.code)
+          more.push sf.value if TOPICS[field.tag]&.chars&.include?(sf.code)
         end
         [a, more.join(" ")]
       end
