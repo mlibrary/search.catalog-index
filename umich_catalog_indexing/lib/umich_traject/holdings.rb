@@ -1,17 +1,20 @@
 module Traject
   module UMich
     class Holdings
-      def initialize(record, context, libLocInfo, floor_locator, hathifiles)
+      def initialize(record, context, lib_loc_info, floor_locator, hathifiles)
         @record = record
         @context = context
-        @libLocInfo = libLocInfo
+        @lib_loc_info = lib_loc_info
         @floor_locator = floor_locator
         @hathifiles = hathifiles
       end
 
       attr_reader :context
+      attr_reader :lib_loc_info
 
-      attr_reader :libLocInfo
+      def libLocInfo
+        lib_loc_info
+      end
 
       def enumcronSort a, b
         a[:sortstring] <=> b[:sortstring]
