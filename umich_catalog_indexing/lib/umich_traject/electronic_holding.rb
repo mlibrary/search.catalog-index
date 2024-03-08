@@ -64,7 +64,7 @@ module Traject
           collection_name,
           authentication_note,
           public_note
-        ].flatten.map do |x|
+        ].flatten.compact.map do |x|
           x.strip.sub(/\p{P}$/, "").sub(/$/, ".")
         end.join(" ")
       end
@@ -82,18 +82,21 @@ module Traject
       end
 
       def to_h
-        {
-          library: library,
-          link: link,
-          link_text: link_text,
-          institution_codes: institution_codes,
-          interface_name: interface_name,
-          collection_name: collection_name,
-          authentication_note: authentication_note,
-          public_note: public_note,
-          note: note,
-          finding_aid: finding_aid
-        }
+        [
+          "library",
+          "link",
+          "link_text",
+          "link_campus",
+          "interface_name",
+          "collection_name",
+          "authentication_note",
+          "public_note",
+          "note",
+          "finding_aid",
+          "status"
+        ].map do |x|
+          [x, public_send(x)]
+        end.to_h
       end
 
       def _alma_campuses

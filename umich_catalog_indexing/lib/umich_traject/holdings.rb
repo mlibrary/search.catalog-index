@@ -67,47 +67,16 @@ module Traject
           sh[hol_mmsid] = [] unless sh[hol_mmsid]
           sh[hol_mmsid] << f["a"]
         end
-
-        # get elec links for E56 fields
-        @record.each_by_tag("E56") do |f|
-          next unless f["u"]
-          hol = {}
-          hol[:link] = URI::DEFAULT_PARSER.escape(f["u"])
-          hol[:library] = "ELEC"
-          hol[:status] = f["s"] if f["s"]
-          hol[:link_text] = "Available online"
-          hol[:link_text] = f["y"] if f["y"]
-          hol[:description] = f["3"] if f["3"]
-          if f["z"]
-            hol[:note] = f["z"]
-          elsif f["n"]
-            hol[:note] = f["n"]
-          elsif f["m"]
-            hol[:note] = f["m"]
-          end
-          hol[:interface_name] = f["m"] if f["m"]
-          hol[:collection_name] = f["n"] if f["n"]
-          hol[:finding_aid] = false
-          hol_list << hol
-          availability << "avail_online"
-          locations << hol[:library]
-          sub_c_list = f.find_all { |subfield| subfield.code == "c" }
-          if sub_c_list.count == 0 or sub_c_list.count == 2
-            # no campus or both in E56--add both institutions, add UMAA to url
-            inst_codes << "MIU"
-            inst_codes << "MIFLIC"
-            hol[:link].sub!("openurl", "openurl-UMAA")
-          elsif sub_c_list.count == 1 and sub_c_list.first.value == "UMAA"
-            inst_codes << "MIU"
-            hol[:link].sub!("openurl", "openurl-UMAA")
-          elsif sub_c_list.count == 1 and sub_c_list.first.value == "UMFL"
-            inst_codes << "MIFLIC"
-            hol[:link].sub!("openurl", "openurl-UMFL")
-          else 	# should't occur
-            logger @record.info "#{id} : can't process campus info for E56 (#{sub_c_list})"
-          end
-          has_e56 = true
+        electronic_holdings = e56.map do |field|
+          ElectronicHolding.new(field)
         end
+        electronic_holdings.each do |holding|
+          hol_list << holding.to_h
+          locations << holding.library
+          inst_codes.concat(holding.institution_codes)
+          availability << "avail_online"
+        end
+        has_e56 = true unless electronic_holdings.empty?
 
         # check 856 fields:
         #   -finding aids
@@ -206,12 +175,16 @@ module Traject
         end
       end
 
+      def e56
+        @e56 ||= @record.fields("E56")
+      end
+
       def avd
         @avd ||= @record.fields("AVD")
       end
 
       def statusFromRights(rights, etas = false)
-        status = if /^(pd|world|cc|und-world|ic-world)/.match?(rights)
+        if /^(pd|world|cc|und-world|ic-world)/.match?(rights)
           "Full text"
         elsif etas
           "Full text available, simultaneous access is limited (HathiTrust log in required)"

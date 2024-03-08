@@ -134,16 +134,17 @@ describe Traject::UMich::ElectronicHolding do
       s = subject
       expect(s.to_h).to eq(
         {
-          library: s.library,
-          link: s.link,
-          link_text: s.link_text,
-          institution_codes: s.institution_codes,
-          interface_name: s.interface_name,
-          collection_name: s.collection_name,
-          authentication_note: s.authentication_note,
-          public_note: s.public_note,
-          note: s.note,
-          finding_aid: false
+          "library" => s.library,
+          "link" => s.link,
+          "link_text" => s.link_text,
+          "link_campus" => s.link_campus,
+          "interface_name" => s.interface_name,
+          "collection_name" => s.collection_name,
+          "authentication_note" => s.authentication_note,
+          "public_note" => s.public_note,
+          "note" => s.note,
+          "finding_aid" => false,
+          "status" => s.status
         }
       )
     end
