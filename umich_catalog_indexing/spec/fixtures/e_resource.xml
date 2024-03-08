@@ -1,0 +1,161 @@
+<record xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" xmlns="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <leader>01619nam  2200481 a 4500</leader>
+  <controlfield tag="001">99187438120106381</controlfield>
+  <controlfield tag="005">20230120012551.0</controlfield>
+  <controlfield tag="006">m     o  d |</controlfield>
+  <controlfield tag="007">cr -n---------</controlfield>
+  <controlfield tag="008">860314s1987    flua    ob    001 0 eng d</controlfield>
+  <datafield tag="010" ind1=" " ind2=" ">
+    <subfield code="z">86003525</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">0-323-15582-0</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(CKB)2670000000286104</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(EBL)1180583</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)850150173</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(SSID)ssj0001398845</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(PQKBManifestationID)11798862</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(PQKBTitleCode)TC0001398845</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(PQKBWorkID)11465173</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(PQKB)10069204</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(MiAaPQ)EBC1180583</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(EXLCZ)992670000000286104</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="a">MiAaPQ</subfield>
+    <subfield code="c">MiAaPQ</subfield>
+    <subfield code="d">MiAaPQ</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">eng</subfield>
+  </datafield>
+  <datafield tag="050" ind1=" " ind2="4">
+    <subfield code="a">QC173.4.C65</subfield>
+    <subfield code="b">D38 1987</subfield>
+  </datafield>
+  <datafield tag="082" ind1="0" ind2="0">
+    <subfield code="a">530.4</subfield>
+  </datafield>
+  <datafield tag="100" ind1="1" ind2=" ">
+    <subfield code="a">Dattagupta, S.</subfield>
+    <subfield code="q">(Sushanta),</subfield>
+    <subfield code="d">1947-</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/names/n83125519</subfield>
+    <subfield code="0">http://viaf.org/viaf/sourceID/LC|n83125519</subfield>
+  </datafield>
+  <datafield tag="245" ind1="1" ind2="0">
+    <subfield code="a">Relaxation phenomena in condensed matter physics</subfield>
+    <subfield code="h">[electronic resource] /</subfield>
+    <subfield code="c">Sushanta Dattagupta.</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">Orlando :</subfield>
+    <subfield code="b">Academic Press,</subfield>
+    <subfield code="c">1987.</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 online resource (326 p.)</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">text</subfield>
+    <subfield code="b">txt</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">computer</subfield>
+    <subfield code="b">c</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="a">online resource</subfield>
+    <subfield code="b">cr</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Description based upon print version of record.</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">Relaxation Phenomena in condensed Matter Physics</subfield>
+  </datafield>
+  <datafield tag="546" ind1=" " ind2=" ">
+    <subfield code="a">English</subfield>
+  </datafield>
+  <datafield tag="504" ind1=" " ind2=" ">
+    <subfield code="a">Includes bibliographical references and index.</subfield>
+  </datafield>
+  <datafield tag="505" ind1="0" ind2=" ">
+    <subfield code="a">pt. a. Spectroscopy techniques and associated correlation functions pt. b. Stochastic modeling of correlation functions.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Condensed matter</subfield>
+    <subfield code="x">Optical properties.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/subjects/sh85030765</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Relaxation phenomena.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/subjects/sh85112503</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Spectrum analysis.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/subjects/sh85126423</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Stochastic processes.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/subjects/sh85128181</subfield>
+  </datafield>
+  <datafield tag="776" ind1=" " ind2=" ">
+    <subfield code="z">0-12-203610-7</subfield>
+  </datafield>
+  <datafield tag="906" ind1=" " ind2=" ">
+    <subfield code="a">BOOK</subfield>
+  </datafield>
+  <datafield tag="BIB" ind1=" " ind2=" ">
+    <subfield code="u">2023-01-21 10:27:48 US/Eastern</subfield>
+    <subfield code="c">2012-12-30 03:23:59 US/Eastern</subfield>
+    <subfield code="s">false</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="4">Access to the Elsevier ScienceDirect eBook - Physics and Astronomy (Legacy 1) online version restricted; authentication may be required.</subfield>
+    <subfield code="4">Elsevier ScienceDirect access restricted; authentication may be required.</subfield>
+    <subfield code="m">Elsevier ScienceDirect;</subfield>
+    <subfield code="n">Elsevier SD eBook - Physics and Astronomy?</subfield>
+    <subfield code="t">param</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531162080550006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2021-10-15 12:52:25</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187438120106381</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="z">Public note:</subfield>
+    <subfield code="3">Description</subfield>
+    <subfield code="8">531162080550006381</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="4">Elsevier ScienceDirect access restricted; authentication may be required.</subfield>
+    <subfield code="m">Elsevier ScienceDirect</subfield>
+    <subfield code="n">Elsevier ScienceDirect Books Complete</subfield>
+    <subfield code="t">param</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531151073610006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2021-08-06 20:35:21</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187438120106381</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531151073610006381</subfield>
+  </datafield>
+</record>
