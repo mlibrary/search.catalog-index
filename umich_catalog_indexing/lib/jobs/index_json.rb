@@ -4,7 +4,7 @@ module Jobs
   class IndexJson
     def initialize(file:, solr_url:, logger: S.logger,
       translation_map_generator: TranslationMapGenerator,
-      file_processor: Jobs::Utilities::FileProcessor.new(path: file))
+      file_processor: Jobs::Utilities::FileProcessor.new(remote_path: file))
       @file = file
       @logger = logger
       @solr_url = solr_url
