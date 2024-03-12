@@ -35,3 +35,5 @@ client = SFTP.client
   logger.info "uploaded #{filename}"
 end
 logger.info "Finished uploading zephir files to SFTP server"
+logger.info "cleaning up scratch directory"
+FileUtils.remove_dir(scratch_dir)

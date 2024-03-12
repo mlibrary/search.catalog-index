@@ -15,6 +15,7 @@ require "jobs/delete_id_getter"
 require "jobs/delete_alma_ids"
 require "jobs/index_alma_xml"
 require "jobs/index_hathi_json"
+require "jobs/index_json"
 
 module Jobs
 end
