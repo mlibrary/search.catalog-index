@@ -18,16 +18,16 @@ module Jobs
 
       @translation_map_generator.generate_all
 
-      @logger.info "starting traject process for #{@file_processor.local_file}"
+      @logger.info "starting traject process for #{@file_processor.local_path}"
       begin
-        run_traject(@file_processor.local_file)
+        run_traject(@file_processor.local_path)
       rescue
         @logger.error "Traject step Failed"
         @logger.info "cleaning scratch directory: #{@file_processor.scratch_dir}"
         @file_processor.clean
         raise StandardError, "Traject step failed"
       end
-      @logger.info "finished loading marc data from #{@file_processor.local_file} into #{@solr_url}"
+      @logger.info "finished loading marc data from #{@file_processor.local_path} into #{@solr_url}"
       @logger.info "cleaning scratch directory: #{@file_processor.scratch_dir}"
       @file_processor.clean
       @logger.info "finished processing #{@file}"
