@@ -221,7 +221,6 @@ GEM
       hashdiff (>= 0.4.0, < 2.0.0)
     webrick (1.8.1)
     yell (2.2.2)
-    zinzout (0.1.1)
 
 PLATFORMS
   aarch64-linux
@@ -264,7 +263,6 @@ DEPENDENCIES
   webmock (~> 3.0)
   webrick
   yell (~> 2.0)
-  zinzout
 
 BUNDLED WITH
    2.5.4
