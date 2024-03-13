@@ -136,7 +136,7 @@ each_record do |r, context|
   context.clipboard[:ht][:inst_codes] = inst_codes.compact.uniq.sort
   if talk_to_hathi.size % 1000 == 0
     avg = (talk_to_hathi.last(1000).sum(0.0) / 1000) * 1000
-    S.logger.info "avg time talking to hathifiles: #{avg}"
+    # S.logger.info "avg time talking to hathifiles: #{avg}"
   end
 end
 
