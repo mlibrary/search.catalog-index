@@ -57,10 +57,10 @@ each_record do |rec, context|
       end
     end
   end
-end
-
-after_processing do
-  S.logger.info "avg time talking to overlap: #{talk_to_overlap.sum(0.0) / talk_to_overlap.size * 1000}"
+  if talk_to_overlap.size % 1000 == 0
+    avg = (talk_to_overlap.last(1000).sum(0.0) / 1000) * 1000
+    S.logger.info "avg time talking to overlap: #{avg}"
+  end
 end
 
 def record_is_umich(r, context)

@@ -134,10 +134,10 @@ each_record do |r, context|
   context.clipboard[:ht][:availability] = availability.compact.uniq.sort
   context.clipboard[:ht][:locations] = locations.compact.uniq.sort
   context.clipboard[:ht][:inst_codes] = inst_codes.compact.uniq.sort
-end
-
-after_processing do
-  S.logger.info "avg time talking to hathifiles: #{talk_to_hathi.sum(0.0) / talk_to_hathi.size * 1000}"
+  if talk_to_hathi.size % 1000 == 0
+    avg = (talk_to_hathi.last(1000).sum(0.0) / 1000) * 1000
+    S.logger.info "avg time talking to hathifiles: #{avg}"
+  end
 end
 
 to_field "hol" do |record, acc, context|
