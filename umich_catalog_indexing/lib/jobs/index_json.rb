@@ -36,7 +36,8 @@ module Jobs
     def run_traject(file)
       success = system("bundle", "exec", "traject",
         "-c", "/app/readers/ndj.rb",
-        "-c", "/app/writers/solr.rb",
+        # "-c", "/app/writers/solr.rb",
+        "-c", "/app/writers/null.rb",
         "-c", "/app/indexers/settings.rb",
         "-c", "/app/indexers/common.rb",
         "-c", "/app/indexers/common_ht.rb",

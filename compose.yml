@@ -65,10 +65,11 @@ services:
       - ./mock-ht/env.development
 
   redis:
-    image: 'redis:6.2'
-    command: redis-server
+    image: 'redis/redis-stack:latest'
+    #command: redis-server
     ports:
       - '6379:6379'
+      - '8001:8001'
     volumes:
       - 'redis:/data'
 
