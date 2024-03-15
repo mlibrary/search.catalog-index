@@ -2,6 +2,8 @@ require "webmock/rspec"
 require "alma_rest_client"
 require "byebug"
 require "simplecov"
+require_relative "../lib/jobs"
+
 SimpleCov.start
 ENV["APP_ENV"] = "test"
 

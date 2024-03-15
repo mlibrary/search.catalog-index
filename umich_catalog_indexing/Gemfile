@@ -19,6 +19,7 @@ gem "sftp", github: "mlibrary/sftp"
 gem "alma_rest_client", github: "mlibrary/alma_rest_client", tag: "v2.0.0"
 gem "traject_umich_format", github: "mlibrary/traject_umich_format"
 
+gem "zinzout"
 gem "canister"
 gem "semantic_logger"
 
