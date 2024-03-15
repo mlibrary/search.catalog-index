@@ -1,5 +1,7 @@
 require "traject"
 require "umich_traject"
+require "traject/macros/marc21_semantics"
+extend Traject::Macros::Marc21Semantics
 describe Traject::UMich::PhysicalHolding do
   def get_record(path)
     reader = MARC::XMLReader.new(path)
@@ -8,14 +10,14 @@ describe Traject::UMich::PhysicalHolding do
     end
   end
   let(:arborist) do
-    get_record('./spec/fixtures/arborist.xml')
+    get_record("./spec/fixtures/arborist.xml")
   end
   let(:holding_id) { "22767949280006381" }
   before(:each) do
     @record = arborist
   end
   subject do
-    described_class.new(record: @record, holding_id: holding_id) 
+    described_class.new(record: @record, holding_id: holding_id)
   end
   context "#institution_code" do
     it "returns upcased institution code" do
@@ -65,7 +67,7 @@ describe Traject::UMich::PhysicalHolding do
           when "c"
             s.value = "GRAD"
           when "h"
-            s.value = nil 
+            s.value = nil
           end
         end
       end
@@ -91,7 +93,7 @@ describe Traject::UMich::PhysicalHolding do
     it "is true if any of the 974s have f=1" do
       expect(subject.circulating?).to eq(true)
     end
-    it "is false if none of the 974s have f = 1" do 
+    it "is false if none of the 974s have f = 1" do
       @record.fields("974").each do |f|
         f.subfields.each do |s|
           s.value = "0" if s.code == "f"
@@ -115,7 +117,7 @@ describe Traject::UMich::PhysicalHolding do
       @record.fields("852").each do |f|
         f.subfields.each do |s|
           if s.code == "c"
-            s.value = nil 
+            s.value = nil
           end
         end
       end
@@ -123,7 +125,7 @@ describe Traject::UMich::PhysicalHolding do
       @record.fields("974").each do |f|
         f.subfields.each do |s|
           if s.code == "c"
-            s.value = nil 
+            s.value = nil
           end
         end
       end
@@ -140,7 +142,7 @@ describe Traject::UMich::PhysicalHolding do
       expect(subject.items.count).to eq(2)
     end
     it "doesn't include process type CA" do
-      @record["974"].append(MARC::Subfield.new("y","Process Status: CA"))
+      @record["974"].append(MARC::Subfield.new("y", "Process Status: CA"))
       expect(subject.items.count).to eq(1)
     end
   end
@@ -152,7 +154,7 @@ describe Traject::UMich::PhysicalHolding do
           s.value = "http://quod.lib.umich.edu/c/clementsead/umich-wcl-M-2015mit?view=text"
         end
       end
-      @record["856"].append(MARC::Subfield.new("y","Finding aid"))
+      @record["856"].append(MARC::Subfield.new("y", "Finding aid"))
       expect(subject.finding_aid?).to eq(true)
     end
     it "returns false if there isn't a Finding aid" do
@@ -162,8 +164,8 @@ describe Traject::UMich::PhysicalHolding do
   context "to_h" do
     it "returns a hash with the expected keys" do
       keys = [:callnumber, :display_name, :floor_location, :hol_mmsid,
-              :info_link, :items, :library, :location, :public_note,
-              :record_has_finding_aid, :summary_holdings]
+        :info_link, :items, :library, :location, :public_note,
+        :record_has_finding_aid, :summary_holdings]
       expect(subject.to_h.keys.sort).to eq(keys)
     end
   end

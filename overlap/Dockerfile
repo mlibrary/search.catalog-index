@@ -7,4 +7,4 @@ ENV MARIADB_ROOT_PASSWORD pass
 
 COPY 01_overlap_defs.sql /docker-entrypoint-initdb.d/
 COPY 02_empty_and_reload_overlap.sh /docker-entrypoint-initdb.d/
-COPY overlap_umich.tsv /
+COPY overlap.tsv /

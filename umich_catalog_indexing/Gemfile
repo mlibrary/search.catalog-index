@@ -8,6 +8,7 @@ group :development do
   gem "webmock", "~>3.0"
   gem "standard"
   gem "simplecov"
+  gem "sqlite3"
 end
 
 gem "yell", "~>2.0"

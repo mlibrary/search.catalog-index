@@ -1,5 +1,5 @@
-dbname=bibliosearch
-overlap_file=overlap_umich.tsv
+dbname=overlap
+overlap_file=/overlap.tsv
 tablename=overlap
 password=pass
 
@@ -13,4 +13,4 @@ password=pass
 #[ -z $1 ] && usage
 
 
-echo "delete from $tablename; LOAD DATA LOCAL INFILE '$overlap_file' INTO TABLE $tablename" | mysql -h localhost -uroot --local-infile=1 -p$password $dbname
+echo "delete from $tablename; LOAD DATA LOCAL INFILE '$overlap_file' INTO TABLE $tablename" | mariadb -h localhost -uroot --local-infile=1 -p$password $dbname
