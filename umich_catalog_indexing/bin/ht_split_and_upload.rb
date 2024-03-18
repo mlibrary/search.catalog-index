@@ -22,7 +22,10 @@ system("curl", "-u",
  "#{ENV.fetch("HT_HOST")}/catalog/#{zephir_file}", "-o",
  local_file)
 
-`gunzip -c #{local_file} | split -l 200000 --numeric-suffixes --filter='gzip > $FILE.json.gz' - #{prefix}`
+
+S.logger.measure_info("zephir processing") do
+  Jobs::ZephirProcessing.run(full_zephir_file: local_file, batch_size: 200, threads: 2)
+end
 
 number_of_files = `ls #{prefix}* -1 | wc -l`.to_i
 logger.info "Finished splitting Zephir file #{zephir_file}. Created #{number_of_files} files"

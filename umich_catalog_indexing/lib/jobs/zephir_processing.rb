@@ -1,54 +1,79 @@
 require "zinzout"
+require "concurrent"
 require_relative "zephir_processing/writer"
 require_relative "zephir_processing/record"
 require_relative "zephir_processing/overlap"
 
 module Jobs
   module ZephirProcessing
-    def self.run(full_zephir_file:, batch_size: 50)
-      S.logger.info "batch size: #{batch_size}"
-      records = []
-      prefix = full_zephir_file.split(".")[0]
-      writer = Writer.new(prefix: prefix)
-      report = {
-        skipped_umich: 0,
-        skipped_overlap: 0,
-        not_skipped: 0
-      }
-      Zinzout.zin("/app/scratch/#{full_zephir_file}") do |infile|
-        count = 0
-        infile.each_line do |line|
-          record = Record.new(line)
-          if record.is_umich?
-            report[:skipped_umich] += 1
-          else
-            records.push(record)
+    def self.run(full_zephir_file:, batch_size: 100, threads: 4)
+      pool = Concurrent::FixedThreadPool.new(threads,
+        max_queue: 200,
+        fallback_policy: :caller_runs)
+
+      lock = Concurrent::ReadWriteLock.new
+
+      S.logger.info "batch size for overlap query: #{batch_size}"
+      prefix = File.basename(full_zephir_file).split(".")[0]
+      scratch_dir = File.dirname(full_zephir_file)
+      writer = Writer.new(prefix: prefix, scratch_dir: scratch_dir)
+      report = Concurrent::Hash.new
+      report[:skipped_umich] = 0
+      report[:skipped_overlap] = 0
+      report[:not_skipped] = 0
+      report[:count] = 0
+      S.logger.info "Writing filtered records from #{full_zephir_file} to the #{scratch_dir} directory"
+      Zinzout.zin(full_zephir_file) do |infile|
+        # count = 0
+        infile.each.each_slice(batch_size) do |lines|
+          records = lines.filter_map do |line|
+            r = Record.new(line)
+            if r.is_umich?
+              report[:skipped_umich] += 1
+              false # don't add it.
+            else
+              r
+            end
           end
-          if records.count == batch_size
-            _process_batch(records, writer, report)
+          pool.post(records) do |r|
+            oclc_nums = r.map { |x| x.oclc_nums }.flatten.uniq
+            umich_oclc_nums = Overlap.umich_oclc_nums(oclc_nums)
+
+            lock.with_write_lock do
+              r.each do |record|
+                if record.oclc_nums.any? { |num| umich_oclc_nums.include?(num) }
+                  report[:skipped_overlap] += 1
+                else
+                  report[:not_skipped] += 1
+                  writer.write(record.raw)
+                end
+              end
+            end
           end
-          count += 1
-          S.logger.info report if count % 50_000 == 0
+          report[:count] += batch_size
+          S.logger.info report if report[:count] % 100_000 == 0
         end
       end
-      _process_batch(records, writer, report)
+      pool.shutdown
+      pool.wait_for_termination
       writer.close
       S.logger.info report
     end
+  end
 
-    def self._process_batch(records, writer, report)
-      oclc_nums = records.map { |x| x.oclc_nums }.flatten.uniq
-      umich_oclc_nums = Overlap.umich_oclc_nums(oclc_nums)
+  def self._process_batch(records, writer, report, lock)
+    oclc_nums = records.map { |x| x.oclc_nums }.flatten.uniq
+    umich_oclc_nums = Overlap.umich_oclc_nums(oclc_nums)
+
+    lock.with_write_lock do
       records.each do |record|
         if record.oclc_nums.any? { |num| umich_oclc_nums.include?(num) }
-          # S.logger.info("overlap check reject")
           report[:skipped_overlap] += 1
         else
           report[:not_skipped] += 1
           writer.write(record.raw)
         end
       end
-      records.clear
     end
   end
 end

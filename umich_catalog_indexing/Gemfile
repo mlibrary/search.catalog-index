@@ -9,6 +9,7 @@ group :development do
   gem "standard"
   gem "simplecov"
   gem "sqlite3"
+  gem "ruby-prof"
 end
 
 gem "yell", "~>2.0"
