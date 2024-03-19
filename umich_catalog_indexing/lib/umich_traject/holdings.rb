@@ -159,7 +159,7 @@ module Traject
 
         # add hol for HT volumes
         bib_nums = []
-        bib_nums << "." + (context.output_hash["id"]&.first || "")
+        bib_nums << (context.output_hash["id"]&.first || "")
         bib_nums << context.output_hash["aleph_id"]&.first if context.output_hash["aleph_id"]
         oclc_nums = context.output_hash["oclc"]
         # etas_status = context.clipboard[:ht][:overlap][:count_etas] > 0

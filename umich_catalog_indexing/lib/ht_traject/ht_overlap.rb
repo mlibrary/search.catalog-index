@@ -1,10 +1,10 @@
 require "traject"
-require_relative "ht_dbh"
 require "sequel"
+require_relative "../services"
 
 module HathiTrust
   class UmichOverlap
-    DB = HathiTrust::DBH_overlap::DB
+    DB = S.overlap_mysql
     Umich_overlap_query = DB[:overlap].select(:access)
 
     # I use a db driver per thread to avoid any conflicts

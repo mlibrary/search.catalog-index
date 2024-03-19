@@ -37,8 +37,9 @@ end
 
 to_field "record_source", record_source 	# set to alma or zephir, based on record id
 
-talk_to_overlap = []
-# for zephir records, check umich print holdings overlap file--skip if oclc number is found in file
+# for zephir records, check umich print holdings overlap file--skip if oclc number is found in file; Only do this for the dailies.
+#
+talk_to_overlap = Concurrent::Array.new
 each_record do |rec, context|
   # context.clipboard[:ht][:overlap] = UmichOverlap.get_overlap(oclc_nums) 	# returns count of all records found (:count_all), and access=deny records (:count_etas)
   if context.clipboard[:ht][:record_source] == "zephir"
@@ -59,7 +60,7 @@ each_record do |rec, context|
   end
   if talk_to_overlap.size % 1000 == 0
     avg = (talk_to_overlap.last(1000).sum(0.0) / 1000) * 1000
-    S.logger.info "avg time talking to overlap: #{avg}"
+    S.logger.info "avg time talking to overlap: #{avg}" if avg > 0
   end
 end
 

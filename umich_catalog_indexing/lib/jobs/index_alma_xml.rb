@@ -13,7 +13,7 @@ module Jobs
     end
 
     def run
-      @logger.info "fetching #{@file} from #{ENV.fetch("ALMA_FILES_HOST")}"
+      @logger.info "fetching #{@file} from #{S.sftp_host}"
       @alma_file_processor.run
 
       @translation_map_generator.generate_all

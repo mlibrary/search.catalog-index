@@ -3,14 +3,7 @@ require "ht_traject"
 # require 'ht_traject/ht_overlap.rb'
 require "json"
 require "umich_traject/floor_location"
-
-HathiFiles = if ENV["NODB"]
-  require "ht_traject/no_db_mocks/ht_hathifiles"
-  HathiTrust::NoDB::HathiFiles
-else
-  require "ht_traject/ht_hathifiles"
-  HathiTrust::HathiFiles
-end
+HathiFiles = S.hathifiles_klass
 libLocInfo = Traject::TranslationMap.new("umich/libLocInfo")
 electronic_collections = Traject::TranslationMap.new("umich/electronic_collections")
 
@@ -41,13 +34,11 @@ to_field "aleph_id" do |record, acc, context|
 end
 
 cc_to_of = Traject::TranslationMap.new("ht/collection_code_to_original_from")
-talk_to_hathi = []
+talk_to_hathi = Concurrent::Array.new
 each_record do |r, context|
   locations = []
   inst_codes = []
   availability = []
-  sh = {}
-  has_e56 = false
   id = context.output_hash["id"]
 
   # "OWN" field
@@ -134,9 +125,9 @@ each_record do |r, context|
   context.clipboard[:ht][:availability] = availability.compact.uniq.sort
   context.clipboard[:ht][:locations] = locations.compact.uniq.sort
   context.clipboard[:ht][:inst_codes] = inst_codes.compact.uniq.sort
-  if talk_to_hathi.size % 1000 == 0
-    avg = (talk_to_hathi.last(1000).sum(0.0) / 1000) * 1000
-    # S.logger.info "avg time talking to hathifiles: #{avg}"
+  if talk_to_hathi.size % 100 == 0
+    avg = (talk_to_hathi.last(100).sum(0.0) / 100) * 1000
+    S.logger.info "avg time talking to hathifiles: #{avg}" if avg > 0
   end
 end
 

@@ -58,7 +58,6 @@ services:
     environment:
       - REDIS_URL=redis://redis:6379
       - HLB_XML_ENDPOINT=https://apps.lib.umich.edu/browse/categories/xml.php 
-      - NODB=1
     env_file:
       - ./umich_catalog_indexing/.env
       - ./umich_catalog_indexing/env.development
@@ -100,15 +99,15 @@ services:
     env_file:
       - ./mock-ht/env.development
 
-  #hathifiles:
-    #image: mariadb
-    #volumes:
-      #- hathidb:/var/lib/mysql
-    #environment:
-      #- MARIADB_ROOT_PASSWORD=pass
-      #- MARIADB_USER=user
-      #- MARIADB_PASSWORD=password
-      #- MARIADB_DATABASE=hathifiles
+  hathifiles:
+    image: mariadb
+    volumes:
+      - hathidb:/var/lib/mysql
+    environment:
+      - MARIADB_ROOT_PASSWORD=pass
+      - MARIADB_USER=user
+      - MARIADB_PASSWORD=password
+      - MARIADB_DATABASE=hathifiles
 
   hathioverlap:
     build: overlap/.

@@ -1,3 +1,6 @@
 #!/bin/bash
 
-sftp -oIdentityFile=${SSH_KEY_PATH} -oStrictHostKeyChecking=no ${ALMA_FILES_USER}@${ALMA_FILES_HOST}
+ssh_key_path=${SSH_KEY_PATH-"/etc/secret-volume/id_rsa"}
+sftp_user=${ALMA_FILES_USER-"alma"}
+sftp_host=${ALMA_FILES_HOST-"sftp"}
+sftp -oIdentityFile=${ssh_key_path} -oStrictHostKeyChecking=no ${sftp_user}@${sftp_host}
