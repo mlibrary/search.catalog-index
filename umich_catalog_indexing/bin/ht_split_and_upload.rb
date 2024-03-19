@@ -1,5 +1,6 @@
 #!/usr/local/bin/ruby
 require "date"
+require_relative "../lib/config/sftp_config"
 require_relative "../lib/jobs"
 require "logger"
 
