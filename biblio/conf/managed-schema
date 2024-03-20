@@ -243,18 +243,16 @@
                katakana="true" hangul="true" outputUnigrams="true" />
 <filter class="solr.FixBrokenOffsetsFilterFactory"/>
 <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
-
-
 '>
 
 <!ENTITY post_tokenization_cjk_no_bigrams '
-<!-- <filter class="solr.CJKWidthFilterFactory"/>
+<filter class="solr.CJKWidthFilterFactory"/>
 <filter class="solr.ICUTransformFilterFactory" id="Traditional-Simplified"/>
+<filter class="solr.FixBrokenOffsetsFilterFactory"/>
+<filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
 <filter class="solr.ICUTransformFilterFactory" id="Katakana-Hiragana"/>
 <filter class="solr.FixBrokenOffsetsFilterFactory"/>
-&remove_duplicates_at_same_position;
-
--->
+<filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
 '>
 
 <!ENTITY pre_tokenization_case_folding '
@@ -392,7 +390,7 @@
     <!--
 
        field type: text_no_stem_or_synonyms
-       desc: the same thing, but without stemming or synonyms.
+       desc: the same thing, but without stemming or synonyms, or bigrams/unigrams for cjk
        usage: A copyField target that gets a bigger boost, so more exact
               matches get higher relevance scores
 
@@ -405,7 +403,7 @@
             &overlay_keyword_token_copies_for_later_processing;
             &remove_english_posessives;
             &keyword_aware_icu_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             &remove_duplicates_at_same_position;
         </analyzer>
     </fieldType>
