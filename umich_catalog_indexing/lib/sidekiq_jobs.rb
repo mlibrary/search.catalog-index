@@ -1,6 +1,7 @@
 $:.unshift File.dirname(__FILE__).to_s
 require "sidekiq"
 require "jobs"
+require "services"
 
 class JobQueued
   def call(worker, job, queue, redis_pool)
@@ -40,12 +41,6 @@ Sidekiq.configure_server do |config|
   config.server_middleware do |chain|
     chain.add CheckInCheckOut if ENV.fetch("SUPERVISOR_ON") == "true"
   end
-end
-
-SFTP.configure do |config|
-  config.user = ENV.fetch("ALMA_FILES_USER")
-  config.host = ENV.fetch("ALMA_FILES_HOST")
-  config.key_path = ENV.fetch("SSH_KEY_PATH")
 end
 
 class IndexIt
