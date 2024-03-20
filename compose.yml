@@ -109,15 +109,15 @@ services:
       #- MARIADB_PASSWORD=password
       #- MARIADB_DATABASE=hathifiles
 
-  #hathioverlap:
-    #image: mariadb
-    #volumes:
-      #- overlap:/var/lib/mysql
-    #environment:
-      #- MARIADB_ROOT_PASSWORD=pass
-      #- MARIADB_USER=user
-      #- MARIADB_PASSWORD=password
-      #- MARIADB_DATABASE=overlap
+  hathioverlap:
+    build: overlap/.
+    volumes:
+      - overlap:/var/lib/mysql
+    environment:
+      - MARIADB_ROOT_PASSWORD=pass
+      - MARIADB_USER=user
+      - MARIADB_PASSWORD=password
+      - MARIADB_DATABASE=overlap
 
   prometheus:
     image: prom/prometheus
