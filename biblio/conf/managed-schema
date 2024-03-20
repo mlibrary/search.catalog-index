@@ -206,7 +206,7 @@
 '>
 <!-- Normalization and case folding -->
 
-<!-- pre/post_tokenization_cjk take whole cloth from Stanford
+<!-- pre/post_tokenization_cjk taken whole cloth from Stanford
   via https://github.com/sul-dlss/CJKFilterUtils
 
   The pre-tokenization step turns out to be horrendously expensive
@@ -234,15 +234,28 @@
 -->
 
 <!ENTITY post_tokenization_cjk '
-<!-- <filter class="solr.CJKWidthFilterFactory"/>
+ <filter class="solr.CJKWidthFilterFactory"/>
 <filter class="solr.ICUTransformFilterFactory" id="Traditional-Simplified"/>
+<filter class="solr.FixBrokenOffsetsFilterFactory"/>
+<filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
 <filter class="solr.ICUTransformFilterFactory" id="Katakana-Hiragana"/>
 <filter class="solr.CJKBigramFilterFactory" han="true" hiragana="true"
                katakana="true" hangul="true" outputUnigrams="true" />
 <filter class="solr.FixBrokenOffsetsFilterFactory"/>
--->
+<filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+
+
 '>
 
+<!ENTITY post_tokenization_cjk_no_bigrams '
+<!-- <filter class="solr.CJKWidthFilterFactory"/>
+<filter class="solr.ICUTransformFilterFactory" id="Traditional-Simplified"/>
+<filter class="solr.ICUTransformFilterFactory" id="Katakana-Hiragana"/>
+<filter class="solr.FixBrokenOffsetsFilterFactory"/>
+&remove_duplicates_at_same_position;
+
+-->
+'>
 
 <!ENTITY pre_tokenization_case_folding '
 <charFilter class="solr.ICUNormalizer2CharFilterFactory"/>
@@ -554,6 +567,7 @@
         <analyzer>
             &tokenize_into_one_big_token;
             &icu_case_folding_and_normalization;
+            &post_tokenization_cjk;
             <filter class="solr.PatternReplaceFilterFactory"
                     pattern="^\p{Z}*the\p{Z}+" replacement=""
                     replace="all"
