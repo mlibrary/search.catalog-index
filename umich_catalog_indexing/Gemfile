@@ -16,10 +16,17 @@ gem "prometheus-client"
 gem "httparty"
 gem "webrick"
 
-source "https://rubygems.pkg.github.com/mlibrary" do
-  gem "sftp"
-  gem "alma_rest_client", "2.0.0"
-end
+# source "https://rubygems.pkg.github.com/mlibrary" do
+#   gem "sftp"
+#   gem "alma_rest_client", "2.0.0"
+# end
+gem "sftp",
+  git: "https://github.com/mlibrary/sftp",
+  branch: "main"
+
+gem "alma_rest_client",
+  git: "https://github.com/mlibrary/alma_rest_client",
+  branch: "main"
 
 gem "rack" # for sidekiq
 gem "traject", "~>3.0"
