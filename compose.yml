@@ -55,10 +55,6 @@ services:
       - ./umich_catalog_indexing/.:/app
       - ./sftp/ssh/ssh_client_rsa_key:/etc/secret-volume/id_rsa:ro
       - gem_cache:/gems
-    environment:
-      - REDIS_URL=redis://redis:6379
-      - HLB_XML_ENDPOINT=https://apps.lib.umich.edu/browse/categories/xml.php 
-      - NODB=1
     env_file:
       - ./umich_catalog_indexing/.env
       - ./umich_catalog_indexing/env.development
@@ -109,15 +105,15 @@ services:
       #- MARIADB_PASSWORD=password
       #- MARIADB_DATABASE=hathifiles
 
-  #hathioverlap:
-    #image: mariadb
-    #volumes:
-      #- overlap:/var/lib/mysql
-    #environment:
-      #- MARIADB_ROOT_PASSWORD=pass
-      #- MARIADB_USER=user
-      #- MARIADB_PASSWORD=password
-      #- MARIADB_DATABASE=overlap
+  hathioverlap:
+    build: overlap/.
+    volumes:
+      - overlap:/var/lib/mysql
+    environment:
+      - MARIADB_ROOT_PASSWORD=pass
+      - MARIADB_USER=user
+      - MARIADB_PASSWORD=password
+      - MARIADB_DATABASE=overlap
 
   prometheus:
     image: prom/prometheus

@@ -1,5 +1,5 @@
-dbname=bibliosearch
-overlap_file=overlap_umich.tsv
+dbname=overlap
+overlap_file=/overlap.tsv
 tablename=overlap
 password=pass
 
