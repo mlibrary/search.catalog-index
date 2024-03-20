@@ -1,4 +1,5 @@
 $:.unshift "#{File.dirname(__FILE__)}/../lib"
+require "services"
 require "set"
 
 require "library_stdnums"
@@ -18,7 +19,7 @@ require "marc/fastxmlwriter"
 require "marc_record_speed_monkeypatch"
 require "marc4j_fix"
 
-UmichOverlap = if ENV["NODB"]
+UmichOverlap = if S.no_db?
   require "ht_traject/no_db_mocks/ht_overlap"
   HathiTrust::NoDB::UmichOverlap
 else
