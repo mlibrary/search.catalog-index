@@ -1,5 +1,5 @@
-require 'traject'
-require 'traject/solr_json_writer'
+require "traject"
+require "traject/solr_json_writer"
 
 settings do
   provide "solr_writer.basic_auth_user", ENV.fetch("SOLR_USER") if ENV.fetch("SOLRCLOUD_ON") == "true"
@@ -12,5 +12,3 @@ settings do
   store "processing_thread_pool", 8
   provide "log.batch_size", 50_000
 end
-
-
