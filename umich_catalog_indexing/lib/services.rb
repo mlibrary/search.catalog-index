@@ -107,6 +107,14 @@ S.register(:overlap_klass) do
   (S.no_db? || S.reindex?) ? S.overlap_nodb : S.overlap
 end
 
+S.register(:processing_threads) { ENV.fetch("PROCESSING_THREADS", 1) }
+
+# Solr
+S.register(:solr_cloud_on?) { ENV["SOLR_CLOUD_ON"] ? true : false }
+S.register(:solr_threads) { ENV.fetch("SOLR_THREADS", 1).to_i }
+S.register(:solr_user) { ENV.fetch("SOLR_USER", "solr") }
+S.register(:solr_password) { ENV.fetch("SOLR_PASSWORD", "SolrRocks") }
+
 # SFTP
 Services.register(:sftp_user) { ENV.fetch("ALMA_FILES_USER", "alma") }
 Services.register(:sftp_host) { ENV.fetch("ALMA_FILES_HOST", "sftp") }

@@ -22,6 +22,7 @@ require "marc4j_fix"
 UmichOverlap = S.overlap_klass
 S.logger.info "Using #{UmichOverlap}"
 S.logger.info "Using #{S.hathifiles_klass}"
+S.logger.info S.solr_cloud_on?
 
 settings do
   store "log.batch_progress", 10_000
