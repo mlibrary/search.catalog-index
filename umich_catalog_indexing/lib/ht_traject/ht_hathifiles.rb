@@ -1,10 +1,9 @@
 require "traject"
-require_relative "ht_dbh"
 require "sequel"
 
 module HathiTrust
   class HathiFiles
-    DB = HathiTrust::DBH::DB
+    DB = S.hathifiles_mysql
 
     SELECTED_COLS = [
       Sequel[:hf][:htid].as(:id),
