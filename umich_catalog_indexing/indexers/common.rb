@@ -63,7 +63,7 @@ def record_is_umich(r, context)
   return false
 end
 
-to_field "allfields", extract_all_marc_values(to: '850') do |r, acc|
+to_field "allfields", extract_all_marc_values(to: '880') do |r, acc|
   acc.replace [acc.join(' ')] # turn it into a single string
 end
 
