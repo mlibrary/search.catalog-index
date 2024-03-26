@@ -1,6 +1,7 @@
 require "sequel"
 
 S.register(:no_db?) { ENV["NODB"] ? true : false }
+S.register(:reindex?) { ENV["REINDEX"] ? true : false }
 
 # Overlap DB
 S.register(:overlap_user) { ENV.fetch("HATHI_OVERLAP_USER", "user") }
