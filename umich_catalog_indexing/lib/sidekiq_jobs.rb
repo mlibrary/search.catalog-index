@@ -78,3 +78,15 @@ class IndexHathi
     puts "Error: Failed contact the Push Gateway"
   end
 end
+
+class IndexJson
+  include Sidekiq::Worker
+  def perform(file, solr_url)
+    puts "indexing zephir #{file} into #{solr_url}"
+    metrics = Jobs::CatalogIndexingMetrics.new({type: "IndexJson", destination: solr_url})
+    Jobs::IndexJson.new(file: file, solr_url: solr_url).run
+    metrics.push
+  rescue Jobs::CatalogIndexingMetrics::PushGatewayClientError
+    puts "Error: Failed contact the Push Gateway"
+  end
+end

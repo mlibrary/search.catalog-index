@@ -185,6 +185,12 @@ GEM
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
     slop (4.10.1)
+    sqlite3 (1.7.3-aarch64-linux)
+    sqlite3 (1.7.3-arm-linux)
+    sqlite3 (1.7.3-arm64-darwin)
+    sqlite3 (1.7.3-x86-linux)
+    sqlite3 (1.7.3-x86_64-darwin)
+    sqlite3 (1.7.3-x86_64-linux)
     standard (1.33.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -221,6 +227,7 @@ GEM
       hashdiff (>= 0.4.0, < 2.0.0)
     webrick (1.8.1)
     yell (2.2.2)
+    zinzout (0.1.1)
 
 PLATFORMS
   aarch64-linux
@@ -256,6 +263,7 @@ DEPENDENCIES
   sftp!
   sidekiq
   simplecov
+  sqlite3
   standard
   traject (~> 3.0, >= 3.8.2)
   traject-marc4j_reader (~> 1.0)
@@ -263,6 +271,7 @@ DEPENDENCIES
   webmock (~> 3.0)
   webrick
   yell (~> 2.0)
+  zinzout
 
 BUNDLED WITH
    2.5.4

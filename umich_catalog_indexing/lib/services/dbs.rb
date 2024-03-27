@@ -1,4 +1,7 @@
+require "sequel"
+
 S.register(:no_db?) { ENV["NODB"] ? true : false }
+S.register(:reindex?) { ENV["REINDEX"] ? true : false }
 
 # Overlap DB
 S.register(:overlap_user) { ENV.fetch("HATHI_OVERLAP_USER", "user") }
@@ -19,6 +22,26 @@ rescue => e
   warn "run with environment NODB=1 to skip all db stuff"
   warn "************************************************************"
   exit 1
+end
+
+S.register(:overlap_memory) do
+  db = Sequel.sqlite
+  db.create_table(:overlap) do
+    Bignum :oclc
+    Bignum :local_id
+    String :item_type
+    String :access
+    String :rights
+  end
+  db
+end
+
+S.register(:overlap_db) do
+  if ENV["APP_ENV"] == "test"
+    S.overlap_memory
+  else
+    S.overlap_mysql
+  end
 end
 
 # Hathifiles DB

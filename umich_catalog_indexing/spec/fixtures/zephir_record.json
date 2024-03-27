@@ -1,0 +1,878 @@
+{
+  "fields": [
+    {
+      "001": "102849819"
+    },
+    {
+      "003": "MiAaHDL"
+    },
+    {
+      "005": "20220223000000.0"
+    },
+    {
+      "006": "m        d        "
+    },
+    {
+      "007": "cr bn ---auaua"
+    },
+    {
+      "008": "900705d19501975po  x m       0    0por  "
+    },
+    {
+      "010": {
+        "ind2": " ",
+        "ind1": " ",
+        "subfields": [
+          {
+            "a": "90648256"
+          }
+        ]
+      }
+    },
+    {
+      "012": {
+        "ind2": " ",
+        "ind1": " ",
+        "subfields": [
+          {
+            "i": "9007"
+          }
+        ]
+      }
+    },
+    {
+      "035": {
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "sdr-ucsd.991015444869706535"
+          }
+        ]
+      }
+    },
+    {
+      "035": {
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "z": "(UCSDmil).b10472500x"
+          }
+        ]
+      }
+    },
+    {
+      "035": {
+        "subfields": [
+          {
+            "a": "(EXLNZ-01UCS_NETWORK)9912334754206531"
+          }
+        ],
+        "ind1": " ",
+        "ind2": " "
+      }
+    },
+    {
+      "035": {
+        "ind2": " ",
+        "ind1": " ",
+        "subfields": [
+          {
+            "a": "(OCoLC)21963194"
+          }
+        ]
+      }
+    },
+    {
+      "035": {
+        "ind2": " ",
+        "ind1": " ",
+        "subfields": [
+          {
+            "a": "(CU-S)b10472500x-01ucs_sdi"
+          }
+        ]
+      }
+    },
+    {
+      "040": {
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "DLC"
+          },
+          {
+            "b": "eng"
+          },
+          {
+            "c": "DLC"
+          },
+          {
+            "d": "NST"
+          },
+          {
+            "d": "IUL"
+          },
+          {
+            "d": "OCLCQ"
+          },
+          {
+            "d": "OCLCO"
+          },
+          {
+            "d": "OCLCF"
+          },
+          {
+            "d": "UtOrBLW"
+          }
+        ]
+      }
+    },
+    {
+      "042": {
+        "subfields": [
+          {
+            "a": "pcc"
+          }
+        ],
+        "ind1": " ",
+        "ind2": " "
+      }
+    },
+    {
+      "050": {
+        "ind1": "0",
+        "ind2": "0",
+        "subfields": [
+          {
+            "a": "QE1"
+          },
+          {
+            "b": ".C65"
+          }
+        ]
+      }
+    },
+    {
+      "099": {
+        "subfields": [
+          {
+            "a": "SIO"
+          },
+          {
+            "a": "1"
+          },
+          {
+            "a": "CO116"
+          }
+        ],
+        "ind1": " ",
+        "ind2": " "
+      }
+    },
+    {
+      "245": {
+        "ind2": "0",
+        "ind1": "0",
+        "subfields": [
+          {
+            "a": "Publicações do Museu e Laboratório Mineralógico e Geológico e do Centro de Estudos Geológicos da Universidade de Coimbra"
+          }
+        ]
+      }
+    },
+    {
+      "246": {
+        "ind2": "3",
+        "ind1": "1",
+        "subfields": [
+          {
+            "a": "Memórias e notícias"
+          }
+        ]
+      }
+    },
+    {
+      "246": {
+        "ind2": " ",
+        "ind1": "1",
+        "subfields": [
+          {
+            "i": "Issues no. 39-no. 80 have title:"
+          },
+          {
+            "a": "Publicações do Museu e Laboratório Mineralógico e Geológico da Universidade de Coimbra e do Centro de Estudos Geológicos"
+          }
+        ]
+      }
+    },
+    {
+      "260": {
+        "ind2": " ",
+        "ind1": " ",
+        "subfields": [
+          {
+            "a": "Coimbra :"
+          },
+          {
+            "b": "A Universidade,"
+          },
+          {
+            "c": "1950-1975"
+          }
+        ]
+      }
+    },
+    {
+      "300": {
+        "subfields": [
+          {
+            "a": "52 volumes :"
+          },
+          {
+            "b": "illustrations ;"
+          },
+          {
+            "c": "25 cm"
+          }
+        ],
+        "ind1": " ",
+        "ind2": " "
+      }
+    },
+    {
+      "310": {
+        "ind2": " ",
+        "ind1": " ",
+        "subfields": [
+          {
+            "a": "Irregular"
+          }
+        ]
+      }
+    },
+    {
+      "336": {
+        "subfields": [
+          {
+            "a": "text"
+          },
+          {
+            "b": "txt"
+          },
+          {
+            "2": "rdacontent"
+          },
+          {
+            "0": "http://rdaregistry.info/termList/RDAContentType/1020"
+          }
+        ],
+        "ind2": " ",
+        "ind1": " "
+      }
+    },
+    {
+      "337": {
+        "subfields": [
+          {
+            "a": "unmediated"
+          },
+          {
+            "b": "n"
+          },
+          {
+            "2": "rdamedia"
+          },
+          {
+            "0": "http://rdaregistry.info/termList/RDAMediaType/1007"
+          }
+        ],
+        "ind2": " ",
+        "ind1": " "
+      }
+    },
+    {
+      "338": {
+        "ind2": " ",
+        "ind1": " ",
+        "subfields": [
+          {
+            "a": "volume"
+          },
+          {
+            "b": "nc"
+          },
+          {
+            "2": "rdacarrier"
+          },
+          {
+            "0": "http://rdaregistry.info/termList/RDACarrierType/1049"
+          }
+        ]
+      }
+    },
+    {
+      "362": {
+        "ind1": "0",
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "No. 28-no. 80"
+          }
+        ]
+      }
+    },
+    {
+      "538": {
+        "ind2": " ",
+        "ind1": " ",
+        "subfields": [
+          {
+            "a": "Mode of access: Internet."
+          }
+        ]
+      }
+    },
+    {
+      "650": {
+        "subfields": [
+          {
+            "a": "Mineralogy."
+          },
+          {
+            "2": "fast"
+          },
+          {
+            "0": "(OCoLC)fst01022406"
+          }
+        ],
+        "ind1": " ",
+        "ind2": "7"
+      }
+    },
+    {
+      "650": {
+        "subfields": [
+          {
+            "a": "Geology."
+          },
+          {
+            "2": "fast"
+          },
+          {
+            "0": "(OCoLC)fst00940627"
+          }
+        ],
+        "ind1": " ",
+        "ind2": "7"
+      }
+    },
+    {
+      "650": {
+        "ind1": " ",
+        "ind2": "0",
+        "subfields": [
+          {
+            "a": "Mineralogy."
+          },
+          {
+            "0": "http://id.loc.gov/authorities/subjects/sh85085589"
+          }
+        ]
+      }
+    },
+    {
+      "650": {
+        "subfields": [
+          {
+            "a": "Geology."
+          },
+          {
+            "0": "http://id.loc.gov/authorities/subjects/sh85054037"
+          }
+        ],
+        "ind2": "0",
+        "ind1": " "
+      }
+    },
+    {
+      "710": {
+        "subfields": [
+          {
+            "a": "Universidade de Coimbra."
+          },
+          {
+            "b": "Centro de Estudos Geológicos."
+          },
+          {
+            "0": "http://id.loc.gov/authorities/names/no90013570"
+          }
+        ],
+        "ind1": "2",
+        "ind2": " "
+      }
+    },
+    {
+      "710": {
+        "ind1": "2",
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "Universidade de Coimbra."
+          },
+          {
+            "b": "Museu e Laboratório Mineralógico e Geológico."
+          },
+          {
+            "0": "http://id.loc.gov/authorities/names/no90013564"
+          }
+        ]
+      }
+    },
+    {
+      "780": {
+        "ind1": "0",
+        "ind2": "0",
+        "subfields": [
+          {
+            "t": "Publicações do Museu Mineralógico e Geológico da Universidade de Coimbra"
+          },
+          {
+            "x": "0373-6474"
+          },
+          {
+            "w": "(DLC)   90648255"
+          },
+          {
+            "w": "(OCoLC)3528912"
+          }
+        ]
+      }
+    },
+    {
+      "785": {
+        "ind2": "0",
+        "ind1": "0",
+        "subfields": [
+          {
+            "t": "Publicações do Museu e Laboratório Mineralógico e Geológico da Universidade de Coimbra"
+          },
+          {
+            "w": "(DLC)gs 22000421"
+          },
+          {
+            "w": "(OCoLC)21963323"
+          }
+        ]
+      }
+    },
+    {
+      "CID": {
+        "ind2": " ",
+        "ind1": " ",
+        "subfields": [
+          {
+            "a": "102849819"
+          }
+        ]
+      }
+    },
+    {
+      "DAT": {
+        "ind1": "0",
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "20211112084814.0"
+          },
+          {
+            "b": "20220223000000.0"
+          }
+        ]
+      }
+    },
+    {
+      "DAT": {
+        "ind2": " ",
+        "ind1": "1",
+        "subfields": [
+          {
+            "a": "20220223140704.0"
+          },
+          {
+            "b": "2022-02-24T06:25:08Z"
+          }
+        ]
+      }
+    },
+    {
+      "DAT": {
+        "ind2": " ",
+        "ind1": "2",
+        "subfields": [
+          {
+            "a": "2019-06-18T18:00:02Z"
+          },
+          {
+            "b": "2022-02-07T21:00:01Z"
+          }
+        ]
+      }
+    },
+    {
+      "CAT": {
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "a": "SDR-UCSD"
+          },
+          {
+            "d": "ALMA"
+          },
+          {
+            "l": "prepare.pl-004-008"
+          }
+        ]
+      }
+    },
+    {
+      "FMT": {
+        "subfields": [
+          {
+            "a": "SE"
+          }
+        ],
+        "ind2": " ",
+        "ind1": " "
+      }
+    },
+    {
+      "HOL": {
+        "subfields": [
+          {
+            "0": "sdr-ucsd.991015444869706535"
+          },
+          {
+            "a": "uc1"
+          },
+          {
+            "b": "SDR"
+          },
+          {
+            "c": "UCSD"
+          },
+          {
+            "p": "uc1.31822009377417"
+          },
+          {
+            "s": "UC"
+          },
+          {
+            "z": "v.73-76"
+          },
+          {
+            "1": "991015444869706535"
+          }
+        ],
+        "ind1": " ",
+        "ind2": " "
+      }
+    },
+    {
+      "974": {
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "b": "UC"
+          },
+          {
+            "c": "UCSD"
+          },
+          {
+            "d": "20220224"
+          },
+          {
+            "s": "google"
+          },
+          {
+            "u": "uc1.31822009377417"
+          },
+          {
+            "z": "v.73-76"
+          },
+          {
+            "y": "1975"
+          },
+          {
+            "r": "ic"
+          },
+          {
+            "q": "cdpp"
+          }
+        ]
+      }
+    },
+    {
+      "974": {
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "b": "UC"
+          },
+          {
+            "c": "UCSD"
+          },
+          {
+            "d": "20220301"
+          },
+          {
+            "s": "google"
+          },
+          {
+            "u": "uc1.31822009377425"
+          },
+          {
+            "z": "v.61-62"
+          },
+          {
+            "y": "1975"
+          },
+          {
+            "r": "ic"
+          },
+          {
+            "q": "cdpp"
+          }
+        ]
+      }
+    },
+    {
+      "974": {
+        "ind2": " ",
+        "ind1": " ",
+        "subfields": [
+          {
+            "b": "UC"
+          },
+          {
+            "c": "UCSD"
+          },
+          {
+            "d": "20220224"
+          },
+          {
+            "s": "google"
+          },
+          {
+            "u": "uc1.31822009377433"
+          },
+          {
+            "z": "v.38-42"
+          },
+          {
+            "y": "1975"
+          },
+          {
+            "r": "ic"
+          },
+          {
+            "q": "cdpp"
+          }
+        ]
+      }
+    },
+    {
+      "974": {
+        "subfields": [
+          {
+            "b": "UC"
+          },
+          {
+            "c": "UCSD"
+          },
+          {
+            "d": "20220224"
+          },
+          {
+            "s": "google"
+          },
+          {
+            "u": "uc1.31822009377482"
+          },
+          {
+            "z": "v.63-67"
+          },
+          {
+            "y": "1975"
+          },
+          {
+            "r": "und"
+          },
+          {
+            "q": "bib"
+          },
+          {
+            "t": "non-US bib date2 >= 1927"
+          }
+        ],
+        "ind2": " ",
+        "ind1": " "
+      }
+    },
+    {
+      "974": {
+        "ind1": " ",
+        "ind2": " ",
+        "subfields": [
+          {
+            "b": "UC"
+          },
+          {
+            "c": "UCSD"
+          },
+          {
+            "d": "20220224"
+          },
+          {
+            "s": "google"
+          },
+          {
+            "u": "uc1.31822009377490"
+          },
+          {
+            "z": "v.43-48"
+          },
+          {
+            "y": "1975"
+          },
+          {
+            "r": "und"
+          },
+          {
+            "q": "bib"
+          },
+          {
+            "t": "non-US bib date2 >= 1927"
+          }
+        ]
+      }
+    },
+    {
+      "974": {
+        "subfields": [
+          {
+            "b": "UC"
+          },
+          {
+            "c": "UCSD"
+          },
+          {
+            "d": "20220224"
+          },
+          {
+            "s": "google"
+          },
+          {
+            "u": "uc1.31822009377540"
+          },
+          {
+            "z": "v.68-72"
+          },
+          {
+            "y": "1975"
+          },
+          {
+            "r": "ic"
+          },
+          {
+            "q": "cdpp"
+          }
+        ],
+        "ind2": " ",
+        "ind1": " "
+      }
+    },
+    {
+      "974": {
+        "ind2": " ",
+        "ind1": " ",
+        "subfields": [
+          {
+            "b": "UC"
+          },
+          {
+            "c": "UCSD"
+          },
+          {
+            "d": "20220224"
+          },
+          {
+            "s": "google"
+          },
+          {
+            "u": "uc1.31822009377557"
+          },
+          {
+            "z": "v.49-54"
+          },
+          {
+            "y": "1975"
+          },
+          {
+            "r": "und"
+          },
+          {
+            "q": "bib"
+          },
+          {
+            "t": "non-US bib date2 >= 1927"
+          }
+        ]
+      }
+    },
+    {
+      "974": {
+        "subfields": [
+          {
+            "b": "UC"
+          },
+          {
+            "c": "UCSD"
+          },
+          {
+            "d": "20220224"
+          },
+          {
+            "s": "google"
+          },
+          {
+            "u": "uc1.31822009377615"
+          },
+          {
+            "z": "v.55-60"
+          },
+          {
+            "y": "1975"
+          },
+          {
+            "r": "und"
+          },
+          {
+            "q": "bib"
+          },
+          {
+            "t": "non-US bib date2 >= 1927"
+          }
+        ],
+        "ind2": " ",
+        "ind1": " "
+      }
+    }
+  ],
+  "leader": "02376cas a2200469 a 4500"
+}
