@@ -647,7 +647,8 @@
         <analyzer>
             &tokenize_into_one_big_token;
             &remove_unnecessary_ending_punctuation;
-	    &icu_normalization_no_case_folding;
+    	    &icu_normalization_no_case_folding;
+	        &post_tokenization_cjk;
             &cleanup;
         </analyzer>
     </fieldType>
