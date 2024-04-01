@@ -10,23 +10,24 @@ module Traject
       end
 
       def link
-        code_map = {
-          "ann_arbor" => "UMAA",
-          "flint" => "UMFL"
-        }
-        URI::DEFAULT_PARSER.escape(@e56["u"].sub("openurl", "openurl-#{code_map[link_campus]}"))
+        code = (_alma_campuses.count == 1 && _alma_campuses.first == "UMFL") ? "UMFL" : "UMAA"
+        URI::DEFAULT_PARSER.escape(@e56["u"].sub("openurl", "openurl-#{code}"))
       end
 
       def link_text
         "Available online"
       end
 
-      def link_campus
+      def campuses
+        inst_code_map = {
+          "UMAA" => "ann_arbor",
+          "UMFL" => "flint"
+        }
         # return flint when it's the only campus
-        if _alma_campuses.count == 1 && _alma_campuses.first == "UMFL"
-          "flint"
+        if _alma_campuses.empty?
+          inst_code_map.values
         else
-          "ann_arbor"
+          _alma_campuses.map { |code| inst_code_map[code] }
         end
       end
 
@@ -86,7 +87,7 @@ module Traject
           "library",
           "link",
           "link_text",
-          "link_campus",
+          "campuses",
           "interface_name",
           "collection_name",
           "authentication_note",

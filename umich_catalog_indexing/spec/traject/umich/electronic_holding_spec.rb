@@ -71,22 +71,22 @@ describe Traject::UMich::ElectronicHolding do
       expect(subject.institution_codes).to eq(["MIFLIC"])
     end
   end
-  context "#link_campus" do
-    it "shows ann_arbor when no c code" do
-      expect(subject.link_campus).to eq("ann_arbor")
+  context "#campuses" do
+    it "shows both ann_arbor and flint when no c code" do
+      expect(subject.campuses).to contain_exactly("ann_arbor", "flint")
     end
-    it "shows ann_arbor when both UMAA and UMFL are present" do
+    it "shows both ann_arbor and flint when both UMAA and UMFL are present" do
       ann_arbor_campus
       flint_campus
-      expect(subject.link_campus).to eq("ann_arbor")
+      expect(subject.campuses).to contain_exactly("ann_arbor", "flint")
     end
     it "shows ann_arbor when c code is only UMAA" do
       ann_arbor_campus
-      expect(subject.link_campus).to eq("ann_arbor")
+      expect(subject.campuses).to contain_exactly("ann_arbor")
     end
     it "shows flint when c code is only UMFL" do
       flint_campus
-      expect(subject.link_campus).to eq("flint")
+      expect(subject.campuses).to contain_exactly("flint")
     end
   end
   context "#interface_name" do
@@ -137,7 +137,7 @@ describe Traject::UMich::ElectronicHolding do
           "library" => s.library,
           "link" => s.link,
           "link_text" => s.link_text,
-          "link_campus" => s.link_campus,
+          "campuses" => s.campuses,
           "interface_name" => s.interface_name,
           "collection_name" => s.collection_name,
           "authentication_note" => s.authentication_note,

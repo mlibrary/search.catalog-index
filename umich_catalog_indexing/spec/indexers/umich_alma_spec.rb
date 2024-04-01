@@ -25,7 +25,7 @@ describe "umich_alma" do
         "link" =>
           "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl-UMAA?u.ignore_date_coverage=true&portfolio_pid=531031051570006381&Force_direct=true",
         "link_text" => "Available online",
-        "link_campus" => "ann_arbor",
+        "campuses" => ["ann_arbor", "flint"],
         "interface_name" => "archived issues via the International Society of Arboriculture",
         "public_note" => "Access to archived issues via the International Society of Arboriculture online version:",
         "note" => "archived issues via the International Society of Arboriculture. Access to archived issues via the International Society of Arboriculture online version.",
@@ -42,7 +42,7 @@ describe "umich_alma" do
         "link" =>
         "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl-UMAA?u.ignore_date_coverage=true&portfolio_pid=531031051590006381&Force_direct=true",
         "link_text" => "Available online",
-        "link_campus" => "ann_arbor",
+        "campuses" => ["ann_arbor", "flint"],
         "public_note" =>
         "Institutional password required for access to the International Society of Arboriculture online version; authentication required:",
         "note" =>
