@@ -35,5 +35,11 @@ module Traject::Macros::Common
         accumulator.replace Common::Subject.topics(record)
       end
     end
+
+    def subject_facets
+      ->(record, accumulator) do
+        accumulator.replace Common::Subject.subject_facets(record)
+      end
+    end
   end
 end

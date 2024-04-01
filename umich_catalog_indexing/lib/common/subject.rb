@@ -132,12 +132,15 @@ module Common::Subject
       already_remediated_subject_fields(record)
   end
 
-  def self.topics(record)
+  def self.subject_facets(record)
     (
       subject_fields(record) +
-      deprecated_subject_fields(record) +
       remediated_subject_fields(record)
-    ).filter_map do |field|
+    ).reject do |field|
+      field.indicator2 == "7" && field["2"] =~ /fast/
+    end.reject do |field|
+      _remediateable_subject_field?(field)
+    end.map do |field|
       unless field.indicator2 == "7" && field["2"] =~ /fast/
         a = field["a"]
         more = []
@@ -146,6 +149,23 @@ module Common::Subject
         end
         [a, more.join(" ")]
       end
+    end.flatten.uniq
+  end
+
+  def self.topics(record)
+    (
+      subject_fields(record) +
+      deprecated_subject_fields(record) +
+      remediated_subject_fields(record)
+    ).reject do |field|
+      field.indicator2 == "7" && field["2"] =~ /fast/
+    end.map do |field|
+      a = field["a"]
+      more = []
+      field.each do |sf|
+        more.push sf.value if TOPICS[field.tag]&.chars&.include?(sf.code)
+      end
+      [a, more.join(" ")]
     end.flatten.uniq
   end
 

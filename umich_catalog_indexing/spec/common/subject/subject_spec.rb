@@ -72,6 +72,26 @@ RSpec.describe Common::Subject do
     end
   end
 
+  context ".subject_facets" do
+    it "returns topics including remediated ones, skips unremediated ones" do
+      expect(described_class.subject_facets(deprecated_record)).to contain_exactly(
+        "United States",
+        "United States Emigration and immigration Government policy.",
+        "Undocumented immigrants",
+        "Undocumented immigrants Government policy United States.",
+        "Undocumented immigrants United States."
+      )
+    end
+
+    it "returns topics, does nothing with already remediated records" do
+      expect(described_class.subject_facets(remediated_record)).to contain_exactly(
+        "Undocumented immigrants.",
+        "Emigration and immigration law.",
+        "Noncitizens.",
+        "Right to counsel."
+      )
+    end
+  end
   context ".topics" do
     it "returns topics including remediated ones" do
       expect(described_class.topics(deprecated_record)).to contain_exactly(
