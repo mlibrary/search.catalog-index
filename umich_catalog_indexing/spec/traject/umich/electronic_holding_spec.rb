@@ -138,6 +138,7 @@ describe Traject::UMich::ElectronicHolding do
           "link" => s.link,
           "link_text" => s.link_text,
           "campuses" => s.campuses,
+          "description" => s.description,
           "interface_name" => s.interface_name,
           "collection_name" => s.collection_name,
           "authentication_note" => s.authentication_note,

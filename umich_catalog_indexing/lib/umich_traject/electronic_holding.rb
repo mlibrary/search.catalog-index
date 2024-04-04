@@ -91,6 +91,7 @@ module Traject
           "interface_name",
           "collection_name",
           "authentication_note",
+          "description",
           "public_note",
           "note",
           "finding_aid",
