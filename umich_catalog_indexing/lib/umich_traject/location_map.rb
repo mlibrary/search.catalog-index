@@ -73,16 +73,12 @@ module Traject
 
       m[/^FLINT OVERZ/] = "FLINT MAIN"
       m[/^FLINT MSTR/] = "FLINT MAIN"
-      m[/^FLINT BUSB/] = "FLINT MAIN"
       m[/^FLINT FSPAM/] = "FLINT MAIN"
-
-      m[/^FLINT MOVRZ/] = "FLINT MEDIA"
 
       m[/^FLINT MFILM/] = "FLINT MICRO"
       m[/^FLINT MFICH/] = "FLINT MICRO"
       m[/^FLINT MCARD/] = "FLINT MICRO"
 
-      m[/^FLINT BUSP/] = "FLINT PERI"
       m
     end
   end
