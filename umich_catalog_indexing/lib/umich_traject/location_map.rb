@@ -65,19 +65,24 @@ module Traject
 
       m[/^BUHR.*/] = "BUHR"
 
+      m[/^FLINT ATLAS/] = "FLINT REF"
       m[/^FLINT TECH/] = "FLINT REF"
-      m[/^FLINT SPEC/] = "FLINT ARCH"
       m[/^FLINT REFD/] = "FLINT REF"
+
+      m[/^FLINT SPEC/] = "FLINT ARCH"
+
       m[/^FLINT OVERZ/] = "FLINT MAIN"
       m[/^FLINT MSTR/] = "FLINT MAIN"
+      m[/^FLINT BUSB/] = "FLINT MAIN"
+      m[/^FLINT FSPAM/] = "FLINT MAIN"
+
       m[/^FLINT MOVRZ/] = "FLINT MEDIA"
+
       m[/^FLINT MFILM/] = "FLINT MICRO"
       m[/^FLINT MFICH/] = "FLINT MICRO"
       m[/^FLINT MCARD/] = "FLINT MICRO"
-      m[/^FLINT FSPAM/] = "FLINT MAIN"
+
       m[/^FLINT BUSP/] = "FLINT PERI"
-      m[/^FLINT BUSB/] = "FLINT MAIN"
-      m[/^FLINT ATLAS/] = "FLINT REF"
       m
     end
   end
