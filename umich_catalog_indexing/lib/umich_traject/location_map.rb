@@ -1,4 +1,4 @@
-require 'match_map'
+require "match_map"
 module Traject
   module UMich
     def self.location_map
@@ -18,9 +18,9 @@ module Traject
       m[/^SPEC SC[HB]-TAUB.*/] = "SPEC TAUB"
       m[/^SPEC SC[HB]-CUL/] = "SPEC CUL"
       m[/^SPEC SC[HB]-JHC.*/] = "SPEC JHC"
-      m[/^SPEC SC[HB]-LA.*/] = "SPEC LABD" #need to fix this later
-      m[/^SPEC SC[HB]-WOR/] = "SPEC WOR" #need to fix this later
-      m[/^SPEC SCB-THC.*/] = "SPEC THC" #need to fix this later
+      m[/^SPEC SC[HB]-LA.*/] = "SPEC LABD" # need to fix this later
+      m[/^SPEC SC[HB]-WOR/] = "SPEC WOR" # need to fix this later
+      m[/^SPEC SCB-THC.*/] = "SPEC THC" # need to fix this later
       #==== end of 09-2022 SCRC additions
       m[/^SPEC RCLC/] = "SPEC CHIL"
       m[/^SPEC GOSL/] = ["SPEC CHIL", "SPEC GOSL"]
@@ -43,7 +43,7 @@ module Traject
       m[/^HATCH AOVR/] = "HATCH ASIA"
       m[/^HATCH AOFF/] = "HATCH ASIA"
       m[/^HATCH AMIC/] = "HATCH ASIA"
-      m[/^HATCH ASPEC/] = 'HATCH ASIA'
+      m[/^HATCH ASPEC/] = "HATCH ASIA"
       m[/^MiU-H/] = "BENT"
       m[/^MiU-C/] = "CLEM"
       m[/^MiFliC/] = "FLINT"
@@ -72,8 +72,7 @@ module Traject
       m[/^FLINT BUSP/] = "FLINT PERI"
       m[/^FLINT BUSB/] = "FLINT MAIN"
       m[/^FLINT ATLAS/] = "FLINT REF"
-      return m
+      m
     end
   end
 end
-
