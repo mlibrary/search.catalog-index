@@ -4,6 +4,7 @@ module Traject
     def self.location_map
       m = MatchMap.new
       m.echo = :onmiss
+
       #====added 03-2023 for SCRC
       m[/^SPEC SC[HB]-RARE.*/] = "SPEC RARE"
       m[/^SPEC SCB-SCI/] = "SPEC RARE"
@@ -22,6 +23,7 @@ module Traject
       m[/^SPEC SC[HB]-WOR/] = "SPEC WOR" # need to fix this later
       m[/^SPEC SCB-THC.*/] = "SPEC THC" # need to fix this later
       #==== end of 09-2022 SCRC additions
+
       m[/^SPEC RCLC/] = "SPEC CHIL"
       m[/^SPEC GOSL/] = ["SPEC CHIL", "SPEC GOSL"]
       m[/^SPEC CHIL.*/] = "SPEC CHIL"
@@ -33,6 +35,7 @@ module Traject
       m[/^SPEC LA.*/] = "SPEC LABD"
       #=== between 09-2022 changes and here should be removed
       #=== when confirmed that everything in SPEC is cleaned up
+
       m[/^HATCH MSHLV/] = "HATCH BKS"
       m[/^HATCH MREF/] = "HATCH BKS"
       m[/^HATCH MOVRD/] = "HATCH MAP"
@@ -44,11 +47,6 @@ module Traject
       m[/^HATCH AOFF/] = "HATCH ASIA"
       m[/^HATCH AMIC/] = "HATCH ASIA"
       m[/^HATCH ASPEC/] = "HATCH ASIA"
-      m[/^MiU-H/] = "BENT"
-      m[/^MiU-C/] = "CLEM"
-      m[/^MiFliC/] = "FLINT"
-      m[/^MiAaUTR/] = "UMTRI"
-      m[/^BUHR.*/] = "BUHR"
       m[/^HATCH MFOL/] = "HATCH MRAR"
       m[/^HATCH MFILR/] = "HATCH MRAR"
       m[/^HATCH MFILE/] = "HATCH MAP"
@@ -56,12 +54,20 @@ module Traject
       m[/^HATCH GRNT/] = "HATCH REF"
       m[/^HATCH GLRF/] = "HATCH REF"
       m[/^HATCH GDESK/] = "HATCH REF"
-      m[/^FLINT TECH/] = "FLINT REF"
       m[/^HATCH DSOFT/] = "HATCH DOCS"
-      m[/^FLINT SPEC/] = "FLINT ARCH"
       m[/^HATCH DREF/] = "HATCH DOCS"
-      m[/^FLINT REFD/] = "FLINT REF"
       m[/^HATCH DMIC/] = "HATCH DOCS"
+
+      m[/^MiU-H/] = "BENT"
+      m[/^MiU-C/] = "CLEM"
+      m[/^MiFliC/] = "FLINT"
+      m[/^MiAaUTR/] = "UMTRI"
+
+      m[/^BUHR.*/] = "BUHR"
+
+      m[/^FLINT TECH/] = "FLINT REF"
+      m[/^FLINT SPEC/] = "FLINT ARCH"
+      m[/^FLINT REFD/] = "FLINT REF"
       m[/^FLINT OVERZ/] = "FLINT MAIN"
       m[/^FLINT MSTR/] = "FLINT MAIN"
       m[/^FLINT MOVRZ/] = "FLINT MEDIA"
