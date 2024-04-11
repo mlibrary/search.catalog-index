@@ -381,7 +381,7 @@
             &overlay_keyword_token_copies_for_later_processing;
             &remove_english_posessives;
             &keyword_aware_icu_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             &stem;
             &remove_duplicates_at_same_position;
         </analyzer>
@@ -421,7 +421,7 @@
             &deal_with_english_possives_in_absense_of_stemming;
             &remove_all_punctuation;
             &icu_case_folding_and_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             <filter class="edu.umich.lib.solr_filters.AnchoredSearchFilterFactory"/>
             &remove_duplicates_at_same_position;
         </analyzer>
@@ -439,7 +439,7 @@
             &deal_with_english_possives_in_absense_of_stemming;
             &remove_all_punctuation;
             &icu_case_folding_and_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             <filter class="edu.umich.lib.solr_filters.LeftAnchoredSearchFilterFactory"/>
             &remove_duplicates_at_same_position;
         </analyzer>
@@ -516,7 +516,7 @@
             &spaceify_dash_and_colon;
             &remove_all_punctuation;
             &icu_case_folding_and_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             &remove_duplicates_at_same_position;
             <!-- Left-pad numbers with zeroes -->
             <filter class="solr.PatternReplaceFilterFactory"
@@ -556,7 +556,7 @@
             &remove_all_punctuation;
             &overlay_keyword_token_copies_for_later_processing;
             &keyword_aware_icu_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             &remove_duplicates_at_same_position;
         </analyzer>
     </fieldType>
@@ -565,7 +565,7 @@
         <analyzer>
             &tokenize_into_one_big_token;
             &icu_case_folding_and_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             <filter class="solr.PatternReplaceFilterFactory"
                     pattern="^\p{Z}*the\p{Z}+" replacement=""
                     replace="all"
@@ -578,7 +578,7 @@
             &cleanup_whitespace;
         </analyzer>
     </fieldType>
-    <!--<fieldType name="authority_search" class="umich_solr_analyzed_string:com.billdueber.solr.schema.AnalyzedString" fieldType="authority_search_analysis"/>-->
+
     <fieldType name="authority_search" class="com.billdueber.solr.schema.AnalyzedString" fieldType="authority_search_analysis"/>
 
     <fieldType name="lc_subject" class="solr.TextField"
@@ -648,7 +648,7 @@
             &tokenize_into_one_big_token;
             &remove_unnecessary_ending_punctuation;
     	    &icu_normalization_no_case_folding;
-	        &post_tokenization_cjk;
+	        &post_tokenization_cjk_no_bigrams;
             &cleanup;
         </analyzer>
     </fieldType>
