@@ -206,9 +206,14 @@
 '>
 <!-- Normalization and case folding -->
 
-<!-- pre/post_tokenization_cjk take whole cloth from Stanford
-  via https://github.com/sul-dlss/CJKFilterUtils -->
+<!-- pre/post_tokenization_cjk taken whole cloth from Stanford
+  via https://github.com/sul-dlss/CJKFilterUtils
 
+  The pre-tokenization step turns out to be horrendously expensive
+  and needs more exploration. Presumably all the complex regex are
+  slowing things down.
+
+  -->
 <!ENTITY pre_tokenization_cjk '
 <!-- <charFilter class="solr.PatternReplaceCharFilterFactory" pattern="([\p{InHangul_Jamo}\p{InHangul_Compatibility_Jamo}\p{InHangul_Syllables}][\p{InBopomofo}\p{InBopomofo_Extended}\p{InCJK_Compatibility}\p{InCJK_Compatibility_Forms}\p{InCJK_Compatibility_Ideographs}\p{InCJK_Compatibility_Ideographs_Supplement}\p{InCJK_Radicals_Supplement}\p{InCJK_Symbols_And_Punctuation}\p{InCJK_Unified_Ideographs}\p{InCJK_Unified_Ideographs_Extension_A}\p{InCJK_Unified_Ideographs_Extension_B}\p{InKangxi_Radicals}\p{InHalfwidth_And_Fullwidth_Forms}\p{InIdeographic_Description_Characters}]*)\s+(?=[\p{InHangul_Jamo}\p{InHangul_Compatibility_Jamo}\p{InHangul_Syllables}\p{InBopomofo}\p{InBopomofo_Extended}\p{InCJK_Compatibility}\p{InCJK_Compatibility_Forms}\p{InCJK_Compatibility_Ideographs}\p{InCJK_Compatibility_Ideographs_Supplement}\p{InCJK_Radicals_Supplement}\p{InCJK_Symbols_And_Punctuation}\p{InCJK_Unified_Ideographs}\p{InCJK_Unified_Ideographs_Extension_A}\p{InCJK_Unified_Ideographs_Extension_B}\p{InKangxi_Radicals}\p{InHalfwidth_And_Fullwidth_Forms}\p{InIdeographic_Description_Characters}])" replacement="$1"/>
 <charFilter class="solr.PatternReplaceCharFilterFactory" pattern="([\p{InHangul_Jamo}\p{InHangul_Compatibility_Jamo}\p{InHangul_Syllables}\p{InBopomofo}\p{InBopomofo_Extended}\p{InCJK_Compatibility}\p{InCJK_Compatibility_Forms}\p{InCJK_Compatibility_Ideographs}\p{InCJK_Compatibility_Ideographs_Supplement}\p{InCJK_Radicals_Supplement}\p{InCJK_Symbols_And_Punctuation}\p{InCJK_Unified_Ideographs}\p{InCJK_Unified_Ideographs_Extension_A}\p{InCJK_Unified_Ideographs_Extension_B}\p{InKangxi_Radicals}\p{InHalfwidth_And_Fullwidth_Forms}\p{InIdeographic_Description_Characters}])\s+(?=[\p{InBopomofo}\p{InBopomofo_Extended}\p{InCJK_Compatibility}\p{InCJK_Compatibility_Forms}\p{InCJK_Compatibility_Ideographs}\p{InCJK_Compatibility_Ideographs_Supplement}\p{InCJK_Radicals_Supplement}\p{InCJK_Symbols_And_Punctuation}\p{InCJK_Unified_Ideographs}\p{InCJK_Unified_Ideographs_Extension_A}\p{InCJK_Unified_Ideographs_Extension_B}\p{InKangxi_Radicals}\p{InHalfwidth_And_Fullwidth_Forms}\p{InIdeographic_Description_Characters}\s]*[\p{InHangul_Jamo}\p{InHangul_Compatibility_Jamo}\p{InHangul_Syllables}])" replacement="$1"/>
@@ -218,18 +223,40 @@
 -->
 '>
 
-<!ENTITY post_tokenization_cjk '
-<!--
-<filter class="solr.CJKWidthFilterFactory"/>
-<filter class="solr.ICUTransformFilterFactory" id="Traditional-Simplified"/>
-<filter class="solr.CJKBigramFilterFactory" han="false" hiragana="false" katakana="false" hangul="true" outputUnigrams="true" />
-<filter class="solr.FixBrokenOffsetsFilterFactory"/>
+
+<!-- Do transliteration for CJK.
+  Hant = Traditional Chinese
+  Hans = Simplified Chinese
+  Hiragana = Japanese for japanese words
+  Kantakana = Japanese for words borrowed from other languages
+  Hangul = Korean
+
 -->
+
+<!ENTITY post_tokenization_cjk '
+ <filter class="solr.CJKWidthFilterFactory"/>
+<filter class="solr.ICUTransformFilterFactory" id="Traditional-Simplified"/>
+<filter class="solr.FixBrokenOffsetsFilterFactory"/>
+<filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+<filter class="solr.ICUTransformFilterFactory" id="Katakana-Hiragana"/>
+<filter class="solr.CJKBigramFilterFactory" han="true" hiragana="true"
+               katakana="true" hangul="true" outputUnigrams="true" />
+<filter class="solr.FixBrokenOffsetsFilterFactory"/>
+<filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
 '>
 
+<!ENTITY post_tokenization_cjk_no_bigrams '
+<filter class="solr.CJKWidthFilterFactory"/>
+<filter class="solr.ICUTransformFilterFactory" id="Traditional-Simplified"/>
+<filter class="solr.FixBrokenOffsetsFilterFactory"/>
+<filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+<filter class="solr.ICUTransformFilterFactory" id="Katakana-Hiragana"/>
+<filter class="solr.FixBrokenOffsetsFilterFactory"/>
+<filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+'>
 
 <!ENTITY pre_tokenization_case_folding '
-<charFilter class="solr.ICUNormalizer2CharFilterFactory"/>
+<charFilter class="solr.ICUNormalizer2CharFilterFactory" name="nfkc_cf" mode="compose"/>
 '>
 
 <!ENTITY icu_normalization_no_case_folding '
@@ -272,6 +299,7 @@
 
 <!ENTITY standard_pretokenization '
 &pre_tokenization_character_substitution;
+&pre_tokenization_case_folding;
 &pre_tokenization_cjk;
 '>
 
@@ -354,7 +382,7 @@
             &overlay_keyword_token_copies_for_later_processing;
             &remove_english_posessives;
             &keyword_aware_icu_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             &stem;
             &remove_duplicates_at_same_position;
         </analyzer>
@@ -363,7 +391,7 @@
     <!--
 
        field type: text_no_stem_or_synonyms
-       desc: the same thing, but without stemming or synonyms.
+       desc: the same thing, but without stemming or synonyms, or bigrams/unigrams for cjk
        usage: A copyField target that gets a bigger boost, so more exact
               matches get higher relevance scores
 
@@ -376,7 +404,7 @@
             &overlay_keyword_token_copies_for_later_processing;
             &remove_english_posessives;
             &keyword_aware_icu_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             &remove_duplicates_at_same_position;
         </analyzer>
     </fieldType>
@@ -394,7 +422,7 @@
             &deal_with_english_possives_in_absense_of_stemming;
             &remove_all_punctuation;
             &icu_case_folding_and_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             <filter class="edu.umich.lib.solr_filters.AnchoredSearchFilterFactory"/>
             &remove_duplicates_at_same_position;
         </analyzer>
@@ -412,7 +440,7 @@
             &deal_with_english_possives_in_absense_of_stemming;
             &remove_all_punctuation;
             &icu_case_folding_and_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             <filter class="edu.umich.lib.solr_filters.LeftAnchoredSearchFilterFactory"/>
             &remove_duplicates_at_same_position;
         </analyzer>
@@ -489,7 +517,7 @@
             &spaceify_dash_and_colon;
             &remove_all_punctuation;
             &icu_case_folding_and_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             &remove_duplicates_at_same_position;
             <!-- Left-pad numbers with zeroes -->
             <filter class="solr.PatternReplaceFilterFactory"
@@ -529,7 +557,7 @@
             &remove_all_punctuation;
             &overlay_keyword_token_copies_for_later_processing;
             &keyword_aware_icu_normalization;
-            &post_tokenization_cjk;
+            &post_tokenization_cjk_no_bigrams;
             &remove_duplicates_at_same_position;
         </analyzer>
     </fieldType>
@@ -538,6 +566,7 @@
         <analyzer>
             &tokenize_into_one_big_token;
             &icu_case_folding_and_normalization;
+            &post_tokenization_cjk_no_bigrams;
             <filter class="solr.PatternReplaceFilterFactory"
                     pattern="^\p{Z}*the\p{Z}+" replacement=""
                     replace="all"
@@ -550,7 +579,7 @@
             &cleanup_whitespace;
         </analyzer>
     </fieldType>
-    <!--<fieldType name="authority_search" class="umich_solr_analyzed_string:com.billdueber.solr.schema.AnalyzedString" fieldType="authority_search_analysis"/>-->
+
     <fieldType name="authority_search" class="com.billdueber.solr.schema.AnalyzedString" fieldType="authority_search_analysis"/>
 
     <fieldType name="lc_subject" class="solr.TextField"
@@ -619,7 +648,8 @@
         <analyzer>
             &tokenize_into_one_big_token;
             &remove_unnecessary_ending_punctuation;
-	    &icu_normalization_no_case_folding;
+    	    &icu_normalization_no_case_folding;
+	        &post_tokenization_cjk_no_bigrams;
             &cleanup;
         </analyzer>
     </fieldType>
