@@ -256,7 +256,7 @@
 '>
 
 <!ENTITY pre_tokenization_case_folding '
-<charFilter class="solr.ICUNormalizer2CharFilterFactory"/>
+<charFilter class="solr.ICUNormalizer2CharFilterFactory" name="nfkc_cf" mode="compose"/>
 '>
 
 <!ENTITY icu_normalization_no_case_folding '
@@ -299,6 +299,7 @@
 
 <!ENTITY standard_pretokenization '
 &pre_tokenization_character_substitution;
+&pre_tokenization_case_folding;
 &pre_tokenization_cjk;
 '>
 
