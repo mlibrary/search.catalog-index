@@ -66,7 +66,10 @@ module Traject
           authentication_note,
           public_note
         ].flatten.compact.map do |x|
-          x.strip.sub(/\p{P}$/, "").sub(/$/, ".")
+          out = x.strip
+            .sub(/[[\p{P}]&&[^\])]]$/, "")
+          out.sub!(/$/, ".") if out.match?(/[^\])]$/)
+          out
         end.join(" ")
       end
 
