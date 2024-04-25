@@ -97,9 +97,9 @@ module Jobs
           preferred_value("Electronic Collection Interface Name")
         end
 
-        # Returns the appropriate note. Authentication Note is the highest
-        # priority. Interface Name is the least priority. Returns nil if
-        # everything is nil
+        # Concatentates interface name, public note, and authentication note.
+        # Also strips out any trailing punctuation except closing parens and
+        # square brackets. The rest are terminated with a period.
         def note
           [
             interface_name,

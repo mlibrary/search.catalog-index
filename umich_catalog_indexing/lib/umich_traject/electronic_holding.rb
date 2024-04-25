@@ -59,6 +59,9 @@ module Traject
         @e56["z"]
       end
 
+      # Concatentates interface name, collection name, authentication note, and
+      # public note. Also strips out any trailing punctuation except closing
+      # parens and square brackets. The rest are terminated with a period.
       def note
         [
           interface_name,
