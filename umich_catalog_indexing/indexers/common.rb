@@ -43,6 +43,8 @@ each_record do |rec, context|
     id = context.output_hash["id"]
     if record_is_umich(rec, context)
       context.skip!("#{id} : zephir record skipped, HOL")
+    elsif no_full_text?(rec, context)
+      context.skip!("#{id} : zephir record skipped, No full text items")
     else
       # Since ETAS is not in effect, following only needed for zephir records
       oclc_nums = context.output_hash["oclc"]
@@ -52,6 +54,15 @@ each_record do |rec, context|
       end
     end
   end
+end
+
+def no_full_text?(r, context)
+  has_at_least_one_full_text = r.fields("974")
+    .map { |x| x["r"] } # get the rights subfield
+    .any? do |rights| # do any of the rights options match full text?
+      statusFromRights(rights) == "Full text"
+    end
+  !has_at_least_one_full_text
 end
 
 def record_is_umich(r, context)
