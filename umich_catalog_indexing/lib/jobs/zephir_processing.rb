@@ -15,6 +15,7 @@ module Jobs
       report[:skipped_umich] = 0
       report[:skipped_overlap] = 0
       report[:not_skipped] = 0
+      report[:no_full_text] = 0
       report[:count] = 0
       S.logger.info "Writing filtered records from #{full_zephir_file} to the #{scratch_dir} directory"
       Zinzout.zin(full_zephir_file) do |infile|
@@ -24,6 +25,9 @@ module Jobs
             if r.is_umich?
               report[:skipped_umich] += 1
               false # don't add it.
+            elsif r.no_full_text?
+              report[:no_full_text] += 1
+              false
             else
               r
             end
