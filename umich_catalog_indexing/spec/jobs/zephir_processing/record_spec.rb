@@ -23,6 +23,15 @@ describe Jobs::ZephirProcessing::Record do
       expect(subject.has_oclc_num?(1111)).to eq(false)
     end
   end
+  context "#no_full_text?" do
+    it "returns true when there are no Full Text items associated with the record" do
+      expect(subject.no_full_text?).to eq(true)
+    end
+    it "returns false when there is at least one Full Text item associated with the record" do
+      @zephir_record["fields"][45]["974"]["subfields"][7]["r"] = "pdus"
+      expect(subject.no_full_text?).to eq(false)
+    end
+  end
   context "#is_umich?" do
     it "returns true when umich is the preffered record" do
       @zephir_record["fields"][42]["HOL"]["subfields"][3]["c"] = "MIU"
