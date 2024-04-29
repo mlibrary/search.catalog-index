@@ -94,6 +94,8 @@ each_record do |rec, context|
   context.clipboard[:ht][:has_non_ht_holding] = has_non_ht_holding
 end
 
+# Is true when the item is a zephir record that does not have any full text items.
+# This should be removable when filtering out zephir search only happens. Then this can be set to false always.
 to_field "ht_searchonly" do |record, acc, context|
   has_ht_fulltext = context.clipboard[:ht][:items]&.us_fulltext? || false
   acc << if has_ht_fulltext or context.clipboard[:ht][:has_non_ht_holding] or context.clipboard[:ht][:record_source] == "alma"
@@ -103,6 +105,7 @@ to_field "ht_searchonly" do |record, acc, context|
   end
 end
 
+# Do we even use intl anywhere?
 to_field "ht_searchonly_intl" do |record, acc, context|
   has_ht_fulltext = context.clipboard[:ht][:items]&.intl_fulltext? || false
   acc << if has_ht_fulltext or context.clipboard[:ht][:has_non_ht_holding]
@@ -113,5 +116,5 @@ to_field "ht_searchonly_intl" do |record, acc, context|
 end
 
 #### Availability ####
-#
+# mrio: Pretty sure this is dead code
 to_field "availability", extract_marc("973b", translation_map: "umich/availability_map_umich")
