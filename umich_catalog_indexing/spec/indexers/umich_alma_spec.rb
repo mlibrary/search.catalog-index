@@ -12,9 +12,14 @@ describe "umich_alma" do
   let(:arborist) do
     get_record("./spec/fixtures/arborist.xml")
   end
+  let(:zephir_record) do
+    file = JSON.parse(fixture("zephir_record.json"))
+    MARC::Record.new_from_hash(file)
+  end
   let(:indexer) do
     Traject::Indexer.new do
       load_config_file("./spec/support/traject_settings.rb")
+      load_config_file("./indexers/common.rb")
       load_config_file("./indexers/umich_alma.rb")
     end
   end
@@ -163,6 +168,10 @@ describe "umich_alma" do
     it "has expected availability for Electronic Item" do
       @record = arborist
       expect(subject["availability"]).to contain_exactly("Circulating Items", "Available online")
+    end
+    it "has expected availability for Hathi Record" do
+      @record = zephir_record
+      expect(subject["availability"]).to contain_exactly("HathiTrust")
     end
   end
   it "has expected physical hol" do
