@@ -155,6 +155,16 @@ describe "umich_alma" do
   subject do
     indexer.process_record(@record).output_hash
   end
+  context "availability" do
+    it "has expected availability for Physical Item" do
+      @record = hurdy_gurdy
+      expect(subject["availability"]).to contain_exactly("Circulating Items")
+    end
+    it "has expected availability for Electronic Item" do
+      @record = arborist
+      expect(subject["availability"]).to contain_exactly("Circulating Items", "Available online")
+    end
+  end
   it "has expected physical hol" do
     @record = hurdy_gurdy
     # item_policy = @record["974"].subfields.find{|s| s.code == "p" }
