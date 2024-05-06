@@ -4,4 +4,4 @@ end
 S.register(:solr_threads) { ENV.fetch("SOLR_THREADS", 1).to_i }
 S.register(:solr_user) { ENV.fetch("SOLR_USER", "solr") }
 S.register(:solr_password) { ENV.fetch("SOLR_PASSWORD", "SolrRocks") }
-S.register(:processing_threads) { ENV.fetch("PROCESSING_THREADS", 8) }
+S.register(:processing_threads) { ENV.fetch("PROCESSING_THREADS", 1) }

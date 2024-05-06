@@ -31,6 +31,7 @@ settings do
   store "log.batch_progress", 10_000
 end
 
+logger.info "UmichOverlap Class: #{UmichOverlap}"
 logger.info RUBY_DESCRIPTION
 
 ################################
