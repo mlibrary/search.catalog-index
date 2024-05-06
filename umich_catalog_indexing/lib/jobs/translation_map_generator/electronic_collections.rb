@@ -97,16 +97,20 @@ module Jobs
           preferred_value("Electronic Collection Interface Name")
         end
 
-        # Returns the appropriate note. Authentication Note is the highest
-        # priority. Interface Name is the least priority. Returns nil if
-        # everything is nil
+        # Concatentates interface name, public note, and authentication note.
+        # Also strips out any trailing punctuation except closing parens and
+        # square brackets. The rest are terminated with a period.
         def note
           [
-            @data["Electronic Collection Authentication Note"],
+            interface_name,
             @data["Electronic Collection Public Note"],
-            collection_name,
-            interface_name
-          ].find { |x| x }
+            @data["Electronic Collection Authentication Note"]
+          ].compact.map do |x|
+            out = x.strip
+              .sub(/[[\p{P}]&&[^\])]]$/, "")
+            out.sub!(/$/, ".") if out.match?(/[^\])]$/)
+            out
+          end.join(" ")
         end
 
         # Returns a hash summary of the collection metadata. This becomes a row in

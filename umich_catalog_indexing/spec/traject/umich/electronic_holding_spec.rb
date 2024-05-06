@@ -113,6 +113,12 @@ describe Traject::UMich::ElectronicHolding do
     it "shows combined note" do
       expect(subject.note).to eq("Elsevier ScienceDirect. Elsevier SD eBook - Physics and Astronomy. Access to the Elsevier ScienceDirect eBook - Physics and Astronomy (Legacy 1) online version restricted; authentication may be required. Elsevier ScienceDirect access restricted; authentication may be required. Public note.")
     end
+    it "handles concatenates with periods unless theres a ] or ) ending" do
+      @e56.subfields.find { |x| x.code == "z" }.value = "(Parens)"
+      @e56.subfields.find { |x| x.code == "4" }.value = "[Square]"
+      @e56.subfields.find { |x| x.code == "n" }.value = "Ends in semicolon;"
+      expect(subject.note).to eq("Elsevier ScienceDirect. Ends in semicolon. [Square] Elsevier ScienceDirect access restricted; authentication may be required. (Parens)")
+    end
   end
   context "#status" do
     it "shows the status in subfield s" do

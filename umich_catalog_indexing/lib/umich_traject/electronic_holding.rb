@@ -59,6 +59,9 @@ module Traject
         @e56["z"]
       end
 
+      # Concatentates interface name, collection name, authentication note, and
+      # public note. Also strips out any trailing punctuation except closing
+      # parens and square brackets. The rest are terminated with a period.
       def note
         [
           interface_name,
@@ -66,7 +69,10 @@ module Traject
           authentication_note,
           public_note
         ].flatten.compact.map do |x|
-          x.strip.sub(/\p{P}$/, "").sub(/$/, ".")
+          out = x.strip
+            .sub(/[[\p{P}]&&[^\])]]$/, "")
+          out.sub!(/$/, ".") if out.match?(/[^\])]$/)
+          out
         end.join(" ")
       end
 

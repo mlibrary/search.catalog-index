@@ -26,7 +26,7 @@ RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::List do
         {
           "collection_name" => "OVERRIDE_NAME",
           "interface_name" => "OVERRIDE_INTERFACE",
-          "note" => "AUTH_NOTE",
+          "note" => "OVERRIDE_INTERFACE. PUBLIC_NOTE. AUTH_NOTE.",
           "link" => "OVERRIDE_URL",
           "status" => "Available"
         }
@@ -121,33 +121,27 @@ RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::Item do
     end
   end
   context "#note" do
-    it "returns the Authentication note if it exists" do
-      expect(subject.note).to eq("AUTH_NOTE")
+    it "returns the Interface name. Public Note. Authentication Note. when they all exist" do
+      s = subject
+      expect(s.note).to eq("#{s.interface_name}. PUBLIC_NOTE. AUTH_NOTE.")
     end
-    it "returns the Public Note when there's no auth note and it exists" do
+    it "returns handles empty options" do
       @item["Electronic Collection Authentication Note"] = nil
-      expect(subject.note).to eq("PUBLIC_NOTE")
+      s = subject
+      expect(s.note).to eq("#{s.interface_name}. PUBLIC_NOTE.")
     end
-    it "returns the collection_name if there's no auth note and no public note" do
-      @item["Electronic Collection Authentication Note"] = nil
-      @item["Electronic Collection Public Note"] = nil
-      expect(subject.note).to eq("OVERRIDE_NAME")
-    end
-    it "returns the interface name if there's no auth note or public note or collection name" do
+    it "returns empty string if there's no note and no collection name and no interface name" do
       @item["Electronic Collection Authentication Note"] = nil
       @item["Electronic Collection Public Note"] = nil
-      @item["Electronic Collection Public Name (override)"] = nil
-      @item["Electronic Collection Public Name"] = nil
-      expect(subject.note).to eq("OVERRIDE_INTERFACE")
-    end
-    it "returns nil if there's no note and no collection name and no interface name" do
-      @item["Electronic Collection Authentication Note"] = nil
-      @item["Electronic Collection Public Note"] = nil
-      @item["Electronic Collection Public Name (override)"] = nil
-      @item["Electronic Collection Public Name"] = nil
       @item["Electronic Collection Interface Name (override)"] = nil
       @item["Electronic Collection Interface Name"] = nil
-      expect(subject.note).to eq(nil)
+      expect(subject.note).to eq("")
+    end
+    it "gets replaces non period punctuation with periods. It leaves closing parens and square brackets" do
+      @item["Electronic Collection Interface Name (override)"] = "INTERFACE_NAME;"
+      @item["Electronic Collection Public Note"] = "(PUBLIC_NOTE)"
+      @item["Electronic Collection Authentication Note"] = "[AUTH_NOTE]"
+      expect(subject.note).to eq("INTERFACE_NAME. (PUBLIC_NOTE) [AUTH_NOTE]")
     end
   end
   context "#to_h" do
@@ -155,7 +149,7 @@ RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::Item do
       expect(subject.to_h).to eq({
         "collection_name" => "OVERRIDE_NAME",
         "interface_name" => "OVERRIDE_INTERFACE",
-        "note" => "AUTH_NOTE",
+        "note" => "OVERRIDE_INTERFACE. PUBLIC_NOTE. AUTH_NOTE.",
         "link" => "OVERRIDE_URL",
         "status" => "Available"
       })
