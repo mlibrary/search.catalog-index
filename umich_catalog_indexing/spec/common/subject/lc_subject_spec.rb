@@ -88,7 +88,7 @@ RSpec.describe Common::Subject::LCSubjectHierarchical do
       ["2", "tgn"])
   end
   context "#subject_string" do
-    it "returns expected output" do
+    it "returns expected output for default delimiter '--' " do
       output = described_class.new(subject_field).subject_string
       expect(output).to eq("World--Asia--Japan--Hokkaido (island)--Hokkaido (region)--Hokkaido (prefecture)--Asahi-Dake")
     end
