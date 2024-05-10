@@ -58,6 +58,13 @@ RSpec.describe Common::Subject::LCSubject do
       output = described_class.new(field).subject_string
       expect(output).to eq("a--v--x--y--z b")
     end
+    it "handles custom delimiter" do
+      field = MARC::DataField.new("600", "1", "0",
+        ["a", "a"], ["v", "v"], ["x", "x"], ["y", "y"], ["z", "z"], ["b", "b"])
+
+      output = described_class.new(field).subject_string(" -- ")
+      expect(output).to eq("a -- v -- x -- y -- z b")
+    end
   end
 end
 
@@ -72,6 +79,10 @@ RSpec.describe Common::Subject::LCSubject658 do
     it "returns expected output" do
       output = described_class.new(subject_field).subject_string
       expect(output).to eq("Health objective 1: handicapped awareness [NHP01-1991]--highly correlated")
+    end
+    it "returns expected output for custom delimter" do
+      output = described_class.new(subject_field).subject_string(" -- ")
+      expect(output).to eq("Health objective 1: handicapped awareness [NHP01-1991] -- highly correlated")
     end
   end
 end
@@ -91,6 +102,11 @@ RSpec.describe Common::Subject::LCSubjectHierarchical do
     it "returns expected output for default delimiter '--' " do
       output = described_class.new(subject_field).subject_string
       expect(output).to eq("World--Asia--Japan--Hokkaido (island)--Hokkaido (region)--Hokkaido (prefecture)--Asahi-Dake")
+    end
+
+    it "returns expected output for custom delimiter ' -- ' " do
+      output = described_class.new(subject_field).subject_string(" -- ")
+      expect(output).to eq("World -- Asia -- Japan -- Hokkaido (island) -- Hokkaido (region) -- Hokkaido (prefecture) -- Asahi-Dake")
     end
   end
 end
