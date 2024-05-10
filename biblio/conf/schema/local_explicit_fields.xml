@@ -240,6 +240,7 @@
 <copyField source="genre" dest="genreStr"/>
 
 <field name="lc_subject_display"     type="text_facet" indexed="true" stored="true" multiValued="true"/>
+<field name="remediated_lc_subject_display"     type="text_facet" indexed="true" stored="true" multiValued="true"/>
 <field name="non_lc_subject_display" type="text_facet" indexed="true" stored="true" multiValued="true"/>
 
 <field name="subject_browse_terms" type="text_facet" indexed="true" stored="true" multiValued="true"/>
