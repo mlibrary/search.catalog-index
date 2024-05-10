@@ -19,11 +19,18 @@ RSpec.describe Traject::Macros::Common::Subject do
         "Public welfare -- United States"])
     end
   end
+  context "remediated_lcsh_subject" do
+    it "gets the non lc subjects" do
+      accumulator = []
+      klass.remediated_lcsh_subjects.call(record, accumulator)
+      expect(accumulator).to eq(["Undocumented immigrants -- United States"])
+    end
+  end
   context "non_lcsh_subject" do
     it "gets the non lc subjects" do
       accumulator = []
       klass.non_lcsh_subjects.call(record, accumulator)
-      expect(accumulator).to eq(["Undocumented immigrants -- United States"])
+      expect(accumulator).to eq([])
     end
   end
 end

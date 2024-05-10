@@ -14,6 +14,14 @@ module Traject::Macros::Common
       end
     end
 
+    def remediated_lcsh_subjects
+      ->(record, accumulator) do
+        subject_fields = Common::Subject.remediated_lc_subject_fields(record)
+        subjects = subject_fields.map { |f| Common::Subject.new(f) }
+        accumulator.replace subjects.map { |s| s.subject_string(" -- ") }
+      end
+    end
+
     def non_lcsh_subjects
       ->(record, accumulator) do
         subject_fields = Common::Subject.non_lc_subject_fields(record)

@@ -45,8 +45,11 @@ describe "subject_topic" do
       "Public welfare -- United States"
     )
   end
+  it "has the expected remediated_lc_subject_display" do
+    expect(subject["remediated_lc_subject_display"]).to contain_exactly("Undocumented immigrants -- United States")
+  end
   it "has the expected non_lc_subject_display" do
-    expect(subject["non_lc_subject_display"]).to contain_exactly("Undocumented immigrants -- United States")
+    expect(subject["non_lc_subject_display"]).to eq(nil)
   end
   it "has the expected  subject_browse_terms" do
     expect(subject["subject_browse_terms"]).to contain_exactly(

@@ -122,8 +122,13 @@ module Common::Subject
   def self.non_lc_subject_fields(record)
     subject_fields(record) -
       lc_subject_fields(record) -
-      remediateable_subject_fields(record) +
-      remediated_subject_fields(record)
+      remediateable_subject_fields(record) -
+      already_remediated_subject_fields(record)
+  end
+
+  def self.remediated_lc_subject_fields(record)
+    remediated_subject_fields(record) +
+      already_remediated_subject_fields(record)
   end
 
   def self.subject_browse_fields(record)

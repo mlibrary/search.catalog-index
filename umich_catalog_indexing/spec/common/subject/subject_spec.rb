@@ -72,6 +72,24 @@ RSpec.describe Common::Subject do
     end
   end
 
+  context ".non_lc_subject_fields" do
+    it "does not include lc subject fields or already remediated fields" do
+      subjects = described_class.non_lc_subject_fields(record)
+      expect(subjects.count).to eq(0)
+    end
+  end
+
+  context ".remediated_lc_subject_fields" do
+    it "includes already remediated terms" do
+      subjects = described_class.remediated_lc_subject_fields(record)
+      expect(subjects.count).to eq(1)
+    end
+    it "includes newly remediated terms" do
+      subjects = described_class.remediated_lc_subject_fields(deprecated_record)
+      expect(subjects.count).to eq(2)
+    end
+  end
+
   context ".subject_facets" do
     it "returns topics including remediated ones, skips unremediated ones" do
       expect(described_class.subject_facets(deprecated_record)).to contain_exactly(
