@@ -21,11 +21,15 @@ jobs:
         fetch-depth: 0
     - name: Check that the tag exists in repo
       id: tag_check
+      env:
+        TAG: ${{ github.event.inputs.tag }
       run: |
         if [ -z $TAG ]; then
           echo "tag=`git rev-parse HEAD`" >> $GITHUB_OUTPUT
+          echo "No tag given. Set it to trunk head sha"
         elif git rev-parse "refs/tags/$TAG" &> /dev/null; then
           echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "tag $TAG found"
         elif git rev-parse "$TAG" &> /dev/null; then
           SHA=`git rev-parse "$TAG"`
           echo "$TAG corresponds to $SHA"
