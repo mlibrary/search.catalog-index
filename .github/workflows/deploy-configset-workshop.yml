@@ -22,7 +22,7 @@ jobs:
     - name: Check that the tag exists in repo
       id: tag_check
       env:
-        TAG: ${{ github.event.inputs.tag }
+        TAG: ${{ github.event.inputs.tag }}
       run: |
         if [ -z $TAG ]; then
           echo "tag=`git rev-parse HEAD`" >> $GITHUB_OUTPUT
