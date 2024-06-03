@@ -4,7 +4,7 @@ RSpec.describe IndexAlmaForDate do
   before(:each) do
     @params = {
       date: "20220101",
-      alma_files: [
+      file_paths: [
         "/some_directory/file1_20220101_delete.tar.gz",
         "/some_directory/file2_20220101_delete_1.tar.gz",
         "/some_directory/file3_20220101_delete_15.tar.gz",
@@ -29,8 +29,8 @@ RSpec.describe IndexAlmaForDate do
       expect { subject }.to raise_error(ArgumentError, "invalid date")
     end
     it "raises an error when alma files are not an array of strings" do
-      @params[:alma_files] = "not an array of strings"
-      expect { subject }.to raise_error(StandardError, "alma_files must be an array of file path strings")
+      @params[:file_paths] = "not an array of strings"
+      expect { subject }.to raise_error(StandardError, "file_paths must be an array of file path strings")
     end
     it "raises an error if solr_url is not a string" do
       @params[:solr_url] = []
@@ -51,16 +51,16 @@ RSpec.describe IndexAlmaForDate do
       subject.run
     end
     it "does not call IndexIt when no new files" do
-      @params[:alma_files][3] = "not_new_anymore"
-      @params[:alma_files][4] = "not_new_anymore"
-      @params[:alma_files][5] = "not_new_anymore"
+      @params[:file_paths][3] = "not_new_anymore"
+      @params[:file_paths][4] = "not_new_anymore"
+      @params[:file_paths][5] = "not_new_anymore"
       expect(@params[:index_it]).not_to receive(:perform)
       subject.run
     end
     it "does not call DeleteIt when no new files" do
-      @params[:alma_files][0] = "not_delete_anymore"
-      @params[:alma_files][1] = "not_delete_anymore"
-      @params[:alma_files][2] = "not_delete_anymore"
+      @params[:file_paths][0] = "not_delete_anymore"
+      @params[:file_paths][1] = "not_delete_anymore"
+      @params[:file_paths][2] = "not_delete_anymore"
       expect(@params[:delete_it]).not_to receive(:perform)
       subject.run
     end

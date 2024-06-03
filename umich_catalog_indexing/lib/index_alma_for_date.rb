@@ -1,19 +1,17 @@
 $:.unshift "#{File.dirname(__FILE__)}"
-require "logger"
 require "date"
 require "sidekiq_jobs"
-require "jobs"
 
 class IndexAlmaForDate
-  def initialize(alma_files:, date:, solr_url:,
+  def initialize(file_paths:, date:, solr_url:,
     delete_it: DeleteIt.new,
     index_it: IndexIt.new)
     @date = DateTime.parse(date) # must be a string in the form YYYYMMDD
 
     begin
-      @alma_files = alma_files.select { |x| x.match?(date_string(@date)) } # must be an array of file paths
+      @file_paths = file_paths.select { |x| x.match?(date_string(@date)) } # must be an array of file paths
     rescue NoMethodError
-      raise StandardError, "alma_files must be an array of file path strings"
+      raise StandardError, "file_paths must be an array of file path strings"
     end
 
     @solr_url = solr_url
@@ -39,7 +37,7 @@ class IndexAlmaForDate
   private
 
   def files_that_match(pattern)
-    @alma_files.select { |x| x.match?(pattern) }
+    @file_paths.select { |x| x.match?(pattern) }
   end
 
   def date_string(date)
