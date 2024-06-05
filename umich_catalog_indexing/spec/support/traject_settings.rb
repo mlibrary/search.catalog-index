@@ -20,13 +20,18 @@ require "traject/null_writer"
 require "marc_record_speed_monkeypatch"
 require "marc4j_fix"
 
-UmichOverlap = if S.no_db?
-  require "ht_traject/no_db_mocks/ht_overlap"
-  HathiTrust::NoDB::UmichOverlap
-else
-  require "ht_traject/ht_overlap"
-  HathiTrust::UmichOverlap
-end
+#########
+# TBDeleted
+# Preprocessing of zephir records happens outside of Traject. Assuming all goes
+# well the following can be deleted after July 1, 2024.
+#########
+# UmichOverlap = if S.no_db?
+#   require "ht_traject/no_db_mocks/ht_overlap"
+#   HathiTrust::NoDB::UmichOverlap
+# else
+#   require "ht_traject/ht_overlap"
+#   HathiTrust::UmichOverlap
+# end
 
 settings do
   store "writer_class_name", "Traject::NullWriter"

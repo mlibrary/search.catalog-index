@@ -19,19 +19,23 @@ require "marc/fastxmlwriter"
 require "marc_record_speed_monkeypatch"
 require "marc4j_fix"
 
-UmichOverlap = if S.no_db? || S.reindex?
-  require "ht_traject/no_db_mocks/ht_overlap"
-  HathiTrust::NoDB::UmichOverlap
-else
-  require "ht_traject/ht_overlap"
-  HathiTrust::UmichOverlap
-end
+#########
+# Preprocessing of zephir records happens outside of Traject. Assuming all goes
+# well the following block can be deleted after July 1, 2024.
+#########
+# UmichOverlap = if S.no_db? || S.reindex?
+#   require "ht_traject/no_db_mocks/ht_overlap"
+#   HathiTrust::NoDB::UmichOverlap
+# else
+#   require "ht_traject/ht_overlap"
+#   HathiTrust::UmichOverlap
+# end
+# logger.info "UmichOverlap Class: #{UmichOverlap}"
 
 settings do
   store "log.batch_progress", 10_000
 end
 
-logger.info "UmichOverlap Class: #{UmichOverlap}"
 logger.info RUBY_DESCRIPTION
 
 ################################
