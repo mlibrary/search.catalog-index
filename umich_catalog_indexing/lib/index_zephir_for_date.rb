@@ -1,4 +1,5 @@
-require "sidekiq_jobs"
+require "date"
+require_relative "sidekiq_jobs"
 
 class IndexZephirForDate
   def initialize(file_paths:, date:, solr_url:,

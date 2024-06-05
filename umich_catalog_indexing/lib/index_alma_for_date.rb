@@ -1,6 +1,5 @@
-$:.unshift "#{File.dirname(__FILE__)}"
 require "date"
-require "sidekiq_jobs"
+require_relative "sidekiq_jobs"
 
 class IndexAlmaForDate
   def initialize(file_paths:, date:, solr_url:,
