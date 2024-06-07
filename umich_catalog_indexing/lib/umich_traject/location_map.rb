@@ -65,19 +65,21 @@ module Traject
 
       m[/^BUHR.*/] = "BUHR"
 
-      m[/^FLINT ATLAS/] = "FLINT REF"
-      m[/^FLINT REFD/] = "FLINT REF"
-      m[/^FLINT TECH/] = "FLINT REF"
-
+      # Archives - Special Collections
       m[/^FLINT SPEC/] = "FLINT ARCH"
 
-      m[/^FLINT FSPAM/] = "FLINT MAIN"
-      m[/^FLINT MSTR/] = "FLINT MAIN"
-      m[/^FLINT OVERZ/] = "FLINT MAIN"
+      # Reference Collection
+      m[/^FLINT REFD/] = "FLINT REF"
+      m[/^FLINT TECH/] = "FLINT REF"
+      m[/^FLINT ABST/] = "FLINT REF"
 
+      # Microforms
       m[/^FLINT MCARD/] = "FLINT MICRO"
       m[/^FLINT MFICH/] = "FLINT MICRO"
       m[/^FLINT MFILM/] = "FLINT MICRO"
+
+      # English language program
+      m[/^FLINT ELP.*/] = "FLINT ELP"
 
       m
     end
