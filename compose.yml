@@ -95,15 +95,15 @@ services:
     env_file:
       - ./mock-ht/env.development
 
-  #hathifiles:
-    #image: mariadb
-    #volumes:
-      #- hathidb:/var/lib/mysql
-    #environment:
-      #- MARIADB_ROOT_PASSWORD=pass
-      #- MARIADB_USER=user
-      #- MARIADB_PASSWORD=password
-      #- MARIADB_DATABASE=hathifiles
+  hathifiles:
+    image: mariadb
+    volumes:
+      - hathidb:/var/lib/mysql
+    environment:
+      - MARIADB_ROOT_PASSWORD=pass
+      - MARIADB_USER=user
+      - MARIADB_PASSWORD=password
+      - MARIADB_DATABASE=hathifiles
 
   hathioverlap:
     build: overlap/.

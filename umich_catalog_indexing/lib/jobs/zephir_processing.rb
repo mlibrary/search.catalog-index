@@ -1,6 +1,6 @@
 module Jobs
   module ZephirProcessing
-    def self.run(full_zephir_file:, batch_size: 100, threads: 4)
+    def self.run(zephir_file:, batch_size: 100, threads: 4)
       pool = Concurrent::FixedThreadPool.new(threads,
         max_queue: 200,
         fallback_policy: :caller_runs)
@@ -8,8 +8,8 @@ module Jobs
       lock = Concurrent::ReadWriteLock.new
 
       S.logger.info "batch size for overlap query: #{batch_size}"
-      prefix = File.basename(full_zephir_file).split(".")[0]
-      scratch_dir = File.dirname(full_zephir_file)
+      prefix = File.basename(zephir_file).split(".")[0]
+      scratch_dir = File.dirname(zephir_file)
       writer = Writer.new(prefix: prefix, scratch_dir: scratch_dir)
       report = Concurrent::Hash.new
       report[:skipped_umich] = 0
@@ -17,8 +17,8 @@ module Jobs
       report[:not_skipped] = 0
       report[:no_full_text] = 0
       report[:count] = 0
-      S.logger.info "Writing filtered records from #{full_zephir_file} to the #{scratch_dir} directory"
-      Zinzout.zin(full_zephir_file) do |infile|
+      S.logger.info "Writing filtered records from #{zephir_file} to the #{scratch_dir} directory"
+      Zinzout.zin(zephir_file) do |infile|
         infile.each_slice(batch_size) do |lines|
           records = lines.filter_map do |line|
             r = Record.new(line)
