@@ -1,16 +1,18 @@
----
 aeu: University of Alberta
 aubru: The University of Queensland
 aztes: Arizona State University
 chi: University of Chicago
 coo: Cornell University
+cou: University of Colorado Boulder
 ctu: University of Connecticut
 deu: University of Delaware
 fmu: University of Miami
 geu: Emory University
 gri: Getty Research Institute
+gu: University of Georgia
 gwla: Technical Report Archive &amp; Image Library
 hvd: Harvard University
+iagg: Grinnell College
 iau: University of Iowa
 ibc: Boston College
 iduke: Duke University
@@ -27,8 +29,10 @@ iucla: University of California
 iufl: State University System of Florida
 iuiuc: University of Illinois at Urbana-Champaign
 iunc: University of North Carolina at Chapel Hill
-keio: Keio University
-lebau: American University of Beirut
+keio: "Keio University \u6176\u61C9\u7FA9\u587E\u5927\u5B66 "
+lebau: "American University of Beirut - \u0627\u0644\u062C\u0627\u0645\u0639\u0629\
+  \ \u0627\u0644\u0623\u0645\u064A\u0631\u0643\u064A\u0651\u0629 \u0641\u064A \u0628\
+  \u064A\u0631\u0648\u062A"
 mdbj: Johns Hopkins University
 mdl: Minnesota Digital Library
 mdu: University of Maryland, College Park
@@ -42,6 +46,8 @@ nbb: Brooklyn Museum
 nbuu: University At Buffalo, The State University of New York
 ncwsw: Wake Forest University
 njp: Princeton University
+njpt: Princeton Theological Seminary
+njr: Rutgers University
 nnc: Columbia University
 nnfr: The Frick Collection
 nrlf: University of California
@@ -60,7 +66,7 @@ srlf: University of California
 tu: University of Tennessee, Knoxville
 txcm: Texas A&amp;M University
 txsmtsu: Texas State University - San Marcos
-txu: The University of Texas
+txu: University of Texas at Austin
 ucbk: University of California
 ucd: University of California
 uci: University of California
