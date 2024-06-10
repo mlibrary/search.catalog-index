@@ -11,6 +11,7 @@ else
   require "ht_traject/ht_hathifiles"
   HathiTrust::HathiFiles
 end
+S.logger.info(HathiFiles)
 
 libLocInfo = Traject::TranslationMap.new("umich/libLocInfo")
 electronic_collections = Traject::TranslationMap.new("umich/electronic_collections")
@@ -70,7 +71,7 @@ each_record do |r, context|
       item[:rights] = f["r"]
       item[:description] = f["z"]
       item[:collection_code] = f["c"]
-      item[:source] = cc_to_of[f["c"].downcase]
+      item[:source] = CGI.unescapeHTML(cc_to_of[f["c"].downcase])
       item[:access] = !!(item[:rights] =~ /^(pd|world|ic-world|cc|und-world)/)
       # item[:status] = statusFromRights(item[:rights], etas_status)
       item[:status] = statusFromRights(item[:rights])
