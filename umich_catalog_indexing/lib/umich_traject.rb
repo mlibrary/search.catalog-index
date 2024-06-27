@@ -9,5 +9,6 @@ require "umich_traject/digital_holding"
 require "umich_traject/physical_holding"
 require "umich_traject/physical_item"
 require "umich_traject/electronic_holding"
+require "umich_traject/availability"
 
 UMich::FloorLocation.configure("lib/translation_maps/umich/floor_locations.json")
