@@ -53,10 +53,38 @@ describe Traject::UMich::Availability do
     end
   end
 
+  context "hathi_trust_or_electronic_holding?" do
+    it "returns true when hathitrust item" do
+      expect(subject.hathi_trust_or_electronic_holding?).to eq(true)
+    end
+    it "returns true when there's an electronic holding" do
+      @hol[1]["library"] = "ELEC"
+      expect(subject.hathi_trust_or_electronic_holding?).to eq(true)
+    end
+    it "returns false when there's no electronic or HT record" do
+      @hol.delete_at(1)
+      expect(subject.hathi_trust_or_electronic_holding?).to eq(false)
+    end
+  end
+
+  context "hathi_trust_full_text_or_electronic_holding?" do
+    it "returns false when neither ht full text or electronic holding" do
+      expect(subject.hathi_trust_full_text_or_electronic_holding?).to eq(false)
+    end
+    it "returns true when hathitrust full text" do
+      @hol[1]["items"].push({"rights" => "pd"})
+      expect(subject.hathi_trust_full_text_or_electronic_holding?).to eq(true)
+    end
+    it "returns true when there's an electronic holding" do
+      @hol[1]["library"] = "ELEC"
+      expect(subject.hathi_trust_full_text_or_electronic_holding?).to eq(true)
+    end
+  end
+
   context "#to_a" do
     it "returns an array of availability values" do
       expect(subject.to_a).to contain_exactly(
-        "physical", "hathi_trust"
+        "physical", "hathi_trust", "hathi_trust_or_electronic_holding"
       )
     end
   end

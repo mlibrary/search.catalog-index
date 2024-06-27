@@ -39,6 +39,14 @@ module Traject
         @hol.select { |x| ALMA_ELECTRONIC_LIBRARIES.any?(x["library"]) }.any?
       end
 
+      def hathi_trust_or_electronic_holding?
+        hathi_trust? || electronic_holding?
+      end
+
+      def hathi_trust_full_text_or_electronic_holding?
+        hathi_trust_full_text? || electronic_holding?
+      end
+
       # Returns an array of availabilies for the holding structure. This is the
       # method that's called by the application.
       # @return [Array<String>]
@@ -47,7 +55,8 @@ module Traject
           "physical",
           "hathi_trust",
           "hathi_trust_full_text",
-          "electronic_holding"
+          "hathi_trust_or_electronic_holding",
+          "hathi_trust_full_text_or_electronic_holding"
         ].select { |x| send(:"#{x}?") }
       end
 
