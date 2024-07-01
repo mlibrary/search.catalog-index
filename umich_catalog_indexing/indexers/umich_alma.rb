@@ -146,6 +146,10 @@ to_field "availability" do |record, acc, context|
   acc.replace Array(context.clipboard[:ht][:availability].map { |code| avail_map[code] })
 end
 
+to_field "new_availability" do |record, acc, context|
+  acc << Traject::UMich::Availability.new(context.clipboard[:ht][:hol_list]).to_a
+end
+
 location_map = Traject::UMich.location_map
 to_field "location" do |record, acc, context|
   locations = Array(context.clipboard[:ht][:locations])

@@ -106,6 +106,7 @@
 <field name="language008_full" type="string" indexed="true" stored="true"  multiValued="false"/>
 <field name="format"       type="string"     indexed="true" stored="true"  multiValued="true"/>
 <field name="availability" type="string"     indexed="true" stored="true"  multiValued="true"/>
+<field name="new_availability" type="string"     indexed="true" stored="true"  multiValued="true"/>
 <field name="publisher"    type="text_no_stem_or_synonyms" indexed="true" stored="true" multiValued="true"/>
 <field name="publisher_display"    type="text_no_stem_or_synonyms" indexed="true" stored="true" multiValued="true"/>
 <field name="edition"      type="string"     indexed="true" stored="true" multiValued="true"/>

@@ -1,0 +1,52 @@
+[
+  {
+    "hol_mmsid": "22975380140006381",
+    "callnumber": "M 3 .P52 1993",
+    "library": "MUSIC",
+    "location": "NONE",
+    "info_link": "http://lib.umich.edu/locations-and-hours/music-library",
+    "display_name": "Music",
+    "floor_location": "",
+    "public_note": null,
+    "items": [
+      {
+        "barcode": "39015040218748",
+        "library": "MUSIC",
+        "location": "NONE",
+        "info_link": "http://lib.umich.edu/locations-and-hours/music-library",
+        "display_name": "Music",
+        "fulfillment_unit": "General",
+        "location_type": "OPEN",
+        "can_reserve": false,
+        "permanent_library": "MUSIC",
+        "permanent_location": "NONE",
+        "temp_location": false,
+        "callnumber": "M 3 .P52 1993",
+        "public_note": null,
+        "process_type": null,
+        "item_policy": "08",
+        "description": null,
+        "inventory_number": null,
+        "item_id": "23975380130006381",
+        "material_type": "SCORE",
+        "record_has_finding_aid": false
+      }
+    ],
+    "summary_holdings": null,
+    "record_has_finding_aid": false
+  },
+  {
+    "library": "HathiTrust Digital Library",
+    "items": [
+      {
+        "id": "mdp.39015040218748",
+        "rights": "ic",
+        "description": "",
+        "collection_code": "MIU",
+        "access": false,
+        "source": "University of Michigan",
+        "status": "Search only (no full text)"
+      }
+    ]
+  }
+]
