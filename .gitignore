@@ -22,6 +22,8 @@ umich_catalog_indexing/scratch/*
 
 umich_catalog_indexing/examples/*.xml
 umich_catalog_indexing/examples/*/*.xml
+umich_catalog_indexing/examples/*.json
+umich_catalog_indexing/examples/*/*.json
 umich_catalog_indexing/examples/*.tar.gz
 umich_catalog_indexing/examples/*/*.tar.gz
 
