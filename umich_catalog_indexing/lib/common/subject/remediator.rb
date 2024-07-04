@@ -7,18 +7,19 @@ module Common::Subject
 
     # Given a subject field, is it one that will need remediating?
     def remediable?(field)
-      @mapping.map { |x| x["450"] }.any? do |deprecated_field|
-        deprecated_field.all? do |dep_sf|
-          _dep_sf_in_field?(dep_sf: dep_sf, test_field: field)
+      @mapping.map { |x| x["450"] }.any? do |deprecated_subfields|
+        deprecated_subfields.keys.all? do |code|
+          deprecated_subfields[code].all? do |dep_sf_value|
+            _dep_sf_in_field?(code: code, dep_sf_value: dep_sf_value, test_field: field)
+          end
         end
       end
     end
 
-    def _dep_sf_in_field?(dep_sf:, test_field:)
+    def _dep_sf_in_field?(code:, dep_sf_value:, test_field:)
       test_sf_values = test_field.subfields.filter_map do |sf|
-        sf.value if sf.code == dep_sf.keys.first
+        sf.value if sf.code == code
       end
-      dep_sf_value = dep_sf.values.first
       test_sf_values.include?(dep_sf_value)
     end
 
