@@ -12,6 +12,7 @@ module Common::Subject
 
     # Given a subject field, is it one that has already been remediated?
     def already_remediated?(field)
+      !!_matching_remediated_field(field)
     end
 
     # Given a remediatable field, return the remediated field
@@ -41,12 +42,24 @@ module Common::Subject
     def to_deprecated(field)
     end
 
+    def _matching_remediated_field(field)
+      @mapping.each do |this_to_that|
+        match = this_to_that["150"].keys.all? do |code|
+          this_to_that["150"][code].all? do |dep_sf_value|
+            _sf_in_field?(code: code, sf_value: dep_sf_value, test_field: field)
+          end
+        end
+        return this_to_that if match
+      end
+      nil
+    end
+
     def _matching_deprecated_field(field)
       @mapping.each do |this_to_that|
         match = this_to_that["450"].find do |deprecated_subfields|
           deprecated_subfields.keys.all? do |code|
             deprecated_subfields[code].all? do |dep_sf_value|
-              _dep_sf_in_field?(code: code, dep_sf_value: dep_sf_value, test_field: field)
+              _sf_in_field?(code: code, sf_value: dep_sf_value, test_field: field)
             end
           end
         end
@@ -55,11 +68,11 @@ module Common::Subject
       nil
     end
 
-    def _dep_sf_in_field?(code:, dep_sf_value:, test_field:)
+    def _sf_in_field?(code:, sf_value:, test_field:)
       test_sf_values = test_field.subfields.filter_map do |sf|
         sf.value if sf.code == code
       end
-      test_sf_values.include?(dep_sf_value)
+      test_sf_values.include?(sf_value)
     end
   end
 end

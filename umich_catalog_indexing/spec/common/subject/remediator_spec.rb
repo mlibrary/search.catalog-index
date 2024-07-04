@@ -75,4 +75,26 @@ RSpec.describe Common::Subject::Remediator do
       expect(subject.to_remediated(deprecated_field)).to eq(remediated_field)
     end
   end
+
+  context "already_remediated?" do
+    it "returns true when there is a matching already remediated field" do
+      expect(subject.already_remediated?(remediated_field)).to eq(true)
+    end
+    it "returns false when it is missing a subfield" do
+      @mapping[0]["150"]["v"][1] = "something other than v"
+      expect(subject.already_remediated?(remediated_field)).to eq(false)
+    end
+    it "returns true when the matching field has an extra field" do
+      new_remediated_field = remediated_field
+      new_remediated_field.append(MARC::Subfield.new("z", "Whatever"))
+      expect(subject.already_remediated?(new_remediated_field)).to eq(true)
+    end
+    it "is true when the second mapping entity has the matching remediated field" do
+      @mapping.insert(0, {
+        "150" => {"a" => ["blah"]},
+        "450" => [{"a" => ["whatever"]}]
+      })
+      expect(subject.already_remediated?(remediated_field)).to eq(true)
+    end
+  end
 end
