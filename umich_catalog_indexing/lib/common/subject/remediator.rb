@@ -7,7 +7,7 @@ module Common::Subject
 
     # Given a subject field, is it one that will need remediating?
     def remediable?(field)
-      !!_matching_remediated_field(field)
+      !!_matching_deprecated_field(field)
     end
 
     # Given a subject field, is it one that has already been remediated?
@@ -18,7 +18,7 @@ module Common::Subject
     # @param field [MARC::DataField] subject field to remediate
     # [MARC::DataField] the remediated field
     def to_remediated(field)
-      match = _matching_remediated_field(field)
+      match = _matching_deprecated_field(field)
 
       sfields = field.subfields.filter_map do |sf|
         unless match["450"][sf.code].include?(sf.value)
@@ -41,7 +41,7 @@ module Common::Subject
     def to_deprecated(field)
     end
 
-    def _matching_remediated_field(field)
+    def _matching_deprecated_field(field)
       @mapping.each do |this_to_that|
         match = this_to_that["450"].find do |deprecated_subfields|
           deprecated_subfields.keys.all? do |code|
