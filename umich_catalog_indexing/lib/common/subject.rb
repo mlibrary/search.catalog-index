@@ -10,6 +10,7 @@ end
 require_relative "subject/lc_subject"
 require_relative "subject/non_lc_subject"
 require_relative "subject/normalize"
+require_relative "subject/remediator"
 
 module Common::Subject
   attr_accessor :sh_deprecated_to_remediated

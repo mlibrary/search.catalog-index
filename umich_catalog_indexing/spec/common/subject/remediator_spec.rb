@@ -7,18 +7,32 @@ RSpec.describe Common::Subject::Remediator do
           "a" => ["A"],
           "x" => ["X1", "X2"],
           "v" => ["V1", "V2"],
-          "y" => ["Y1", "Y1"],
+          "y" => ["Y1", "Y2"],
           "z" => ["Z1", "Z2"]
         },
-        "450" => {
-          "a" => ["deprecated A"],
-          "x" => ["deprecated X1", "deprecated X2"],
-          "v" => ["deprecated V1", "deprecated V2"],
-          "y" => ["deprecated Y1", "deprecated Y1"],
-          "z" => ["deprecated Z1", "deprecated Z2"]
-        }
+        "450" => [
+          {
+            "a" => ["deprecated A"],
+            "x" => ["deprecated X1", "deprecated X2"],
+            "v" => ["deprecated V1", "deprecated V2"],
+            "y" => ["deprecated Y1", "deprecated Y2"],
+            "z" => ["deprecated Z1", "deprecated Z2"]
+          }
+        ]
       }
     ]
+  end
+  let(:remediated_field) do
+    MARC::DataField.new("650", "0", "0",
+      ["a", "A"],
+      ["x", "X1"],
+      ["x", "X2"],
+      ["v", "V1"],
+      ["v", "V2"],
+      ["y", "Y1"],
+      ["y", "Y2"],
+      ["z", "Z1"],
+      ["z", "Z2"])
   end
   let(:deprecated_field) do
     MARC::DataField.new("650", "0", "0",
@@ -40,15 +54,25 @@ RSpec.describe Common::Subject::Remediator do
       expect(subject.remediable?(deprecated_field)).to eq(true)
     end
     it "is false when any subfield doesn't match deprecated field" do
-      @mapping[0]["450"]["v"][1] = "something other deprecated v"
+      @mapping[0]["450"][0]["v"][1] = "something other deprecated v"
       expect(subject.remediable?(deprecated_field)).to eq(false)
     end
     it "is true when the second mapping entity has the matching deprecated field" do
       @mapping.insert(0, {
         "150" => {"a" => ["blah"]},
-        "450" => {"a" => ["whatever"]}
+        "450" => [{"a" => ["whatever"]}]
       })
       expect(subject.remediable?(deprecated_field)).to eq(true)
+    end
+    it "is true when the deprecated field has extra subfields" do
+      new_deprecated_field = deprecated_field
+      new_deprecated_field.append(MARC::Subfield.new("z", "Whatever"))
+      expect(subject.remediable?(deprecated_field)).to eq(true)
+    end
+  end
+  context "to_remediated(field)" do
+    it "returns the remediated version of the field" do
+      expect(subject.to_remediated(deprecated_field)).to eq(remediated_field)
     end
   end
 end
