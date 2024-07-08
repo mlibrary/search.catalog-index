@@ -36,10 +36,25 @@ module Common::Subject
       remediated_field
     end
 
-    # Given a remediatable field, return the remediated field
-    # @param field [MARC::DataField] remediated subject field that needs deprecated fields
-    # [Array<MARC::DataField>] List of deprecated fields
+    # Given a remediatable field, return the deprecated versions of that field
+    # @param field [MARC::DataField] remediated subject field that needs
+    # deprecated fields [Array<MARC::DataField>] List of deprecated fields
     def to_deprecated(field)
+      match = _matching_remediated_field(field)
+      match["450"].map do |f|
+        sfields = field.subfields.filter_map do |sf|
+          unless match["150"][sf.code].include?(sf.value)
+            MARC::Subfield.new(sf.code, sf.value)
+          end
+        end
+        deprecated_field = MARC::DataField.new(field.tag, field.indicator1, field.indicator2, *sfields)
+        f.keys.each do |code|
+          f[code].each do |value|
+            deprecated_field.append(MARC::Subfield.new(code, value))
+          end
+        end
+        deprecated_field
+      end
     end
 
     def _matching_remediated_field(field)

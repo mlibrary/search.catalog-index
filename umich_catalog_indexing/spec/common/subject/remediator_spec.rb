@@ -97,4 +97,9 @@ RSpec.describe Common::Subject::Remediator do
       expect(subject.already_remediated?(remediated_field)).to eq(true)
     end
   end
+  context "to_deprecated(field)" do
+    it "returns an array of deprecated fields" do
+      expect(subject.to_deprecated(remediated_field)).to eq([deprecated_field])
+    end
+  end
 end
