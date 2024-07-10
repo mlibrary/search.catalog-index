@@ -3,6 +3,7 @@ module Common::Subject
     # will be subject headings translation map
     def initialize(mapping = JSON.parse(File.read(File.join(S.translation_map_dir, "umich", "subject_heading_remediation.json"))))
       @mapping = mapping
+      @normalized_mapping = _create_normalized_mapping
     end
 
     # Given a subject field, is it one that will need remediating?
@@ -66,9 +67,10 @@ module Common::Subject
     end
 
     def _matching_remediated_field(field)
-      @mapping.each do |this_to_that|
+      @mapping.each_with_index do |this_to_that, index|
         match = this_to_that["150"].keys.all? do |code|
-          this_to_that["150"][code].all? do |dep_sf_value|
+          @normalized_mapping[index]["150"][code].all? do |dep_sf_value|
+            # this_to_that["150"][code].all? do |dep_sf_value|
             _sf_in_field?(code: code, sf_value: dep_sf_value, test_field: field)
           end
         end
@@ -78,10 +80,10 @@ module Common::Subject
     end
 
     def _matching_deprecated_field(field)
-      @mapping.each do |this_to_that|
-        match = this_to_that["450"].find do |deprecated_subfields|
+      @mapping.each_with_index do |this_to_that, index|
+        match = this_to_that["450"].find.with_index do |deprecated_subfields, dep_index|
           deprecated_subfields.keys.all? do |code|
-            deprecated_subfields[code].all? do |dep_sf_value|
+            @normalized_mapping[index]["450"][dep_index][code].all? do |dep_sf_value|
               _sf_in_field?(code: code, sf_value: dep_sf_value, test_field: field)
             end
           end
@@ -95,7 +97,32 @@ module Common::Subject
       test_sf_values = test_field.subfields.filter_map do |sf|
         _normalize_sf(sf.value) if sf.code == code
       end
-      test_sf_values.include?(_normalize_sf(sf_value))
+      test_sf_values.include?(sf_value)
+    end
+
+    def _create_normalized_mapping
+      @mapping.map do |heading|
+        new_heading = {}
+        heading["150"].keys.each do |code|
+          new_heading[code] = heading["150"][code].map do |value|
+            _normalize_sf(value)
+          end
+        end
+
+        dep_headings = heading["450"].map.with_index do |_, index|
+          dep_heading = {}
+          heading["450"][index].keys.each do |code|
+            dep_heading[code] = heading["450"][index][code].map do |value|
+              _normalize_sf(value)
+            end
+          end
+          dep_heading
+        end
+        {
+          "150" => new_heading,
+          "450" => dep_headings
+        }
+      end
     end
 
     def _normalize_sf(str)
