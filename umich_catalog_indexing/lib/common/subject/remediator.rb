@@ -23,16 +23,16 @@ module Common::Subject
       match = _matching_deprecated_field(field)
 
       sfields = field.subfields.filter_map do |sf|
-        unless match["450"][sf.code]
-            &.map { |x| _normalize_sf(x) }
+        unless match["normalized"]["450"][sf.code]
+            # &.map { |x| _normalize_sf(x) }
             &.include?(_normalize_sf(sf.value))
           MARC::Subfield.new(sf.code, sf.value)
         end
       end
 
       remediated_field = MARC::DataField.new(field.tag, field.indicator1, "7", *sfields)
-      match["150"].keys.each do |code|
-        match["150"][code].each do |value|
+      match["given"]["150"].keys.each do |code|
+        match["given"]["150"][code].each do |value|
           remediated_field.append(MARC::Subfield.new(code, value))
         end
       end
@@ -47,10 +47,9 @@ module Common::Subject
     # deprecated fields [Array<MARC::DataField>] List of deprecated fields
     def to_deprecated(field)
       match = _matching_remediated_field(field)
-      match["450"].map do |f|
+      match["given"]["450"].map do |f|
         sfields = field.subfields.filter_map do |sf|
-          unless match["150"][sf.code]
-              &.map { |x| _normalize_sf(x) }
+          unless match["normalized"]["150"][sf.code]
               &.include?(_normalize_sf(sf.value))
             MARC::Subfield.new(sf.code, sf.value)
           end
@@ -67,35 +66,59 @@ module Common::Subject
     end
 
     def _matching_remediated_field(field)
+      normalized_sfs = _normalized_subfields(field)
       @mapping.each_with_index do |this_to_that, index|
         match = this_to_that["150"].keys.all? do |code|
           @normalized_mapping[index]["150"][code].all? do |dep_sf_value|
-            # this_to_that["150"][code].all? do |dep_sf_value|
-            _sf_in_field?(code: code, sf_value: dep_sf_value, test_field: field)
+            _sf_in_field?(code: code, sf_value: dep_sf_value, test_field: field, normalized_sfs: normalized_sfs)
           end
         end
-        return this_to_that if match
+
+        if match
+          return {
+            "given" => this_to_that,
+            "normalized" => @normalized_mapping[index]
+          }
+        end
       end
       nil
     end
 
     def _matching_deprecated_field(field)
+      normalized_sfs = _normalized_subfields(field)
       @mapping.each_with_index do |this_to_that, index|
-        match = this_to_that["450"].find.with_index do |deprecated_subfields, dep_index|
+        match_index = this_to_that["450"].find_index.with_index do |deprecated_subfields, dep_index|
           deprecated_subfields.keys.all? do |code|
             @normalized_mapping[index]["450"][dep_index][code].all? do |dep_sf_value|
-              _sf_in_field?(code: code, sf_value: dep_sf_value, test_field: field)
+              _sf_in_field?(code: code, sf_value: dep_sf_value, test_field: field, normalized_sfs: normalized_sfs)
             end
           end
         end
-        return {"150" => this_to_that["150"], "450" => match} if match
+        unless match_index.nil?
+          return {
+            "given" => {
+              "150" => this_to_that["150"],
+              "450" => @mapping[index]["450"][match_index]
+            },
+            "normalized" => {
+              "150" => @normalized_mapping[index]["150"],
+              "450" => @normalized_mapping[index]["450"][match_index]
+            }
+          }
+        end
       end
       nil
     end
 
-    def _sf_in_field?(code:, sf_value:, test_field:)
-      test_sf_values = test_field.subfields.filter_map do |sf|
-        _normalize_sf(sf.value) if sf.code == code
+    def _normalized_subfields(field)
+      field.subfields.map do |sf|
+        {"code" => sf.code, "value" => _normalize_sf(sf.value)}
+      end
+    end
+
+    def _sf_in_field?(code:, sf_value:, test_field: nil, normalized_sfs: nil)
+      test_sf_values = normalized_sfs.filter_map do |sf|
+        sf["value"] if sf["code"] == code
       end
       test_sf_values.include?(sf_value)
     end
