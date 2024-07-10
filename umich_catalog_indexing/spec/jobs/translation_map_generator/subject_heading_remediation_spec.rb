@@ -112,16 +112,6 @@ describe Jobs::TranslationMapGenerator::SubjectHeadingRemediation::Set do
             ]
           }
         ]
-        # {
-        # "undocumented foreign nationals" => "Undocumented immigrants",
-        # "illegal aliens" => "Undocumented immigrants",
-        # "illegal aliens--legal status, laws, etc." => "Undocumented immigrants",
-        # "aliens--legal status, laws, etc." => "Undocumented immigrants",
-        # "aliens, illegal" => "Undocumented immigrants",
-        # "illegal immigrants" => "Undocumented immigrants",
-        # "undocumented noncitizens" => "Undocumented immigrants",
-        # "stuff--things--trivia" => "Whatever--Doesn't Matter--Another one"
-        # }
       )
     end
   end

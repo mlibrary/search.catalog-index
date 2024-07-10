@@ -1,15 +1,22 @@
 module Jobs
   module TranslationMapGenerator
     module SubjectHeadingRemediation
-      include FileWriter
-      def name
-        "Subject Headings mapping"
-      end
+      class << self
+        include FileWriter
+        def name
+          "Subject Headings mapping"
+        end
 
-      # @returns [String] where in the translation map directory the file
-      # should go
-      def file_path
-        File.join("umich", "subject_heading_remediation.yaml")
+        # @returns [String] where in the translation map directory the file
+        # should go
+        def file_path
+          File.join("umich", "subject_heading_remediation.json")
+        end
+
+        # @returns [String] JSON string of mapping
+        def generate
+          JSON.pretty_generate(Set.for(S.subject_heading_remediation_set_id).to_a)
+        end
       end
 
       class Set
@@ -39,7 +46,7 @@ module Jobs
       end
 
       class Authority
-        SUBFIELDS = ["a", "x", "v", "y", "z"]
+        SUBFIELDS = ["a", "v", "x", "y", "z"]
         def self.for(authority_record_id)
           resp = AlmaRestClient.client.get("bibs/authorities/#{authority_record_id}", query: {view: "full"})
           raise StandardError, "Couldn't retrieve authority data for #{authority_record_id}" if resp.status != 200
@@ -75,21 +82,6 @@ module Jobs
             "150" => remediated_term,
             "450" => deprecated_terms
           }
-        end
-
-        def _a_and_x(field)
-          @record.fields(field).map do |field|
-            x = field.subfields.filter_map { |x| x.value if x.code == "x" }
-            [field["a"], x].flatten.compact.join("--")
-          end.uniq
-        end
-
-        def to_a
-          deprecated_terms.map do |term|
-            [term.downcase, remediated_term]
-          end.sort do |a, b|
-            b.first <=> a.first
-          end.to_h
         end
       end
     end

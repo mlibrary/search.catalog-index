@@ -5,12 +5,13 @@ module Jobs
         [
           HighLevelBrowse,
           ElectronicCollections,
-          LibLocInfo
+          LibLocInfo,
+          SubjectHeadingRemediation
         ]
       end
 
       def translation_map_directory
-        File.join(S.project_root, "lib", "translation_maps")
+        S.translation_map_dir
       end
 
       def generate_all(dir: translation_map_directory)

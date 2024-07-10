@@ -1,0 +1,390 @@
+[
+  {
+    "150": {
+      "a": [
+        "Immigrant detention centers"
+      ]
+    },
+    "450": [
+      {
+        "a": [
+          "Alien detention centers"
+        ]
+      },
+      {
+        "a": [
+          "Detention centers, Alien"
+        ]
+      },
+      {
+        "a": [
+          "Detention centers, Noncitizen"
+        ]
+      },
+      {
+        "a": [
+          "Detention centers, Immigration"
+        ]
+      },
+      {
+        "a": [
+          "Immigration detention centers"
+        ]
+      },
+      {
+        "a": [
+          "Undocumented immigrant detention centers"
+        ]
+      }
+    ]
+  },
+  {
+    "150": {
+      "a": [
+        "Undocumented immigrants"
+      ]
+    },
+    "450": [
+      {
+        "a": [
+          "Aliens"
+        ],
+        "x": [
+          "Legal status, laws, etc."
+        ]
+      },
+      {
+        "a": [
+          "Illegal aliens"
+        ],
+        "x": [
+          "Legal status, laws, etc."
+        ]
+      },
+      {
+        "a": [
+          "Undocumented foreign nationals"
+        ]
+      },
+      {
+        "a": [
+          "Illegal aliens"
+        ]
+      },
+      {
+        "a": [
+          "Aliens, Illegal"
+        ]
+      },
+      {
+        "a": [
+          "Illegal immigrants"
+        ]
+      },
+      {
+        "a": [
+          "Undocumented noncitizens"
+        ]
+      }
+    ]
+  },
+  {
+    "150": {
+      "a": [
+        "Children of undocumented immigrants"
+      ]
+    },
+    "450": [
+      {
+        "a": [
+          "Children of undocumented foreign nationals"
+        ]
+      },
+      {
+        "a": [
+          "Children of illegal aliens"
+        ]
+      },
+      {
+        "a": [
+          "First generation children"
+        ]
+      },
+      {
+        "a": [
+          "Illegal aliens' children"
+        ]
+      },
+      {
+        "a": [
+          "Second generation children"
+        ]
+      },
+      {
+        "a": [
+          "Noncitizens' children"
+        ]
+      }
+    ]
+  },
+  {
+    "150": {
+      "a": [
+        "Children of undocumented immigrants"
+      ],
+      "x": [
+        "Education"
+      ]
+    },
+    "450": [
+      {
+        "a": [
+          "Children of undocumented foreign nationals"
+        ],
+        "x": [
+          "Education"
+        ]
+      },
+      {
+        "a": [
+          "Children of illegal aliens"
+        ],
+        "x": [
+          "Education"
+        ]
+      }
+    ]
+  },
+  {
+    "150": {
+      "a": [
+        "Children of undocumented immigrants"
+      ],
+      "x": [
+        "Education",
+        "Law and legislation"
+      ]
+    },
+    "450": [
+      {
+        "a": [
+          "Children of undocumented foreign nationals"
+        ],
+        "x": [
+          "Education",
+          "Law and legislation"
+        ]
+      },
+      {
+        "a": [
+          "Children of illegal aliens"
+        ],
+        "x": [
+          "Education",
+          "Law and legislation"
+        ]
+      }
+    ]
+  },
+  {
+    "150": {
+      "a": [
+        "Undocumented immigrants"
+      ],
+      "x": [
+        "Government policy"
+      ],
+      "z": [
+        "United States"
+      ]
+    },
+    "450": [
+      {
+        "a": [
+          "Illegal aliens"
+        ],
+        "x": [
+          "Goverment policy"
+        ],
+        "z": [
+          "United States"
+        ]
+      },
+      {
+        "a": [
+          "Undocumented foreign nationals"
+        ],
+        "z": [
+          "United States"
+        ]
+      }
+    ]
+  },
+  {
+    "150": {
+      "a": [
+        "Undocumented immigrants"
+      ],
+      "z": [
+        "United States"
+      ]
+    },
+    "450": [
+      {
+        "a": [
+          "Undocumented foreign nationals"
+        ],
+        "z": [
+          "United States"
+        ]
+      },
+      {
+        "a": [
+          "Illegal aliens"
+        ],
+        "z": [
+          "United States"
+        ]
+      }
+    ]
+  },
+  {
+    "150": {
+      "a": [
+        "Undocumented immigrants"
+      ],
+      "v": [
+        "Fiction"
+      ]
+    },
+    "450": [
+      {
+        "a": [
+          "Undocumented foreign nationals"
+        ],
+        "v": [
+          "Fiction"
+        ]
+      },
+      {
+        "a": [
+          "Illegal aliens"
+        ],
+        "v": [
+          "Fiction"
+        ]
+      }
+    ]
+  },
+  {
+    "150": {
+      "a": [
+        "Women undocumented immigrants"
+      ]
+    },
+    "450": [
+      {
+        "a": [
+          "Women undocumented foreign nationals"
+        ]
+      },
+      {
+        "a": [
+          "Women illegal aliens"
+        ]
+      },
+      {
+        "a": [
+          "Undocumented women immigrants"
+        ]
+      },
+      {
+        "a": [
+          "Undocumented women aliens"
+        ]
+      }
+    ]
+  },
+  {
+    "150": {
+      "a": [
+        "Human smuggling"
+      ]
+    },
+    "450": [
+      {
+        "a": [
+          "Immigrant smuggling"
+        ]
+      },
+      {
+        "a": [
+          "Migrant smuggling"
+        ]
+      },
+      {
+        "a": [
+          "People smuggling"
+        ]
+      }
+    ]
+  },
+  {
+    "150": {
+      "a": [
+        "Undocumented immigrants in literature"
+      ]
+    },
+    "450": [
+      {
+        "a": [
+          "Undocumented foreign nationals in literature"
+        ]
+      },
+      {
+        "a": [
+          "Illegal aliens in literature"
+        ]
+      }
+    ]
+  },
+  {
+    "150": {
+      "a": [
+        "Undocumented immigrant children"
+      ]
+    },
+    "450": [
+      {
+        "a": [
+          "Undocumented foreign national children"
+        ]
+      },
+      {
+        "a": [
+          "Illegal alien children"
+        ]
+      },
+      {
+        "a": [
+          "Illegal immigrant children"
+        ]
+      },
+      {
+        "a": [
+          "Undocumented children"
+        ]
+      },
+      {
+        "a": [
+          "Undocumented child immigrants"
+        ]
+      },
+      {
+        "a": [
+          "Unaccompanied noncitizen children"
+        ]
+      }
+    ]
+  }
+]
