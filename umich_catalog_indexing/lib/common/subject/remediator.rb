@@ -1,7 +1,7 @@
 module Common::Subject
   class Remediator
     # will be subject headings translation map
-    def initialize(mapping = nil)
+    def initialize(mapping = JSON.parse(File.read(File.join(S.translation_map_dir, "umich", "subject_heading_remediation.json"))))
       @mapping = mapping
     end
 
@@ -22,17 +22,22 @@ module Common::Subject
       match = _matching_deprecated_field(field)
 
       sfields = field.subfields.filter_map do |sf|
-        unless match["450"][sf.code].include?(sf.value)
+        unless match["450"][sf.code]
+            &.map { |x| _normalize_sf(x) }
+            &.include?(_normalize_sf(sf.value))
           MARC::Subfield.new(sf.code, sf.value)
         end
       end
 
-      remediated_field = MARC::DataField.new(field.tag, field.indicator1, field.indicator2, *sfields)
+      remediated_field = MARC::DataField.new(field.tag, field.indicator1, "7", *sfields)
       match["150"].keys.each do |code|
         match["150"][code].each do |value|
           remediated_field.append(MARC::Subfield.new(code, value))
         end
       end
+      remediated_field.subfields.sort_by!(&:code)
+      remediated_field.append(MARC::Subfield.new("2", "miush"))
+
       remediated_field
     end
 
@@ -43,7 +48,9 @@ module Common::Subject
       match = _matching_remediated_field(field)
       match["450"].map do |f|
         sfields = field.subfields.filter_map do |sf|
-          unless match["150"][sf.code].include?(sf.value)
+          unless match["150"][sf.code]
+              &.map { |x| _normalize_sf(x) }
+              &.include?(_normalize_sf(sf.value))
             MARC::Subfield.new(sf.code, sf.value)
           end
         end
@@ -53,6 +60,7 @@ module Common::Subject
             deprecated_field.append(MARC::Subfield.new(code, value))
           end
         end
+        deprecated_field.subfields.sort_by!(&:code)
         deprecated_field
       end
     end
@@ -85,9 +93,13 @@ module Common::Subject
 
     def _sf_in_field?(code:, sf_value:, test_field:)
       test_sf_values = test_field.subfields.filter_map do |sf|
-        sf.value if sf.code == code
+        _normalize_sf(sf.value) if sf.code == code
       end
-      test_sf_values.include?(sf_value)
+      test_sf_values.include?(_normalize_sf(sf_value))
+    end
+
+    def _normalize_sf(str)
+      str&.downcase&.gsub(/[^A-Za-z0-9\s]/i, "")
     end
   end
 end

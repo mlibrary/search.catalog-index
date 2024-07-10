@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require_relative "normalize"
+require_relative "remediator"
 
 module Common::Subject
   class LCSubject
+    REMEDIATOR = Remediator.new
     include Common::Subject::Normalize
     class << self
       # Create an LC Subject object from the passed field
@@ -34,10 +36,7 @@ module Common::Subject
       end
 
       def remediated_subject_field?(field)
-        REMEDIATEABLE_FIELDS.include?(field.tag) &&
-          ["a", "z"].any? do |x|
-            SH_DEPRECATED_TO_REMEDIATED[_tm_normalize(field[x])]
-          end
+        REMEDIATOR.remediable?(field)
       end
 
       def _tm_normalize(str)

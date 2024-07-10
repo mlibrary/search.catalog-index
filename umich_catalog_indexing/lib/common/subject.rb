@@ -37,6 +37,8 @@ module Common::Subject
   SH_DEPRECATED_TO_REMEDIATED = ::Traject::TranslationMap.new("umich/sh_deprecated_to_remediated")
   SH_REMEDIATED_TO_DEPRECATED = ::Traject::TranslationMap.new("umich/sh_remediated_to_deprecated")
 
+  REMEDIATOR = Remediator.new
+
   def self.subject_field?(field)
     SUBJECT_FIELDS.include?(field.tag)
   end
@@ -62,43 +64,45 @@ module Common::Subject
 
   def self.deprecated_subject_fields(record)
     already_remediated_subject_fields(record).map do |field|
-      remediated_terms = []
-      field.each do |sf|
-        if ["a", "z"].any?(sf.code)
-          if SH_REMEDIATED_TO_DEPRECATED[_normalize_sf(sf.value)]
-            remediated_terms.push(sf.value)
-          end
-        end
-      end
-      remediated_terms.uniq.map do |remediated_term|
-        SH_REMEDIATED_TO_DEPRECATED[_normalize_sf(remediated_term)].split("||").map do |deprecated_term|
-          f = _clone_field(field)
-          f.each do |sf|
-            if ["a", "z"].any?(sf.code)
-              if sf.value == remediated_term
-                sf.value = deprecated_term
-              end
-            end
-          end
-          f
-        end
-      end
+      REMEDIATOR.to_deprecated(field)
+      # remediated_terms = []
+      # field.each do |sf|
+      # if ["a", "z"].any?(sf.code)
+      # if SH_REMEDIATED_TO_DEPRECATED[_normalize_sf(sf.value)]
+      # remediated_terms.push(sf.value)
+      # end
+      # end
+      # end
+      # remediated_terms.uniq.map do |remediated_term|
+      # SH_REMEDIATED_TO_DEPRECATED[_normalize_sf(remediated_term)].split("||").map do |deprecated_term|
+      # f = _clone_field(field)
+      # f.each do |sf|
+      # if ["a", "z"].any?(sf.code)
+      # if sf.value == remediated_term
+      # sf.value = deprecated_term
+      # end
+      # end
+      # end
+      # f
+      # end
+      # end
     end.flatten
   end
 
   def self.remediated_subject_fields(record)
     remediateable_subject_fields(record).map do |field|
-      f = _clone_field(field)
-      f.each do |sf|
-        if ["a", "z"].any?(sf.code)
-          if SH_DEPRECATED_TO_REMEDIATED[_normalize_sf(sf.value)]
-            sf.value = SH_DEPRECATED_TO_REMEDIATED[_normalize_sf(sf.value)]
-          end
-        end
-      end
-      f.indicator2 = "7"
-      f.append(MARC::Subfield.new("2", "miush"))
-      f
+      REMEDIATOR.to_remediated(field)
+      # f = _clone_field(field)
+      # f.each do |sf|
+      # if ["a", "z"].any?(sf.code)
+      # if SH_DEPRECATED_TO_REMEDIATED[_normalize_sf(sf.value)]
+      # sf.value = SH_DEPRECATED_TO_REMEDIATED[_normalize_sf(sf.value)]
+      # end
+      # end
+      # end
+      # f.indicator2 = "7"
+      # f.append(MARC::Subfield.new("2", "miush"))
+      # f
     end
   end
 
@@ -145,7 +149,7 @@ module Common::Subject
     ).reject do |field|
       field.indicator2 == "7" && field["2"] =~ /fast/
     end.reject do |field|
-      _remediateable_subject_field?(field)
+      REMEDIATOR.remediable?(field)
     end.map do |field|
       unless field.indicator2 == "7" && field["2"] =~ /fast/
         a = field["a"]
@@ -177,22 +181,22 @@ module Common::Subject
 
   def self.remediateable_subject_fields(record)
     subject_fields(record).filter_map do |field|
-      field if _remediateable_subject_field?(field)
+      field if REMEDIATOR.remediable?(field)
     end
   end
 
   def self.already_remediated_subject_fields(record)
     (subject_fields(record) - lc_subject_fields(record)).filter_map do |field|
-      field if _already_remediated_subject_field?(field)
+      field if REMEDIATOR.already_remediated?(field)
     end
   end
 
-  def self._already_remediated_subject_field?(field)
-    REMEDIATEABLE_FIELDS.include?(field.tag) &&
-      ["a", "z"].any? do |x|
-        SH_REMEDIATED_TO_DEPRECATED[_normalize_sf(field[x])]
-      end
-  end
+  # def self._already_remediated_subject_field?(field)
+  # REMEDIATEABLE_FIELDS.include?(field.tag) &&
+  # ["a", "z"].any? do |x|
+  # SH_REMEDIATED_TO_DEPRECATED[_normalize_sf(field[x])]
+  # end
+  # end
 
   def self._remediateable_subject_field?(field)
     REMEDIATEABLE_FIELDS.include?(field.tag) &&

@@ -25,22 +25,28 @@ RSpec.describe Common::Subject::Remediator do
   let(:remediated_field) do
     MARC::DataField.new("650", "0", "0",
       ["a", "A"],
-      ["x", "X1"],
-      ["x", "X2"],
       ["v", "V1"],
       ["v", "V2"],
+      ["x", "X1"],
+      ["x", "X2"],
       ["y", "Y1"],
       ["y", "Y2"],
       ["z", "Z1"],
       ["z", "Z2"])
   end
+  let(:miush_remediated_field) do
+    rem = remediated_field
+    rem.indicator2 = "7"
+    rem.append(MARC::Subfield.new("2", "miush"))
+    rem
+  end
   let(:deprecated_field) do
     MARC::DataField.new("650", "0", "0",
       ["a", "deprecated A"],
-      ["x", "deprecated X1"],
-      ["x", "deprecated X2"],
       ["v", "deprecated V1"],
       ["v", "deprecated V2"],
+      ["x", "deprecated X1"],
+      ["x", "deprecated X2"],
       ["y", "deprecated Y1"],
       ["y", "deprecated Y2"],
       ["z", "deprecated Z1"],
@@ -50,7 +56,7 @@ RSpec.describe Common::Subject::Remediator do
     described_class.new(@mapping)
   end
   context "remediable?" do
-    it "is true for a deprecated field field" do
+    it "is true for a deprecated field" do
       expect(subject.remediable?(deprecated_field)).to eq(true)
     end
     it "is false when any subfield doesn't match deprecated field" do
@@ -72,7 +78,17 @@ RSpec.describe Common::Subject::Remediator do
   end
   context "to_remediated(field)" do
     it "returns the remediated version of the field" do
-      expect(subject.to_remediated(deprecated_field)).to eq(remediated_field)
+      expect(subject.to_remediated(deprecated_field)).to eq(miush_remediated_field)
+    end
+    it "matches deprecated fields with extra periods and different capitalization" do
+      d = deprecated_field
+      d.subfields[0].value = "Deprecated A."
+      expect(subject.to_remediated(d)).to eq(miush_remediated_field)
+    end
+    it "has a 0 indicator 7 and a 2 miush" do
+      rem_field = subject.to_remediated(deprecated_field)
+      expect(rem_field.indicator2).to eq("7")
+      expect(rem_field["2"]).to eq("miush")
     end
   end
 

@@ -5,5 +5,6 @@ tmp/
 lib/translation_maps/hlb.json.gz
 lib/translation_maps/umich/libLocInfo.yaml
 lib/translation_maps/umich/electronic_collections.yaml
+lib/translation_maps/umich/subject_heading_remediation.json
 .bash_history
 .env
