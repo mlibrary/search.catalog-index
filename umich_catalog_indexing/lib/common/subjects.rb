@@ -7,6 +7,7 @@ module Common
   end
 end
 
+require_relative "subjects/remediation_map"
 require_relative "subjects/subject"
 require_relative "subjects/lc_subject"
 require_relative "subjects/non_lc_subject"
@@ -36,6 +37,7 @@ module Common
     }
     SUBJECT_FIELDS = TOPICS.keys
     REMEDIATEABLE_FIELDS = "650 651 653 654 655 656 657 658"
+    REMEDIATION_MAP = RemediationMap.new
 
     REMEDIATOR = Remediator.new
 
@@ -71,32 +73,32 @@ module Common
 
     def already_remediated_subject_fields
       (subject_fields - lc_subject_fields).filter_map do |field|
-        field if REMEDIATOR.already_remediated?(field)
+        field if remediator(field).already_remediated?(field)
       end
     end
 
     def deprecated_subject_fields
       already_remediated_subject_fields.map do |field|
-        REMEDIATOR.to_deprecated(field)
+        remediator(field).to_deprecated(field)
       end.flatten
     end
 
     def remediated_subject_fields
       _remediable_subject_fields.map do |field|
-        REMEDIATOR.to_remediated(field)
+        remediator(field).to_remediated(field)
       end
     end
 
     def _remediable_subject_fields
       subject_fields.filter_map do |field|
-        field if REMEDIATOR.remediable?(field)
+        field if remediator(field).remediable?(field)
       end
     end
 
     def _normalized_subject_subfields
       @normalized_subject_subfields ||= subject_fields.filter_map do |field|
         field.subfields.filter_map do |sf|
-          {"code" => sf.code, "value" => REMEDIATOR._normalize_sf(sf.value)}
+          {"code" => sf.code, "value" => remediator(field)._normalize_sf(sf.value)}
         end
       end
     end
@@ -131,7 +133,7 @@ module Common
       ).reject do |field|
         field.indicator2 == "7" && field["2"] =~ /fast/
       end.reject do |field|
-        REMEDIATOR.remediable?(field)
+        remediator(field).remediable?(field)
       end.map do |field|
         unless field.indicator2 == "7" && field["2"] =~ /fast/
           a = field["a"]
@@ -156,6 +158,10 @@ module Common
       else
         []
       end
+    end
+
+    def remediator(field)
+      REMEDIATOR
     end
   end
 end
