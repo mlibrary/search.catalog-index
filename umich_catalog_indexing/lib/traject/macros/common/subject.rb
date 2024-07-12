@@ -1,6 +1,6 @@
 ## frozen_string_literal: true
 
-require "common/subject"
+require "common/subjects"
 
 module Traject::Macros::Common
   # Code to extract subject fields (and their string representations) from the 600-699

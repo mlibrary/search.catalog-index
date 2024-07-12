@@ -1,4 +1,4 @@
-require "common/subject"
+require "common/subjects"
 RSpec.describe Common::Subjects::Normalize do
   context "#normalize as included behavior" do
     before(:each) do

@@ -1,4 +1,4 @@
-require "common/subject"
+require "common/subjects"
 require "marc"
 RSpec.describe Common::Subjects::LCSubject do
   let(:record) do

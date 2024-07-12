@@ -1,4 +1,4 @@
-require "common/subject"
+require "common/subjects"
 require "marc"
 RSpec.describe Common::Subjects::NonLCSubject do
   let(:non_lc_subject_field) do
