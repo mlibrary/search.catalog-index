@@ -38,10 +38,6 @@ module Common
 
     REMEDIATOR = Remediator.new
 
-    def initialize(record:)
-      @record = record
-    end
-
     class << self
       def subject_field?(field)
         SUBJECT_FIELDS.include?(field.tag)
@@ -52,121 +48,6 @@ module Common
         LCSubject.lc_subject_field?(field)
       end
 
-      # Determine the 880 (linking fields) for the given field. Should probably be pulled
-      # out into a more generically-available macro
-      # @param [MARC::Record] record The record
-      # @param [MARC::DataField] field The field you want to try to match
-      # @return [Array<MARC::DataField>] A (possibly empty) array of linked fields
-      def linked_fields_for(record, field)
-        linking_id = field["6"]
-        if linking_id
-          record.fields("880").select { |eef| eef["6"]&.start_with? "#{field.tag}-#{linking_id.split("-").last}" }
-        else
-          []
-        end
-      end
-
-      def deprecated_subject_fields(record)
-        already_remediated_subject_fields(record).map do |field|
-          REMEDIATOR.to_deprecated(field)
-        end.flatten
-      end
-
-      def remediated_subject_fields(record)
-        remediateable_subject_fields(record).map do |field|
-          REMEDIATOR.to_remediated(field)
-        end
-      end
-
-      # Get all the subject fields including associated 880 linked fields
-      # @param [MARC::Record] record The record
-      # @return [Array<MARC::DataField>] A (possibly empty) array of subject fields and their
-      # linked counterparts, if any
-      def subject_fields(record)
-        sfields = record.select { |field| subject_field?(field) }
-        sfields + sfields.flat_map { |field| linked_fields_for(record, field) }.compact
-      end
-
-      # Get only the LC subject fields and any associated 880 linked fields
-      # @param [MARC::Record] record The record
-      # @return [Array<MARC::DataField>] A (possibly empty) array of LC subject fields and their
-      # linked counterparts, if any
-      def lc_subject_fields(record)
-        sfields = record.select { |field| lc_subject_field?(field) }
-        sfields + sfields.flat_map { |field| linked_fields_for(record, field) }.compact
-      end
-
-      def non_lc_subject_fields(record)
-        subject_fields(record) -
-          lc_subject_fields(record) -
-          remediateable_subject_fields(record) -
-          already_remediated_subject_fields(record)
-      end
-
-      def remediated_lc_subject_fields(record)
-        remediated_subject_fields(record) +
-          already_remediated_subject_fields(record)
-      end
-
-      def subject_browse_fields(record)
-        lc_subject_fields(record) +
-          remediated_subject_fields(record) +
-          already_remediated_subject_fields(record)
-      end
-
-      def subject_facets(record)
-        (
-          subject_fields(record) +
-          remediated_subject_fields(record)
-        ).reject do |field|
-          field.indicator2 == "7" && field["2"] =~ /fast/
-        end.reject do |field|
-          REMEDIATOR.remediable?(field)
-        end.map do |field|
-          unless field.indicator2 == "7" && field["2"] =~ /fast/
-            a = field["a"]
-            more = []
-            field.each do |sf|
-              more.push sf.value if TOPICS[field.tag]&.chars&.include?(sf.code)
-            end
-            [a, more.join(" ")]
-          end
-        end.flatten.uniq
-      end
-
-      def topics(record)
-        (
-          subject_fields(record) +
-          deprecated_subject_fields(record) +
-          remediated_subject_fields(record)
-        ).reject do |field|
-          field.indicator2 == "7" && field["2"] =~ /fast/
-        end.map do |field|
-          a = field["a"]
-          more = []
-          field.each do |sf|
-            more.push sf.value if TOPICS[field.tag]&.chars&.include?(sf.code)
-          end
-          [a, more.join(" ")]
-        end.flatten.uniq
-      end
-
-      def remediateable_subject_fields(record)
-        subject_fields(record).filter_map do |field|
-          field if REMEDIATOR.remediable?(field)
-        end
-      end
-
-      def already_remediated_subject_fields(record)
-        (subject_fields(record) - lc_subject_fields(record)).filter_map do |field|
-          field if REMEDIATOR.already_remediated?(field)
-        end
-      end
-
-      def _normalize_sf(str)
-        str&.downcase&.gsub(/[^A-Za-z0-9\s]/i, "")
-      end
-
       # Pass off a new subject to the appropriate class
       def for(field)
         if lc_subject_field?(field)
@@ -175,13 +56,124 @@ module Common
           NonLCSubject.new(field)
         end
       end
+    end
 
-      def normalized_subject_subfields(record)
-        subject_fields(record).filter_map do |field|
-          field.subfields.filter_map do |sf|
-            {"code" => sf.code, "value" => REMEDIATOR._normalize_sf(sf.value)}
-          end
+    def initialize(record)
+      @record = record
+    end
+
+    def subject_fields
+      sfields = @record.select { |field| self.class.subject_field?(field) }
+      sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
+    end
+
+    # Get only the LC subject fields and any associated 880 linked fields
+    # @param [MARC::Record] record The record
+    # @return [Array<MARC::DataField>] A (possibly empty) array of LC subject fields and their
+    # linked counterparts, if any
+    def lc_subject_fields
+      sfields = @record.select { |field| self.class.lc_subject_field?(field) }
+      sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
+    end
+
+    def non_lc_subject_fields
+      subject_fields -
+        lc_subject_fields -
+        _remediable_subject_fields -
+        already_remediated_subject_fields
+    end
+
+    def remediated_lc_subject_fields
+      remediated_subject_fields +
+        already_remediated_subject_fields
+    end
+
+    def already_remediated_subject_fields
+      (subject_fields - lc_subject_fields).filter_map do |field|
+        field if REMEDIATOR.already_remediated?(field)
+      end
+    end
+
+    def deprecated_subject_fields
+      already_remediated_subject_fields.map do |field|
+        REMEDIATOR.to_deprecated(field)
+      end.flatten
+    end
+
+    def remediated_subject_fields
+      _remediable_subject_fields.map do |field|
+        REMEDIATOR.to_remediated(field)
+      end
+    end
+
+    def _remediable_subject_fields
+      subject_fields.filter_map do |field|
+        field if REMEDIATOR.remediable?(field)
+      end
+    end
+
+    def _normalized_subject_subfields
+      @normalized_subject_subfields ||= subject_fields.filter_map do |field|
+        field.subfields.filter_map do |sf|
+          {"code" => sf.code, "value" => REMEDIATOR._normalize_sf(sf.value)}
         end
+      end
+    end
+
+    def subject_browse_fields
+      lc_subject_fields +
+        remediated_subject_fields +
+        already_remediated_subject_fields
+    end
+
+    def topics
+      (
+        subject_fields +
+        deprecated_subject_fields +
+        remediated_subject_fields
+      ).reject do |field|
+        field.indicator2 == "7" && field["2"] =~ /fast/
+      end.map do |field|
+        a = field["a"]
+        more = []
+        field.each do |sf|
+          more.push sf.value if TOPICS[field.tag]&.chars&.include?(sf.code)
+        end
+        [a, more.join(" ")]
+      end.flatten.uniq
+    end
+
+    def subject_facets
+      (
+        subject_fields +
+        remediated_subject_fields
+      ).reject do |field|
+        field.indicator2 == "7" && field["2"] =~ /fast/
+      end.reject do |field|
+        REMEDIATOR.remediable?(field)
+      end.map do |field|
+        unless field.indicator2 == "7" && field["2"] =~ /fast/
+          a = field["a"]
+          more = []
+          field.each do |sf|
+            more.push sf.value if TOPICS[field.tag]&.chars&.include?(sf.code)
+          end
+          [a, more.join(" ")]
+        end
+      end.flatten.uniq
+    end
+
+    # Determine the 880 (linking fields) for the given field. Should probably be pulled
+    # out into a more generically-available macro
+    # @param [MARC::Record] record The record
+    # @param [MARC::DataField] field The field you want to try to match
+    # @return [Array<MARC::DataField>] A (possibly empty) array of linked fields
+    def _linked_fields_for(field)
+      linking_id = field["6"]
+      if linking_id
+        @record.fields("880").select { |eef| eef["6"]&.start_with? "#{field.tag}-#{linking_id.split("-").last}" }
+      else
+        []
       end
     end
   end

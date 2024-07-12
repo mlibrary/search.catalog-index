@@ -10,6 +10,10 @@ extend Traject::Macros::Common::Subject
 # We get the full topic (LCSH), but currently want to ignore
 # entries that are FAST entries (those having second-indicator == 7)
 
+each_record do |rec, context|
+  context.clipboard[:subject] = Common::Subject.new(rec)
+end
+
 skip_FAST = ->(rec, field) do
   field.indicator2 == "7" and field["2"] =~ /fast/
 end

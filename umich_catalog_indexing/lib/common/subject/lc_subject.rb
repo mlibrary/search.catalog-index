@@ -6,7 +6,6 @@ require_relative "remediator"
 module Common
   class Subject
     class LCSubject
-      REMEDIATOR = Remediator.new
       include Common::Subject::Normalize
       class << self
         # Create an LC Subject object from the passed field
