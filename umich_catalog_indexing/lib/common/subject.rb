@@ -168,7 +168,7 @@ module Common
       end
 
       # Pass off a new subject to the appropriate class
-      def new(field)
+      def for(field)
         if lc_subject_field?(field)
           LCSubject.from_field(field)
         else

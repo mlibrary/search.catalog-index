@@ -28,166 +28,168 @@ RSpec.describe Common::Subject do
   let(:wrongindicator_subject_field) do
     MARC::DataField.new("650", "0", "0", ["a", "subjectA"], ["2" "gnd"])
   end
-  context ".subject_field?" do
-    it "returns true for appropriate subject field" do
-      expect(described_class.subject_field?(lc_subject_field)).to eq(true)
+  context "with all class methods" do
+    context ".subject_field?" do
+      it "returns true for appropriate subject field" do
+        expect(described_class.subject_field?(lc_subject_field)).to eq(true)
+      end
+      it "returns false for field with incorrect tag" do
+        not_subject = instance_double(MARC::DataField, tag: "800")
+        expect(described_class.subject_field?(not_subject)).to eq(false)
+      end
     end
-    it "returns false for field with incorrect tag" do
-      not_subject = instance_double(MARC::DataField, tag: "800")
-      expect(described_class.subject_field?(not_subject)).to eq(false)
+    context ".linked_fields_for" do
+      it "returns a linking field?" do
+        rec = record_with_880
+        field = rec["630"]
+        linked_fields = described_class.linked_fields_for(record_with_880, field)
+        expect(linked_fields.first.value).to eq("630-05/大武經.")
+      end
     end
-  end
-  context ".linked_fields_for" do
-    it "returns a linking field?" do
-      rec = record_with_880
-      field = rec["630"]
-      linked_fields = described_class.linked_fields_for(record_with_880, field)
-      expect(linked_fields.first.value).to eq("630-05/大武經.")
+    context ".subject_fields" do
+      it "returns subject fields including non_lc" do
+        subjects = described_class.subject_fields(record)
+        expect(subjects.first.tag).to eq("610")
+        expect(subjects.count).to eq(4)
+      end
+      it "returns subject fields and linked subject fields" do
+        subjects = described_class.subject_fields(record_with_880)
+        expect(subjects[0].tag).to eq("630")
+        expect(subjects[3].tag).to eq("880")
+        expect(subjects.count).to eq(4)
+      end
     end
-  end
-  context ".subject_fields" do
-    it "returns subject fields including non_lc" do
-      subjects = described_class.subject_fields(record)
-      expect(subjects.first.tag).to eq("610")
-      expect(subjects.count).to eq(4)
-    end
-    it "returns subject fields and linked subject fields" do
-      subjects = described_class.subject_fields(record_with_880)
-      expect(subjects[0].tag).to eq("630")
-      expect(subjects[3].tag).to eq("880")
-      expect(subjects.count).to eq(4)
-    end
-  end
-  context ".lc_subject_fields" do
-    it "returns just the lc_subject_fields" do
-      subjects = described_class.lc_subject_fields(record)
-      expect(subjects.first.tag).to eq("610")
-      expect(subjects.count).to eq(3)
-    end
-    it "returns subject fields and linked subject fields" do
-      subjects = described_class.lc_subject_fields(record_with_880)
-      expect(subjects[0].tag).to eq("630")
-      expect(subjects[3].tag).to eq("880")
-      expect(subjects.count).to eq(4)
-    end
-  end
-
-  context ".non_lc_subject_fields" do
-    it "does not include lc subject fields or already remediated fields" do
-      subjects = described_class.non_lc_subject_fields(record)
-      expect(subjects.count).to eq(0)
-    end
-  end
-
-  context ".remediated_lc_subject_fields" do
-    it "includes already remediated terms" do
-      subjects = described_class.remediated_lc_subject_fields(record)
-      expect(subjects.count).to eq(1)
-    end
-    it "includes newly remediated terms" do
-      subjects = described_class.remediated_lc_subject_fields(deprecated_record)
-      expect(subjects.count).to eq(2)
-    end
-  end
-
-  context ".subject_facets" do
-    it "returns topics including remediated ones, skips unremediated ones" do
-      expect(described_class.subject_facets(deprecated_record)).to contain_exactly(
-        "United States",
-        "United States Emigration and immigration Government policy.",
-        "Undocumented immigrants",
-        "Undocumented immigrants Government policy United States.",
-        "Undocumented immigrants United States."
-      )
+    context ".lc_subject_fields" do
+      it "returns just the lc_subject_fields" do
+        subjects = described_class.lc_subject_fields(record)
+        expect(subjects.first.tag).to eq("610")
+        expect(subjects.count).to eq(3)
+      end
+      it "returns subject fields and linked subject fields" do
+        subjects = described_class.lc_subject_fields(record_with_880)
+        expect(subjects[0].tag).to eq("630")
+        expect(subjects[3].tag).to eq("880")
+        expect(subjects.count).to eq(4)
+      end
     end
 
-    it "returns topics, does nothing with already remediated records" do
-      expect(described_class.subject_facets(remediated_record)).to contain_exactly(
-        "Undocumented immigrants.",
-        "Emigration and immigration law.",
-        "Noncitizens.",
-        "Right to counsel."
-      )
-    end
-  end
-  context ".topics" do
-    it "returns topics including remediated ones" do
-      expect(described_class.topics(deprecated_record)).to contain_exactly(
-        "United States",
-        "United States Emigration and immigration Government policy.",
-        "Illegal aliens",
-        "Illegal aliens Government policy United States.",
-        "Illegal aliens United States.",
-        "Undocumented immigrants",
-        "Undocumented immigrants Government policy United States.",
-        "Undocumented immigrants United States."
-      )
+    context ".non_lc_subject_fields" do
+      it "does not include lc subject fields or already remediated fields" do
+        subjects = described_class.non_lc_subject_fields(record)
+        expect(subjects.count).to eq(0)
+      end
     end
 
-    it "returns topics including deprecated ones" do
-      expect(described_class.topics(remediated_record)).to contain_exactly(
-        "Noncitizens.",
-        "Emigration and immigration law.",
-        "Undocumented immigrants.",
-        "Right to counsel.",
-        "Aliens",
-        "Aliens Legal status, laws, etc.",
-        "Illegal aliens",
-        "Illegal aliens Legal status, laws, etc.",
-        "Undocumented foreign nationals",
-        "Aliens, Illegal",
-        "Illegal immigrants",
-        "Undocumented noncitizens"
-      )
+    context ".remediated_lc_subject_fields" do
+      it "includes already remediated terms" do
+        subjects = described_class.remediated_lc_subject_fields(record)
+        expect(subjects.count).to eq(1)
+      end
+      it "includes newly remediated terms" do
+        subjects = described_class.remediated_lc_subject_fields(deprecated_record)
+        expect(subjects.count).to eq(2)
+      end
     end
-  end
 
-  context ".remediated_subject_fields" do
-    it "returns remediated a and z fields;adds indications that its been remediated" do
-      d = deprecated_record
-      subjects = described_class.remediated_subject_fields(d)
-      expect(subjects[0].tag).to eq("650")
-      expect(subjects[0].indicator2).to eq("7")
-      expect(subjects[0]["a"]).to eq("Undocumented immigrants")
-      expect(subjects[0]["2"]).to eq("miush")
-    end
-  end
-  context ".already_remediated_subject_fields" do
-    it "returns the non_lcsh already remediated subject fields" do
-      subjects = described_class.already_remediated_subject_fields(remediated_record)
-      expect(subjects[0].tag).to eq("650")
-      expect(subjects[0]["a"]).to eq("Undocumented immigrants.")
-    end
-  end
+    context ".subject_facets" do
+      it "returns topics including remediated ones, skips unremediated ones" do
+        expect(described_class.subject_facets(deprecated_record)).to contain_exactly(
+          "United States",
+          "United States Emigration and immigration Government policy.",
+          "Undocumented immigrants",
+          "Undocumented immigrants Government policy United States.",
+          "Undocumented immigrants United States."
+        )
+      end
 
-  context ".deprecated_subject_fields" do
-    it "returns an array of all the deprecated subject fields" do
-      r = remediated_record
-      # adding repeatable field z to test if we get all deprecated fields
-      fields = described_class.deprecated_subject_fields(r)
-      filtered_fields = fields.map do |x|
-        x.subfields.filter_map do |y|
-          y.value if ["a", "v", "x", "y", "z"].include?(y.code)
-        end.join(" ")
-      end.flatten
-      expect(filtered_fields).to contain_exactly(
-        "Aliens Legal status, laws, etc.",
-        "Illegal aliens",
-        "Illegal aliens Legal status, laws, etc.",
-        "Undocumented foreign nationals",
-        "Aliens, Illegal",
-        "Illegal immigrants",
-        "Undocumented noncitizens"
-      )
+      it "returns topics, does nothing with already remediated records" do
+        expect(described_class.subject_facets(remediated_record)).to contain_exactly(
+          "Undocumented immigrants.",
+          "Emigration and immigration law.",
+          "Noncitizens.",
+          "Right to counsel."
+        )
+      end
     end
-  end
+    context ".topics" do
+      it "returns topics including remediated ones" do
+        expect(described_class.topics(deprecated_record)).to contain_exactly(
+          "United States",
+          "United States Emigration and immigration Government policy.",
+          "Illegal aliens",
+          "Illegal aliens Government policy United States.",
+          "Illegal aliens United States.",
+          "Undocumented immigrants",
+          "Undocumented immigrants Government policy United States.",
+          "Undocumented immigrants United States."
+        )
+      end
 
-  context ".new" do
-    it "returns an object that knows it's an LCSubject" do
-      expect(described_class.new(lc_subject_field).lc_subject_field?).to eq(true)
+      it "returns topics including deprecated ones" do
+        expect(described_class.topics(remediated_record)).to contain_exactly(
+          "Noncitizens.",
+          "Emigration and immigration law.",
+          "Undocumented immigrants.",
+          "Right to counsel.",
+          "Aliens",
+          "Aliens Legal status, laws, etc.",
+          "Illegal aliens",
+          "Illegal aliens Legal status, laws, etc.",
+          "Undocumented foreign nationals",
+          "Aliens, Illegal",
+          "Illegal immigrants",
+          "Undocumented noncitizens"
+        )
+      end
     end
-    it "returns an object that knows it's an Non LCSubject" do
-      expect(described_class.new(non_lc_subject_field).lc_subject_field?).to eq(false)
+
+    context ".remediated_subject_fields" do
+      it "returns remediated a and z fields;adds indications that its been remediated" do
+        d = deprecated_record
+        subjects = described_class.remediated_subject_fields(d)
+        expect(subjects[0].tag).to eq("650")
+        expect(subjects[0].indicator2).to eq("7")
+        expect(subjects[0]["a"]).to eq("Undocumented immigrants")
+        expect(subjects[0]["2"]).to eq("miush")
+      end
+    end
+    context ".already_remediated_subject_fields" do
+      it "returns the non_lcsh already remediated subject fields" do
+        subjects = described_class.already_remediated_subject_fields(remediated_record)
+        expect(subjects[0].tag).to eq("650")
+        expect(subjects[0]["a"]).to eq("Undocumented immigrants.")
+      end
+    end
+
+    context ".deprecated_subject_fields" do
+      it "returns an array of all the deprecated subject fields" do
+        r = remediated_record
+        # adding repeatable field z to test if we get all deprecated fields
+        fields = described_class.deprecated_subject_fields(r)
+        filtered_fields = fields.map do |x|
+          x.subfields.filter_map do |y|
+            y.value if ["a", "v", "x", "y", "z"].include?(y.code)
+          end.join(" ")
+        end.flatten
+        expect(filtered_fields).to contain_exactly(
+          "Aliens Legal status, laws, etc.",
+          "Illegal aliens",
+          "Illegal aliens Legal status, laws, etc.",
+          "Undocumented foreign nationals",
+          "Aliens, Illegal",
+          "Illegal immigrants",
+          "Undocumented noncitizens"
+        )
+      end
+    end
+
+    context ".for" do
+      it "returns an object that knows it's an LCSubject" do
+        expect(described_class.for(lc_subject_field).lc_subject_field?).to eq(true)
+      end
+      it "returns an object that knows it's an Non LCSubject" do
+        expect(described_class.for(non_lc_subject_field).lc_subject_field?).to eq(false)
+      end
     end
   end
 end
