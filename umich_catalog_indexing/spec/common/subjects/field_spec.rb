@@ -53,14 +53,9 @@ RSpec.describe Common::Subjects::Field do
       ["z", "deprecated Z1"],
       ["z", "deprecated Z2"])
   end
-  let(:normalized_sfs) do
-    @field.subfields.filter_map do |sf|
-      {"code" => sf.code, "value" => Common::Subjects::Remediator.normalize_sf(sf.value)}
-    end
-  end
   subject do
     map = Common::Subjects::RemediationMap.new(@mapping)
-    described_class.new(field: @field, normalized_sfs: normalized_sfs, remediation_map: map)
+    described_class.new(field: @field, remediation_map: map)
   end
   context "remediable?" do
     it "is true for a deprecated field" do

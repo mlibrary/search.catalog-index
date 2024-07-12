@@ -1,9 +1,8 @@
 module Common
   class Subjects
     class Field
-      def initialize(field:, normalized_sfs:, remediation_map:)
+      def initialize(field:, remediation_map:)
         @field = field
-        @normalized_sfs = normalized_sfs
         @mapping = remediation_map.mapping
         @normalized_mapping = remediation_map.normalized_mapping
       end
@@ -27,7 +26,7 @@ module Common
         # skipping deprecated_fields
         sfields = @field.subfields.filter_map.with_index do |sf, index|
           unless match["normalized"]["450"][sf.code]
-              &.include?(@normalized_sfs[index]["value"])
+              &.include?(normalized_sfs[index]["value"])
             MARC::Subfield.new(sf.code, sf.value)
           end
         end
@@ -52,7 +51,7 @@ module Common
         match["given"]["450"].map do |f|
           sfields = @field.subfields.filter_map.with_index do |sf, index|
             unless match["normalized"]["150"][sf.code]
-                &.include?(@normalized_sfs[index]["value"])
+                &.include?(normalized_sfs[index]["value"])
               MARC::Subfield.new(sf.code, sf.value)
             end
           end
@@ -110,11 +109,21 @@ module Common
         nil
       end
 
+      def normalized_sfs
+        @normalized_sfs ||= @field.subfields.map do |sf|
+          {"code" => sf.code, "value" => _normalize_sf(sf.value)}
+        end
+      end
+
       def _sf_in_field?(code:, sf_value:)
-        test_sf_values = @normalized_sfs.filter_map do |sf|
+        test_sf_values = normalized_sfs.filter_map do |sf|
           sf["value"] if sf["code"] == code
         end
         test_sf_values.include?(sf_value)
+      end
+
+      def _normalize_sf(str)
+        str&.downcase&.gsub(/[^A-Za-z0-9\s]/i, "")
       end
     end
   end

@@ -1,10 +1,6 @@
 module Common
   class Subjects
     class Remediator
-      def self.normalize_sf(str)
-        str&.downcase&.gsub(/[^A-Za-z0-9\s]/i, "")
-      end
-
       # will be subject headings translation map
       def initialize(mapping = JSON.parse(File.read(File.join(S.translation_map_dir, "umich", "subject_heading_remediation.json"))))
         @mapping = mapping
