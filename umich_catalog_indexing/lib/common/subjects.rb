@@ -7,10 +7,10 @@ module Common
   end
 end
 
-require_relative "subject/lc_subject"
-require_relative "subject/non_lc_subject"
-require_relative "subject/normalize"
-require_relative "subject/remediator"
+require_relative "subjects/lc_subject"
+require_relative "subjects/non_lc_subject"
+require_relative "subjects/normalize"
+require_relative "subjects/remediator"
 
 module Common
   class Subjects
