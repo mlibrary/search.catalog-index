@@ -4,9 +4,9 @@ require_relative "normalize"
 require_relative "remediator"
 
 module Common
-  class Subject
+  class Subjects
     class LCSubject
-      include Common::Subject::Normalize
+      include Common::Subjects::Normalize
       class << self
         # Create an LC Subject object from the passed field
         # @param [MARC::DataField] field _that has already been determined to be LC_

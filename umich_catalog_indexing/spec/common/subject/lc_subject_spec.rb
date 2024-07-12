@@ -1,6 +1,6 @@
 require "common/subject"
 require "marc"
-RSpec.describe Common::Subject::LCSubject do
+RSpec.describe Common::Subjects::LCSubject do
   let(:record) do
     MARC::XMLReader.new("./spec/fixtures/unauthorized_immigrants.xml").first
   end
@@ -10,7 +10,7 @@ RSpec.describe Common::Subject::LCSubject do
     rec.fields("650").first
   end
   let(:subject_fields) do
-    Common::Subject.new(record).lc_subject_fields
+    Common::Subjects.new(record).lc_subject_fields
   end
   let(:subject_field) do
     subject_fields.first
@@ -33,7 +33,7 @@ RSpec.describe Common::Subject::LCSubject do
       expect(described_class.lc_subject_field?(wrongindicator_subject_field)).to eq(false)
     end
     it "returns false for term that needs to be remediated" do
-      expect(Common::Subject::LCSubject.lc_subject_field?(deprecated_subject_field)).to eq(false)
+      expect(Common::Subjects::LCSubject.lc_subject_field?(deprecated_subject_field)).to eq(false)
     end
   end
   context "#subject_data_subfield_codes" do
@@ -65,7 +65,7 @@ RSpec.describe Common::Subject::LCSubject do
   end
 end
 
-RSpec.describe Common::Subject::LCSubject658 do
+RSpec.describe Common::Subjects::LCSubject658 do
   let(:subject_field) do
     MARC::DataField.new("658", "1", "0",
       ["a", "Health objective 1"],
@@ -83,7 +83,7 @@ RSpec.describe Common::Subject::LCSubject658 do
     end
   end
 end
-RSpec.describe Common::Subject::LCSubjectHierarchical do
+RSpec.describe Common::Subjects::LCSubjectHierarchical do
   let(:subject_field) do
     MARC::DataField.new("662", "", "",
       ["a", "World"],

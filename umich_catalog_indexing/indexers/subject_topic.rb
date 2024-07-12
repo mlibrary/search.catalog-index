@@ -11,7 +11,7 @@ extend Traject::Macros::Common::Subject
 # entries that are FAST entries (those having second-indicator == 7)
 
 each_record do |rec, context|
-  context.clipboard[:subject] = Common::Subject.new(rec)
+  context.clipboard[:subject] = Common::Subjects.new(rec)
 end
 
 skip_FAST = ->(rec, field) do

@@ -1,6 +1,6 @@
 require "common/subject"
 require "marc"
-RSpec.describe Common::Subject::NonLCSubject do
+RSpec.describe Common::Subjects::NonLCSubject do
   let(:non_lc_subject_field) do
     MARC::DataField.new("650", "", "7",
       ["a", "a"],
@@ -8,7 +8,7 @@ RSpec.describe Common::Subject::NonLCSubject do
       ["c", "c"])
   end
   subject do
-    Common::Subject.for(non_lc_subject_field)
+    Common::Subjects.for(non_lc_subject_field)
   end
   context "lc_subject_field?" do
     it "is false" do

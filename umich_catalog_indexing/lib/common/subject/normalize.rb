@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Common
-  class Subject
+  class Subjects
     module Normalize
       # This enables the use of the method Common::Subject::Normalize.normalize
       extend self

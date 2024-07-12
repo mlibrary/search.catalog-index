@@ -1,6 +1,6 @@
 require "common/subject"
 require "marc"
-RSpec.describe Common::Subject do
+RSpec.describe Common::Subjects do
   def get_record(path)
     MARC::XMLReader.new(path).first
   end

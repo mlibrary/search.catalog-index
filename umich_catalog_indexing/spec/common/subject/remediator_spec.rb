@@ -1,5 +1,5 @@
 require "common/subject"
-RSpec.describe Common::Subject::Remediator do
+RSpec.describe Common::Subjects::Remediator do
   before(:each) do
     @mapping = [
       {
