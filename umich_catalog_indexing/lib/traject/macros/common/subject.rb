@@ -10,7 +10,7 @@ module Traject::Macros::Common
       ->(record, accumulator, context) do
         # subject_fields = Common::Subject.lc_subject_fields(record)
         subject_fields = context.clipboard[:subject].lc_subject_fields
-        subjects = subject_fields.map { |f| Common::Subjects.for(f) }
+        subjects = subject_fields.map { |f| Common::Subjects::Subject.new(f) }
         accumulator.replace subjects.map { |s| s.subject_string(" -- ") }
       end
     end
@@ -18,7 +18,7 @@ module Traject::Macros::Common
     def remediated_lcsh_subjects
       ->(record, accumulator, context) do
         subject_fields = context.clipboard[:subject].remediated_lc_subject_fields
-        subjects = subject_fields.map { |f| Common::Subjects.for(f) }
+        subjects = subject_fields.map { |f| Common::Subjects::Subject.new(f) }
         accumulator.replace subjects.map { |s| s.subject_string(" -- ") }
       end
     end
@@ -26,7 +26,7 @@ module Traject::Macros::Common
     def non_lcsh_subjects
       ->(record, accumulator, context) do
         subject_fields = context.clipboard[:subject].non_lc_subject_fields
-        subjects = subject_fields.map { |f| Common::Subjects.for(f) }
+        subjects = subject_fields.map { |f| Common::Subjects::Subject.new(f) }
         accumulator.replace subjects.map { |s| s.subject_string(" -- ") }
       end
     end
@@ -34,7 +34,7 @@ module Traject::Macros::Common
     def subject_browse_subjects
       ->(record, accumulator, context) do
         subject_fields = context.clipboard[:subject].subject_browse_fields
-        subjects = subject_fields.map { |f| Common::Subjects.for(f) }
+        subjects = subject_fields.map { |f| Common::Subjects::Subject.new(f) }
         accumulator.replace subjects.map { |s| s.subject_string }
       end
     end

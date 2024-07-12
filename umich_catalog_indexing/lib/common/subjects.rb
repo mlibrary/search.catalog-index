@@ -7,6 +7,7 @@ module Common
   end
 end
 
+require_relative "subjects/subject"
 require_relative "subjects/lc_subject"
 require_relative "subjects/non_lc_subject"
 require_relative "subjects/normalize"
@@ -38,32 +39,12 @@ module Common
 
     REMEDIATOR = Remediator.new
 
-    class << self
-      def subject_field?(field)
-        SUBJECT_FIELDS.include?(field.tag)
-      end
-
-      # Delegate LC determination to the class itself.
-      def lc_subject_field?(field)
-        LCSubject.lc_subject_field?(field)
-      end
-
-      # Pass off a new subject to the appropriate class
-      def for(field)
-        if lc_subject_field?(field)
-          LCSubject.from_field(field)
-        else
-          NonLCSubject.new(field)
-        end
-      end
-    end
-
     def initialize(record)
       @record = record
     end
 
     def subject_fields
-      sfields = @record.select { |field| self.class.subject_field?(field) }
+      sfields = @record.select { |field| Subject.subject_field?(field) }
       sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
     end
 
@@ -72,7 +53,7 @@ module Common
     # @return [Array<MARC::DataField>] A (possibly empty) array of LC subject fields and their
     # linked counterparts, if any
     def lc_subject_fields
-      sfields = @record.select { |field| self.class.lc_subject_field?(field) }
+      sfields = @record.select { |field| Subject.lc_subject_field?(field) }
       sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
     end
 
