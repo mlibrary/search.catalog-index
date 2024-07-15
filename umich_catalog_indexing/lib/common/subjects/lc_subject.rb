@@ -31,13 +31,13 @@ module Common
         def lc_subject_field?(field)
           SUBJECT_FIELDS.include?(field.tag) &&
             field.indicator2 == "0" &&
-            lcsh_subject_field_2?(field) &&
-            !remediated_subject_field?(field)
+            lcsh_subject_field_2?(field) # &&
+          # !remediated_subject_field?(field)
         end
 
-        def remediated_subject_field?(field)
-          REMEDIATOR.remediable?(field)
-        end
+        # def remediated_subject_field?(field)
+        # REMEDIATOR.remediable?(field)
+        # end
 
         def _tm_normalize(str)
           return if str.nil?

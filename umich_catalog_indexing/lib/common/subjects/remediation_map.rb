@@ -2,6 +2,7 @@ module Common
   class Subjects
     class RemediationMap
       attr_reader :mapping, :normalized_mapping
+
       def initialize(mapping = JSON.parse(File.read(File.join(S.translation_map_dir, "umich", "subject_heading_remediation.json"))))
         @mapping = mapping
         @normalized_mapping = _create_normalized_mapping
@@ -12,7 +13,7 @@ module Common
           new_heading = {}
           heading["150"].keys.each do |code|
             new_heading[code] = heading["150"][code].map do |value|
-              _normalize_sf(value)
+              normalize_sf(value)
             end
           end
 
@@ -20,7 +21,7 @@ module Common
             dep_heading = {}
             heading["450"][index].keys.each do |code|
               dep_heading[code] = heading["450"][index][code].map do |value|
-                _normalize_sf(value)
+                normalize_sf(value)
               end
             end
             dep_heading
@@ -32,7 +33,7 @@ module Common
         end
       end
 
-      def _normalize_sf(str)
+      def normalize_sf(str)
         str&.downcase&.gsub(/[^A-Za-z0-9\s]/i, "")
       end
     end

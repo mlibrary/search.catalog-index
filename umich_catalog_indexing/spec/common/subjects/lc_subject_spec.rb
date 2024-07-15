@@ -32,9 +32,6 @@ RSpec.describe Common::Subjects::LCSubject do
     it "returns false for a field with ind2=0 but a $2 that says otherwise" do
       expect(described_class.lc_subject_field?(wrongindicator_subject_field)).to eq(false)
     end
-    it "returns false for term that needs to be remediated" do
-      expect(Common::Subjects::LCSubject.lc_subject_field?(deprecated_subject_field)).to eq(false)
-    end
   end
   context "#subject_data_subfield_codes" do
     it "returns array of subfields with a-z codes" do

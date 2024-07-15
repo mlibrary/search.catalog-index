@@ -1,10 +1,16 @@
 module Common
   class Subjects
     class Field
-      def initialize(field:, remediation_map:)
+      extend Forwardable
+      attr_reader :normalized_sfs
+
+      def_delegators :@field, :tag, :indicator2, :[], :subfields
+
+      def initialize(field:, remediation_map:, normalized_sfs: nil)
         @field = field
         @mapping = remediation_map.mapping
         @normalized_mapping = remediation_map.normalized_mapping
+        @normalized_sfs = normalized_sfs
       end
 
       def remediable?
@@ -23,7 +29,6 @@ module Common
       def to_remediated
         match = _matching_deprecated_field
 
-        # skipping deprecated_fields
         sfields = @field.subfields.filter_map.with_index do |sf, index|
           unless match["normalized"]["450"][sf.code]
               &.include?(normalized_sfs[index]["value"])
@@ -109,11 +114,11 @@ module Common
         nil
       end
 
-      def normalized_sfs
-        @normalized_sfs ||= @field.subfields.map do |sf|
-          {"code" => sf.code, "value" => _normalize_sf(sf.value)}
-        end
-      end
+      # def normalized_sfs
+      # @normalized_sfs ||= @field.subfields.map do |sf|
+      # {"code" => sf.code, "value" => _normalize_sf(sf.value)}
+      # end
+      # end
 
       def _sf_in_field?(code:, sf_value:)
         test_sf_values = normalized_sfs.filter_map do |sf|
@@ -122,9 +127,9 @@ module Common
         test_sf_values.include?(sf_value)
       end
 
-      def _normalize_sf(str)
-        str&.downcase&.gsub(/[^A-Za-z0-9\s]/i, "")
-      end
+      # def _normalize_sf(str)
+      # str&.downcase&.gsub(/[^A-Za-z0-9\s]/i, "")
+      # end
     end
   end
 end

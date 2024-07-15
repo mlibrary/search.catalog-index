@@ -40,7 +40,7 @@ module Common
     REMEDIATEABLE_FIELDS = "650 651 653 654 655 656 657 658"
     REMEDIATION_MAP = RemediationMap.new
 
-    REMEDIATOR = Remediator.new
+    REMEDIATOR = Remediator
 
     def initialize(record)
       @record = record
@@ -56,7 +56,7 @@ module Common
     # @return [Array<MARC::DataField>] A (possibly empty) array of LC subject fields and their
     # linked counterparts, if any
     def lc_subject_fields
-      sfields = @record.select { |field| Subject.lc_subject_field?(field) }
+      sfields = @record.select { |field| Subject.lc_subject_field?(field) && !field_inst(field).remediable? }
       sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
     end
 
@@ -96,12 +96,19 @@ module Common
       end
     end
 
-    def _normalized_subject_subfields
-      @normalized_subject_subfields ||= subject_fields.filter_map do |field|
-        field.subfields.filter_map do |sf|
-          {"code" => sf.code, "value" => REMEDIATOR._normalize_sf(sf.value)}
+    def _normalized_subject_sfs_in_record
+      @normalized_subject_sfs_in_record ||= subject_fields.filter_map do |field|
+        [field.object_id, field.subfields.filter_map do |sf|
+          {"code" => sf.code, "value" => REMEDIATION_MAP.normalize_sf(sf.value)}
+        end]
+      end.to_h
+    end
+
+    def _normalized_sfs(field)
+      _normalized_subject_sfs_in_record[field.object_id] ||
+        field.subfields.map do |sf|
+          {"code" => sf.code, "value" => REMEDIATION_MAP.normalize_sf(sf.value)}
         end
-      end
     end
 
     def subject_browse_fields
@@ -162,8 +169,7 @@ module Common
     end
 
     def field_inst(field)
-      # REMEDIATOR
-      Field.new(field: field, remediation_map: REMEDIATION_MAP)
+      Field.new(field: field, remediation_map: REMEDIATION_MAP, normalized_sfs: _normalized_sfs(field))
     end
   end
 end
