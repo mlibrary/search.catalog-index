@@ -47,8 +47,10 @@ module Common
     end
 
     def subject_fields
-      sfields = @record.select { |field| Subject.subject_field?(field) }
-      sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
+      @subject_fields ||= begin
+        sfields = @record.select { |field| Subject.subject_field?(field) }
+        sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
+      end
     end
 
     # Get only the LC subject fields and any associated 880 linked fields
@@ -56,8 +58,10 @@ module Common
     # @return [Array<MARC::DataField>] A (possibly empty) array of LC subject fields and their
     # linked counterparts, if any
     def lc_subject_fields
-      sfields = @record.select { |field| Subject.lc_subject_field?(field) && !field_inst(field).remediable? }
-      sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
+      @lc_subject_fields ||= begin
+        sfields = @record.select { |field| Subject.lc_subject_field?(field) && !field_inst(field).remediable? }
+        sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
+      end
     end
 
     def non_lc_subject_fields
@@ -73,27 +77,31 @@ module Common
     end
 
     def already_remediated_subject_fields
-      (subject_fields - lc_subject_fields).filter_map do |field|
-        field if field_inst(field).already_remediated?
-      end
+      @already_remediated_subject_fields ||=
+        (subject_fields - lc_subject_fields).filter_map do |field|
+          field if field_inst(field).already_remediated?
+        end
     end
 
     def deprecated_subject_fields
-      already_remediated_subject_fields.map do |field|
-        field_inst(field).to_deprecated
-      end.flatten
+      @deprecated_subject_fields ||=
+        already_remediated_subject_fields.map do |field|
+          field_inst(field).to_deprecated
+        end.flatten
     end
 
     def remediated_subject_fields
-      _remediable_subject_fields.map do |field|
-        field_inst(field).to_remediated
-      end
+      @remediated_subject_fields ||=
+        _remediable_subject_fields.map do |field|
+          field_inst(field).to_remediated
+        end
     end
 
     def _remediable_subject_fields
-      subject_fields.filter_map do |field|
-        field if field_inst(field).remediable?
-      end
+      @_remediable_subject_fields ||=
+        subject_fields.filter_map do |field|
+          field if field_inst(field).remediable?
+        end
     end
 
     def _normalized_subject_sfs_in_record
