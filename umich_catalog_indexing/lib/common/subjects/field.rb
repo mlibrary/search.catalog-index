@@ -72,7 +72,7 @@ module Common
       end
 
       def _matching_deprecated_field
-        @mapping.each_with_index do |this_to_that, index|
+        @_matching_deprecated_field ||= @mapping.each_with_index do |this_to_that, index|
           match_index = this_to_that["450"].find_index.with_index do |deprecated_subfields, dep_index|
             deprecated_subfields.keys.all? do |code|
               @normalized_mapping[index]["450"][dep_index][code].all? do |dep_sf_value|
@@ -97,7 +97,7 @@ module Common
       end
 
       def _matching_remediated_field
-        @mapping.each_with_index do |this_to_that, index|
+        @_matching_remediated_field ||= @mapping.each_with_index do |this_to_that, index|
           match = this_to_that["150"].keys.all? do |code|
             @normalized_mapping[index]["150"][code].all? do |dep_sf_value|
               _sf_in_field?(code: code, sf_value: dep_sf_value)

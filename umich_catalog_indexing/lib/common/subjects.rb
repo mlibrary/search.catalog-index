@@ -104,9 +104,15 @@ module Common
         end
     end
 
+    def _fields
+      @fields ||= subject_fields.map do |field|
+        [field.object_id, Field.new(field: field, remediation_map: REMEDIATION_MAP, normalized_sfs: _normalized_sfs(field))]
+      end.to_h
+    end
+
     def _normalized_subject_sfs_in_record
-      @normalized_subject_sfs_in_record ||= subject_fields.filter_map do |field|
-        [field.object_id, field.subfields.filter_map do |sf|
+      @normalized_subject_sfs_in_record ||= subject_fields.map do |field|
+        [field.object_id, field.subfields.map do |sf|
           {"code" => sf.code, "value" => REMEDIATION_MAP.normalize_sf(sf.value)}
         end]
       end.to_h
@@ -177,7 +183,7 @@ module Common
     end
 
     def field_inst(field)
-      Field.new(field: field, remediation_map: REMEDIATION_MAP, normalized_sfs: _normalized_sfs(field))
+      _fields[field.object_id] || Field.new(field: field, remediation_map: REMEDIATION_MAP, normalized_sfs: _normalized_sfs(field))
     end
   end
 end
