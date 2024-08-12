@@ -6,7 +6,7 @@ module Traject
 
       # @param hol [Array<Hash>] holding structure
       def initialize(hol)
-        @hol = hol
+        @hol = JSON.parse(hol.to_json)
       end
 
       # Record has at least one physical item
