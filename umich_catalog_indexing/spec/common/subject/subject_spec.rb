@@ -1,17 +1,17 @@
-require 'common/subject.rb'
-require 'marc'
+require "common/subjects"
+require "marc"
 RSpec.describe Common::Subject do
-  def get_record(path) 
+  def get_record(path)
     reader = MARC::XMLReader.new(path)
     for r in reader
       return r
     end
   end
   let(:record) do
-    get_record('./spec/fixtures/unauthorized_immigrants.xml')
+    get_record("./spec/fixtures/unauthorized_immigrants.xml")
   end
   let(:record_with_880) do
-    get_record('./spec/fixtures/subject_with_880.xml')
+    get_record("./spec/fixtures/subject_with_880.xml")
   end
   let(:subject_fields) do
     described_class.subject_fields(record)
@@ -40,7 +40,6 @@ RSpec.describe Common::Subject do
       field = rec["630"]
       linked_fields = described_class.linked_fields_for(record_with_880, field)
       expect(linked_fields.first.value).to eq("630-05/大武經.")
-
     end
   end
   context ".subject_fields" do

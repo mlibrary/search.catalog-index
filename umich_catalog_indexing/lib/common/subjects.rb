@@ -5,9 +5,9 @@ module Common
   end
 end
 
-require_relative "subject/lc_subject"
-require_relative "subject/non_lc_subject"
-require_relative "subject/normalize"
+require_relative "subjects/lc_subject"
+require_relative "subjects/non_lc_subject"
+require_relative "subjects/normalize"
 
 module Common::Subject
   # We define subjects as being in any of these fields:
