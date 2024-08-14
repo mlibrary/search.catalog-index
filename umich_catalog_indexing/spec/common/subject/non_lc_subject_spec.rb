@@ -8,7 +8,7 @@ RSpec.describe Common::Subject::NonLCSubject do
       ["c", "c"])
   end
   subject do
-    Common::Subject.new(non_lc_subject_field)
+    Common::Subject::Subject.new(non_lc_subject_field)
   end
 
   context "lc_subject_field?" do

@@ -55,14 +55,5 @@ module Common
       sfields = record.select { |field| lc_subject_field?(field) }
       sfields + sfields.flat_map { |field| linked_fields_for(record, field) }.compact
     end
-
-    # Pass off a new subject to the appropriate class
-    def self.new(field)
-      if lc_subject_field?(field)
-        LCSubject.from_field(field)
-      else
-        NonLCSubject.new(field)
-      end
-    end
   end
 end

@@ -68,12 +68,4 @@ RSpec.describe Common::Subject do
       expect(subjects.count).to eq(4)
     end
   end
-  context ".new" do
-    it "returns an object that knows it's an LCSubject" do
-      expect(described_class.new(lc_subject_field).lc_subject_field?).to eq(true)
-    end
-    it "returns an object that knows it's an Non LCSubject" do
-      expect(described_class.new(non_lc_subject_field).lc_subject_field?).to eq(false)
-    end
-  end
 end
