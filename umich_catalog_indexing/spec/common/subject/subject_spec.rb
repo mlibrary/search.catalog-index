@@ -7,7 +7,7 @@ RSpec.describe Common::Subjects::Subject do
     get_record("./spec/fixtures/unauthorized_immigrants.xml")
   end
   let(:subject_fields) do
-    Common::Subjects.subject_fields(record)
+    Common::Subjects.new(record).subject_fields
   end
   let(:lc_subject_field) do
     subject_fields.first
