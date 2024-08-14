@@ -19,6 +19,20 @@ module Common
       @record = record
     end
 
+    # @return [Array<String>] An array of LC subject strings
+    def lc_subjects
+      lc_subject_fields.map do |f|
+        Subject.new(f).subject_string
+      end
+    end
+
+    # @return [Array<String>] An array of non LC subject strings
+    def non_lc_subjects
+      (subject_fields - lc_subject_fields).map do |f|
+        Subject.new(f).subject_string
+      end
+    end
+
     # Get all the subject fields including associated 880 linked fields
     #
     # @return [Array<MARC::DataField>] A (possibly empty) array of subject

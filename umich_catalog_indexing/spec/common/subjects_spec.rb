@@ -17,6 +17,20 @@ RSpec.describe Common::Subjects do
   subject do
     described_class.new(@record)
   end
+  context "#lc_subjects" do
+    it "returns an array of lc subject strings" do
+      s = subject.lc_subjects
+      expect(s.count).to eq(3)
+      expect(s.first).to eq("United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996")
+    end
+  end
+  context "#non_lc_subjects" do
+    it "returns an array of non lc subject strings" do
+      s = subject.non_lc_subjects
+      expect(s.count).to eq(1)
+      expect(s.first).to eq("Undocumented immigrants--United States")
+    end
+  end
 
   context "#subject_fields" do
     it "returns subject fields including non_lc" do

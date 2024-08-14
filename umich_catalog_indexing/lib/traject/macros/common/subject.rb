@@ -8,18 +8,13 @@ module Traject::Macros::Common
   module Subject
     def lcsh_subjects
       ->(record, accumulator) do
-        subject_fields = Common::Subjects.new(record).lc_subject_fields
-        subjects = subject_fields.map { |f| Common::Subjects::Subject.new(f) }
-        accumulator.replace subjects.map { |s| s.subject_string }
+        accumulator.replace Common::Subjects.new(record).lc_subjects
       end
     end
 
     def non_lcsh_subjects
       ->(record, accumulator) do
-        subjects_obj = Common::Subjects.new(record)
-        subject_fields = subjects_obj.subject_fields - subjects_obj.lc_subject_fields
-        subjects = subject_fields.map { |f| Common::Subjects::Subject.new(f) }
-        accumulator.replace subjects.map { |s| s.subject_string }
+        accumulator.replace Common::Subjects.new(record).non_lc_subjects
       end
     end
   end
