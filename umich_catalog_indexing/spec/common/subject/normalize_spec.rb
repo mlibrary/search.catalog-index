@@ -1,5 +1,5 @@
 require "common/subjects"
-RSpec.describe Common::Subject::Normalize do
+RSpec.describe Common::Subjects::Normalize do
   context "#normalize as included behavior" do
     before(:each) do
       @input_string = ""
@@ -8,7 +8,7 @@ RSpec.describe Common::Subject::Normalize do
       klass.new.normalize(@input_string)
     end
     let(:klass) do
-      Class.new { include Common::Subject::Normalize }
+      Class.new { include Common::Subjects::Normalize }
     end
     it "replaces tabs with spaces" do
       @input_string = "too\tmany\ttabs"

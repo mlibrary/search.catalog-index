@@ -1,5 +1,5 @@
 module Common
-  class Subject
+  class Subjects
     class Subject
       class << self
         def subject_field?(field)

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Common
-  class Subject
+  class Subjects
   end
 end
 
@@ -11,7 +11,7 @@ require_relative "subjects/normalize"
 require_relative "subjects/subject"
 
 module Common
-  class Subject
+  class Subjects
     # We define subjects as being in any of these fields:
     SUBJECT_FIELDS = "600 610 611 630 648 650 651 653 654 655 656 657 658 662 690"
 

@@ -1,6 +1,6 @@
 require "common/subjects"
 require "marc"
-RSpec.describe Common::Subject::LCSubject do
+RSpec.describe Common::Subjects::LCSubject do
   let(:record) do
     reader = MARC::XMLReader.new("./spec/fixtures/unauthorized_immigrants.xml")
     for r in reader
@@ -8,7 +8,7 @@ RSpec.describe Common::Subject::LCSubject do
     end
   end
   let(:subject_fields) do
-    Common::Subject.lc_subject_fields(record)
+    Common::Subjects.lc_subject_fields(record)
   end
   let(:subject_field) do
     subject_fields.first
@@ -53,7 +53,7 @@ RSpec.describe Common::Subject::LCSubject do
   end
 end
 
-RSpec.describe Common::Subject::LCSubject658 do
+RSpec.describe Common::Subjects::LCSubject658 do
   let(:subject_field) do
     MARC::DataField.new("658", "1", "0",
       ["a", "Health objective 1"],
@@ -67,7 +67,7 @@ RSpec.describe Common::Subject::LCSubject658 do
     end
   end
 end
-RSpec.describe Common::Subject::LCSubjectHierarchical do
+RSpec.describe Common::Subjects::LCSubjectHierarchical do
   let(:subject_field) do
     MARC::DataField.new("662", "", "",
       ["a", "World"],
