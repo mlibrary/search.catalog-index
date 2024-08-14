@@ -8,6 +8,7 @@ end
 require_relative "subjects/lc_subject"
 require_relative "subjects/non_lc_subject"
 require_relative "subjects/normalize"
+require_relative "subjects/subject"
 
 module Common
   class Subject
