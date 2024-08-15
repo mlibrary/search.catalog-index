@@ -18,6 +18,9 @@ RSpec.describe Common::Subjects do
   let(:remediated_record) do
     get_record("./spec/fixtures/subjects/remediated_subject.xml")
   end
+  let(:other_subjects_record) do
+    get_record("./spec/fixtures/subjects/other_subjects.xml")
+  end
 
   before(:each) do
     @record = record
@@ -25,6 +28,7 @@ RSpec.describe Common::Subjects do
   subject do
     described_class.new(@record)
   end
+
   context "#lc_subjects" do
     it "returns an array of lc subject strings" do
       s = subject.lc_subjects
@@ -32,11 +36,36 @@ RSpec.describe Common::Subjects do
       expect(s.first).to eq("United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996")
     end
   end
+
   context "#non_lc_subjects" do
-    it "returns an array of non lc subject strings" do
+    it "returns an array of subjects that does not include lc or already remediated subjects" do
       s = subject.non_lc_subjects
+      expect(s.count).to eq(0)
+    end
+    it "returns an array of subjects that does not include deprecated subjects" do
+      @record = deprecated_record
+      s = subject.non_lc_subjects
+      expect(s.count).to eq(0)
+    end
+    it "returns an array of subjects that does not include deprecated subjects" do
+      @record = other_subjects_record
+      s = subject.non_lc_subjects
+      expect(s.count).to eq(2)
+    end
+  end
+
+  context "#subject_browse_subjects" do
+    it "returns an array of all subjects that should be included in subject browse" do
+      @record = other_subjects_record
+      s = subject.subject_browse_subjects
+      expect(s.count).to eq(8)
+    end
+  end
+
+  context "#remediated_lc_subjects" do
+    it "returns an array of the remediated lc subjects" do
+      s = subject.remediated_lc_subjects
       expect(s.count).to eq(1)
-      expect(s.first).to eq("Undocumented immigrants--United States")
     end
   end
 

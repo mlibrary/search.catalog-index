@@ -12,9 +12,21 @@ module Traject::Macros::Common
       end
     end
 
+    def remediated_lcsh_subjects
+      ->(record, accumulator) do
+        accumulator.replace Common::Subjects.new(record).remediated_lc_subjects
+      end
+    end
+
     def non_lcsh_subjects
       ->(record, accumulator) do
         accumulator.replace Common::Subjects.new(record).non_lc_subjects
+      end
+    end
+
+    def subject_browse_subjects
+      ->(record, accumulator) do
+        accumulator.replace Common::Subjects.new(record).subject_browse_subjects
       end
     end
   end

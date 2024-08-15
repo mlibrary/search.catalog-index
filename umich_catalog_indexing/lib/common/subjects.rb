@@ -30,7 +30,17 @@ module Common
 
     # @return [Array<String>] An array of non LC subject strings
     def non_lc_subjects
-      _subject_strings(subject_fields - lc_subject_fields)
+      _subject_strings(non_lc_subject_fields)
+    end
+
+    # @return [Array<String>] An array of all remediated LC subject strings
+    def remediated_lc_subjects
+      _subject_strings(remediated_lc_subject_fields)
+    end
+
+    # @return [Array<String>] An array of all subject browse strings
+    def subject_browse_subjects
+      _subject_strings(subject_browse_subject_fields)
     end
 
     def _subject_strings(fields)
@@ -83,6 +93,16 @@ module Common
       subject_fields -
         lc_subject_fields -
         remediable_subject_fields -
+        already_remediated_subject_fields
+    end
+
+    # Get the list of subject fields that belong in subject browse
+    #
+    # @return [Array<MARC::DataField>] A (possibly empty) array of Subject
+    # fields
+    def subject_browse_subject_fields
+      lc_subject_fields +
+        newly_remediated_subject_fields +
         already_remediated_subject_fields
     end
 

@@ -1,10 +1,7 @@
 require "traject"
 describe "subject_topic" do
   let(:record) do
-    reader = MARC::XMLReader.new('./spec/fixtures/unauthorized_immigrants.xml')
-    for r in reader
-      return r
-    end
+    MARC::XMLReader.new("./spec/fixtures/unauthorized_immigrants.xml").first
   end
   let(:indexer) do
     Traject::Indexer.new do
@@ -23,10 +20,9 @@ describe "subject_topic" do
     expect(subject["lc_subject_display"]).to eq(["United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996", "COVID-19 (Disease)", "Public welfare--United States"])
   end
   it "has the expected non_lc_subject_display" do
-    expect(subject["non_lc_subject_display"]).to eq(["Undocumented immigrants--United States"])
+    expect(subject["non_lc_subject_display"]).to eq(nil)
   end
   it "has the expected  subject_browse_terms" do
     expect(subject["subject_browse_terms"]).to eq(["United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996", "COVID-19 (Disease)", "Public welfare--United States"])
   end
-  
 end
