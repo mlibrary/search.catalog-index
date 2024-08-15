@@ -11,6 +11,14 @@ RSpec.describe Common::Subjects do
     get_record("./spec/fixtures/subject_with_880.xml")
   end
 
+  let(:deprecated_record) do
+    get_record("./spec/fixtures/subjects/deprecated_subject.xml")
+  end
+
+  let(:remediated_record) do
+    get_record("./spec/fixtures/subjects/remediated_subject.xml")
+  end
+
   before(:each) do
     @record = record
   end
@@ -59,6 +67,14 @@ RSpec.describe Common::Subjects do
       expect(subjects[0].tag).to eq("630")
       expect(subjects[3].tag).to eq("880")
       expect(subjects.count).to eq(4)
+    end
+  end
+  context "#already_remediated_subject_fields" do
+    it "returns the non_lcsh already remediated subject fields" do
+      @record = remediated_record
+      subjects = subject.already_remediated_subject_fields
+      expect(subjects[0].tag).to eq("650")
+      expect(subjects[0]["a"]).to eq("Undocumented immigrants.")
     end
   end
   context "#_linked_fields_for" do

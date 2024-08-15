@@ -1,0 +1,177 @@
+<record xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" xmlns="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <leader>02064cam  2200445 i 4500</leader>
+  <controlfield tag="001">99187271323406381</controlfield>
+  <controlfield tag="005">20190911103510.0</controlfield>
+  <controlfield tag="006">m     o  d</controlfield>
+  <controlfield tag="007">cr un ---uuuua</controlfield>
+  <controlfield tag="008">150514t20152015caua    ob    001 0 eng d</controlfield>
+  <datafield tag="010" ind1=" " ind2=" ">
+    <subfield code="z">2015019015</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">979-84-00-66833-3</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">979-82-16-10086-7</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">1-78684-447-8</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">1-4408-4013-X</subfield>
+  </datafield>
+  <datafield tag="024" ind1="7" ind2=" ">
+    <subfield code="a">10.5040/9798400668333</subfield>
+    <subfield code="2">doi</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)919252422</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(MiFhGG)GVRL2YKS</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(EXLCZ)993710000000468482</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="a">MiFhGG</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="c">MiFhGG</subfield>
+    <subfield code="e">rda</subfield>
+    <subfield code="e">pn</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">eng</subfield>
+  </datafield>
+  <datafield tag="042" ind1=" " ind2=" ">
+    <subfield code="a">pcc</subfield>
+  </datafield>
+  <datafield tag="043" ind1=" " ind2=" ">
+    <subfield code="a">n-us---</subfield>
+  </datafield>
+  <datafield tag="050" ind1=" " ind2="4">
+    <subfield code="a">JV6483</subfield>
+    <subfield code="b">.L46 2015</subfield>
+  </datafield>
+  <datafield tag="082" ind1="0" ind2="4">
+    <subfield code="a">325.73</subfield>
+    <subfield code="2">23</subfield>
+  </datafield>
+  <datafield tag="100" ind1="1" ind2=" ">
+    <subfield code="a">LeMay, Michael C.,</subfield>
+    <subfield code="d">1941-</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/names/n84202163</subfield>
+    <subfield code="0">http://viaf.org/viaf/sourceID/LC|n84202163</subfield>
+  </datafield>
+  <datafield tag="245" ind1="1" ind2="0">
+    <subfield code="a">Illegal immigration :</subfield>
+    <subfield code="b">a reference handbook /</subfield>
+    <subfield code="c">Michael C. LeMay.</subfield>
+  </datafield>
+  <datafield tag="250" ind1=" " ind2=" ">
+    <subfield code="a">2nd ed.</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="1">
+    <subfield code="a">Santa Barbara, California :</subfield>
+    <subfield code="b">ABC-CLIO, LLC,</subfield>
+    <subfield code="c">[2015]</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="4">
+    <subfield code="c">�2015</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 online resource (xviii, 382 pages) :</subfield>
+    <subfield code="b">illustrations.</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">text</subfield>
+    <subfield code="b">txt</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">computer</subfield>
+    <subfield code="b">c</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="a">online resource</subfield>
+    <subfield code="b">cr</subfield>
+  </datafield>
+  <datafield tag="347" ind1=" " ind2=" ">
+    <subfield code="a">text file</subfield>
+    <subfield code="b">HTML</subfield>
+    <subfield code="2">rdaft</subfield>
+  </datafield>
+  <datafield tag="490" ind1="1" ind2=" ">
+    <subfield code="a">Contemporary world issues</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Description based upon print version of record.</subfield>
+  </datafield>
+  <datafield tag="505" ind1="0" ind2=" ">
+    <subfield code="a">Cover; Half Title; Title; Copyright; Contents; Preface; 1 Background and History; Introduction: The Scope and Nature of Unauthorized Immigration; The Roots of the Problem; Changes in Legal Immigration: Setting the Stage for Illegal Immigration; The Crisis of Border Control: Illegal Immigration and Enactment of IRCA; Border Security and Antiterrorism Concerns; Creating the Department of Homeland Security: Dissolving the INS; Conclusion; References; 2 Problems, Controversies, and Solutions; Introduction; Current Domestic-Policy Concern: Amnesty or Earned Legalization Issue of the Unauthorized</subfield>
+  </datafield>
+  <datafield tag="505" ind1="8" ind2=" ">
+    <subfield code="a">Incorporation of Illegal Immigrants and Their ChildrenBorder Control and Management Issues; The Cost of Illegal Immigration; Guest-Worker Issues; Restructuring the INS into the DHS; Immigration and Related Policy Issues; Solutions; References; 3 Perspectives; Introduction; On Hospitality to the Stranger: Some Moral Implications of Immigration Reform: The Rev. Canon Pablo Ramos; Examining the Adequacy and Enforcement of U.S. Immigration Laws: Jessica Vaughan; Should the United States Enact Tougher Laws to Stem Illegal Immigration?: Karen K. Clark</subfield>
+  </datafield>
+  <datafield tag="505" ind1="8" ind2=" ">
+    <subfield code="a">In Opposition to Birthright Citizenship: Judith Ann WarnerIn Support of Maintaining Birthright Citizenship: Judith Ann Warner; Mitigating Federal Immigration Law: Inclusion at the Local Level: Roberto Suro; Obama's "Executive Action" on Immigration and Judicial Review: Alemayehu G. Mariam; Resolving the Issue of Illegal Immigration-A Question of Balance: David E. Krahl; 4 Profiles; Introduction; Biographies; Directory of Organizations and Agencies; National Government Agencies and Organizations; International Organizations; Domestic Advocacy Agencies and Organizations/NGOs and Nonprofits</subfield>
+  </datafield>
+  <datafield tag="505" ind1="8" ind2=" ">
+    <subfield code="a">Immigration Research Centers and Think TanksReferences; 5 Data and Documents; Introduction; Data; Table 5.1: Comparison of Legal and Illegal Immigration Trends over Time; Table 5.2: Estimated Unauthorized Mexican-Born Immigrant Population Compared to All Unauthorized Immigrants, Assorted Years,1995-2012; Table 5.3: Estimated Unauthorized Immigrants in the U.S. Labor Force, Assorted Years, 1995-2012; Table 5.4: Unaccompanied Alien Children Encountered, by Fiscal Year, Country of Origin, 2009-2014; Table 5.5: Trends in Removals, 2011-2013</subfield>
+  </datafield>
+  <datafield tag="505" ind1="8" ind2=" ">
+    <subfield code="a">Table 5.6: Gallup Poll Trend Line, "Do You Think Immigration Is a Good Thing or a Bad Thing for the U.S. Today?," 2001-2014Table 5.7: Gallup Poll Trend Line, 2001-2014, "Should Immigration Be Kept at Its Present Level, Increased, or Decreased?,"; Table 5.8a: Gallup Poll Trend Line, 2006-2014, "What Should Be the Main Focus of U.S. Government in Dealing with Illegal Immigration?,"; Table 5.8b: Gallup Poll Trend Line, 2006-2011, "What Should U.S. Policy Be Toward Illegal Immigrants Residing in the United States?,"; Figure 5.1: U.S. Customs and Border Patrol, Sector Map, 2013</subfield>
+  </datafield>
+  <datafield tag="505" ind1="8" ind2=" ">
+    <subfield code="a">Figure 5.2: Department of Homeland Security Organizational Chart</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">Who is coming into the United States illegally and why? What compels people to leave their country of origin? Is the United States responsible for taking care of the more than 11 million individuals who are here illegally? Are illegal immigrants helping or harming our nation's economy and infrastructure? Should our borders be ""secured"" as called for by many politicians? This book examines the history of illegal immigration in the United States, addressing the tough questions about the issue and describing in detail the most significant issues and events in recent decades. It succinctly tack</subfield>
+  </datafield>
+  <datafield tag="546" ind1=" " ind2=" ">
+    <subfield code="a">English</subfield>
+  </datafield>
+  <datafield tag="504" ind1=" " ind2=" ">
+    <subfield code="a">Includes bibliographical references and index.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Illegal aliens</subfield>
+    <subfield code="z">United States.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Illegal aliens</subfield>
+    <subfield code="x">Government policy</subfield>
+    <subfield code="z">United States.</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2="0">
+    <subfield code="a">United States</subfield>
+    <subfield code="x">Emigration and immigration</subfield>
+    <subfield code="x">Government policy.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/subjects/sh2007100021</subfield>
+  </datafield>
+  <datafield tag="776" ind1=" " ind2=" ">
+    <subfield code="z">1-4408-4012-1</subfield>
+  </datafield>
+  <datafield tag="830" ind1=" " ind2="0">
+    <subfield code="a">Contemporary world issues.</subfield>
+  </datafield>
+  <datafield tag="906" ind1=" " ind2=" ">
+    <subfield code="a">BOOK</subfield>
+  </datafield>
+  <datafield tag="BIB" ind1=" " ind2=" ">
+    <subfield code="u">2024-01-26 08:28:39 US/Eastern</subfield>
+    <subfield code="c">2015-09-05 18:20:29 US/Eastern</subfield>
+    <subfield code="s">false</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="4">Access to the Gale online version restricted; authentication may be required.</subfield>
+    <subfield code="m">Galegroup</subfield>
+    <subfield code="n">Gale eBooks</subfield>
+    <subfield code="t">param</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531078701560006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2021-06-24 19:09:03</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187271323406381</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531078701560006381</subfield>
+  </datafield>
+</record>

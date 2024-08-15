@@ -17,6 +17,8 @@ module Common
     # We define subjects as being in any of these fields:
     SUBJECT_FIELDS = "600 610 611 630 648 650 651 653 654 655 656 657 658 662 690"
 
+    REMEDIATION_MAP = RemediationMap.new
+
     def initialize(record)
       @record = record
     end
@@ -53,6 +55,15 @@ module Common
       sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
     end
 
+    # @return [Array<MARC::DataField>] A (possibly empty) array of subject
+    # fields that have already been remediated
+    def already_remediated_subject_fields
+      @already_remediated_subject_fields ||=
+        (subject_fields - lc_subject_fields).filter_map do |field|
+          field if _field_inst(field).already_remediated?
+        end
+    end
+
     # Determine the 880 (linking fields) for the given field. Should probably
     # be pulled out into a more generically-available macro
     #
@@ -65,6 +76,40 @@ module Common
       else
         []
       end
+    end
+
+    # @param field [MARC::DataField] Subject field for instantiating a
+    # Subjects::Field object
+    # @return [Subjects::Field]
+    def _field_inst(field)
+      _fields[field.object_id] || Field.new(field: field, remediation_map: REMEDIATION_MAP, normalized_sfs: _normalized_sfs(field))
+    end
+
+    # @return [Hash] Hash of subject field object ids and the corresponding
+    # Subjects::Field object
+    def _fields
+      @_fields ||= subject_fields.map do |field|
+        [field.object_id, Field.new(field: field, remediation_map: REMEDIATION_MAP, normalized_sfs: _normalized_sfs(field))]
+      end.to_h
+    end
+
+    # @param field [MARC::DataField] Subject field
+    # @return [Array<Hash>] Array of hashes that have the subfield codes and normalized version of the value.
+    def _normalized_sfs(field)
+      _normalized_subject_sfs_in_record[field.object_id] ||
+        field.subfields.map do |sf|
+          {"code" => sf.code, "value" => REMEDIATION_MAP.normalize_sf(sf.value)}
+        end
+    end
+
+    # @retrun [Hash] Hash of subject field object ids and the corresponding
+    # Array of normalized subfields and their codes
+    def _normalized_subject_sfs_in_record
+      @_normalized_subject_sfs_in_record ||= subject_fields.map do |field|
+        [field.object_id, field.subfields.map do |sf|
+          {"code" => sf.code, "value" => REMEDIATION_MAP.normalize_sf(sf.value)}
+        end]
+      end.to_h
     end
   end
 end
