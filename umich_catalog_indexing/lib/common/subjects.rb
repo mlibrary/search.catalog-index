@@ -9,6 +9,8 @@ require_relative "subjects/lc_subject"
 require_relative "subjects/non_lc_subject"
 require_relative "subjects/normalize"
 require_relative "subjects/subject"
+require_relative "subjects/remediation_map"
+require_relative "subjects/field"
 
 module Common
   class Subjects
