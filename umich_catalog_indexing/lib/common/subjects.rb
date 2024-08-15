@@ -25,14 +25,16 @@ module Common
 
     # @return [Array<String>] An array of LC subject strings
     def lc_subjects
-      lc_subject_fields.map do |f|
-        Subject.new(f).subject_string
-      end
+      _subject_strings(lc_subject_fields)
     end
 
     # @return [Array<String>] An array of non LC subject strings
     def non_lc_subjects
-      (subject_fields - lc_subject_fields).map do |f|
+      _subject_strings(subject_fields - lc_subject_fields)
+    end
+
+    def _subject_strings(fields)
+      fields.map do |f|
         Subject.new(f).subject_string
       end
     end
