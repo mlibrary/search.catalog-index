@@ -69,12 +69,43 @@ RSpec.describe Common::Subjects do
       expect(subjects.count).to eq(4)
     end
   end
+  context "#newly_deprecated_subject_fields" do
+    it "returns an array of all the deprecated subject fields" do
+      @record = remediated_record
+      # adding repeatable field z to test if we get all deprecated fields
+      fields = subject.newly_deprecated_subject_fields
+      filtered_fields = fields.map do |x|
+        x.subfields.filter_map do |y|
+          y.value if ["a", "v", "x", "y", "z"].include?(y.code)
+        end.join(" ")
+      end.flatten
+      expect(filtered_fields).to contain_exactly(
+        "Aliens Legal status, laws, etc.",
+        "Illegal aliens",
+        "Illegal aliens Legal status, laws, etc.",
+        "Undocumented foreign nationals",
+        "Aliens, Illegal",
+        "Illegal immigrants",
+        "Undocumented noncitizens"
+      )
+    end
+  end
   context "#already_remediated_subject_fields" do
     it "returns the non_lcsh already remediated subject fields" do
       @record = remediated_record
       subjects = subject.already_remediated_subject_fields
       expect(subjects[0].tag).to eq("650")
       expect(subjects[0]["a"]).to eq("Undocumented immigrants.")
+    end
+  end
+  context "#newly_remediated_subject_fields" do
+    it "returns remediated fields;adds indications that its been remediated" do
+      @record = deprecated_record
+      subjects = subject.newly_remediated_subject_fields
+      expect(subjects[0].tag).to eq("650")
+      expect(subjects[0].indicator2).to eq("7")
+      expect(subjects[0]["a"]).to eq("Undocumented immigrants")
+      expect(subjects[0]["2"]).to eq("miush")
     end
   end
   context "#_linked_fields_for" do

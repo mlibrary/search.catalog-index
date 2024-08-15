@@ -55,12 +55,43 @@ module Common
       sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
     end
 
+    # Transformations of already remediated subjects fields
+    #
+    # @return [Array<MARC::DataField>] A (possibly empty) array of subject
+    # fields that have been remediated and are now the deprecated version
+    def newly_deprecated_subject_fields
+      @deprecated_subject_fields ||=
+        already_remediated_subject_fields.map do |field|
+          _field_inst(field).to_deprecated
+        end.flatten
+    end
+
     # @return [Array<MARC::DataField>] A (possibly empty) array of subject
     # fields that have already been remediated
     def already_remediated_subject_fields
       @already_remediated_subject_fields ||=
         (subject_fields - lc_subject_fields).filter_map do |field|
           field if _field_inst(field).already_remediated?
+        end
+    end
+
+    # Transformations of formerly deprecated subjects fields
+    #
+    # @return [Array<MARC::DataField>] A (possibly empty) array of subject
+    # fields that were deprecated and are now remediated
+    def newly_remediated_subject_fields
+      @newly_remediated_subject_fields ||=
+        remediable_subject_fields.map do |field|
+          _field_inst(field).to_remediated
+        end
+    end
+
+    # @return [Array<MARC::DataField>] A (possibly empty) array of subject
+    # fields with deprecated subjects terms
+    def remediable_subject_fields
+      @remediable_subject_fields ||=
+        subject_fields.filter_map do |field|
+          field if _field_inst(field).remediable?
         end
     end
 
