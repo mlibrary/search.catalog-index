@@ -42,4 +42,47 @@ RSpec.describe Traject::Macros::Common::Subject do
       )
     end
   end
+  context "topics" do
+    it "gets the topics" do
+      accumulator = []
+      klass.topics.call(record, accumulator)
+      expect(accumulator).to contain_exactly(
+        "United States.",
+        "United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996",
+        "COVID-19 (Disease)",
+        "Undocumented immigrants",
+        "Undocumented immigrants United States.",
+        "Public welfare",
+        "Public welfare United States.",
+        "Aliens",
+        "Aliens Legal status, laws, etc. United States.",
+        "Illegal aliens",
+        "Illegal aliens Legal status, laws, etc. United States.",
+        "Undocumented foreign nationals",
+        "Undocumented foreign nationals United States.",
+        "Illegal aliens United States.",
+        "Aliens, Illegal",
+        "Aliens, Illegal United States.",
+        "Illegal immigrants",
+        "Illegal immigrants United States.",
+        "Undocumented noncitizens",
+        "Undocumented noncitizens United States."
+      )
+    end
+  end
+  context "subject_facets" do
+    it "gets the subject facets" do
+      accumulator = []
+      klass.subject_facets.call(record, accumulator)
+      expect(accumulator).to contain_exactly(
+        "United States.",
+        "United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996",
+        "COVID-19 (Disease)",
+        "Undocumented immigrants",
+        "Undocumented immigrants United States.",
+        "Public welfare",
+        "Public welfare United States."
+      )
+    end
+  end
 end

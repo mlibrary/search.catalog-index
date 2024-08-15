@@ -162,4 +162,59 @@ RSpec.describe Common::Subjects do
       expect(linked_fields.first.value).to eq("630-05/大武經.")
     end
   end
+  context "#topics" do
+    it "returns topics including remediated ones" do
+      @record = deprecated_record
+      expect(subject.topics).to contain_exactly(
+        "United States",
+        "United States Emigration and immigration Government policy.",
+        "Illegal aliens",
+        "Illegal aliens Government policy United States.",
+        "Illegal aliens United States.",
+        "Undocumented immigrants",
+        "Undocumented immigrants Government policy United States.",
+        "Undocumented immigrants United States."
+      )
+    end
+
+    it "returns topics including deprecated ones" do
+      @record = remediated_record
+      expect(subject.topics).to contain_exactly(
+        "Noncitizens.",
+        "Emigration and immigration law.",
+        "Undocumented immigrants.",
+        "Right to counsel.",
+        "Aliens",
+        "Aliens Legal status, laws, etc.",
+        "Illegal aliens",
+        "Illegal aliens Legal status, laws, etc.",
+        "Undocumented foreign nationals",
+        "Aliens, Illegal",
+        "Illegal immigrants",
+        "Undocumented noncitizens"
+      )
+    end
+  end
+  context "#subject_facets" do
+    it "returns topics including remediated ones, skips unremediated ones" do
+      @record = deprecated_record
+      expect(subject.subject_facets).to contain_exactly(
+        "United States",
+        "United States Emigration and immigration Government policy.",
+        "Undocumented immigrants",
+        "Undocumented immigrants Government policy United States.",
+        "Undocumented immigrants United States."
+      )
+    end
+
+    it "returns topics, does nothing with already remediated records" do
+      @record = remediated_record
+      expect(subject.subject_facets).to contain_exactly(
+        "Undocumented immigrants.",
+        "Emigration and immigration law.",
+        "Noncitizens.",
+        "Right to counsel."
+      )
+    end
+  end
 end

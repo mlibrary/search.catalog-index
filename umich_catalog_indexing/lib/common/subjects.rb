@@ -15,7 +15,24 @@ require_relative "subjects/field"
 module Common
   class Subjects
     # We define subjects as being in any of these fields:
-    SUBJECT_FIELDS = "600 610 611 630 648 650 651 653 654 655 656 657 658 662 690"
+    TOPICS = {
+      "600" => "abcdefghjklmnopqrstuvxyz",
+      "610" => "abcdefghklmnoprstuvxyz",
+      "611" => "acdefghjklnpqstuvxyz",
+      "630" => "adefghklmnoprstvxyz",
+      "648" => "avxyz",
+      "650" => "abcdevxyz",
+      "651" => "aevxyz",
+      "653" => "abevyz",
+      "654" => "abevyz",
+      "655" => "abvxyz",
+      "656" => "akvxyz",
+      "657" => "avxyz",
+      "658" => "ab",
+      "662" => "abcdefgh",
+      "690" => "abcdevxyz"
+    }
+    SUBJECT_FIELDS = TOPICS.keys
 
     REMEDIATION_MAP = RemediationMap.new
 
@@ -47,6 +64,51 @@ module Common
       fields.map do |f|
         Subject.new(f).subject_string
       end
+    end
+
+    # Returns an array of all subject fields: given subject, remediated, and
+    # deprecated This is for enabling searching on deprecated terms as well as
+    # remediated terms
+    #
+    # @return [Array<String>] Subject facet strings
+    def topics
+      _facet_fields_for(
+        subject_fields +
+        newly_remediated_subject_fields +
+        newly_deprecated_subject_fields
+      )
+    end
+
+    # Returns an array of subjects that will go in the subjects facet. It
+    # excludes deprecated terms so that they don't show up in the Search UI.
+    #
+    # @return [Array<String>] Subject facet strings
+    def subject_facets
+      _facet_fields_for(
+        lc_subject_fields +
+        non_lc_subject_fields +
+        already_remediated_subject_fields +
+        newly_remediated_subject_fields
+      )
+    end
+
+    # Turn the subject fields into facet strings. We want the "a" subfield and
+    # we want a different set of subfields depending on which tag it is. Skip
+    # any fast records
+    #
+    # @param fields [Array<MARC::DataField>]
+    # @return [Array[String]] Array of facet strings
+    def _facet_fields_for(fields)
+      fields.reject do |field|
+        field.indicator2 == "7" && field["2"] =~ /fast/
+      end.map do |field|
+        a = field["a"]
+        more = []
+        field.each do |sf|
+          more.push sf.value if TOPICS[field.tag]&.chars&.include?(sf.code)
+        end
+        [a, more.join(" ")]
+      end.flatten.uniq
     end
 
     # Get all the subject fields including associated 880 linked fields

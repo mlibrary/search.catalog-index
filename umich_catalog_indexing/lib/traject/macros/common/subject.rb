@@ -29,5 +29,17 @@ module Traject::Macros::Common
         accumulator.replace Common::Subjects.new(record).subject_browse_subjects
       end
     end
+
+    def topics
+      ->(record, accumulator) do
+        accumulator.replace Common::Subjects.new(record).topics
+      end
+    end
+
+    def subject_facets
+      ->(record, accumulator) do
+        accumulator.replace Common::Subjects.new(record).subject_facets
+      end
+    end
   end
 end
