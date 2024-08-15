@@ -68,6 +68,23 @@ RSpec.describe Common::Subjects do
       expect(subjects[3].tag).to eq("880")
       expect(subjects.count).to eq(4)
     end
+
+    it "does not return deprecated fields" do
+      @record = deprecated_record
+      subjects = subject.lc_subject_fields
+      expect(subjects.count).to eq(1)
+    end
+  end
+  context "#remediated_lc_subject_fields" do
+    it "includes already remediated terms" do
+      subjects = subject.remediated_lc_subject_fields
+      expect(subjects.count).to eq(1)
+    end
+    it "includes newly remediated terms" do
+      @record = deprecated_record
+      subjects = subject.remediated_lc_subject_fields
+      expect(subjects.count).to eq(2)
+    end
   end
   context "#newly_deprecated_subject_fields" do
     it "returns an array of all the deprecated subject fields" do

@@ -42,17 +42,46 @@ module Common
     # @return [Array<MARC::DataField>] A (possibly empty) array of subject
     # fields and their linked counterparts, if any
     def subject_fields
-      sfields = @record.select { |field| Subject.subject_field?(field) }
-      sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
+      @subject_fields ||= begin
+        sfields = @record.select { |field| Subject.subject_field?(field) }
+        sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
+      end
     end
 
-    # Get only the LC subject fields and any associated 880 linked fields
+    # Get only the LC subject fields and any associated 880 linked fields. This
+    # list does not include deprecated subjects.
     #
     # @return [Array<MARC::DataField>] A (possibly empty) array of LC subject
-    # fields and their linked counterparts, if any
+    # fields and their linked counterparts.
     def lc_subject_fields
-      sfields = @record.select { |field| Subject.lc_subject_field?(field) }
-      sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
+      @lc_subject_fields ||= begin
+        sfields = subject_fields.select do |field|
+          Subject.lc_subject_field?(field) && !_field_inst(field).remediable?
+        end
+        sfields + sfields.flat_map { |field| _linked_fields_for(field) }.compact
+      end
+    end
+
+    # Get the list of LC subject fields that have already been remediated or
+    # have been transformed into remediated subjects
+    #
+    # @return [Array<MARC::DataField>] A (possibly empty) array of Subject
+    # fields
+    def remediated_lc_subject_fields
+      newly_remediated_subject_fields +
+        already_remediated_subject_fields
+    end
+
+    # Get the list of subject fields that aren't LC and aren't already
+    # remediated or deprecated
+    #
+    # @return [Array<MARC::DataField>] A (possibly empty) array of Subject
+    # fields
+    def non_lc_subject_fields
+      subject_fields -
+        lc_subject_fields -
+        remediable_subject_fields -
+        already_remediated_subject_fields
     end
 
     # Transformations of already remediated subjects fields
