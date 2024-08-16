@@ -14,7 +14,7 @@ require_relative "subjects/field"
 
 module Common
   class Subjects
-    # We define subjects as being in any of these fields:
+    # We define subjects as being in any of these fields and subfields:
     TOPICS = {
       "600" => "abcdefghjklmnopqrstuvxyz",
       "610" => "abcdefghklmnoprstuvxyz",
@@ -33,7 +33,6 @@ module Common
       "690" => "abcdevxyz"
     }
     SUBJECT_FIELDS = TOPICS.keys
-
     REMEDIATION_MAP = RemediationMap.new
 
     def initialize(record)
@@ -142,8 +141,8 @@ module Common
     # @return [Array<MARC::DataField>] A (possibly empty) array of Subject
     # fields
     def remediated_lc_subject_fields
-      newly_remediated_subject_fields +
-        already_remediated_subject_fields
+      already_remediated_subject_fields +
+        newly_remediated_subject_fields
     end
 
     # Get the list of subject fields that aren't LC and aren't already
@@ -180,7 +179,7 @@ module Common
     end
 
     # @return [Array<MARC::DataField>] A (possibly empty) array of subject
-    # fields that have already been remediated
+    # fields in the bib record that have already been remediated
     def already_remediated_subject_fields
       @already_remediated_subject_fields ||=
         (subject_fields - lc_subject_fields).filter_map do |field|
@@ -188,10 +187,10 @@ module Common
         end
     end
 
-    # Transformations of formerly deprecated subjects fields
+    # Transformations of deprecated subjects fields in the bib record
     #
     # @return [Array<MARC::DataField>] A (possibly empty) array of subject
-    # fields that were deprecated and are now remediated
+    # fields
     def newly_remediated_subject_fields
       @newly_remediated_subject_fields ||=
         remediable_subject_fields.map do |field|
@@ -200,7 +199,7 @@ module Common
     end
 
     # @return [Array<MARC::DataField>] A (possibly empty) array of subject
-    # fields with deprecated subjects terms
+    # fields in the bib record with deprecated subjects terms
     def remediable_subject_fields
       @remediable_subject_fields ||=
         subject_fields.filter_map do |field|
