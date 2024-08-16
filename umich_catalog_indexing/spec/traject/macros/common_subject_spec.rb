@@ -18,7 +18,7 @@ RSpec.describe Traject::Macros::Common::Subject do
       klass.lcsh_subjects.call(record, accumulator, @context)
       expect(accumulator).to eq(["United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996",
         "COVID-19 (Disease)",
-        "Public welfare--United States"])
+        "Public welfare -- United States"])
     end
   end
   context "non_lcsh_subjects" do
@@ -32,7 +32,7 @@ RSpec.describe Traject::Macros::Common::Subject do
     it "gets the remediated lc subjects" do
       accumulator = []
       klass.remediated_lcsh_subjects.call(record, accumulator, @context)
-      expect(accumulator).to eq(["Undocumented immigrants--United States"])
+      expect(accumulator).to eq(["Undocumented immigrants -- United States"])
     end
   end
   context "subject_browse_subjects" do

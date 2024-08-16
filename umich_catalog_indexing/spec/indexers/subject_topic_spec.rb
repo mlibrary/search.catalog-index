@@ -53,12 +53,12 @@ describe "subject_topic" do
     expect(subject["lc_subject_display"]).to contain_exactly(
       "United States. Personal Responsibility and Work Opportunity Reconciliation Act of 1996",
       "COVID-19 (Disease)",
-      "Public welfare--United States"
+      "Public welfare -- United States"
     )
   end
 
   it "has the expected remediated_lc_subject_display" do
-    expect(subject["remediated_lc_subject_display"]).to contain_exactly("Undocumented immigrants--United States")
+    expect(subject["remediated_lc_subject_display"]).to contain_exactly("Undocumented immigrants -- United States")
   end
 
   it "has the expected non_lc_subject_display" do

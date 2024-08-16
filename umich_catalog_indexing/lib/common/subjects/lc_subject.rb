@@ -47,7 +47,7 @@ module Common
         @field.select { |sf| ("a".."z").cover?(sf.code) }
       end
 
-      def delimiter
+      def default_delimiter
         "--"
       end
 
@@ -63,7 +63,7 @@ module Common
       # Most subject fields are constructed by joining together the alphabetic subfields
       # with either a '--' (before a $v, $x, $y, or $z) or a space (before everything else).
       # @return [String] An appropriately-delimited string
-      def subject_string
+      def subject_string(delimiter = default_delimiter)
         str = subject_data_subfield_codes.map do |sf|
           case sf.code
           when *DELIMITED_FIELDS
@@ -80,7 +80,7 @@ module Common
     class LCSubject658 < LCSubject
       # Format taken from the MARC 658 documentation
       # @return [String] Subject string ready for output
-      def subject_string
+      def subject_string(delimiter = default_delimiter)
         str = subject_data_subfield_codes.map do |sf|
           case sf.code
           when "b"
@@ -105,7 +105,7 @@ module Common
       # At least one subject field in LC, the 662, just gets delimiters everywhere
       # Format taken from the MARC 662 documentation
       # @return [String] Subject string ready for output
-      def subject_string
+      def subject_string(delimiter = default_delimiter)
         normalize(subject_data_subfield_codes.map(&:value).join(delimiter))
       end
     end

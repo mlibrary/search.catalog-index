@@ -56,12 +56,17 @@ module Common
 
     # @return [Array<String>] An array of all subject browse strings
     def subject_browse_subjects
-      _subject_strings(subject_browse_subject_fields)
+      _subject_strings(subject_browse_subject_fields, "--")
     end
 
-    def _subject_strings(fields)
+    # The delimiter needed for Library Search is " -- " because of line
+    # breaking problms. Catalog browse uses the LC standard of "--" without
+    # spaces
+    #
+    # @return[Array<String>] Ann array of subject strings
+    def _subject_strings(fields, delimiter = " -- ")
       fields.map do |f|
-        Subject.new(f).subject_string
+        Subject.new(f).subject_string(delimiter)
       end
     end
 
