@@ -225,6 +225,7 @@
 <field name="topic"       type="text"       indexed="true" stored="false" multiValued="true"  omitNorms="true"/>
 <field name="topicProper" type="text_no_stem_or_synonyms" indexed="true" stored="false" multiValued="true"  omitNorms="true"  />
 <field name="topicStr"    type="string" indexed="true" stored="true"  multiValued="true"/>
+<field name="topicAllStr"    type="string" indexed="true" stored="true"  multiValued="true"/>
 <field name="lcshID"      type="string"     indexed="true" stored="true"  multiValued="true"/>
 <field name="fullgenre"   type="text"       indexed="true" stored="true"  multiValued="true"  omitNorms="true"/>
 <field name="genre"       type="text"       indexed="true" stored="true"  multiValued="true"  omitNorms="true"/>
@@ -233,12 +234,13 @@
 <field name="hlb3Str" type="string"     indexed="true" stored="true" multiValued="true"                   />
 <field name="hlb3Delimited" type="string" indexed="false" stored="true" multiValued="true" termVectors="false"/>
 <field name="lc_subject" type="lc_subject" indexed="true" stored="true" multiValued="true"/>
-<copyField source="topic" dest="topicStr"/>
+<copyField source="topic" dest="topicAllStr"/>
 <copyField source="topic" dest="topicProper"/>
 <copyField source="hlb3" dest="hlb3Str"/>
 <copyField source="genre" dest="genreStr"/>
 
 <field name="lc_subject_display"     type="text_facet" indexed="true" stored="true" multiValued="true"/>
+<field name="remediated_lc_subject_display"     type="text_facet" indexed="true" stored="true" multiValued="true"/>
 <field name="non_lc_subject_display" type="text_facet" indexed="true" stored="true" multiValued="true"/>
 
 <field name="subject_browse_terms" type="text_facet" indexed="true" stored="true" multiValued="true"/>
