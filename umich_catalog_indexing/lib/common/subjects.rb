@@ -94,7 +94,7 @@ module Common
 
     # Turn the subject fields into facet strings. We want the "a" subfield and
     # we want a different set of subfields depending on which tag it is. Skip
-    # any fast records
+    # any fast records (second-indicator == 7)
     #
     # @param fields [Array<MARC::DataField>]
     # @return [Array[String]] Array of facet strings

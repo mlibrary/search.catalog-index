@@ -7,11 +7,9 @@ extend Traject::Macros::Common::Subject
 ######## SUBJECT / TOPIC  ######
 ################################
 
-# We get the full topic (LCSH), but currently want to ignore
-# entries that are FAST entries (those having second-indicator == 7)
-
-skip_FAST = ->(rec, field) do
-  field.indicator2 == "7" and field["2"] =~ /fast/
+# Saving the Subject because it has some expensive operations.
+each_record do |rec, context|
+  context.clipboard[:subject] = Common::Subjects.new(rec)
 end
 
 to_field "topic", topics, trim_punctuation
