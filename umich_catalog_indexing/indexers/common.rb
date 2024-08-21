@@ -186,8 +186,7 @@ to_field "author_browse_terms" do |rec, acc, _context|
   acc.replace authors.flatten.compact
 end
 
-# changes by mrio Feb 2022
-to_field "main_author_display", extract_marc("100abcdefgjklnpqtu4:101abcdefgjklnpqtu4:110abcdefgjklnpqtu4:111abcdefgjklnpqtu4")
+to_field "main_author_display", extract_marc("100abcdefgjklnpqtu:101abcdefgjklnpqtu:110abcdefgjklnpqtu:111abcdefgjklnpqtu")
 to_field "main_author", extract_marc("100abcdgjkqu:101abcdgjkqu:110abcdgjkqu:111abcdgjkqu")
 
 # TODO: Change traject to allow, e.g., 700|*[^ ]abc where brackets indicate a regex
