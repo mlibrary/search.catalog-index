@@ -173,7 +173,8 @@ module HathiTrust::Traject::Macros
 
   # get display string for ht links based on righs and ETAS status
   def statusFromRights(rights, etas = false)
-    if /^(pd|world|cc|und-world|ic-world)/.match?(rights)
+    # from https://github.com/hathitrust/hathifiles/blob/main/lib/item_record.rb#L24
+    if /^(pdus$|pd$|world|cc|und-world|ic-world)/.match?(rights)
       "Full text"
     elsif etas
       "Full text available, simultaneous access is limited (HathiTrust log in required)"
