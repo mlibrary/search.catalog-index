@@ -31,6 +31,10 @@ describe Jobs::ZephirProcessing::Record do
       @zephir_record["fields"][45]["974"]["subfields"][7]["r"] = "pdus"
       expect(subject.no_full_text?).to eq(false)
     end
+    it "returns true when record includes pd-pvt items" do
+      @zephir_record["fields"][45]["974"]["subfields"][7]["r"] = "pd-pvt"
+      expect(subject.no_full_text?).to eq(true)
+    end
   end
   context "#is_umich?" do
     it "returns true when umich is the preffered record" do
