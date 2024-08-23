@@ -7,33 +7,16 @@ extend Traject::Macros::Common::Subject
 ######## SUBJECT / TOPIC  ######
 ################################
 
-# We get the full topic (LCSH), but currently want to ignore
-# entries that are FAST entries (those having second-indicator == 7)
-
-skip_FAST = ->(rec, field) do
-  field.indicator2 == "7" and field["2"] =~ /fast/
+# Saving the Subject because it has some expensive operations.
+each_record do |rec, context|
+  context.clipboard[:subject] = Common::Subjects.new(rec)
 end
 
-to_field "topic", extract_marc_unless(%w[
-  600a 600abcdefghjklmnopqrstuvxyz
-  610a 610abcdefghklmnoprstuvxyz
-  611a 611acdefghjklnpqstuvxyz
-  630a 630adefghklmnoprstvxyz
-  648a 648avxyz
-  650a 650abcdevxyz
-  651a 651aevxyz
-  653a 653abevyz
-  654a 654abevyz
-  655a 655abvxyz
-  656a 656akvxyz
-  657a 657avxyz
-  658a 658ab
-  662a 662abcdefgh
-  690a 690abcdevxyz
-
-], skip_FAST, trim_punctuation: true)
+to_field "topic", topics, trim_punctuation
+to_field "topicStr", subject_facets, trim_punctuation
 
 to_field "lc_subject_display", lcsh_subjects, unique
+to_field "remediated_lc_subject_display", remediated_lcsh_subjects, unique
 to_field "non_lc_subject_display", non_lcsh_subjects, unique
 
-to_field "subject_browse_terms", lcsh_subjects, unique
+to_field "subject_browse_terms", subject_browse_subjects, unique

@@ -17,6 +17,7 @@ umich_catalog_indexing/coverage/
 
 umich_catalog_indexing/lib/translation_maps/hlb.json.gz
 umich_catalog_indexing/lib/translation_maps/umich/libLocInfo.yaml
+umich_catalog_indexing/lib/translation_maps/umich/subject_heading_remediation.json
 
 umich_catalog_indexing/scratch/*
 !umich_catalog_indexing/scratch/.keep

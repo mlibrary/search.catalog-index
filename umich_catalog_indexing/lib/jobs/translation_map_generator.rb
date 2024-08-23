@@ -5,12 +5,13 @@ module Jobs
         [
           HighLevelBrowse,
           ElectronicCollections,
-          LibLocInfo
+          LibLocInfo,
+          SubjectHeadingRemediation
         ]
       end
 
       def translation_map_directory
-        File.join(S.project_root, "lib", "translation_maps")
+        S.translation_map_dir
       end
 
       def generate_all(dir: translation_map_directory)
@@ -20,7 +21,7 @@ module Jobs
       end
 
       def generate(generator:, dir: translation_map_directory)
-        S.logger "fetching #{generator.name}"
+        S.logger.info "fetching #{generator.name}"
         path = File.join(dir, generator.file_path)
         if _should_fetch?(path)
           temporary_path = "#{path}_#{SecureRandom.alphanumeric(8)}.temporary"
@@ -54,3 +55,4 @@ end
 require_relative "translation_map_generator/electronic_collections"
 require_relative "translation_map_generator/lib_loc_info"
 require_relative "translation_map_generator/high_level_browse"
+require_relative "translation_map_generator/subject_heading_remediation"
