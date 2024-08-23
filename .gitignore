@@ -8,6 +8,7 @@
 .env
 .bundle
 .gem
+*.html
 
 umich_catalog_indexing/debug*
 umich_catalog_indexing/.m2
@@ -24,6 +25,8 @@ umich_catalog_indexing/examples/*.xml
 umich_catalog_indexing/examples/*/*.xml
 umich_catalog_indexing/examples/*.tar.gz
 umich_catalog_indexing/examples/*/*.tar.gz
+umich_catalog_indexing/examples/*.json
+umich_catalog_indexing/examples/*/*.json
 
 /sftp/ssh/*
 !/sftp/ssh/.keep
