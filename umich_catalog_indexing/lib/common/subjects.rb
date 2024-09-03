@@ -30,7 +30,8 @@ module Common
       "657" => "avxyz",
       "658" => "ab",
       "662" => "abcdefgh",
-      "690" => "abcdevxyz"
+      "690" => "abcdevxyz",
+      "752" => "abcdefgh"
     }
     SUBJECT_FIELDS = TOPICS.keys
     REMEDIATION_MAP = RemediationMap.new
