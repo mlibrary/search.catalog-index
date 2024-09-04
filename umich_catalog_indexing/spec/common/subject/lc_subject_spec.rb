@@ -83,3 +83,23 @@ RSpec.describe Common::Subjects::LCSubjectHierarchical do
     end
   end
 end
+RSpec.describe Common::Subjects::LCAddedEntryHeirarchical do
+  let(:subject_field) do
+    MARC::DataField.new("752", "", "",
+      ["a", "World"],
+      ["b", "Asia"],
+      ["c", "Japan"],
+      ["d", "Hokkaido (island)"],
+      ["e", "Hokkaido (region)"],
+      ["f", "Hokkaido (prefecture)"],
+      ["g", "Asahi-Dake"],
+      ["h", "Something Else."],
+      ["2", "tgn"])
+  end
+  context "#subject_string" do
+    it "returns expected output" do
+      output = described_class.new(subject_field).subject_string
+      expect(output).to eq("World-Asia-Japan-Hokkaido (island)-Hokkaido (region)-Hokkaido (prefecture)-Asahi-Dake-Something Else")
+    end
+  end
+end

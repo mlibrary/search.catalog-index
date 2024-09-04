@@ -16,7 +16,7 @@ module Common
           if lc_subject_field?(field)
             LCSubject.from_field(field)
           else
-            NonLCSubject.new(field)
+            NonLCSubject.from_field(field)
           end
         end
       end
