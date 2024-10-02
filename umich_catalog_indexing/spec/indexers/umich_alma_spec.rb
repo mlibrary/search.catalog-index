@@ -1,11 +1,5 @@
 require "traject"
 describe "umich_alma" do
-  def get_record(path)
-    reader = MARC::XMLReader.new(path)
-    for r in reader
-      return r
-    end
-  end
   let(:hurdy_gurdy) do
     get_record("./spec/fixtures/hurdy_gurdy.xml")
   end

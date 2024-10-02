@@ -1,9 +1,6 @@
 require "traject"
 require "umich_traject"
 describe Traject::UMich::ElectronicHolding do
-  def get_record(path)
-    MARC::XMLReader.new(path).first
-  end
   let(:e_resource) do
     get_record("./spec/fixtures/e_resource.xml")
   end

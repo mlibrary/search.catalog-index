@@ -1,8 +1,5 @@
 require "common/subjects"
 RSpec.describe Common::Subjects::Subject do
-  def get_record(path)
-    MARC::XMLReader.new(path).first
-  end
   let(:record) do
     get_record("./spec/fixtures/unauthorized_immigrants.xml")
   end
