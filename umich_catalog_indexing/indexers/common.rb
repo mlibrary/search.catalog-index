@@ -507,7 +507,37 @@ to_field "publisher_display", extract_marc("260abc:264|*1|abc")
 # mrio: updated Feb 2022 to add "b"
 to_field "edition", extract_marc("250ab")
 
-to_field "language", marc_languages("008[35-37]:041a:041d:041e:041j")
+# reimplemented marc_languages macro to skip fields with a subfield 2
+to_field "language" do |record, accumulator, context|
+  translation_map = Traject::TranslationMap.new("marc_languages")
+
+  spec = "008[35-37]:041a:041d:041e:041j"
+  extractor = MarcExtractor.new(spec, separator: nil)
+
+  codes = extractor.collect_matching_lines(record) do |field, spec, extractor|
+    if extractor.control_field?(field)
+      (spec.bytes ? field.value.byteslice(spec.bytes) : field.value)
+    elsif !field["2"].nil?
+      next
+    else
+      extractor.collect_subfields(field, spec).collect do |value|
+        # sometimes multiple language codes are jammed together in one subfield, and
+        # we need to separate ourselves. sigh.
+        unless value.length == 3
+          # split into an array of 3-length substrs; JRuby has problems with regexes
+          # across threads, which is why we don't use String#scan here.
+          value = value.chars.each_slice(3).map(&:join)
+        end
+        value
+      end.flatten
+    end
+  end
+  codes = codes.uniq
+
+  translation_map.translate_array!(codes)
+
+  accumulator.concat codes
+end # , marc_languages("008[35-37]:041a:041d:041e:041j")
 
 to_field "language008", extract_marc("008[35-37]", first: true) do |r, acc|
   acc.reject! { |x| x !~ /\S/ } # ditch only spaces
