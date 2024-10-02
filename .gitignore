@@ -33,6 +33,8 @@ umich_catalog_indexing/examples/*/*.json
 !/sftp/ssh/.keep
 /sftp/search_daily_bibs/*.xml
 /sftp/search_daily_bibs/*.tar.gz
+/sftp/search_daily_bibs/*.json.gz
+!sftp/search_daily_bibs/zephir_short.json.gz
 !sftp/search_daily_bibs/sample.tar.gz
 !sftp/search_daily_bibs/birds_2022021017_21131448650006381_new.tar.gz
 
