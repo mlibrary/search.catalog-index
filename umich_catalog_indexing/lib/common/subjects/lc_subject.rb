@@ -15,7 +15,9 @@ module Common
         when "658"
           LCSubject658.new(field)
         when "662"
-          LCSubjectHierarchical(field)
+          LCSubjectHierarchical.new(field)
+        when "752"
+          LCAddedEntryHeirarchical.new(field)
         else
           new(field)
         end
@@ -58,15 +60,18 @@ module Common
       end
 
       # Only some fields get delimiters before them in a standard LC Subject field
-      DELIMITED_FIELDS = %w[v x y z]
+      def delimited_fields
+        %w[v x y z]
+      end
 
       # Most subject fields are constructed by joining together the alphabetic subfields
       # with either a '--' (before a $v, $x, $y, or $z) or a space (before everything else).
       # @return [String] An appropriately-delimited string
-      def subject_string(delimiter = default_delimiter)
+      def subject_string(padding: false)
+        delimiter = _delimiter_string(padding)
         str = subject_data_subfield_codes.map do |sf|
           case sf.code
-          when *DELIMITED_FIELDS
+          when *delimited_fields
             "#{delimiter}#{sf.value}"
           else
             " #{sf.value}"
@@ -75,12 +80,17 @@ module Common
 
         normalize(str)
       end
+
+      def _delimiter_string(padding)
+        padding ? " #{default_delimiter} " : default_delimiter
+      end
     end
 
     class LCSubject658 < LCSubject
       # Format taken from the MARC 658 documentation
       # @return [String] Subject string ready for output
-      def subject_string(delimiter = default_delimiter)
+      def subject_string(padding: false)
+        delimiter = _delimiter_string(padding)
         str = subject_data_subfield_codes.map do |sf|
           case sf.code
           when "b"
@@ -105,8 +115,20 @@ module Common
       # At least one subject field in LC, the 662, just gets delimiters everywhere
       # Format taken from the MARC 662 documentation
       # @return [String] Subject string ready for output
-      def subject_string(delimiter = default_delimiter)
+      def subject_string(padding: false)
+        delimiter = _delimiter_string(padding)
         normalize(subject_data_subfield_codes.map(&:value).join(delimiter))
+      end
+    end
+
+    # Taken from https://www.loc.gov/marc/bibliographic/bd752.html
+    class LCAddedEntryHeirarchical < LCSubject
+      def delimited_fields
+        %w[a b c d e f g h]
+      end
+
+      def default_delimiter
+        "-"
       end
     end
   end
