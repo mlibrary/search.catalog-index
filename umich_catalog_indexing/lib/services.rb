@@ -11,6 +11,9 @@ S.register(:subject_heading_remediation_set_id) { ENV["SUBJECT_HEADING_REMEDIATI
 
 S.register(:app_env) { ENV["APP_ENV"] || "development" }
 
+S.register(:google_api_credentials) { ENV["GOOGLE_API_CREDENTIALS"] || "{}" }
+S.register(:floor_location_spreadsheet_id) { ENV["FLOOR_LOCATION_SPREADSHEET_ID"] || "" }
+
 require_relative "services/paths"
 require_relative "services/logger"
 require_relative "services/dbs"
