@@ -5,7 +5,7 @@ require "services"
 
 class JobQueued
   def call(worker, job, queue, redis_pool)
-    Faraday.post("#{ENV.fetch("SIDEKIQ_SUPERVISOR_HOST")}/api/v1/jobs", {
+    Faraday.post("#{S.sidekiq_supervisor_host}/api/v1/jobs", {
       job_id: job["jid"],
       arguments: job["args"].to_json,
       job_class: job["class"],
@@ -17,19 +17,19 @@ end
 
 Sidekiq.configure_client do |config|
   config.client_middleware do |chain|
-    chain.add JobQueued if ENV.fetch("SUPERVISOR_ON") == "true"
+    chain.add JobQueued if S.supervisor_on?
   end
 end
 
 class CheckInCheckOut
   def call(worker, job, queue)
-    Faraday.post("#{ENV.fetch("SIDEKIQ_SUPERVISOR_HOST")}/api/v1/jobs/#{job["jid"]}/started", {
+    Faraday.post("#{S.sidekiq_supervisor_host}/api/v1/jobs/#{job["jid"]}/started", {
       arguments: job["args"].to_json,
       job_class: job["class"],
       queue: queue
     })
     yield
-    Faraday.post("#{ENV.fetch("SIDEKIQ_SUPERVISOR_HOST")}/api/v1/jobs/#{job["jid"]}/complete", {
+    Faraday.post("#{S.sidekiq_supervisor_host}/api/v1/jobs/#{job["jid"]}/complete", {
       arguments: job["args"].to_json,
       job_class: job["class"],
       queue: queue
@@ -39,7 +39,7 @@ end
 
 Sidekiq.configure_server do |config|
   config.server_middleware do |chain|
-    chain.add CheckInCheckOut if ENV.fetch("SUPERVISOR_ON") == "true"
+    chain.add CheckInCheckOut if S.supervisor_on?
   end
 end
 

@@ -1,0 +1,33 @@
+name: Update Floor Locations Translation map
+
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 8 1 * *' #8AM first of the month
+
+jobs:
+  update-floor-locations:
+    runs-on: ubuntu-latest
+    env:  
+      BUNDLE_GEMFILE: ${{ github.workspace }}/umich_catalog_indexing/Gemfile
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up ruby 3.2
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+      - name: Fetch Translation map
+        working-directory: ./umich_catalog_indexing
+        env:
+          FLOOR_LOCATION_SPREADSHEET_ID: ${{ vars.FLOOR_LOCATION_SPREADSHEET_ID }}
+          GOOGLE_API_CREDENTIALS: ${{ secrets.GOOGLE_API_CREDENTIALS }}
+        run: bundle exec ruby bin/generate_floor_locations_map.rb --force
+      - name: Get PR title
+        run: echo "PR_TITLE=$(date +'%B %Y') floor location translation map update" >> $GITHUB_ENV
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with: 
+        commit-message: "config: update floor locations translation map"
+          title: ${{ env.PR_TITLE }}
+          reviewers: niquerio
