@@ -1,0 +1,58 @@
+module HTTPX
+  class Session
+    include Loggable
+    include Chainable
+
+    EMPTY_HASH: Hash[untyped, untyped]
+
+    @options: Options
+    @responses: Hash[Request, response]
+    @persistent: bool?
+
+    def self.plugin: (Symbol | Module plugin, ?options? options) ?{ (Class) -> void } -> singleton(Session)
+
+    def wrap: () { (instance) -> void } -> void
+
+    def close: (*untyped) -> void
+
+    def build_request: (verb, generic_uri, ?options) -> Request
+
+    def initialize: (?options) { (self) -> void } -> void
+                  | (?options) -> void
+
+    private
+
+    def pool: -> Pool
+    def on_response: (Request, response) -> void
+    def on_promise: (untyped, untyped) -> void
+    def fetch_response: (Request request, Array[Connection] connections, untyped options) -> response?
+
+    def find_connection: (Request request, Array[Connection] connections, Options options) -> Connection
+
+    def send_request: (Request request, Array[Connection] connections, ?Options options) -> void
+
+    def set_connection_callbacks: (Connection connection, Array[Connection] connections, Options options) -> void
+
+    def set_request_callbacks: (Request request) -> void
+
+    def build_altsvc_connection: (Connection existing_connection, Array[Connection] connections, URI::Generic alt_origin, String origin, Hash[String, String] alt_params, Options options) -> (Connection & AltSvc::ConnectionMixin)?
+
+    def build_requests: (verb, uri, options) -> Array[Request]
+                      | (Array[[verb, uri, options]], options) -> Array[Request]
+                      | (Array[[verb, uri]], options) -> Array[Request]
+                      | (verb, _Each[[uri, options]], Options) -> Array[Request]
+                      | (verb, _Each[uri], options) -> Array[Request]
+
+    def init_connection: (URI::HTTP | URI::HTTP uri, Options options) -> Connection
+
+    def send_requests: (*Request) -> Array[response]
+
+    def _send_requests: (Array[Request] requests) -> Array[Connection]
+
+    def receive_requests: (Array[Request] requests, Array[Connection] connections) -> Array[response]
+
+    attr_reader self.default_options: Options
+  end
+
+  OriginalSession: singleton(Session)
+end

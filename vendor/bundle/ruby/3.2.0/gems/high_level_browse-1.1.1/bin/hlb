@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+# Hmmm. How to pass along the location? Stick one in /tmp
+# and see if it exists?
+
+
+def usage
+  puts "hlb -- get high level browse data for an LC call number"
+  puts
+  puts %Q{Example:\n   hlb "qa 11.33 .C4 .H3"}
+  puts "   or do several at once"
+  puts %Q{   hlb "PN 33.4" "AC 1122.3 .C22" ... }
+  puts
+  exit(1)
+end
+
+usage if ARGV.empty?
+
+self_load_path = File.expand_path("../lib", File.dirname(__FILE__))
+unless $LOAD_PATH.include? self_load_path
+  $LOAD_PATH << self_load_path
+end
+
+require 'high_level_browse'
+require 'fileutils'
+require 'tmpdir'
+
+filename = HighLevelBrowse::DB::FILENAME
+dir      = Dir.tmpdir()
+fullpath = File.join(dir, filename)
+puts fullpath
+hlb = if File.exist?(fullpath)
+        HighLevelBrowse.load(dir: dir)
+      else
+        STDERR.puts "Fetching raw data from UMich; wait a sec"
+        HighLevelBrowse.fetch_and_save(dir: dir)
+      end
+
+
+topics = hlb[*ARGV]
+
+if topics.empty?
+  puts "\nNo categories found for #{ARGV}\n\n"
+else
+  puts "\n" + topics.map { |x| x.join(' | ') }.join("\n") + "\n\n"
+end

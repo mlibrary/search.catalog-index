@@ -1,0 +1,70 @@
+module HTTPX
+  class Request
+    extend Forwardable
+    include Callbacks
+
+    METHODS: Array[Symbol]
+    USER_AGENT: String
+
+    attr_reader verb: verb
+    attr_reader uri: http_uri
+    attr_reader headers: Headers
+    attr_reader body: Body
+    attr_reader state: Symbol
+    attr_reader options: Options
+    attr_reader response: response?
+    attr_reader drain_error: StandardError?
+
+    attr_accessor peer_address: ipaddr?
+
+    attr_writer persistent: bool
+
+    @trailers: Headers?
+    @informational_status: Integer?
+    @query: String?
+    @drainer: Enumerator[String, void]?
+
+    def initialize: (Symbol | String, generic_uri, ?options) -> untyped
+
+    def interests: () -> (:r | :w)
+
+    def merge_headers: (_Each[[String, headers_value]]) -> void
+
+    def scheme: () -> String
+
+    def response=: (response) -> void
+
+    def path: () -> String
+
+    def authority: () -> String
+
+    def origin: () -> String
+
+    def query: () -> String
+
+    def drain_body: () -> String?
+
+    def inspect: () -> String
+
+    def transition: (Symbol) -> void
+
+    def expects?: () -> boolish
+
+    def trailers: () -> Headers
+
+    def trailers?: () -> boolish
+
+    def persistent?: () -> bool
+
+    def read_timeout: () -> Numeric?
+
+    def write_timeout: () -> Numeric?
+
+    def request_timeout: () -> Numeric?
+
+    private
+
+    def initialize_body: (Options options) -> Transcoder::_Encoder?
+
+  end
+end

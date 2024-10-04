@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+# If we're loading from source instead of a gem, rubygems
+# isn't setting load paths for us, so we need to set it ourselves
+self_load_path = File.expand_path("../lib", File.dirname(__FILE__))
+unless $LOAD_PATH.include? self_load_path
+  $LOAD_PATH << self_load_path
+end
+
+def silence_warnings(&block)
+  warn_level = $VERBOSE
+  $VERBOSE = nil
+  result = block.call
+  $VERBOSE = warn_level
+  result
+end
+
+# minitest has a circular require warning, which
+# drives me crazy. Suppress it.
+silence_warnings do
+  require 'high_level_browse'
+end
+
+require 'fileutils'
+
+def putsmsg(msg)
+  puts "---------------------------------------------------"
+  puts " ERROR: #{msg}"
+  puts "---------------------------------------------------"
+  puts
+end
+
+def usage(msg = nil)
+  puts
+  putsmsg(msg) if msg
+  puts "fetch_new_hlb -- get a new copy of the HLB ready for use by high_level_browse"
+  puts "and stick it in the given directory"
+  puts
+  puts "   Usage: fetch_new_hlb <dir>"
+  puts
+  exit
+end
+
+unless ARGV.size == 1
+  usage
+end
+
+dir = ARGV.shift
+
+File.exist? dir or usage "#{dir} does not exist"
+Dir.exist? dir or usage "#{dir} is not a directory"
+File.writable? dir or usage "#{dir} is not writable"
+
+begin
+  db = HighLevelBrowse.fetch
+  db.save(dir: dir)
+rescue => e
+  puts "============================="
+  puts "ERROR FETCHING HLB SOURCE"
+  puts "  #{e}"
+  puts "============================="
+end

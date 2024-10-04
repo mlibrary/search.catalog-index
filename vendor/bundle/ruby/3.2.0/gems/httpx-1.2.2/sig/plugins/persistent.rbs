@@ -1,0 +1,11 @@
+module HTTPX
+  module Plugins
+    module Persistent
+      def self.load_dependencies: (singleton(Session)) -> void
+
+      def self.extra_options: (Options) -> (Options)
+    end
+
+    type sessionPersistent = sessionFollowRedirects
+  end
+end

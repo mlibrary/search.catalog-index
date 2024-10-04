@@ -1,0 +1,12 @@
+module HTTPX
+  module Transcoder
+    class Inflater
+      @inflater: Zlib::Inflate
+      @bytesize: Integer
+
+      def initialize: (Integer | Float bytesize) -> void
+
+      def call: (String chunk) -> String
+    end
+  end
+end

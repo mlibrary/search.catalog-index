@@ -1,0 +1,8 @@
+key1: value1
+key_to_be_overridden: value_from_yaml
+array_key:
+  -one
+  -two
+  -three
+# comment
+other: yes

@@ -1,0 +1,10 @@
+3.0.0 !!!! Removed support for Ruby 1.8
+      Simplified build process
+2.0.0 !!!! THIS IS  A BIG, BACKWARDS-INCOMPATIBLE CHANGE !!!!
+      MatchMap now always returns an array (possibly empty) 
+      Changed to use 1.8/1.9 specific code to simplify things;
+1.1.1 Fixed Proc; removed dependence on 1.9
+1.1.0 Add a different optimize method and benchmarking code; now 1.9 only
+1.0.0 Improve documentation and bump version to 1.0.0
+0.5.0 Change underlying structures so return order is guaranteed; lost optimize in the process
+0.0.0 First github release
