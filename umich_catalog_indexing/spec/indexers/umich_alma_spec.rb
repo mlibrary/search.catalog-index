@@ -122,7 +122,7 @@ describe "umich_alma" do
   let(:expected_hurdy_gurdy) do
     [{"callnumber" => "ML760 .P18",
       "display_name" => "Music",
-      "floor_location" => "",
+      "floor_location" => "5th Floor",
       "hol_mmsid" => "22744541740006381",
       "info_link" => "http://lib.umich.edu/locations-and-hours/music-library",
       "items" =>
