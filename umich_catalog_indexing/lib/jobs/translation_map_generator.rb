@@ -20,19 +20,23 @@ module Jobs
         end
       end
 
-      def generate(generator:, dir: translation_map_directory)
+      def generate(generator:, dir: translation_map_directory, force: false)
         S.logger.info "fetching #{generator.name}"
         path = File.join(dir, generator.file_path)
-        if _should_fetch?(path)
-          temporary_path = "#{path}_#{SecureRandom.alphanumeric(8)}.temporary"
-          generator.write_to_file(temporary_path)
-          raise StandardError, "#{temporary_path} does not exist; Failed to load file" if !File.exist?(temporary_path)
-          raise StandardError, "#{temporary_path} is too small; Failed to load file" if File.size?(temporary_path) < 15
-          File.rename(temporary_path, path)
-          S.logger.info "updated #{path}"
-        else
+        if _should_not_fetch?(path) && force == false
           S.logger.info "#{path} is less than one day old. Did not update"
+          return
         end
+        temporary_path = "#{path}_#{SecureRandom.alphanumeric(8)}.temporary"
+        generator.write_to_file(temporary_path)
+        raise StandardError, "#{temporary_path} does not exist; Failed to load file" if !File.exist?(temporary_path)
+        raise StandardError, "#{temporary_path} is too small; Failed to load file" if File.size?(temporary_path) < 15
+        File.rename(temporary_path, path)
+        S.logger.info "updated #{path}"
+      end
+
+      def _should_not_fetch?(file)
+        !_should_fetch?(file)
       end
 
       def _should_fetch?(file)

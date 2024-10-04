@@ -82,6 +82,14 @@ RSpec.describe Jobs::TranslationMapGenerator, ".generate" do
       expect(File.size?(tm_path)).to be_nil
     end
   end
+  context "force param is true" do
+    it "generates a new file" do
+      @params[:force] = true
+      `touch #{tm_path}`
+      subject
+      expect(File.size?(tm_path)).to eq(20)
+    end
+  end
   context "has old translation map files" do
     it "generates new files" do
       `touch -d "-2 days" #{tm_path}`
