@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection>
+	<record>
+		<leader>     ncm a22003131a 4500</leader>
+		<controlfield tag="005">20040421000000.0</controlfield>
+		<controlfield tag="008">990802s1993    pl moa   ehi   n    lat d</controlfield>
+		<controlfield tag="001">990040063470106381</controlfield>
+		<datafield tag="035" ind1=" " ind2=" ">
+			<subfield code="a">(MiU)004006347MIU01</subfield>
+		</datafield>
+		<datafield tag="020" ind1=" " ind2=" ">
+			<subfield code="a">8322430736</subfield>
+			<subfield code="a">8888888888</subfield>
+		</datafield>
+		<datafield tag="028" ind1="2" ind2="2">
+			<subfield code="a">PWM-8680</subfield>
+			<subfield code="b">Polsike Wydawn. Muzyczne</subfield>
+		</datafield>
+		<datafield tag="035" ind1=" " ind2=" ">
+			<subfield code="a">(RLIN)MIUG99-C817</subfield>
+		</datafield>
+		<datafield tag="035" ind1=" " ind2=" ">
+			<subfield code="a">(III)iiio31544307</subfield>
+		</datafield>
+		<datafield tag="035" ind1=" " ind2=" ">
+			<subfield code="a">(OCoLC)ocm39819963</subfield>
+		</datafield>
+		<datafield tag="040" ind1=" " ind2=" ">
+			<subfield code="a">MH-Mu</subfield>
+			<subfield code="c">MH-Mu</subfield>
+			<subfield code="d">MiU</subfield>
+		</datafield>
+		<datafield tag="041" ind1="0" ind2=" ">
+			<subfield code="a">latcze</subfield>
+			<subfield code="g">czeenggerpol</subfield>
+		</datafield>
+		<datafield tag="100" ind1="1" ind2=" ">
+			<subfield code="a">Wilhelmi de Grudencz, Petrus,</subfield>
+			<subfield code="d">approximately 1400-approximately 1480.</subfield>
+			<subfield code="0">http://id.loc.gov/authorities/names/no95005776</subfield>
+			<subfield code="0">http://viaf.org/viaf/39567283</subfield>
+		</datafield>
+		<datafield tag="240" ind1="1" ind2="0">
+			<subfield code="a">Works.</subfield>
+			<subfield code="f">1993</subfield>
+		</datafield>
+		<datafield tag="245" ind1="1" ind2="0">
+			<subfield code="a">Opera musica /</subfield>
+			<subfield code="c">Petrus Wilhelmi de Grudencz, magister Cracoviensis ; edidit JaromÃ­r CÌernÃ½.</subfield>
+		</datafield>
+		<datafield tag="250" ind1=" " ind2=" ">
+			<subfield code="a">Wyd. 1.</subfield>
+		</datafield>
+		<datafield tag="260" ind1=" " ind2=" ">
+			<subfield code="a">KrakÃ³ w :</subfield>
+			<subfield code="b">Polskie Wydawn. Muzyczne,</subfield>
+			<subfield code="c">1993.</subfield>
+		</datafield>
+		<datafield tag="300" ind1=" " ind2=" ">
+			<subfield code="a">1 score (146 p.) :</subfield>
+			<subfield code="b">facsims. ;</subfield>
+			<subfield code="c">31 cm.</subfield>
+		</datafield>
+		<datafield tag="500" ind1=" " ind2=" ">
+			<subfield code="a">Vocal music for 1-5 voices.</subfield>
+		</datafield>
+		<datafield tag="546" ind1=" " ind2=" ">
+			<subfield code="a">Words in Latin and Czech.</subfield>
+		</datafield>
+		<datafield tag="546" ind1=" " ind2=" ">
+			<subfield code="a">Introd. in Polish, Czech and German; editorial notes in English.</subfield>
+		</datafield>
+		<datafield tag="650" ind1=" " ind2="0">
+			<subfield code="a">Vocal music.</subfield>
+			<subfield code="0">http://id.loc.gov/authorities/subjects/sh85144088</subfield>
+		</datafield>
+		<datafield tag="650" ind1=" " ind2="0">
+			<subfield code="a">Motets.</subfield>
+			<subfield code="0">http://id.loc.gov/authorities/subjects/sh85087515</subfield>
+		</datafield>
+		<datafield tag="700" ind1="1" ind2=" ">
+			<subfield code="a">ÄernÃ½, JaromÃ­ r,</subfield>
+			<subfield code="d">1939-</subfield>
+			<subfield code="0">http://id.loc.gov/authorities/names/n84100249</subfield>
+			<subfield code="0">http://viaf.org/viaf/52115348</subfield>
+		</datafield>
+		<datafield tag="998" ind1=" " ind2=" ">
+			<subfield code="c">LMH</subfield>
+			<subfield code="s">9114</subfield>
+		</datafield>
+		<datafield tag="958" ind1=" " ind2=" ">
+			<subfield code="a">MiU</subfield>
+		</datafield>
+		<datafield tag="959" ind1=" " ind2=" ">
+			<subfield code="a">(notis)ULBAM3997</subfield>
+		</datafield>
+		<datafield tag="995" ind1=" " ind2=" ">
+			<subfield code="a">20</subfield>
+		</datafield>
+		<datafield tag="BIB" ind1=" " ind2=" ">
+			<subfield code="u">2022-08-15 04:23:45 US/Eastern</subfield>
+			<subfield code="c">2021-06-21 18:24:57 US/Eastern</subfield>
+			<subfield code="s">false</subfield>
+		</datafield>
+		<datafield tag="852" ind1="0" ind2=" ">
+			<subfield code="b">MUSIC</subfield>
+			<subfield code="a">MiU</subfield>
+			<subfield code="c">NONE</subfield>
+			<subfield code="h">M 3 .P52 1993</subfield>
+			<subfield code="8">22975380140006381</subfield>
+		</datafield>
+		<datafield tag="974" ind1=" " ind2=" ">
+			<subfield code="8">22975380140006381</subfield>
+			<subfield code="f">1</subfield>
+			<subfield code="c">NONE</subfield>
+			<subfield code="m">SCORE</subfield>
+			<subfield code="a">39015040218748</subfield>
+			<subfield code="e">NONE</subfield>
+			<subfield code="u">mdp.39015040218748 ic 20201202</subfield>
+			<subfield code="7">23975380130006381</subfield>
+			<subfield code="p">08</subfield>
+			<subfield code="r">1998-12-16 05:59:00 US/Eastern</subfield>
+			<subfield code="h">M 3 .P52 1993</subfield>
+			<subfield code="d">MUSIC</subfield>
+			<subfield code="b">MUSIC</subfield>
+		</datafield>
+	</record>
+</collection>

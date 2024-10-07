@@ -30,3 +30,7 @@ end
 def fixture(path)
   File.read("./spec/fixtures/#{path}")
 end
+
+def get_record(path)
+  MARC::XMLReader.new(path).first
+end

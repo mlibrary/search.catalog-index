@@ -1,14 +1,8 @@
 require "traject"
 require "umich_traject"
 describe Traject::UMich::PhysicalItem do
-  def get_record(path)
-    reader = MARC::XMLReader.new(path)
-    for r in reader
-      return r
-    end
-  end
   let(:arborist) do
-    get_record('./spec/fixtures/arborist.xml')
+    get_record("./spec/fixtures/arborist.xml")
   end
   before(:each) do
     @item = arborist["974"]
@@ -136,7 +130,7 @@ describe Traject::UMich::PhysicalItem do
     it "returns only the library if there is no location" do
       @item.subfields.each do |s|
         if s.code == "c"
-          s.value = nil 
+          s.value = nil
         end
       end
       expect(subject.locations).to eq(["SHAP"])
@@ -157,21 +151,21 @@ describe Traject::UMich::PhysicalItem do
       expect(subject.should_be_suppressed).to eq(false)
     end
     it "is true for process status CA" do
-      @item.append(MARC::Subfield.new("y","Process Status: CA"))
+      @item.append(MARC::Subfield.new("y", "Process Status: CA"))
       expect(subject.should_be_suppressed).to eq(true)
     end
     it "is true for process status WN" do
-      @item.append(MARC::Subfield.new("y","Process Status: WN"))
+      @item.append(MARC::Subfield.new("y", "Process Status: WN"))
       expect(subject.should_be_suppressed).to eq(true)
     end
     it "is true for process status WD" do
-      @item.append(MARC::Subfield.new("y","Process Status: WD"))
+      @item.append(MARC::Subfield.new("y", "Process Status: WD"))
       expect(subject.should_be_suppressed).to eq(true)
     end
     it "is true when library is ELEC" do
       @item.subfields.each do |s|
         if s.code == "b"
-          s.value = "ELEC" 
+          s.value = "ELEC"
         end
       end
       expect(subject.should_be_suppressed).to eq(true)
@@ -179,7 +173,7 @@ describe Traject::UMich::PhysicalItem do
     it "is true when library is SDR" do
       @item.subfields.each do |s|
         if s.code == "b"
-          s.value = "SDR" 
+          s.value = "SDR"
         end
       end
       expect(subject.should_be_suppressed).to eq(true)
@@ -188,13 +182,11 @@ describe Traject::UMich::PhysicalItem do
   context "#to_h" do
     it "returns a hash with the expected keys" do
       keys = [:barcode, :callnumber, :can_reserve, :description, :display_name,
-              :fulfillment_unit, :info_link, :inventory_number, :item_id,
-              :item_policy, :library, :location, :permanent_library,
-              :permanent_location, :process_type, :public_note,
-              :record_has_finding_aid, :temp_location, :location_type, :material_type
-      ]
+        :fulfillment_unit, :info_link, :inventory_number, :item_id,
+        :item_policy, :library, :location, :permanent_library,
+        :permanent_location, :process_type, :public_note,
+        :record_has_finding_aid, :temp_location, :location_type, :material_type]
       expect(subject.to_h.keys.sort).to eq(keys.sort)
     end
   end
 end
-

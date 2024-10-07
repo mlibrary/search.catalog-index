@@ -1,14 +1,8 @@
 require "traject"
 require "umich_traject"
 describe Traject::UMich::DigitalHolding do
-  def get_record(path)
-    reader = MARC::XMLReader.new(path)
-    for r in reader
-      return r
-    end
-  end
   let(:arborist) do
-    get_record('./spec/fixtures/arborist_avd.xml')
+    get_record("./spec/fixtures/arborist_avd.xml")
   end
   let(:avd) do
     arborist.fields("AVD").first
@@ -48,7 +42,7 @@ describe Traject::UMich::DigitalHolding do
   end
   context "#to_h" do
     it "returns expected hash" do
-      expect(subject.to_h).to eq( 
+      expect(subject.to_h).to eq(
         {
           library: "ALMA_DIGITAL",
           link: "https://umich-psb.alma.exlibrisgroup.com/discovery/delivery/01UMICH_INST:UMICH/121230624780006381",
@@ -61,4 +55,3 @@ describe Traject::UMich::DigitalHolding do
     end
   end
 end
-
