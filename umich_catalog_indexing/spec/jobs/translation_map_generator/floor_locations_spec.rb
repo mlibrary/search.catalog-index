@@ -70,11 +70,13 @@ RSpec.describe Jobs::TranslationMapGenerator::FloorLocations::FloorLocation do
       @data[0] = "MUSIC"
       @data[2] = "ML 1 - ML 5 .M8443"
       expect(subject.stop).to eq("ml0005.00000.m8443z")
+      expect(subject.start).to eq("ml0001.00000")
     end
     it "handles Asia call numbers" do
       @data[1] = "ASIA"
       @data[2] = "D - DS 856.7"
-      expect(subject.stop).to eq("ds0856.7000z")
+      expect(subject.start).to eq("d")
+      expect(subject.stop).to eq("ds0856.70000z")
     end
     it "handles call numbers that end in numbers" do
       @data[2] = "Z 1 - Z 1199"
@@ -83,6 +85,10 @@ RSpec.describe Jobs::TranslationMapGenerator::FloorLocations::FloorLocation do
     it "handles empty string call number" do
       @data[2] = ""
       expect(subject.stop).to be_nil
+    end
+    it "handles LC call numbers that start with digit less than 100" do
+      @data[2] = "Z 1 - Z 1199"
+      expect(subject.start).to eq("z0001.00000")
     end
   end
 

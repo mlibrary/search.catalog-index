@@ -78,7 +78,7 @@ module UMich
       if match = callno.downcase.match(/^\s*([a-z]+)\s*(\d+)?(\.\d+)?(.*)$/)
         letters = match[1]
         numbers = match[2] || ''
-        decimal = (match[3] || '').ljust(5, '0')
+        decimal = (match[3] || '').sub(".","").ljust(5, '0')
         rest    = match[4] || ''
         return letters unless (letters + numbers) =~ /\S/
         numbers = '0' if numbers.nil? || numbers.empty?

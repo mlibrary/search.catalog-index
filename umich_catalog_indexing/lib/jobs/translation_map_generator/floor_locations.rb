@@ -19,7 +19,7 @@ module Jobs
 
         # @returns [String] YAML string of translation map
         def generate
-          fetch.to_json
+          JSON.pretty_generate fetch
         end
 
         def fetch
@@ -65,11 +65,7 @@ module Jobs
           cn = @call_number_range[0]
           return cn.to_f if type == "Dewey"
 
-          if _music_match?(cn)
-            cn = _music_call_number(cn)
-          elsif _asia_match?(cn)
-            cn = _asia_call_number(cn)
-          elsif _number_ending?(cn)
+          if _number_ending?(cn)
             cn = _number_ending_call_number(cn)
           end
           cn.gsub(/\s+/, "")
@@ -81,11 +77,7 @@ module Jobs
           cn = @call_number_range[1] || @call_number_range[0]
           return (cn + ".9999").to_f if type == "Dewey"
 
-          if _music_match?(cn)
-            cn = _music_call_number(cn)
-          elsif _asia_match?(cn)
-            cn = _asia_call_number(cn)
-          elsif _number_ending?(cn)
+          if _number_ending?(cn)
             cn = _number_ending_call_number(cn)
           end
 
@@ -118,30 +110,21 @@ module Jobs
           str.downcase.split(/\s+-\s+/).map { |x| x.strip }
         end
 
-        def _music_match?(cn)
-          library == "MUSIC" && cn.match?(/^m/)
-        end
-
-        def _music_call_number(cn)
-          parts = cn.split(/\s+/)
-          "#{parts[0]}000#{parts[1]}.00000#{parts[2]}"
-        end
-
-        def _asia_match?(cn)
-          location == "ASIA" && cn.match?(".")
-        end
-
-        def _asia_call_number(cn)
-          parts = cn.split(/\s+/)
-          "#{parts[0]}0#{parts[1]}000"
-        end
-
         def _number_ending?(cn)
           cn.match?(/\d$/)
         end
 
         def _number_ending_call_number(cn)
-          cn + ".00000"
+          parts = cn.split(/\s+/)
+          letters = parts[0]
+
+          numbers = parts[1].split(".")
+          integer_part = numbers[0] || "0"
+          fractional_part = numbers[1] || "0"
+          
+          rest = parts[2]
+          
+          "#{letters}#{integer_part.rjust(4,'0')}.#{fractional_part.ljust(5,'0')}#{parts[2]}"
         end
       end
     end
