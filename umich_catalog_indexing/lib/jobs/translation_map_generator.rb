@@ -4,7 +4,6 @@ module Jobs
       def all
         [
           HighLevelBrowse,
-          ElectronicCollections,
           LibLocInfo,
           SubjectHeadingRemediation
         ]

@@ -4,6 +4,5 @@ overlap/overlap_umich.tsv
 tmp/
 lib/translation_maps/hlb.json.gz
 lib/translation_maps/umich/libLocInfo.yaml
-lib/translation_maps/umich/electronic_collections.yaml
 .bash_history
 .env
