@@ -114,7 +114,3 @@ to_field "ht_searchonly_intl" do |record, acc, context|
     true
   end
 end
-
-#### Availability ####
-# mrio: Pretty sure this is dead code
-to_field "availability", extract_marc("973b", translation_map: "umich/availability_map_umich")
