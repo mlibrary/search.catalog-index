@@ -94,7 +94,8 @@ module Jobs
         end
 
         def interface_name
-          preferred_value("Electronic Collection Interface Name")
+          i_name = preferred_value("Electronic Collection Interface Name")
+          (i_name == "None") ? "" : i_name
         end
 
         # Concatentates interface name, public note, and authentication note.
