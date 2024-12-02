@@ -157,15 +157,15 @@ describe "umich_alma" do
   context "availability" do
     it "has expected availability for Physical Item" do
       @record = hurdy_gurdy
-      expect(subject["availability"]).to contain_exactly("Circulating Items")
+      expect(subject["availability"]).to contain_exactly("physical")
     end
     it "has expected availability for Electronic Item" do
       @record = arborist
-      expect(subject["availability"]).to contain_exactly("Circulating Items", "Available online")
+      expect(subject["availability"]).to contain_exactly("hathi_trust_full_text_or_electronic_holding", "hathi_trust_or_electronic_holding", "physical")
     end
     it "has expected availability for Hathi Record" do
       @record = zephir_record
-      expect(subject["availability"]).to contain_exactly("HathiTrust")
+      expect(subject["availability"]).to contain_exactly("hathi_trust", "hathi_trust_or_electronic_holding")
     end
   end
   it "has expected physical hol" do

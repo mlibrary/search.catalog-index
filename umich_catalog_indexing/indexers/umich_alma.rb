@@ -142,8 +142,7 @@ to_field "hol" do |record, acc, context|
 end
 
 to_field "availability" do |record, acc, context|
-  avail_map = Traject::TranslationMap.new("umich/availability_map_umich")
-  acc.replace Array(context.clipboard[:ht][:availability].map { |code| avail_map[code] })
+  acc.replace Traject::UMich::Availability.new(context.clipboard[:ht][:hol_list]).to_a
 end
 
 to_field "new_availability" do |record, acc, context|
