@@ -55,7 +55,6 @@ module Traject
       def run
         locations = []
         inst_codes = []
-        availability = []
         sh = {}
         has_e56 = false
         hol_list = []
@@ -74,7 +73,6 @@ module Traject
           hol_list << holding.to_h
           locations << holding.library
           inst_codes.concat(holding.institution_codes)
-          availability << "avail_online"
         end
         has_e56 = true unless electronic_holdings.empty?
 
@@ -101,7 +99,6 @@ module Traject
             else
               hol[:finding_aid] = false
             end
-            availability << "avail_online" if ["0", "1"].include?(f.indicator2)
             hol_list << hol
 
           end
@@ -113,7 +110,6 @@ module Traject
           hol_list << holding.to_h
           locations << holding.library
           inst_codes << "MIU"
-          availability << "avail_online"
         end
 
         physical_holdings = physical_holding_ids.map do |id|
@@ -124,7 +120,6 @@ module Traject
           locations << holding.institution_code
           inst_codes << holding.institution_code
           locations.push(*holding.locations)
-          availability << "avail_circ" if holding.circulating?
         end
 
         # add hol for HT volumes
@@ -146,19 +141,13 @@ module Traject
           hol[:items] = hf_item_list
           hol_list << hol
 
-          # get ht-related availability values
-          availability << "avail_ht"
           hol[:items].each do |item|
             item[:access] = (item[:access] == 1) 	# make access a boolean
-            availability << "avail_ht_fulltext" if item[:access]
-            availability << "avail_online" if item[:access]
           end
-          # availability << 'avail_ht_etas' if context.clipboard[:ht][:overlap][:count_etas] > 0
         end
         {
           locations: locations,
           inst_codes: inst_codes,
-          availability: availability,
           hol_list: hol_list
         }
       end

@@ -46,7 +46,6 @@ cc_to_of = Traject::TranslationMap.new("ht/collection_code_to_original_from")
 each_record do |r, context|
   locations = []
   inst_codes = []
-  availability = []
   sh = {}
   has_e56 = false
   id = context.output_hash["id"]
@@ -85,13 +84,6 @@ each_record do |r, context|
       locations << "MiU"
       inst_codes << "MIU"
       inst_codes << "MIFLIC"
-      # get ht-related availability values
-      availability << "avail_ht"
-      hol[:items].each do |item|
-        availability << "avail_ht_fulltext" if item[:access]
-        availability << "avail_online" if item[:access]
-      end
-      # availability << 'avail_ht_etas' if context.clipboard[:ht][:overlap][:count_etas] > 0
     end
   else
 
@@ -99,7 +91,6 @@ each_record do |r, context|
 
     locations.push(*holdings[:locations])
     inst_codes.push(*holdings[:inst_codes])
-    availability.push(*holdings[:availability])
     hol_list.push(*holdings[:hol_list])
   end
 
@@ -122,7 +113,6 @@ each_record do |r, context|
           finding_aid: false
         }
       end
-      availability << "avail_online"
       locations << "ELEC"
     end
     # this message is in debug
@@ -132,7 +122,6 @@ each_record do |r, context|
     # else suppress
   end
   context.clipboard[:ht][:hol_list] = hol_list
-  context.clipboard[:ht][:availability] = availability.compact.uniq.sort
   context.clipboard[:ht][:locations] = locations.compact.uniq.sort
   context.clipboard[:ht][:inst_codes] = inst_codes.compact.uniq.sort
 end
@@ -142,8 +131,7 @@ to_field "hol" do |record, acc, context|
 end
 
 to_field "availability" do |record, acc, context|
-  avail_map = Traject::TranslationMap.new("umich/availability_map_umich")
-  acc.replace Array(context.clipboard[:ht][:availability].map { |code| avail_map[code] })
+  acc.replace Traject::UMich::Availability.new(context.clipboard[:ht][:hol_list]).to_a
 end
 
 to_field "new_availability" do |record, acc, context|
