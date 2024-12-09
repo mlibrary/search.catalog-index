@@ -94,7 +94,8 @@ module Jobs
         end
 
         def interface_name
-          preferred_value("Electronic Collection Interface Name")
+          i_name = preferred_value("Electronic Collection Interface Name")
+          (i_name == "None") ? "" : i_name
         end
 
         # Concatentates interface name, public note, and authentication note.
@@ -110,7 +111,7 @@ module Jobs
               .sub(/[[\p{P}]&&[^\])]]$/, "")
             out.sub!(/$/, ".") if out.match?(/[^\])]$/)
             out
-          end.join(" ")
+          end.join(" ").strip
         end
 
         # Returns a hash summary of the collection metadata. This becomes a row in

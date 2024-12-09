@@ -119,6 +119,11 @@ RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::Item do
       @item["Electronic Collection Interface Name (override)"] = nil
       expect(subject.interface_name).to eq("INTERFACE")
     end
+    it "returns empty when the Interface Name is None and Inverface Name (override) is empty" do
+      @item["Electronic Collection Interface Name (override)"] = nil
+      @item["Electronic Collection Interface Name"] = "None"
+      expect(subject.interface_name).to eq("")
+    end
   end
   context "#note" do
     it "returns the Interface name. Public Note. Authentication Note. when they all exist" do
@@ -134,7 +139,7 @@ RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::Item do
       @item["Electronic Collection Authentication Note"] = nil
       @item["Electronic Collection Public Note"] = nil
       @item["Electronic Collection Interface Name (override)"] = nil
-      @item["Electronic Collection Interface Name"] = nil
+      @item["Electronic Collection Interface Name"] = "None"
       expect(subject.note).to eq("")
     end
     it "gets replaces non period punctuation with periods. It leaves closing parens and square brackets" do
@@ -142,6 +147,12 @@ RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::Item do
       @item["Electronic Collection Public Note"] = "(PUBLIC_NOTE)"
       @item["Electronic Collection Authentication Note"] = "[AUTH_NOTE]"
       expect(subject.note).to eq("INTERFACE_NAME. (PUBLIC_NOTE) [AUTH_NOTE]")
+    end
+
+    it "doesn't have any extra space when the Interface name is empty" do
+      @item["Electronic Collection Interface Name"] = "None"
+      @item["Electronic Collection Interface Name (override)"] = nil
+      expect(subject.note).to eq("PUBLIC_NOTE. AUTH_NOTE.")
     end
   end
   context "#to_h" do
