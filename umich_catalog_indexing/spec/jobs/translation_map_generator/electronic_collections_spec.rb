@@ -148,6 +148,12 @@ RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::Item do
       @item["Electronic Collection Authentication Note"] = "[AUTH_NOTE]"
       expect(subject.note).to eq("INTERFACE_NAME. (PUBLIC_NOTE) [AUTH_NOTE]")
     end
+
+    it "doesn't have any extra space when the Interface name is empty" do
+      @item["Electronic Collection Interface Name"] = "None"
+      @item["Electronic Collection Interface Name (override)"] = nil
+      expect(subject.note).to eq("PUBLIC_NOTE. AUTH_NOTE.")
+    end
   end
   context "#to_h" do
     it "returns expected hash values" do

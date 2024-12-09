@@ -111,7 +111,7 @@ module Jobs
               .sub(/[[\p{P}]&&[^\])]]$/, "")
             out.sub!(/$/, ".") if out.match?(/[^\])]$/)
             out
-          end.join(" ")
+          end.join(" ").strip
         end
 
         # Returns a hash summary of the collection metadata. This becomes a row in
