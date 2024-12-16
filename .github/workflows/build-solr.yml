@@ -43,6 +43,6 @@ jobs:
     with:
       image_name: "search-solr"
       tag: ${{ github.event.inputs.tag-to-be-created }}
-      dockerfile: "biblio/Dockerfile.prod"
+      dockerfile: "biblio/Dockerfile"
       docker_context: "biblio/."
     secrets: inherit
