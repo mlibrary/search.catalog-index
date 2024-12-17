@@ -9,6 +9,7 @@ on:
         options:
           - solr
           - support
+          - xml-to-json-converter
       tag-to-be-created:
         description: tag
         required: true
@@ -37,6 +38,10 @@ jobs:
             echo "directory=support_dbs" >> "$GITHUB_OUTPUT"
             echo "image_name=catalog-support" >> "$GITHUB_OUTPUT"
             echo "tag=support-$TAG" >> "$GITHUB_OUTPUT"
+        elif [[ $IMAGE == "xml-to-json-converter" ]]; then
+            echo "directory=xml_to_json" >> "$GITHUB_OUTPUT"
+            echo "image_name=search.indexing-xml-to-json-converter" >> "$GITHUB_OUTPUT"
+            echo "tag=converter-$TAG" >> "$GITHUB_OUTPUT"
         else
           echo "somehow didn't provide a image"
           false
