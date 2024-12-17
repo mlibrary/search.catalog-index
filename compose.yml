@@ -69,7 +69,9 @@ services:
       - 'redis:/data'
 
   solr:
-    build: biblio/.
+    build: 
+      context: biblio/.
+      dockerfile: Dockerfile.dev
     ports:
       - "8983:8983"
     environment:

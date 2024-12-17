@@ -1,0 +1,80 @@
+name: Manual tag commit and build image
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: 'image to build'
+        required: true
+        type: choice
+        options:
+          - solr
+          - support
+      tag-to-be-created:
+        description: tag
+        required: true
+      commit-sha:
+        description: github commit hash
+        required: true
+jobs:
+  get-image-info:
+    runs-on: ubuntu-latest
+    outputs:
+      directory: ${{ steps.get_step.outputs.directory }}
+      image_name: ${{ steps.get_step.outputs.image_name }}
+      tag: ${{ steps.get_step.outputs.tag }}
+    steps:
+    - name: Get step
+      id: get_step
+      env:
+        IMAGE: ${{ github.event.inputs.image }}
+        TAG: ${{ github.event.inputs.tag-to-be-created }}
+      run: |
+        if [[ $IMAGE == "solr" ]]; then
+            echo "directory=biblio" >> "$GITHUB_OUTPUT"
+            echo "image_name=search-solr" >> "$GITHUB_OUTPUT"
+            echo "tag=solr-$TAG" >> "$GITHUB_OUTPUT"
+        elif [[ $IMAGE == "support" ]]; then
+            echo "directory=support_dbs" >> "$GITHUB_OUTPUT"
+            echo "image_name=catalog-support" >> "$GITHUB_OUTPUT"
+            echo "tag=support-$TAG" >> "$GITHUB_OUTPUT"
+        else
+          echo "somehow didn't provide a image"
+          false
+        fi
+
+  tag-commit:
+    needs: get-image-info
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ needs.get-image-info.outputs.tag }}
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        ref: ${{ github.event.inputs.commit-sha }}
+    - name: Check that tag doesn't already exist
+      id: tag_check
+      run: |
+        echo "checking if tag exists: $TAG"
+        if git rev-parse "refs/tags/$TAG" &> /dev/null; then
+          echo "tag: $TAG already exists; delete it before continuing"
+          false
+        else
+          echo "tag doesn't exist yet. will continue to creating tag"
+        fi
+    - name: Tag commit
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+        git tag $TAG
+        git push origin $TAG
+
+  build-production:
+    needs: [get-image-info, tag-commit ]
+    uses: mlibrary/platform-engineering-workflows/.github/workflows/build-production.yml@v1
+    with:
+      image_name: ${{ needs.get-image-info.outputs.image_name }}
+      tag: ${{ needs.get-image-info.outputs.tag }}
+      dockerfile: "${{ needs.get-image-info.outputs.directory }}/Dockerfile"
+      docker_context: "${{ needs.get-image-info.outputs.directory }}/."
+    secrets: inherit
