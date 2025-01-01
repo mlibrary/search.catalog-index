@@ -2,14 +2,8 @@
 '990043554150106381':
 - collection_name: Environmental sciences and pollution management
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/agricenvironm
-  status: Available
-'990041072840106381':
-- collection_name: Journal citation reports.
-  interface_name: Clarivate
-  note: Clarivate. Access to the Clarivate online version restricted; authentication may be required.
-  link: https://jcr.clarivate.com/
   status: Available
 '990135382470106381':
 - collection_name: Kanopy Streaming Service - Ann Arbor Campus
@@ -70,23 +64,11 @@
   note: ASM International. Access to the ASM International online version restricted; authentication may be required.
   link: https://matdata.asminternational.org/apd/
   status: Available
-'990093578450106381':
-- collection_name: R2 digital library
-  interface_name: None
-  note: None. Access restricted (authentication may be required) Access to the R2 digital library restricted; authentication may be required.
-  link: http://libproxy.umflint.edu:2048/login?url=http://www.r2library.com/default.aspx
-  status: Available
 '990093544650106381':
 - collection_name: African-American newspapers, 1827-1998
   interface_name: NewsBank
   note: NewsBank. Access to the NewsBank online version restricted; authentication may be required.
   link: http://infoweb.newsbank.com/?db=EANX&d_collections=EANAAA%7CEANAAA2
-  status: Available
-'990126136270106381':
-- collection_name: CINAHL complete
-  interface_name: EBSCO
-  note: EBSCO. Access to the EBSCO online version restricted; Authentication may be required.
-  link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=ccm
   status: Available
 '990121606470106381':
 - collection_name: African American periodicals, 1825-1995
@@ -97,7 +79,7 @@
 '990121606440106381':
 - collection_name: Afro-Americana imprints, 1535-1922
   interface_name: NewsBank
-  note: NewsBank. Access to the NewsBank online version restricted; authentication may be required.
+  note: NewsBank. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.lib.umich.edu/database/link/11775
   status: Available
 '990138248150106381':
@@ -105,12 +87,6 @@
   interface_name: ScienceDirect
   note: ScienceDirect. Access to the ScienceDirect online version restricted; authentication may be required.
   link: http://www.sciencedirect.com/science/referenceworks/9780080970875
-  status: Available
-'990059327990106381':
-- collection_name: LIFE photo archive hosted by Google
-  interface_name: None
-  note: None. For free access.
-  link: http://images.google.com/hosted/life
   status: Available
 '990129130720106381':
 - collection_name: ProQuest congressional publications.
@@ -121,14 +97,8 @@
 '990129130070106381':
 - collection_name: The women's wear daily archive.
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/wwd?accountid=14667
-  status: Available
-'990129127740106381':
-- collection_name: Maʼagar ʻede nusaḥ shel ha-Talmud ha-Bavli ʻa. sh. Sol ṿe-Eṿelin Henḳaind
-  interface_name: Saul Lieberman Institute
-  note: Saul Lieberman Institute. Access limited to 3 concurrent users. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.lieberman-institute.com/
   status: Available
 '990096615660106381':
 - collection_name: TLS historical archive
@@ -151,7 +121,7 @@
 '990124968310106381':
 - collection_name: International bibliography of art
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/iba?accountid=14667
   status: Available
 '990148943610106381':
@@ -162,14 +132,14 @@
   status: Available
 '990148943560106381':
 - collection_name: 'CNKI : Zhongguo zheng bao gong bao qi kan wen xian zong ku.'
-  interface_name: None
-  note: None. Access to this database restricted; authentication may be required.
+  interface_name: ''
+  note: Access to this database restricted; authentication may be required.
   link: http://www.lib.umich.edu/database/link/42298
   status: Available
 '990113612690106381':
 - collection_name: 'CiNii Articles : NII scholarly and academic information navigator'
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://ci.nii.ac.jp/ja
   status: Available
 '990113973200106381':
@@ -257,18 +227,18 @@
 '990040684620106381':
 - collection_name: Health and safety science abstracts
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/healthsafetyabstracts?accountid=14584
   status: Available
 - collection_name: Health and safety science abstracts
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/healthsafetyabstracts?accountid=14667
   status: Available
 '990040725940106381':
 - collection_name: The American heritage dictionary of the English language
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: https://www.ahdictionary.com/
   status: Available
 '990040693670106381':
@@ -279,8 +249,8 @@
   status: Available
 '990040684270106381':
 - collection_name: Copper Data Center database
-  interface_name: None
-  note: None. Access via ProQuest restricted (authentication may be required)
+  interface_name: ''
+  note: Access via ProQuest restricted (authentication may be required)
   link: http://search.proquest.com/copper?accountid=14667
   status: Available
 '990040668830106381':
@@ -297,20 +267,20 @@
   status: Available
 '990084590190106381':
 - collection_name: Earthquake engineering abstracts
-  interface_name: None
-  note: 'None. Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required): | Connect to this title online; UW restricted.'
+  interface_name: ''
+  note: 'Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required): | Connect to this title online; UW restricted.'
   link: http://go.umflint.edu/quakeengabs
   status: Available
 '990084590140106381':
 - collection_name: Copper technical reference library
-  interface_name: None
-  note: 'None. Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required)'
+  interface_name: ''
+  note: 'Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required)'
   link: http://go.umflint.edu/copper
   status: Available
 '990084393110106381':
 - collection_name: FDA notices of judgment collection, 1906-1964
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://archive.nlm.nih.gov/fdanj/
   status: Available
 '990182940190106381':
@@ -379,12 +349,6 @@
   note: East View. Authorized U-M users (+ guests in U-M Libraries)
   link: https://dlib.eastview.com/browse/udb/5
   status: Available
-'990152196720106381':
-- collection_name: Central Asia and Caucasus.
-  interface_name: East View
-  note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://dlib.eastview.com/browse/udb/1990
-  status: Available
 '990124736780106381':
 - collection_name: MyWorldAbroad
   interface_name: Intercultural Systems/Systèmes interculturels (ISSI)
@@ -393,13 +357,13 @@
   status: Available
 '990103594710106381':
 - collection_name: SciFinder-n
-  interface_name: None
-  note: None. Library research guide; instructions for account creation.
+  interface_name: ''
+  note: Library research guide; instructions for account creation.
   link: https://guides.lib.umich.edu/scifinder
   status: Available
 - collection_name: SciFinder-n
   interface_name: Chemical Abstracts Service
-  note: Chemical Abstracts Service. Chemical Abstracts Service access restricted; personal account required; authentication may be required.
+  note: Chemical Abstracts Service. Access requires personal registration. Authorized U-M users (+ guests in U-M Libraries)
   link: https://scifinder-n.cas.org/
   status: Available
 '990155473450106381':
@@ -464,8 +428,8 @@
   status: Available
 '990139766460106381':
 - collection_name: Child welfare information gateway.
-  interface_name: None
-  note: None. Archived site.
+  interface_name: ''
+  note: Archived site.
   link: http://purl.fdlp.gov/GPO/gpo61833
   status: Available
 '990054099170106381':
@@ -494,35 +458,24 @@
   status: Available
 - collection_name: Encyclopædia Iranica.
   interface_name: Encyclopædia Iranica Foundation
-  note: Encyclopædia Iranica Foundation. Access to the Encyclopædia Iranica Foundation online version.
+  note: Encyclopædia Iranica Foundation. Open access for all users.
   link: https://www.iranicaonline.org/
   status: Available
 '990042598190106381':
 - collection_name: Gutenberg-e
-  interface_name: None
-  note: None. Access restricted ; authentication may be required.
+  interface_name: ''
+  note: Access restricted ; authentication may be required.
   link: http://www.gutenberg-e.org/
-  status: Available
-'990033234640106381':
-- collection_name: Encyclopaedia Britannica online
-  interface_name: None
-  note: None. Access restricted to Univ. of Mich. IP addresses.
-  link: http://libproxy.umflint.edu:2048/login?url=http://search.eb.com/
-  status: Available
-- collection_name: Encyclopaedia Britannica online
-  interface_name: EB
-  note: EB. Access to the EB online version restricted to Univ. of Mich. IP addresses.
-  link: http://search.eb.com/
   status: Available
 '990033227340106381':
 - collection_name: METADEX
-  interface_name: None
-  note: 'None. Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required)'
+  interface_name: ''
+  note: 'Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required)'
   link: http://go.umflint.edu/metadex
   status: Available
 - collection_name: METADEX
-  interface_name: None
-  note: 'None. Ann Arbor campus: | Access restricted; authentication may be required.'
+  interface_name: ''
+  note: 'Ann Arbor campus: | Access restricted; authentication may be required.'
   link: http://search.proquest.com/metadex?accountid=14667
   status: Available
 '990033324430106381':
@@ -552,7 +505,7 @@
 '990033245310106381':
 - collection_name: TOXLINE
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/toxline
   status: Available
 '990033245120106381':
@@ -563,15 +516,9 @@
   status: Available
 '990033236190106381':
 - collection_name: Electronic collections online
-  interface_name: None
-  note: None. Access to the OCLC online version restricted (authentication may be required)
+  interface_name: ''
+  note: Access to the OCLC online version restricted (authentication may be required)
   link: http://firto%20the%20OCLC%20ostsearch.oclc.org/dbname=ECO;FSIP
-  status: Available
-'990033235350106381':
-- collection_name: Ciao Columbia International Affairs Online.
-  interface_name: None
-  note: None. Online access.
-  link: http://www.ciaonet.org/
   status: Available
 '990033234850106381':
 - collection_name: History of science, technology & medicine
@@ -600,7 +547,7 @@
 '990005213580106381':
 - collection_name: Sociological abstracts.
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/socabs/accountid=14667
   status: Available
 '990043781250106381':
@@ -670,13 +617,13 @@
   status: Available
 '990094764200106381':
 - collection_name: Design and applied arts index
-  interface_name: None
-  note: 'None. Flint campus: | Access restricted (authentication may be required)'
+  interface_name: ''
+  note: 'Flint campus: | Access restricted (authentication may be required)'
   link: http://go.umflint.edu/daai
   status: Available
 - collection_name: Design and applied arts index
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/daai?accountid=14667
   status: Available
 '990094587640106381':
@@ -687,7 +634,7 @@
   status: Available
 - collection_name: COS scholar universe
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/scholaru?accountid=14667
   status: Available
 '990094769590106381':
@@ -710,27 +657,15 @@
   status: Available
 '990140933130106381':
 - collection_name: Han'guk Sahoe Kwahak Charyowŏn Korean Social Science Data Archive.
-  interface_name: None
-  note: None. Authentication may be required; Internet Explorer recommend; Contact ask-korea@umich.edu for assistance.
+  interface_name: ''
+  note: Authentication may be required; Internet Explorer recommend; Contact ask-korea@umich.edu for assistance.
   link: http://www.kossda.or.kr/eng/index_kossda.asp
-  status: Available
-'990127664230106381':
-- collection_name: ProQuest historical newspapers.
-  interface_name: ProQuest historical newspapers
-  note: ProQuest historical newspapers. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.proquest.com/hnpchinesecollection
   status: Available
 '990127660960106381':
 - collection_name: The Merck index online
   interface_name: Merck Index
   note: Merck Index. Access to the Merck Index Online version restricted; authentication may be required.
   link: https://www.rsc.org/Merck-Index/
-  status: Available
-'990127610480106381':
-- collection_name: The minutes of the Shanghai Municipal Council
-  interface_name: Archives Unbound
-  note: Archives Unbound. Access to the Archives Unbound online version restricted; authentication may be required.
-  link: http://go.galegroup.com/gdsc/i.do?id=6ACS&v=2.1&u=umuser&it=aboutCollections&p=GDSC&sw=w
   status: Available
 '990031773430106381':
 - collection_name: World development indicators.
@@ -828,8 +763,8 @@
   status: Available
 '990092552630106381':
 - collection_name: Canadian poetry database
-  interface_name: None
-  note: None. Access via ProQuest restricted; authentication may be required.
+  interface_name: ''
+  note: Access via ProQuest restricted; authentication may be required.
   link: http://collections.chadwyck.com/home/home_cp.jsp
   status: Available
 '990154997630106381':
@@ -841,18 +776,18 @@
 '990106721690106381':
 - collection_name: Meteorological & geoastrophysical abstracts
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/mgamodule?accountid=14584
   status: Available
 - collection_name: Meteorological & geoastrophysical abstracts
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/mgamodule?accountid=14667
   status: Available
 '990106986750106381':
 - collection_name: Aerospace database
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/aerospace?accountid=14667
   status: Available
 '990106727780106381':
@@ -860,12 +795,6 @@
   interface_name: Bridgeman
   note: Bridgeman. Access to the Bridgeman online version restricted; authentication may be required.
   link: http://www.bridgemaneducation.com/
-  status: Available
-'990151464230106381':
-- collection_name: Frost & Sullivan.
-  interface_name: Frost & Sullivan
-  note: Frost & Sullivan. Access to the Frost & Sullivan online version restricted; UM authentication required; For assistance with downloading this content, please see a librarian.
-  link: https://apps.lib.umich.edu/database/link/8955
   status: Available
 '990127127290106381':
 - collection_name: Skillsoft.
@@ -911,8 +840,8 @@
   status: Available
 '990137007700106381':
 - collection_name: MarketResearch.com academic
-  interface_name: None
-  note: None. Access restricted; authentication may be required.
+  interface_name: ''
+  note: Access restricted; authentication may be required.
   link: http://www.academic.marketresearch.com
   status: Available
 '990182421750106381':
@@ -920,12 +849,6 @@
   interface_name: National index to Chinese newspapers and periodicals
   note: National index to Chinese newspapers and periodicals. Access limited to 5 concurrent user; Access to the National index to Chinese newspapers and periodicals online version restricted; Search for content; authentication may be required.
   link: http://www.lib.umich.edu/database/link/30872
-  status: Available
-'990121466820106381':
-- collection_name: BCC research
-  interface_name: BCC Research
-  note: BCC Research. Access to the BCC Research online version.
-  link: http://www.bccresearch.com/epublish/index/loginip/
   status: Available
 '990137950980106381':
 - collection_name: NK pro.
@@ -983,25 +906,25 @@
   status: Available
 '990047670500106381':
 - collection_name: Russian national bibliography
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://biblio.ebiblioteka.ru/
   status: Available
 '990005190600106381':
 - collection_name: Ceramic abstracts.
-  interface_name: None
-  note: 'None. Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required)'
+  interface_name: ''
+  note: 'Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required)'
   link: http://go.umflint.edu/ceramicabs
   status: Available
 - collection_name: Ceramic abstracts.
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/ceramicabstracts?accountid=14667
   status: Available
 '990005196540106381':
 - collection_name: 'Language and language behavior abstracts : LLBA /'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/llba/
   status: Available
 '990047335220106381':
@@ -1013,7 +936,7 @@
 '990047335210106381':
 - collection_name: Digitale Bibliothek Deutscher Klassiker im WWW
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/dkv
   status: Available
 '990047335190106381':
@@ -1042,8 +965,8 @@
   status: Available
 '990041361700106381':
 - collection_name: The international plant names index
-  interface_name: None
-  note: None. Accrss to the IPNI online version.
+  interface_name: ''
+  note: Accrss to the IPNI online version.
   link: http://www.ipni.org/
   status: Available
 '990041340300106381':
@@ -1054,8 +977,8 @@
   status: Available
 '990123339180106381':
 - collection_name: ICSD web
-  interface_name: None
-  note: None. Access via FIZ Karlsruhe restricted; authentication may be required.
+  interface_name: ''
+  note: Access via FIZ Karlsruhe restricted; authentication may be required.
   link: http://icsd.fiz-karlsruhe.de/icsd/
   status: Available
 '990133150640106381':
@@ -1226,12 +1149,6 @@
   note: Gale (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://go.galegroup.com/gdsc/i.do?id=5540&v=2.1&u=umuser&it=aboutCollections&p=GDSC&sw=w
   status: Available
-'990123597200106381':
-- collection_name: The Republic of New Afrika
-  interface_name: Archives unbound
-  note: Archives unbound. Access to the Archives unbound online resource restricted (authentication may be required)
-  link: http://go.galegroup.com/gdsc/i.do?id=3LCA&v=2.1&u=umuser&it=aboutCollections&p=GDSC&sw=w
-  status: Available
 '990070998690106381':
 - collection_name: Hua yi xian shang tu shu guan = Airiti Library.
   interface_name: Airiti Library
@@ -1240,19 +1157,19 @@
   status: Available
 '990176384890106381':
 - collection_name: 'U.S. Energy Information Administration : independent statistics & analysis.'
-  interface_name: None
-  note: None. All archived contents for United States Census 2020.
+  interface_name: ''
+  note: All archived contents for United States Census 2020.
   link: http://purl.fdlp.gov/GPO/gpo129288
   status: Available
 - collection_name: 'U.S. Energy Information Administration : independent statistics & analysis.'
-  interface_name: None
-  note: None. Archived site.
+  interface_name: ''
+  note: Archived site.
   link: http://purl.fdlp.gov/GPO/gpo129287
   status: Available
 '990059269420106381':
 - collection_name: R2 digital library
   interface_name: R2 digital library
-  note: R2 digital library. Access to the R2 digital library restricted; authentication may be required. Access to the R2 digital library restricted; authentication may be required.
+  note: R2 digital library. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.r2library.com/default.aspx
   status: Available
 '990159984080106381':
@@ -1293,8 +1210,8 @@
   status: Available
 '990078887160106381':
 - collection_name: Ren min ri bao dian zi ban
-  interface_name: None
-  note: None. Access to the Ren min ri bao dian zi ban databaserestricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Ren min ri bao dian zi ban databaserestricted; authentication may be required.
   link: http://rmrb.egreenapple.com/
   status: Available
 '990078205620106381':
@@ -1305,14 +1222,14 @@
   status: Available
 '990054014270106381':
 - collection_name: House of Commons parliamentary papers
-  interface_name: None
-  note: None. Access restricted ; authentication may be required.
+  interface_name: ''
+  note: Access restricted ; authentication may be required.
   link: http://parlipapers.chadwyck.com/home.do
   status: Available
 '990054254400106381':
 - collection_name: Business source complete
-  interface_name: None
-  note: None. Connect to online database; access restricted to subscribers.
+  interface_name: ''
+  note: Connect to online database; access restricted to subscribers.
   link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=bth
   status: Available
 '990052372170106381':
@@ -1320,18 +1237,6 @@
   interface_name: Gale Virtual Reference Library
   note: Gale Virtual Reference Library. Authorized U-M users (+ guests in U-M Libraries)
   link: http://go.galegroup.com/ps/i.do?id=GALE%7C9780684314297&v=2.1&u=lom_umichanna&it=etoc&p=GVRL&sw=w
-  status: Available
-'990069637450106381':
-- collection_name: The Monterey Jazz Festival collection at Stanford University
-  interface_name: Stanfors University
-  note: Stanfors University. Access to the Stanfors University online version.
-  link: http://collections.stanford.edu/mjf
-  status: Available
-'990069633400106381':
-- collection_name: Bibliography of British and Irish history
-  interface_name: Brepolis
-  note: Brepolis. Access to the Brepolis online version restricted; authentication may be required.
-  link: http://cpps.brepolis.net/bbih/search.cfm
   status: Available
 '990113871370106381':
 - collection_name: Library literature & information science full text (H.W. Wilson)
@@ -1348,45 +1253,45 @@
 '990040195960106381':
 - collection_name: Microbiology abstracts.
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/microbiologyb?accountid=14584
   status: Available
 - collection_name: Microbiology abstracts.
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/microbiologyb?accountid=14667
   status: Available
 '990040178200106381':
 - collection_name: Environmental engineering abstracts
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/environmentalengabstracts?accountid=14584
   status: Available
 - collection_name: Environmental engineering abstracts
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/environmentalengabstracts?accountid=14667
   status: Available
 '990040177590106381':
 - collection_name: INSPEC
-  interface_name: None
-  note: None. Access restricted (authentication may be required)
+  interface_name: ''
+  note: Access restricted (authentication may be required)
   link: http://libproxy.umflint.edu:2048/login?url=http://www.engineeringvillage2.org/controller/servlet/Controller?CID=quickSearch&database=INSPEC
   status: Available
 - collection_name: INSPEC
-  interface_name: None
-  note: None. Access restricted (authentication may be required)
+  interface_name: ''
+  note: Access restricted (authentication may be required)
   link: http://www.engineeringvillage2.org/controller/servlet/Controller?CID=quickSearch&database=INSPEC
   status: Available
 '990040177550106381':
 - collection_name: Materials business file
-  interface_name: None
-  note: 'None. Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required)'
+  interface_name: ''
+  note: 'Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required)'
   link: http://go.umflint.edu/mbf
   status: Available
 - collection_name: Materials business file
-  interface_name: None
-  note: 'None. Ann Arbor campus: | Access restricted; authentication may be required.'
+  interface_name: ''
+  note: 'Ann Arbor campus: | Access restricted; authentication may be required.'
   link: http://search.proquest.com/materialsbusfile?accountid=14667
   status: Available
 '990040186300106381':
@@ -1398,13 +1303,13 @@
 '990040186290106381':
 - collection_name: 'Avery index to architectural periodicals : AVE.'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/avery?accountid=14667
   status: Available
 '990040177980106381':
 - collection_name: 'TRID : the TRIS and ITRD database.'
-  interface_name: None
-  note: None. Access the online version.
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: http://trid.trb.org/
   status: Available
 '990040177800106381':
@@ -1424,17 +1329,6 @@
   interface_name: UCLA
   note: UCLA. Access to the UCLA online version restricted (authentication may be required)
   link: http://hapi.ucla.edu/
-  status: Available
-'990039078140106381':
-- collection_name: Monthly catalog of United States Government publications.
-  interface_name: online
-  note: online. Access to the online version.
-  link: http://catalog.gpo.gov
-  status: Available
-- collection_name: Monthly catalog of United States Government publications.
-  interface_name: None
-  note: None. Access on the online version.
-  link: http://www.llmcdigital.org/default.aspx?redir=08225
   status: Available
 '990005009730106381':
 - collection_name: Reshimat ma'amarim be-madaʻe ha-Yahadut.
@@ -1462,8 +1356,8 @@
   status: Available
 '990116599070106381':
 - collection_name: Entertainment industry magazine archive
-  interface_name: None
-  note: None. Access restricted; authentication may be required.
+  interface_name: ''
+  note: Access restricted; authentication may be required.
   link: http://search.proquest.com/eima
   status: Available
 '990056371390106381':
@@ -1516,8 +1410,8 @@
   status: Available
 '990169145090106381':
 - collection_name: 'Diao long : Zhong Ri gu ji quan wen zi liao ku.'
-  interface_name: None
-  note: None. Access to the Diao long Zhong Ri gu ji quan wen zi liao ku database restricted ; authentication may be required .
+  interface_name: Diāo lóng
+  note: Diāo lóng. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.lib.umich.edu/database/link/46512
   status: Available
 '990091879190106381':
@@ -1540,8 +1434,8 @@
   status: Available
 '990091731890106381':
 - collection_name: Zephyr
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://libproxy.umflint.edu:2048/login?url=http://www.bvdep.com/en/ZEPHYR.html
   status: Available
 '990136992770106381':
@@ -1555,12 +1449,6 @@
   interface_name: Brepolis
   note: Brepolis. Access to the Brepolis online version restricted; authentication may be required.
   link: http://cpps.brepolis.net/ir/search.cfm
-  status: Available
-'990058081610106381':
-- collection_name: AFI catalog American Film Institute catalog.
-  interface_name: AFI
-  note: AFI. Access to the AFI online version.
-  link: http://afi.chadwyck.com
   status: Available
 '990055770360106381':
 - collection_name: Public health image library PHIL.
@@ -1617,18 +1505,18 @@
   status: Available
 '990079312230106381':
 - collection_name: HLAS online handbook of Latin American studies /
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://purl.access.gpo.gov/GPO/LPS32256
   status: Available
 - collection_name: HLAS online handbook of Latin American studies /
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://purl.access.gpo.gov/GPO/LPS32255
   status: Available
 - collection_name: HLAS online handbook of Latin American studies /
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://purl.access.gpo.gov/GPO/LPS121297
   status: Available
 '990079333590106381':
@@ -1636,17 +1524,6 @@
   interface_name: Reaxys
   note: Reaxys. Access to the Reaxys online version retricted; authentication may be required.
   link: https://new.reaxys.com/
-  status: Available
-'990050687050106381':
-- collection_name: Drugs@FDA
-  interface_name: GPO
-  note: GPO. Access to the GPO online version.
-  link: http://purl.access.gpo.gov/GPO/LPS60696
-  status: Available
-- collection_name: Drugs@FDA
-  interface_name: None
-  note: None. Online access.
-  link: http://www.accessdata.fda.gov/scripts/cder/drugsatfda/
   status: Available
 '990049451000106381':
 - collection_name: Modern American literature
@@ -1714,12 +1591,6 @@
   note: Brepolis. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.brepolsonline.net/
   status: Available
-'990111931340106381':
-- collection_name: Bibliography of English women writers 1500-1640
-  interface_name: Iter
-  note: Iter. Access to the Iter online version restricted; authentication may be required.
-  link: https://beww.itergateway.org
-  status: Available
 '990111931310106381':
 - collection_name: John Milton a bibliography.
   interface_name: Iter
@@ -1735,7 +1606,7 @@
 '990033127590106381':
 - collection_name: FirstSearch
   interface_name: OCLC
-  note: OCLC. OCLC FirstSearch access restricted; authentication may be required.
+  note: OCLC. Authorized U-M users (+ guests in U-M Libraries)
   link: http://newfirstsearch.oclc.org/FSIP
   status: Available
 '990043474480106381':
@@ -1776,7 +1647,7 @@
 '990140816130106381':
 - collection_name: Women's magazine archive.
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/wma
   status: Available
 '990121844850106381':
@@ -1821,9 +1692,9 @@
   link: http://pewresearch.org/
   status: Available
 '990121857880106381':
-- collection_name: OnArchitecture a selection of original content featuring the best architecture in the world.
-  interface_name: None
-  note: None. Authorized U-M users (+ guests in U-M Libraries)
+- collection_name: OnArchitecture
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.onarchitecture.com
   status: Available
 '990121851700106381':
@@ -1894,26 +1765,20 @@
   status: Available
 '990151892030106381':
 - collection_name: 'KPM : Chosŏn ŏllon chŏngbo kiji.'
-  interface_name: None
-  note: None. Full text available via Korea Media (access restricted; authentication may be required)
+  interface_name: ''
+  note: Full text available via Korea Media (access restricted; authentication may be required)
   link: http://www.lib.umich.edu/database/link/43372
-  status: Available
-'990090445820106381':
-- collection_name: Begell digital library
-  interface_name: Begell digital library
-  note: Begell digital library. Access to the Begell digital library online resource.
-  link: http://dl.begellhouse.com/
   status: Available
 '990060805180106381':
 - collection_name: Social explorer
-  interface_name: None
-  note: None. Access to the Social Explorer online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Social Explorer online version restricted; authentication may be required.
   link: https://www.socialexplorer.com/explore-maps
   status: Available
 '990060547000106381':
 - collection_name: 'Index translationum : Répertoire international des traductions. International bibliography of translations.'
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://portal.unesco.org/culture/en/ev.php-URL_ID=7810&URL_DO=DO_TOPIC&URL_SECTION=201.html
   status: Available
 '990166763450106381':
@@ -2014,14 +1879,14 @@
   status: Available
 '990049538540106381':
 - collection_name: General OneFile
-  interface_name: None
-  note: None. InfoTrac Web version ; Access restricted ; authentication may be required.
+  interface_name: ''
+  note: InfoTrac Web version ; Access restricted ; authentication may be required.
   link: http://infotrac.galegroup.com/itweb/umuser?db=ITOF
   status: Available
 '990033431610106381':
 - collection_name: AP images
-  interface_name: None
-  note: None. Access restricted; authentication may be required.
+  interface_name: ''
+  note: Access restricted; authentication may be required.
   link: http://apimages.ap.org/unsecured/logip.aspx
   status: Available
 '990033351520106381':
@@ -2032,8 +1897,8 @@
   status: Available
 '990033326560106381':
 - collection_name: Micromedex healthcare series
-  interface_name: None
-  note: None. Access restricted (authentication may be required)
+  interface_name: ''
+  note: Access restricted (authentication may be required)
   link: http://www.lib.umich.edu/health-sciences-libraries/accessing-micromedex
   status: Available
 '990024495620106381':
@@ -2065,23 +1930,11 @@
   note: Iter gateway. Access to the Iter gateway online version restricted (authentication may be required)
   link: http://www.itergateway.org/
   status: Available
-'990034357600106381':
-- collection_name: ENGnetBASE engineering handbooks online /
-  interface_name: ENGnetBASE
-  note: ENGnetBASE. Access to ENGnetBASE restricted; authentication may be required.
-  link: http://www.crcnetbase.com/page/engineering_ebooks
-  status: Available
 '990051486550106381':
 - collection_name: 'Research Connections: Child Care & Early Education'
   interface_name: Research Connections
   note: Research Connections.
   link: https://researchconnections.org/
-  status: Available
-'990038714400106381':
-- collection_name: 'CensusCD neighborhood change database (NCDB) 1970-2000 tract data : selected variables for US Census tracts for 1970, 1980, 1990, 2000 and mapping too!'
-  interface_name: GeoLytics
-  note: GeoLytics. Access to GeoLytics online version restricted; authentication may be required; ONLY USE INTERNET EXPLORER TO ACCESS THIS TITLE.
-  link: http://demographics.geolytics.com/NCDB/PreLoginForm.aspx
   status: Available
 '990032594980106381':
 - collection_name: Global development finance.
@@ -2092,7 +1945,7 @@
 '990035202000106381':
 - collection_name: Performing arts periodicals database.
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/iipa?accountid=14667
   status: Available
 '990035158790106381':
@@ -2119,12 +1972,6 @@
   note: Readex (Firm) Access to the Readex (Firm) online version restricted; authentication may be required.
   link: https://infoweb.newsbank.com/apps/readex/welcome?p=TERPX
   status: Available
-'990121123610106381':
-- collection_name: Parker Library on the web
-  interface_name: Stanford
-  note: Stanford. Open Access to the Stanford online version with a Creative Commons BY-NC license.
-  link: http://parkerweb.stanford.edu
-  status: Available
 '990121034280106381':
 - collection_name: BrillOnline dictionaries.
   interface_name: Brill
@@ -2138,7 +1985,7 @@
   link: https://referenceworks.brillonline.com/cluster/Brill%25E2%2580%2599s%2520Medieval%2520Reference%2520Library
   status: Available
 '990052228140106381':
-- collection_name: 
+- collection_name:
   interface_name: JapanKnowledge
   note: JapanKnowledge. Access to the JapanKnowledge online version restricted; authentication may be required.
   link: https://japanknowledge.com/library/
@@ -2170,7 +2017,7 @@
 '990126428640106381':
 - collection_name: Brill Online E-Books Latin American Anarchist And Labour Periodicals Online
   interface_name: Brillonline
-  note: Brillonline. BrillOnline Primary Sources access restricted; authentication may be required.
+  note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
   link: https://primarysources.brillonline.com/browse/latin-american-anarchist-periodicals
   status: Available
 '990176455130106381':
@@ -2205,8 +2052,8 @@
   status: Available
 '990138349020106381':
 - collection_name: AIDS.gov.
-  interface_name: None
-  note: None. Archived site.
+  interface_name: ''
+  note: Archived site.
   link: http://purl.fdlp.gov/GPO/gpo60188
   status: Available
 '990185273400106381':
@@ -2224,7 +2071,7 @@
 '990059382600106381':
 - collection_name: SimplyAnalytics.
   interface_name: SimplyAnalytics
-  note: SimplyAnalytics. Access to SimplyAnalytics restricted; authentication may be required; Individual account required to sign in for access.
+  note: SimplyAnalytics. 5 concurrent user limit. Some website features require a personal account. Authorized U-M users (+ guests in U-M Libraries)
   link: http://app.simplyanalytics.com/
   status: Available
 '990053792520106381':
@@ -2248,12 +2095,12 @@
 '990040091610106381':
 - collection_name: Water resources abstracts WRA.
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/waterresources?accountid=14584
   status: Available
 - collection_name: Water resources abstracts WRA.
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/waterresources?accountid=14667
   status: Available
 '990040028560106381':
@@ -2295,7 +2142,7 @@
 '990035813380106381':
 - collection_name: International index to black periodicals IIBP full text.
   interface_name: ProQuest
-  note: ProQuest. ProQuest access restricted; authentication may be required.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://gateway.proquest.com/openurl?url_ver=Z39.88-2004&res_dat=xri:bsc:&rft_dat=xri:bsc:contents:journals
   status: Available
 '990047134730106381':
@@ -2318,8 +2165,8 @@
   status: Available
 '990047121880106381':
 - collection_name: DBpia
-  interface_name: None
-  note: None. Full text available via DBPia (access restricted; authentication may be required)
+  interface_name: ''
+  note: Full text available via DBPia (access restricted; authentication may be required)
   link: http://www.dbpia.co.kr
   status: Available
 '990047121840106381':
@@ -2330,26 +2177,26 @@
   status: Available
 '990047112010106381':
 - collection_name: Encyclopedia of Buddhism /
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://libproxy.umflint.edu:2048/login?url=http://find.galegroup.com/gvrl/aboutEbook.do?prodId=GVRL&userGroupName=umuser&actionString=DO_DISPLAY_ABOUT_PAGE&eisbn=0028659104&searchType=PublicationSearchForm
   status: Available
 '990047112000106381':
 - collection_name: 'Encyclopedia of children and childhood : in history and society /'
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://libproxy.umflint.edu:2048/login?url=http://find.galegroup.com/gvrl/aboutEbook.do?prodId=GVRL&userGroupName=umuser&actionString=DO_DISPLAY_ABOUT_PAGE&eisbn=0028659155&searchType=PublicationSearchForm
   status: Available
 '990045996630106381':
 - collection_name: Ulrich's periodicals directory.
-  interface_name: None
-  note: None. Access to the Ulrich's periodicals directory online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Ulrich's periodicals directory online version restricted; authentication may be required.
   link: http://libproxy.umflint.edu:2048/login?url=http://www.ulrichsweb.com/ulrichsweb/Search/advancedSearch.asp?navPage=1
   status: Available
 '990045996570106381':
 - collection_name: ProQuest newsstand
-  interface_name: None
-  note: None. Access restricted (authentication may be required) Authorized U-M users (+ guests in U-M Libraries)
+  interface_name: ''
+  note: Access restricted (authentication may be required) Authorized U-M users (+ guests in U-M Libraries)
   link: http://libproxy.umflint.edu:2048/login?url=http://proquest.umi.com/login?COPT=U01EPTYmSU5UPTAmVkVSPTImREJTPUc1&clientId=16043
   status: Available
 '990045996440106381':
@@ -2366,8 +2213,8 @@
   status: Available
 '990114858880106381':
 - collection_name: Maisaku Mainichi shinbun no dētabēsu.
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://mainichi.jp/contents/edu/maisaku/login.html
   status: Available
 '990114735260106381':
@@ -2420,8 +2267,8 @@
   status: Available
 '990052086090106381':
 - collection_name: Mergent online
-  interface_name: None
-  note: None. Access restricted (authentication my be required)
+  interface_name: ''
+  note: Access restricted (authentication my be required)
   link: https://www.mergentonline.com/basicsearch.php
   status: Available
 '990052080290106381':
@@ -2439,7 +2286,7 @@
 '990127770240106381':
 - collection_name: Trench journals and unit magazines of the First World War
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/trenchjournals
   status: Available
 '990141873040106381':
@@ -2480,8 +2327,8 @@
   status: Available
 '990068202830106381':
 - collection_name: Europa world plus
-  interface_name: None
-  note: None. Access to the Europa World Plus online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Europa World Plus online version restricted; authentication may be required.
   link: http://www.europaworld.com/
   status: Available
 '990170330490106381':
@@ -2528,12 +2375,12 @@
 '990042369780106381':
 - collection_name: Aqualine
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/aqualine?accountid=14584
   status: Available
 - collection_name: Aqualine
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/aqualine?accountid=14667
   status: Available
 '990111898970106381':
@@ -2545,13 +2392,13 @@
 '990042705440106381':
 - collection_name: FIAF international index to film periodicals
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/fiafindex?accountid=14667
   status: Available
 '990000797210106381':
 - collection_name: Ecology abstracts.
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/ecology
   status: Available
 '990115843000106381':
@@ -2562,14 +2409,14 @@
   status: Available
 '990006390180106381':
 - collection_name: Tropical diseases bulletin.
-  interface_name: None
-  note: None. Text of articles via CAB Direct (access restricted; authentication may be required)
+  interface_name: ''
+  note: Text of articles via CAB Direct (access restricted; authentication may be required)
   link: http://www.cabdirect.org/
   status: Available
 '990004980330106381':
 - collection_name: Library & information science abstracts.
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/lisa/accountid=14667
   status: Available
 '990125279970106381':
@@ -2586,20 +2433,20 @@
   status: Available
 '990140483270106381':
 - collection_name: U.S. Department of Health and Human Services Office of Minority Health.
-  interface_name: None
-  note: None. Archived site.
+  interface_name: ''
+  note: Archived site.
   link: http://purl.fdlp.gov/GPO/gpo63888
   status: Available
 '990098969800106381':
 - collection_name: Hooked on evidence
-  interface_name: None
-  note: None. Free access; personal registration required.
+  interface_name: ''
+  note: Free access; personal registration required.
   link: http://www.hookedonevidence.com/
   status: Available
 '990166153740106381':
 - collection_name: News, policy & politics magazine archive.
   interface_name: Proquest
-  note: Proquest.
+  note: Proquest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/nppma?accountid=14667
   status: Available
 '990166094800106381':
@@ -2634,8 +2481,8 @@
   status: Available
 '990123356210106381':
 - collection_name: OATD -- Open access theses and dissertations.
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://oatd.org/
   status: Available
 '990052238280106381':
@@ -2652,38 +2499,38 @@
   status: Available
 '990155823050106381':
 - collection_name: TRB publications /
-  interface_name: None
-  note: None. Access to the Transportaion Research Board.
+  interface_name: ''
+  note: Access to the Transportaion Research Board.
   link: http://www.trb.org/TRB/publications/Publications.asp
   status: Available
 '990107567200106381':
 - collection_name: Electronics & communications abstracts
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/electronicscomms?accountid=14667
   status: Available
 '990107567000106381':
 - collection_name: Earthquake engineering abstracts
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/earthquake?accountid=14667
   status: Available
 '990107566720106381':
 - collection_name: Civil engineering abstracts
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/civilengineering?accountid=14667
   status: Available
 '990107566630106381':
 - collection_name: Biotechnology research abstracts
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/biotechresearch
   status: Available
 '990107563490106381':
 - collection_name: Abstracts in new technology & engineering
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/ante?accountid=14667
   status: Available
 '990182973680106381':
@@ -2730,13 +2577,13 @@
 '990055667540106381':
 - collection_name: Early American imprints, Series II, Shaw-Shoemaker (1801-1819)
   interface_name: Readex (Firm)
-  note: Readex (Firm) Access to the Readex online version restricted; authentication may be required.
-  link: http://infoweb.newsbank.com/?db=SHAW
+  note: Readex (Firm) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://infoweb.newsbank.com/?db=SHAW
   status: Available
 '990070950770106381':
 - collection_name: Yomidasu rekishikan
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: https://database.yomiuri.co.jp/rekishikan/
   status: Available
 '990097486120106381':
@@ -2753,8 +2600,8 @@
   status: Available
 '990174534190106381':
 - collection_name: 'Moazine : chŏnja chapchi sŏbisŭ.'
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: https://dl.moazine.com/lib/main.asp?dl=9MtJb2T3nzH3BEvu609VaY52Ca3EA1Y2EWW0
   status: Available
 '990174519470106381':
@@ -2855,8 +2702,8 @@
   status: Available
 '990069591380106381':
 - collection_name: DynaMed
-  interface_name: None
-  note: None. Authentication may be required.
+  interface_name: ''
+  note: Authentication may be required.
   link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=dynamed
   status: Available
 '990069579990106381':
@@ -2867,8 +2714,8 @@
   status: Available
 '990069579880106381':
 - collection_name: Material conneXion
-  interface_name: None
-  note: None. Access via Material ConneXion restricted; authentication may be required.
+  interface_name: ''
+  note: Access via Material ConneXion restricted; authentication may be required.
   link: https://search.lib.umich.edu/databases/record/10691
   status: Available
 '990161400350106381':
@@ -2922,13 +2769,13 @@
 '990056172250106381':
 - collection_name: PTSDpubs
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/pilots?accountid=14667
   status: Available
 '990056167910106381':
 - collection_name: TBRC digital library
-  interface_name: None
-  note: None. Access restricted; authentication may be required.
+  interface_name: ''
+  note: Access restricted; authentication may be required.
   link: http://www.tbrc.org/%23!specials/core
   status: Available
 '990056473240106381':
@@ -2943,12 +2790,6 @@
   note: Brepolis. Access to the Brepolis version restricted (authentication may be required)
   link: http://clt.brepolis.net/ald/Default.aspx
   status: Available
-'990056473300106381':
-- collection_name: Database of Latin dictionaries
-  interface_name: Brepolis
-  note: Brepolis. Access to the Brepolis version restricted; authentication may be required; click on "Enter databases" button, then choose from list.
-  link: http://clt.brepolis.net/dld/Default.aspx
-  status: Available
 '990039872100106381':
 - collection_name: ERIC
   interface_name: FirstSearch ERIC search page
@@ -2957,19 +2798,19 @@
   status: Available
 - collection_name: ERIC
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/eric
   status: Available
 '990039827120106381':
 - collection_name: Philosopher's index
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/philosophersindex/accountid=14667
   status: Available
 '990051187980106381':
 - collection_name: Periodicals archive online
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/pao
   status: Available
 '990117394390106381':
@@ -2987,7 +2828,7 @@
 '990005055590106381':
 - collection_name: Pollution abstracts.
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/pollution
   status: Available
 '990039351950106381':
@@ -2998,8 +2839,8 @@
   status: Available
 '990069617020106381':
 - collection_name: 'Zasshi kiji sakuin shūsei dētabēsu : Meiji kara genzai made sōgō zasshi kara chishi made = The complete database for Japanese magazines and periodicals from the Meiji era to the present.'
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://zassaku-plus.com/
   status: Available
 '990159330650106381':
@@ -3028,14 +2869,14 @@
   status: Available
 '990133749080106381':
 - collection_name: LawInfoChina
-  interface_name: None
-  note: None. Access restricted; authentication may be required.
+  interface_name: ''
+  note: Access restricted; authentication may be required.
   link: http://www.lawinfochina.com/
   status: Available
 '990133637230106381':
 - collection_name: Bibliographie de civilisation médiévale
-  interface_name: None
-  note: None. Access restricted; authentication may be required.
+  interface_name: ''
+  note: Access restricted; authentication may be required.
   link: http://apps.brepolis.net/bmb/search.cfm?
   status: Available
 '990133636750106381':
@@ -3076,14 +2917,14 @@
   status: Available
 '990100423640106381':
 - collection_name: AgEcon search
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://ageconsearch.umn.edu/
   status: Available
 '990100183770106381':
 - collection_name: Corpus de la première littérature francophone d'Afrique noire, écrite et orale, des origines aux indépendances (fin 18e siècle-1960)
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://www.classiques-garnier.com/numerique-bases/index.php?module=App&action=FrameMain&colname=ColClf
   status: Available
 '990095423930106381':
@@ -3091,12 +2932,6 @@
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
   link: http://referenceworks.brillonline.com/browse/brockelmann
-  status: Available
-'990094850760106381':
-- collection_name: 'The BBC Shakespeare plays : a BBC-TV production in association with Time-Life Television.'
-  interface_name: Ambrose Video
-  note: Ambrose Video. Access to the Ambrose Video online version restricted; authentication may be required; Select "BBC Shakespeare plays" for links to programs.
-  link: https://www.ambrosevideo.com/institutional-access
   status: Available
 '990136784640106381':
 - collection_name: Sage stats
@@ -3410,7 +3245,7 @@
 '990134430790106381':
 - collection_name: Economist Intelligence Unit country reports archive.
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/eiuarchive/index
   status: Available
 '990134416910106381':
@@ -3439,8 +3274,8 @@
 '990058369500106381':
 - collection_name: The HistoryMakers.
   interface_name: HistoryMakers
-  note: HistoryMakers. Access to the HistoryMakers online version restricted; authentication may be required.
-  link: https://umich.thehistorymakers.org
+  note: HistoryMakers. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://da.thehistorymakers.org
   status: Available
 '990058360730106381':
 - collection_name: LALT Leiden Armenian lexical textbase /
@@ -3456,14 +3291,14 @@
   status: Available
 '990041798200106381':
 - collection_name: ISI emerging markets /
-  interface_name: None
-  note: None. Access restricted (authentication may be required)
+  interface_name: ''
+  note: Access restricted (authentication may be required)
   link: http://site.securities.com/
   status: Available
 '990041772500106381':
 - collection_name: Projekt DYABOLA.
   interface_name: Biering & Brinkmann
-  note: Biering & Brinkmann. Select "Activate IP access" check-box and press "Start..
+  note: Biering & Brinkmann. Click on "Activate IP access" check-box. Select "Start." Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.dyabola.de/
   status: Available
 '990041732520106381':
@@ -3480,13 +3315,13 @@
   status: Available
 '990005290060106381':
 - collection_name: Corrosion abstracts.
-  interface_name: None
-  note: 'None. Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required)'
+  interface_name: ''
+  note: 'Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required)'
   link: http://go.umflint.edu/corrosion
   status: Available
 - collection_name: Corrosion abstracts.
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/corrosionabstracts?accountid=14667
   status: Available
 '990043266360106381':
@@ -3507,23 +3342,11 @@
   note: BDSL. Access to the BDSL online version restricted (authentication may be required)
   link: http://www.bdsl-online.de/
   status: Available
-'990042923550106381':
-- collection_name: ACM digital library.
-  interface_name: Association for Computing Machinery
-  note: Association for Computing Machinery. Access to the Association for Computing Machinery online version restricted; authentication may be required.
-  link: https://dl.acm.org/
-  status: Available
 '990042906160106381':
 - collection_name: Geographic Names Information System
   interface_name: GNIS
   note: GNIS. Access to the GNIS online version.
   link: http://geonames.usgs.gov/
-  status: Available
-'990042901260106381':
-- collection_name: LearningExpressLibrary
-  interface_name: None
-  note: None. Access restricted; authentication may be required; individual registration required.
-  link: http://www.learningexpresshub.com/learningexpresslibrary
   status: Available
 '990039264660106381':
 - collection_name: Handbooks in economics.
@@ -3543,12 +3366,6 @@
   note: Wiley. Authorized U-M users (+ guests in U-M Libraries)
   link: https://anthrosource.onlinelibrary.wiley.com/
   status: Available
-'990114049400106381':
-- collection_name: Factiva.
-  interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
-  link: https://search.lib.umich.edu/databases/record/8167
-  status: Available
 '990163445020106381':
 - collection_name: Wards Intelligence.
   interface_name: Ward'sAuto
@@ -3563,14 +3380,14 @@
   status: Available
 '990159906340106381':
 - collection_name: Latin American Public Opinion Project (LAPOP), 2004-2015 [28 COUNTRIES]
-  interface_name: None
-  note: None. Access restricted ; authentication may be required.
+  interface_name: ''
+  note: Access restricted ; authentication may be required.
   link: http://doi.org/10.3886/ICPSR36562.v1
   status: Available
 '990143226390106381':
 - collection_name: 'Musical Theater Songs : The Song is You.'
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: https://musicaltheatersongs.com/
   status: Available
 '990165009740106381':
@@ -3610,8 +3427,8 @@
   status: Available
 '990056671000106381':
 - collection_name: Chronicling America historic American newspapers.
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://bibpurl.oclc.org/web/19370
   status: Available
 - collection_name: Chronicling America historic American newspapers.
@@ -3621,14 +3438,14 @@
   status: Available
 '990056663670106381':
 - collection_name: Computer database
-  interface_name: None
-  note: None. InfoTrac Web version ; Access restricted ; authentication may be required.
+  interface_name: ''
+  note: InfoTrac Web version ; Access restricted ; authentication may be required.
   link: http://libproxy.umflint.edu:2048/login?url=http://find.galegroup.com/itx/start.do?prodId=CDB&userGroupName=lom_umichflint
   status: Available
 '990056659990106381':
 - collection_name: Bibliographie der Deutschen Sprach- und Literaturwissenschaft.
-  interface_name: None
-  note: None. Access restricted (authentication may be required)
+  interface_name: ''
+  note: Access restricted (authentication may be required)
   link: https://www.bdsl-online.de/
   status: Available
 '990154694590106381':
@@ -3682,20 +3499,14 @@
 '990000744300106381':
 - collection_name: Risk abstracts.
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/riskabstracts
   status: Available
 '990000733520106381':
 - collection_name: 'Linguistics and language behavior abstracts : LLBA.'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/llba/
-  status: Available
-'990034504140106381':
-- collection_name: 'Bertolt Brechts Werke Jubiläumsausgabe im WWW : ausgewählte Werke in sechs Bänden.'
-  interface_name: None
-  note: None. Access restricted to University of Michigan network.
-  link: http://brecht.chadwyck.com/deutsch/frames/home/home
   status: Available
 '990034458880106381':
 - collection_name: Local climatological data
@@ -3717,8 +3528,8 @@
   status: Available
 '990029868870106381':
 - collection_name: AMA FREIDA fellowship and residency electronic interactive database access system.
-  interface_name: None
-  note: None. Acess to the AMA online version.
+  interface_name: ''
+  note: Acess to the AMA online version.
   link: https://freida.ama-assn.org/
   status: Available
 '990145148490106381':
@@ -3748,35 +3559,35 @@
 '990107580030106381':
 - collection_name: Toxicology abstracts
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/toxicologyabstracts?accountid=14584
   status: Available
 - collection_name: Toxicology abstracts
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/toxicologyabstracts?accountid=14667
   status: Available
 '990107578000106381':
 - collection_name: Microbiology abstracts.
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/microbiologya?accountid=14584
   status: Available
 - collection_name: Microbiology abstracts.
   interface_name: ProQuest (Firm)
-  note: ProQuest (Firm)
+  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/microbiologya?accountid=14667
   status: Available
 '990107578410106381':
 - collection_name: Solid state and superconductivity abstracts
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/solidstateabstracts?accountid=14667
   status: Available
 '990107578210106381':
 - collection_name: Social services abstracts
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/socialservices?accountid=14667
   status: Available
 '990147778100106381':
@@ -3784,24 +3595,6 @@
   interface_name: British Online Archives
   note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
   link: https://microform.digital/boa/collections/59/canada-in-records-from-colonial-missionaries-1722-1952
-  status: Available
-'990116637920106381':
-- collection_name: '"We were prepared for the possibility of death" Freedom Riders in the South, 1961.'
-  interface_name: Archives unbound
-  note: Archives unbound. Access to the Archives unbound online resource restricted (authentication may be required)
-  link: http://go.galegroup.com/gdsc/i.do?id=4HLV&v=2.1&u=umuser&it=aboutCollections&p=GDSC&sw=w
-  status: Available
-'990116637810106381':
-- collection_name: Tiananmen Square and U.S.-China relations, 1989-1993
-  interface_name: Archives unbound
-  note: Archives unbound. Access to the Archives unbound online resource restricted (authentication may be required)
-  link: http://go.galegroup.com/gdsc/i.do?id=3LBX&v=2.1&u=umuser&it=aboutCollections&p=GDSC&sw=w
-  status: Available
-'990116632660106381':
-- collection_name: Witchcraft in Europe and America
-  interface_name: Archives unbound
-  note: Archives unbound. Access to the Archives unbound online resource restricted (authentication may be required)
-  link: http://go.galegroup.com/gdsc/i.do?id=3FIT&v=2.1&u=umuser&it=aboutCollections&p=GDSC&sw=w
   status: Available
 '990175830910106381':
 - collection_name: British poor schools in the nineteenth century, 1812-1901.
@@ -3858,32 +3651,32 @@
   status: Available
 '990150309790106381':
 - collection_name: LawnB = Lo aen bi.
-  interface_name: None
-  note: None. Full text available via LAWnB (access restricted; authentication may be required)
+  interface_name: ''
+  note: Full text available via LAWnB (access restricted; authentication may be required)
   link: http://www.lib.umich.edu/database/link/42971
   status: Available
 '990150309740106381':
 - collection_name: KoreaA2Z.
-  interface_name: None
-  note: None. Full text available via Dongbang Media (access restricted; authentication may be required)
+  interface_name: ''
+  note: Full text available via Dongbang Media (access restricted; authentication may be required)
   link: http://www.lib.umich.edu/database/link/42957
   status: Available
 '990150309710106381':
 - collection_name: Tijit'ŏl yesul munhwa kangjwa = The digital culture art course.
-  interface_name: None
-  note: None. Full text available via Dongbang Media (access restricted; authentication may be required)
+  interface_name: ''
+  note: Full text available via Dongbang Media (access restricted; authentication may be required)
   link: https://www.lib.umich.edu/database/link/42961
   status: Available
 '990150309700106381':
 - collection_name: Chininjin yŏksa munhwa sirijŭ /
-  interface_name: None
-  note: None. Full text available via Zininzin (access restricted; authentication may be required)
+  interface_name: ''
+  note: Full text available via Zininzin (access restricted; authentication may be required)
   link: http://www.lib.umich.edu/database/link/42955%E2%80%8B
   status: Available
 '990150309690106381':
 - collection_name: Han'guk yŏksa munhwa chosa charyo deit'ŏbeisŭ = Korean history & culture research database.
-  interface_name: None
-  note: None. Full text available via Zininzin (access restricted; authentication may be required)
+  interface_name: ''
+  note: Full text available via Zininzin (access restricted; authentication may be required)
   link: http://www.lib.umich.edu/database/link/42953
   status: Available
 '990124334890106381':
@@ -3900,13 +3693,13 @@
   status: Available
 '990067810560106381':
 - collection_name: Going global
-  interface_name: None
-  note: None. Related free website.
+  interface_name: ''
+  note: Related free website.
   link: http://www.goinglobal.com/
   status: Available
 - collection_name: Going global
-  interface_name: None
-  note: None. Access restricted; authentication may be required.
+  interface_name: ''
+  note: Access restricted; authentication may be required.
   link: http://online.goinglobal.com/
   status: Available
 '990067776770106381':
@@ -3930,7 +3723,7 @@
 '990116880350106381':
 - collection_name: Pivot.
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://pivot.proquest.com/
   status: Available
 '990000648850106381':
@@ -3952,14 +3745,14 @@
   status: Available
 '990041668860106381':
 - collection_name: Advisory Board.
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: https://www.advisory.com/
   status: Available
 '990041656040106381':
 - collection_name: Data Axle Reference Solutions /
-  interface_name: None
-  note: None. Access to the Data Axle online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Data Axle online version restricted; authentication may be required.
   link: http://www.referenceusa.com/Home/Home
   status: Available
 '990049586550106381':
@@ -3983,7 +3776,7 @@
 '990005458940106381':
 - collection_name: International index to film periodicals.
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://fiaf.chadwyck.com/search/initIndexSearch.do
   status: Available
 '990052170480106381':
@@ -4007,7 +3800,7 @@
 '990174978070106381':
 - collection_name: 'MIRS : Michigan''s independent source of news & information'
   interface_name: MIRS
-  note: MIRS. Access to the MIRS online version restricted; authentication may be required.
+  note: MIRS. Authorized U-M users (+ guests in U-M Libraries)
   link: https://mirs.news/news
   status: Available
 '990155355200106381':
@@ -4046,8 +3839,8 @@
   status: Available
 '990056023730106381':
 - collection_name: Mideastwire.com
-  interface_name: None
-  note: None. Access restricted; authentication may be required.
+  interface_name: ''
+  note: Access restricted; authentication may be required.
   link: http://www.mideastwire.com/
   status: Available
 '990056015330106381':
@@ -4058,13 +3851,13 @@
   status: Available
 '990176060520106381':
 - collection_name: Agency for Healthcare Research and Quality.
-  interface_name: None
-  note: None. Collection page seed list.
+  interface_name: ''
+  note: Collection page seed list.
   link: https://purl.fdlp.gov/GPO/gpo127691
   status: Available
 - collection_name: Agency for Healthcare Research and Quality.
-  interface_name: None
-  note: None. Home page by archived dates.
+  interface_name: ''
+  note: Home page by archived dates.
   link: https://purl.fdlp.gov/GPO/gpo127692
   status: Available
 '990154366410106381':
@@ -4087,9 +3880,9 @@
   status: Available
 '990125232230106381':
 - collection_name: Music & performing arts.
-  interface_name: None
-  note: None. Access to the Alexander Street online version restricted; authentication may be required.
-  link: http://search.alexanderstreet.com/music-performing-arts
+  interface_name: Alexander Street Press
+  note: Alexander Street Press. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://search.alexanderstreet.com/music-performing-arts
   status: Available
 '990052302540106381':
 - collection_name: Gu jin tu shu ji cheng
@@ -4105,26 +3898,26 @@
   status: Available
 '990116957710106381':
 - collection_name: Compact memory Internetarchiv jüdischer Periodika.
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://www.compactmemory.de/
   status: Available
 '990116950690106381':
 - collection_name: Engineering village
-  interface_name: None
-  note: None. Access restricted; authentication may be required.
+  interface_name: ''
+  note: Access restricted; authentication may be required.
   link: http://www.engineeringvillage2.org
   status: Available
 '990030903860106381':
 - collection_name: Music periodicals database.
   interface_name: Proquest
-  note: Proquest.
+  note: Proquest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/iimp?accountid=14667
   status: Available
 '990021834390106381':
 - collection_name: Inter-university Consortium for Political and Social Research
   interface_name: ICPSR
-  note: ICPSR. Access to the ICPSR online version restricted; authentication may be required.
+  note: ICPSR. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.icpsr.umich.edu/web/pages/index.html
   status: Available
 '990049362040106381':
@@ -4156,6 +3949,12 @@
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/litrc?u=umuser
   status: Available
+'99187252546406381':
+- collection_name: Periodicals of Central Asia and the Caucasus (UDB-CAC)
+  interface_name: East View
+  note: East View. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://dlib.eastview.com/browse/udb/1990
+  status: Available
 '99187252547006381':
 - collection_name: 'Gale OneFile: Computer Science'
   interface_name: Gale
@@ -4168,6 +3967,12 @@
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=pdhjnh,pdh
   status: Available
+'99187252547506381':
+- collection_name: Factiva
+  interface_name: Factiva
+  note: Factiva. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://global.factiva.com
+  status: Available
 '99187252547706381':
 - collection_name: 'Gale OneFile: Business'
   interface_name: Gale
@@ -4179,6 +3984,12 @@
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/hrca?u=umuser
+  status: Available
+'99187252548006381':
+- collection_name: Russian Governmental Publications (UDB-GOV)
+  interface_name: East View
+  note: East View. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://dlib.eastview.com/browse/udb/5
   status: Available
 '99187252548206381':
 - collection_name: 'Gale OneFile: LegalTrac'
@@ -4204,6 +4015,30 @@
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/bic?u=umuser
   status: Available
+'99187252548806381':
+- collection_name: East View Russian Social Sciences and Humanities Journals (UDB-EDU)
+  interface_name: East View
+  note: East View. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://dlib.eastview.com/browse/udb/4
+  status: Available
+'99187252548906381':
+- collection_name: East View Russian Central Newspapers (UDB-COM)
+  interface_name: East View
+  note: East View. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://dlib.eastview.com/browse/udb/1
+  status: Available
+'99187252549006381':
+- collection_name: East View Russia Regional Newspapers (UDB-REG)
+  interface_name: East View
+  note: East View. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://dlib.eastview.com/browse/udb/2
+  status: Available
+'99187252549206381':
+- collection_name: Columbia International Affairs Online (CIAO)
+  interface_name: Columbia International Affairs Online
+  note: Columbia International Affairs Online. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://www.ciaonet.org/
+  status: Available
 '99187252549506381':
 - collection_name: EBSCOhost Communication & Mass Media Complete
   interface_name: EBSCOhost
@@ -4225,7 +4060,7 @@
 '990025598790106381':
 - collection_name: EconLit
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/econlit?accountid=14667
   status: Available
 '99187252513706381':
@@ -4233,6 +4068,12 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/bsc/publication/45589
+  status: Available
+'99187252532506381':
+- collection_name: 'ProQuest Historical Newspapers: Times of India'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hnptimesofindia
   status: Available
 '99187252534406381':
 - collection_name: Earth, Atmospheric & Aquatic Science Collection
@@ -4246,10 +4087,16 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.americanwest.amdigital.co.uk/
   status: Available
+'99187252535006381':
+- collection_name: 'ProQuest Historical Newspapers: Chinese Newspapers Collection'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://search.proquest.com/hnpchinesecollection
+  status: Available
 '99187252535406381':
 - collection_name: Agricultural & Environmental Science Collection
   interface_name: ProQuest
-  note: ProQuest. ProQuest access restricted; authentication may be required.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/agricenvironm
   status: Available
 '99187252537206381':
@@ -4299,6 +4146,12 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/abicomplete?accountid=14667
+  status: Available
+'99187252541006381':
+- collection_name: 'ProQuest Historical Newspapers: American Hebrew Jewish Messenger'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hnpamericanhebrew?accountid=14667
   status: Available
 '99187252541106381':
 - collection_name: 'ProQuest Historical Newspapers: Jewish Advocate'
@@ -4363,7 +4216,7 @@
 '99187252544006381':
 - collection_name: Alt-PressWatch
   interface_name: ProQuest
-  note: ProQuest. ProQuest access restricted; authentication may be required.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/altpresswatch?accountid=14667
   status: Available
 '99187252544306381':
@@ -4393,7 +4246,7 @@
 '99187252484806381':
 - collection_name: NBER Working papers
   interface_name: National Bureau of Economic Research
-  note: National Bureau of Economic Research. National Bureau of Economic Research (access restricted; authentication may be required)
+  note: National Bureau of Economic Research. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.nber.org/papers
   status: Available
 '99187252484906381':
@@ -4429,7 +4282,7 @@
 '99187252488706381':
 - collection_name: Nineteenth-Century Fiction
   interface_name: ProQuest
-  note: ProQuest. ProQuest (access restricted; authentication may be required)
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/c19f
   status: Available
 '99187252488806381':
@@ -4441,13 +4294,13 @@
 '99187252488906381':
 - collection_name: Twentieth-Century American Poetry
   interface_name: ProQuest
-  note: ProQuest. ProQuest (access restricted; authentication may be required)
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/litcollection20ampous
   status: Available
 '99187252489106381':
 - collection_name: Twentieth-Century African American Poetry
   interface_name: ProQuest
-  note: ProQuest. ProQuest (access restricted; authentication may be required)
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/litcollection20aapus
   status: Available
 '99187252489206381':
@@ -4765,7 +4618,7 @@
 '99187252495906381':
 - collection_name: Eighteenth-Century Fiction
   interface_name: ProQuest
-  note: ProQuest. ProQuest (access restricted; authentication may be required)
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/c18f
   status: Available
 '99187252496006381':
@@ -4884,8 +4737,8 @@
   status: Available
 '99187252645006381':
 - collection_name: Newsbank All Titles (Single Title access)
-  interface_name: Newsbank
-  note: Newsbank. NewsBank access restricted; authentication may be required.
+  interface_name: Newsbank, Inc.
+  note: Newsbank, Inc. Authorized U-M users (+ guests in U-M Libraries)
   link: http://infoweb.newsbank.com/?db=
   status: Available
 '99187252645706381':
@@ -4921,7 +4774,7 @@
 '990116958010106381':
 - collection_name: APA PsycBooks
   interface_name: American Psychological Association
-  note: American Psychological Association. Access to the American Psychological Association online version restricted; authentication may be required.
+  note: American Psychological Association. Authorized U-M users (+ guests in U-M Libraries)
   link: http://content.apa.org/books/
   status: Available
 '99187252650106381':
@@ -4945,7 +4798,7 @@
 '99187252452806381':
 - collection_name: ICE Virtual Library Books
   interface_name: ICE Virtual Library
-  note: ICE Virtual Library. Access to the ICE Virtual Library online version restricted; authentication may be required.
+  note: ICE Virtual Library. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.icevirtuallibrary.com
   status: Available
 '99187252452906381':
@@ -4981,19 +4834,19 @@
 '99187252466706381':
 - collection_name: OCLC FirstSearch ECO
   interface_name: OCLC
-  note: OCLC. OCLC FirstSearch access restricted; authentication may be required.
+  note: OCLC. Authorized U-M users (+ guests in U-M Libraries)
   link: http://partneraccess.oclc.org/wcpa/servlet/openurl?genre=article
   status: Available
 '99187252467806381':
 - collection_name: Artech House
   interface_name: Artech House
-  note: Artech House. Access to the Artech House online version restricted; authentication may be required.
+  note: Artech House. Authorized U-M users (+ guests in U-M Libraries)
   link: https://us.artechhouse.com/CloudPublish/Patron.aspx?c=umich
   status: Available
 '99187252468406381':
 - collection_name: Access Medicine Case Files Collection
   interface_name: McGraw Hill Access
-  note: McGraw Hill Access. Access to the -- online version restricted; authentication may be required.
+  note: McGraw Hill Access. Authorized U-M users (+ guests in U-M Libraries)
   link: https://casefiles.mhmedical.com/
   status: Available
 '99187252471906381':
@@ -5001,6 +4854,12 @@
   interface_name: DOAJ Directory of Open Access Journals
   note: DOAJ Directory of Open Access Journals.
   link: https://www.doaj.org/
+  status: Available
+'99187252472206381':
+- collection_name: OAPEN
+  interface_name: OAPEN Open
+  note: OAPEN Open. Open access for all users.
+  link: https://oapen.org/
   status: Available
 '99187252472406381':
 - collection_name: BMJ Open Access Journals
@@ -5013,6 +4872,12 @@
   interface_name: PubMed Central
   note: PubMed Central.
   link: https://www.ncbi.nlm.nih.gov/pubmed/
+  status: Available
+'99187252475806381':
+- collection_name: Open Humanities Press
+  interface_name: University of Michigan
+  note: University of Michigan. Open access for all users.
+  link: http://quod.lib.umich.edu/o/ohp
   status: Available
 '99187252476006381':
 - collection_name: Biodiversity Heritage Library
@@ -5041,7 +4906,7 @@
 '99187252611906381':
 - collection_name: John Benjamins Journals
   interface_name: John Benjamins Publishing
-  note: John Benjamins Publishing. Access to the John Benjamins online version restricted; authentication may be required.
+  note: John Benjamins Publishing. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.jbe-platform.com/content/journals/
   status: Available
 '99187252612506381':
@@ -5067,12 +4932,6 @@
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: http://infotrac.galegroup.com/itweb/umuser?db=SMIT
-  status: Available
-'99187252614906381':
-- collection_name: Gale Literature Criticism
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/lco?u=umuser
   status: Available
 '99187252615006381':
 - collection_name: 'Slavery and Anti-Slavery: A Transnational Archive Part I'
@@ -5143,7 +5002,7 @@
 '99187252623006381':
 - collection_name: PharmacyLibrary
   interface_name: American Pharmacists Association
-  note: American Pharmacists Association. Access to the American Pharmacists Association online version restricted; authentication may be required.
+  note: American Pharmacists Association. Authorized U-M users (+ guests in U-M Libraries)
   link: https://pharmacylibrary.com/
   status: Available
 '99187252623606381':
@@ -5203,15 +5062,15 @@
 '99187252626506381':
 - collection_name: OpinionArchives
   interface_name: OpinionArchives
-  note: OpinionArchives. Access to the OpinionArchives online version restricted; authentication may be required.
+  note: OpinionArchives. Authorized U-M users (+ guests in U-M Libraries)
   link: https://metasearch.opinionarchives.com/
   status: Available
 '990141179400106381':
 - collection_name: GeoScienceWorld eBooks Collection
   interface_name: GeoScienceWorld
   note: GeoScienceWorld. Authorized U-M users (+ guests in U-M Libraries)
-  link: ''
-  status: Not Available
+  link: http://ebooks.geoscienceworld.org/
+  status: Available
 '99187252627006381':
 - collection_name: 'Confidential Print: Middle East, 1839-1969'
   interface_name: AM (Adam Matthew)
@@ -5222,7 +5081,7 @@
 - collection_name: Dictionary of Old English
   interface_name: University of Toronto
   note: University of Toronto. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://doe.artsci.utoronto.ca/
+  link: https://dictionary.doe.utoronto.ca/doe/
   status: Available
 '99187252628506381':
 - collection_name: Classic Mexican Cinema
@@ -5371,7 +5230,7 @@
 '99187252640906381':
 - collection_name: Digitalia eJournals
   interface_name: Digitalia
-  note: Digitalia. Access to the Digitalia, Inc. online version restricted; authentication may be required.
+  note: Digitalia. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.digitaliapublishing.com
   status: Available
 '99187252641406381':
@@ -5383,7 +5242,7 @@
 '99187252641906381':
 - collection_name: Elsevier ClinicalKey Books
   interface_name: Elsevier ClinicalKey
-  note: Elsevier ClinicalKey. Access to ebook PDFs requires personal registration. Access to ebook PDFs requires personal registration. Authorized U-M users (+ guests in U-M Libraries)
+  note: Elsevier ClinicalKey. Access to ebook PDFs requires personal registration. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.clinicalkey.com/dura/browse/bookchapter/
   status: Available
 '99187252642406381':
@@ -5411,8 +5270,8 @@
   link: https://ebooks.asmedigitalcollection.asme.org/ebooks
   status: Available
 - collection_name: ASME Digital Collection eBooks
-  interface_name: None
-  note: None. Authorized U-M users (+ guests in U-M Libraries)
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: https://asmedigitalcollection.asme.org/aws-ebooks
   status: Available
 '99187252577706381':
@@ -5499,6 +5358,12 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.aap.amdigital.co.uk/
   status: Available
+'99187252590606381':
+- collection_name: APA PsycCritiques
+  interface_name: APA PsycCritiques
+  note: APA PsycCritiques. University of Akron Digital Collections.
+  link: http://cdm15960.contentdm.oclc.org/cdm/landingpage/collection/p15960coll21
+  status: Available
 '99187964169906381':
 - collection_name: Elsevier Ebook-Agricultural, Biological, and Food Sciences 2018
   interface_name: Elsevier ScienceDirect
@@ -5556,7 +5421,7 @@
 '99187252606606381':
 - collection_name: Digitalia Hispanica
   interface_name: Digitalia
-  note: Digitalia. Access to Digitalia Hispanica restricted; authentication may be required.
+  note: Digitalia. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.digitaliapublishing.com/ebooks
   status: Available
 '99187252606706381':
@@ -5610,7 +5475,7 @@
 '99187252727806381':
 - collection_name: 'Digital National Security Archive (DNSA): Iran: The Making of U.S. Policy, 1977-1980'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_ir
   status: Available
 '99187252727906381':
@@ -5670,13 +5535,13 @@
 '99187252728806381':
 - collection_name: AES Electronic Library
   interface_name: Audio Engineering Society
-  note: Audio Engineering Society. Audio Engineering Society (access restricted; authentication may be required)
+  note: Audio Engineering Society. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.aes.org/e-lib/inst/
   status: Available
 '99187252728906381':
 - collection_name: 'Digital National Security Archive (DNSA): Japan and the United States: Diplomatic, Security, and Economic Relations, 1960-1976'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_ju
   status: Available
 '99187252729006381':
@@ -5688,7 +5553,7 @@
 '99187252729106381':
 - collection_name: 'Digital National Security Archive (DNSA): Japan and the United States: Diplomatic, Security, and Economic Relations, 1977-1992'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_ja
   status: Available
 '99187252729506381':
@@ -5706,7 +5571,7 @@
 '99187252729806381':
 - collection_name: 'Digital National Security Archive (DNSA): Peru: Human Rights, Drugs and Democracy, 1980-2000'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_pe
   status: Available
 '99187252729906381':
@@ -5718,13 +5583,13 @@
 '99187252730006381':
 - collection_name: 'Digital National Security Archive (DNSA): Nicaragua: The Making of U.S. Policy, 1978-1990'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_ni
   status: Available
 '99187252730206381':
 - collection_name: 'Digital National Security Archive (DNSA): Presidential Directives on National Security, Part I: From Truman to Clinton'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_pd
   status: Available
 '99187252730306381':
@@ -5748,7 +5613,7 @@
 '99187252730606381':
 - collection_name: 'U.K. Parliamentary Papers: House of Commons 18th Century (1688-1834)'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://parlipapers.proquest.com/
   status: Available
 '99187252730806381':
@@ -5979,16 +5844,10 @@
   note: New York Public Library.
   link: http://digitalgallery.nypl.org/nypldigital/index.cfm
   status: Available
-'99187252736306381':
-- collection_name: 'History Vault: OSS & State Department Intelligence and Research Reports, 1941-1961 (Legacy)'
-  interface_name: ProQuest
-  note: ProQuest.
-  link: https://hv.proquest.com/historyvault/hv.jsp?pageid=browse&mid=67084%2367084
-  status: Available
 '99187252736406381':
 - collection_name: SS Low-Res Maps carto-bib
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://congressional.proquest.com/congressional/search/advanced/advanced
   status: Available
 '99187252736506381':
@@ -6024,7 +5883,7 @@
 '99187252737306381':
 - collection_name: 'Digital National Security Archive (DNSA): The Kissinger conversations, supplement II: A verbatim record of U.S. diplomacy, 1969-1977'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_47
   status: Available
 '99187252737406381':
@@ -6051,22 +5910,16 @@
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://congressional.proquest.com/congressional/search/advanced/advanced
   status: Available
-'99187252737906381':
-- collection_name: Australian Road Index
-  interface_name: Australian Road Research Board
-  note: Australian Road Research Board. Australian Road Research Board.
-  link: ''
-  status: Not Available
 '99187252738006381':
 - collection_name: AFI Catalog
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/afi
   status: Available
 '99187252738206381':
 - collection_name: Film Index International
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/fii
   status: Available
 '99187252738506381':
@@ -6132,7 +5985,7 @@
 '99187252739606381':
 - collection_name: Tourism Factbook
   interface_name: World Tourism Organization
-  note: World Tourism Organization.
+  note: World Tourism Organization. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.e-unwto.org/content/v486k6
   status: Available
 '99187252739706381':
@@ -6174,8 +6027,8 @@
 '99187252740406381':
 - collection_name: Encyclopædia Britannica
   interface_name: Encyclopaedia Britannica Inc
-  note: Encyclopaedia Britannica Inc.
-  link: http://www.britannica.com/?cameFromBol=true
+  note: Encyclopaedia Britannica Inc. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://academic.eb.com/levels/collegiate
   status: Available
 '99187252740506381':
 - collection_name: TBRC Core Text Collections, Collection 6
@@ -6192,13 +6045,13 @@
 '99187252740706381':
 - collection_name: NTIS Database (National Technical Information Service)
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/ntis
   status: Available
 '99187252740806381':
 - collection_name: Meteorological & Geoastrophysical Abstracts
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/mga
   status: Available
 '99187252740906381':
@@ -6228,7 +6081,7 @@
 '99187252741306381':
 - collection_name: Aqualine
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/aqualine
   status: Available
 '99187252741406381':
@@ -6312,7 +6165,7 @@
 '99187252742706381':
 - collection_name: Plumb's Veterinary Drugs
   interface_name: Brief Media
-  note: Brief Media. Plumb’s access restricted; authentication may be required.
+  note: Brief Media. Authorized U-M users (+ guests in U-M Libraries)
   link: http://academic.plumbs.com/
   status: Available
 '99187252742806381':
@@ -6342,7 +6195,7 @@
 '99187252743206381':
 - collection_name: OneMine.org
   interface_name: OneMine
-  note: OneMine. Access to the OneMine online version restricted; some authentication may be required.
+  note: OneMine. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.onemine.org/
   status: Available
 '99187252743306381':
@@ -6419,8 +6272,8 @@
   status: Available
 '99187252744806381':
 - collection_name: Naxos Video Library (NVL) World
-  interface_name: Naxos International (Far East)
-  note: Naxos International (Far East)
+  interface_name: Naxos Music Library (NML)
+  note: Naxos Music Library (NML)
   link: http://www.NaxosVideoLibrary.com
   status: Available
 '99187252744906381':
@@ -6588,7 +6441,7 @@
 '99187252747806381':
 - collection_name: LearningExpressLibrary.com
   interface_name: Learning Express
-  note: Learning Express.
+  note: Learning Express. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.learningexpresshub.com/learningexpresslibrary
   status: Available
 '99187252747906381':
@@ -6606,7 +6459,7 @@
 '99187252748106381':
 - collection_name: VetMed Resource
   interface_name: CAB International
-  note: CAB International. CABI Digital Library access restricted to 4 concurrent users; authentication may be required.
+  note: CAB International. 4 concurrent user limit. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.cabidigitallibrary.org/product/VE
   status: Available
 '99187252748206381':
@@ -6666,7 +6519,7 @@
 '990112346670106381':
 - collection_name: Data-Planet Statistical Datasets
   interface_name: SAGE
-  note: SAGE. Access to the SAGE online version restricted; authentication may be required.
+  note: SAGE. Authorized U-M users (+ guests in U-M Libraries)
   link: https://dataplanet.sagepub.com/
   status: Available
 '99187252749306381':
@@ -6678,7 +6531,7 @@
 '99187252749406381':
 - collection_name: WorldCat Dissertations and Theses
   interface_name: OCLC
-  note: OCLC. OCLC FirstSearch access restricted; authentication may be required.
+  note: OCLC. Authorized U-M users (+ guests in U-M Libraries)
   link: https://firstsearch.oclc.org/dbname=WorldCatDissertations;FSIP
   status: Available
 '99187252749506381':
@@ -6792,7 +6645,7 @@
 '99187252551406381':
 - collection_name: Foundation Directory
   interface_name: Foundation Center
-  note: Foundation Center. Foundation Center access restricted; authentication may be required.
+  note: Foundation Center. Authorized U-M users (+ guests in U-M Libraries)
   link: http://fconline.fdncenter.org/ipl.php
   status: Available
 '99187252551506381':
@@ -6804,7 +6657,7 @@
 '99187252551706381':
 - collection_name: WorldCat (OCLC FirstSearch)
   interface_name: OCLC
-  note: OCLC. OCLC FirstSearch access restricted; authentication may be required.
+  note: OCLC. Authorized U-M users (+ guests in U-M Libraries)
   link: https://firstsearch.oclc.org/FSIP?timeout=1800&done=referer&dbname=WorldCat
   status: Available
 '99187252551806381':
@@ -6822,7 +6675,7 @@
 '99187252552006381':
 - collection_name: Digital Sanborn Maps, 1867-1970
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://digitalsanbornmaps.proquest.com/
   status: Available
 '99187252552106381':
@@ -6858,13 +6711,13 @@
 '99187252552806381':
 - collection_name: 'ASFA: Aquatic Sciences and Fisheries Abstracts'
   interface_name: ProQuest
-  note: ProQuest. ProQuest access restricted; authentication may be required.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/asfa
   status: Available
 '99187252552906381':
 - collection_name: Water Resources Abstracts
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/waterresources
   status: Available
 '99187252553006381':
@@ -6906,7 +6759,7 @@
 '99187252553606381':
 - collection_name: Environmental Engineering Abstracts
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/environmentalengabstracts
   status: Available
 '99187252553706381':
@@ -6924,7 +6777,7 @@
 '99187252553906381':
 - collection_name: Health and Safety Science Abstracts (Full archive)
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/healthsafetyabstracts
   status: Available
 '99187252554006381':
@@ -6948,7 +6801,7 @@
 '99187252554306381':
 - collection_name: METADEX
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/metadex
   status: Available
 '99187252554406381':
@@ -6960,7 +6813,7 @@
 '99187252554506381':
 - collection_name: Pollution Abstracts
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/pollution
   status: Available
 '99187252554606381':
@@ -6972,17 +6825,17 @@
 '99187252554706381':
 - collection_name: Materials Business File
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/materialsbusfile
   status: Available
 '99187252554806381':
 - collection_name: Copper Technical Reference Library
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/copper
   status: Available
 '99187252554906381':
-- collection_name: Editions & Adaptations of Shakespeare
+- collection_name: Editions & Adaptations of Shakespeare (Legacy)
   interface_name: Chadwyck-Healey
   note: Chadwyck-Healey.
   link: http://collections.chadwyck.com/eas/htxview?template=basic.htx&content=frameset.htx
@@ -7020,7 +6873,7 @@
 '99187252555506381':
 - collection_name: Aluminium Industry Abstracts
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/aluminumindustryabstracts
   status: Available
 '99187252555606381':
@@ -7056,7 +6909,7 @@
 '99187252556206381':
 - collection_name: TOXLINE
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/toxline
   status: Available
 '99187252556306381':
@@ -7092,7 +6945,7 @@
 '99187252556906381':
 - collection_name: Electronics & Communications Abstracts
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/electronicscomms
   status: Available
 '99187252557006381':
@@ -7155,6 +7008,14 @@
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=brr
   status: Available
+'99187252558106381':
+- collection_name: Bloomberg
+  interface_name: Bloomberg
+  note: |-
+    Bloomberg. Available only on a dedicated terminal in the Tozzi Finance Center or 4th Floor Kresge Library at the Ross School of Business. Access in specified U-M campus buildings only.
+    Authorized U-M Ross School of Business users (+ guests in Kresge Library)
+  link: http://bloomberg.com
+  status: Available
 '99187252558206381':
 - collection_name: 'Feminism in Cuba: Nineteenth through Twentieth Century Archival Documents'
   interface_name: Gale
@@ -7176,7 +7037,7 @@
 '99187252558506381':
 - collection_name: Design & Applied Arts Index (DAAI)
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/daai
   status: Available
 '99187252558606381':
@@ -7206,7 +7067,7 @@
 '99187252559106381':
 - collection_name: Bibliography of English Women Writers 1500-1640
   interface_name: University of Toronto
-  note: University of Toronto.
+  note: University of Toronto. Authorized U-M users (+ guests in U-M Libraries)
   link: http://cf.itergateway.org/beww/
   status: Available
 '99187252559206381':
@@ -7231,7 +7092,7 @@
 - collection_name: Database of Latin Dictionaries (DLD)
   interface_name: Brepols Publishers
   note: Brepols Publishers. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.brepolis.net/
+  link: https://clt.brepolis.net/dld/Dictionaries/Search
   status: Available
 '99187252559706381':
 - collection_name: English Short Title Catalogue
@@ -7255,8 +7116,8 @@
 - collection_name: BNI
   interface_name: BNI
   note: BNI.
-  link: ''
-  status: Not Available
+  link: https://firstsearch.oclc.org/dbname=ERIC%253bFSIP
+  status: Available
 '99187252560506381':
 - collection_name: ArchiveGrid
   interface_name: OCLC
@@ -7302,7 +7163,7 @@
 '99187252561206381':
 - collection_name: EconLit
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/econlit
   status: Available
 '99187252561306381':
@@ -7320,13 +7181,13 @@
 '99187252561506381':
 - collection_name: BCC Research
   interface_name: BCC Research
-  note: BCC Research.
+  note: BCC Research. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.bccresearch.com
   status: Available
 '99187252561606381':
 - collection_name: ARTbibliographies Modern (ABM)
   interface_name: ProQuest
-  note: ProQuest. ProQuest access restricted; authentication may be required.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/artbibliographies
   status: Available
 '99187252561706381':
@@ -7338,7 +7199,7 @@
 '99187252561806381':
 - collection_name: ArticleFirst
   interface_name: OCLC
-  note: OCLC. OCLC FirstSearch access restricted; authentication may be required.
+  note: OCLC. Authorized U-M users (+ guests in U-M Libraries)
   link: http://firstsearch.oclc.org/fsip?dbname=ArticleFirst&done=referer
   status: Available
 '99187252561906381':
@@ -7440,7 +7301,7 @@
 '99187252563606381':
 - collection_name: ERIC
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/eric
   status: Available
 '99187252563706381':
@@ -7469,8 +7330,8 @@
   status: Available
 '99187252564506381':
 - collection_name: Naxos Music Library (NML) World
-  interface_name: Naxos International (Far East)
-  note: Naxos International (Far East)
+  interface_name: Naxos Music Library (NML)
+  note: Naxos Music Library (NML)
   link: https://naxosmusiclibrary.com/
   status: Available
 '99187252564606381':
@@ -7506,19 +7367,19 @@
 '99187252565206381':
 - collection_name: Library & Information Science Abstracts (LISA)
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/lisa
   status: Available
 '99187252565306381':
 - collection_name: Linguistics and Language Behavior Abstracts (LLBA)
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/llba
   status: Available
 '99187252565406381':
 - collection_name: International Bibliography of Art (IBA)
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/iba
   status: Available
 '99187252565506381':
@@ -7561,7 +7422,7 @@
 - collection_name: Merck Index Online
   interface_name: Royal Society of Chemistry
   note: Royal Society of Chemistry.
-  link: http://www.rsc.org/merck-index
+  link: https://merckindex.rsc.org/
   status: Available
 '99187252566306381':
 - collection_name: Foreign Relations between Latin America and the Caribbean States
@@ -7596,7 +7457,7 @@
 '99187252566806381':
 - collection_name: Journal Citation Reports
   interface_name: Clarivate
-  note: Clarivate.
+  note: Clarivate. Authorized U-M users (+ guests in U-M Libraries)
   link: https://jcr.clarivate.com/
   status: Available
 '99187252566906381':
@@ -7608,7 +7469,7 @@
 '99187252567006381':
 - collection_name: Johns Hopkins Guide to Literary Theory & Criticism
   interface_name: The Johns Hopkins University Press
-  note: The Johns Hopkins University Press. Access to the Johns Hopkins Guide to Literary Theory & Criticism online version restricted; authentication may be required.
+  note: The Johns Hopkins University Press. Authorized U-M users (+ guests in U-M Libraries)
   link: http://litguide.press.jhu.edu
   status: Available
 '99187252567106381':
@@ -7638,13 +7499,13 @@
 '99187252567506381':
 - collection_name: GPO Monthly Catalog
   interface_name: OCLC
-  note: OCLC.
+  note: OCLC. Authorized U-M users (+ guests in U-M Libraries)
   link: http://firstsearch.oclc.org/fsip?dbname=GPO&done=referer
   status: Available
 '99187252567606381':
 - collection_name: OAIster
   interface_name: OCLC
-  note: OCLC. OCLC FirstSearch access restricted; authentication may be required.
+  note: OCLC. Authorized U-M users (+ guests in U-M Libraries)
   link: http://firstsearch.oclc.org/fsip?dbname=OAIster&done=referer
   status: Available
 '99187252567706381':
@@ -7728,7 +7589,7 @@
 '99187252569106381':
 - collection_name: Ideas Roadshow
   interface_name: Ideas Roadshow
-  note: Ideas Roadshow. Access to the Ideas Roadshow online version restricted; authentication may be required.
+  note: Ideas Roadshow. Authorized U-M users (+ guests in U-M Libraries)
   link: https://ideasroadshow.com/
   status: Available
 '99187252569206381':
@@ -7770,8 +7631,8 @@
 '99187252569806381':
 - collection_name: SimplyAnalytics
   interface_name: Geographic Research, Inc
-  note: Geographic Research, Inc.
-  link: http://simplymap.com/
+  note: Geographic Research, Inc. 5 concurrent user limit. Some website features require a personal account. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://app.simplyanalytics.com
   status: Available
 '99187252570006381':
 - collection_name: 'Psychological Warfare and Propaganda in World War II: Air Dropped and Shelled Leaflets and Periodicals'
@@ -7950,7 +7811,7 @@
 '99187252573506381':
 - collection_name: ulrichsweb.com
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://ulrichsweb.serialssolutions.com
   status: Available
 '99187252573606381':
@@ -7962,7 +7823,7 @@
 '99187252573706381':
 - collection_name: PTSDpubs
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/ptsdpubs
   status: Available
 '99187252573806381':
@@ -7998,7 +7859,7 @@
 '99187252574306381':
 - collection_name: Philosopher's Index
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/philosophersindex
   status: Available
 '99187252574506381':
@@ -8034,13 +7895,13 @@
 '99187252575206381':
 - collection_name: Polling the Nations
   interface_name: Polling the Nations
-  note: Polling the Nations. Infobase access restricted; authentication may be required.
+  note: Polling the Nations. Authorized U-M users (+ guests in U-M Libraries)
   link: https://ptn.infobase.com
   status: Available
 '99187252575306381':
 - collection_name: Sol and Evelyn Henkind Talmud Text Databank
   interface_name: Saul Lieberman Institute of Talmud Research of the Jewish Theological Seminary of America
-  note: Saul Lieberman Institute of Talmud Research of the Jewish Theological Seminary of America.
+  note: Saul Lieberman Institute of Talmud Research of the Jewish Theological Seminary of America. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.lieberman-institute.com/
   status: Available
 '99187252575406381':
@@ -8052,7 +7913,7 @@
 '99187252575506381':
 - collection_name: Congressional Statutes at Large
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://congressional.proquest.com/congressional/search/searchbynumber/bynumber
   status: Available
 '99187252575606381':
@@ -8100,8 +7961,8 @@
 '99187252576506381':
 - collection_name: PROJEKT DYABOLA
   interface_name: Biering & Brinkmann Verlag
-  note: Biering & Brinkmann Verlag. Select "Activate IP access" check-box and press "Start." Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.dyabola.de/de/indexfrm.htm?page=http://www.db.dyabola.de/dyabola3/start.htm
+  note: Biering & Brinkmann Verlag. Click on "Activate IP access" check-box. Select "Start." Authorized U-M users (+ guests in U-M Libraries)
+  link: http://www.dyabola.de
   status: Available
 '99187252576606381':
 - collection_name: Social Science Electronic Data Library (SSEDL)
@@ -8112,7 +7973,7 @@
 '99187252576706381':
 - collection_name: TRID
   interface_name: Transportation Research Board
-  note: Transportation Research Board.
+  note: Transportation Research Board. Authorized U-M users (+ guests in U-M Libraries)
   link: http://trid.trb.org/
   status: Available
 '99187252577106381':
@@ -8143,7 +8004,7 @@
 - collection_name: Records of the Persian Gulf War
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/collection/3lbw/gdsc?u=[location_id]&sid=gdsc
+  link: https://link.gale.com/apps/collection/3LBW/GDSC?u=umuser&sid=bookmark-GDSC
   status: Available
 '99187252699706381':
 - collection_name: Index of Medieval Art
@@ -8190,7 +8051,7 @@
 '99187252700406381':
 - collection_name: Brill.com
   interface_name: Brill
-  note: Brill. Access to the Brillonline online version restricted; authentication may be required.
+  note: Brill. Authorized U-M users (+ guests in U-M Libraries)
   link: https://brill.com
   status: Available
 '99187252700506381':
@@ -8268,13 +8129,13 @@
 '99187252702706381':
 - collection_name: ERIC
   interface_name: ERIC
-  note: ERIC. ERIC (access restricted; authentication may be required)
+  note: ERIC. Authorized U-M users (+ guests in U-M Libraries)
   link: https://eric.ed.gov/
   status: Available
 '99187252703106381':
 - collection_name: Dartmouth Dante Project
   interface_name: Dartmouth College
-  note: Dartmouth College.
+  note: Dartmouth College. Open access for all users.
   link: http://dante.dartmouth.edu/
   status: Available
 '99187252703506381':
@@ -8292,13 +8153,13 @@
 '99187252704006381':
 - collection_name: 'Digital National Security Archive (DNSA): CIA Covert Operations III: From Kennedy to Nixon, 1961-1974'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_51
   status: Available
 '99187252704106381':
 - collection_name: 'Digital National Security Archive (DNSA): Targeting Iraq, Part 1: Planning, Invasion, and Occupation, 1997-2004'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_49
   status: Available
 '99187252704206381':
@@ -8377,7 +8238,7 @@
 - collection_name: 'Archives of Sexuality and Gender: LGBTQ History and Culture Since 1940, Part I'
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/ahsi?u=umuser
+  link: https://link.gale.com/apps/archive/2XYQ/AHSI?u=umuser
   status: Available
 '99187252706606381':
 - collection_name: Perseus
@@ -8490,8 +8351,8 @@
 '99187252708506381':
 - collection_name: Frost & Sullivan-Growth Partnership-Healthcare
   interface_name: Frost & Sullivan
-  note: Frost & Sullivan.
-  link: http://www.frost.com
+  note: Frost & Sullivan. Authorized U-M users (no guest access)
+  link: https://member.frost.com/
   status: Available
 '99187252708606381':
 - collection_name: 文芸倶楽部2（明34-明39）(Bungei Club 2)
@@ -8586,7 +8447,7 @@
 '99187252710406381':
 - collection_name: ANZ Newsstand A&I Only
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/anznewsai
   status: Available
 '99187252710606381':
@@ -8736,7 +8597,7 @@
 '99187252713706381':
 - collection_name: Senate Executive Documents and Reports
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://congressional.proquest.com/congressional/search/advanced/advanced
   status: Available
 '99187252713806381':
@@ -8754,7 +8615,7 @@
 '99187252714006381':
 - collection_name: Congressional Base
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://congressional.proquest.com/congressional/search/advanced/advanced
   status: Available
 '99187252714106381':
@@ -8958,7 +8819,7 @@
 '99187252718306381':
 - collection_name: 'Digital National Security Archive (DNSA): Presidential Directives on National Security, Part II: From Truman to George W. Bush'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_pr
   status: Available
 '99187252718406381':
@@ -8970,13 +8831,13 @@
 '99187252718506381':
 - collection_name: 'Digital National Security Archive (DNSA): South Africa: The Making of U.S. Policy, 1962-1989'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_sa
   status: Available
 '99187252718606381':
 - collection_name: 'Digital National Security Archive (DNSA): Terrorism and U.S. Policy, 1968-2002'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_te
   status: Available
 '99187252718706381':
@@ -8988,13 +8849,13 @@
 '99187252718806381':
 - collection_name: 'Digital National Security Archive (DNSA): The Cuban Missile Crisis: 50th Anniversary Update'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_cm
   status: Available
 '99187252718906381':
 - collection_name: 'Digital National Security Archive (DNSA): The Berlin Crisis, 1958-1962'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_bc
   status: Available
 '99187252719006381':
@@ -9024,7 +8885,7 @@
 '99187252719406381':
 - collection_name: 'Digital National Security Archive (DNSA): The Kissinger Transcripts: A Verbatim Record of U.S. Diplomacy, 1969-1977'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_kt
   status: Available
 '99187252719506381':
@@ -9054,13 +8915,13 @@
 '99187252720006381':
 - collection_name: 'Digital National Security Archive (DNSA): The Iran-Contra Affair: The Making of a Scandal, 1983-1988'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_ic
   status: Available
 '99187252720106381':
 - collection_name: 'Digital National Security Archive (DNSA): The Cuban Missile Crisis, 1962'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_cc
   status: Available
 '99187252720206381':
@@ -9072,7 +8933,7 @@
 '99187252720306381':
 - collection_name: 'Digital National Security Archive (DNSA): The Cuban Missile Crisis Revisited: An International Collection, From Bay of Pigs to Nuclear Brink'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_cu
   status: Available
 '99187252720406381':
@@ -9084,13 +8945,13 @@
 '99187252720506381':
 - collection_name: BBC Shakespeare Plays
   interface_name: Ambrose Video Publishing, Inc.
-  note: Ambrose Video Publishing, Inc. Access to the Ambrose Video online version restricted; authentication may be required; Select "BBC Shakespeare plays" for links to programs.
-  link: http://www.ambrosevideo.com/
+  note: Ambrose Video Publishing, Inc. Select "BBC Shakespeare plays" for links to programs. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.ambrosevideo.com/institutional-access
   status: Available
 '99187252720606381':
 - collection_name: 'Digital National Security Archive (DNSA): The U.S. Intelligence Community After 9/11'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_in
   status: Available
 '99187252720706381':
@@ -9126,7 +8987,7 @@
 '99187252721306381':
 - collection_name: 'Digital National Security Archive (DNSA): The United States and the Two Koreas, Part II, 1969-2010'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_kr
   status: Available
 '99187252721406381':
@@ -9144,25 +9005,25 @@
 '99187252721606381':
 - collection_name: 'Digital National Security Archive (DNSA): The Soviet Estimate: U.S. Analysis of the Soviet Union, 1947-1991'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_se
   status: Available
 '99187252721706381':
 - collection_name: 'Digital National Security Archive (DNSA): The Philippines: U.S. Policy During the Marcos Years, 1965-1986'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_ph
   status: Available
 '99187252721806381':
 - collection_name: 'Bibliographie de Civilisation Medievale Online: International'
   interface_name: Brepols Publishers
   note: Brepols Publishers. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://apps.brepolis.net
+  link: https://apps.brepolis.net/LTool/Entrance.aspx?w=42
   status: Available
 '99187252721906381':
 - collection_name: 'Digital National Security Archive (DNSA): The U.S. Intelligence Community: Organization, Operations and Management, 1947-1989'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_ip
   status: Available
 '99187252722006381':
@@ -9174,7 +9035,7 @@
 '99187252722106381':
 - collection_name: 'ANTE: Abstracts in New Technology & Engineering'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com
   status: Available
 '99187252722206381':
@@ -9186,7 +9047,7 @@
 '99187252722406381':
 - collection_name: 'Digital National Security Archive (DNSA): U.S. Military Uses of Space, 1945-1991'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_ms
   status: Available
 '99187252722506381':
@@ -9216,7 +9077,7 @@
 '99187252722906381':
 - collection_name: 'Digital National Security Archive (DNSA): U.S. Intelligence on Weapons of Mass Destruction: From World War II to Iraq'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_wm
   status: Available
 '99187252723106381':
@@ -9240,7 +9101,7 @@
 '99187252723406381':
 - collection_name: 'Digital National Security Archive (DNSA): U.S. Espionage and Intelligence, 1947-1996'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_ep
   status: Available
 '99187252723506381':
@@ -9252,13 +9113,13 @@
 '99187252723606381':
 - collection_name: 'Digital National Security Archive (DNSA): U.S. Nuclear History: Nuclear Arms and Politics in the Missile Age, 1955-1968'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_nh
   status: Available
 '99187252723706381':
 - collection_name: 'Digital National Security Archive (DNSA): U.S. Nuclear Non-Proliferation Policy, 1945-1991'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_np
   status: Available
 '99187252723806381':
@@ -9276,13 +9137,13 @@
 '99187252724006381':
 - collection_name: 'Digital National Security Archive (DNSA): U.S. Policy in the Vietnam War, Part I: 1954-1968'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_vi
   status: Available
 '99187252724106381':
 - collection_name: 'Digital National Security Archive (DNSA): U.S. Policy in the Vietnam War, Part II: 1969-1975'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_vw
   status: Available
 '99187252724206381':
@@ -9318,7 +9179,7 @@
 '99187252724706381':
 - collection_name: 'Digital National Security Archive (DNSA): Afghanistan: The Making of U.S. Policy, 1973-1990'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_af
   status: Available
 '99187252724806381':
@@ -9348,7 +9209,7 @@
 '99187252725206381':
 - collection_name: 'Digital National Security Archive (DNSA): China and the United States: From Hostility to Engagement, 1960-1998'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_ch
   status: Available
 '99187252725306381':
@@ -9390,7 +9251,7 @@
 '99187252726006381':
 - collection_name: 'Digital National Security Archive (DNSA): El Salvador: The Making of U.S. Policy, 1977-1984'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_es
   status: Available
 '99187252726106381':
@@ -9426,13 +9287,13 @@
 '99187252726606381':
 - collection_name: 'Digital National Security Archive (DNSA): Death Squads, Guerrilla War, Covert Ops, and Genocide: Guatemala and the United States, 1954-1999'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_gu
   status: Available
 '99187252726806381':
 - collection_name: 'Digital National Security Archive (DNSA): CIA Family Jewels Indexed'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_fj
   status: Available
 '99187252726906381':
@@ -9456,7 +9317,7 @@
 '99187252727306381':
 - collection_name: 'Digital National Security Archive (DNSA): Iraqgate: Saddam Hussein, U.S. Policy and the Prelude to the Persian Gulf War, 1980-1994'
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_ig
   status: Available
 '99187252727406381':
@@ -9492,7 +9353,7 @@
 '99187415656406381':
 - collection_name: Coronavirus Research Database
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/coronavirus
   status: Available
 '99187415657706381':
@@ -9525,11 +9386,29 @@
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/bsc
   status: Available
+'99187415663106381':
+- collection_name: 'ProQuest Historical Newspapers: The Atlanta Constitution'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hnpatlantaconstitution2
+  status: Available
+'99187415663306381':
+- collection_name: ProQuest Publicly Available Content Database
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://search.proquest.com/publiccontent
+  status: Available
 '99187415664306381':
 - collection_name: Women and Social Movements in the United States, 1600-2000, edited by Judy Tzu-Chun Wu and Rebecca Plant, 2020 Edition
   interface_name: Alexander Street
   note: Alexander Street. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.alexanderstreet.com/wass
+  status: Available
+'99187415667006381':
+- collection_name: ProQuest Technology Collection
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/technology1
   status: Available
 '99187415667306381':
 - collection_name: 'Digital National Security Archive (DNSA): Donald Rumsfeld''s Snowflakes, Part I: The Pentagon and U.S. Foreign Policy, 2001-2003'
@@ -9579,6 +9458,12 @@
   note: Alexander Street. Authorized U-M users (+ guests in U-M Libraries)
   link: https://video.alexanderstreet.com/channel/latin-america-in-video
   status: Available
+'99187415674306381':
+- collection_name: Bertolt Brechts Werke
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/brecht
+  status: Available
 '99187434542206381':
 - collection_name: Age of Exploration
   interface_name: AM (Adam Matthew)
@@ -9599,14 +9484,14 @@
   status: Available
 '990165947390106381':
 - collection_name: Global Press Archive
-  interface_name: None
-  note: None. Access to the Global press archive online version restricted; authentication may be required.
+  interface_name: East View
+  note: East View. Authorized U-M users (+ guests in U-M Libraries)
   link: https://gpa.eastview.com/
   status: Available
 '99187441643706381':
 - collection_name: ChoiceReviews online
   interface_name: American Library Association
-  note: American Library Association. Access to the American Library Association online version restricted; authentication may be required.
+  note: American Library Association. Authorized U-M users (+ guests in U-M Libraries)
   link: http://choicereviews.org
   status: Available
 '99187447412106381':
@@ -9614,6 +9499,12 @@
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=rfh
+  status: Available
+'99188116898506381':
+- collection_name: Rockefeller University Press
+  interface_name: Rockefeller_University_Press
+  note: Rockefeller_University_Press. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://rupress.org/
   status: Available
 '99187448258506381':
 - collection_name: BMJ Journals Online Archive
@@ -9623,20 +9514,20 @@
   status: Available
 '990136824050106381':
 - collection_name: China Digital Library Reference
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://www.apabi.com/michigan/?pid=foreign.search&dt=EBook&db=refbook&dc=1.6&hdc=1&cult=CN
   status: Available
 '990091071030106381':
 - collection_name: China Digital Library Ebook
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://www.apabi.com/michigan/?pid=foreign.search&db=dlib&dt=EBook&dc=1.6&hdc=1&cult=CN
   status: Available
 '990052383650106381':
 - collection_name: China online journals
-  interface_name: None
-  note: None. Access to the Wan fang shu ju zhi shi fu wu ping tai restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Wan fang shu ju zhi shi fu wu ping tai restricted; authentication may be required.
   link: http://c.g.wanfangdata.com.cn/Periodical.aspx
   status: Available
 '99187454444406381':
@@ -9654,7 +9545,7 @@
 '99187455960106381':
 - collection_name: Materials Science & Engineering Collection
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/materials_science
   status: Available
 '99187455960206381':
@@ -9713,33 +9604,33 @@
   status: Available
 '99187493915606381':
 - collection_name: TVRain Research Database
-  interface_name: None
-  note: None. New programming has been suspended as of March 3, 2022, but access remains available to the archived programming.
+  interface_name: ''
+  note: New programming has been suspended as of March 3, 2022, but access remains available to the archived programming.
   link: https://tvrain.ru/
   status: Available
 '99187493927806381':
 - collection_name: Nei ge da ku dang an =
-  interface_name: None
-  note: None. Access to the Grand secretariat archives online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Grand secretariat archives online version restricted; authentication may be required.
   link: Stable%20link:%20%20http://www.lib.umich.edu/database/link/48844
   status: Available
 '99187494610606381':
 - collection_name: Advanced Materials Research
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/AMR
   status: Available
 '99187494827606381':
 - collection_name: 'Archives of Sexuality and Gender: Sex and Sexuality, Sixteenth to Twentieth Century'
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/ahsi?u=umuser
+  link: https://link.gale.com/apps/archive/8OKR/AHSI?u=umuser
   status: Available
 '99187494827706381':
 - collection_name: 'Archives of Sexuality and Gender: LGBTQ History and Culture Since 1940, Part II'
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/ahsi?u=umuser
+  link: https://link.gale.com/apps/archive/0071/AHSI?u=umuser
   status: Available
 '99187496413206381':
 - collection_name: Funk & Wagnalls New World Encyclopedia
@@ -10050,121 +9941,121 @@
 '99187517456806381':
 - collection_name: Advances in Science and Technology
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/AST
   status: Available
 '99187521842206381':
 - collection_name: Advanced Engineering Forum
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/AEF
   status: Available
 '99187521842306381':
 - collection_name: Nano Hybrids and Composites
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/NHC
   status: Available
 '99187521842506381':
 - collection_name: Journal of Nano Research
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/JNanoR
   status: Available
 '99187521842606381':
 - collection_name: Journal of Metastable and Nanocrystalline Materials
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/JMNM
   status: Available
 '99187521842806381':
 - collection_name: Journal of Biomimetics, Biomaterials and Biomedical Engineering
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/JBBBE
   status: Available
 '99187521845306381':
 - collection_name: International Journal of Engineering Research in Africa
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/JERA
   status: Available
 '99187521845706381':
 - collection_name: Solid State Phenomena
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/SSP
   status: Available
 '99187521845806381':
 - collection_name: Materials Science Forum
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/MSF
   status: Available
 '99187521845906381':
 - collection_name: Key Engineering Materials
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/KEM
   status: Available
 '99187521847606381':
 - collection_name: Defect and Diffusion Forum
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/DDF
   status: Available
 '99187521854606381':
 - collection_name: Applied Mechanics and Materials
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/AMM
   status: Available
 '99187521948606381':
 - collection_name: Science of Synthesis Reference Libraries
   interface_name: Thieme Connect
-  note: Thieme Connect. Thieme Connect access restricted; authentication may be required.
+  note: Thieme Connect. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.thieme.de/en/thieme-chemistry/sos-reference-library-54790.htm
   status: Available
 '99187521948706381':
 - collection_name: Science of Synthesis Knowledge Updates
   interface_name: Thieme Connect
-  note: Thieme Connect. Thieme Connect access restricted; authentication may be required.
+  note: Thieme Connect. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.thieme.de/en/thieme-chemistry/sos-knowledge-updates-54789.htm
   status: Available
 '99187521948806381':
 - collection_name: 'Science of Synthesis 6: Compounds with All Heteroatom Functions'
   interface_name: Thieme Connect
-  note: Thieme Connect. Thieme Connect access restricted; authentication may be required.
+  note: Thieme Connect. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.thieme.de/en/thieme-chemistry/sos-category-6-58736.htm
   status: Available
 '99187521948906381':
 - collection_name: 'Science of Synthesis 5: Compounds with One Carbon-Heteroatom Bonds'
   interface_name: Thieme Connect
-  note: Thieme Connect. Thieme Connect restricted; authentication may be required.
+  note: Thieme Connect. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.thieme.de/en/thieme-chemistry/sos-category-5-58735.htm
   status: Available
 '99187521949006381':
 - collection_name: 'Science of Synthesis 4: Compounds with Two Carbon-Heteroatom Bonds'
   interface_name: Thieme Connect
-  note: Thieme Connect. Thieme Connect access restricted; authentication may be required.
+  note: Thieme Connect. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.thieme.de/en/thieme-chemistry/sos-category-4-58734.htm
   status: Available
 '99187521949106381':
 - collection_name: 'Science of Synthesis 3: Compounds with Four and Three Carbon-Heteroatom Bonds'
   interface_name: Thieme Connect
-  note: Thieme Connect. Thieme Connect access restricted; authentication may be required.
+  note: Thieme Connect. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.thieme.de/en/thieme-chemistry/sos-category-3-58732.htm
   status: Available
 '99187521949206381':
 - collection_name: 'Science of Synthesis 2: Hetarenes'
   interface_name: Thieme Connect
-  note: Thieme Connect. Thieme Connect access restricted; authentication may be required.
+  note: Thieme Connect. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.thieme.de/en/thieme-chemistry/sos-category-2-58731.htm
   status: Available
 '99187521949306381':
 - collection_name: 'Science of Synthesis 1: Organometallics'
   interface_name: Thieme Connect
-  note: Thieme Connect. Thieme Connect access restricted; authentication may be required.
+  note: Thieme Connect. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.thieme.de/en/thieme-chemistry/sos-category-1-58729.htm
   status: Available
 '99187521951406381':
@@ -10218,7 +10109,7 @@
 '99187524483206381':
 - collection_name: Slavery Abolition and Social Justice 1490-2007
   interface_name: AM (Adam Matthew)
-  note: AM (Adam Matthew) Adam Matthew access restricted; authentication may be required.
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.slavery.amdigital.co.uk/
   status: Available
 '99187524483306381':
@@ -10256,6 +10147,12 @@
   interface_name: Wanfang Data Co,. Ltd.
   note: Wanfang Data Co,. Ltd.
   link: http://fz.wanfangdata.com.cn/navigation/newNavigationFacet.do?q=DBID:FZ_New&filterValue=%25E5%2585%25A8%25E9%2583%25A8&type=list
+  status: Available
+'99187529375106381':
+- collection_name: Talmud Yerushalmi Citation Database
+  interface_name: Talmud Yerushalmi Citation Database
+  note: Talmud Yerushalmi Citation Database. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://yerushalmidb.com/default.aspx
   status: Available
 '99187529564106381':
 - collection_name: 'AM Scholar: World War Two Studies'
@@ -10338,7 +10235,7 @@
 '99187529626006381':
 - collection_name: PsycTESTS
   interface_name: American Psychological Association
-  note: American Psychological Association. American Psychological Association access restricted; authentication may be required.
+  note: American Psychological Association. Authorized U-M users (+ guests in U-M Libraries)
   link: https://psycnet.apa.org/PsycTESTS
   status: Available
 '99187252620406381':
@@ -10363,14 +10260,13 @@
 - collection_name: Early American Imprints, Series II, Shaw-Shoemaker Supplement from the Library Company of Philadelphia
   interface_name: Newsbank, Inc.
   note: Newsbank, Inc.
-  link: >-
-    https://infoweb.newsbank.com/apps/readex/?p=SHAW2%C3%83%C2%83%C3%86%C2%92%C3%83%C2%82%C3%86%C2%92%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%86%C2%92%C3%83%C2%83%C3%86%C2%92%C3%83%C2%82%C3%A2%C2%80%C2%A0%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%A2%C2%80%C2%99%C3%83%C2%83%C3%86%C2%92%C3%83%C2%82%C3%86%C2%92%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%A2%C2%80%C2%9A%C3%83%C2%83%C3%86%C2%92%C3%83%C2%82%C3%A2%C2%80%C2%A0%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%A2%C2%80%C2%99%C3%83%C2%83%C3%86%C2%92%C3%83%C2%82%C3%86%C2%92%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%86%C2%92%C3%83%C2%83%C3%86%C2%92%C3%83%C2%82%C3%82%C2%A2%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%A2%C2%82%C2%AC%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%85%C2%A1%C3%83%C2%83%C3%86%C2%92%C3%83%C2%82%C3%86%C2%92%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%A2%C2%80%C2%9A%C3%83%C2%83%C3%86%C2%92%C3%83%C2%82%C3%A2%C2%80%C2%A0%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%A2%C2%80%C2%99%C3%83%C2%83%C3%86%C2%92%C3%83%C2%82%C3%86%C2%92%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%86%C2%92%C3%83%C2%83%C3%86%C2%92%C3%83%C2%82%C3%A2%C2%80%C2%A0%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%A2%C2%80%C2%99%C3%83%C2%83%C3%86%C2%92%C3%83%C2%82%C3%86%C2%92%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%A2%C2%80%C2%9A%C3%83%C2%83%C3%86%C2%92%C3%83%C2%82%C3%82%C2%A2%C3%83%C2%83%C3%A2%C2%80%C2%9A%C3%83%C2%82%C3%A2%C2%82
+  link: https://infoweb.newsbank.com/?db=SHAW2
   status: Available
 '99187529529306381':
 - collection_name: 'Early American Imprints, Series I: Evans: Library Company of Philadelphia Supplements'
-  interface_name: Newsbank
-  note: Newsbank.
-  link: https://infoweb.newsbank.com/apps/readex/?p=EVAN2%C3%82%C2%A0
+  interface_name: Newsbank, Inc.
+  note: Newsbank, Inc.
+  link: https://infoweb.newsbank.com/apps/readex/?p=EVAN2%C3%83%C2%82%C3%82%C2%A0
   status: Available
 '99187529530006381':
 - collection_name: 'Political Extremism and Radicalism: Far-Right and Left Political Groups in the U.S., Europe, and Australia in the Twentieth Century'
@@ -10446,8 +10342,8 @@
   status: Available
 '99187564038706381':
 - collection_name: Black History Month and Woman's History Month
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: https://go.gale.com/ps/exploreCollections?userGroupName=umuser&inPS=true&prodId=GDSC&category=AfricanAmericanStudies
   status: Available
 '99187564130606381':
@@ -10478,7 +10374,7 @@
 - collection_name: Women's Issues and Their Advocacy Within the White House, 1974-1977
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/aboutThisCollection?userGroupName=umuser&inPS=true&mCode=3FGT&prodId=GDSC
+  link: https://link.gale.com/apps/collection/3FGT/gdsc?u=umuser&sid=gdsc
   status: Available
 '990155597790106381':
 - collection_name: Films on Demand World Cinema collection
@@ -10494,8 +10390,8 @@
   status: Available
 '990175408700106381':
 - collection_name: Survei sosial ekonomi nasional (SUSENAS)
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: https://quod.lib.umich.edu/e/errwpc/umall/1/7/5/17540870.html
   status: Available
 '99187570026106381':
@@ -10666,24 +10562,6 @@
   note: MorphoBank. Authorized U-M users (+ guests in U-M Libraries)
   link: https://morphobank.org/index.php
   status: Available
-'99187569962506381':
-- collection_name: 'City and Business Directories: West Virginia, 1839-1929'
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/collection/6ctr/gdsc?u=umuser&sid=gdsc
-  status: Available
-'99187569962606381':
-- collection_name: 'City and Business Directories: Virginia, 1801-1929'
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/collection/6cts/gdsc?u=umuser&sid=gdsc
-  status: Available
-'99187569962806381':
-- collection_name: 'City and Business Directories: North Carolina, 1886-1929'
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/collection/6cua/gdsc?u=umuser&sid=gdsc
-  status: Available
 '99187569963406381':
 - collection_name: 'City and Business Directories: Louisiana, 1805-1929'
   interface_name: Gale
@@ -10718,7 +10596,7 @@
 - collection_name: African America, Communists, and the National Negro Congress, 1933-1947
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/aboutThisCollection?userGroupName=umuser&inPS=true&mCode=5887&prodId=GDSC
+  link: https://link.gale.com/apps/collection/5887/gdsc?u=umuser&sid=gdsc
   status: Available
 '99187441541606381':
 - collection_name: Feature Films for Education
@@ -10777,7 +10655,7 @@
 '99187572246306381':
 - collection_name: Almandumah Databases
   interface_name: Almandumah Databases
-  note: Almandumah Databases. Almandumah Databases access restricted; authentication may be required.
+  note: Almandumah Databases. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.mandumah.com
   status: Available
 '99187572545006381':
@@ -10830,8 +10708,8 @@
   status: Available
 '99187575452606381':
 - collection_name: U-M dissertations
-  interface_name: None
-  note: None. Access to the ProQuest University of Michigan dissertations online version restricted; authentication may be required. Access to the ProQuest University of Michigan dissertations online version restricted; authentication may be required.
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/pqdtlocal1006034?accountid=14667
   status: Available
 '99187575533806381':
@@ -11062,12 +10940,6 @@
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/collection/3xnn/gdsc?u=umuser&sid=gdsc
   status: Available
-'99187579990906381':
-- collection_name: 'Military Leaders of World War I: Official and Private Papers of Generaloberst Hans von Seeckt'
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/collection/5drt/gdsc?u=umuser&sid=gdsc
-  status: Available
 '99187579757906381':
 - collection_name: Geofacets Base
   interface_name: Geofacets
@@ -11083,7 +10955,7 @@
 '99187579818306381':
 - collection_name: Global Health
   interface_name: CABI
-  note: CABI. CABI Digital Library access restricted; authentication may be required.
+  note: CABI. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.cabidigitallibrary.org/product/he
   status: Available
 '99187595775106381':
@@ -11095,7 +10967,7 @@
 '99187596067906381':
 - collection_name: GIDEON - Global Infectious Disease and Epidemiology Network
   interface_name: GIDEON Informatics, Inc.
-  note: GIDEON Informatics, Inc. GIDEON Informatics access restricted; authentication may be required.
+  note: GIDEON Informatics, Inc. Authorized U-M users (+ guests in U-M Libraries)
   link: https://app.gideononline.com
   status: Available
 '99187252559506381':
@@ -11114,7 +10986,7 @@
 - collection_name: Reconstruction, Jim Crow, and the Enforcement of Federal Law in the South, 1871-1884
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/aboutThisCollection?p=GDSC&u=umuser&mCode=8SSN&sid=GDSC
+  link: https://link.gale.com/apps/collection/8SSN/gdsc?u=umuser&sid=gdsc
   status: Available
 '99187599250806381':
 - collection_name: 'Romania: Records of the U.S. Department of State; 1945-1963'
@@ -11143,7 +11015,7 @@
 '99187611783506381':
 - collection_name: Bloomsbury Theology and Religion Online Anchor Yale Bible Commentaries
   interface_name: Bloomsbury Publishing Plc
-  note: Bloomsbury Publishing Plc. Access to the Bloomsbury Publishing, Theology & Religion Online online version restricted; authentication may be required.
+  note: Bloomsbury Publishing Plc. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.theologyandreligiononline.com/anchor-yale-bible-commentaries
   status: Available
 '99187623206306381':
@@ -11151,6 +11023,12 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/hnphindustantimes
+  status: Available
+'99188116898706381':
+- collection_name: Bristol University Press Digital
+  interface_name: Bristol University Press Digital
+  note: Bristol University Press Digital. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://bristoluniversitypressdigital.com
   status: Available
 '99187626397006381':
 - collection_name: Patrologia Latina
@@ -11191,25 +11069,25 @@
 '99187633375006381':
 - collection_name: The Icarus Films Fiction Collection
   interface_name: Docuseek2
-  note: Docuseek2. Access to the Icarus Films Fiction online version restricted; authentication may be required.
+  note: Docuseek2. Authorized U-M users (+ guests in U-M Libraries)
   link: http://docuseek2.com/v/c/rYo/if-fict
   status: Available
 '99187633375106381':
 - collection_name: Global Environmental Justice Collection
   interface_name: Docuseek2
-  note: Docuseek2. Access to the Global Environmental Justice online version restricted; authentication may be required.
+  note: Docuseek2. Authorized U-M users (+ guests in U-M Libraries)
   link: https://gej.docuseek2.com/
   status: Available
 '99187633375206381':
 - collection_name: The Docuseek Complete Collection 3rd Edition Upgrade
   interface_name: Docuseek2
-  note: Docuseek2. Access to the Docuseek3 online version restricted; authentication may be required.
+  note: Docuseek2. Authorized U-M users (+ guests in U-M Libraries)
   link: http://docuseek2.com/v/c/rYo/ds-3upgrd
   status: Available
 '99187633375306381':
 - collection_name: Docuseek2 Complete Collection
   interface_name: Docuseek2
-  note: Docuseek2. Access to the Docuseek2 online version restricted; authentication may be required.
+  note: Docuseek2. Authorized U-M users (+ guests in U-M Libraries)
   link: http://docuseek2.com/v/c/rYo/ds-compl
   status: Available
 '99187634186006381':
@@ -11244,14 +11122,14 @@
   status: Available
 '990119343880106381':
 - collection_name: Farm, Field and Fireside Collection
-  interface_name: University Library, University of Illinois
-  note: University Library, University of Illinois. Access to the University Library, University of Illinois online version.
+  interface_name: Illinois Digital Newspaper Collections
+  note: Illinois Digital Newspaper Collections. Open access for all users.
   link: https://idnc.library.illinois.edu/?a=p&p=collections&cltn=FFF&e=-------en-20--1--img-txIN----------
   status: Available
 '99187253735706381':
 - collection_name: Gazeta Wyborcza
-  interface_name: None
-  note: None. Access to the Gazeta Wyborcza online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Gazeta Wyborcza online version restricted; authentication may be required.
   link: https://wyborcza.pl/0,0.html
   status: Available
 '99187964252606381':
@@ -11266,16 +11144,22 @@
   note: East View. Authorized U-M users (+ guests in U-M Libraries)
   link: https://gpa.eastview.com/cumhuriyet/newspapers/cumh
   status: Available
+'99188116898606381':
+- collection_name: CRL Newspapers
+  interface_name: Center for Research Libraries
+  note: Center for Research Libraries. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://catalog.crl.edu
+  status: Available
 '99187676209306381':
 - collection_name: 'Bloomsbury Collections: Classical Studies & Archaeology 2022'
   interface_name: Bloomsbury Publishing Plc
-  note: Bloomsbury Publishing Plc. Access to the Bloomsbury Collections online version restricted; authentication may be required.
+  note: Bloomsbury Publishing Plc. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.bloomsburycollections.com/
   status: Available
 '99187675984806381':
 - collection_name: Jewish Chronicle Archive
   interface_name: Jewish Chronicle
-  note: Jewish Chronicle. Individual registration is required for access to the Jewish Chronicle Archive; authentication may be required.
+  note: Jewish Chronicle. Access requires personal registration. Authorized U-M users (+ guests in U-M Libraries)
   link: https://archive.thejc.com/
   status: Available
 '99187678402306381':
@@ -11287,7 +11171,7 @@
 '99187678302206381':
 - collection_name: ACS In Focus Collection 1
   interface_name: American Chemical Society
-  note: American Chemical Society. American Chemical Society (access restricted; authentication may be required)
+  note: American Chemical Society. Authorized U-M users (+ guests in U-M Libraries)
   link: https://pubs.acs.org/series/infocus
   status: Available
 '99187678906906381':
@@ -11296,22 +11180,16 @@
   note: Journal.fi. Open access for all users.
   link: https://journal.fi
   status: Available
-'99187680401206381':
-- collection_name: Environmental Science and History
-  interface_name: None
-  note: None. Access to the Environmental Science and History Wiley Digital Archives online version restricted; authentication may be required. Access to the Environmental Science and History Wiley Digital Archives online version restricted; authentication may be required.
-  link: https://app.wileydigitalarchives.com/env
-  status: Available
 '99187680402806381':
 - collection_name: Royal Geographical Society (with IBG)
-  interface_name: None
-  note: None. Access to the Royal Geographical Society  online version restricted; authentication may be required. Access to the Royal Geographical Society  online version restricted; authentication may be required.
+  interface_name: Wiley Online Library
+  note: Wiley Online Library. Authorized U-M users (+ guests in U-M Libraries)
   link: https://app.wileydigitalarchives.com/rgs
   status: Available
 '99187680503606381':
 - collection_name: Sabinet Complete Collection
   interface_name: Sabinet
-  note: Sabinet. Access to the Sabinet African Journals online version restricted; authentication may be required. Access to the Sabinet African Journals online version restricted; authentication may be required.
+  note: Sabinet. Authorized U-M users (+ guests in U-M Libraries)
   link: https://journals.co.za/
   status: Available
 '99187680511906381':
@@ -11365,13 +11243,13 @@
 '99187680514406381':
 - collection_name: North American City Reports
   interface_name: Coherent Digital
-  note: Coherent Digital. Access to the Policy Commons, Coherent Digital online version restricted; authentication may be required.
+  note: Coherent Digital. Authorized U-M users (+ guests in U-M Libraries)
   link: https://policycommons.net/
   status: Available
 '99187682305206381':
 - collection_name: Japan Times Archives
   interface_name: Japan Times
-  note: Japan Times. Access to the Japan Times online version restricted; authentication may be required.
+  note: Japan Times. Authorized U-M users (+ guests in U-M Libraries)
   link: https://jt-archives.jp/
   status: Available
 '99187682178506381':
@@ -11379,12 +11257,6 @@
   interface_name: Bridgeman Art Library
   note: Bridgeman Art Library.
   link: http://www.bridgemaneducation.com
-  status: Available
-'99187682061906381':
-- collection_name: 'APA Handbooks: titles to be determined'
-  interface_name: None
-  note: None.
-  link: https://psycnet.apa.org/PsycBOOKS
   status: Available
 '99187686512706381':
 - collection_name: Policy Commons
@@ -11394,14 +11266,14 @@
   status: Available
 '99187686688206381':
 - collection_name: Singerman Bibliography of Antisemitic Texts in English
-  interface_name: None
-  note: None. Access to the De Gruyter online version restricted; authentication may be required. Access to the De Gruyter online version restricted; authentication may be required.
+  interface_name: De Gruyter
+  note: De Gruyter. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.degruyter.com/database/SIBA/html?lang=en
   status: Available
 '99187686884706381':
 - collection_name: MIT Press Trade Ebook Collections ( 2022 and 2023)
-  interface_name: None
-  note: None. Access to the MIT Press Trade Ebooks online version restricted; authentication may be required. Access to the MIT Press Trade Ebooks online version restricted; authentication may be required.
+  interface_name: MIT Press
+  note: MIT Press. Authorized U-M users (+ guests in U-M Libraries)
   link: https://mitpress.mit.edu/books/subjects/
   status: Available
 '99187688497906381':
@@ -11428,23 +11300,17 @@
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://congressional.proquest.com/congressional/search/advanced/advanced
   status: Available
-'99187688504206381':
-- collection_name: The Dolley Madison digital edition /
-  interface_name: None
-  note: None. Access to the The Dolley Madison digital edition online version restricted; authentication may be required.
-  link: http://rotunda.upress.virginia.edu/dmde/
-  status: Available
 '99187689791206381':
 - collection_name: 'C19: The Nineteenth Century Index'
   interface_name: ProQuest
-  note: ProQuest. ProQuest (access restricted; authentication may be required)
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/c19index
   status: Available
 '99187690603806381':
 - collection_name: 'International Women''''s Movement: The Pan Pacific Southeast Asia Women’s Association of the USA, 1950-1985'
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/collection/4mtq/gdsc?u=[location_id]&sid=gdsc
+  link: https://link.gale.com/apps/collection/4mtq/GDSC?u=umuser&sid=gdsc
   status: Available
 '99187690606606381':
 - collection_name: The Changing Men Collection Vertical Files
@@ -11473,13 +11339,13 @@
 '99187690594406381':
 - collection_name: World Scientific eBook complete package
   interface_name: World Scientific Publishing
-  note: World Scientific Publishing. World Scientific Publishing (access restricted; authentication may be required) World Scientific Publishing (access restricted; authentication may be required)
+  note: World Scientific Publishing. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.worldscientific.com/page/worldscibooks
   status: Available
 '99187694902306381':
 - collection_name: Medijski arhiv Ebart
-  interface_name: None
-  note: None. Access to the Medijski arhiv Ebart online version restricted; authentication may be required. Access to the Medijski arhiv Ebart online version restricted; authentication may be required.
+  interface_name: ''
+  note: Open access for all users.
   link: http://ip.arhiv.rs/novinska-arhiva/
   status: Available
 '99187694864006381':
@@ -11508,14 +11374,14 @@
   status: Available
 '99187708592206381':
 - collection_name: Ogonek (St. Petersburg) Digital Archive (1899-1918)
-  interface_name: None
-  note: None. Access to the Ogonek (St. Petersburg) Digital Archive (1899-1918) online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Ogonek (St. Petersburg) Digital Archive (1899-1918) online version restricted; authentication may be required.
   link: https://dlib.eastview.com/browse/udb/3670
   status: Available
 '99187708592506381':
 - collection_name: Soviet Woman Digital Archive (1945-1991)
-  interface_name: None
-  note: None. Access to the Soviet Woman Digital Archive (1945-1991) online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Soviet Woman Digital Archive (1945-1991) online version restricted; authentication may be required.
   link: https://dlib.eastview.com/browse/udb/3770
   status: Available
 '990094695370106381':
@@ -11552,12 +11418,12 @@
 - collection_name: American Museum of Natural History Research Library
   interface_name: American Museum of Natural History Research Library
   note: American Museum of Natural History Research Library.
-  link: ''
-  status: Not Available
+  link: http://digitallibrary.amnh.org/dspace/
+  status: Available
 '99187755011506381':
 - collection_name: ACS In Focus Collection 2
   interface_name: American Chemical Society
-  note: American Chemical Society. American Chemical Society (access restricted; authentication may be required)
+  note: American Chemical Society. Authorized U-M users (+ guests in U-M Libraries)
   link: ''
   status: Not Available
 '99187755586506381':
@@ -11588,8 +11454,8 @@
 - collection_name: The Vibe Archive
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: ''
-  status: Not Available
+  link: https://www.proquest.com/vibe
+  status: Available
 '99187755481306381':
 - collection_name: 'Colonial Legacies: Empire & Commonwealth Periodicals'
   interface_name: ProQuest
@@ -11636,7 +11502,7 @@
 - collection_name: 'Archives of Sexuality and Gender Part 5: L''Enfer Collection'
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/aboutThisCollection?userGroupName=umuser&inPS=true&mCode=10UH&prodId=AHSI
+  link: https://link.gale.com/apps/archive/10UG/AHSI?u=umuser
   status: Available
 '99187784892206381':
 - collection_name: 'Women’s Studies Archive: Rare Titles from the American Antiquarian Society, 1820-1922'
@@ -11672,7 +11538,7 @@
 - collection_name: 'Southern Negro Youth Congress and the Communist Party: Papers of James and Esther Cooper Jackson'
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/aboutThisCollection?p=GDSC&u=umuser&mCode=4LKU&sid=GDSC
+  link: https://link.gale.com/apps/collection/4LKU/GDSC?u=umuser&sid=bookmark-GDSC
   status: Available
 '99187784993606381':
 - collection_name: 'Indigenous Peoples of North America, Part II: The Indian Rights Association, 1882-1986'
@@ -11690,19 +11556,19 @@
 - collection_name: 'Greensboro Massacre, 1979: Shootout between the American Nazis and the Communist Workers Party'
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/aboutThisCollection?p=GDSC&u=umuser&mCode=4WXE&sid=GDSC
+  link: https://link.gale.com/apps/collection/4wxe/gdsc?u=umuser&sid=gdsc
   status: Available
 '99187784996406381':
 - collection_name: Reports of the Immigrant Commission, 1907-1910
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/aboutThisCollection?p=GDSC&u=umuser&mCode=60F3&sid=GDSC
+  link: https://link.gale.com/apps/collection/60F3/gdsc?u=umuser&sid=gdsc
   status: Available
 '99187784996706381':
 - collection_name: Anglo-American Committee of Inquiry Palestine, 1944-1946
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/aboutThisCollection?p=GDSC&u=umuser&mCode=4VZS&sid=GDSC
+  link: https://link.gale.com/apps/collection/4VZS/gdsc?u=umuser&sid=gdsc
   status: Available
 '99187784997506381':
 - collection_name: FBI File on Robert F. Kennedy
@@ -11734,6 +11600,12 @@
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/archive/6OBR/APOA?u=umuser
   status: Available
+'99187725774206381':
+- collection_name: 'ProQuest Congressional Hearings Digital Collection: Part O (2022)'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://congressional.proquest.com/
+  status: Available
 '99187829285806381':
 - collection_name: Encyclopedia of Turkic languages and linguistics /
   interface_name: Brill Online reference works
@@ -11743,38 +11615,38 @@
 '99187829286406381':
 - collection_name: Detroit News Historical and Current Collection
   interface_name: NewsBank
-  note: NewsBank. NewsBank (access restricted; authentication may be required)
+  note: NewsBank. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.lib.umich.edu/databases/record/45616
   status: Available
 '99187829299806381':
 - collection_name: Revolución y cultura, 1967-2009
-  interface_name: None
-  note: None. Authorized U-M users (+ guests in U-M Libraries)
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: https://primarysources.brillonline.com/browse/revolucion-y-cultura
   status: Available
 '99187674514506381':
 - collection_name: Gu gong qi kan zhi shi ku =
-  interface_name: None
-  note: None. Access to the National Palace Museum Journals online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the National Palace Museum Journals online version restricted; authentication may be required.
   link: http://www.lib.umich.edu/database/link/49154
   status: Available
 '99187674514406381':
 - collection_name: Zhuan ji wen xue =
-  interface_name: None
-  note: None. Access to the Zhuanji wenxue Digital Archive online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Zhuanji wenxue Digital Archive online version restricted; authentication may be required.
   link: http://www.lib.umich.edu/database/link/49152
   status: Available
 '99187674514606381':
 - collection_name: Taiwan nichinichi shinpō.
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: http://www.lib.umich.edu/database/link/49151
   status: Available
 '99187829115806381':
 - collection_name: 'Archives of Sexuality and Gender: International Perspectives on LGBTQ Activism and Culture'
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/aboutThisCollection?userGroupName=umuser&inPS=true&mCode=10UH&prodId=AHSI
+  link: https://link.gale.com/apps/archive/83SL/AHSI?u=umuser
   status: Available
 '99187833106806381':
 - collection_name: AES digital library
@@ -11790,8 +11662,8 @@
   status: Available
 '99187829177406381':
 - collection_name: Chinese and English Newspaper of Modern China - Comprehensive Collection (1874-1949).
-  interface_name: None
-  note: None. Access to the National index to Chinese newspapers and periodicals online version restricted;  authentication may be required Access, limited to 5 concurrent user.
+  interface_name: ''
+  note: Access to the National index to Chinese newspapers and periodicals online version restricted;  authentication may be required Access, limited to 5 concurrent user.
   link: http://www.lib.umich.edu/database/link/34793
   status: Available
 '99187840609906381':
@@ -11803,13 +11675,13 @@
 '99187840045306381':
 - collection_name: 'Interwar Culture Module II: the 1930s'
   interface_name: AM (Adam Matthew)
-  note: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.interwarculture.amdigital.co.uk/
   status: Available
 '99187845103206381':
 - collection_name: Foundations of Materials Science and Engineering
   interface_name: Scientific.net Journals
-  note: Scientific.net Journals. Scientific.Net access restricted; authentication may be required.
+  note: Scientific.net Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.scientific.net/FoMSE
   status: Available
 '99187845104806381':
@@ -11827,25 +11699,25 @@
 '99187845803306381':
 - collection_name: 'Africa and the New Imperialism: European Borders on the African Continent, 1870-1914'
   interface_name: AM (Adam Matthew)
-  note: AM (Adam Matthew) Access to the AM online version restricted; authentication may be required.
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.africaandthenewimperialism.amdigital.co.uk/
   status: Available
 '99187845798506381':
 - collection_name: 'Colonial Caribbean Module II: Colonial Government and Abolition, 1833-1849'
   interface_name: AM (Adam Matthew)
-  note: AM (Adam Matthew) Access to the AM online version restricted; authentication may be required.
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.colonialcaribbean.amdigital.co.uk
   status: Available
 '99187845799206381':
 - collection_name: Big Ten Open Books Gender & Sexuality Studies Collection
   interface_name: University of Michigan Press
-  note: University of Michigan Press. Access to the University of Michigan Press online version restricted; authentication may be required.
+  note: University of Michigan Press. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www-fulcrum-org.proxy.lib.umich.edu/michigan?locale=en
   status: Available
 '99187848208006381':
 - collection_name: Books of modern China
-  interface_name: None
-  note: None. 5 concurrent user limit. Access to the National index to Chinese newspapers and periodicals online version restricted; Search for content; authentication may be required.
+  interface_name: ''
+  note: 5 concurrent user limit. Access to the National index to Chinese newspapers and periodicals online version restricted; Search for content; authentication may be required.
   link: http://www.lib.umich.edu/database/link/30872
   status: Available
 '99187851905506381':
@@ -11910,8 +11782,8 @@
   status: Available
 '99187579748206381':
 - collection_name: 'Deep Time Maps™ :'
-  interface_name: None
-  note: None. Access to the Deep Time Maps online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Deep Time Maps online version restricted; authentication may be required.
   link: https://deeptimemaps.com/
   status: Available
 '99187857326806381':
@@ -11929,7 +11801,7 @@
 '99187868494006381':
 - collection_name: SCOAP3 Ebook collection
   interface_name: SCOAP3 Journals
-  note: SCOAP3 Journals. Access to the SCOAP3 Ebook collection online version restricted; authentication may be required.
+  note: SCOAP3 Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://scoap3.org/scoap3-books/
   status: Available
 '99187857538706381':
@@ -12019,13 +11891,13 @@
 '99187872605106381':
 - collection_name: Pediatric care online
   interface_name: American Academy of Pediatrics
-  note: American Academy of Pediatrics. American Academy of Pediatrics access restricted; authentication may be required.
+  note: American Academy of Pediatrics. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.pediatriccareonline.org/
   status: Available
 '99187868449706381':
 - collection_name: 'ProQuest Historical Newspapers: Chicago Defender (All Years)'
   interface_name: ProQuest
-  note: ProQuest. test note. Authorized U-M users (+ guests in U-M Libraries)
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://about.proquest.com/en/products-services/pq-hist-news/
   status: Available
 '99187877311106381':
@@ -12043,8 +11915,14 @@
 '99187883712106381':
 - collection_name: PapersFirst
   interface_name: OCLC
-  note: OCLC. OCLC FirstSearch access restricted; authentication may be required.
+  note: OCLC. Authorized U-M users (+ guests in U-M Libraries)
   link: http://firstsearch.oclc.org/done=referer;dbname=PapersFirst;FSIP
+  status: Available
+'99188116898906381':
+- collection_name: MoMA Exhibition Catalogs
+  interface_name: MoMA
+  note: MoMA. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.moma.org/calendar/exhibitions/history/?sort_date=&mde_type=Exhibition&location=both&begin_date=1929&end_date=now&q=
   status: Available
 '99187884813606381':
 - collection_name: 'Broadcasting America: The Rise of Mass Media and Communications'
@@ -12115,7 +11993,7 @@
 '99187893583306381':
 - collection_name: Faulkner Advisory for IT Studies (FAITS)
   interface_name: Faulkner
-  note: Faulkner. Faulkner access restricted; authentication may be required.
+  note: Faulkner. Authorized U-M users (+ guests in U-M Libraries)
   link: https://faulkner.com/products/faits/?login
   status: Available
 '99187893588606381':
@@ -12127,7 +12005,7 @@
 '99187892677906381':
 - collection_name: Sociological Abstracts
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/sociologicalabstracts
   status: Available
 '99187903480606381':
@@ -12151,7 +12029,7 @@
 '99187903567606381':
 - collection_name: Periodicals Index Online
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/pio
   status: Available
 '99187903568706381':
@@ -12175,7 +12053,7 @@
 '99187747855506381':
 - collection_name: OSTI
   interface_name: OSTI
-  note: OSTI.
+  note: OSTI. Open access for all users.
   link: https://www.osti.gov/
   status: Available
 '99187911404006381':
@@ -12204,14 +12082,14 @@
   status: Available
 '99187743802206381':
 - collection_name: Shiryō sanshū =
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: ''
   status: Not Available
 '99187919011206381':
 - collection_name: Royal Shakespeare Company Archives
   interface_name: AM (Adam Matthew)
-  note: AM (Adam Matthew) Access to the AM Royal Shakespeare Company Archives online version restricted; authentication may be required.
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.royalshakespearecompanyarchives.amdigital.co.uk/
   status: Available
 '99187919015206381':
@@ -12241,7 +12119,7 @@
 '99187923706106381':
 - collection_name: Environmental Science Index
   interface_name: ProQuest
-  note: ProQuest.
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/esindex
   status: Available
 '99187924372906381':
@@ -12259,7 +12137,7 @@
 '99187925906106381':
 - collection_name: Colonial Caribbean Module III
   interface_name: AM (Adam Matthew)
-  note: AM (Adam Matthew) Access to the AM online version restricted; authentication may be required.
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.colonialcaribbean.amdigital.co.uk/
   status: Available
 '99187925906306381':
@@ -12294,8 +12172,8 @@
   status: Available
 '99187933302206381':
 - collection_name: Archiv für Diplomatik, Schriftgeschichte, Siegel- und Wappenkunde
-  interface_name: None
-  note: None.
+  interface_name: ''
+  note: ''
   link: https://www.vr-elibrary.de/doi/book/
   status: Available
 '99187937408406381':
@@ -12426,8 +12304,8 @@
   status: Available
 '99187947286206381':
 - collection_name: Zhongguo ji ben gu ji ku.
-  interface_name: None
-  note: 'None. Access to the Zhongguo ji ben gu ji ku restricted; Search for content; authentication may be required:  2 concurrent users.'
+  interface_name: ''
+  note: 'Access to the Zhongguo ji ben gu ji ku restricted; Search for content; authentication may be required:  2 concurrent users.'
   link: https://apps.lib.umich.edu/database/link/49405
   status: Available
 '99187947159106381':
@@ -12448,11 +12326,77 @@
   note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.jstor.org/site/struggles-for-freedom/southern-africa/
   status: Available
+'99187947218006381':
+- collection_name: FBI file
+  interface_name: ''
+  note: Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/9IOY/GDSC?u=umuser&sid=GDSC
+  status: Available
+'99187947218106381':
+- collection_name: Western books on Southeast Asia.
+  interface_name: ''
+  note: Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/035P/GDSC?u=umuser&sid=GDSC
+  status: Available
+'99187947218206381':
+- collection_name: 'Records of the U.S. State Department :'
+  interface_name: Gale
+  note: Gale. Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/5RAE/GDSC?u=umuser&sid=GDSC
+  status: Available
+'99187947218306381':
+- collection_name: Colección Revolución, 1910-1921.
+  interface_name: ''
+  note: Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/6CTV/GDSC?u=umuser&sid=GDSC
+  status: Available
+'99187947218406381':
+- collection_name: The international war on drugs.
+  interface_name: Gale
+  note: Gale. Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/2ZWJ/GDSC?u=umuser&sid=GDSC
+  status: Available
+'99187947218606381':
+- collection_name: 'U.S. and Castro''s Cuba, 1950-1970 :'
+  interface_name: Gale
+  note: Gale. Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/2YRI/GDSC?u=umuser&sid=GDSC
+  status: Available
 '99187947218806381':
 - collection_name: Journaux de la Révolution de 1848 =
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/collection/3XNN/GDSC?u=umuser&sid=GDSC
+  status: Available
+'99187947218906381':
+- collection_name: 'FBI file :'
+  interface_name: ''
+  note: Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13SD/GDSC?u=umuser&sid=GDSC
+  status: Available
+'99187947219106381':
+- collection_name: 'The Jewish question :'
+  interface_name: ''
+  note: Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/5DST/GDSC?u=umuser&sid=GDSC
+  status: Available
+'99187947219206381':
+- collection_name: German anti-Semitic propaganda, 1909-1941.
+  interface_name: ''
+  note: Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/6MMA/GDSC?u=umuser&sid=GDSC
+  status: Available
+'99187947219306381':
+- collection_name: 'German Folklore and Popular Culture: Das Kloster. Scheible'
+  interface_name: ''
+  note: Access to the Authorized U-M users (+ guests in U-M Libraries). online version restricted; authentication may be required.
+  link: https://link.gale.com/apps/collection/4LKO/GDSC?u=umuser&sid=GDSC
+  status: Available
+'99187947219406381':
+- collection_name: Palestine Statehood Committee records, 1939-1949.
+  interface_name: Gale
+  note: Gale. Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/54SH/GDSC?u=umuser&sid=GDSC
   status: Available
 '99187947219506381':
 - collection_name: Dissent in Poland.
@@ -12474,26 +12418,26 @@
   status: Available
 '99187947219806381':
 - collection_name: Records of the Department of State Relating to Internal Affairs, Ethiopia, 1945-1963.
-  interface_name: None
-  note: None. Access to the Gale online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Gale online version restricted; authentication may be required.
   link: https://link.gale.com/apps/collection/54SQ/GDSC?u=umuser&sid=GDSC
   status: Available
 '990162750180106381':
 - collection_name: The Sunday times digital archive.
-  interface_name: None
-  note: None. Access to the Gale online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Gale online version restricted; authentication may be required.
   link: https://go.gale.com/ps/start.do?p=STHA&u=umuser
   status: Available
 '99187947220106381':
 - collection_name: Gale Literary Criticism Online.
-  interface_name: None
-  note: None. Access to the Gale Literary Criticism online version restricted; authentication may be required.
+  interface_name: Gale
+  note: Gale. Access to the Authorized U-M users (+ guests in U-M Libraries)
   link: http://go.galegroup.com/ps/titleList.do?actionString=DO_FETCH_USER_EBOOKS&userGroupName=umuser&inPS=true&prodId=LCO
   status: Available
 '99187947220406381':
 - collection_name: 'China and the Modern World: Diplomacy and Political Secrets'
-  interface_name: None
-  note: None. Access to the Gale online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the Gale online version restricted; authentication may be required.
   link: https://link.gale.com/apps/CFER?u=umuser
   status: Available
 '99187948380406381':
@@ -12546,14 +12490,14 @@
   status: Available
 '99187964286206381':
 - collection_name: GCA Pubs and GIS Collection
-  interface_name: None
-  note: None. Access to the East View online version restricted; authentication may be required.
+  interface_name: ''
+  note: Access to the East View online version restricted; authentication may be required.
   link: https://dlib.eastview.com/browse/udb/3870
   status: Available
 '99187979394906381':
 - collection_name: 'History commons : Weimar and Nazi Germany'
-  interface_name: None
-  note: None. Authorized U-M users (+ guests in U-M Libraries)
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: https://history-commons.net/modules/weimar-and-nazi-germany/
   status: Available
 '99187979404506381':
@@ -12590,7 +12534,7 @@
 - collection_name: Archives of sexuality and gender.
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/start.do?p=AHSI&u=umuser&aty=ip
+  link: https://link.gale.com/apps/AHSI?u=umuser
   status: Available
 '99187979361206381':
 - collection_name: 'Refugees, Relief, and Resettlement: The Early Cold War and Decolonization'
@@ -12621,6 +12565,12 @@
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
   link: https://primarysources.brillonline.com/browse/human-rights-documents-online
+  status: Available
+'99187990277306381':
+- collection_name: 'ProQuest Congressional Hearings Digital Collection: Part P (2023)'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://congressional.proquest.com/congressional/search/advanced/advanced
   status: Available
 '99187990280806381':
 - collection_name: 'China and the Modern World: Hong Kong, Britain and China Part II, 1965-1993'
@@ -12673,7 +12623,7 @@
 '99187992702406381':
 - collection_name: EBSCOHost Caribbean Search
   interface_name: EBSCOhost
-  note: EBSCOhost. Authorized for U-M users + guests provided by the Michigan eLibrary (MeL)
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=b7h
   status: Available
 '99187992471606381':
@@ -12753,24 +12703,6 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/dnsa_61
-  status: Available
-'99187997305706381':
-- collection_name: 'History Vault: Workers, Labor, and Race: Records of the Fair Employment Practices Committee, 1941-1946 (Legacy)'
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://hv.proquest.com/historyvault/hv.jsp?pageid=browse&mid=35499%2335499
-  status: Available
-'99187997305806381':
-- collection_name: 'History Vault: Joint Chiefs of Staff in the Early Cold War, 1946-1960 (Legacy)'
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://hv.proquest.com/historyvault/hv.jsp?pageid=browse&mid=85158%2385158
-  status: Available
-'99187997305906381':
-- collection_name: 'History Vault: American Jewish Congress Records: Executive and Convention Files (Legacy)'
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://hv.proquest.com/historyvault/hv.jsp?pageid=browse&mid=60030%2360030
   status: Available
 '99187997307206381':
 - collection_name: 'ProQuest Historical Newspapers: Philadelphia Tribune (All Years)'
@@ -12870,15 +12802,15 @@
   status: Available
 '99188000313706381':
 - collection_name: Building Types Online
-  interface_name: None
-  note: None. Authorized U-M users (+ guests in U-M Libraries)
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.degruyter.com/view/db/bdt
   status: Available
 '99188000787006381':
 - collection_name: Dictionary of Old English Web Corpus
   interface_name: University of Toronto
-  note: University of Toronto. New Version of Corpus Coming Soon (07/22/2024) Authorized U-M users (+ guests in U-M Libraries)
-  link: https://tapor.library.utoronto.ca/doecorpus/
+  note: University of Toronto. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://corpus.doe.utoronto.ca/
   status: Available
 '99188002011706381':
 - collection_name: Abstracts in Social Gerontology
@@ -13076,14 +13008,14 @@
 - collection_name: De Gruyter University of Texas Press eBook-Package Backlist 2000-2013
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: ''
-  status: Not Available
+  link: https://www.degruyter.com
+  status: Available
 '99188040369306381':
 - collection_name: De Gruyter University of Texas Press Complete eBook-Package 2023
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: ''
-  status: Not Available
+  link: https://www.degruyter.com
+  status: Available
 '99188040370506381':
 - collection_name: De Gruyter University of Texas Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
@@ -13099,13 +13031,13 @@
 '99188040525906381':
 - collection_name: Church Missionary Society Archives
   interface_name: Adam Matthew Publications Ltd
-  note: Adam Matthew Publications Ltd.
+  note: Adam Matthew Publications Ltd. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.amscholar.amdigital.co.uk/CMS
   status: Available
 '99188040530606381':
 - collection_name: East India Company, Module V
   interface_name: AM (Adam Matthew)
-  note: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.eastindiacompany.amdigital.co.uk/
   status: Available
 '99188040538306381':
@@ -13124,8 +13056,8 @@
 - collection_name: Hindi Cinema
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
-  link: ''
-  status: Not Available
+  link: https://www.hindicinema.amdigital.co.uk
+  status: Available
 '99188040441306381':
 - collection_name: Russia Presidential Election, 2012
   interface_name: East View Information Services
@@ -13284,8 +13216,8 @@
   status: Available
 '99188055971306381':
 - collection_name: Arcanum newspapers.
-  interface_name: None
-  note: None. Access to the Arcanum newspapers online version restricted; authentication may be required.
+  interface_name: Arcanum Newspapers
+  note: Arcanum Newspapers. Authorized U-M users (+ guests in U-M Libraries)
   link: https://adt.arcanum.com/en/discover/
   status: Available
 '99188056077206381':
@@ -13320,9 +13252,9 @@
   status: Available
 '99188073788506381':
 - collection_name: medici.tv.
-  interface_name: None
-  note: None. Access to the Medici Live online version restricted; authentication may be required.
-  link: http://www.medici.tv
+  interface_name: medici.tv
+  note: medici.tv. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://edu.medici.tv/en
   status: Available
 '99188074990506381':
 - collection_name: MEDLINE (Ovid)
@@ -13707,4 +13639,196 @@
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/archive/5629/NCCO?u=umuser
+  status: Available
+'99188107711606381':
+- collection_name: 'History Vault: Slavery, the Slave Trade, and Law and Order in 19th Century America'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hvslavery19thcentury
+  status: Available
+'99188107711706381':
+- collection_name: 'History Vault: Reconstruction and Military Government after the Civil War, 1865-1877'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hvreconstruction
+  status: Available
+'99188107711806381':
+- collection_name: 'History Vault: Latino Civil Rights during the Carter Administration'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hvlatinocivilcarter
+  status: Available
+'99188107711906381':
+- collection_name: 'History Vault: Joint Chiefs of Staff in the Early Cold War, 1946-1960'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hvjointchiefsstaff
+  status: Available
+'99188107712006381':
+- collection_name: 'History Vault: Workers, Labor, and Race: Records of the Fair Employment Practices Committee, 1941-1946'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hvfepc1
+  status: Available
+'99188107712106381':
+- collection_name: 'History Vault: American Jewish Congress Records: Administrative and Executive Committee, Governing Council, National Conventions, and Executive Director Files'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hvamjewishcongexecutive
+  status: Available
+'99188107712206381':
+- collection_name: 'History Vault: Reverend J. H. Jackson and the National Baptist Convention, 1900-1990'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hvrevjacksonnbc
+  status: Available
+'99188107712406381':
+- collection_name: 'History Vault: Americans for Democratic Action Records, 1932-1999'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hvamericansdem
+  status: Available
+'99188107712606381':
+- collection_name: 'History Vault: Slavery in Antebellum Southern Industries'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hvslaveryindustries
+  status: Available
+'99188110314606381':
+- collection_name: Naxos Video Library (NVL) US
+  interface_name: Naxos Music Library (NML)
+  note: Naxos Music Library (NML)
+  link: http://www.NaxosVideoLibrary.com
+  status: Available
+'99188110314706381':
+- collection_name: Naxos Music Library (NML) US
+  interface_name: Naxos Music Library (NML)
+  note: Naxos Music Library (NML)
+  link: https://naxosmusiclibrary.com/
+  status: Available
+'99188114877806381':
+- collection_name: Neighborhood Change Database [NCDB] Tract Data
+  interface_name: GeoLytics, Inc.
+  note: GeoLytics, Inc. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://www.geolytics.com/USCensus,Neighborhood-Change-Database-1970-2000,Products.asp
+  status: Available
+'99188114878206381':
+- collection_name: Parker Library on the Web
+  interface_name: Stanford University
+  note: Stanford University. Open access for all users.
+  link: https://parker.stanford.edu/parker/
+  status: Available
+'99188114878306381':
+- collection_name: Drugs at FDA
+  interface_name: FDA/Center for Drug Evaluation and Research
+  note: FDA/Center for Drug Evaluation and Research.
+  link: https://www.accessdata.fda.gov/scripts/cder/daf/
+  status: Available
+'99188116889206381':
+- collection_name: 'ProQuest Historical Newspapers: St. Louis American'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hnpstlouisamerican
+  status: Available
+'99188116898406381':
+- collection_name: 'ProQuest Congressional Hearings Digital Collection: Part Q (2024)'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://congressional.proquest.com/congressional/search/advanced/advanced
+  status: Available
+'99188116899006381':
+- collection_name: 'Wiley Digital Archives: Environmental Science and History'
+  interface_name: Wiley Online Library
+  note: Wiley Online Library. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.wileydigitalarchives.com/environmental-science-and-history
+  status: Available
+'99188119415106381':
+- collection_name: 'The Olympic Movement: Sport, Global Politics and Identity'
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.theolympicmovement.amdigital.co.uk/
+  status: Available
+'99188119415206381':
+- collection_name: 'American Committee on Africa: Liberation Movements, Solidarity and Activism'
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.americancommitteeonafrica.amdigital.co.uk/
+  status: Available
+'99188121300306381':
+- collection_name: Periodicals of the Baltics, Belarus, Moldova, and Ukraine
+  interface_name: East View
+  note: East View. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://dlib.eastview.com/browse/udb/2190
+  status: Available
+'99188122742706381':
+- collection_name: 2023 Lived Places Publishing Library Collection
+  interface_name: 2023 Lived Places Publishing Library Collection
+  note: 2023 Lived Places Publishing Library Collection. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://livedplacespublishing.com/page/collections
+  status: Available
+'99188125543106381':
+- collection_name: GIDEON Ebooks 2024
+  interface_name: GIDEON Informatics, Inc.
+  note: GIDEON Informatics, Inc. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.gideononline.com/ebooks/
+  status: Available
+'99188125850206381':
+- collection_name: Google LIFE Photo Archive
+  interface_name: Google.com
+  note: Google.com. Open access for all users.
+  link: http://images.google.com/hosted/life
+  status: Available
+'99188126528106381':
+- collection_name: 'We Were Prepared for the Possibility of Death: Freedom Riders in the South, 1961'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/4hlv/gdsc?u=umuser&sid=gdsc
+  status: Available
+'99188126528206381':
+- collection_name: Edition.fi
+  interface_name: HULib_OA
+  note: HULib_OA. Open access for all users.
+  link: ''
+  status: Not Available
+'99188126432906381':
+- collection_name: Classical Studies E-Books Online, Collection 2025
+  interface_name: Brillonline
+  note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.brill.com/
+  status: Available
+'99188126433006381':
+- collection_name: Biblical Studies, Ancient Near East and Early Christianity E-Books Online, Collection 2025
+  interface_name: Brillonline
+  note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.brill.com/
+  status: Available
+'99188126433106381':
+- collection_name: Middle East and Islamic Studies E-Books Online, Collection 2025
+  interface_name: Brillonline
+  note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.brill.com/
+  status: Available
+'99188126433206381':
+- collection_name: Pandemics, Society, and Public Health, 1517-1925
+  interface_name: Microform Academic Publishers
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://microform.digital/boa/collections/125/pandemics-society-and-public-health-1517-1925
+  status: Available
+'99188126431806381':
+- collection_name: OverDrive Ebooks and Audiobooks
+  interface_name: OverDrive
+  note: OverDrive. Access requires personal registration. Authorized U-M users (no guest access)
+  link: http://www.overdrive.com
+  status: Available
+'99188126290806381':
+- collection_name: Dolley Madison Digital Edition
+  interface_name: University of Virginia
+  note: University of Virginia. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://rotunda.upress.virginia.edu/dmde
+  status: Available
+'99188149117706381':
+- collection_name: 'ProQuest Historical Newspapers: Boston Globe (All Years)'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hnpnewyorkbostonglobe1
   status: Available
