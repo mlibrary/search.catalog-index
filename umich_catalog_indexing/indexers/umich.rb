@@ -59,7 +59,7 @@ end
 # Apply Best Bets
 require "best_bets"
 
-BestBets.load("https://apps.lib.umich.edu/admin/bestbets/export").each_term do |term|
+BestBets.load(S.recommended_resources_url).each_term do |term|
   to_field(term.to_field) do |rec, acc|
     term.on(rec[term.marc].value) do |rank|
       acc << rank
