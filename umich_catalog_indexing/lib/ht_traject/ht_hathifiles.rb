@@ -47,7 +47,9 @@ module HathiTrust
 
       query(bib_nums: bib_nums, oclc_nums: oclc_nums).each do |r|
         hf_hash[r[:id]] = r
-        hf_hash[r[:id]]["source"] = CGI.unescapeHTML(CC_TO_OF[r[:collection_code].downcase])
+        collection_code = CC_TO_OF[r[:collection_code].downcase]
+        raise StandardError, "HathiTrust collection code not found: #{r[:collection_code]}" if collection_code.nil?
+        hf_hash[r[:id]]["source"] = CGI.unescapeHTML(collection_code)
       end
 
       hf_hash.values
