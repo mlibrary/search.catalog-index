@@ -36,27 +36,17 @@ module Traject
       #=== between 09-2022 changes and here should be removed
       #=== when confirmed that everything in SPEC is cleaned up
 
-      m[/^HATCH MSHLV/] = "HATCH BKS"
-      m[/^HATCH MREF/] = "HATCH BKS"
-      m[/^HATCH MOVRD/] = "HATCH MAP"
-      m[/^HATCH MOVR/] = "HATCH BKS"
-      m[/^HATCH MMIC/] = "HATCH MAP"
-      m[/^HATCH DFILE/] = "HATCH DOCS"
+      m[/^HATCH AOFFNC/] = "HATCH ASIA"
+      m[/^HATCH AOKA/] = "HATCH ASIA"
       m[/^HATCH AREF/] = "HATCH ASIA"
       m[/^HATCH AOVR/] = "HATCH ASIA"
       m[/^HATCH AOFF/] = "HATCH ASIA"
       m[/^HATCH AMIC/] = "HATCH ASIA"
       m[/^HATCH ASPEC/] = "HATCH ASIA"
-      m[/^HATCH MFOL/] = "HATCH MRAR"
-      m[/^HATCH MFILR/] = "HATCH MRAR"
-      m[/^HATCH MFILE/] = "HATCH MAP"
-      m[/^HATCH MATL/] = "HATCH BKS"
+
       m[/^HATCH GRNT/] = "HATCH REF"
       m[/^HATCH GLRF/] = "HATCH REF"
       m[/^HATCH GDESK/] = "HATCH REF"
-      m[/^HATCH DSOFT/] = "HATCH DOCS"
-      m[/^HATCH DREF/] = "HATCH DOCS"
-      m[/^HATCH DMIC/] = "HATCH DOCS"
 
       m[/^MiU-H/] = "BENT"
       m[/^MiU-C/] = "CLEM"
