@@ -97,8 +97,8 @@ module Jobs
         # for the Authority Record
         def to_h
           {
-            "150" => remediated_term,
-            "450" => deprecated_terms
+            "1xx" => remediated_term,
+            "4xx" => deprecated_terms
           }
         end
       end
