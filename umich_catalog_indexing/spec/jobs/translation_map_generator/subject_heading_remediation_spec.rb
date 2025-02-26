@@ -105,18 +105,18 @@ describe Jobs::TranslationMapGenerator::SubjectHeadingRemediation::Set do
       expect(subject.to_a).to eq(
         [
           {
-            "150" => remediated_term,
-            "450" => deprecated_terms
+            "1xx" => remediated_term,
+            "4xx" => deprecated_terms
           },
           {
-            "150" => {
+            "1xx" => {
               "a" => ["Whatever"],
               "x" => ["First x field", "Second x field"],
               "v" => ["First v field", "Second v field"],
               "y" => ["First y field", "Second y field"],
               "z" => ["First z field", "Second z field"]
             },
-            "450" => [
+            "4xx" => [
               {
                 "a" => ["Stuff"],
                 "x" => ["First deprecated x field", "Second deprecated x field"],
@@ -165,7 +165,7 @@ describe Jobs::TranslationMapGenerator::SubjectHeadingRemediation::Authority do
     end
   end
   context "#remediated_term" do
-    it "returns the remediated term in the 150" do
+    it "returns the remediated term in the 1xx" do
       expect(subject.remediated_term).to eq(remediated_term)
     end
     it "returns the remediated term in the 151" do
@@ -174,7 +174,7 @@ describe Jobs::TranslationMapGenerator::SubjectHeadingRemediation::Authority do
     end
   end
   context "#deprecated_terms" do
-    it "returns the deprecated terms from the 450 field" do
+    it "returns the deprecated terms from the 4xx field" do
       expect(subject.deprecated_terms).to contain_exactly(*deprecated_terms)
     end
     it "returns the deprecated terms from the 451 field" do
@@ -185,8 +185,8 @@ describe Jobs::TranslationMapGenerator::SubjectHeadingRemediation::Authority do
   context "#to_h" do
     it "returns the expected deprecated_to_remediated hash with downcased terms" do
       expect(subject.to_h).to eq({
-        "150" => remediated_term,
-        "450" => deprecated_terms
+        "1xx" => remediated_term,
+        "4xx" => deprecated_terms
       })
     end
   end
