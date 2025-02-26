@@ -5,6 +5,10 @@ def remediated_term
   {"a" => ["Undocumented immigrants"]}
 end
 
+def geo_remediated_term
+  {"a" => ["Mexico, Gulf of, Watershed"]}
+end
+
 def deprecated_terms
   [
     {
@@ -29,6 +33,17 @@ def deprecated_terms
     },
     {
       "a" => ["Undocumented noncitizens"]
+    }
+  ]
+end
+
+def geo_deprecated_terms
+  [
+    {
+      "a" => ["America, Gulf of, Watershed"]
+    },
+    {
+      "a" => ["Test Test Test"]
     }
   ]
 end
@@ -131,6 +146,7 @@ describe Jobs::TranslationMapGenerator::SubjectHeadingRemediation::Set do
   end
 end
 describe Jobs::TranslationMapGenerator::SubjectHeadingRemediation::Authority do
+  let(:geo_authority_record) { JSON.parse(fixture("subjects/geo_authority_record.json")) }
   before(:each) do
     @data = JSON.parse(fixture("subjects/authority_record.json"))
   end
@@ -149,13 +165,21 @@ describe Jobs::TranslationMapGenerator::SubjectHeadingRemediation::Authority do
     end
   end
   context "#remediated_term" do
-    it "returns the remediated term" do
+    it "returns the remediated term in the 150" do
       expect(subject.remediated_term).to eq(remediated_term)
+    end
+    it "returns the remediated term in the 151" do
+      @data = geo_authority_record
+      expect(subject.remediated_term).to eq(geo_remediated_term)
     end
   end
   context "#deprecated_terms" do
     it "returns the deprecated terms from the 450 field" do
       expect(subject.deprecated_terms).to contain_exactly(*deprecated_terms)
+    end
+    it "returns the deprecated terms from the 451 field" do
+      @data = geo_authority_record
+      expect(subject.deprecated_terms).to contain_exactly(*geo_deprecated_terms)
     end
   end
   context "#to_h" do
