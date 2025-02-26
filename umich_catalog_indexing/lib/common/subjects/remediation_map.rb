@@ -14,24 +14,24 @@ module Common
       def _create_normalized_mapping
         @mapping.map do |heading|
           new_heading = {}
-          heading["150"].keys.each do |code|
-            new_heading[code] = heading["150"][code].map do |value|
+          heading["1xx"].keys.each do |code|
+            new_heading[code] = heading["1xx"][code].map do |value|
               normalize_sf(value)
             end
           end
 
-          dep_headings = heading["450"].map.with_index do |_, index|
+          dep_headings = heading["4xx"].map.with_index do |_, index|
             dep_heading = {}
-            heading["450"][index].keys.each do |code|
-              dep_heading[code] = heading["450"][index][code].map do |value|
+            heading["4xx"][index].keys.each do |code|
+              dep_heading[code] = heading["4xx"][index][code].map do |value|
                 normalize_sf(value)
               end
             end
             dep_heading
           end
           {
-            "150" => new_heading,
-            "450" => dep_headings
+            "1xx" => new_heading,
+            "4xx" => dep_headings
           }
         end
       end

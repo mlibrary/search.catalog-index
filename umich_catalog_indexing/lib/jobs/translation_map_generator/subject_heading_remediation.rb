@@ -51,6 +51,8 @@ module Jobs
       end
 
       class Authority
+        AUTHORIZED_TERM_FIELDS = ["100", "110", "111", "130", "150", "151", "155"]
+        VARIANT_TERM_FIELDS = ["400", "410", "411", "430", "450", "451", "455"]
         SUBFIELDS = ["a", "v", "x", "y", "z"]
         # @param authority_record_id [String] authority record id
         # @return [Job::TranslationMapGenerator::SubjecHeadingRemediation::Set::Authority] an Authority object
@@ -70,7 +72,7 @@ module Jobs
         # code.
         def remediated_term
           out_hash = Hash.new { |h, key| h[key] = [] }
-          @record.fields("150").first.subfields.each do |sf|
+          AUTHORIZED_TERM_FIELDS.filter_map { |f| @record.fields(f)&.first }.first.subfields.each do |sf|
             out_hash[sf.code].push(sf.value) if SUBFIELDS.include?(sf.code)
           end
           out_hash
@@ -80,7 +82,7 @@ module Jobs
         # deprecated terms. The keys of the hash are the subfield code, the
         # value is an array of terms for the code.
         def deprecated_terms
-          @record.fields("450").map do |field|
+          VARIANT_TERM_FIELDS.filter_map { |f| @record.fields(f) unless @record.fields.empty? }.flatten.map do |field|
             out_hash = Hash.new { |h, key| h[key] = [] }
             field.subfields.each do |sf|
               out_hash[sf.code].push(sf.value) if SUBFIELDS.include?(sf.code)

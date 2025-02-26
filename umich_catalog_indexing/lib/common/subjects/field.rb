@@ -41,15 +41,15 @@ module Common
         match = _matching_deprecated_field
 
         sfields = @field.subfields.filter_map.with_index do |sf, index|
-          unless match["normalized"]["450"][sf.code]
+          unless match["normalized"]["4xx"][sf.code]
               &.include?(normalized_sfs[index]["value"])
             MARC::Subfield.new(sf.code, sf.value)
           end
         end
 
         remediated_field = MARC::DataField.new(@field.tag, @field.indicator1, "7", *sfields)
-        match["given"]["150"].keys.each do |code|
-          match["given"]["150"][code].each do |value|
+        match["given"]["1xx"].keys.each do |code|
+          match["given"]["1xx"][code].each do |value|
             remediated_field.append(MARC::Subfield.new(code, value))
           end
         end
@@ -63,9 +63,9 @@ module Common
       # generated because there were already remediated fields
       def to_deprecated
         match = _matching_remediated_field
-        match["given"]["450"].map do |f|
+        match["given"]["4xx"].map do |f|
           sfields = @field.subfields.filter_map.with_index do |sf, index|
-            unless match["normalized"]["150"][sf.code]
+            unless match["normalized"]["1xx"][sf.code]
                 &.include?(normalized_sfs[index]["value"])
               MARC::Subfield.new(sf.code, sf.value)
             end
@@ -85,11 +85,11 @@ module Common
       def _matching_deprecated_field
         @_matching_deprecated_field ||= begin
           @mapping.each_with_index do |this_to_that, index|
-            # Find the matching index of the 450 array where all of the
+            # Find the matching index of the 4xx array where all of the
             # deprecated subfields are found in the bib record subject field
-            dep_match_index = this_to_that["450"].index.with_index do |deprecated_subfields, dep_index|
+            dep_match_index = this_to_that["4xx"].index.with_index do |deprecated_subfields, dep_index|
               deprecated_subfields.keys.all? do |code|
-                @normalized_mapping[index]["450"][dep_index][code].all? do |dep_sf_value|
+                @normalized_mapping[index]["4xx"][dep_index][code].all? do |dep_sf_value|
                   _sf_in_field?(code: code, sf_value: dep_sf_value)
                 end
               end
@@ -98,12 +98,12 @@ module Common
             unless dep_match_index.nil?
               return {
                 "given" => {
-                  "150" => this_to_that["150"],
-                  "450" => @mapping[index]["450"][dep_match_index]
+                  "1xx" => this_to_that["1xx"],
+                  "4xx" => @mapping[index]["4xx"][dep_match_index]
                 },
                 "normalized" => {
-                  "150" => @normalized_mapping[index]["150"],
-                  "450" => @normalized_mapping[index]["450"][dep_match_index]
+                  "1xx" => @normalized_mapping[index]["1xx"],
+                  "4xx" => @normalized_mapping[index]["4xx"][dep_match_index]
                 }
               }
             end
@@ -119,8 +119,8 @@ module Common
         @_matching_remediated_field ||= begin
           # find the index in mapping where the field from the bib record contains all of the values
           index = @mapping.index.with_index do |this_to_that, i|
-            this_to_that["150"].keys.all? do |code|
-              @normalized_mapping[i]["150"][code].all? do |dep_sf_value|
+            this_to_that["1xx"].keys.all? do |code|
+              @normalized_mapping[i]["1xx"][code].all? do |dep_sf_value|
                 _sf_in_field?(code: code, sf_value: dep_sf_value)
               end
             end

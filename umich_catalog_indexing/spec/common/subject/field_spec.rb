@@ -4,14 +4,14 @@ RSpec.describe Common::Subjects::Field do
     @field = remediated_field
     @mapping = [
       {
-        "150" => {
+        "1xx" => {
           "a" => ["A"],
           "x" => ["X1", "X2"],
           "v" => ["V1", "V2"],
           "y" => ["Y1", "Y2"],
           "z" => ["Z1", "Z2"]
         },
-        "450" => [
+        "4xx" => [
           {
             "a" => ["deprecated A"],
             "x" => ["deprecated X1", "deprecated X2"],
@@ -71,13 +71,13 @@ RSpec.describe Common::Subjects::Field do
       expect(subject.remediable?).to eq(true)
     end
     it "is false when any subfield doesn't match deprecated field" do
-      @mapping[0]["450"][0]["v"][1] = "something other deprecated v"
+      @mapping[0]["4xx"][0]["v"][1] = "something other deprecated v"
       expect(subject.remediable?).to eq(false)
     end
     it "is true when the second mapping entity has the matching deprecated field" do
       @mapping.insert(0, {
-        "150" => {"a" => ["blah"]},
-        "450" => [{"a" => ["whatever"]}]
+        "1xx" => {"a" => ["blah"]},
+        "4xx" => [{"a" => ["whatever"]}]
       })
       @field = deprecated_field
       expect(subject.remediable?).to eq(true)
@@ -111,7 +111,7 @@ RSpec.describe Common::Subjects::Field do
       expect(subject.already_remediated?).to eq(true)
     end
     it "returns false when it is missing a subfield" do
-      @mapping[0]["150"]["v"][1] = "something other than v"
+      @mapping[0]["1xx"]["v"][1] = "something other than v"
       expect(subject.already_remediated?).to eq(false)
     end
     it "returns true when the matching field has an extra field" do
@@ -120,8 +120,8 @@ RSpec.describe Common::Subjects::Field do
     end
     it "is true when the second mapping entity has the matching remediated field" do
       @mapping.insert(0, {
-        "150" => {"a" => ["blah"]},
-        "450" => [{"a" => ["whatever"]}]
+        "1xx" => {"a" => ["blah"]},
+        "4xx" => [{"a" => ["whatever"]}]
       })
       expect(subject.already_remediated?).to eq(true)
     end

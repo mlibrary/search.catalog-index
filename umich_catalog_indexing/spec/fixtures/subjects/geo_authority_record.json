@@ -1,0 +1,23 @@
+{
+  "mms_id": 98188860307506380,
+  "record_format": "marc21_authority",
+  "title": "Mexico, Gulf of, Watershed",
+  "created_by": "Ex Libris",
+  "created_date": "2025-02-25Z",
+  "last_modified_by": "rednaal",
+  "last_modified_date": "2025-02-25Z",
+  "originating_system": "LIBRARY_OF_CONGRESS",
+  "originating_system_id": "98188860307506381",
+  "cataloging_level": {
+    "value": "00",
+    "desc": "Default Level"
+  },
+  "vocabulary": {
+    "value": "MIUSH",
+    "desc": "miush"
+  },
+  "anies": [
+    "<record><leader>00729nz  a2200169n  4500</leader><controlfield tag=\"005\">20171103133952.0</controlfield><controlfield tag=\"008\">170906|| anannbabn          |a ana      </controlfield><controlfield tag=\"001\">98188860307506381</controlfield><datafield ind1=\" \" ind2=\" \" tag=\"010\"><subfield code=\"a\">sh2017004336</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"035\"><subfield code=\"a\">(DLC)sh2017004336</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"040\"><subfield code=\"a\">DLC</subfield><subfield code=\"b\">eng</subfield><subfield code=\"c\">DLC</subfield><subfield code=\"d\">MiU</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"151\"><subfield code=\"a\">Mexico, Gulf of, Watershed</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"455\"><subfield code=\"a\">Test Test Test</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"451\"><subfield code=\"a\">America, Gulf of, Watershed</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"550\"><subfield code=\"w\">g</subfield><subfield code=\"a\">Watersheds</subfield><subfield code=\"z\">Mexico</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"550\"><subfield code=\"w\">g</subfield><subfield code=\"a\">Watersheds</subfield><subfield code=\"z\">United States</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"670\"><subfield code=\"a\">Work cat.: 2017386748: El proceso de producción cafetalero en la región vertiente del Golfo de México, septiembre 2016:</subfield><subfield code=\"b\">t.p. ([cataloger's translation] The process of coffee production in the watershed of the Gulf of Mexico)</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"670\"><subfield code=\"a\">U.S. Fish &amp; Wildlife Service WWW site, viewed Sept. 6, 2017</subfield><subfield code=\"b\">(Gulf of Mexico Watershed)</subfield></datafield><datafield ind1=\" \" ind2=\"0\" tag=\"781\"><subfield code=\"z\">Mexico, Gulf of, Watershed</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"690\"><subfield code=\"a\">sla-lab created local heading based on DEIA Catalog Working Group resolution to keep the term preferred by library community 2025-02-25</subfield></datafield><datafield ind1=\" \" ind2=\" \" tag=\"035\"><subfield code=\"a\">(LIBRARY_OF_CONGRESS)988457839400041</subfield></datafield></record>"
+  ],
+  "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs/authorities/98188860307506381"
+}
