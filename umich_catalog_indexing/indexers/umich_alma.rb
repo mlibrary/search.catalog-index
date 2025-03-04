@@ -172,9 +172,8 @@ end
 #
 
 def ejournal?(context)
-  elec = context.clipboard[:ht][:hol_list].any? { |hol| hol[:library]&.include? "ELEC" }
-  form = context.output_hash["format"]
-  elec and form&.include?("Serial")
+  context.clipboard[:ht][:locations]&.include?("ELEC") &&
+    context.output_hash["format"]&.include?("Serial")
 end
 
 FILING_TITLE_880_extractor = Traject::MarcExtractor.new("245abdefgknp", alternate_script: :only)
