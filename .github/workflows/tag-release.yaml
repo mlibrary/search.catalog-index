@@ -10,7 +10,7 @@ jobs:
     uses: mlibrary/platform-engineering-workflows/.github/workflows/build-production.yml@v1
     with:
       image_name: ${{ vars.INDEXER_IMAGE_NAME }}
-      tag: ${{ github.event.inputs.tag }}
+      tag: ${{ github.event.release.tag_name }}
       dockerfile: umich_catalog_indexing/Dockerfile
       docker_context: umich_catalog_indexing/.
     secrets: inherit
