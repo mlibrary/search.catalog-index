@@ -1,44 +1,29 @@
-name: Tag Latest Release Image
+name: Build Release
 
 on:
   release:
     types: [ released ]
 
-env:
-  TAG: ${{ github.event.release.tag_name }}
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-    - name: Log into Github Container Registry
-      uses: docker/login-action@v1
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Clone latest repository
-      uses: actions/checkout@v2
-    - name: Tag latest catalog-solr release in Github Container Registry
-      env: 
-        UNSTABLE_IMAGE_ID: ghcr.io/mlibrary/catalog-solr-unstable
-        PROD_IMAGE_ID: ghcr.io/mlibrary/catalog-solr
-      run: |
-        docker pull $UNSTABLE_IMAGE_ID:${{ github.sha }}
-        docker tag $UNSTABLE_IMAGE_ID:${{ github.sha }} $PROD_IMAGE_ID:${{ env.TAG }}
-        docker tag $UNSTABLE_IMAGE_ID:${{ github.sha }} $PROD_IMAGE_ID:latest
-        docker push $PROD_IMAGE_ID:${{ env.TAG }}
-        docker push $PROD_IMAGE_ID:latest
-    - name: Tag latest catalog-indexer release in Github Container Registry
-      env: 
-        UNSTABLE_IMAGE_ID: ghcr.io/mlibrary/catalog-indexer-unstable
-        PROD_IMAGE_ID: ghcr.io/mlibrary/catalog-indexer
-      run: |
-        docker pull $UNSTABLE_IMAGE_ID:${{ github.sha }}
-        docker tag $UNSTABLE_IMAGE_ID:${{ github.sha }} $PROD_IMAGE_ID:${{ env.TAG }}
-        docker tag $UNSTABLE_IMAGE_ID:${{ github.sha }} $PROD_IMAGE_ID:latest
-        docker push $PROD_IMAGE_ID:${{ env.TAG }}
-        docker push $PROD_IMAGE_ID:latest
+  build-production:
+    name: Build production ${{ github.event.release.tag_name }}
+    uses: mlibrary/platform-engineering-workflows/.github/workflows/build-production.yml@v1
+    with:
+      image_name: ${{ vars.INDEXER_IMAGE_NAME }}
+      tag: ${{ github.event.inputs.tag }}
+      dockerfile: umich_catalog_indexing/Dockerfile
+      docker_context: umich_catalog_indexing/.
+    secrets: inherit
+
+
+  #deploy-production:
+    #needs: build-production
+    #name: Deploy ${{ github.event.inputs.kind }} to production
+    #uses: mlibrary/platform-engineering-workflows/.github/workflows/deploy.yml@v1
+    #with:
+      #image: ghcr.io/mlibrary/${{ vars.INDEXER_IMAGE_NAME }}:${{ github.event.inputs.tag }}
+      #file: environments/catalog-indexer/production/reindexer-image.txt
+      #CONFIG_REPO_RW_APP_ID: ${{ vars.CONFIG_REPO_RW_APP_ID }}
+      #CONFIG_REPO_RW_INSTALL_ID: ${{ vars.CONFIG_REPO_RW_INSTALL_ID }}
+      #CONFIG_REPO_FULL_NAME: ${{ vars.CONFIG_REPO_FULL_NAME }}
+    #secrets: inherit
