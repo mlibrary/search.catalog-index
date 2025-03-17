@@ -15,10 +15,10 @@ module Traject
       def summary_holdings
         output = []
         @record.each_by_tag("866") do |f|
-          output.push(f['a']) if f["8"] == holding_id
+          output.push(f["a"]) if f["8"] == holding_id
         end
         str = output.join(" : ")
-        str == "" ? nil : str
+        (str == "") ? nil : str
       end
 
       # An array of PhysicalItem objects with enumcron sorting and not including
@@ -26,9 +26,9 @@ module Traject
       #
       # @return [Array] array of PhysicalItem objects
       def items
-        @items ||= Traject::UMich::EnumcronSorter.sort( 
-          f974.map do |i| 
-            Traject::UMich::PhysicalItem.new(item: i, has_finding_aid: finding_aid?) 
+        @items ||= Traject::UMich::EnumcronSorter.sort(
+          f974.map do |i|
+            Traject::UMich::PhysicalItem.new(item: i, has_finding_aid: finding_aid?)
           end.reject do |x|
             x.should_be_suppressed
           end
@@ -66,14 +66,15 @@ module Traject
       #
       # @return [Array] an array of library codes and "library location" codes
       def locations
-        [library, "#{library} #{location}".strip].push( items.map{|x| x.locations } ).flatten.uniq
+        [library, "#{library} #{location}".strip].push(items.map { |x| x.locations }).flatten.uniq
       end
+
       def circulating?
-        items.any?{ |x| x.circulating? }
+        items.any? { |x| x.circulating? }
       end
 
       def public_note
-        f852["z"]
+        f852.filter_map { |x| x.value if x.code == "z" }
       end
 
       def field_is_finding_aid?(f)
@@ -88,11 +89,12 @@ module Traject
       def finding_aid?
         @record.fields("856").any? { |f| field_is_finding_aid?(f) }
       end
+
       # Hash summary of what is in the holding. This is what is added to the
       # "hol" solr field
       #
       # @returns [Hash] summary of the item
-      def to_h 
+      def to_h
         {
           hol_mmsid: holding_id,
           callnumber: callnumber,
@@ -102,9 +104,9 @@ module Traject
           display_name: display_name,
           floor_location: floor_location,
           public_note: public_note,
-          items: items.map{|x| x.to_h},
+          items: items.map { |x| x.to_h },
           summary_holdings: summary_holdings,
-          record_has_finding_aid: finding_aid?,
+          record_has_finding_aid: finding_aid?
         }
       end
 

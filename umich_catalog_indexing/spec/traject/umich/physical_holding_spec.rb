@@ -125,8 +125,8 @@ describe Traject::UMich::PhysicalHolding do
     end
   end
   context "public_note" do
-    it "returns the appropriate public_note" do
-      expect(subject.public_note).to eq("CURRENT ISSUES IN SERIAL SERVICES, 203 NORTH HATCHER")
+    it "returns an array of multiple 852z fields" do
+      expect(subject.public_note).to contain_exactly("CURRENT ISSUES IN SERIAL SERVICES, 203 NORTH HATCHER", "MISSING: 24 no.1-2 2015, v.28 no.6 2019")
     end
   end
   context "items" do
