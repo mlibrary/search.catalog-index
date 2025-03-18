@@ -11,6 +11,9 @@ packages = [{include = "catalog-api"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 requests = "^2.31.0"
+fastapi = "^0.115.11"
+uvicorn = "^0.34.0"
+httpx = "^0.28.1"
 
 
 [tool.poetry.group.dev.dependencies]

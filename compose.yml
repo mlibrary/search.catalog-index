@@ -6,7 +6,15 @@ services:
     volumes:
       - ./api/.:/app
 
-
+  api:
+    build: 
+      context: api/. 
+      target: development
+    volumes:
+      - ./api/.:/app
+    ports:
+      - 8000:8000
+    command: "poetry run uvicorn catalog_api.main:app --host 0.0.0.0 --reload"
   
   supervisor:
     image: "ghcr.io/mlibrary/sidekiq-supervisor-unstable:latest"
