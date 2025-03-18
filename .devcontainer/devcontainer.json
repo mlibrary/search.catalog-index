@@ -1,0 +1,22 @@
+{
+	"name": "Existing Docker Compose (Extend)",
+
+	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
+	// The .devcontainer/docker-compose.yml file contains any overrides you
+	// need/want to make. It has been commented out because the project's
+	// compose.yml works as is. It's left here as something to be able to use
+	// later if you need it.
+	"dockerComposeFile": [
+		"../compose.yml"
+	],
+
+	"service": "api-dev",
+
+	"workspaceFolder": "/app",
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers-contrib/features/ruff:1": {},
+		"ghcr.io/devcontainers/features/sshd:1": {}
+	}
+
+}

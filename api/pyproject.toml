@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "catalog-api"
+version = "0.1.0"
+description = "API for interacting with solr cores for Library Search"
+authors = [
+  "Monique Rio <mrio@umich.edu>", 
+  ]
+readme = "README.md"
+packages = [{include = "catalog-api"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.2"
+ruff = "^0.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

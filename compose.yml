@@ -1,4 +1,13 @@
 services:
+  api-dev:
+    build: 
+      context: api/. 
+      target: development
+    volumes:
+      - ./api/.:/app
+
+
+  
   supervisor:
     image: "ghcr.io/mlibrary/sidekiq-supervisor-unstable:latest"
     ports:
@@ -97,25 +106,25 @@ services:
     env_file:
       - ./mock-ht/env.development
 
-  hathifiles:
-    image: mariadb
-    volumes:
-      - hathidb:/var/lib/mysql
-    environment:
-      - MARIADB_ROOT_PASSWORD=pass
-      - MARIADB_USER=user
-      - MARIADB_PASSWORD=password
-      - MARIADB_DATABASE=hathifiles
+  #hathifiles:
+    #image: mariadb
+    #volumes:
+      #- hathidb:/var/lib/mysql
+    #environment:
+      #- MARIADB_ROOT_PASSWORD=pass
+      #- MARIADB_USER=user
+      #- MARIADB_PASSWORD=password
+      #- MARIADB_DATABASE=hathifiles
 
-  hathioverlap:
-    build: overlap/.
-    volumes:
-      - overlap:/var/lib/mysql
-    environment:
-      - MARIADB_ROOT_PASSWORD=pass
-      - MARIADB_USER=user
-      - MARIADB_PASSWORD=password
-      - MARIADB_DATABASE=overlap
+  #hathioverlap:
+    #build: overlap/.
+    #volumes:
+      #- overlap:/var/lib/mysql
+    #environment:
+      #- MARIADB_ROOT_PASSWORD=pass
+      #- MARIADB_USER=user
+      #- MARIADB_PASSWORD=password
+      #- MARIADB_DATABASE=overlap
 
   prometheus:
     image: prom/prometheus
