@@ -43,4 +43,4 @@ jobs:
       tag: ${{ github.event.inputs.tag }}
       dockerfile: "${{ needs.get-image-info.outputs.directory }}/Dockerfile"
       docker_context: "${{ needs.get-image-info.outputs.directory }}/."
-
+    secrets: inherit
