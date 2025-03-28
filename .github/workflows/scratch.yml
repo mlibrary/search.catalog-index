@@ -1,19 +1,41 @@
 #saved so that I can have a workflow to try out in a branch
-name: Scratch
+name: Manual Build image
 
 on:
   workflow_dispatch:
     inputs:
+      image:
+        description: 'image to build'
+        required: true
+        type: choice
+        options:
+          - api
       tag:
         description: tag
         required: true
 
 jobs:
-  get-short-tag:
-    id: get-short-tag
+  manual-build-image:
     runs-on: ubuntu-latest
     steps:
-      - name: save short tag to environment 
-        run: echo "short_tag=$(echo ${{ github.event.inputs.tag }} | head -c 8 )" >> $GITHUB_ENV
-      - name: echo env var
-        run: echo "${{ github.env.short_tag }}"
+    - name: Get step
+      id: get_step
+      env:
+        IMAGE: ${{ github.event.inputs.image }}
+        TAG: ${{ github.event.inputs.tag-to-be-created }}
+      run: |
+        if [[ $IMAGE == "api" ]]; then
+            echo "directory=api" >> "$GITHUB_ENV"
+            echo "image_name=search.catalog-api" >> "$GITHUB_ENV"
+        else
+          echo "somehow didn't provide a image"
+          false
+        fi
+    - name: Build unstable ${{ github.event.inputs.tag }}
+      uses: mlibrary/platform-engineering-workflows/.github/workflows/build-unstable.yml@v1
+      with:
+        image_name: ${{ env.image_name }}
+        tag: ${{ github.event.inputs.tag }}
+        dockerfile: "${{ env.directory }}/Dockerfile"
+        docker_context: "${{ env.directory }}/."
+
