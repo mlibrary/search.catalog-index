@@ -5,6 +5,8 @@ services:
       target: development
     volumes:
       - ./api/.:/app
+    env_file:
+      - ./api/.env
 
   api:
     build: 
@@ -14,6 +16,8 @@ services:
       - ./api/.:/app
     ports:
       - 8000:8000
+    env_file:
+      - ./api/.env
     command: "poetry run uvicorn catalog_api.main:app --host 0.0.0.0 --reload"
   
   supervisor:

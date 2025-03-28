@@ -5,6 +5,7 @@
 .irb_history
 .byebug_history
 .bash_history
+.python_history
 .env
 .venv
 .pytest_cache
