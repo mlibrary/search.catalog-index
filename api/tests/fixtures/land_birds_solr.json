@@ -1,0 +1,250 @@
+{
+    "responseHeader": {
+        "status": 0,
+        "QTime": 0,
+        "params": {
+            "q": "id:990008019700106381"
+        }
+    },
+    "response": {
+        "numFound": 1,
+        "start": 0,
+        "docs": [
+            {
+                "indexing_date": 20250318,
+                "id": "990008019700106381",
+                "id_int": 990008019700106381,
+                "oclc": [
+                    "23343161"
+                ],
+                "record_source": "alma",
+                "format": [
+                    "Book"
+                ],
+                "isbn": [
+                    "9784931150010",
+                    "4931150012",
+                    "4931150012 :"
+                ],
+                "barcode": [
+                    "39015052384248"
+                ],
+                "mainauthor": [
+                    "Saeki, Akimitsu.",
+                    "佐伯彰光."
+                ],
+                "author": [
+                    "Saeki, Akimitsu.",
+                    "佐伯彰光.",
+                    "Taniguchi, Takashi.",
+                    "谷口高司."
+                ],
+                "authorStr": [
+                    "Saeki, Akimitsu.",
+                    "佐伯彰光.",
+                    "Taniguchi, Takashi.",
+                    "谷口高司."
+                ],
+                "author2": [
+                    "Taniguchi, Takashi.",
+                    "谷口高司."
+                ],
+                "author_top": [
+                    "Saeki, Akimitsu.",
+                    "佐伯彰光.",
+                    "kaisetsu Saeki Akimitsu ; e Taniguchi Takashi.",
+                    "解說佐伯彰光 ; 絵谷口高司.",
+                    "Taniguchi, Takashi.",
+                    "谷口高司."
+                ],
+                "author_browse_terms": [
+                    "Saeki, Akimitsu.",
+                    "佐伯彰光.",
+                    "Taniguchi, Takashi.",
+                    "谷口高司."
+                ],
+                "author_browse_search": [
+                    "saeki akimitsu",
+                    "佐伯彰光",
+                    "taniguchi takashi",
+                    "谷口高司"
+                ],
+                "author_authoritative_browse": [
+                    "Saeki, Akimitsu.",
+                    "佐伯彰光.",
+                    "Taniguchi, Takashi.",
+                    "谷口高司."
+                ],
+                "author_authoritative_search": [
+                    "saeki akimitsu",
+                    "佐伯彰光",
+                    "taniguchi takashi",
+                    "谷口高司"
+                ],
+                "main_author_display": [
+                    "Saeki, Akimitsu.",
+                    "佐伯彰光."
+                ],
+                "main_author": [
+                    "Saeki, Akimitsu.",
+                    "佐伯彰光."
+                ],
+                "contributors_display": [
+                    "Taniguchi, Takashi.",
+                    "谷口高司."
+                ],
+                "contributors": [
+                    "Taniguchi, Takashi.",
+                    "谷口高司."
+                ],
+                "title": [
+                    "Sanʼya no tori = Concise field guide to land birds /",
+                    "山野の鳥 = Concise field guide to land birds /"
+                ],
+                "title_a": [
+                    "Sanʼya no tori =",
+                    "山野の鳥 ="
+                ],
+                "title_ab": [
+                    "Sanʼya no tori = Concise field guide to land birds /",
+                    "山野の鳥 = Concise field guide to land birds /"
+                ],
+                "title_c": [
+                    "kaisetsu Saeki Akimitsu ; e Taniguchi Takashi.",
+                    "解說佐伯彰光 ; 絵谷口高司."
+                ],
+                "title_common": [
+                    "Sanʼya no tori = Concise field guide to land birds /",
+                    "山野の鳥 = Concise field guide to land birds /"
+                ],
+                "vtitle": "山野の鳥 = Concise field guide to land birds",
+                "title_equiv": [
+                    "Sanʼya no tori = Concise field guide to land birds /",
+                    "山野の鳥 = Concise field guide to land birds /",
+                    "Concise field guide to land birds."
+                ],
+                "title_top": [
+                    "Sanʼya no tori = Concise field guide to land birds /",
+                    "山野の鳥 = Concise field guide to land birds /"
+                ],
+                "title_rest": [
+                    "Yagai kansatsu handobukku ; 1",
+                    "野外観察ハンドブック ; 1",
+                    "Concise field guide to land birds.",
+                    "Yagai kansatsu handobukku ; 1.",
+                    "野外観察ハンドブック ; 1."
+                ],
+                "series": [
+                    "Yagai kansatsu handobukku ;",
+                    "野外観察ハンドブック ;"
+                ],
+                "series2": [
+                    "Yagai kansatsu handobukku ; 1",
+                    "野外観察ハンドブック ; 1"
+                ],
+                "series_statement": [
+                    "Yagai kansatsu handobukku ; 1.",
+                    "野外観察ハンドブック ; 1."
+                ],
+                "geographic": [
+                    "Japan"
+                ],
+                "geographicStr": [
+                    "Japan"
+                ],
+                "countryOfPubStr": [
+                    "Japan"
+                ],
+                "place_of_publication": [
+                    "Japan"
+                ],
+                "publishDate": [
+                    "1983"
+                ],
+                "publishDateRange": [
+                    "1983",
+                    "1980-1989"
+                ],
+                "display_date": "1983",
+                "publisher": [
+                    "Nihon Yachō no Kai,",
+                    "日本野鳥の会,"
+                ],
+                "publisher_display": [
+                    "Tōkyō : Nihon Yachō no Kai, 1983",
+                    "東京 : 日本野鳥の会, 1983"
+                ],
+                "edition": [
+                    "3-teiban.",
+                    "3訂版."
+                ],
+                "language": [
+                    "Japanese"
+                ],
+                "language008": "jpn",
+                "title_display": [
+                    "Sanʼya no tori = Concise field guide to land birds / kaisetsu Saeki Akimitsu ; e Taniguchi Takashi.",
+                    "山野の鳥 = Concise field guide to land birds / 解說佐伯彰光 ; 絵谷口高司."
+                ],
+                "topicAllStr": [
+                    "Birds",
+                    "Birds Japan Identification"
+                ],
+                "topicStr": [
+                    "Birds",
+                    "Birds Japan Identification"
+                ],
+                "lc_subject_display": [
+                    "Birds -- Japan -- Identification"
+                ],
+                "subject_browse_terms": [
+                    "Birds--Japan--Identification"
+                ],
+                "cat_date": 19880808,
+                "building": [
+                    "Research Museums Center"
+                ],
+                "ht_searchonly": false,
+                "ht_searchonly_intl": false,
+                "aleph_id": "000801970",
+                "hol": "[{\"hol_mmsid\":\"22857812530006381\",\"callnumber\":\"QL 691 .J3 S25 1983\",\"library\":\"MUSM\",\"location\":\"BIR\",\"info_link\":\"http://lib.umich.edu/locations-and-hours/museums-library\",\"display_name\":\"Research Museums Center Birds Division\",\"floor_location\":\"\",\"public_note\":null,\"items\":[{\"barcode\":\"39015052384248\",\"library\":\"MUSM\",\"location\":\"BIR\",\"info_link\":\"http://lib.umich.edu/locations-and-hours/museums-library\",\"display_name\":\"Research Museums Center Birds Division\",\"fulfillment_unit\":\"General\",\"location_type\":\"OPEN\",\"can_reserve\":false,\"permanent_library\":\"MUSM\",\"permanent_location\":\"BIR\",\"temp_location\":false,\"callnumber\":\"QL 691 .J3 S25 1983\",\"public_note\":null,\"process_type\":null,\"item_policy\":null,\"description\":null,\"inventory_number\":null,\"item_id\":\"23857812520006381\",\"material_type\":\"BOOK\",\"record_has_finding_aid\":false}],\"summary_holdings\":null,\"record_has_finding_aid\":false}]",
+                "availability": [
+                    "physical"
+                ],
+                "new_availability": [
+                    "physical"
+                ],
+                "location": [
+                    "MIU",
+                    "MUSM",
+                    "MUSM BIR"
+                ],
+                "institution": [
+                    "UM Ann Arbor Libraries",
+                    "University Library"
+                ],
+                "callnumber": [
+                    "QL 691 .J3 S25 1983"
+                ],
+                "callnumber_browse": [
+                    "QL 691 .J3 S25 1983"
+                ],
+                "callnosort": "ql3691 j3 s25 1983\u001f}",
+                "callnumber_sort": "ql3691 j3 s25 1983\u001f}",
+                "hlb3Str": [
+                    "Science",
+                    "Biology",
+                    "Zoology",
+                    "Ecology and Evolutionary Biology"
+                ],
+                "hlb3Delimited": [
+                    "Science | Biology | Zoology",
+                    "Science | Biology | Ecology and Evolutionary Biology"
+                ],
+                "date_of_index": "2025-03-18T00:00:00Z",
+                "fullrecord": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><collection><record><leader>01666nam a22004571a 4500</leader><controlfield tag=\"005\">20241218011809.0</controlfield><controlfield tag=\"008\">880808s1983    ja a          001 0 jpn d</controlfield><controlfield tag=\"001\">990008019700106381</controlfield><datafield tag=\"020\" ind1=\" \" ind2=\" \"><subfield code=\"a\">4931150012 :</subfield><subfield code=\"c\">Y500</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(MiU)000801970MIU01</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(RLIN)MIUO86-B4430</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(CaOTULAS)160054554</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(OCoLC)23343161</subfield></datafield><datafield tag=\"040\" ind1=\" \" ind2=\" \"><subfield code=\"a\">MiU-A</subfield><subfield code=\"c\">MiU-A</subfield><subfield code=\"d\">UtOrBLW</subfield></datafield><datafield tag=\"043\" ind1=\" \" ind2=\" \"><subfield code=\"a\">a-ja---</subfield></datafield><datafield tag=\"100\" ind1=\"1\" ind2=\" \"><subfield code=\"6\">880-01</subfield><subfield code=\"a\">Saeki, Akimitsu.</subfield></datafield><datafield tag=\"880\" ind1=\"1\" ind2=\" \"><subfield code=\"6\">100-01/</subfield><subfield code=\"a\">佐伯彰光.</subfield></datafield><datafield tag=\"245\" ind1=\"1\" ind2=\"0\"><subfield code=\"6\">880-02</subfield><subfield code=\"a\">Sanʼya no tori =</subfield><subfield code=\"b\">Concise field guide to land birds /</subfield><subfield code=\"c\">kaisetsu Saeki Akimitsu ; e Taniguchi Takashi.</subfield></datafield><datafield tag=\"880\" ind1=\"1\" ind2=\"0\"><subfield code=\"6\">245-02/</subfield><subfield code=\"a\">山野の鳥 =</subfield><subfield code=\"b\">Concise field guide to land birds /</subfield><subfield code=\"c\">解說佐伯彰光 ; 絵谷口高司.</subfield></datafield><datafield tag=\"250\" ind1=\" \" ind2=\" \"><subfield code=\"6\">880-03</subfield><subfield code=\"a\">3-teiban.</subfield></datafield><datafield tag=\"880\" ind1=\" \" ind2=\" \"><subfield code=\"6\">250-03/</subfield><subfield code=\"a\">3訂版.</subfield></datafield><datafield tag=\"260\" ind1=\" \" ind2=\" \"><subfield code=\"6\">880-04</subfield><subfield code=\"a\">Tōkyō :</subfield><subfield code=\"b\">Nihon Yachō no Kai,</subfield><subfield code=\"c\">1983</subfield><subfield code=\"g\">(1984 printing)</subfield></datafield><datafield tag=\"880\" ind1=\" \" ind2=\" \"><subfield code=\"6\">260-04/</subfield><subfield code=\"a\">東京 :</subfield><subfield code=\"b\">日本野鳥の会,</subfield><subfield code=\"c\">1983</subfield><subfield code=\"g\">(1984 printing)</subfield></datafield><datafield tag=\"300\" ind1=\" \" ind2=\" \"><subfield code=\"a\">64 p. :</subfield><subfield code=\"b\">ill. ;</subfield><subfield code=\"c\">18 cm.</subfield></datafield><datafield tag=\"336\" ind1=\" \" ind2=\" \"><subfield code=\"a\">text</subfield><subfield code=\"b\">txt</subfield><subfield code=\"2\">rdacontent</subfield></datafield><datafield tag=\"337\" ind1=\" \" ind2=\" \"><subfield code=\"a\">unmediated</subfield><subfield code=\"b\">n</subfield><subfield code=\"2\">rdamedia</subfield></datafield><datafield tag=\"338\" ind1=\" \" ind2=\" \"><subfield code=\"a\">volume</subfield><subfield code=\"b\">nc</subfield><subfield code=\"2\">rdacarrier</subfield></datafield><datafield tag=\"490\" ind1=\"1\" ind2=\" \"><subfield code=\"6\">880-05</subfield><subfield code=\"a\">Yagai kansatsu handobukku ;</subfield><subfield code=\"v\">1</subfield></datafield><datafield tag=\"880\" ind1=\"1\" ind2=\" \"><subfield code=\"6\">490-05/</subfield><subfield code=\"a\">野外観察ハンドブック ;</subfield><subfield code=\"v\">1</subfield></datafield><datafield tag=\"500\" ind1=\" \" ind2=\" \"><subfield code=\"a\">Includes index.</subfield></datafield><datafield tag=\"650\" ind1=\" \" ind2=\"0\"><subfield code=\"a\">Birds</subfield><subfield code=\"z\">Japan</subfield><subfield code=\"v\">Identification.</subfield><subfield code=\"0\">http://id.loc.gov/authorities/subjects/sh85014310</subfield></datafield><datafield tag=\"700\" ind1=\"1\" ind2=\" \"><subfield code=\"6\">880-06</subfield><subfield code=\"a\">Taniguchi, Takashi.</subfield></datafield><datafield tag=\"880\" ind1=\"1\" ind2=\" \"><subfield code=\"6\">700-06/</subfield><subfield code=\"a\">谷口高司.</subfield></datafield><datafield tag=\"740\" ind1=\"0\" ind2=\" \"><subfield code=\"a\">Concise field guide to land birds.</subfield></datafield><datafield tag=\"830\" ind1=\" \" ind2=\"0\"><subfield code=\"6\">880-07</subfield><subfield code=\"a\">Yagai kansatsu handobukku ;</subfield><subfield code=\"v\">1.</subfield></datafield><datafield tag=\"880\" ind1=\" \" ind2=\"0\"><subfield code=\"6\">830-07/</subfield><subfield code=\"a\">野外観察ハンドブック ;</subfield><subfield code=\"v\">1.</subfield></datafield><datafield tag=\"908\" ind1=\" \" ind2=\" \"><subfield code=\"a\">AuthComplete 2024-12-17</subfield></datafield><datafield tag=\"958\" ind1=\" \" ind2=\" \"><subfield code=\"a\">MiU</subfield></datafield><datafield tag=\"959\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(notis)ULADK8050</subfield></datafield><datafield tag=\"995\" ind1=\" \" ind2=\" \"><subfield code=\"a\">20</subfield></datafield><datafield tag=\"998\" ind1=\" \" ind2=\" \"><subfield code=\"c\">CS</subfield><subfield code=\"s\">9114</subfield></datafield><datafield tag=\"BIB\" ind1=\" \" ind2=\" \"><subfield code=\"u\">2024-12-24 11:45:30 US/Eastern</subfield><subfield code=\"c\">2021-06-21 11:28:58 US/Eastern</subfield><subfield code=\"s\">false</subfield></datafield><datafield tag=\"852\" ind1=\"0\" ind2=\" \"><subfield code=\"b\">MUSM</subfield><subfield code=\"a\">MiU</subfield><subfield code=\"c\">BIR</subfield><subfield code=\"h\">QL 691 .J3 S25 1983</subfield><subfield code=\"8\">22857812530006381</subfield></datafield><datafield tag=\"974\" ind1=\" \" ind2=\" \"><subfield code=\"8\">22857812530006381</subfield><subfield code=\"f\">1</subfield><subfield code=\"c\">BIR</subfield><subfield code=\"m\">BOOK</subfield><subfield code=\"a\">39015052384248</subfield><subfield code=\"e\">BIR</subfield><subfield code=\"7\">23857812520006381</subfield><subfield code=\"r\">1988-08-08 06:59:00 US/Eastern</subfield><subfield code=\"h\">QL 691 .J3 S25 1983</subfield><subfield code=\"d\">MUSM</subfield><subfield code=\"b\">MUSM</subfield></datafield></record></collection>",
+                "_version_": 1826938346434199552
+            }
+        ]
+    }
+}
