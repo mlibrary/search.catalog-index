@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 from catalog_api import schemas
+from catalog_api.record import record_for
 
-app = FastAPI(title = "Catalog Search API", description= "REST API for Catalog Search Solr")
+app = FastAPI(
+    title="Catalog Search API", description="REST API for Catalog Search Solr"
+)
+
 
 @app.get("/records/{id}")
 def get_record(id: str) -> schemas.Record:
@@ -11,4 +15,4 @@ def get_record(id: str) -> schemas.Record:
     record
     """
 
-    return {"id": id}
+    return record_for(id)
