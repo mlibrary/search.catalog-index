@@ -1,0 +1,159 @@
+{
+    "indexing_date": 20241104,
+    "id": "990006175840106381",
+    "id_int": 990006175840106381,
+    "oclc": [
+        "01330974"
+    ],
+    "record_source": "alma",
+    "format": [
+        "Book"
+    ],
+    "barcode": [
+        "39015068165631"
+    ],
+    "mainauthor": [
+        "Horn, J. 1867-1946."
+    ],
+    "author": [
+        "Horn, J. (Jakob), 1867-1946."
+    ],
+    "authorStr": [
+        "Horn, J. (Jakob), 1867-1946."
+    ],
+    "author_top": [
+        "Horn, J. (Jakob), 1867-1946. http://id.loc.gov/authorities/names/n87813135 http://viaf.org/viaf/sourceID/LC|n87813135",
+        "von dr. J. Horn."
+    ],
+    "author_browse_terms": [
+        "Horn, J. (Jakob), 1867-1946."
+    ],
+    "author_browse_search": [
+        "horn j jakob 1867 1946"
+    ],
+    "author_authoritative_browse": [
+        "Horn, J. (Jakob), 1867-1946."
+    ],
+    "author_authoritative_search": [
+        "horn j jakob 1867 1946"
+    ],
+    "main_author_display": [
+        "Horn, J. (Jakob), 1867-1946."
+    ],
+    "main_author": [
+        "Horn, J. (Jakob), 1867-1946."
+    ],
+    "title": [
+        "Gewöhnliche Differentialgleichungen,"
+    ],
+    "title_ab": [
+        "Gewöhnliche Differentialgleichungen,"
+    ],
+    "title_c": [
+        "von dr. J. Horn."
+    ],
+    "title_common": [
+        "Gewöhnliche Differentialgleichungen,"
+    ],
+    "title_equiv": [
+        "Gewöhnliche Differentialgleichungen,"
+    ],
+    "title_top": [
+        "Gewöhnliche Differentialgleichungen,"
+    ],
+    "title_rest": [
+        "Göschens Lehrbücherei. I. Gruppe. Reine und angewandte Mathematik, Bd. 10"
+    ],
+    "series": [
+        "Göschens Lehrbücherei. Reine und angewandte Mathematik,"
+    ],
+    "series2": [
+        "Göschens Lehrbücherei. I. Gruppe. Reine und angewandte Mathematik, Bd. 10"
+    ],
+    "series_statement": [
+        "Göschens Lehrbücherei. I. Gruppe. Reine und angewandte Mathematik, Bd. 10"
+    ],
+    "countryOfPubStr": [
+        "Germany"
+    ],
+    "place_of_publication": [
+        "Germany"
+    ],
+    "publishDate": [
+        "1927"
+    ],
+    "publishDateRange": [
+        "1927",
+        "1920-1929"
+    ],
+    "display_date": "1927",
+    "publisher": [
+        "W. de Gruyter & Co.,"
+    ],
+    "publisher_display": [
+        "Berlin, Leipzig, W. de Gruyter & Co., 1927."
+    ],
+    "edition": [
+        "2. völlig umgearb. Aufl. mit 4 Figuren."
+    ],
+    "language": [
+        "German"
+    ],
+    "language008": "ger",
+    "title_display": [
+        "Gewöhnliche Differentialgleichungen, von dr. J. Horn."
+    ],
+    "ht_count": 1,
+    "topicAllStr": [
+        "Differential equations"
+    ],
+    "topicStr": [
+        "Differential equations"
+    ],
+    "lc_subject_display": [
+        "Differential equations"
+    ],
+    "subject_browse_terms": [
+        "Differential equations"
+    ],
+    "cat_date": 19880718,
+    "building": [
+        "Buhr Shelving Facility"
+    ],
+    "ht_searchonly": false,
+    "ht_searchonly_intl": false,
+    "aleph_id": "000617584",
+    "hol": "[{\"hol_mmsid\":\"22852179730006381\",\"callnumber\":\"QA 372 .H812 1927\",\"library\":\"BUHR\",\"location\":\"MAIN\",\"info_link\":\"http://lib.umich.edu/locations-and-hours/buhr-building\",\"display_name\":\"Buhr Shelving Facility\",\"floor_location\":\"\",\"public_note\":null,\"items\":[{\"barcode\":\"39015068165631\",\"library\":\"BUHR\",\"location\":\"MAIN\",\"info_link\":\"http://lib.umich.edu/locations-and-hours/buhr-building\",\"display_name\":\"Buhr Shelving Facility\",\"fulfillment_unit\":\"Closed Stacks\",\"location_type\":\"REMOTE\",\"can_reserve\":false,\"permanent_library\":\"BUHR\",\"permanent_location\":\"MAIN\",\"temp_location\":false,\"callnumber\":\"QA 372 .H812 1927\",\"public_note\":null,\"process_type\":null,\"item_policy\":\"04\",\"description\":null,\"inventory_number\":\"Buhr B 455732\",\"item_id\":\"23852179720006381\",\"material_type\":\"BOOK\",\"record_has_finding_aid\":false}],\"summary_holdings\":null,\"record_has_finding_aid\":false}]",
+    "availability": [
+        "Circulating Items"
+    ],
+    "new_availability": [
+        "physical"
+    ],
+    "location": [
+        "BUHR",
+        "MIU"
+    ],
+    "institution": [
+        "UM Ann Arbor Libraries",
+        "University Library"
+    ],
+    "callnumber": [
+        "QA 372 .H812 1927"
+    ],
+    "callnumber_browse": [
+        "QA 372 .H812 1927"
+    ],
+    "callnosort": "qa3372 h812 1927\u001f}",
+    "callnumber_sort": "qa3372 h812 1927\u001f}",
+    "hlb3Str": [
+        "Science",
+        "Mathematics"
+    ],
+    "hlb3Delimited": [
+        "Science | Mathematics"
+    ],
+    "date_of_index": "2024-11-04T00:00:00Z",
+    "fullrecord": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><collection><record><leader>     nam a22002291  4500</leader><controlfield tag=\"005\">20040210000000.0</controlfield><controlfield tag=\"008\">880718s1927    gw a     b    00010 ger d</controlfield><controlfield tag=\"001\">990006175840106381</controlfield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(MiU)000617584MIU01</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(RLIN)MIUG86-B30234</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(CaOTULAS)160538568</subfield></datafield><datafield tag=\"035\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(OCoLC)ocm01330974</subfield><subfield code=\"0\">http://www.worldcat.org/oclc/01330974</subfield></datafield><datafield tag=\"040\" ind1=\" \" ind2=\" \"><subfield code=\"a\">MnU</subfield><subfield code=\"c\">MnU</subfield><subfield code=\"d\">MiU</subfield></datafield><datafield tag=\"100\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Horn, J.</subfield><subfield code=\"q\">(Jakob),</subfield><subfield code=\"d\">1867-1946.</subfield><subfield code=\"0\">http://id.loc.gov/authorities/names/n87813135</subfield><subfield code=\"0\">http://viaf.org/viaf/sourceID/LC|n87813135</subfield></datafield><datafield tag=\"245\" ind1=\"1\" ind2=\"0\"><subfield code=\"a\">Gewöhnliche Differentialgleichungen,</subfield><subfield code=\"c\">von dr. J. Horn.</subfield></datafield><datafield tag=\"250\" ind1=\" \" ind2=\" \"><subfield code=\"a\">2. völlig umgearb. Aufl.</subfield><subfield code=\"b\">mit 4 Figuren.</subfield></datafield><datafield tag=\"260\" ind1=\" \" ind2=\" \"><subfield code=\"a\">Berlin,</subfield><subfield code=\"a\">Leipzig,</subfield><subfield code=\"b\">W. de Gruyter &amp; Co.,</subfield><subfield code=\"c\">1927.</subfield></datafield><datafield tag=\"300\" ind1=\" \" ind2=\" \"><subfield code=\"a\">viii, 197 p.</subfield><subfield code=\"b\">diagrs.</subfield><subfield code=\"c\">24 cm.</subfield></datafield><datafield tag=\"490\" ind1=\"1\" ind2=\" \"><subfield code=\"a\">Göschens Lehrbücherei. I. Gruppe. Reine und angewandte Mathematik,</subfield><subfield code=\"v\">Bd. 10</subfield></datafield><datafield tag=\"504\" ind1=\" \" ind2=\" \"><subfield code=\"a\">\"Literatur\": p. [195]</subfield></datafield><datafield tag=\"650\" ind1=\" \" ind2=\"0\"><subfield code=\"a\">Differential equations.</subfield><subfield code=\"0\">http://id.loc.gov/authorities/subjects/sh85037890</subfield></datafield><datafield tag=\"830\" ind1=\" \" ind2=\"0\"><subfield code=\"a\">Göschens Lehrbücherei.</subfield><subfield code=\"n\">I. Gruppe.</subfield><subfield code=\"p\">Reine und angewandte Mathematik,</subfield><subfield code=\"v\">Bd. 10</subfield></datafield><datafield tag=\"998\" ind1=\" \" ind2=\" \"><subfield code=\"c\">WFA</subfield><subfield code=\"s\">9124</subfield></datafield><datafield tag=\"958\" ind1=\" \" ind2=\" \"><subfield code=\"a\">MiU</subfield></datafield><datafield tag=\"959\" ind1=\" \" ind2=\" \"><subfield code=\"a\">(notis)ULACQ9413</subfield></datafield><datafield tag=\"995\" ind1=\" \" ind2=\" \"><subfield code=\"a\">20</subfield></datafield><datafield tag=\"BIB\" ind1=\" \" ind2=\" \"><subfield code=\"u\">2021-07-18 00:50:22 US/Eastern</subfield><subfield code=\"c\">2021-06-21 11:08:18 US/Eastern</subfield><subfield code=\"s\">false</subfield></datafield><datafield tag=\"852\" ind1=\"0\" ind2=\" \"><subfield code=\"b\">BUHR</subfield><subfield code=\"a\">MiU</subfield><subfield code=\"c\">MAIN</subfield><subfield code=\"h\">QA 372 .H812 1927</subfield><subfield code=\"8\">22852179730006381</subfield></datafield><datafield tag=\"974\" ind1=\" \" ind2=\" \"><subfield code=\"8\">22852179730006381</subfield><subfield code=\"f\">1</subfield><subfield code=\"c\">MAIN</subfield><subfield code=\"m\">BOOK</subfield><subfield code=\"a\">39015068165631</subfield><subfield code=\"i\">Buhr B 455732</subfield><subfield code=\"e\">MAIN</subfield><subfield code=\"u\">mdp.39015068165631 ic 20210425</subfield><subfield code=\"7\">23852179720006381</subfield><subfield code=\"p\">04</subfield><subfield code=\"r\">1992-11-04 05:59:00 US/Eastern</subfield><subfield code=\"h\">QA 372 .H812 1927</subfield><subfield code=\"d\">BUHR</subfield><subfield code=\"b\">BUHR</subfield></datafield></record></collection>",
+    "_version_": 1814820024715575296
+}
