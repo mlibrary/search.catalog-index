@@ -1,0 +1,19 @@
+#saved so that I can have a workflow to try out in a branch
+name: Scratch
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: tag
+        required: true
+
+jobs:
+  get-short-tag:
+    id: get-short-tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: save short tag to environment 
+        run: echo "short_tag=$(echo ${{ github.event.inputs.tag }} | head -c 8 )" >> $GITHUB_ENV
+      - name: echo env var
+        run: echo "${{ github.env.short_tag }}"
