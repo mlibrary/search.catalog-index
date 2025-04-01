@@ -236,12 +236,6 @@
   note: United Nations. Access to the United Nations online version restricted; authentication may be required.
   link: http://comtrade.un.org/
   status: Available
-'990084590140106381':
-- collection_name: Copper technical reference library
-  interface_name: ''
-  note: 'Flint campus: | Access via Cambridge Scientific Abstracts'' Internet Database Service (authentication may be required)'
-  link: http://go.umflint.edu/copper
-  status: Available
 '990084393110106381':
 - collection_name: FDA notices of judgment collection, 1906-1964
   interface_name: ''
@@ -795,12 +789,6 @@
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/llba/
   status: Available
-'990005190600106381':
-- collection_name: Ceramic abstracts.
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.proquest.com/ceramicabstracts
-  status: Available
 '990047335220106381':
 - collection_name: Emergence of advertising in America, 1850-1920 John W. Hartman Center for Sales, Advertising & Marketing History /
   interface_name: Duke University
@@ -1099,17 +1087,6 @@
   interface_name: ProQuest (Firm)
   note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/microbiologyb
-  status: Available
-'990040177590106381':
-- collection_name: INSPEC
-  interface_name: ''
-  note: Access restricted (authentication may be required)
-  link: http://libproxy.umflint.edu:2048/login?url=http://www.engineeringvillage2.org/controller/servlet/Controller?CID=quickSearch&database=INSPEC
-  status: Available
-- collection_name: INSPEC
-  interface_name: ''
-  note: Access restricted (authentication may be required)
-  link: http://www.engineeringvillage2.org/controller/servlet/Controller?CID=quickSearch&database=INSPEC
   status: Available
 '990040186300106381':
 - collection_name: The Chicano database
@@ -1957,10 +1934,10 @@
   link: https://web.nichigai.jp/magazine?user_id=MIC
   status: Available
 '990047121880106381':
-- collection_name: DBpia
-  interface_name: ''
-  note: Full text available via DBPia (access restricted; authentication may be required)
-  link: http://www.dbpia.co.kr
+- collection_name: DBpia 소개
+  interface_name: Nurimedia
+  note: Nurimedia. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.dbpia.co.kr
   status: Available
 '990047121840106381':
 - collection_name: CHANT (Chinese Ancient Texts) database Han da wen ku /
@@ -3035,12 +3012,6 @@
   note: NLM. Access to the NLM online version.
   link: http://www.indexcat.nlm.nih.gov/
   status: Available
-'990005290060106381':
-- collection_name: Corrosion abstracts.
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.proquest.com/corrosionabstracts
-  status: Available
 '990043266360106381':
 - collection_name: Early American imprints, Series I, Evans (1639-1800)
   interface_name: Readex
@@ -3349,17 +3320,6 @@
   note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
   link: https://microform.digital/boa/collections/86/paris-peace-conference-and-beyond-1919-1939
   status: Available
-'990150309640106381':
-- collection_name: Hakchisa nyunonmun.
-  interface_name: Hakchisa
-  note: Hakchisa. Access to the Hakchisa online version restricted; authentication may be required.
-  link: http://scholar.dkyobobook.co.kr/main.laf
-  status: Available
-- collection_name: Hakchisa nyunonmun.
-  interface_name: Hakchisa
-  note: Hakchisa. Access to the Hakchisa online version restricted; authentication may be required.
-  link: http://www.newnonmun.com/
-  status: Available
 '990150309790106381':
 - collection_name: LawnB = Lo aen bi.
   interface_name: ''
@@ -3610,8 +3570,8 @@
 '990116950690106381':
 - collection_name: Engineering village
   interface_name: ''
-  note: Access restricted; authentication may be required.
-  link: http://www.engineeringvillage2.org
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.engineeringvillage.com/home.url
   status: Available
 '990030903860106381':
 - collection_name: Music periodicals database.
@@ -5294,8 +5254,8 @@
 '99187252728406381':
 - collection_name: Inspec Archive
   interface_name: Geofacets
-  note: Geofacets.
-  link: http://www.sciencedirect.com
+  note: Geofacets. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.engineeringvillage.com/app/
   status: Available
 '99187252728506381':
 - collection_name: Colorado's Historic Newspaper Collection
@@ -6902,7 +6862,7 @@
   link: https://researchworks.oclc.org/archivegrid/
   status: Available
 '99187252560606381':
-- collection_name: Chatham House Online Archive
+- collection_name: 'Chatham House Online Archive Module 1: 1920-1979'
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/CHTM?u=umuser
@@ -7120,7 +7080,7 @@
 '99187252565006381':
 - collection_name: INSPEC
   interface_name: Engineering Village
-  note: Engineering Village.
+  note: Engineering Village. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.engineeringvillage2.org
   status: Available
 '99187252565106381':
@@ -7878,12 +7838,6 @@
   interface_name: IHP - Index to Hebrew Periodicals - מפתח חיפה למאמרים בעברית
   note: IHP - Index to Hebrew Periodicals - מפתח חיפה למאמרים בעברית.
   link: https://haifa-primo.hosted.exlibrisgroup.com/primo-explore/search?vid=IHP&lang=iw_IL
-  status: Available
-'99187252701706381':
-- collection_name: '19th Century UK Periodicals: Series 1 - New Readerships'
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://infotrac.galegroup.com/itweb/umuser?db=NCUK
   status: Available
 '99187252702606381':
 - collection_name: 'Prize Papers Online 3: First, Second and Third Anglo-Dutch War and War of the Spanish Succession'
@@ -13032,6 +12986,12 @@
   note: Ovid. Authorized U-M users (+ guests in U-M Libraries)
   link: http://ovidsp.ovid.com/ovidweb.cgi?T=JS&NEWS=n&CSC=Y&PAGE=main&D=jbi&MODE=easy
   status: Available
+'99188870031306381':
+- collection_name: Torrossa Open
+  interface_name: Casalini Libri
+  note: Casalini Libri. Open access for all users.
+  link: https://oa.torrossa.com
+  status: Available
 '99188075236806381':
 - collection_name: Sage CQ Press Supreme Court Yearbook
   interface_name: SAGE
@@ -14334,6 +14294,12 @@
   note: Bloomsbury Publishing Plc. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.dramaonlinelibrary.com/
   status: Available
+'99188865652706381':
+- collection_name: Sources chrétiennes online.
+  interface_name: ''
+  note: ''
+  link: http://clt.brepolis.net/sco/Pages/Search/Basic.aspx
+  status: Available
 '99188865658506381':
 - collection_name: Universitäts- und Landesbibliothek Sachsen-Anhalt (ULB)
   interface_name: Martin-Luther-Universität Halle-Wittenberg
@@ -14357,4 +14323,52 @@
   interface_name: Brillonline
   note: Brillonline. Download of full PDF book may be required to view Open Access content.
   link: https://brill.com/browse?access=open&et=book&level=parent&pageSize=10&sort=datedescending
+  status: Available
+'99188870148906381':
+- collection_name: Materials Science Index
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://search.proquest.com/msindex
+  status: Available
+'99188878281806381':
+- collection_name: AP Stylebook
+  interface_name: Associated Press
+  note: Associated Press. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://www.apstylebook.com
+  status: Available
+'99188870059806381':
+- collection_name: IBZ - Internationale Bibliographie der Geistes- und Sozialwissenschaftlichen Zeitschriftenliteratur
+  interface_name: De Gruyter Saur
+  note: De Gruyter Saur. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://www.degruyter.com/view/db/ibz?rskey=oyumz8&result=4
+  status: Available
+'99188870059906381':
+- collection_name: Encyclopedia of the Bible and Its Reception
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyter.com/document/doi/10.1515/ebr/html
+  status: Available
+'99188870060006381':
+- collection_name: Encyclopedia of Jewish-Christian Relations Online
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://doi.org/10.1515/ejcro
+  status: Available
+'99188878405406381':
+- collection_name: State of Michigan Government Documents
+  interface_name: State of Michigan
+  note: State of Michigan. Open access for all users.
+  link: https://www.michigan.gov/som
+  status: Available
+'99188878191406381':
+- collection_name: ASM Alloy Digest
+  interface_name: ASM Alloy Digest
+  note: ASM Alloy Digest.
+  link: https://dl.asminternational.org/alloy-digest
+  status: Available
+'99188878183906381':
+- collection_name: MiVideo U-M Licensed Videos
+  interface_name: MiVideo
+  note: MiVideo. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://um-licensed-videos.mivideo.it.umich.edu/
   status: Available
