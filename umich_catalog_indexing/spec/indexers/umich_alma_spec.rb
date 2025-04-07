@@ -107,7 +107,8 @@ describe "umich_alma" do
         ],
         "library" => "SHAP",
         "location" => "SOVR",
-        "public_note" => "CURRENT ISSUES IN SERIAL SERVICES, 203 NORTH HATCHER",
+        "public_note" => ["CURRENT ISSUES IN SERIAL SERVICES, 203 NORTH HATCHER",
+          "MISSING: 24 no.1-2 2015, v.28 no.6 2019"],
         "record_has_finding_aid" => false,
         "summary_holdings" => "2- : 1993-"
       }
@@ -144,7 +145,7 @@ describe "umich_alma" do
           ],
       "library" => "MUSIC",
       "location" => "NONE",
-      "public_note" => nil,
+      "public_note" => [],
       "record_has_finding_aid" => false,
       "summary_holdings" => nil}]
   end
