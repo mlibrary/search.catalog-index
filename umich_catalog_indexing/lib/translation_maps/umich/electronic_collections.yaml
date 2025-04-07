@@ -3573,12 +3573,6 @@
   note: Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.engineeringvillage.com/home.url
   status: Available
-'990030903860106381':
-- collection_name: Music periodicals database.
-  interface_name: Proquest
-  note: Proquest. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://search.proquest.com/iimp?accountid=14667
-  status: Available
 '990021834390106381':
 - collection_name: Inter-university Consortium for Political and Social Research
   interface_name: ICPSR
@@ -3589,12 +3583,13 @@
 - collection_name: Gale virtual reference library
   interface_name: Gale Virtual Reference Library
   note: Gale Virtual Reference Library. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://libproxy.umflint.edu:2048/login?url=http://infotrac.galegroup.com/itweb/umuser?db=GVRL
+  link: https://infotrac.galegroup.com/itweb/umuser?db=GVRL
   status: Available
-- collection_name: Gale virtual reference library
-  interface_name: Gale Virtual Reference Library
-  note: Gale Virtual Reference Library. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://infotrac.galegroup.com/itweb/umuser?db=GVRL
+'99187252544706381':
+- collection_name: Music Periodicals Database
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/iimp
   status: Available
 '99187252545206381':
 - collection_name: HeinOnline World Constitutions Illustrated
@@ -14329,12 +14324,6 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/msindex
-  status: Available
-'99188878281806381':
-- collection_name: AP Stylebook
-  interface_name: Associated Press
-  note: Associated Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.apstylebook.com
   status: Available
 '99188870059806381':
 - collection_name: IBZ - Internationale Bibliographie der Geistes- und Sozialwissenschaftlichen Zeitschriftenliteratur
