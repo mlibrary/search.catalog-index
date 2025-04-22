@@ -24,7 +24,7 @@ RSpec.describe Common::Subjects::Field do
     ]
   end
   let(:remediated_field) do
-    MARC::DataField.new("650", "0", "0",
+    MARC::DataField.new("650", "0", "7",
       ["a", "A"],
       ["v", "V1"],
       ["v", "V2"],
@@ -33,13 +33,8 @@ RSpec.describe Common::Subjects::Field do
       ["y", "Y1"],
       ["y", "Y2"],
       ["z", "Z1"],
-      ["z", "Z2"])
-  end
-  let(:miush_remediated_field) do
-    rem = remediated_field
-    rem.indicator2 = "7"
-    rem.append(MARC::Subfield.new("2", "miush"))
-    rem
+      ["z", "Z2"],
+      ["2", "miush"])
   end
   let(:deprecated_field) do
     MARC::DataField.new("650", "0", "0",
@@ -91,12 +86,12 @@ RSpec.describe Common::Subjects::Field do
   context "to_remediated" do
     it "returns the remediated version of the field" do
       @field = deprecated_field
-      expect(subject.to_remediated).to eq(miush_remediated_field)
+      expect(subject.to_remediated).to eq(remediated_field)
     end
     it "matches deprecated fields with extra periods and different capitalization" do
       @field = deprecated_field
       @field.subfields[0].value = "Deprecated A."
-      expect(subject.to_remediated).to eq(miush_remediated_field)
+      expect(subject.to_remediated).to eq(remediated_field)
     end
     it "has a 0 indicator 7 and a 2 miush" do
       @field = deprecated_field
@@ -128,6 +123,8 @@ RSpec.describe Common::Subjects::Field do
   end
   context "to_deprecated(field)" do
     it "returns an array of deprecated fields" do
+      deprecated_field.indicator2 = "7"
+      deprecated_field.append(MARC::Subfield.new("2", "miush"))
       expect(subject.to_deprecated).to eq([deprecated_field])
     end
   end

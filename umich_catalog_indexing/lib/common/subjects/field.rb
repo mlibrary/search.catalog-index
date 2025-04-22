@@ -76,7 +76,8 @@ module Common
               deprecated_field.append(MARC::Subfield.new(code, value))
             end
           end
-          deprecated_field.subfields.sort_by!(&:code)
+          partitioned = deprecated_field.subfields.partition { |x| x.code.match?(/[a-zA-Z]/) }
+          deprecated_field.subfields = partitioned.map { |x| x.sort_by(&:code) }.flatten
           deprecated_field
         end
       end
