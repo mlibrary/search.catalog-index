@@ -31,7 +31,9 @@ module Common
       #
       # @return [Boolean]
       def already_remediated?
-        !!_matching_remediated_field
+        # subfield 2 is non-repeating
+        @field["2"] == "miush" &&
+          !!_matching_remediated_field
       end
 
       # Given a remediable field, return the remediated field
