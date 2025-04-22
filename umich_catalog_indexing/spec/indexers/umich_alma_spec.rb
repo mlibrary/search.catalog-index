@@ -116,7 +116,7 @@ describe "umich_alma" do
   end
   let(:expected_hurdy_gurdy) do
     [{"callnumber" => "ML760 .P18",
-      "display_name" => "Music",
+      "display_name" => "Music Main Collection",
       "floor_location" => "5th Floor",
       "hol_mmsid" => "22744541740006381",
       "info_link" => "http://lib.umich.edu/locations-and-hours/music-library",
@@ -126,7 +126,7 @@ describe "umich_alma" do
              "callnumber" => "ML760 .P18",
              "can_reserve" => false,
              "description" => nil,
-             "display_name" => "Music",
+             "display_name" => "Music Main Collection",
              "fulfillment_unit" => "General",
              "location_type" => "OPEN",
              "info_link" => "http://lib.umich.edu/locations-and-hours/music-library",
@@ -134,17 +134,17 @@ describe "umich_alma" do
              "item_id" => "23744541730006381",
              "item_policy" => "01",
              "library" => "MUSIC",
-             "location" => "NONE",
+             "location" => "MAIN",
              "material_type" => "BOOK",
              "permanent_library" => "MUSIC",
-             "permanent_location" => "NONE",
+             "permanent_location" => "MAIN",
              "process_type" => nil,
              "public_note" => nil,
              "record_has_finding_aid" => false,
              "temp_location" => false}
           ],
       "library" => "MUSIC",
-      "location" => "NONE",
+      "location" => "MAIN",
       "public_note" => [],
       "record_has_finding_aid" => false,
       "summary_holdings" => nil}]
