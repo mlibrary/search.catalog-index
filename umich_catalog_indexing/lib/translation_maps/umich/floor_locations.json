@@ -339,10 +339,10 @@
     ]
   },
   "AAEL": {
-    "BKS": [
+    "MAIN": [
       {
         "library": "AAEL",
-        "collection": "BKS",
+        "collection": "MAIN",
         "start": "a",
         "stop": "na6999.00000z",
         "floor_key": "3",
@@ -351,27 +351,7 @@
       },
       {
         "library": "AAEL",
-        "collection": "BKS",
-        "start": "na7000.00000",
-        "stop": "zaz",
-        "floor_key": "2",
-        "text": "2nd Floor",
-        "type": "LC"
-      }
-    ],
-    "PER": [
-      {
-        "library": "AAEL",
-        "collection": "PER",
-        "start": "a",
-        "stop": "na6999.00000z",
-        "floor_key": "3",
-        "text": "3rd Floor",
-        "type": "LC"
-      },
-      {
-        "library": "AAEL",
-        "collection": "PER",
+        "collection": "MAIN",
         "start": "na7000.00000",
         "stop": "zaz",
         "floor_key": "2",
@@ -392,10 +372,10 @@
     ]
   },
   "MUSIC": {
-    "NONE": [
+    "MAIN": [
       {
         "library": "MUSIC",
-        "collection": "NONE",
+        "collection": "MAIN",
         "start": "ac",
         "stop": "lhz",
         "floor_key": "4",
@@ -404,7 +384,7 @@
       },
       {
         "library": "MUSIC",
-        "collection": "NONE",
+        "collection": "MAIN",
         "start": "m0001.00000",
         "stop": "m3000.00000z",
         "floor_key": "4",
@@ -413,7 +393,7 @@
       },
       {
         "library": "MUSIC",
-        "collection": "NONE",
+        "collection": "MAIN",
         "start": "ml0001.00000",
         "stop": "ml0005.00000.m8443z",
         "floor_key": "4",
@@ -422,7 +402,7 @@
       },
       {
         "library": "MUSIC",
-        "collection": "NONE",
+        "collection": "MAIN",
         "start": "ml0005.00000.m8445",
         "stop": "zz",
         "floor_key": "5",
@@ -463,10 +443,10 @@
         "type": "LC"
       }
     ],
-    "PER": [
+    "SER": [
       {
         "library": "FINE",
-        "collection": "PER",
+        "collection": "SER",
         "start": "a",
         "stop": "zz",
         "floor_key": "1",
@@ -474,10 +454,10 @@
         "type": "LC"
       }
     ],
-    "PERC": [
+    "SERU": [
       {
         "library": "FINE",
-        "collection": "PERC",
+        "collection": "SERU",
         "start": "a",
         "stop": "zz",
         "floor_key": "2",
