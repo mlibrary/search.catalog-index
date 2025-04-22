@@ -26,8 +26,11 @@ module Common
       end
 
       # Given a subject field, is it one that has already been remediated? This
-      # is determined by checking if the field matches the preferred term in
-      # the authority record
+      # is determined by:
+      #
+      # 1) checking that field is an miush controlled heading
+      # 2) if it is an miush heading, checking if the field matches the
+      # preferred term in the authority record
       #
       # @return [Boolean]
       def already_remediated?

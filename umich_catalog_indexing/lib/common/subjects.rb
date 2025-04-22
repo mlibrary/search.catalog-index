@@ -36,7 +36,7 @@ module Common
     SUBJECT_FIELDS = TOPICS.keys
     REMEDIATION_MAP = RemediationMap.new
 
-    def initialize(record)
+    def initialize(record: nil)
       @record = record
     end
 
@@ -188,9 +188,7 @@ module Common
     # fields in the bib record that have already been remediated
     def already_remediated_subject_fields
       @already_remediated_subject_fields ||=
-        (subject_fields - lc_subject_fields).filter_map do |field|
-          field if _field_inst(field).already_remediated?
-        end
+        (subject_fields - lc_subject_fields).select { |field| _field_inst(field).already_remediated? }
     end
 
     # Transformations of deprecated subjects fields in the bib record
@@ -208,9 +206,7 @@ module Common
     # fields in the bib record with deprecated subjects terms
     def remediable_subject_fields
       @remediable_subject_fields ||=
-        subject_fields.filter_map do |field|
-          field if _field_inst(field).remediable?
-        end
+        subject_fields.select { |field| _field_inst(field).remediable? }
     end
 
     # Determine the 880 (linking fields) for the given field. Should probably

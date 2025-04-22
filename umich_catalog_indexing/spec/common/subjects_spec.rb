@@ -23,7 +23,7 @@ RSpec.describe Common::Subjects do
     @record = record
   end
   subject do
-    described_class.new(@record)
+    described_class.new(record: @record)
   end
 
   context "#lc_subjects" do

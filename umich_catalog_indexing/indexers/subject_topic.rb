@@ -9,7 +9,7 @@ extend Traject::Macros::Common::Subject
 
 # Saving the Subject because it has some expensive operations.
 each_record do |rec, context|
-  context.clipboard[:subject] = Common::Subjects.new(rec)
+  context.clipboard[:subject] = Common::Subjects.new(record: rec)
 end
 
 to_field "topic", topics, trim_punctuation

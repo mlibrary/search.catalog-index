@@ -5,7 +5,7 @@ RSpec.describe Common::Subjects::LCSubject do
     MARC::XMLReader.new("./spec/fixtures/unauthorized_immigrants.xml").first
   end
   let(:subject_fields) do
-    Common::Subjects.new(record).lc_subject_fields
+    Common::Subjects.new(record: record).lc_subject_fields
   end
   let(:subject_field) do
     subject_fields.first

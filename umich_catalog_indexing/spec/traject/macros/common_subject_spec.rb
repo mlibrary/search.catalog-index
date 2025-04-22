@@ -9,7 +9,7 @@ RSpec.describe Traject::Macros::Common::Subject do
   end
   before(:each) do
     @context = OpenStruct.new(
-      clipboard: {subject: Common::Subjects.new(record)}
+      clipboard: {subject: Common::Subjects.new(record: record)}
     )
   end
   context "lcsh_subjects" do
