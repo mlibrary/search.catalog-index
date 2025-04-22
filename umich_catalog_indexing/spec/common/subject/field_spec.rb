@@ -2,6 +2,7 @@ require "common/subjects"
 RSpec.describe Common::Subjects::Field do
   before(:each) do
     @field = remediated_field
+    @source = "zephir"
     @mapping = [
       {
         "1xx" => {
@@ -56,32 +57,40 @@ RSpec.describe Common::Subjects::Field do
       {"code" => sf.code, "value" => _normalize_sf(sf.value)}
     end
   end
-  let(:source) { "zephir" }
   subject do
     map = Common::Subjects::RemediationMap.new(@mapping)
-    described_class.new(field: @field, remediation_map: map, normalized_sfs: normalized_sfs, source: source)
+    described_class.new(field: @field, remediation_map: map, normalized_sfs: normalized_sfs, source: @source)
   end
   context "remediable?" do
-    it "is true for a deprecated field" do
+    before(:each) do
       @field = deprecated_field
-      expect(subject.remediable?).to eq(true)
     end
-    it "is false when any subfield doesn't match deprecated field" do
-      @mapping[0]["4xx"][0]["v"][1] = "something other deprecated v"
-      expect(subject.remediable?).to eq(false)
+    context "alma record" do
+      it "is false" do
+        # Alma records should already have remediated fields
+        @source = "alma"
+        expect(subject.remediable?).to eq(false)
+      end
     end
-    it "is true when the second mapping entity has the matching deprecated field" do
-      @mapping.insert(0, {
-        "1xx" => {"a" => ["blah"]},
-        "4xx" => [{"a" => ["whatever"]}]
-      })
-      @field = deprecated_field
-      expect(subject.remediable?).to eq(true)
-    end
-    it "is true when the deprecated field has extra subfields" do
-      @field = deprecated_field
-      @field.append(MARC::Subfield.new("z", "Whatever"))
-      expect(subject.remediable?).to eq(true)
+    context "zephir record" do
+      it "is true for a deprecated field" do
+        expect(subject.remediable?).to eq(true)
+      end
+      it "is false when any subfield doesn't match deprecated field" do
+        @mapping[0]["4xx"][0]["v"][1] = "something other deprecated v"
+        expect(subject.remediable?).to eq(false)
+      end
+      it "is true when the second mapping entity has the matching deprecated field" do
+        @mapping.insert(0, {
+          "1xx" => {"a" => ["blah"]},
+          "4xx" => [{"a" => ["whatever"]}]
+        })
+        expect(subject.remediable?).to eq(true)
+      end
+      it "is true when the deprecated field has extra subfields" do
+        @field.append(MARC::Subfield.new("z", "Whatever"))
+        expect(subject.remediable?).to eq(true)
+      end
     end
   end
   context "to_remediated" do

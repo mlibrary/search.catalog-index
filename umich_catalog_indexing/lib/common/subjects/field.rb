@@ -24,7 +24,8 @@ module Common
       #
       # @return [Boolean]
       def remediable?
-        !!_matching_deprecated_field
+        @source != "alma" &&
+          !!_matching_deprecated_field
       end
 
       # Given a subject field, is it one that has already been remediated? This
