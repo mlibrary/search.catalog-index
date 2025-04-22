@@ -36,8 +36,9 @@ module Common
     SUBJECT_FIELDS = TOPICS.keys
     REMEDIATION_MAP = RemediationMap.new
 
-    def initialize(record: nil)
+    def initialize(source:, record:)
       @record = record
+      @source = source
     end
 
     # @return [Array<String>] An array of LC subject strings
