@@ -7,11 +7,13 @@ module Common
       def_delegators :@field, :tag, :indicator2, :[], :subfields
 
       # @param field [MARC::DataField] A subject field from the bib record
+      # @param source [String] The source of the record. Can be 'alma', 'zephir', or 'unknown'
       # @param remediation_map [Common::Subjects::RemediationMap] The
       # remediation rules based on the authority records
       # @param normalized_sfs [Array[String]] An array of the subfields in the field where the values have been normalized.
-      def initialize(field:, remediation_map:, normalized_sfs: nil)
+      def initialize(field:, source:, remediation_map:, normalized_sfs:)
         @field = field
+        @source = source
         @mapping = remediation_map.mapping
         @normalized_mapping = remediation_map.normalized_mapping
         @normalized_sfs = normalized_sfs

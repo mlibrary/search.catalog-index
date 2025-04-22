@@ -228,14 +228,14 @@ module Common
     # Subjects::Field object
     # @return [Subjects::Field]
     def _field_inst(field)
-      _fields[field.object_id] || Field.new(field: field, remediation_map: REMEDIATION_MAP, normalized_sfs: _normalized_sfs(field))
+      _fields[field.object_id] || Field.new(field: field, remediation_map: REMEDIATION_MAP, normalized_sfs: _normalized_sfs(field), source: @source)
     end
 
     # @return [Hash] Hash of subject field object ids and the corresponding
     # Subjects::Field object
     def _fields
       @_fields ||= subject_fields.map do |field|
-        [field.object_id, Field.new(field: field, remediation_map: REMEDIATION_MAP, normalized_sfs: _normalized_sfs(field))]
+        [field.object_id, Field.new(field: field, remediation_map: REMEDIATION_MAP, normalized_sfs: _normalized_sfs(field), source: @source)]
       end.to_h
     end
 
