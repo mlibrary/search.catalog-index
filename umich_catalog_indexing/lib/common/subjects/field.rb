@@ -7,31 +7,40 @@ module Common
       def_delegators :@field, :tag, :indicator2, :[], :subfields
 
       # @param field [MARC::DataField] A subject field from the bib record
+      # @param source [String] The source of the record. Can be 'alma', 'zephir', or 'unknown'
       # @param remediation_map [Common::Subjects::RemediationMap] The
       # remediation rules based on the authority records
       # @param normalized_sfs [Array[String]] An array of the subfields in the field where the values have been normalized.
-      def initialize(field:, remediation_map:, normalized_sfs: nil)
+      def initialize(field:, source:, remediation_map:, normalized_sfs:)
         @field = field
+        @source = source
         @mapping = remediation_map.mapping
         @normalized_mapping = remediation_map.normalized_mapping
         @normalized_sfs = normalized_sfs
       end
 
-      # Does the field need to be remediated? This is determined by checking if
-      # the field matches a deprecated field in the authority record
+      # For records from Alma we assume that lc subjects do not contain
+      # deprecated headings. For other record sources we check if the field
+      # matches a deprecated field in the authority record.
       #
       # @return [Boolean]
       def remediable?
-        !!_matching_deprecated_field
+        @source != "alma" &&
+          !!_matching_deprecated_field
       end
 
       # Given a subject field, is it one that has already been remediated? This
-      # is determined by checking if the field matches the preferred term in
-      # the authority record
+      # is determined by:
+      #
+      # 1) checking that field is an miush controlled heading
+      # 2) if it is an miush heading, checking if the field matches the
+      # preferred term in the authority record
       #
       # @return [Boolean]
       def already_remediated?
-        !!_matching_remediated_field
+        # subfield 2 is non-repeating so this is safe
+        @field["2"] == "miush" &&
+          !!_matching_remediated_field
       end
 
       # Given a remediable field, return the remediated field
@@ -76,7 +85,8 @@ module Common
               deprecated_field.append(MARC::Subfield.new(code, value))
             end
           end
-          deprecated_field.subfields.sort_by!(&:code)
+          partitioned = deprecated_field.subfields.partition { |x| x.code.match?(/[a-zA-Z]/) }
+          deprecated_field.subfields = partitioned.map { |x| x.sort_by(&:code) }.flatten
           deprecated_field
         end
       end

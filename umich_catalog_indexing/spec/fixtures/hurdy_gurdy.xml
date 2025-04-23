@@ -89,17 +89,17 @@
 <datafield tag="852" ind1="0" ind2=" ">
   <subfield code="b">MUSIC</subfield>
   <subfield code="a">MiU</subfield>
-  <subfield code="c">NONE</subfield>
+  <subfield code="c">MAIN</subfield>
     <subfield code="h">ML760 .P18</subfield>
     <subfield code="8">22744541740006381</subfield>
   </datafield>
   <datafield tag="974" ind1=" " ind2=" ">
     <subfield code="8">22744541740006381</subfield>
     <subfield code="f">1</subfield>
-    <subfield code="c">NONE</subfield>
+    <subfield code="c">MAIN</subfield>
     <subfield code="m">BOOK</subfield>
     <subfield code="a">39015009714562</subfield>
-    <subfield code="e">NONE</subfield>
+    <subfield code="e">MAIN</subfield>
     <subfield code="7">23744541730006381</subfield>
     <subfield code="p">01</subfield>
     <subfield code="r">1989-09-24 10:59:00</subfield>
