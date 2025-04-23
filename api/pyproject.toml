@@ -14,6 +14,7 @@ requests = "^2.31.0"
 fastapi = "^0.115.11"
 uvicorn = "^0.34.0"
 httpx = "^0.28.1"
+pymarc = "^5.2.3"
 
 
 [tool.poetry.group.dev.dependencies]

@@ -17,7 +17,7 @@ def api_output():
         return json.load(data)
 
 
-fields = ["title", "format", "main_author"]
+fields = ["title", "format", "main_author", "other_titles"]
 
 
 @pytest.mark.parametrize("field", fields)

@@ -1,4 +1,7 @@
 from catalog_api.solr_client import SolrClient
+import pymarc
+import io
+import string
 
 
 def record_for(id: str):
@@ -10,6 +13,7 @@ class Record:
     def __init__(self, data: dict):
         self.data = data
         self.script = ["default", "vernacular"]
+        self.record = pymarc.parse_xml_to_array(io.StringIO(data["fullrecord"]))[0]
 
     @property
     def id(self):
@@ -38,8 +42,13 @@ class Record:
                 for index, element in enumerate(main)
             ]
 
+    @property
     def other_titles(self):
-        pass
+        result = []
+        for field in self.record.get_fields("246", "247", "740"):
+            text = " ".join(field.get_subfields(*list(string.ascii_lowercase)))
+            result.append({"text": text, "search": text})
+        return result
 
     def _get_solr_paired_field(self, key):
         a = self.data.get(key)

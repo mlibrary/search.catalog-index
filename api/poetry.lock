@@ -429,6 +429,17 @@ files = [
 typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
 
 [[package]]
+name = "pymarc"
+version = "5.2.3"
+description = "Read, write and modify MARC bibliographic data"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "pymarc-5.2.3-py3-none-any.whl", hash = "sha256:9e0b2fff0f97764889fe2af08a93d137e0a46630c006c6330bebf0bdcd52201a"},
+    {file = "pymarc-5.2.3.tar.gz", hash = "sha256:02a151d89c3b36f92bbc92c2e972bcfe91b91fc93529d8862e5f7c292a15c9f0"},
+]
+
+[[package]]
 name = "pytest"
 version = "8.3.5"
 description = "pytest: simple powerful testing with Python"
@@ -653,4 +664,4 @@ standard = ["colorama (>=0.4)", "httptools (>=0.6.3)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "979d8214953bee026b84c851194c19cc424533a533c0efbf5a4570f43ad19630"
+content-hash = "28998c74e68479381c2d81beb3fb4b8865072ef29b4ba8df6872f5732c324b9c"
