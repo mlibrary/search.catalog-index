@@ -36,13 +36,13 @@ def test_record_title_with_only_default_script(solr_bib, api_output):
 def test_record_title_with_no_title(solr_bib):
     solr_bib.pop("title_display")
     subject = Record(solr_bib)
-    assert subject.title is None
+    assert subject.title == []
 
 
 def test_record_formats_with_no_formats(solr_bib):
     solr_bib.pop("format")
     subject = Record(solr_bib)
-    assert subject.format is None
+    assert subject.format == []
 
 
 def test_record_main_author_no_vernacular(solr_bib):
@@ -55,4 +55,4 @@ def test_record_main_author_no_vernacular(solr_bib):
 def test_record_with_no_main_author(solr_bib):
     solr_bib.pop("main_author_display")
     subject = Record(solr_bib)
-    assert subject.main_author is None
+    assert subject.main_author == []

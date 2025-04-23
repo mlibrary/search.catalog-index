@@ -25,35 +25,37 @@ class Record:
 
     @property
     def format(self):
-        return self.data.get("format")
+        return self.data.get("format") or []
 
     @property
     def main_author(self):
-        main = self.data.get("main_author_display")
-        search = self.data.get("main_author")
-        if main and search:
-            return [
-                {
-                    "text": element,
-                    "script": self.script[index],
-                    "search": search[index],
-                    "browse": search[index],
-                }
-                for index, element in enumerate(main)
-            ]
+        main = self.data.get("main_author_display") or []
+        search = self.data.get("main_author") or []
+        return [
+            {
+                "text": element,
+                "script": self.script[index],
+                "search": search[index],
+                "browse": search[index],
+            }
+            for index, element in enumerate(main)
+        ]
 
+    # TODO: unit tests for all of the options
     @property
-    def other_titles(self):
+    def other_titles(self) -> list:
         result = []
         for field in self.record.get_fields("246", "247", "740"):
-            text = " ".join(field.get_subfields(*list(string.ascii_lowercase)))
+            text = " ".join(field.get_subfields(*self._a_to_z()))
             result.append({"text": text, "search": text})
         return result
 
     def _get_solr_paired_field(self, key):
-        a = self.data.get(key)
-        if a:
-            return [
-                {"text": element, "script": self.script[index]}
-                for index, element in enumerate(a)
-            ]
+        a = self.data.get(key) or []
+        return [
+            {"text": element, "script": self.script[index]}
+            for index, element in enumerate(a)
+        ]
+
+    def _a_to_z(self):
+        return list(string.ascii_lowercase)
