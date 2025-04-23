@@ -19,8 +19,9 @@ module Common
         @normalized_sfs = normalized_sfs
       end
 
-      # Does the field need to be remediated? This is determined by checking if
-      # the field matches a deprecated field in the authority record
+      # For records from Alma we assume that lc subjects do not contain
+      # deprecated headings. For other record sources we check if the field
+      # matches a deprecated field in the authority record.
       #
       # @return [Boolean]
       def remediable?
@@ -37,7 +38,7 @@ module Common
       #
       # @return [Boolean]
       def already_remediated?
-        # subfield 2 is non-repeating
+        # subfield 2 is non-repeating so this is safe
         @field["2"] == "miush" &&
           !!_matching_remediated_field
       end
