@@ -19,6 +19,10 @@ class Record:
     def title(self):
         return self._get_solr_paired_field("title_display")
 
+    @property
+    def format(self):
+        return self.data.get("format")
+
     def _get_solr_paired_field(self, key):
         a = self.data.get(key)
         if a:

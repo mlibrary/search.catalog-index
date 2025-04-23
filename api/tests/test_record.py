@@ -33,3 +33,14 @@ def test_record_title_with_no_title(solr_bib):
     solr_bib.pop("title_display")
     subject = Record(solr_bib)
     assert subject.title is None
+
+
+def test_record_formats(solr_bib, api_output):
+    subject = Record(solr_bib)
+    assert subject.format == api_output["format"]
+
+
+def test_record_formats_with_no_formats(solr_bib):
+    solr_bib.pop("format")
+    subject = Record(solr_bib)
+    assert subject.format is None

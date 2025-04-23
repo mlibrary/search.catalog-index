@@ -12,3 +12,4 @@ class PairedTextField(TextField):
 class Record(BaseModel):
     id: str
     title: list[PairedTextField]
+    format: list[str]
