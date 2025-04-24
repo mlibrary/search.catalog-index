@@ -14,6 +14,7 @@ class Record:
         self.data = data
         self.script = ["default", "vernacular"]
         self.record = pymarc.parse_xml_to_array(io.StringIO(data["fullrecord"]))[0]
+        self.marc = MARC(self.record)
 
     @property
     def id(self):
@@ -44,11 +45,7 @@ class Record:
     # TODO: unit tests for all of the options
     @property
     def other_titles(self) -> list:
-        result = []
-        for field in self.record.get_fields("246", "247", "740"):
-            text = " ".join(field.get_subfields(*self._a_to_z()))
-            result.append({"text": text, "search": text})
-        return result
+        return self.marc.other_titles
 
     def _get_solr_paired_field(self, key):
         a = self.data.get(key) or []
@@ -56,6 +53,50 @@ class Record:
             {"text": element, "script": self.script[index]}
             for index, element in enumerate(a)
         ]
+
+
+class MARC:
+    def __init__(self, record: pymarc.record.Record):
+        self.record = record
+
+    @property
+    def other_titles(self) -> list:
+        result = []
+        for field in self.record.get_fields("246", "247", "740"):
+            text = " ".join(field.get_subfields(*self._a_to_z()))
+            result.append({"text": text, "search": text})
+
+        for field in self.record.get_fields("700", "710"):
+            if field.get_subfields("t") and field.indicator2 == "2":
+                text = " ".join(
+                    field.get_subfields(
+                        "a",
+                        "b",
+                        "c",
+                        "d",
+                        "e",
+                        "f",
+                        "g",
+                        "j",
+                        "k",
+                        "l",
+                        "m",
+                        "n",
+                        "o",
+                        "p",
+                        "q",
+                        "r",
+                        "s",
+                        "t",
+                    )
+                )
+                search = " ".join(
+                    field.get_subfields(
+                        "f", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t"
+                    )
+                )
+                result.append({"text": text, "search": search})
+        return result
 
     def _a_to_z(self):
         return list(string.ascii_lowercase)
