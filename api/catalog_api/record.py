@@ -64,13 +64,22 @@ class MARC:
         result = []
         for field in self.record.get_fields("246", "247", "740"):
             text = self._get_subfields(field, string.ascii_lowercase)
-            result.append({"text": text, "search": text})
+            result.append({"script": "default", "text": text, "search": text})
 
-        for field in self.record.get_fields("700", "710"):
+        for field in self.record.get_fields("700", "710", "711"):
             if field.get_subfields("t") and field.indicator2 == "2":
+                search_sf = "fklmnoprst" if field.tag == "711" else "fjklmnoprst"
                 text = self._get_subfields(field, "abcdefgjklmnopqrst")
-                search = self._get_subfields(field, "fjklmnoprst")
+                search = self._get_subfields(field, search_sf)
                 result.append({"text": text, "search": search})
+
+        for field in self.record.get_fields("880"):
+            if any(
+                sf.startswith(("246", "247", "740")) for sf in field.get_subfields("6")
+            ):
+                text = self._get_subfields(field, string.ascii_lowercase)
+                result.append({"script": "vernacular", "text": text, "search": text})
+
         return result
 
     @property

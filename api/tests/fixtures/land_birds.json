@@ -30,6 +30,7 @@
     "other_titles": [
         {
             "text": "Concise field guide to land birds.",
+            "script": "default",
             "search": "Concise field guide to land birds."
         }
     ],

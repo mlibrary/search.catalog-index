@@ -67,8 +67,41 @@ def a_to_z_sfs():
     ]
 
 
+@pytest.fixture()
+def a_to_z_str():
+    return " ".join(list(string.ascii_lowercase))
+
+
 class TestMARC:
-    # still not done with these
+    @pytest.mark.parametrize("tag", ["246", "247", "740"])
+    def test_other_titles_246_247_740_with_t_and_indicator_2(
+        self, tag, marc, a_to_z_sfs, a_to_z_str
+    ):
+        field = pymarc.Field(
+            tag=tag,
+            indicators=pymarc.Indicators("0", "2"),
+            subfields=a_to_z_sfs,
+        )
+
+        vsubfields = a_to_z_sfs.copy()
+        vsubfields.append(pymarc.Subfield(code="6", value=f"{tag}-06"))
+
+        vfield = pymarc.Field(
+            tag="880", indicators=pymarc.Indicators("0", "2"), subfields=vsubfields
+        )
+
+        marc.add_field(field)
+        marc.add_field(vfield)
+
+        subject = MARC(marc)
+
+        expected = [
+            {"script": "default", "text": a_to_z_str, "search": a_to_z_str},
+            {"script": "vernacular", "text": a_to_z_str, "search": a_to_z_str},
+        ]
+
+        assert subject.other_titles == expected
+
     @pytest.mark.parametrize("tag", ["700", "710"])
     def test_other_titles_700_710_with_t_and_indicator_2(self, tag, marc, a_to_z_sfs):
         field = pymarc.Field(
@@ -87,8 +120,25 @@ class TestMARC:
         ]
         assert subject.other_titles == expected
 
-    @pytest.mark.parametrize("tag", ["700", "710"])
-    def test_other_titles_700_710_with_t_and_no_indicator_2(
+    def test_other_titles_711_with_t_and_indicator_2(self, marc, a_to_z_sfs):
+        field = pymarc.Field(
+            tag="711",
+            indicators=pymarc.Indicators("0", "2"),
+            subfields=a_to_z_sfs,
+        )
+
+        marc.add_field(field)
+        subject = MARC(marc)
+        expected = [
+            {
+                "text": "a b c d e f g j k l m n o p q r s t",
+                "search": "f k l m n o p r s t",  # this does not have a $j
+            },
+        ]
+        assert subject.other_titles == expected
+
+    @pytest.mark.parametrize("tag", ["700", "710", "711"])
+    def test_other_titles_700_710_711_with_t_and_no_indicator_2(
         self, tag, marc, a_to_z_sfs
     ):
         field = pymarc.Field(
@@ -102,8 +152,8 @@ class TestMARC:
         expected = []
         assert subject.other_titles == expected
 
-    @pytest.mark.parametrize("tag", ["700", "710"])
-    def test_other_titles_700_710_with_indicator_2_and_no_t(
+    @pytest.mark.parametrize("tag", ["700", "710", "711"])
+    def test_other_titles_700_710_711_with_indicator_2_and_no_t(
         self, tag, marc, a_to_z_sfs
     ):
         subfields = [x for x in a_to_z_sfs if x.code != "t"]
