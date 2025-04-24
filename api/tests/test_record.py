@@ -68,6 +68,7 @@ def a_to_z_sfs():
 
 
 class TestMARC:
+    # still not done with these
     @pytest.mark.parametrize("tag", ["700", "710"])
     def test_other_titles_700_710_with_t_and_indicator_2(self, tag, marc, a_to_z_sfs):
         field = pymarc.Field(
@@ -114,3 +115,39 @@ class TestMARC:
         subject = MARC(marc)
         expected = []
         assert subject.other_titles == expected
+
+    @pytest.mark.parametrize("tag", ["700", "710", "711"])
+    def test_contributors_with_indicator_2_not_2_and_no_t(self, tag, marc, a_to_z_sfs):
+        subfields = [x for x in a_to_z_sfs if x.code != "t"]
+        subfields.append(pymarc.Subfield(code="4", value="4"))
+        subfields.append(pymarc.Subfield(code="6", value="880-06"))
+
+        vsubfields = [x for x in a_to_z_sfs if x.code != "t"]
+        vsubfields.append(pymarc.Subfield(code="4", value="4"))
+        vsubfields.append(pymarc.Subfield(code="6", value=f"{tag}-06"))
+
+        field = pymarc.Field(
+            tag=tag, indicators=pymarc.Indicators("0", "1"), subfields=subfields
+        )
+        vfield = pymarc.Field(
+            tag="880", indicators=pymarc.Indicators("0", "1"), subfields=vsubfields
+        )
+        marc.add_field(field)
+        marc.add_field(vfield)
+        subject = MARC(marc)
+        expected = [
+            {
+                "script": "default",
+                "text": "a b c d e f g j k l n p q u 4",
+                "search": "a b c d g j k q u",
+                "browse": "a b c d g j k q u",
+            },
+            {
+                "script": "vernacular",
+                "text": "a b c d e f g j k l n p q u 4",
+                "search": "a b c d g j k q u",
+                "browse": "a b c d g j k q u",
+            },
+        ]
+
+        assert subject.contributors == expected

@@ -63,40 +63,42 @@ class MARC:
     def other_titles(self) -> list:
         result = []
         for field in self.record.get_fields("246", "247", "740"):
-            text = " ".join(field.get_subfields(*self._a_to_z()))
+            text = self._get_subfields(field, string.ascii_lowercase)
             result.append({"text": text, "search": text})
 
         for field in self.record.get_fields("700", "710"):
             if field.get_subfields("t") and field.indicator2 == "2":
-                text = " ".join(
-                    field.get_subfields(
-                        "a",
-                        "b",
-                        "c",
-                        "d",
-                        "e",
-                        "f",
-                        "g",
-                        "j",
-                        "k",
-                        "l",
-                        "m",
-                        "n",
-                        "o",
-                        "p",
-                        "q",
-                        "r",
-                        "s",
-                        "t",
-                    )
-                )
-                search = " ".join(
-                    field.get_subfields(
-                        "f", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t"
-                    )
-                )
+                text = self._get_subfields(field, "abcdefgjklmnopqrst")
+                search = self._get_subfields(field, "fjklmnoprst")
                 result.append({"text": text, "search": search})
         return result
 
-    def _a_to_z(self):
-        return list(string.ascii_lowercase)
+    @property
+    def contributors(self):
+        result = []
+        tags = ["700", "710", "711"]
+        for field in self.record.get_fields(*tags):
+            text = self._get_subfields(field, "abcdefgjklnpqu4")
+            search = self._get_subfields(field, "abcdgjkqu")
+            result.append(
+                {"script": "default", "text": text, "search": search, "browse": search}
+            )
+
+        for field in self.record.get_fields("880"):
+            if any(sf.startswith(tuple(tags)) for sf in field.get_subfields("6")):
+                text = self._get_subfields(field, "abcdefgjklnpqu4")
+                search = self._get_subfields(field, "abcdgjkqu")
+
+                result.append(
+                    {
+                        "script": "vernacular",
+                        "text": text,
+                        "search": search,
+                        "browse": search,
+                    }
+                )
+
+        return result
+
+    def _get_subfields(self, field: pymarc.Field, subfields: str):
+        return " ".join(field.get_subfields(*list(subfields)))
