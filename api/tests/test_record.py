@@ -73,14 +73,20 @@ def a_to_z_str():
 
 
 class TestMARC:
+    #####
+    # other_titles
+    #####
+
     @pytest.mark.parametrize("tag", ["246", "247", "740"])
     def test_other_titles_246_247_740_with_t_and_indicator_2(
         self, tag, marc, a_to_z_sfs, a_to_z_str
     ):
+        default_subfields = a_to_z_sfs.copy()
+        default_subfields.append(pymarc.Subfield(code="6", value="880-06"))
         field = pymarc.Field(
             tag=tag,
             indicators=pymarc.Indicators("0", "2"),
-            subfields=a_to_z_sfs,
+            subfields=default_subfields,
         )
 
         vsubfields = a_to_z_sfs.copy()
@@ -96,45 +102,81 @@ class TestMARC:
         subject = MARC(marc)
 
         expected = [
-            {"script": "default", "text": a_to_z_str, "search": a_to_z_str},
-            {"script": "vernacular", "text": a_to_z_str, "search": a_to_z_str},
+            {
+                "script": "default",
+                "text": a_to_z_str,
+                "search": a_to_z_str,
+                "tag": tag,
+                "linkage": {"tag": "880", "occurence_number": "06"},
+            },
+            {
+                "script": "vernacular",
+                "text": a_to_z_str,
+                "search": a_to_z_str,
+                "tag": "880",
+                "linkage": {"tag": tag, "occurence_number": "06"},
+            },
         ]
 
         assert subject.other_titles == expected
 
-    @pytest.mark.parametrize("tag", ["700", "710"])
-    def test_other_titles_700_710_with_t_and_indicator_2(self, tag, marc, a_to_z_sfs):
+    @pytest.mark.parametrize("tag", ["700", "710", "711"])
+    def test_other_titles_700_710_711_with_t_and_indicator_2(
+        self, tag, marc, a_to_z_sfs
+    ):
+        default_subfields = a_to_z_sfs.copy()
+        default_subfields.append(pymarc.Subfield(code="6", value="880-06"))
         field = pymarc.Field(
             tag=tag,
             indicators=pymarc.Indicators("0", "2"),
-            subfields=a_to_z_sfs,
+            subfields=default_subfields,
+        )
+
+        vsubfields = a_to_z_sfs.copy()
+        vsubfields.append(pymarc.Subfield(code="6", value=f"{tag}-06"))
+
+        vfield = pymarc.Field(
+            tag="880", indicators=pymarc.Indicators("0", "2"), subfields=vsubfields
         )
 
         marc.add_field(field)
-        subject = MARC(marc)
-        expected = [
-            {
-                "text": "a b c d e f g j k l m n o p q r s t",
-                "search": "f j k l m n o p r s t",
-            },
-        ]
-        assert subject.other_titles == expected
+        marc.add_field(vfield)
 
-    def test_other_titles_711_with_t_and_indicator_2(self, marc, a_to_z_sfs):
-        field = pymarc.Field(
-            tag="711",
-            indicators=pymarc.Indicators("0", "2"),
-            subfields=a_to_z_sfs,
-        )
-
-        marc.add_field(field)
         subject = MARC(marc)
-        expected = [
-            {
-                "text": "a b c d e f g j k l m n o p q r s t",
-                "search": "f k l m n o p r s t",  # this does not have a $j
-            },
-        ]
+        if tag in ["700", "710"]:
+            expected = [
+                {
+                    "script": "default",
+                    "text": "a b c d e f g j k l m n o p q r s t",
+                    "search": "f j k l m n o p r s t",
+                    "tag": tag,
+                    "linkage": {"tag": "880", "occurence_number": "06"},
+                },
+                {
+                    "script": "vernacular",
+                    "text": "a b c d e f g j k l m n o p q r s t",
+                    "search": "f j k l m n o p r s t",
+                    "tag": "880",
+                    "linkage": {"tag": tag, "occurence_number": "06"},
+                },
+            ]
+        else:  # 711
+            expected = [
+                {
+                    "script": "default",
+                    "text": "a b c d e f g j k l m n o p q r s t",
+                    "search": "f k l m n o p r s t",  # this does not have a $j
+                    "tag": tag,
+                    "linkage": {"tag": "880", "occurence_number": "06"},
+                },
+                {
+                    "script": "vernacular",
+                    "text": "a b c d e f g j k l m n o p q r s t",
+                    "search": "f k l m n o p r s t",  # this does not have a $j
+                    "tag": "880",
+                    "linkage": {"tag": tag, "occurence_number": "06"},
+                },
+            ]
         assert subject.other_titles == expected
 
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
@@ -166,6 +208,9 @@ class TestMARC:
         expected = []
         assert subject.other_titles == expected
 
+    #####
+    # contributors
+    #####
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
     def test_contributors_with_indicator_2_not_2_and_no_t(self, tag, marc, a_to_z_sfs):
         subfields = [x for x in a_to_z_sfs if x.code != "t"]
@@ -191,12 +236,16 @@ class TestMARC:
                 "text": "a b c d e f g j k l n p q u 4",
                 "search": "a b c d g j k q u",
                 "browse": "a b c d g j k q u",
+                "tag": tag,
+                "linkage": {"tag": "880", "occurence_number": "06"},
             },
             {
                 "script": "vernacular",
                 "text": "a b c d e f g j k l n p q u 4",
                 "search": "a b c d g j k q u",
                 "browse": "a b c d g j k q u",
+                "tag": "880",
+                "linkage": {"tag": tag, "occurence_number": "06"},
             },
         ]
 

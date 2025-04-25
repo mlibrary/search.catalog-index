@@ -2,12 +2,12 @@
     "id": "990008019700106381",
     "title": [
         {
-            "text": "Sanʼya no tori = Concise field guide to land birds / kaisetsu Saeki Akimitsu ; e Taniguchi Takashi.",
-            "script": "default"
+            "script": "default",
+            "text": "Sanʼya no tori = Concise field guide to land birds / kaisetsu Saeki Akimitsu ; e Taniguchi Takashi."
         },
         {
-            "text": "山野の鳥 = Concise field guide to land birds / 解說佐伯彰光 ; 絵谷口高司.",
-            "script": "vernacular"
+            "script": "vernacular",
+            "text": "山野の鳥 = Concise field guide to land birds / 解說佐伯彰光 ; 絵谷口高司."
         }
     ],
     "format": [
@@ -31,7 +31,9 @@
         {
             "text": "Concise field guide to land birds.",
             "script": "default",
-            "search": "Concise field guide to land birds."
+            "search": "Concise field guide to land birds.",
+            "tag": "740",
+            "linkage": null
         }
     ],
     "contributors": [
