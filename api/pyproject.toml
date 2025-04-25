@@ -19,7 +19,7 @@ pymarc = "^5.2.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.2"
-ruff = "^0.2.2"
+ruff = "0.5.3"
 responses = "^0.25.7"
 
 [build-system]
