@@ -48,6 +48,10 @@ class Record:
     def other_titles(self) -> list:
         return self.marc.other_titles
 
+    @property
+    def contributors(self) -> list:
+        return self.marc.contributors
+
     def _get_solr_paired_field(self, key):
         a = self.data.get(key) or []
         return [
