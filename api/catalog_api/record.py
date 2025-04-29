@@ -3,6 +3,7 @@ import pymarc
 import io
 import re
 import string
+from typing import Optional
 
 
 def record_for(id: str):
@@ -71,62 +72,33 @@ class MARC:
         I wouldn't want to fetch any paired fields from solr then though
         """
         result = []
-        for field in self.record.get_fields("246", "247", "740"):
-            text = self._get_subfields(field, string.ascii_lowercase)
+        for field in self._get_paired_fields_for(["246", "247", "740"]):
             result.append(
-                {
-                    "script": "default",
-                    "text": text,
-                    "search": text,
-                    "tag": field.tag,
-                    "linkage": Linkage(field).as_dict(),
-                }
+                self._generate_paired_field(
+                    field=field,
+                    text_sfs=string.ascii_lowercase,
+                    search_sfs=string.ascii_lowercase,
+                )
             )
 
-        for field in self.record.get_fields("700", "710", "711"):
+        for field in self._get_paired_fields_for(["700", "710"]):
             if field.get_subfields("t") and field.indicator2 == "2":
-                search_sf = "fklmnoprst"
-                if field.tag in ("700", "710"):
-                    search_sf += "j"
-                text = self._get_subfields(field, "abcdefgjklmnopqrst")
-                search = self._get_subfields(field, search_sf)
                 result.append(
-                    {
-                        "script": "default",
-                        "text": text,
-                        "search": search,
-                        "tag": field.tag,
-                        "linkage": Linkage(field).as_dict(),
-                    }
+                    self._generate_paired_field(
+                        field=field,
+                        text_sfs="abcdefgjklmnopqrst",
+                        search_sfs="fkjlmnoprst",
+                    )
                 )
 
-        for field in self._get_vernacular_for_tags(["246", "247", "740"]):
-            text = self._get_subfields(field, string.ascii_lowercase)
-            result.append(
-                {
-                    "script": "vernacular",
-                    "text": text,
-                    "search": text,
-                    "tag": field.tag,
-                    "linkage": Linkage(field).as_dict(),
-                }
-            )
-        for field in self._get_vernacular_for_tags(("700", "710", "711")):
+        for field in self._get_paired_fields_for(["711"]):
             if field.get_subfields("t") and field.indicator2 == "2":
-                search_sf = "fklmnoprst"
-
-                if Linkage(field).tag in ("700", "710"):
-                    search_sf += "j"
-                text = self._get_subfields(field, "abcdefgjklmnopqrst")
-                search = self._get_subfields(field, search_sf)
                 result.append(
-                    {
-                        "script": "vernacular",
-                        "text": text,
-                        "search": search,
-                        "tag": field.tag,
-                        "linkage": Linkage(field).as_dict(),
-                    }
+                    self._generate_paired_field(
+                        field=field,
+                        text_sfs="abcdefgjklmnopqrst",
+                        search_sfs="fklmnoprst",  # no j subfield
+                    )
                 )
 
         return result
@@ -134,34 +106,22 @@ class MARC:
     @property
     def contributors(self):
         result = []
-        tags = ["700", "710", "711"]
-        for field in self.record.get_fields(*tags):
-            text = self._get_subfields(field, "abcdefgjklnpqu4")
-            search = self._get_subfields(field, "abcdgjkqu")
-            result.append(
-                {
-                    "script": "default",
-                    "text": text,
-                    "search": search,
-                    "browse": search,
-                    "tag": field.tag,
-                    "linkage": Linkage(field).as_dict(),
-                }
-            )
+        contributor_fields = (
+            field
+            for field in self._get_paired_fields_for(["700", "710", "711"])
+            if not field.get_subfields("t") and field.indicator2 != "2"
+        )
+        text_sfs = "abcdefgjklnpqu4"
+        search_sfs = "abcdgjkqu"
 
-        for field in self._get_vernacular_for_tags(tags):
-            text = self._get_subfields(field, "abcdefgjklnpqu4")
-            search = self._get_subfields(field, "abcdgjkqu")
-
+        for field in contributor_fields:
             result.append(
-                {
-                    "script": "vernacular",
-                    "text": text,
-                    "search": search,
-                    "browse": search,
-                    "tag": field.tag,
-                    "linkage": Linkage(field).as_dict(),
-                }
+                self._generate_paired_field(
+                    field=field,
+                    text_sfs=text_sfs,
+                    search_sfs=search_sfs,
+                    browse_sfs=search_sfs,
+                )
             )
 
         return result
@@ -169,11 +129,36 @@ class MARC:
     def _get_subfields(self, field: pymarc.Field, subfields: str):
         return " ".join(field.get_subfields(*tuple(subfields)))
 
-    def _get_vernacular_for_tags(self, tags: tuple) -> tuple:
+    def _get_vernacular_for_tags(self, tags: tuple) -> list:
         def linkage_has_tag(field):
             return Linkage(field).tag in tags
 
-        return tuple(filter(linkage_has_tag, self.record.get_fields("880")))
+        return list(filter(linkage_has_tag, self.record.get_fields("880")))
+
+    def _get_paired_fields_for(self, tags: tuple) -> list:
+        return self.record.get_fields(*tags) + self._get_vernacular_for_tags(tags)
+
+    def _generate_paired_field(
+        self,
+        field: pymarc.Field,
+        text_sfs: str,
+        search_sfs: Optional[str] = None,
+        browse_sfs: Optional[str] = None,
+    ):
+        result = {
+            "script": "vernacular" if field.tag == "880" else "default",
+            "text": self._get_subfields(field, text_sfs),
+            "tag": field.tag,
+            "linkage": Linkage(field).as_dict(),
+        }
+
+        if search_sfs:
+            result["search"] = self._get_subfields(field, search_sfs)
+
+        if browse_sfs:
+            result["browse"] = self._get_subfields(field, browse_sfs)
+
+        return result
 
 
 class Linkage:

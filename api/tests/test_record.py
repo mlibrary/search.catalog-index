@@ -250,3 +250,47 @@ class TestMARC:
         ]
 
         assert subject.contributors == expected
+
+    @pytest.mark.parametrize("tag", ["700", "710", "711"])
+    def test_contributors_with_indicator_2_not_2_and_t(self, tag, marc, a_to_z_sfs):
+        subfields = a_to_z_sfs.copy()
+        subfields.append(pymarc.Subfield(code="4", value="4"))
+        subfields.append(pymarc.Subfield(code="6", value="880-06"))
+
+        vsubfields = a_to_z_sfs.copy()
+        vsubfields.append(pymarc.Subfield(code="4", value="4"))
+        vsubfields.append(pymarc.Subfield(code="6", value=f"{tag}-06"))
+
+        field = pymarc.Field(
+            tag=tag, indicators=pymarc.Indicators("0", "1"), subfields=subfields
+        )
+        vfield = pymarc.Field(
+            tag="880", indicators=pymarc.Indicators("0", "1"), subfields=vsubfields
+        )
+        marc.add_field(field)
+        marc.add_field(vfield)
+        subject = MARC(marc)
+
+        assert subject.contributors == []
+
+    @pytest.mark.parametrize("tag", ["700", "710", "711"])
+    def test_contributors_with_indicator_2_as_2_and_no_t(self, tag, marc, a_to_z_sfs):
+        subfields = [x for x in a_to_z_sfs if x.code != "t"]
+        subfields.append(pymarc.Subfield(code="4", value="4"))
+        subfields.append(pymarc.Subfield(code="6", value="880-06"))
+
+        vsubfields = [x for x in a_to_z_sfs if x.code != "t"]
+        vsubfields.append(pymarc.Subfield(code="4", value="4"))
+        vsubfields.append(pymarc.Subfield(code="6", value=f"{tag}-06"))
+
+        field = pymarc.Field(
+            tag=tag, indicators=pymarc.Indicators("0", "2"), subfields=subfields
+        )
+        vfield = pymarc.Field(
+            tag="880", indicators=pymarc.Indicators("0", "2"), subfields=vsubfields
+        )
+        marc.add_field(field)
+        marc.add_field(vfield)
+        subject = MARC(marc)
+
+        assert subject.contributors == []
