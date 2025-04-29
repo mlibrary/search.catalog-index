@@ -41,13 +41,23 @@
             "text": "Taniguchi, Takashi.",
             "script": "default",
             "search": "Taniguchi, Takashi.",
-            "browse": "Taniguchi, Takashi."
+            "browse": "Taniguchi, Takashi.",
+            "tag": "700",
+            "linkage": {
+                "tag": "880",
+                "occurence_number": "06"
+            }
         },
         {
-            "text": "谷口高司",
+            "text": "谷口高司.",
             "script": "vernacular",
-            "search": "谷口高司",
-            "browse": "谷口高司"
+            "search": "谷口高司.",
+            "browse": "谷口高司.",
+            "tag": "880",
+            "linkage": {
+                "tag": "700",
+                "occurence_number": "06"
+            }
         }
     ],
     "published": [

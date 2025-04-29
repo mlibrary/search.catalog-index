@@ -53,6 +53,10 @@ class Record:
     def contributors(self) -> list:
         return self.marc.contributors
 
+    @property
+    def published(self) -> list:
+        return self._get_solr_paired_field("publisher_display")
+
     def _get_solr_paired_field(self, key):
         a = self.data.get(key) or []
         return [

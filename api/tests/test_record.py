@@ -20,7 +20,14 @@ def api_output():
 
 
 class TestRecord:
-    fields = ["title", "format", "main_author", "other_titles"]
+    fields = [
+        "title",
+        "format",
+        "main_author",
+        "other_titles",
+        "contributors",
+        "published",
+    ]
 
     @pytest.mark.parametrize("field", fields)
     def test_fields_success(self, field, solr_bib, api_output):
@@ -56,18 +63,6 @@ class TestRecord:
 
 
 @pytest.fixture()
-def marc():
-    return pymarc.record.Record()
-
-
-@pytest.fixture()
-def a_to_z_sfs():
-    return [
-        pymarc.Subfield(code=code, value=code) for code in list(string.ascii_lowercase)
-    ]
-
-
-@pytest.fixture()
 def a_to_z_str():
     return " ".join(list(string.ascii_lowercase))
 
@@ -78,28 +73,9 @@ class TestMARC:
     #####
 
     @pytest.mark.parametrize("tag", ["246", "247", "740"])
-    def test_other_titles_246_247_740_with_t_and_indicator_2(
-        self, tag, marc, a_to_z_sfs, a_to_z_str
-    ):
-        default_subfields = a_to_z_sfs.copy()
-        default_subfields.append(pymarc.Subfield(code="6", value="880-06"))
-        field = pymarc.Field(
-            tag=tag,
-            indicators=pymarc.Indicators("0", "2"),
-            subfields=default_subfields,
-        )
-
-        vsubfields = a_to_z_sfs.copy()
-        vsubfields.append(pymarc.Subfield(code="6", value=f"{tag}-06"))
-
-        vfield = pymarc.Field(
-            tag="880", indicators=pymarc.Indicators("0", "2"), subfields=vsubfields
-        )
-
-        marc.add_field(field)
-        marc.add_field(vfield)
-
-        subject = MARC(marc)
+    def test_other_titles_246_247_740_with_t_and_indicator_2(self, tag, a_to_z_str):
+        record = self.create_record_with_paired_field(tag=tag, ind2="2")
+        subject = MARC(record)
 
         expected = [
             {
@@ -121,28 +97,9 @@ class TestMARC:
         assert subject.other_titles == expected
 
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
-    def test_other_titles_700_710_711_with_t_and_indicator_2(
-        self, tag, marc, a_to_z_sfs
-    ):
-        default_subfields = a_to_z_sfs.copy()
-        default_subfields.append(pymarc.Subfield(code="6", value="880-06"))
-        field = pymarc.Field(
-            tag=tag,
-            indicators=pymarc.Indicators("0", "2"),
-            subfields=default_subfields,
-        )
-
-        vsubfields = a_to_z_sfs.copy()
-        vsubfields.append(pymarc.Subfield(code="6", value=f"{tag}-06"))
-
-        vfield = pymarc.Field(
-            tag="880", indicators=pymarc.Indicators("0", "2"), subfields=vsubfields
-        )
-
-        marc.add_field(field)
-        marc.add_field(vfield)
-
-        subject = MARC(marc)
+    def test_other_titles_700_710_711_with_t_and_indicator_2(self, tag):
+        record = self.create_record_with_paired_field(tag=tag, ind2="2")
+        subject = MARC(record)
         if tag in ["700", "710"]:
             expected = [
                 {
@@ -180,56 +137,28 @@ class TestMARC:
         assert subject.other_titles == expected
 
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
-    def test_other_titles_700_710_711_with_t_and_no_indicator_2(
-        self, tag, marc, a_to_z_sfs
-    ):
-        field = pymarc.Field(
-            tag=tag,
-            indicators=pymarc.Indicators("0", "1"),
-            subfields=a_to_z_sfs,
-        )
-
-        marc.add_field(field)
-        subject = MARC(marc)
+    def test_other_titles_700_710_711_with_t_and_no_indicator_2(self, tag):
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
         expected = []
         assert subject.other_titles == expected
 
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
-    def test_other_titles_700_710_711_with_indicator_2_and_no_t(
-        self, tag, marc, a_to_z_sfs
-    ):
-        subfields = [x for x in a_to_z_sfs if x.code != "t"]
-        field = pymarc.Field(
-            tag=tag, indicators=pymarc.Indicators("0", "2"), subfields=subfields
-        )
-
-        marc.add_field(field)
-        subject = MARC(marc)
-        expected = []
-        assert subject.other_titles == expected
+    def test_other_titles_700_710_711_with_indicator_2_and_no_t(self, tag):
+        sfs = string.ascii_lowercase.replace("t", "")
+        record = self.create_record_with_paired_field(tag=tag, subfields=sfs, ind2="2")
+        subject = MARC(record)
+        assert subject.other_titles == []
 
     #####
     # contributors
     #####
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
-    def test_contributors_with_indicator_2_not_2_and_no_t(self, tag, marc, a_to_z_sfs):
-        subfields = [x for x in a_to_z_sfs if x.code != "t"]
-        subfields.append(pymarc.Subfield(code="4", value="4"))
-        subfields.append(pymarc.Subfield(code="6", value="880-06"))
+    def test_contributors_with_indicator_2_not_2_and_no_t(self, tag):
+        sfs = string.ascii_lowercase.replace("t", "") + "4"
+        record = self.create_record_with_paired_field(tag=tag, subfields=sfs)
 
-        vsubfields = [x for x in a_to_z_sfs if x.code != "t"]
-        vsubfields.append(pymarc.Subfield(code="4", value="4"))
-        vsubfields.append(pymarc.Subfield(code="6", value=f"{tag}-06"))
-
-        field = pymarc.Field(
-            tag=tag, indicators=pymarc.Indicators("0", "1"), subfields=subfields
-        )
-        vfield = pymarc.Field(
-            tag="880", indicators=pymarc.Indicators("0", "1"), subfields=vsubfields
-        )
-        marc.add_field(field)
-        marc.add_field(vfield)
-        subject = MARC(marc)
+        subject = MARC(record)
         expected = [
             {
                 "script": "default",
@@ -252,45 +181,42 @@ class TestMARC:
         assert subject.contributors == expected
 
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
-    def test_contributors_with_indicator_2_not_2_and_t(self, tag, marc, a_to_z_sfs):
-        subfields = a_to_z_sfs.copy()
-        subfields.append(pymarc.Subfield(code="4", value="4"))
-        subfields.append(pymarc.Subfield(code="6", value="880-06"))
-
-        vsubfields = a_to_z_sfs.copy()
-        vsubfields.append(pymarc.Subfield(code="4", value="4"))
-        vsubfields.append(pymarc.Subfield(code="6", value=f"{tag}-06"))
-
-        field = pymarc.Field(
-            tag=tag, indicators=pymarc.Indicators("0", "1"), subfields=subfields
-        )
-        vfield = pymarc.Field(
-            tag="880", indicators=pymarc.Indicators("0", "1"), subfields=vsubfields
-        )
-        marc.add_field(field)
-        marc.add_field(vfield)
-        subject = MARC(marc)
-
+    def test_contributors_with_indicator_2_not_2_and_t(self, tag):
+        sfs = string.ascii_lowercase + "4"
+        record = self.create_record_with_paired_field(tag=tag, subfields=sfs)
+        subject = MARC(record)
         assert subject.contributors == []
 
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
-    def test_contributors_with_indicator_2_as_2_and_no_t(self, tag, marc, a_to_z_sfs):
-        subfields = [x for x in a_to_z_sfs if x.code != "t"]
-        subfields.append(pymarc.Subfield(code="4", value="4"))
-        subfields.append(pymarc.Subfield(code="6", value="880-06"))
+    def test_contributors_with_indicator_2_as_2_and_no_t(self, tag):
+        sfs = string.ascii_lowercase.replace("t", "") + "4"
+        record = self.create_record_with_paired_field(tag=tag, subfields=sfs, ind2="2")
+        subject = MARC(record)
+        assert subject.contributors == []
 
-        vsubfields = [x for x in a_to_z_sfs if x.code != "t"]
-        vsubfields.append(pymarc.Subfield(code="4", value="4"))
+    def create_record_with_paired_field(
+        self,
+        tag: str,
+        subfields: str = (string.ascii_lowercase + "12345"),
+        ind1: str | None = None,
+        ind2: str | None = None,
+    ):
+        record = pymarc.record.Record()
+        subfields = [pymarc.Subfield(code=code, value=code) for code in list(subfields)]
+
+        vsubfields = subfields.copy()
+
+        subfields.append(pymarc.Subfield(code="6", value="880-06"))
         vsubfields.append(pymarc.Subfield(code="6", value=f"{tag}-06"))
 
         field = pymarc.Field(
-            tag=tag, indicators=pymarc.Indicators("0", "2"), subfields=subfields
+            tag=tag, indicators=pymarc.Indicators(ind1, ind2), subfields=subfields
         )
-        vfield = pymarc.Field(
-            tag="880", indicators=pymarc.Indicators("0", "2"), subfields=vsubfields
-        )
-        marc.add_field(field)
-        marc.add_field(vfield)
-        subject = MARC(marc)
 
-        assert subject.contributors == []
+        vfield = pymarc.Field(
+            tag="880", indicators=pymarc.Indicators(ind1, ind2), subfields=vsubfields
+        )
+
+        record.add_field(field)
+        record.add_field(vfield)
+        return record
