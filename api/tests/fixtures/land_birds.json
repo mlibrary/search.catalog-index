@@ -73,11 +73,21 @@
     "manufactured": [
         {
             "script": "default",
-            "text": "(1984 printing)"
+            "text": "(1984 printing)",
+            "tag": "260",
+            "linkage": {
+                "tag": "880",
+                "occurence_number": "04"
+            }
         },
         {
             "script": "vernacular",
-            "text": "(1984 printing)"
+            "text": "(1984 printing)",
+            "tag": "880",
+            "linkage": {
+                "tag": "260",
+                "occurence_number": "04"
+            }
         }
     ],
     "edition": [
@@ -93,11 +103,21 @@
     "series": [
         {
             "text": "Yagai kansatsu handobukku ; 1",
-            "script": "default"
+            "script": "default",
+            "tag": "490",
+            "linkage": {
+                "tag": "880",
+                "occurence_number": "05"
+            }
         },
         {
             "text": "野外観察ハンドブック ; 1",
-            "script": "vernacular"
+            "script": "vernacular",
+            "tag": "880",
+            "linkage": {
+                "tag": "490",
+                "occurence_number": "05"
+            }
         }
     ],
     "series_statement": [

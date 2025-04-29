@@ -27,6 +27,9 @@ class TestRecord:
         "other_titles",
         "contributors",
         "published",
+        "manufactured",
+        "edition",
+        "series",
     ]
 
     @pytest.mark.parametrize("field", fields)
@@ -193,6 +196,70 @@ class TestMARC:
         record = self.create_record_with_paired_field(tag=tag, subfields=sfs, ind2="2")
         subject = MARC(record)
         assert subject.contributors == []
+
+    def test_manufactured_260(self):
+        record = self.create_record_with_paired_field(tag="260")
+        subject = MARC(record)
+        expected = [
+            {
+                "script": "default",
+                "text": "e f g",
+                "tag": "260",
+                "linkage": {"tag": "880", "occurence_number": "06"},
+            },
+            {
+                "script": "vernacular",
+                "text": "e f g",
+                "tag": "880",
+                "linkage": {"tag": "260", "occurence_number": "06"},
+            },
+        ]
+
+        assert subject.manufactured == expected
+
+    def test_manufactured_264_with_indicator2_as_3(self, a_to_z_str):
+        record = self.create_record_with_paired_field(tag="264", ind2="3")
+        subject = MARC(record)
+        expected = [
+            {
+                "script": "default",
+                "text": a_to_z_str,
+                "tag": "264",
+                "linkage": {"tag": "880", "occurence_number": "06"},
+            },
+            {
+                "script": "vernacular",
+                "text": a_to_z_str,
+                "tag": "880",
+                "linkage": {"tag": "264", "occurence_number": "06"},
+            },
+        ]
+
+        assert subject.manufactured == expected
+
+    ####
+    # series
+    ###
+
+    @pytest.mark.parametrize("tag", ["400", "410", "411", "440", "490"])
+    def test_series(self, tag, a_to_z_str):
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = [
+            {
+                "script": "default",
+                "text": a_to_z_str,
+                "tag": tag,
+                "linkage": {"tag": "880", "occurence_number": "06"},
+            },
+            {
+                "script": "vernacular",
+                "text": a_to_z_str,
+                "tag": "880",
+                "linkage": {"tag": tag, "occurence_number": "06"},
+            },
+        ]
+        assert subject.series == expected
 
     def create_record_with_paired_field(
         self,

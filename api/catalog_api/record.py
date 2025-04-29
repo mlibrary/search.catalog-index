@@ -57,6 +57,18 @@ class Record:
     def published(self) -> list:
         return self._get_solr_paired_field("publisher_display")
 
+    @property
+    def manufactured(self) -> list:
+        return self.marc.manufactured
+
+    @property
+    def edition(self) -> list:
+        return self._get_solr_paired_field("edition")
+
+    @property
+    def series(self) -> list:
+        return self.marc.series
+
     def _get_solr_paired_field(self, key):
         a = self.data.get(key) or []
         return [
@@ -80,7 +92,6 @@ class MARC:
             result.append(
                 self._generate_paired_field(
                     field=field,
-                    text_sfs=string.ascii_lowercase,
                     search_sfs=string.ascii_lowercase,
                 )
             )
@@ -130,6 +141,24 @@ class MARC:
 
         return result
 
+    @property
+    def manufactured(self):
+        result = []
+        for field in self._get_paired_fields_for(["260"]):
+            result.append(self._generate_paired_field(field=field, text_sfs="efg"))
+
+        for field in self._get_paired_fields_for(["264"]):
+            if field.indicator2 == "3":
+                result.append(self._generate_paired_field(field=field))
+        return result
+
+    @property
+    def series(self):
+        result = []
+        for field in self._get_paired_fields_for(["400", "410", "411", "440", "490"]):
+            result.append(self._generate_paired_field(field=field))
+        return result
+
     def _get_subfields(self, field: pymarc.Field, subfields: str):
         return " ".join(field.get_subfields(*tuple(subfields)))
 
@@ -145,7 +174,7 @@ class MARC:
     def _generate_paired_field(
         self,
         field: pymarc.Field,
-        text_sfs: str,
+        text_sfs: str = string.ascii_lowercase,
         search_sfs: Optional[str] = None,
         browse_sfs: Optional[str] = None,
     ):
