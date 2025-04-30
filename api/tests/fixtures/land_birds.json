@@ -2,12 +2,12 @@
     "id": "990008019700106381",
     "title": [
         {
-            "script": "default",
-            "text": "Sanʼya no tori = Concise field guide to land birds / kaisetsu Saeki Akimitsu ; e Taniguchi Takashi."
-        },
-        {
-            "script": "vernacular",
-            "text": "山野の鳥 = Concise field guide to land birds / 解說佐伯彰光 ; 絵谷口高司."
+            "transliterated": {
+                "text": "Sanʼya no tori = Concise field guide to land birds / kaisetsu Saeki Akimitsu ; e Taniguchi Takashi."
+            },
+            "original": {
+                "text": "山野の鳥 = Concise field guide to land birds / 解說佐伯彰光 ; 絵谷口高司."
+            }
         }
     ],
     "format": [
@@ -15,119 +15,107 @@
     ],
     "main_author": [
         {
-            "text": "Saeki, Akimitsu.",
-            "script": "default",
-            "search": "Saeki, Akimitsu.",
-            "browse": "Saeki, Akimitsu."
-        },
-        {
-            "text": "佐伯彰光.",
-            "script": "vernacular",
-            "search": "佐伯彰光.",
-            "browse": "佐伯彰光."
+            "transliterated": {
+                "text": "Saeki, Akimitsu.",
+                "search": {
+                    "author": "Saeki, Akimitsu."
+                },
+                "browse": "Saeki, Akimitsu."
+            },
+            "original": {
+                "text": "佐伯彰光.",
+                "search": {
+                    "author": "佐伯彰光."
+                },
+                "browse": "佐伯彰光."
+            }
         }
     ],
     "other_titles": [
         {
-            "text": "Concise field guide to land birds.",
-            "script": "default",
-            "search": "Concise field guide to land birds.",
-            "tag": "740",
-            "linkage": null
+            "original": {
+                "text": "Concise field guide to land birds.",
+                "search": {
+                    "title": "Concise field guide to land birds."
+                },
+                "tag": "740"
+            }
         }
     ],
     "contributors": [
         {
-            "text": "Taniguchi, Takashi.",
-            "script": "default",
-            "search": "Taniguchi, Takashi.",
-            "browse": "Taniguchi, Takashi.",
-            "tag": "700",
-            "linkage": {
-                "tag": "880",
-                "occurence_number": "06"
-            }
-        },
-        {
-            "text": "谷口高司.",
-            "script": "vernacular",
-            "search": "谷口高司.",
-            "browse": "谷口高司.",
-            "tag": "880",
-            "linkage": {
-                "tag": "700",
-                "occurence_number": "06"
+            "transliterated": {
+                "text": "Taniguchi, Takashi.",
+                "search": {
+                    "author": "Taniguchi, Takashi."
+                },
+                "browse": "Taniguchi, Takashi.",
+                "tag": "700"
+            },
+            "original": {
+                "text": "谷口高司.",
+                "search": {
+                    "author": "谷口高司."
+                },
+                "browse": "谷口高司.",
+                "tag": "880"
             }
         }
     ],
     "published": [
         {
-            "script": "default",
-            "text": "Tōkyō : Nihon Yachō no Kai, 1983"
-        },
-        {
-            "script": "vernacular",
-            "text": "東京 : 日本野鳥の会, 1983"
+            "transliterated": {
+                "text": "Tōkyō : Nihon Yachō no Kai, 1983"
+            },
+            "original": {
+                "text": "東京 : 日本野鳥の会, 1983"
+            }
         }
     ],
     "manufactured": [
         {
-            "script": "default",
-            "text": "(1984 printing)",
-            "tag": "260",
-            "linkage": {
-                "tag": "880",
-                "occurence_number": "04"
-            }
-        },
-        {
-            "script": "vernacular",
-            "text": "(1984 printing)",
-            "tag": "880",
-            "linkage": {
-                "tag": "260",
-                "occurence_number": "04"
+            "transliterated": {
+                "text": "(1984 printing)",
+                "tag": "260"
+            },
+            "original": {
+                "text": "(1984 printing)",
+                "tag": "880"
             }
         }
     ],
     "edition": [
         {
-            "text": "3-teiban.",
-            "script": "default"
-        },
-        {
-            "text": "3訂版.",
-            "script": "vernacular"
+            "transliterated": {
+                "text": "3-teiban."
+            },
+            "original": {
+                "text": "3訂版."
+            }
         }
     ],
     "series": [
         {
-            "text": "Yagai kansatsu handobukku ; 1",
-            "script": "default",
-            "tag": "490",
-            "linkage": {
-                "tag": "880",
-                "occurence_number": "05"
-            }
-        },
-        {
-            "text": "野外観察ハンドブック ; 1",
-            "script": "vernacular",
-            "tag": "880",
-            "linkage": {
-                "tag": "490",
-                "occurence_number": "05"
+            "transliterated": {
+                "text": "Yagai kansatsu handobukku ; 1",
+                "script": "default",
+                "tag": "490"
+            },
+            "original": {
+                "text": "野外観察ハンドブック ; 1",
+                "script": "vernacular",
+                "tag": "880"
             }
         }
     ],
     "series_statement": [
         {
-            "text": "Yagai kansatsu handobukku ; 1.",
-            "script": "default"
-        },
-        {
-            "text": "野外観察ハンドブック ; 1.",
-            "script": "vernacular"
+            "transliterated": {
+                "text": "Yagai kansatsu handobukku ; 1."
+            },
+            "original": {
+                "text": "野外観察ハンドブック ; 1."
+            }
         }
     ],
     "language": [
@@ -137,12 +125,16 @@
     ],
     "note": [
         {
-            "text": "Includes index."
+            "original": {
+                "text": "Includes index."
+            }
         }
     ],
     "physical_description": [
         {
-            "text": "64 p. : ill. ; 18 cm."
+            "original": {
+                "text": "64 p. : ill. ; 18 cm."
+            }
         }
     ],
     "isbn": [

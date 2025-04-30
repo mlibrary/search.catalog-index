@@ -14,7 +14,7 @@ def record_for(id: str):
 class Record:
     def __init__(self, data: dict):
         self.data = data
-        self.script = ["default", "vernacular"]
+        self.script = ["transliterated", "original"]
         self.record = pymarc.parse_xml_to_array(io.StringIO(data["fullrecord"]))[0]
         self.marc = MARC(self.record)
 
@@ -70,11 +70,13 @@ class Record:
         return self.marc.series
 
     def _get_solr_paired_field(self, key):
-        a = self.data.get(key) or []
-        return [
-            {"text": element, "script": self.script[index]}
-            for index, element in enumerate(a)
-        ]
+        values = self.data.get(key) or []
+        if len(values) == 1:
+            return [{"original": {"text": values[0]}}]
+        else:
+            return [
+                {"transliterated": {"text": values[0]}, "original": {"text": values[1]}}
+            ]
 
 
 class MARC:
