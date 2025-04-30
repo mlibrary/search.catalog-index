@@ -146,12 +146,12 @@ class MARC:
     @property
     def manufactured(self):
         result = []
-        for field in self._get_paired_fields_for(["260"]):
-            result.append(self._generate_paired_field(field=field, text_sfs="efg"))
+        for fields in self._get_BETTER_pf_for(["260"]):
+            result.append(self._generate_GREAT_pf(fields=fields, text_sfs="efg"))
 
-        for field in self._get_paired_fields_for(["264"]):
-            if field.indicator2 == "3":
-                result.append(self._generate_paired_field(field=field))
+        for fields in self._get_BETTER_pf_for(["264"]):
+            if fields["original"].indicator2 == "3":
+                result.append(self._generate_GREAT_pf(fields=fields))
         return result
 
     @property
@@ -164,14 +164,31 @@ class MARC:
     def _get_subfields(self, field: pymarc.Field, subfields: str):
         return " ".join(field.get_subfields(*tuple(subfields)))
 
-    def _get_vernacular_for_tags(self, tags: tuple) -> list:
+    def _get_original_for_tags(self, tags: tuple) -> list:
         def linkage_has_tag(field):
             return Linkage(field).tag in tags
 
         return list(filter(linkage_has_tag, self.record.get_fields("880")))
 
     def _get_paired_fields_for(self, tags: tuple) -> list:
-        return self.record.get_fields(*tags) + self._get_vernacular_for_tags(tags)
+        return self.record.get_fields(*tags) + self._get_original_for_tags(tags)
+
+    def _get_BETTER_pf_for(self, tags: tuple) -> list:
+        mapping = {}
+        for field in self._get_original_for_tags(tags):
+            mapping[Linkage(field).__str__()] = field
+
+        results = []
+        for field in self.record.get_fields(*tags):
+            original = mapping.pop(
+                f"{field.tag}-{Linkage(field).occurence_number}", None
+            )
+            if original:
+                results.append({"transliterated": field, "original": original})
+            else:
+                results.append({"original": field})
+
+        return results + list(mapping.values())
 
     def _generate_paired_field(
         self,
@@ -195,6 +212,46 @@ class MARC:
 
         return result
 
+    def _generate_GREAT_pf(
+        self,
+        fields: dict,
+        text_sfs: str = string.ascii_lowercase,
+        search_sfs: Optional[str] = None,
+        search_field: Optional[str] = None,
+        browse_sfs: Optional[str] = None,
+    ):
+        result = {}
+        for key in fields.keys():
+            result[key] = self._generate_AWESOME_pf_field(
+                field=fields[key],
+                text_sfs=text_sfs,
+                search_sfs=search_sfs,
+                search_field=search_field,
+                browse_sfs=browse_sfs,
+            )
+        return result
+
+    def _generate_AWESOME_pf_field(
+        self,
+        field: pymarc.Field,
+        text_sfs: str = string.ascii_lowercase,
+        search_sfs: Optional[str] = None,
+        search_field: Optional[str] = None,
+        browse_sfs: Optional[str] = None,
+    ):
+        result = {
+            "text": self._get_subfields(field, text_sfs),
+            "tag": field.tag,
+        }
+
+        if search_sfs:
+            result["search"] = {search_field: self._get_subfields(field, search_sfs)}
+
+        if browse_sfs:
+            result["browse"] = self._get_subfields(field, browse_sfs)
+
+        return result
+
 
 class Linkage:
     def __init__(self, field: pymarc.Field):
@@ -210,6 +267,9 @@ class Linkage:
     @property
     def occurence_number(self):
         return self.parts[1]
+
+    def __str__(self):
+        return f"{self.tag}-{self.occurence_number}"
 
     def as_dict(self):
         if self.tag:

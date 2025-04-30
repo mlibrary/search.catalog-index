@@ -202,17 +202,15 @@ class TestMARC:
         subject = MARC(record)
         expected = [
             {
-                "script": "default",
-                "text": "e f g",
-                "tag": "260",
-                "linkage": {"tag": "880", "occurence_number": "06"},
-            },
-            {
-                "script": "vernacular",
-                "text": "e f g",
-                "tag": "880",
-                "linkage": {"tag": "260", "occurence_number": "06"},
-            },
+                "transliterated": {
+                    "text": "e f g",
+                    "tag": "260",
+                },
+                "original": {
+                    "text": "e f g",
+                    "tag": "880",
+                },
+            }
         ]
 
         assert subject.manufactured == expected
@@ -222,17 +220,12 @@ class TestMARC:
         subject = MARC(record)
         expected = [
             {
-                "script": "default",
-                "text": a_to_z_str,
-                "tag": "264",
-                "linkage": {"tag": "880", "occurence_number": "06"},
-            },
-            {
-                "script": "vernacular",
-                "text": a_to_z_str,
-                "tag": "880",
-                "linkage": {"tag": "264", "occurence_number": "06"},
-            },
+                "transliterated": {"text": a_to_z_str, "tag": "264"},
+                "original": {
+                    "text": a_to_z_str,
+                    "tag": "880",
+                },
+            }
         ]
 
         assert subject.manufactured == expected
