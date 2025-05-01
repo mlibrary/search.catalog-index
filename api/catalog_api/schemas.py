@@ -1,49 +1,45 @@
 from pydantic import BaseModel
+from typing import Optional
 
 
 class TextField(BaseModel):
     text: str
+    tag: Optional[str] = None
 
 
-class Linkage(BaseModel):
-    tag: str
-    occurence_number: str
+class PairedTextField(BaseModel):
+    transliterated: Optional[TextField] = None
+    original: TextField
+
+
+class FieldedSearchField(BaseModel):
+    field: str
+    value: str
 
 
 class SearchField(TextField):
-    search: str
+    search: list[FieldedSearchField]
 
 
-class PairedTextField(TextField):
-    script: str
-    tag: str
-    linkage: Linkage | None
+class PairedSearchField(BaseModel):
+    transliterated: Optional[SearchField] = None
+    original: SearchField
 
 
-class PairedSearchField(PairedTextField):
-    search: str
-
-
-class PairedBrowseField(PairedSearchField):
+class BrowseField(SearchField):
     browse: str
+    tag: Optional[str] = None
 
 
-class PairedNoLinkageTextField(TextField):
-    script: str
-
-
-class PairedNoLinkageSearchField(PairedNoLinkageTextField):
-    search: str
-
-
-class BrowseNoLinkageField(PairedNoLinkageSearchField):
-    browse: str
+class PairedBrowseField(BaseModel):
+    transliterated: Optional[BrowseField] = None
+    original: BrowseField
 
 
 class Record(BaseModel):
     id: str
-    title: list[PairedNoLinkageTextField]
+    title: list[PairedTextField]
     format: list[str]
-    main_author: list[BrowseNoLinkageField]
+    main_author: list[PairedBrowseField]
     other_titles: list[PairedSearchField]
     contributors: list[PairedBrowseField]

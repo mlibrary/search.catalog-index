@@ -17,16 +17,22 @@
         {
             "transliterated": {
                 "text": "Saeki, Akimitsu.",
-                "search": {
-                    "author": "Saeki, Akimitsu."
-                },
+                "search": [
+                    {
+                        "field": "author",
+                        "value": "Saeki, Akimitsu."
+                    }
+                ],
                 "browse": "Saeki, Akimitsu."
             },
             "original": {
                 "text": "佐伯彰光.",
-                "search": {
-                    "author": "佐伯彰光."
-                },
+                "search": [
+                    {
+                        "field": "author",
+                        "value": "佐伯彰光."
+                    }
+                ],
                 "browse": "佐伯彰光."
             }
         }
@@ -35,9 +41,12 @@
         {
             "original": {
                 "text": "Concise field guide to land birds.",
-                "search": {
-                    "title": "Concise field guide to land birds."
-                },
+                "search": [
+                    {
+                        "field": "title",
+                        "value": "Concise field guide to land birds."
+                    }
+                ],
                 "tag": "740"
             }
         }
@@ -46,17 +55,23 @@
         {
             "transliterated": {
                 "text": "Taniguchi, Takashi.",
-                "search": {
-                    "author": "Taniguchi, Takashi."
-                },
+                "search": [
+                    {
+                        "field": "author",
+                        "value": "Taniguchi, Takashi."
+                    }
+                ],
                 "browse": "Taniguchi, Takashi.",
                 "tag": "700"
             },
             "original": {
                 "text": "谷口高司.",
-                "search": {
-                    "author": "谷口高司."
-                },
+                "search": [
+                    {
+                        "field": "author",
+                        "value": "谷口高司."
+                    }
+                ],
                 "browse": "谷口高司.",
                 "tag": "880"
             }

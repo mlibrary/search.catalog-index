@@ -14,5 +14,4 @@ def get_record(id: str) -> schemas.Record:
     is the mms_id for an Alma record or a htid with a 11 prefix for a HathiTrust
     record
     """
-
     return record_for(id)

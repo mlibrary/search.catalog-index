@@ -83,12 +83,12 @@ class TestMARC:
             {
                 "transliterated": {
                     "text": a_to_z_str,
-                    "search": {"title": a_to_z_str},
+                    "search": [{"field": "title", "value": a_to_z_str}],
                     "tag": tag,
                 },
                 "original": {
                     "text": a_to_z_str,
-                    "search": {"title": a_to_z_str},
+                    "search": [{"field": "title", "value": a_to_z_str}],
                     "tag": "880",
                 },
             }
@@ -105,12 +105,16 @@ class TestMARC:
                 {
                     "transliterated": {
                         "text": "a b c d e f g j k l m n o p q r s t",
-                        "search": {"title": "f j k l m n o p r s t"},
+                        "search": [
+                            {"field": "title", "value": "f j k l m n o p r s t"}
+                        ],
                         "tag": tag,
                     },
                     "original": {
                         "text": "a b c d e f g j k l m n o p q r s t",
-                        "search": {"title": "f j k l m n o p r s t"},
+                        "search": [
+                            {"field": "title", "value": "f j k l m n o p r s t"}
+                        ],
                         "tag": "880",
                     },
                 }
@@ -120,16 +124,16 @@ class TestMARC:
                 {
                     "transliterated": {
                         "text": "a b c d e f g j k l m n o p q r s t",
-                        "search": {
-                            "title": "f k l m n o p r s t"
-                        },  # this does not have a $j
+                        "search": [
+                            {"field": "title", "value": "f k l m n o p r s t"}
+                        ],  # this does not have a $j
                         "tag": tag,
                     },
                     "original": {
                         "text": "a b c d e f g j k l m n o p q r s t",
-                        "search": {
-                            "title": "f k l m n o p r s t"
-                        },  # this does not have a $j
+                        "search": [
+                            {"field": "title", "value": "f k l m n o p r s t"}
+                        ],  # this does not have a $j
                         "tag": "880",
                     },
                 }
@@ -163,13 +167,13 @@ class TestMARC:
             {
                 "transliterated": {
                     "text": "a b c d e f g j k l n p q u 4",
-                    "search": {"author": "a b c d g j k q u"},
+                    "search": [{"field": "author", "value": "a b c d g j k q u"}],
                     "browse": "a b c d g j k q u",
                     "tag": tag,
                 },
                 "original": {
                     "text": "a b c d e f g j k l n p q u 4",
-                    "search": {"author": "a b c d g j k q u"},
+                    "search": [{"field": "author", "value": "a b c d g j k q u"}],
                     "browse": "a b c d g j k q u",
                     "tag": "880",
                 },

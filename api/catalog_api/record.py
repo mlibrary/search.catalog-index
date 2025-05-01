@@ -43,7 +43,7 @@ class Record:
                     {
                         "original": {
                             "text": main[0],
-                            "search": {"author": search[0]},
+                            "search": [{"field": "author", "value": search[0]}],
                             "browse": search[0],
                         }
                     }
@@ -53,12 +53,12 @@ class Record:
                     {
                         "transliterated": {
                             "text": main[0],
-                            "search": {"author": search[0]},
+                            "search": [{"field": "author", "value": search[0]}],
                             "browse": search[0],
                         },
                         "original": {
                             "text": main[1],
-                            "search": {"author": search[1]},
+                            "search": [{"field": "author", "value": search[1]}],
                             "browse": search[1],
                         },
                     }
@@ -282,7 +282,9 @@ class MARC:
         }
 
         if search_sfs:
-            result["search"] = {search_field: self._get_subfields(field, search_sfs)}
+            result["search"] = [
+                {"field": search_field, "value": self._get_subfields(field, search_sfs)}
+            ]
 
         if browse_sfs:
             result["browse"] = self._get_subfields(field, browse_sfs)
