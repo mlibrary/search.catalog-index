@@ -82,19 +82,17 @@ class TestMARC:
 
         expected = [
             {
-                "script": "default",
-                "text": a_to_z_str,
-                "search": a_to_z_str,
-                "tag": tag,
-                "linkage": {"tag": "880", "occurence_number": "06"},
-            },
-            {
-                "script": "vernacular",
-                "text": a_to_z_str,
-                "search": a_to_z_str,
-                "tag": "880",
-                "linkage": {"tag": tag, "occurence_number": "06"},
-            },
+                "transliterated": {
+                    "text": a_to_z_str,
+                    "search": {"title": a_to_z_str},
+                    "tag": tag,
+                },
+                "original": {
+                    "text": a_to_z_str,
+                    "search": {"title": a_to_z_str},
+                    "tag": "880",
+                },
+            }
         ]
 
         assert subject.other_titles == expected
@@ -106,36 +104,36 @@ class TestMARC:
         if tag in ["700", "710"]:
             expected = [
                 {
-                    "script": "default",
-                    "text": "a b c d e f g j k l m n o p q r s t",
-                    "search": "f j k l m n o p r s t",
-                    "tag": tag,
-                    "linkage": {"tag": "880", "occurence_number": "06"},
-                },
-                {
-                    "script": "vernacular",
-                    "text": "a b c d e f g j k l m n o p q r s t",
-                    "search": "f j k l m n o p r s t",
-                    "tag": "880",
-                    "linkage": {"tag": tag, "occurence_number": "06"},
-                },
+                    "transliterated": {
+                        "text": "a b c d e f g j k l m n o p q r s t",
+                        "search": {"title": "f j k l m n o p r s t"},
+                        "tag": tag,
+                    },
+                    "original": {
+                        "text": "a b c d e f g j k l m n o p q r s t",
+                        "search": {"title": "f j k l m n o p r s t"},
+                        "tag": "880",
+                    },
+                }
             ]
         else:  # 711
             expected = [
                 {
-                    "script": "default",
-                    "text": "a b c d e f g j k l m n o p q r s t",
-                    "search": "f k l m n o p r s t",  # this does not have a $j
-                    "tag": tag,
-                    "linkage": {"tag": "880", "occurence_number": "06"},
-                },
-                {
-                    "script": "vernacular",
-                    "text": "a b c d e f g j k l m n o p q r s t",
-                    "search": "f k l m n o p r s t",  # this does not have a $j
-                    "tag": "880",
-                    "linkage": {"tag": tag, "occurence_number": "06"},
-                },
+                    "transliterated": {
+                        "text": "a b c d e f g j k l m n o p q r s t",
+                        "search": {
+                            "title": "f k l m n o p r s t"
+                        },  # this does not have a $j
+                        "tag": tag,
+                    },
+                    "original": {
+                        "text": "a b c d e f g j k l m n o p q r s t",
+                        "search": {
+                            "title": "f k l m n o p r s t"
+                        },  # this does not have a $j
+                        "tag": "880",
+                    },
+                }
             ]
         assert subject.other_titles == expected
 
@@ -164,21 +162,19 @@ class TestMARC:
         subject = MARC(record)
         expected = [
             {
-                "script": "default",
-                "text": "a b c d e f g j k l n p q u 4",
-                "search": "a b c d g j k q u",
-                "browse": "a b c d g j k q u",
-                "tag": tag,
-                "linkage": {"tag": "880", "occurence_number": "06"},
-            },
-            {
-                "script": "vernacular",
-                "text": "a b c d e f g j k l n p q u 4",
-                "search": "a b c d g j k q u",
-                "browse": "a b c d g j k q u",
-                "tag": "880",
-                "linkage": {"tag": tag, "occurence_number": "06"},
-            },
+                "transliterated": {
+                    "text": "a b c d e f g j k l n p q u 4",
+                    "search": {"author": "a b c d g j k q u"},
+                    "browse": "a b c d g j k q u",
+                    "tag": tag,
+                },
+                "original": {
+                    "text": "a b c d e f g j k l n p q u 4",
+                    "search": {"author": "a b c d g j k q u"},
+                    "browse": "a b c d g j k q u",
+                    "tag": "880",
+                },
+            }
         ]
 
         assert subject.contributors == expected
@@ -197,6 +193,9 @@ class TestMARC:
         subject = MARC(record)
         assert subject.contributors == []
 
+    ###
+    # manufactured
+    ###
     def test_manufactured_260(self):
         record = self.create_record_with_paired_field(tag="260")
         subject = MARC(record)
@@ -240,17 +239,15 @@ class TestMARC:
         subject = MARC(record)
         expected = [
             {
-                "script": "default",
-                "text": a_to_z_str,
-                "tag": tag,
-                "linkage": {"tag": "880", "occurence_number": "06"},
-            },
-            {
-                "script": "vernacular",
-                "text": a_to_z_str,
-                "tag": "880",
-                "linkage": {"tag": tag, "occurence_number": "06"},
-            },
+                "transliterated": {
+                    "text": a_to_z_str,
+                    "tag": tag,
+                },
+                "original": {
+                    "text": a_to_z_str,
+                    "tag": "880",
+                },
+            }
         ]
         assert subject.series == expected
 

@@ -90,31 +90,40 @@ class MARC:
         I wouldn't want to fetch any paired fields from solr then though
         """
         result = []
-        for field in self._get_paired_fields_for(["246", "247", "740"]):
+        for fields in self._get_BETTER_pf_for(["246", "247", "740"]):
             result.append(
-                self._generate_paired_field(
-                    field=field,
+                self._generate_GREAT_pf(
+                    fields=fields,
                     search_sfs=string.ascii_lowercase,
+                    search_field="title",
                 )
             )
 
-        for field in self._get_paired_fields_for(["700", "710"]):
-            if field.get_subfields("t") and field.indicator2 == "2":
+        for fields in self._get_BETTER_pf_for(["700", "710"]):
+            if (
+                fields["original"].get_subfields("t")
+                and fields["original"].indicator2 == "2"
+            ):
                 result.append(
-                    self._generate_paired_field(
-                        field=field,
+                    self._generate_GREAT_pf(
+                        fields=fields,
                         text_sfs="abcdefgjklmnopqrst",
                         search_sfs="fkjlmnoprst",
+                        search_field="title",
                     )
                 )
 
-        for field in self._get_paired_fields_for(["711"]):
-            if field.get_subfields("t") and field.indicator2 == "2":
+        for fields in self._get_BETTER_pf_for(["711"]):
+            if (
+                fields["original"].get_subfields("t")
+                and fields["original"].indicator2 == "2"
+            ):
                 result.append(
-                    self._generate_paired_field(
-                        field=field,
+                    self._generate_GREAT_pf(
+                        fields=fields,
                         text_sfs="abcdefgjklmnopqrst",
                         search_sfs="fklmnoprst",  # no j subfield
+                        search_field="title",
                     )
                 )
 
@@ -124,19 +133,21 @@ class MARC:
     def contributors(self):
         result = []
         contributor_fields = (
-            field
-            for field in self._get_paired_fields_for(["700", "710", "711"])
-            if not field.get_subfields("t") and field.indicator2 != "2"
+            fields
+            for fields in self._get_BETTER_pf_for(["700", "710", "711"])
+            if not fields["original"].get_subfields("t")
+            and fields["original"].indicator2 != "2"
         )
         text_sfs = "abcdefgjklnpqu4"
         search_sfs = "abcdgjkqu"
 
-        for field in contributor_fields:
+        for fields in contributor_fields:
             result.append(
-                self._generate_paired_field(
-                    field=field,
+                self._generate_GREAT_pf(
+                    fields=fields,
                     text_sfs=text_sfs,
                     search_sfs=search_sfs,
+                    search_field="author",
                     browse_sfs=search_sfs,
                 )
             )
@@ -157,8 +168,8 @@ class MARC:
     @property
     def series(self):
         result = []
-        for field in self._get_paired_fields_for(["400", "410", "411", "440", "490"]):
-            result.append(self._generate_paired_field(field=field))
+        for fields in self._get_BETTER_pf_for(["400", "410", "411", "440", "490"]):
+            result.append(self._generate_GREAT_pf(fields=fields))
         return result
 
     def _get_subfields(self, field: pymarc.Field, subfields: str):
