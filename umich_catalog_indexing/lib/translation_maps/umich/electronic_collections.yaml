@@ -8,12 +8,12 @@
 '990135382470106381':
 - collection_name: Kanopy Streaming Service - Ann Arbor Campus
   interface_name: Kanopy
-  note: Kanopy. Access to films not already licensed is mediated. You may be prompted to make a request for a film to be added. Authorized U-M users (+ guests in U-M Libraries)
+  note: Kanopy. Ann Arbor. Access to films not already licensed is mediated. You may be prompted to make a request for a film to be added. Authorized U-M users (+ guests in U-M Libraries)
   link: https://umich.kanopystreaming.com/
   status: Available
 - collection_name: Kanopy Streaming Service - Flint Campus
   interface_name: Kanopy
-  note: Kanopy. Access to films not already licensed is mediated. You may be prompted to make a request for a film to be added. Authorized U-M users (+ guests in U-M Libraries)
+  note: Kanopy. Flint. Access to films not already licensed is mediated. You may be prompted to make a request for a film to be added. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.kanopy.com/en/umflint/
   status: Available
 '990135303450106381':
@@ -263,7 +263,7 @@
 '990122207860106381':
 - collection_name: IBISWorld.
   interface_name: IBISWorld
-  note: IBISWorld. Access to the IBISWorld online version restricted; authentication may be required.
+  note: IBISWorld. Authorized U-M users (+ guests in U-M Libraries)
   link: https://my.ibisworld.com/
   status: Available
 '990161297550106381':
@@ -1908,12 +1908,6 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://gateway.proquest.com/openurl?url_ver=Z39.88-2004&res_dat=xri:bsc:&rft_dat=xri:bsc:contents:journals
-  status: Available
-'990047134730106381':
-- collection_name: Proquest Technology Collection.
-  interface_name: Proquest Technology Collection
-  note: Proquest Technology Collection. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://search.proquest.com/technology1?accountid=14667
   status: Available
 '990047134690106381':
 - collection_name: 'KISS : Hanʼguk ŭi haeksim chisik chŏngbo chawŏn.'
@@ -4542,7 +4536,7 @@
 '99187252471906381':
 - collection_name: DOAJ Directory of Open Access Journals
   interface_name: DOAJ Directory of Open Access Journals
-  note: DOAJ Directory of Open Access Journals.
+  note: DOAJ Directory of Open Access Journals. Link may lead to DOAJ. "Website" buttons leads to the journal. "READ ONLINE" buttons lead to the article.
   link: https://www.doaj.org/
   status: Available
 '99187252472206381':
@@ -4683,11 +4677,6 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.confidentialprintlatinamerica.amdigital.co.uk
   status: Available
-- collection_name: 'Confidential Print: Latin America, 1833-1969'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187252622506381':
 - collection_name: Popular Medicine in America, 1800-1900
   interface_name: AM (Adam Matthew)
@@ -4700,11 +4689,6 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.confidentialprintafrica.amdigital.co.uk
   status: Available
-- collection_name: 'Confidential Print: Africa, 1834-1966'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187252623006381':
 - collection_name: PharmacyLibrary
   interface_name: American Pharmacists Association
@@ -4819,11 +4803,6 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.macmillancabinetpapers.amdigital.co.uk
   status: Available
-- collection_name: Macmillan Cabinet Papers, 1957-1963
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187252631806381':
 - collection_name: Perdita Manuscripts, 1500-1700
   interface_name: AM (Adam Matthew)
@@ -4848,11 +4827,6 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.literarymanuscriptsberg.amdigital.co.uk/
   status: Available
-- collection_name: 'Literary Manuscripts Berg: Victorian Manuscripts from the Henry W. and Albert A. Berg Collection, New York Public Library'
-  interface_name: AM (Adam Matthew)
-  note: AM (Adam Matthew)
-  link: ''
-  status: Not Available
 '99187252632906381':
 - collection_name: Oxford Art Online
   interface_name: Oxford Art Online
@@ -4865,22 +4839,12 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.thenixonyears.amdigital.co.uk
   status: Available
-- collection_name: Nixon Years, 1969-1974
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187252633606381':
 - collection_name: 'Confidential Print: North America, 1824-1961'
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.confidentialprintnorthamerica.amdigital.co.uk
   status: Available
-- collection_name: 'Confidential Print: North America, 1824-1961'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187252633906381':
 - collection_name: African American Communities
   interface_name: AM (Adam Matthew)
@@ -5879,7 +5843,7 @@
 '99187252741806381':
 - collection_name: 'Ethnologue : Languages of the World'
   interface_name: SIL International
-  note: SIL International.
+  note: SIL International. Access to the Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.ethnologue.com/
   status: Available
 '99187252741906381':
@@ -6263,7 +6227,7 @@
 '99187252748906381':
 - collection_name: Papers of Sir Mark Sykes, 1879-1919
   interface_name: Microform Academic Publishers
-  note: Microform Academic Publishers.
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.britishonlinearchives.co.uk/collection.php?cid=9781851171507
   status: Available
 '99187252749006381':
@@ -8298,7 +8262,7 @@
 '99187252712806381':
 - collection_name: Correspondence of Arthur C. Murray, 3rd Viscount Elibank
   interface_name: Microform Academic Publishers
-  note: Microform Academic Publishers.
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.britishonlinearchives.co.uk/collection.php?cid=9781851171491&sid=&keywords=
   status: Available
 '99187252712906381':
@@ -8334,7 +8298,7 @@
 '99187252713406381':
 - collection_name: Papers of the Company of Scotland Trading to Africa and the Indies, 1694-1709
   interface_name: Microform Academic Publishers
-  note: Microform Academic Publishers.
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.britishonlinearchives.co.uk/collection.php?cid=9781851171873&sid=&keywords=
   status: Available
 '99187252713506381':
@@ -8802,7 +8766,7 @@
 '99187252722506381':
 - collection_name: IBISWorld Industry Market Research
   interface_name: IBISWorld
-  note: IBISWorld.
+  note: IBISWorld. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.ibisworld.com
   status: Available
 '99187252722606381':
@@ -9141,6 +9105,12 @@
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/bsc
   status: Available
+'99187415662706381':
+- collection_name: 'Digital National Security Archive (DNSA): U.S. Nuclear Nonproliferation 2, Part I: From Atoms for Peace to the NPT, 1954-1968'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/dnsa_53
+  status: Available
 '99187415663106381':
 - collection_name: 'ProQuest Historical Newspapers: The Atlanta Constitution'
   interface_name: ProQuest
@@ -9405,11 +9375,6 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.foodanddrink.amdigital.co.uk/
   status: Available
-- collection_name: 'Food and Drink in History: Module II'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496896706381':
 - collection_name: Food and Drink in History
   interface_name: AM (Adam Matthew)
@@ -9440,22 +9405,18 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.foreignofficefilesjapan.amdigital.co.uk
   status: Available
-- collection_name: 'Foreign Office Files for Japan, 1919-1952: Japan and Great Power Status, 1919-1930'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187497087006381':
 - collection_name: 'Foreign Office Files for Japan, 1919-1952: Occupation of Japan, 1946-1952'
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.foreignofficefilesjapan.amdigital.co.uk
   status: Available
-- collection_name: 'Foreign Office Files for Japan, 1919-1952: Occupation of Japan, 1946-1952'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
+'99187497090706381':
+- collection_name: 'Colonial Africa in official statistics, 1821-1953 : African blue books, 1821-1953'
+  interface_name: Microform Academic Publishers
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://www.britishonlinearchives.co.uk/collection.php?cid=9781851172740
+  status: Available
 '99187496863306381':
 - collection_name: 'Sex & Sexuality, Module II: Self-Expression, Community and Identity'
   interface_name: AM (Adam Matthew)
@@ -9498,11 +9459,6 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.foreignofficefilessoutheastasia.amdigital.co.uk
   status: Available
-- collection_name: Foreign Office Files for South East Asia, 1963-1966, Cold War in the Pacific, Trade Relations, and the Post-Independence Period, 1963-1966
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496865106381':
 - collection_name: Foreign Office Files for India, Pakistan and Afghanistan 1972-1980, Afghanistan and the Cold War, Emergency Rule in India, and the Resumption of Civilian Rule in Pakistan
   interface_name: AM (Adam Matthew)
@@ -9515,33 +9471,18 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.foreignofficefilesindia.amdigital.co.uk
   status: Available
-- collection_name: Foreign Office Files for India, Pakistan and Afghanistan 1965-1971, South Asian Convicts and Independence for Bangladesh
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496865306381':
 - collection_name: Foreign Office Files for India, Pakistan and Afghanistan 1947-1964, Independence, Partition and the Nehru Era
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.foreignofficefilesindia.amdigital.co.uk
   status: Available
-- collection_name: Foreign Office Files for India, Pakistan and Afghanistan 1947-1964, Independence, Partition and the Nehru Era
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496865606381':
 - collection_name: Foreign Office Files for China 1967-80, The Cultural Revolution
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.foreignofficefileschina.amdigital.co.uk
   status: Available
-- collection_name: Foreign Office Files for China 1967-80, The Cultural Revolution
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496865806381':
 - collection_name: Foreign Office Files for China 1957-66, The Great Leap Forward
   interface_name: AM (Adam Matthew)
@@ -9554,44 +9495,24 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.foreignofficefileschina.amdigital.co.uk
   status: Available
-- collection_name: Foreign Office Files for China 1949-56, The Communist revolution
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496866006381':
 - collection_name: Foreign Office Files for China 1938-48, Open Door, Japanese war and the seeds of communist victory
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.foreignofficefileschina.amdigital.co.uk
   status: Available
-- collection_name: Foreign Office Files for China 1938-48, Open Door, Japanese war and the seeds of communist victory
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496866106381':
 - collection_name: Foreign Office Files for China 1930-37, The Long March, civil war in China and the Manchurian Crisis
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.foreignofficefileschina.amdigital.co.uk
   status: Available
-- collection_name: Foreign Office Files for China 1930-37, The Long March, civil war in China and the Manchurian Crisis
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496866206381':
 - collection_name: Foreign Office Files for China 1919-29, Kuomintang, CCP and the Third International
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.foreignofficefileschina.amdigital.co.uk
   status: Available
-- collection_name: Foreign Office Files for China 1919-29, Kuomintang, CCP and the Third International
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496866706381':
 - collection_name: 'First World War: A Global Conflict'
   interface_name: AM (Adam Matthew)
@@ -9604,11 +9525,6 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.eastindiacompany.amdigital.co.uk/
   status: Available
-- collection_name: 'East India Company Module III: India Office Records, G: Factory Records for China, Japan and the Middle East, 1596 - 1870'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496867306381':
 - collection_name: 'East India Company Module II: Factory Records for South Asia and South East Asia'
   interface_name: AM (Adam Matthew)
@@ -9616,10 +9532,10 @@
   link: https://www.eastindiacompany.amdigital.co.uk/
   status: Available
 - collection_name: 'East India Company Module II: Factory Records for South Asia and South East Asia'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.eastindiacompany.amdigital.co.uk/4
+  status: Available
 '99187496868906381':
 - collection_name: Early Modern England
   interface_name: AM (Adam Matthew)
@@ -9633,10 +9549,10 @@
   link: https://www.amdigital.co.uk/primary-sources/colonial-america
   status: Available
 - collection_name: 'Colonial America Module V: Growth, Trade and Development'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.colonialamerica.amdigital.co.uk/
+  status: Available
 '99187496870206381':
 - collection_name: 'Colonial America, Module IV: Legislation and Politics in the Colonies'
   interface_name: AM (Adam Matthew)
@@ -9644,21 +9560,16 @@
   link: http://www.colonialamerica.amdigital.co.uk/
   status: Available
 - collection_name: 'Colonial America, Module IV: Legislation and Politics in the Colonies'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.colonialamerica.amdigital.co.uk/
+  status: Available
 '99187496870306381':
 - collection_name: 'Colonial America Module III: The American Revolution'
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.amdigital.co.uk/m-collections/collection/colonial-america/
+  link: https://www.colonialamerica.amdigital.co.uk/
   status: Available
-- collection_name: 'Colonial America Module III: The American Revolution'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496870406381':
 - collection_name: 'Colonial America Module II: Towards Revolution'
   interface_name: AM (Adam Matthew)
@@ -9701,11 +9612,6 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.apartheidsouthafrica.amdigital.co.uk
   status: Available
-- collection_name: 'Apartheid South Africa 1948-1980: 1967-1975'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187252618206381':
 - collection_name: 'American History Module I: Settlement, Commerce, Revolution and Reform: 1493-1859'
   interface_name: AM (Adam Matthew)
@@ -9718,22 +9624,12 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.americainworldwartwo.amdigital.co.uk/
   status: Available
-- collection_name: America in World War Two
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496895506381':
 - collection_name: 'Ethnomusicology: Global Field Recordings'
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.ethnomusicology.amdigital.co.uk/
   status: Available
-- collection_name: 'Ethnomusicology: Global Field Recordings'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187496946906381':
 - collection_name: McGraw Hill Access Dermatology DxRx
   interface_name: McGraw Hill Access
@@ -9747,10 +9643,10 @@
   link: http://www.londonlowlife.amdigital.co.uk
   status: Available
 - collection_name: 'London Low Life: Street Culture, Social Reform and the Victorian Underworld'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.londonlowlife.amdigital.co.uk/
+  status: Available
 '99187516114806381':
 - collection_name: 'Literary Print Culture: The Stationer''s Company Archives'
   interface_name: AM (Adam Matthew)
@@ -9763,11 +9659,6 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.marketresearch.amdigital.co.uk/
   status: Available
-- collection_name: Market Research and American Business, 1935-1965
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187517643406381':
 - collection_name: 'Race Relations in America: Surveys and Papers from The Amistad Research Center, 1943-1970'
   interface_name: AM (Adam Matthew)
@@ -9792,22 +9683,12 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.massobservationproject.amdigital.co.uk/
   status: Available
-- collection_name: 'Mass Observation Project: Module I 1980s'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187517665106381':
 - collection_name: 'Medical Services and Warfare: Module II 1928-1949'
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.medicalservicesandwarfare.amdigital.co.uk/
   status: Available
-- collection_name: 'Medical Services and Warfare: Module II 1928-1949'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187517665206381':
 - collection_name: 'Medical Services and Warfare: Module I 1850-1927'
   interface_name: AM (Adam Matthew)
@@ -10012,11 +9893,6 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.servicenewspapers.amdigital.co.uk/
   status: Available
-- collection_name: 'Service Newspapers of World War 2: Module II'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99187524486506381':
 - collection_name: 'Service Newspapers of World War Two: Module I'
   interface_name: AM (Adam Matthew)
@@ -10263,12 +10139,6 @@
   note: Infobase. Authorized U-M users (+ guests in U-M Libraries)
   link: https://fod.infobase.com/PortalPlayLists.aspx?wid=16234
   status: Available
-'99187565648606381':
-- collection_name: Contemporary Poets
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://find.galegroup.com/gvrl/infomark.do?type=aboutBook&prodId=GVRL&eisbn=9781558625365&userGroupName=umuser&version=1.0
-  status: Available
 '990175408700106381':
 - collection_name: Survei sosial ekonomi nasional (SUSENAS)
   interface_name: ''
@@ -10318,12 +10188,6 @@
   status: Available
 '99187570041606381':
 - collection_name: Gale 19th Century British Library Newspapers V
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/start.do?p=BNCN&u=umuser
-  status: Available
-'99187570041706381':
-- collection_name: Gale 19th Century British Library Newspapers
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://go.gale.com/ps/start.do?p=BNCN&u=umuser
@@ -10982,12 +10846,6 @@
   note: Alexander Street. Authorized U-M users (+ guests in U-M Libraries)
   link: https://video.alexanderstreet.com/channel/national-theatre-collection
   status: Available
-'990128947520106381':
-- collection_name: IOP Ebook Package
-  interface_name: Institute of Physics
-  note: Institute of Physics. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://iopscience.iop.org/bookList/10/1
-  status: Available
 '99187596976506381':
 - collection_name: 'SAGE Video: Series - Sociology'
   interface_name: SAGE
@@ -11131,6 +10989,12 @@
   interface_name: Japan Times
   note: Japan Times. Authorized U-M users (+ guests in U-M Libraries)
   link: https://jt-archives.jp/
+  status: Available
+'99187682178206381':
+- collection_name: 'East India Company: Module IV India Office Records, E: Correspondence: Early Voyages, Formation and Conflict'
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.eastindiacompany.amdigital.co.uk/
   status: Available
 '99187682178506381':
 - collection_name: Bridgeman Education
@@ -11299,6 +11163,18 @@
   interface_name: American Museum of Natural History Research Library
   note: American Museum of Natural History Research Library.
   link: http://digitallibrary.amnh.org/dspace/
+  status: Available
+'99187729305506381':
+- collection_name: 'Mass Observation Project: Module II 1990s'
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.massobservationproject.amdigital.co.uk/
+  status: Available
+'99187729305606381':
+- collection_name: Gilded Age and Progressive Era
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.gildedage.amdigital.co.uk/
   status: Available
 '99187755011506381':
 - collection_name: ACS In Focus Collection 2
@@ -12528,12 +12404,6 @@
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.degruyter.com/view/db/tlm
   status: Available
-'99187996512306381':
-- collection_name: 'Cambridge: Stahl Online'
-  interface_name: Cambridge University Press
-  note: Cambridge University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.cambridge.org/core/publications/collections/stahl-online
-  status: Available
 '99187997303506381':
 - collection_name: Digitalia Française
   interface_name: Digitalia
@@ -12745,8 +12615,8 @@
   link: https://www.amdigital.co.uk/collection/conflict-in-indochina-foreign-office-files-for-vietnam-laos-and-cambodia
   status: Available
 - collection_name: 'Conflict in Indochina: Escalation, Reunification and Withdrawal, 1965-1979'
-  interface_name: ''
-  note: ''
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: ''
   status: Not Available
 '99188025950206381':
@@ -12759,13 +12629,8 @@
 - collection_name: 'East India Company: Module 6, Board of Commissioners: Establishment of the Board'
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.eastindiacompany.amdigital.co.uk/documents/details/board-s-collections-vol-266/bl_ior_f_4_266
+  link: https://www.eastindiacompany.amdigital.co.uk/
   status: Available
-- collection_name: 'East India Company: Module 6, Board of Commissioners: Establishment of the Board'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
 '99188862098306381':
 - collection_name: Records of Early English Drama
   interface_name: University of Toronto
@@ -14512,6 +14377,12 @@
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
   link: https://doi.org/10.1515/ejcro
   status: Available
+'99188878077206381':
+- collection_name: Power to the People! Counterculture, Social Movements, & Alternative Press, 1960-2015
+  interface_name: ''
+  note: Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://go.gale.com/ps/start.do?p=POPC&u=umuser&aty=ip
+  status: Available
 '99188878405406381':
 - collection_name: State of Michigan Government Documents
   interface_name: State of Michigan
@@ -14547,4 +14418,220 @@
   interface_name: GaleGroup
   note: GaleGroup. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/envh?u=[location_id]
+  status: Available
+'99188898724806381':
+- collection_name: 'China: Records of the U.S. Department of State; 1945-1949'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13ro/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898724906381':
+- collection_name: 'China: Records of the U.S. Department of State; 1940-1944'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/9inw/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898725106381':
+- collection_name: 'China: Records of the U.S. Department of State; 1930-1939: Part 2'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13rn/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898725306381':
+- collection_name: 'China: Records of the U.S. Department of State; 1930-1939: Part 1'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13rm/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898725406381':
+- collection_name: Carter Administration and Foreign Affairs
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13sl/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898725506381':
+- collection_name: 'Cambodia: Records of the U.S. Department of State; 1960-1963'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/9ioq/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898725606381':
+- collection_name: 'Bulgaria: Records of the U.S. Department of State Relating to Internal Affairs; 1950-1954'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/95k6/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898725706381':
+- collection_name: 'Bulgaria: Records of the U.S. Department of State Relating to Internal Affairs; 1945-1949'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/95k4/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898726006381':
+- collection_name: 'British Foreign Office: United States Correspondence; 1946-1948'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13sr/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898726306381':
+- collection_name: 'British Foreign Office: United States Correspondence; 1944-1945'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13sq/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898726506381':
+- collection_name: 'British Foreign Office: United States Correspondence; 1941-1943'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13sp/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898726606381':
+- collection_name: 'British Foreign Office: United States Correspondence; 1938-1940'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13so/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898726706381':
+- collection_name: 'British Foreign Office: United States Correspondence; 1935-1937'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13sn/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898726806381':
+- collection_name: 'British Foreign Office: United States Correspondence; 1930-1934'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13sm/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898727006381':
+- collection_name: 'Archives of the Campaign for Nuclear Disarmament: Pamphlets and Serials, 1985-1990 and Bruce Kent''s Speeches and Articles, 1981-1989'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/2zvz/gdsc
+  status: Available
+'99188898727106381':
+- collection_name: 'Archives of the Campaign for Nuclear Disarmament: Annual Reports, Minutes and other Records, pamphlets and serial items, 1981-1985'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/2zvy/gdsc
+  status: Available
+'99188898727206381':
+- collection_name: 'Archives of the Campaign for Nuclear Disarmament: Annual Reports, Minutes and other Records, 1973-1980, and pamphlets and serial items, 1958-1980'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/2zvx/gdsc
+  status: Available
+'99188898728906381':
+- collection_name: 'Archives of the Campaign for Nuclear Disarmament: Annual Reports, Minutes and other Records, 1958-1972'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/2zdu/gdsc
+  status: Available
+'99188898729506381':
+- collection_name: 'Albania: Records of the U.S. Department of State, 1945-1963'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/9brj/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898798306381':
+- collection_name: 'Archives of Sexuality & Gender Part VI: Community and Identity in North America'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/AHSI?u=[LOCATION_ID]
+  status: Available
+'99188898928406381':
+- collection_name: 'Reporting on Africa: From Apartheid to Pan-Africanism, 1949-1995'
+  interface_name: Microform Academic Publishers
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://microform.digital/boa/collections/40/reporting-on-africa-from-apartheid-to-pan-africanism-1949-1995
+  status: Available
+'990123646220106381':
+- collection_name: De Krant van Toen
+  interface_name: De Krant van Toen
+  note: De Krant van Toen. Open access for all users.
+  link: https://www.dekrantvantoen.nl
+  status: Available
+'99188898792106381':
+- collection_name: Communism, Culture and Society in the 20th Century
+  interface_name: Microform Academic Publishers
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://microform.digital/boa/collections/105/communism-culture-and-society-in-the-20th-century
+  status: Available
+'99188898792206381':
+- collection_name: Communism and Popular Culture in the 20th Century
+  interface_name: Microform Academic Publishers
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://microform.digital/boa/collections/103/communism-and-popular-culture-in-the-20th-century
+  status: Available
+'99188898792306381':
+- collection_name: Gender, Feminism, and the British Left, 1944-1991
+  interface_name: Microform Academic Publishers
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://microform.digital/boa/collections/94/gender-feminism-and-the-british-left-1944-1991
+  status: Available
+'99188898792406381':
+- collection_name: Debate and Division on the British Left, 1917-1964
+  interface_name: Microform Academic Publishers
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://microform.digital/boa/collections/95/debate-and-division-on-the-british-left-1917-1964
+  status: Available
+'99188898792506381':
+- collection_name: 'Trade Unions in Crisis: the 1961 ETU Ballot-Rigging Scandal'
+  interface_name: Microform Academic Publishers
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://microform.digital/boa/collections/96/trade-unions-in-crisis-the-1961-etu-ballot-rigging-scandal
+  status: Available
+'99188898966006381':
+- collection_name: 'Hungary: Records of the U.S. Department of State; 1945-1963'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/3tqj/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898966106381':
+- collection_name: 'Greece: Records of the U.S. Department of State, 1950-1963'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/3tqg/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898966206381':
+- collection_name: 'George H. W. Bush and Foreign Affairs: Fall of the Berlin Wall and the Reunification of Germany'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13sj/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898966306381':
+- collection_name: 'George H. W. Bush and Foreign Affairs: Bosnia and the Situation in the Former Yugoslavia'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13si/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898966506381':
+- collection_name: Ford Administration and Foreign Affairs
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/9iot/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898966606381':
+- collection_name: 'Finland: Records of the U.S. Department of State Relating to Internal Affairs; 1960-Jan. 1963'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/95k2/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898966706381':
+- collection_name: 'Finland: Records of the U.S. Department of State Relating to Internal Affairs; 1955-1959'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/95k0/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898966806381':
+- collection_name: 'Finland: Records of the U.S. Department of State Relating to Internal Affairs; 1950-1954'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/95jy/gdsc?u=[location_id]&sid=gdsc
+  status: Available
+'99188898966906381':
+- collection_name: 'Finland: Records of the U.S. Department of State Relating to Internal Affairs; 1945-1949'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/95jw/gdsc?u=[location_id]&sid=gdsc
   status: Available
