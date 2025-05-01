@@ -37,11 +37,10 @@ class TestRecord:
         subject = Record(solr_bib)
         assert getattr(subject, field) == api_output[field]
 
-    def test_title_with_only_default_script(self, solr_bib, api_output):
+    def test_title_with_only_default_script(self, solr_bib):
         solr_bib["title_display"].pop(1)
-        api_output["title"].pop(1)
         subject = Record(solr_bib)
-        assert len(subject.title) == 1
+        assert subject.title[0]["original"]["text"] == solr_bib["title_display"][0]
 
     def test_title_with_no_title(self, solr_bib):
         solr_bib.pop("title_display")

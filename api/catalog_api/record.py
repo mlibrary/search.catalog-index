@@ -34,15 +34,35 @@ class Record:
     def main_author(self):
         main = self.data.get("main_author_display") or []
         search = self.data.get("main_author") or []
-        return [
-            {
-                "text": element,
-                "script": self.script[index],
-                "search": search[index],
-                "browse": search[index],
-            }
-            for index, element in enumerate(main)
-        ]
+
+        match len(main):
+            case 0:
+                return []
+            case 1:
+                return [
+                    {
+                        "original": {
+                            "text": main[0],
+                            "search": {"author": search[0]},
+                            "browse": search[0],
+                        }
+                    }
+                ]
+            case _:
+                return [
+                    {
+                        "transliterated": {
+                            "text": main[0],
+                            "search": {"author": search[0]},
+                            "browse": search[0],
+                        },
+                        "original": {
+                            "text": main[1],
+                            "search": {"author": search[1]},
+                            "browse": search[1],
+                        },
+                    }
+                ]
 
     # TODO: unit tests for all of the options
     @property
@@ -71,12 +91,18 @@ class Record:
 
     def _get_solr_paired_field(self, key):
         values = self.data.get(key) or []
-        if len(values) == 1:
-            return [{"original": {"text": values[0]}}]
-        else:
-            return [
-                {"transliterated": {"text": values[0]}, "original": {"text": values[1]}}
-            ]
+        match len(values):
+            case 0:
+                return []
+            case 1:
+                return [{"original": {"text": values[0]}}]
+            case _:
+                return [
+                    {
+                        "transliterated": {"text": values[0]},
+                        "original": {"text": values[1]},
+                    }
+                ]
 
 
 class MARC:
