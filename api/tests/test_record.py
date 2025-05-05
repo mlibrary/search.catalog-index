@@ -217,6 +217,11 @@ class TestMARC:
 
         assert subject.manufactured == expected
 
+    def test_manufactured_260_with_missing_fields(self):
+        record = self.create_record_with_paired_field(tag="260", subfields="a")
+        subject = MARC(record)
+        assert subject.manufactured == []
+
     def test_manufactured_264_with_indicator2_as_3(self, a_to_z_str):
         record = self.create_record_with_paired_field(tag="264", ind2="3")
         subject = MARC(record)

@@ -125,7 +125,7 @@ class MARC:
                 )
             )
 
-        for fields in self._get_BETTER_pf_for(["700", "710"]):
+        for fields in self._get_BETTER_pf_for(tags=["700", "710"], subfields="abcdefgjklmnopqrst"):
             if (
                 fields["original"].get_subfields("t")
                 and fields["original"].indicator2 == "2"
@@ -139,7 +139,7 @@ class MARC:
                     )
                 )
 
-        for fields in self._get_BETTER_pf_for(["711"]):
+        for fields in self._get_BETTER_pf_for(tags=["711"], subfields="abcdefgjklmnopqrst"):
             if (
                 fields["original"].get_subfields("t")
                 and fields["original"].indicator2 == "2"
@@ -160,7 +160,7 @@ class MARC:
         result = []
         contributor_fields = (
             fields
-            for fields in self._get_BETTER_pf_for(["700", "710", "711"])
+            for fields in self._get_BETTER_pf_for(tags=["700", "710", "711"], subfields="abcdefgjklnpqu4")
             if not fields["original"].get_subfields("t")
             and fields["original"].indicator2 != "2"
         )
@@ -183,10 +183,10 @@ class MARC:
     @property
     def manufactured(self):
         result = []
-        for fields in self._get_BETTER_pf_for(["260"]):
+        for fields in self._get_BETTER_pf_for(tags=["260"], subfields="efg"):
             result.append(self._generate_GREAT_pf(fields=fields, text_sfs="efg"))
 
-        for fields in self._get_BETTER_pf_for(["264"]):
+        for fields in self._get_BETTER_pf_for(tags=["264"]):
             if fields["original"].indicator2 == "3":
                 result.append(self._generate_GREAT_pf(fields=fields))
         return result
@@ -210,43 +210,45 @@ class MARC:
     def _get_paired_fields_for(self, tags: tuple) -> list:
         return self.record.get_fields(*tags) + self._get_original_for_tags(tags)
 
-    def _get_BETTER_pf_for(self, tags: tuple) -> list:
+    def _get_BETTER_pf_for(self, tags: list, subfields: str = string.ascii_lowercase) -> list:
         mapping = {}
         for field in self._get_original_for_tags(tags):
             mapping[Linkage(field).__str__()] = field
 
         results = []
         for field in self.record.get_fields(*tags):
-            original = mapping.pop(
-                f"{field.tag}-{Linkage(field).occurence_number}", None
-            )
-            if original:
-                results.append({"transliterated": field, "original": original})
-            else:
-                results.append({"original": field})
-        return results + [{"original": f} for f in mapping.values()]
+            if self._get_subfields(field, subfields):
+              original = mapping.pop(
+                  f"{field.tag}-{Linkage(field).occurence_number}", None
+              )
+              if original:
+                  results.append({"transliterated": field, "original": original})
+              else:
+                  results.append({"original": field})
 
-    def _generate_paired_field(
-        self,
-        field: pymarc.Field,
-        text_sfs: str = string.ascii_lowercase,
-        search_sfs: Optional[str] = None,
-        browse_sfs: Optional[str] = None,
-    ):
-        result = {
-            "script": "vernacular" if field.tag == "880" else "default",
-            "text": self._get_subfields(field, text_sfs),
-            "tag": field.tag,
-            "linkage": Linkage(field).as_dict(),
-        }
+        return results + [{"original": f} for f in mapping.values() if self._get_subfields(f, subfields)]
 
-        if search_sfs:
-            result["search"] = self._get_subfields(field, search_sfs)
+    # def _generate_paired_field(
+        # self,
+        # field: pymarc.Field,
+        # text_sfs: str = string.ascii_lowercase,
+        # search_sfs: Optional[str] = None,
+        # browse_sfs: Optional[str] = None,
+    # ):
+        # result = {
+            # "script": "vernacular" if field.tag == "880" else "default",
+            # "text": self._get_subfields(field, text_sfs),
+            # "tag": field.tag,
+            # "linkage": Linkage(field).as_dict(),
+        # }
 
-        if browse_sfs:
-            result["browse"] = self._get_subfields(field, browse_sfs)
+        # if search_sfs:
+            # result["search"] = self._get_subfields(field, search_sfs)
 
-        return result
+        # if browse_sfs:
+            # result["browse"] = self._get_subfields(field, browse_sfs)
+
+        # return result
 
     def _generate_GREAT_pf(
         self,
@@ -257,15 +259,14 @@ class MARC:
         browse_sfs: Optional[str] = None,
     ):
         result = {}
-        print(fields)
         for key in fields.keys():
-            result[key] = self._generate_AWESOME_pf_field(
-                field=fields[key],
-                text_sfs=text_sfs,
-                search_sfs=search_sfs,
-                search_field=search_field,
-                browse_sfs=browse_sfs,
-            )
+              result[key] = self._generate_AWESOME_pf_field(
+                  field=fields[key],
+                  text_sfs=text_sfs,
+                  search_sfs=search_sfs,
+                  search_field=search_field,
+                  browse_sfs=browse_sfs,
+              )
         return result
 
     def _generate_AWESOME_pf_field(
