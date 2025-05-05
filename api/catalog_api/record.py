@@ -224,8 +224,7 @@ class MARC:
                 results.append({"transliterated": field, "original": original})
             else:
                 results.append({"original": field})
-
-        return results + list(mapping.values())
+        return results + [{"original": f} for f in mapping.values()]
 
     def _generate_paired_field(
         self,
@@ -258,6 +257,7 @@ class MARC:
         browse_sfs: Optional[str] = None,
     ):
         result = {}
+        print(fields)
         for key in fields.keys():
             result[key] = self._generate_AWESOME_pf_field(
                 field=fields[key],

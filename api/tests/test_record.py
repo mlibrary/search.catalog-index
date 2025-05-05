@@ -254,6 +254,36 @@ class TestMARC:
         ]
         assert subject.series == expected
 
+    def test_series_with_only_880(self, a_to_z_str):
+        record = self.create_record_with_paired_field(tag="400")
+        record.remove_fields("400")
+
+        subject = MARC(record)
+        expected = [
+            {
+                "original": {
+                    "text": a_to_z_str,
+                    "tag": "880",
+                },
+            }
+        ]
+        assert subject.series == expected
+
+    def test_series_with_only_400(self, a_to_z_str):
+        record = self.create_record_with_paired_field(tag="400")
+        record.remove_fields("880")
+
+        subject = MARC(record)
+        expected = [
+            {
+                "original": {
+                    "text": a_to_z_str,
+                    "tag": "400",
+                },
+            }
+        ]
+        assert subject.series == expected
+
     def create_record_with_paired_field(
         self,
         tag: str,

@@ -42,4 +42,4 @@ class Record(BaseModel):
     format: list[str]
     main_author: list[PairedBrowseField]
     other_titles: list[PairedSearchField]
-    contributors: list[PairedBrowseField]
+    # contributors: list[PairedBrowseField]
