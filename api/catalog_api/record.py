@@ -4,6 +4,8 @@ import io
 import re
 import string
 from typing import Optional
+from dataclasses import dataclass
+from collections.abc import Callable
 
 
 def record_for(id: str):
@@ -105,6 +107,16 @@ class Record:
                 ]
 
 
+@dataclass(frozen=True)
+class DataClump:
+    tags: list
+    text_sfs: str = string.ascii_lowercase
+    search_sfs: str | None = None
+    search_field: str | None = None
+    browse_sfs: str | None = None
+    filter: Callable[..., bool] = lambda field: True
+
+
 class MARC:
     def __init__(self, record: pymarc.record.Record):
         self.record = record
@@ -115,93 +127,86 @@ class MARC:
         Could add "tag" and "linkage" to the output to enable matching up parallel fields
         I wouldn't want to fetch any paired fields from solr then though
         """
+
+        def is_a_title(field: pymarc.Field) -> bool:
+            return field.get_subfields("t") and field.indicator2 == "2"
+
         result = []
-        for fields in self._get_paired_fields_for(["246", "247", "740"]):
-            result.append(
-                self._generate_paired_field(
-                    fields=fields,
-                    search_sfs=string.ascii_lowercase,
-                    search_field="title",
-                )
-            )
+        data = [
+            DataClump(
+                tags=["246", "247", "740"],
+                search_sfs=string.ascii_lowercase,
+                search_field="title",
+            ),
+            DataClump(
+                tags=["700", "710"],
+                text_sfs="abcdefgjklmnopqrst",
+                search_sfs="fkjlmnoprst",
+                search_field="title",
+                filter=is_a_title,
+            ),
+            DataClump(
+                tags=["711"],
+                text_sfs="abcdefgjklmnopqrst",
+                search_sfs="fklmnoprst",  # no j subfield
+                search_field="title",
+                filter=is_a_title,
+            ),
+        ]
 
-        for fields in self._get_paired_fields_for(
-            tags=["700", "710"], subfields="abcdefgjklmnopqrst"
-        ):
-            if (
-                fields["original"].get_subfields("t")
-                and fields["original"].indicator2 == "2"
-            ):
-                result.append(
-                    self._generate_paired_field(
-                        fields=fields,
-                        text_sfs="abcdefgjklmnopqrst",
-                        search_sfs="fkjlmnoprst",
-                        search_field="title",
+        for datum in data:
+            for fields in self._get_paired_fields_for(datum):
+                if datum.filter(fields["original"]):
+                    result.append(
+                        self._generate_paired_field(fields=fields, data=datum)
                     )
-                )
-
-        for fields in self._get_paired_fields_for(
-            tags=["711"], subfields="abcdefgjklmnopqrst"
-        ):
-            if (
-                fields["original"].get_subfields("t")
-                and fields["original"].indicator2 == "2"
-            ):
-                result.append(
-                    self._generate_paired_field(
-                        fields=fields,
-                        text_sfs="abcdefgjklmnopqrst",
-                        search_sfs="fklmnoprst",  # no j subfield
-                        search_field="title",
-                    )
-                )
 
         return result
 
     @property
     def contributors(self):
         result = []
-        contributor_fields = (
-            fields
-            for fields in self._get_paired_fields_for(
-                tags=["700", "710", "711"], subfields="abcdefgjklnpqu4"
-            )
-            if not fields["original"].get_subfields("t")
-            and fields["original"].indicator2 != "2"
-        )
-        text_sfs = "abcdefgjklnpqu4"
         search_sfs = "abcdgjkqu"
+        clump = DataClump(
+            tags=["700", "710", "711"],
+            text_sfs="abcdefgjklnpqu4",
+            search_sfs=search_sfs,
+            search_field="author",
+            browse_sfs=search_sfs,
+            filter=lambda field: (
+                not field.get_subfields("t") and fields["original"].indicator2 != "2"
+            ),
+        )
 
-        for fields in contributor_fields:
-            result.append(
-                self._generate_paired_field(
-                    fields=fields,
-                    text_sfs=text_sfs,
-                    search_sfs=search_sfs,
-                    search_field="author",
-                    browse_sfs=search_sfs,
-                )
-            )
+        for fields in self._get_paired_fields_for(clump):
+            if clump.filter(fields["original"]):
+                result.append(self._generate_paired_field(fields=fields, data=clump))
 
         return result
 
     @property
     def manufactured(self):
         result = []
-        for fields in self._get_paired_fields_for(tags=["260"], subfields="efg"):
-            result.append(self._generate_paired_field(fields=fields, text_sfs="efg"))
+        data = [
+            DataClump(tags=["260"], text_sfs="efg"),
+            DataClump(tags=["264"], filter=lambda field: (field.indicator2 == "3")),
+        ]
 
-        for fields in self._get_paired_fields_for(tags=["264"]):
-            if fields["original"].indicator2 == "3":
-                result.append(self._generate_paired_field(fields=fields))
+        for datum in data:
+            for fields in self._get_paired_fields_for(datum):
+                if datum.filter(fields["original"]):
+                    result.append(
+                        self._generate_paired_field(fields=fields, data=datum)
+                    )
         return result
 
     @property
     def series(self):
         result = []
-        for fields in self._get_paired_fields_for(["400", "410", "411", "440", "490"]):
-            result.append(self._generate_paired_field(fields=fields))
+        clump = DataClump(tags=["400", "410", "411", "440", "490"])
+        for fields in self._get_paired_fields_for(clump):
+            if clump.filter(fields["original"]):
+                result.append(self._generate_paired_field(fields=fields, data=clump))
         return result
 
     def _get_subfields(self, field: pymarc.Field, subfields: str):
@@ -213,16 +218,14 @@ class MARC:
 
         return list(filter(linkage_has_tag, self.record.get_fields("880")))
 
-    def _get_paired_fields_for(
-        self, tags: list, subfields: str = string.ascii_lowercase
-    ) -> list:
+    def _get_paired_fields_for(self, data: DataClump) -> list:
         mapping = {}
-        for field in self._get_original_for_tags(tags):
+        for field in self._get_original_for_tags(data.tags):
             mapping[Linkage(field).__str__()] = field
 
         results = []
-        for field in self.record.get_fields(*tags):
-            if self._get_subfields(field, subfields):
+        for field in self.record.get_fields(*data.tags):
+            if self._get_subfields(field, data.text_sfs):
                 original = mapping.pop(
                     f"{field.tag}-{Linkage(field).occurence_number}", None
                 )
@@ -234,7 +237,7 @@ class MARC:
         return results + [
             {"original": f}
             for f in mapping.values()
-            if self._get_subfields(f, subfields)
+            if self._get_subfields(f, data.text_sfs)
         ]
 
     def _generate_paired_field(
@@ -244,8 +247,15 @@ class MARC:
         search_sfs: Optional[str] = None,
         search_field: Optional[str] = None,
         browse_sfs: Optional[str] = None,
+        data: DataClump | None = None,
     ):
         result = {}
+        if data:
+            text_sfs = data.text_sfs
+            search_sfs = data.search_sfs
+            search_field = data.search_field
+            browse_sfs = data.browse_sfs
+
         for key in fields.keys():
             field = fields[key]
             output = {
