@@ -116,22 +116,24 @@ class MARC:
         I wouldn't want to fetch any paired fields from solr then though
         """
         result = []
-        for fields in self._get_BETTER_pf_for(["246", "247", "740"]):
+        for fields in self._get_paired_fields_for(["246", "247", "740"]):
             result.append(
-                self._generate_GREAT_pf(
+                self._generate_paired_field(
                     fields=fields,
                     search_sfs=string.ascii_lowercase,
                     search_field="title",
                 )
             )
 
-        for fields in self._get_BETTER_pf_for(tags=["700", "710"], subfields="abcdefgjklmnopqrst"):
+        for fields in self._get_paired_fields_for(
+            tags=["700", "710"], subfields="abcdefgjklmnopqrst"
+        ):
             if (
                 fields["original"].get_subfields("t")
                 and fields["original"].indicator2 == "2"
             ):
                 result.append(
-                    self._generate_GREAT_pf(
+                    self._generate_paired_field(
                         fields=fields,
                         text_sfs="abcdefgjklmnopqrst",
                         search_sfs="fkjlmnoprst",
@@ -139,13 +141,15 @@ class MARC:
                     )
                 )
 
-        for fields in self._get_BETTER_pf_for(tags=["711"], subfields="abcdefgjklmnopqrst"):
+        for fields in self._get_paired_fields_for(
+            tags=["711"], subfields="abcdefgjklmnopqrst"
+        ):
             if (
                 fields["original"].get_subfields("t")
                 and fields["original"].indicator2 == "2"
             ):
                 result.append(
-                    self._generate_GREAT_pf(
+                    self._generate_paired_field(
                         fields=fields,
                         text_sfs="abcdefgjklmnopqrst",
                         search_sfs="fklmnoprst",  # no j subfield
@@ -160,7 +164,9 @@ class MARC:
         result = []
         contributor_fields = (
             fields
-            for fields in self._get_BETTER_pf_for(tags=["700", "710", "711"], subfields="abcdefgjklnpqu4")
+            for fields in self._get_paired_fields_for(
+                tags=["700", "710", "711"], subfields="abcdefgjklnpqu4"
+            )
             if not fields["original"].get_subfields("t")
             and fields["original"].indicator2 != "2"
         )
@@ -169,7 +175,7 @@ class MARC:
 
         for fields in contributor_fields:
             result.append(
-                self._generate_GREAT_pf(
+                self._generate_paired_field(
                     fields=fields,
                     text_sfs=text_sfs,
                     search_sfs=search_sfs,
@@ -183,19 +189,19 @@ class MARC:
     @property
     def manufactured(self):
         result = []
-        for fields in self._get_BETTER_pf_for(tags=["260"], subfields="efg"):
-            result.append(self._generate_GREAT_pf(fields=fields, text_sfs="efg"))
+        for fields in self._get_paired_fields_for(tags=["260"], subfields="efg"):
+            result.append(self._generate_paired_field(fields=fields, text_sfs="efg"))
 
-        for fields in self._get_BETTER_pf_for(tags=["264"]):
+        for fields in self._get_paired_fields_for(tags=["264"]):
             if fields["original"].indicator2 == "3":
-                result.append(self._generate_GREAT_pf(fields=fields))
+                result.append(self._generate_paired_field(fields=fields))
         return result
 
     @property
     def series(self):
         result = []
-        for fields in self._get_BETTER_pf_for(["400", "410", "411", "440", "490"]):
-            result.append(self._generate_GREAT_pf(fields=fields))
+        for fields in self._get_paired_fields_for(["400", "410", "411", "440", "490"]):
+            result.append(self._generate_paired_field(fields=fields))
         return result
 
     def _get_subfields(self, field: pymarc.Field, subfields: str):
@@ -207,10 +213,9 @@ class MARC:
 
         return list(filter(linkage_has_tag, self.record.get_fields("880")))
 
-    def _get_paired_fields_for(self, tags: tuple) -> list:
-        return self.record.get_fields(*tags) + self._get_original_for_tags(tags)
-
-    def _get_BETTER_pf_for(self, tags: list, subfields: str = string.ascii_lowercase) -> list:
+    def _get_paired_fields_for(
+        self, tags: list, subfields: str = string.ascii_lowercase
+    ) -> list:
         mapping = {}
         for field in self._get_original_for_tags(tags):
             mapping[Linkage(field).__str__()] = field
@@ -218,39 +223,21 @@ class MARC:
         results = []
         for field in self.record.get_fields(*tags):
             if self._get_subfields(field, subfields):
-              original = mapping.pop(
-                  f"{field.tag}-{Linkage(field).occurence_number}", None
-              )
-              if original:
-                  results.append({"transliterated": field, "original": original})
-              else:
-                  results.append({"original": field})
+                original = mapping.pop(
+                    f"{field.tag}-{Linkage(field).occurence_number}", None
+                )
+                if original:
+                    results.append({"transliterated": field, "original": original})
+                else:
+                    results.append({"original": field})
 
-        return results + [{"original": f} for f in mapping.values() if self._get_subfields(f, subfields)]
+        return results + [
+            {"original": f}
+            for f in mapping.values()
+            if self._get_subfields(f, subfields)
+        ]
 
-    # def _generate_paired_field(
-        # self,
-        # field: pymarc.Field,
-        # text_sfs: str = string.ascii_lowercase,
-        # search_sfs: Optional[str] = None,
-        # browse_sfs: Optional[str] = None,
-    # ):
-        # result = {
-            # "script": "vernacular" if field.tag == "880" else "default",
-            # "text": self._get_subfields(field, text_sfs),
-            # "tag": field.tag,
-            # "linkage": Linkage(field).as_dict(),
-        # }
-
-        # if search_sfs:
-            # result["search"] = self._get_subfields(field, search_sfs)
-
-        # if browse_sfs:
-            # result["browse"] = self._get_subfields(field, browse_sfs)
-
-        # return result
-
-    def _generate_GREAT_pf(
+    def _generate_paired_field(
         self,
         fields: dict,
         text_sfs: str = string.ascii_lowercase,
@@ -260,36 +247,24 @@ class MARC:
     ):
         result = {}
         for key in fields.keys():
-              result[key] = self._generate_AWESOME_pf_field(
-                  field=fields[key],
-                  text_sfs=text_sfs,
-                  search_sfs=search_sfs,
-                  search_field=search_field,
-                  browse_sfs=browse_sfs,
-              )
-        return result
+            field = fields[key]
+            output = {
+                "text": self._get_subfields(field, text_sfs),
+                "tag": field.tag,
+            }
 
-    def _generate_AWESOME_pf_field(
-        self,
-        field: pymarc.Field,
-        text_sfs: str = string.ascii_lowercase,
-        search_sfs: Optional[str] = None,
-        search_field: Optional[str] = None,
-        browse_sfs: Optional[str] = None,
-    ):
-        result = {
-            "text": self._get_subfields(field, text_sfs),
-            "tag": field.tag,
-        }
+            if search_sfs:
+                output["search"] = [
+                    {
+                        "field": search_field,
+                        "value": self._get_subfields(field, search_sfs),
+                    }
+                ]
 
-        if search_sfs:
-            result["search"] = [
-                {"field": search_field, "value": self._get_subfields(field, search_sfs)}
-            ]
+            if browse_sfs:
+                output["browse"] = self._get_subfields(field, browse_sfs)
 
-        if browse_sfs:
-            result["browse"] = self._get_subfields(field, browse_sfs)
-
+            result[key] = output
         return result
 
 
