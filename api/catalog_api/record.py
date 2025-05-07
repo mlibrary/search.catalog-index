@@ -108,13 +108,38 @@ class Record:
 
 
 @dataclass(frozen=True)
-class DataClump:
+class FieldRuleset:
     tags: list
     text_sfs: str = string.ascii_lowercase
     search_sfs: str | None = None
     search_field: str | None = None
     browse_sfs: str | None = None
     filter: Callable[..., bool] = lambda field: True
+
+    def has_any_subfields(self, field: pymarc.Field) -> bool:
+        return bool(self._get_subfields(field, self.text_sfs))
+
+    def value_for(self, field: pymarc.Field):
+        result = {
+            "text": self._get_subfields(field, self.text_sfs),
+            "tag": field.tag,
+        }
+
+        if self.search_sfs:
+            result["search"] = [
+                {
+                    "field": self.search_field,
+                    "value": self._get_subfields(field, self.search_sfs),
+                }
+            ]
+
+        if self.browse_sfs:
+            result["browse"] = self._get_subfields(field, self.browse_sfs)
+
+        return result
+
+    def _get_subfields(self, field: pymarc.Field, subfields: str):
+        return " ".join(field.get_subfields(*tuple(subfields)))
 
 
 class MARC:
@@ -131,86 +156,70 @@ class MARC:
         def is_a_title(field: pymarc.Field) -> bool:
             return field.get_subfields("t") and field.indicator2 == "2"
 
-        result = []
-        data = [
-            DataClump(
+        rulesets = (
+            FieldRuleset(
                 tags=["246", "247", "740"],
                 search_sfs=string.ascii_lowercase,
                 search_field="title",
             ),
-            DataClump(
+            FieldRuleset(
                 tags=["700", "710"],
                 text_sfs="abcdefgjklmnopqrst",
                 search_sfs="fkjlmnoprst",
                 search_field="title",
                 filter=is_a_title,
             ),
-            DataClump(
+            FieldRuleset(
                 tags=["711"],
                 text_sfs="abcdefgjklmnopqrst",
                 search_sfs="fklmnoprst",  # no j subfield
                 search_field="title",
                 filter=is_a_title,
             ),
-        ]
+        )
 
-        for datum in data:
-            for fields in self._get_paired_fields_for(datum):
-                if datum.filter(fields["original"]):
-                    result.append(
-                        self._generate_paired_field(fields=fields, data=datum)
-                    )
-
-        return result
+        return self._generate_paired_fields(rulesets)
 
     @property
     def contributors(self):
-        result = []
         search_sfs = "abcdgjkqu"
-        clump = DataClump(
+        ruleset = FieldRuleset(
             tags=["700", "710", "711"],
             text_sfs="abcdefgjklnpqu4",
             search_sfs=search_sfs,
             search_field="author",
             browse_sfs=search_sfs,
             filter=lambda field: (
-                not field.get_subfields("t") and fields["original"].indicator2 != "2"
+                not field.get_subfields("t") and field.indicator2 != "2"
             ),
         )
 
-        for fields in self._get_paired_fields_for(clump):
-            if clump.filter(fields["original"]):
-                result.append(self._generate_paired_field(fields=fields, data=clump))
-
-        return result
+        return self._generate_paired_fields(tuple([ruleset]))
 
     @property
     def manufactured(self):
-        result = []
-        data = [
-            DataClump(tags=["260"], text_sfs="efg"),
-            DataClump(tags=["264"], filter=lambda field: (field.indicator2 == "3")),
-        ]
+        rulesets = (
+            FieldRuleset(tags=["260"], text_sfs="efg"),
+            FieldRuleset(tags=["264"], filter=lambda field: (field.indicator2 == "3")),
+        )
 
-        for datum in data:
-            for fields in self._get_paired_fields_for(datum):
-                if datum.filter(fields["original"]):
-                    result.append(
-                        self._generate_paired_field(fields=fields, data=datum)
-                    )
-        return result
+        return self._generate_paired_fields(rulesets)
 
     @property
     def series(self):
-        result = []
-        clump = DataClump(tags=["400", "410", "411", "440", "490"])
-        for fields in self._get_paired_fields_for(clump):
-            if clump.filter(fields["original"]):
-                result.append(self._generate_paired_field(fields=fields, data=clump))
-        return result
+        ruleset = FieldRuleset(tags=["400", "410", "411", "440", "490"])
+        return self._generate_paired_fields(tuple([ruleset]))
 
-    def _get_subfields(self, field: pymarc.Field, subfields: str):
-        return " ".join(field.get_subfields(*tuple(subfields)))
+    def _generate_paired_fields(self, rulesets: tuple) -> list:
+        result = []
+        for ruleset in rulesets:
+            for fields in self._get_paired_fields_for(ruleset):
+                if ruleset.filter(fields["original"]):
+                    r = {}
+                    for key in fields.keys():
+                        r[key] = ruleset.value_for(fields[key])
+                    result.append(r)
+        return result
 
     def _get_original_for_tags(self, tags: tuple) -> list:
         def linkage_has_tag(field):
@@ -218,14 +227,14 @@ class MARC:
 
         return list(filter(linkage_has_tag, self.record.get_fields("880")))
 
-    def _get_paired_fields_for(self, data: DataClump) -> list:
+    def _get_paired_fields_for(self, ruleset: FieldRuleset) -> list:
         mapping = {}
-        for field in self._get_original_for_tags(data.tags):
+        for field in self._get_original_for_tags(ruleset.tags):
             mapping[Linkage(field).__str__()] = field
 
         results = []
-        for field in self.record.get_fields(*data.tags):
-            if self._get_subfields(field, data.text_sfs):
+        for field in self.record.get_fields(*ruleset.tags):
+            if ruleset.has_any_subfields(field):
                 original = mapping.pop(
                     f"{field.tag}-{Linkage(field).occurence_number}", None
                 )
@@ -235,47 +244,8 @@ class MARC:
                     results.append({"original": field})
 
         return results + [
-            {"original": f}
-            for f in mapping.values()
-            if self._get_subfields(f, data.text_sfs)
+            {"original": f} for f in mapping.values() if ruleset.has_any_subfields(f)
         ]
-
-    def _generate_paired_field(
-        self,
-        fields: dict,
-        text_sfs: str = string.ascii_lowercase,
-        search_sfs: Optional[str] = None,
-        search_field: Optional[str] = None,
-        browse_sfs: Optional[str] = None,
-        data: DataClump | None = None,
-    ):
-        result = {}
-        if data:
-            text_sfs = data.text_sfs
-            search_sfs = data.search_sfs
-            search_field = data.search_field
-            browse_sfs = data.browse_sfs
-
-        for key in fields.keys():
-            field = fields[key]
-            output = {
-                "text": self._get_subfields(field, text_sfs),
-                "tag": field.tag,
-            }
-
-            if search_sfs:
-                output["search"] = [
-                    {
-                        "field": search_field,
-                        "value": self._get_subfields(field, search_sfs),
-                    }
-                ]
-
-            if browse_sfs:
-                output["browse"] = self._get_subfields(field, browse_sfs)
-
-            result[key] = output
-        return result
 
 
 class Linkage:
