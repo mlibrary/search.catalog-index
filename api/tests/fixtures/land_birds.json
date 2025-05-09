@@ -124,10 +124,12 @@
     "series_statement": [
         {
             "transliterated": {
-                "text": "Yagai kansatsu handobukku ; 1."
+                "text": "Yagai kansatsu handobukku ; 1.",
+                "tag": "830"
             },
             "original": {
-                "text": "野外観察ハンドブック ; 1."
+                "text": "野外観察ハンドブック ; 1.",
+                "tag": "880"
             }
         }
     ],
@@ -139,18 +141,26 @@
     "note": [
         {
             "original": {
-                "text": "Includes index."
+                "text": "Includes index.",
+                "tag": "500"
             }
         }
     ],
     "physical_description": [
         {
             "original": {
+                "tag": "300",
                 "text": "64 p. : ill. ; 18 cm."
             }
         }
     ],
     "isbn": [
+        {
+            "text": "9784931150010"
+        },
+        {
+            "text": "4931150012"
+        },
         {
             "text": "4931150012 :"
         }

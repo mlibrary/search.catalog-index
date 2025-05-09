@@ -65,8 +65,8 @@ RUN poetry export --without dev -f requirements.txt --output requirements.txt
 #
 FROM poetry AS development
 
-# RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
-#   wget\
+RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
+    boxes
 
 USER app
 

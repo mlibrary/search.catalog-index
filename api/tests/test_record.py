@@ -30,6 +30,15 @@ class TestRecord:
         "manufactured",
         "edition",
         "series",
+        "series_statement",
+        "language",
+        "note",
+        "physical_description",
+        "isbn",
+        "call_number",
+        "oclc",
+        "lcsh_subjects",
+        "academic_discipline",
     ]
 
     @pytest.mark.parametrize("field", fields)
@@ -47,6 +56,11 @@ class TestRecord:
         subject = Record(solr_bib)
         assert subject.title == []
 
+    def test_language_with_no_lanugages(self, solr_bib):
+        solr_bib.pop("language")
+        subject = Record(solr_bib)
+        assert subject.language == []
+
     def test_formats_with_no_formats(self, solr_bib):
         solr_bib.pop("format")
         subject = Record(solr_bib)
@@ -63,6 +77,11 @@ class TestRecord:
         subject = Record(solr_bib)
         assert subject.main_author == []
 
+    def test_with_no_academic_disciplines(self, solr_bib):
+        solr_bib.pop("hlb3Delimited")
+        subject = Record(solr_bib)
+        assert subject.academic_discipline == []
+
 
 @pytest.fixture()
 def a_to_z_str():
@@ -70,9 +89,9 @@ def a_to_z_str():
 
 
 class TestMARC:
-    #####
-    # other_titles
-    #####
+    ################
+    # other_titles #
+    ################
 
     @pytest.mark.parametrize("tag", ["246", "247", "740"])
     def test_other_titles_246_247_740_with_t_and_indicator_2(self, tag, a_to_z_str):
@@ -127,9 +146,9 @@ class TestMARC:
         subject = MARC(record)
         assert subject.other_titles == []
 
-    #####
-    # contributors
-    #####
+    ################
+    # contributors #
+    ################
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
     def test_contributors_with_indicator_2_not_2_and_no_t(self, tag):
         sfs = string.ascii_lowercase.replace("t", "") + "4"
@@ -161,9 +180,9 @@ class TestMARC:
         subject = MARC(record)
         assert subject.contributors == []
 
-    ###
-    # manufactured
-    ###
+    ################
+    # manufactured #
+    ################
     def test_manufactured_260(self):
         record = self.create_record_with_paired_field(tag="260")
         subject = MARC(record)
@@ -195,9 +214,9 @@ class TestMARC:
 
         assert subject.manufactured == expected
 
-    ####
-    # series
-    ###
+    ##########
+    # series #
+    ##########
 
     @pytest.mark.parametrize("tag", ["400", "410", "411", "440", "490"])
     def test_series(self, tag, a_to_z_str):
@@ -238,6 +257,64 @@ class TestMARC:
             }
         ]
         assert subject.series == expected
+
+    ####################
+    # series statement #
+    ####################
+
+    @pytest.mark.parametrize("tag", ["440", "800", "810", "811", "830"])
+    def test_series_statement(self, tag, a_to_z_str):
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": a_to_z_str},
+        )
+        assert subject.series_statement == expected
+
+    ########################
+    # physical description #
+    ########################
+
+    def test_physical_description(self, a_to_z_str):
+        record = self.create_record_with_paired_field(tag="300")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="300",
+            elements={"text": a_to_z_str},
+        )
+        assert subject.physical_description == expected
+
+    ########
+    # note #
+    ########
+
+    @pytest.mark.parametrize(
+        "tag",
+        [
+            "500",
+            "501",
+            "502",
+            "525",
+            "526",
+            "530",
+            "547",
+            "550",
+            "552",
+            "561",
+            "565",
+            "584",
+            "585",
+        ],
+    )
+    def test_note(self, tag):
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": "a"},
+        )
+        assert subject.note == expected
 
     def create_record_with_paired_field(
         self,
