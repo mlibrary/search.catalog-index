@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Optional
 
 
@@ -63,3 +63,19 @@ class Record(BaseModel):
     call_number: list[BareTextField]
     lcsh_subjects: list[BareTextField]
     academic_discipline: list[AcademicDiscipline]
+
+
+class Response(BaseModel):
+    detail: str
+
+
+class Response404(Response):
+    model_config = ConfigDict(
+        json_schema_extra={
+            "examples": [
+                {
+                    "detail": "Record not found",
+                }
+            ]
+        }
+    )

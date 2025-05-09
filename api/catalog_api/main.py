@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from catalog_api import schemas
+from catalog_api.solr_client import NotFoundError
 from catalog_api.record import record_for
 
 app = FastAPI(
@@ -7,11 +8,22 @@ app = FastAPI(
 )
 
 
-@app.get("/records/{id}")
+@app.get(
+    "/records/{id}",
+    responses={
+        404: {
+            "description": "Bad request: The record was not found",
+            "model": schemas.Response404,
+        }
+    },
+)
 def get_record(id: str) -> schemas.Record:
     """
-    Gets a record from catalog solr. The Item is fetched by the solr id, which
+    Gets a record from catalog solr. The record is fetched by the solr id, which
     is the mms_id for an Alma record or a htid with a 11 prefix for a HathiTrust
     record
     """
-    return record_for(id)
+    try:
+        return record_for(id)
+    except NotFoundError:
+        raise HTTPException(status_code=404, detail="Item not found")
