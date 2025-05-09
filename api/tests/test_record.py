@@ -79,20 +79,13 @@ class TestMARC:
         record = self.create_record_with_paired_field(tag=tag, ind2="2")
         subject = MARC(record)
 
-        expected = [
-            {
-                "transliterated": {
-                    "text": a_to_z_str,
-                    "search": [{"field": "title", "value": a_to_z_str}],
-                    "tag": tag,
-                },
-                "original": {
-                    "text": a_to_z_str,
-                    "search": [{"field": "title", "value": a_to_z_str}],
-                    "tag": "880",
-                },
-            }
-        ]
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={
+                "text": a_to_z_str,
+                "search": [{"field": "title", "value": a_to_z_str}],
+            },
+        )
 
         assert subject.other_titles == expected
 
@@ -101,43 +94,23 @@ class TestMARC:
         record = self.create_record_with_paired_field(tag=tag, ind2="2")
         subject = MARC(record)
         if tag in ["700", "710"]:
-            expected = [
-                {
-                    "transliterated": {
-                        "text": "a b c d e f g j k l m n o p q r s t",
-                        "search": [
-                            {"field": "title", "value": "f j k l m n o p r s t"}
-                        ],
-                        "tag": tag,
-                    },
-                    "original": {
-                        "text": "a b c d e f g j k l m n o p q r s t",
-                        "search": [
-                            {"field": "title", "value": "f j k l m n o p r s t"}
-                        ],
-                        "tag": "880",
-                    },
-                }
-            ]
+            expected = self.expected_paired_field(
+                tag=tag,
+                elements={
+                    "text": "a b c d e f g j k l m n o p q r s t",
+                    "search": [{"field": "title", "value": "f j k l m n o p r s t"}],
+                },
+            )
         else:  # 711
-            expected = [
-                {
-                    "transliterated": {
-                        "text": "a b c d e f g j k l m n o p q r s t",
-                        "search": [
-                            {"field": "title", "value": "f k l m n o p r s t"}
-                        ],  # this does not have a $j
-                        "tag": tag,
-                    },
-                    "original": {
-                        "text": "a b c d e f g j k l m n o p q r s t",
-                        "search": [
-                            {"field": "title", "value": "f k l m n o p r s t"}
-                        ],  # this does not have a $j
-                        "tag": "880",
-                    },
-                }
-            ]
+            expected = self.expected_paired_field(
+                tag=tag,
+                elements={
+                    "text": "a b c d e f g j k l m n o p q r s t",
+                    "search": [
+                        {"field": "title", "value": "f k l m n o p r s t"}
+                    ],  # this does not have a $j
+                },
+            )
         assert subject.other_titles == expected
 
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
@@ -163,22 +136,14 @@ class TestMARC:
         record = self.create_record_with_paired_field(tag=tag, subfields=sfs)
 
         subject = MARC(record)
-        expected = [
-            {
-                "transliterated": {
-                    "text": "a b c d e f g j k l n p q u 4",
-                    "search": [{"field": "author", "value": "a b c d g j k q u"}],
-                    "browse": "a b c d g j k q u",
-                    "tag": tag,
-                },
-                "original": {
-                    "text": "a b c d e f g j k l n p q u 4",
-                    "search": [{"field": "author", "value": "a b c d g j k q u"}],
-                    "browse": "a b c d g j k q u",
-                    "tag": "880",
-                },
-            }
-        ]
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={
+                "text": "a b c d e f g j k l n p q u 4",
+                "search": [{"field": "author", "value": "a b c d g j k q u"}],
+                "browse": "a b c d g j k q u",
+            },
+        )
 
         assert subject.contributors == expected
 
@@ -202,18 +167,13 @@ class TestMARC:
     def test_manufactured_260(self):
         record = self.create_record_with_paired_field(tag="260")
         subject = MARC(record)
-        expected = [
-            {
-                "transliterated": {
-                    "text": "e f g",
-                    "tag": "260",
-                },
-                "original": {
-                    "text": "e f g",
-                    "tag": "880",
-                },
-            }
-        ]
+        expected = self.expected_paired_field(
+            tag="260",
+            elements={
+                "text": "e f g",
+                "tag": "260",
+            },
+        )
 
         assert subject.manufactured == expected
 
@@ -225,15 +185,13 @@ class TestMARC:
     def test_manufactured_264_with_indicator2_as_3(self, a_to_z_str):
         record = self.create_record_with_paired_field(tag="264", ind2="3")
         subject = MARC(record)
-        expected = [
-            {
-                "transliterated": {"text": a_to_z_str, "tag": "264"},
-                "original": {
-                    "text": a_to_z_str,
-                    "tag": "880",
-                },
-            }
-        ]
+        expected = self.expected_paired_field(
+            tag="264",
+            elements={
+                "text": a_to_z_str,
+                "tag": "880",
+            },
+        )
 
         assert subject.manufactured == expected
 
@@ -245,18 +203,10 @@ class TestMARC:
     def test_series(self, tag, a_to_z_str):
         record = self.create_record_with_paired_field(tag=tag)
         subject = MARC(record)
-        expected = [
-            {
-                "transliterated": {
-                    "text": a_to_z_str,
-                    "tag": tag,
-                },
-                "original": {
-                    "text": a_to_z_str,
-                    "tag": "880",
-                },
-            }
-        ]
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": a_to_z_str},
+        )
         assert subject.series == expected
 
     def test_series_with_only_880(self, a_to_z_str):
@@ -315,3 +265,14 @@ class TestMARC:
         record.add_field(field)
         record.add_field(vfield)
         return record
+
+    def expected_paired_field(self, tag: str, elements: dict):
+        result = [
+            {
+                "transliterated": elements.copy(),
+                "original": elements.copy(),
+            }
+        ]
+        result[0]["transliterated"]["tag"] = tag
+        result[0]["original"]["tag"] = "880"
+        return result
