@@ -272,12 +272,6 @@ class Linkage:
     def __str__(self):
         return f"{self.tag}-{self.occurence_number}"
 
-    def as_dict(self):
-        if self.tag:
-            return {"tag": self.tag, "occurence_number": self.occurence_number}
-        else:
-            None
-
 
 @dataclass(frozen=True)
 class FieldRuleset:
