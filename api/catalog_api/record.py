@@ -8,9 +8,116 @@ from dataclasses import dataclass
 from collections.abc import Callable
 
 
-def record_for(id: str):
+def record_for(id: str) -> Record:
     data = SolrClient().get_record(id)
     return Record(data)
+
+
+class SolrDoc:
+    def __init__(self, data: dict):
+        self.data = data
+
+    @property
+    def id(self):
+        return self.data["id"]
+
+    @property
+    def title(self):
+        return self._get_paired_field("title_display")
+
+    @property
+    def published(self) -> list:
+        return self._get_paired_field("publisher_display")
+
+    @property
+    def edition(self) -> list:
+        return self._get_paired_field("edition")
+
+    @property
+    def lcsh_subjects(self):
+        return self._get_text_field("lc_subject_display")
+
+    @property
+    def language(self):
+        return self._get_text_field("language")
+
+    @property
+    def isbn(self):
+        return self._get_text_field("isbn")
+
+    @property
+    def call_number(self):
+        return self._get_text_field("callnumber")
+
+    @property
+    def oclc(self):
+        return self._get_text_field("oclc")
+
+    @property
+    def format(self):
+        return self._get_solr_list("format")
+
+    @property
+    def main_author(self):
+        main = self.data.get("main_author_display") or []
+        search = self.data.get("main_author") or []
+
+        match len(main):
+            case 0:
+                return []
+            case 1:
+                return [
+                    {
+                        "original": {
+                            "text": main[0],
+                            "search": [{"field": "author", "value": search[0]}],
+                            "browse": search[0],
+                        }
+                    }
+                ]
+            case _:
+                return [
+                    {
+                        "transliterated": {
+                            "text": main[0],
+                            "search": [{"field": "author", "value": search[0]}],
+                            "browse": search[0],
+                        },
+                        "original": {
+                            "text": main[1],
+                            "search": [{"field": "author", "value": search[1]}],
+                            "browse": search[1],
+                        },
+                    }
+                ]
+
+    @property
+    def academic_discipline(self):
+        return [
+            {"list": discipline.split(" | ")}
+            for discipline in self._get_solr_list("hlb3Delimited")
+        ]
+
+    def _get_solr_list(self, key):
+        return self.data.get(key) or []
+
+    def _get_text_field(self, key):
+        return [{"text": value} for value in (self.data.get(key) or [])]
+
+    def _get_paired_field(self, key):
+        values = self.data.get(key) or []
+        match len(values):
+            case 0:
+                return []
+            case 1:
+                return [{"original": {"text": values[0]}}]
+            case _:
+                return [
+                    {
+                        "transliterated": {"text": values[0]},
+                        "original": {"text": values[1]},
+                    }
+                ]
 
 
 class MARC:
@@ -172,117 +279,6 @@ class Linkage:
             None
 
 
-class Record(MARC):
-    def __init__(self, data: dict):
-        self.data = data
-        self.script = ["transliterated", "original"]
-        self.record = pymarc.parse_xml_to_array(io.StringIO(data["fullrecord"]))[0]
-
-        MARC.__init__(self, self.record)
-
-    @property
-    def id(self):
-        return self.data["id"]
-
-    @property
-    def title(self):
-        return self._get_solr_paired_field("title_display")
-
-    @property
-    def format(self):
-        return self._get_solr_list("format")
-
-    @property
-    def language(self):
-        return self._get_solr_text_field("language")
-
-    @property
-    def isbn(self):
-        return self._get_solr_text_field("isbn")
-
-    @property
-    def call_number(self):
-        return self._get_solr_text_field("callnumber")
-
-    @property
-    def oclc(self):
-        return self._get_solr_text_field("oclc")
-
-    @property
-    def lcsh_subjects(self):
-        return self._get_solr_text_field("lc_subject_display")
-
-    @property
-    def academic_discipline(self):
-        return [
-            {"list": discipline.split(" | ")}
-            for discipline in self._get_solr_list("hlb3Delimited")
-        ]
-
-    @property
-    def main_author(self):
-        main = self.data.get("main_author_display") or []
-        search = self.data.get("main_author") or []
-
-        match len(main):
-            case 0:
-                return []
-            case 1:
-                return [
-                    {
-                        "original": {
-                            "text": main[0],
-                            "search": [{"field": "author", "value": search[0]}],
-                            "browse": search[0],
-                        }
-                    }
-                ]
-            case _:
-                return [
-                    {
-                        "transliterated": {
-                            "text": main[0],
-                            "search": [{"field": "author", "value": search[0]}],
-                            "browse": search[0],
-                        },
-                        "original": {
-                            "text": main[1],
-                            "search": [{"field": "author", "value": search[1]}],
-                            "browse": search[1],
-                        },
-                    }
-                ]
-
-    @property
-    def published(self) -> list:
-        return self._get_solr_paired_field("publisher_display")
-
-    @property
-    def edition(self) -> list:
-        return self._get_solr_paired_field("edition")
-
-    def _get_solr_list(self, key):
-        return self.data.get(key) or []
-
-    def _get_solr_text_field(self, key):
-        return [{"text": value} for value in (self.data.get(key) or [])]
-
-    def _get_solr_paired_field(self, key):
-        values = self.data.get(key) or []
-        match len(values):
-            case 0:
-                return []
-            case 1:
-                return [{"original": {"text": values[0]}}]
-            case _:
-                return [
-                    {
-                        "transliterated": {"text": values[0]},
-                        "original": {"text": values[1]},
-                    }
-                ]
-
-
 @dataclass(frozen=True)
 class FieldRuleset:
     tags: list
@@ -316,3 +312,11 @@ class FieldRuleset:
 
     def _get_subfields(self, field: pymarc.Field, subfields: str):
         return " ".join(field.get_subfields(*tuple(subfields)))
+
+
+class Record(SolrDoc, MARC):
+    def __init__(self, data: dict):
+        self.data = data
+        self.record = pymarc.parse_xml_to_array(io.StringIO(data["fullrecord"]))[0]
+        SolrDoc.__init__(self, data)
+        MARC.__init__(self, self.record)
