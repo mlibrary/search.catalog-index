@@ -7,6 +7,10 @@ class TextField(BaseModel):
     tag: Optional[str] = None
 
 
+class BareTextField(BaseModel):
+    text: str
+
+
 class PairedTextField(BaseModel):
     transliterated: Optional[TextField] = None
     original: TextField
@@ -36,6 +40,10 @@ class PairedBrowseField(BaseModel):
     original: BrowseField
 
 
+class AcademicDiscipline(BaseModel):
+    list: list[str]
+
+
 class Record(BaseModel):
     id: str
     title: list[PairedTextField]
@@ -47,3 +55,11 @@ class Record(BaseModel):
     manufactured: list[PairedTextField]
     edition: list[PairedTextField]
     series: list[PairedTextField]
+    series_statement: list[PairedTextField]
+    language: list[BareTextField]
+    note: list[PairedTextField]
+    physical_description: list[PairedTextField]
+    isbn: list[BareTextField]
+    call_number: list[BareTextField]
+    lcsh_subjects: list[BareTextField]
+    academic_discipline: list[AcademicDiscipline]
