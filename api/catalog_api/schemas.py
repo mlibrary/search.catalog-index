@@ -1,14 +1,65 @@
 from pydantic import BaseModel
+from typing import Optional
 
 
 class TextField(BaseModel):
     text: str
+    tag: Optional[str] = None
 
 
-class PairedTextField(TextField):
-    script: str
+class BareTextField(BaseModel):
+    text: str
+
+
+class PairedTextField(BaseModel):
+    transliterated: Optional[TextField] = None
+    original: TextField
+
+
+class FieldedSearchField(BaseModel):
+    field: str
+    value: str
+
+
+class SearchField(TextField):
+    search: list[FieldedSearchField]
+
+
+class PairedSearchField(BaseModel):
+    transliterated: Optional[SearchField] = None
+    original: SearchField
+
+
+class BrowseField(SearchField):
+    browse: str
+    tag: Optional[str] = None
+
+
+class PairedBrowseField(BaseModel):
+    transliterated: Optional[BrowseField] = None
+    original: BrowseField
+
+
+class AcademicDiscipline(BaseModel):
+    list: list[str]
 
 
 class Record(BaseModel):
     id: str
     title: list[PairedTextField]
+    format: list[str]
+    main_author: list[PairedBrowseField]
+    other_titles: list[PairedSearchField]
+    contributors: list[PairedBrowseField]
+    published: list[PairedTextField]
+    manufactured: list[PairedTextField]
+    edition: list[PairedTextField]
+    series: list[PairedTextField]
+    series_statement: list[PairedTextField]
+    language: list[BareTextField]
+    note: list[PairedTextField]
+    physical_description: list[PairedTextField]
+    isbn: list[BareTextField]
+    call_number: list[BareTextField]
+    lcsh_subjects: list[BareTextField]
+    academic_discipline: list[AcademicDiscipline]

@@ -14,11 +14,13 @@ requests = "^2.31.0"
 fastapi = "^0.115.11"
 uvicorn = "^0.34.0"
 httpx = "^0.28.1"
+pymarc = "^5.2.3"
 
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.2"
-ruff = "^0.2.2"
+ruff = "0.5.3"
+responses = "^0.25.7"
 
 [build-system]
 requires = ["poetry-core"]

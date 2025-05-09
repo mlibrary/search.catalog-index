@@ -1,151 +1,199 @@
 {
-  "id": "990008019700106381",
-  "title": [
-    {
-      "text": "Sanʼya no tori = Concise field guide to land birds / kaisetsu Saeki Akimitsu ; e Taniguchi Takashi.",
-      "script": "default"
-    },
-    {
-      "text": "山野の鳥 = Concise field guide to land birds / 解說佐伯彰光 ; 絵谷口高司.",
-      "script": "vernacular"
-    }
-  ],
-  "format": [
-    "Book"
-  ],
-  "main_author": [
-    {
-      "text": "Saeki, Akimitsu.",
-      "script": "default",
-      "search": "Saeki, Akimitsu.",
-      "browse": "Saeki, Akimitsu."
-    },
-    {
-      "text": "佐伯彰光.",
-      "script": "vernacular",
-      "search": "佐伯彰光.",
-      "browse": "佐伯彰光."
-    }
-  ],
-  "other_titles": [
-    {
-      "text": "Concise field guide to land birds.",
-      "search": "Concise field guid to land birds."
-    }
-  ],
-  "contributors": [
-    {
-      "text": "Taniguchi, Takashi.",
-      "script": "default",
-      "search": "Taniguchi, Takashi.",
-      "browse": "Taniguchi, Takashi."
-    },
-    {
-      "text": "谷口高司",
-      "script": "vernacular",
-      "search": "谷口高司",
-      "browse": "谷口高司"
-    }
-  ],
-  "published": [
-    {
-      "script": "default",
-      "text": "Tōkyō : Nihon Yachō no Kai, 1983"
-    },
-    {
-      "script": "vernacular",
-      "text": "東京 : 日本野鳥の会, 1983"
-    }
-  ],
-  "manufactured": [
-    {
-      "script": "default",
-      "text": "(1984 printing)"
-    },
-    {
-      "script": "vernacular",
-      "text": "(1984 printing)"
-    }
-  ],
-  "edition": [
-    {
-      "text": "3-teiban.",
-      "script": "default"
-    },
-    {
-      "text": "3訂版.",
-      "script": "vernacular"
-    }
-  ],
-  "series": [
-    {
-      "text": "Yagai kansatsu handobukku ; 1",
-      "script": "default"
-    },
-    {
-      "text": "野外観察ハンドブック ; 1",
-      "script": "vernacular"
-    }
-  ],
-  "series_statement": [
-    {
-      "text": "Yagai kansatsu handobukku ; 1.",
-      "script": "default"
-    },
-    {
-      "text": "野外観察ハンドブック ; 1.",
-      "script": "vernacular"
-    }
-  ],
-  "language": [
-    {
-      "text": "Japanese"
-    }
-  ],
-  "note": [
-    {
-      "text": "Includes index."
-    }
-  ],
-  "physical_description": [
-    {
-      "text": "64 p. : ill. ; 18 cm."
-    }
-  ],
-  "isbn": [
-    {
-      "text": "4931150012 :"
-    }
-  ],
-  "call_number": [
-    {
-      "text": "QL 691 .J3 S25 1983"
-    }
-  ],
-  "oclc": [
-    {
-      "text": "23343161"
-    }
-  ],
-  "lcsh_subjects": [
-    {
-      "text": "Birds -- Japan -- Identification"
-    }
-  ],
-  "academic_discipline": [
-    {
-      "list": [
-        "Science",
-        "Biology",
-        "Zoology"
-      ]
-    },
-    {
-      "list": [
-        "Science",
-        "Biology",
-        "Ecology and Evolutionary Biology"
-      ]
-    }
-  ]
+    "id": "990008019700106381",
+    "title": [
+        {
+            "transliterated": {
+                "text": "Sanʼya no tori = Concise field guide to land birds / kaisetsu Saeki Akimitsu ; e Taniguchi Takashi."
+            },
+            "original": {
+                "text": "山野の鳥 = Concise field guide to land birds / 解說佐伯彰光 ; 絵谷口高司."
+            }
+        }
+    ],
+    "format": [
+        "Book"
+    ],
+    "main_author": [
+        {
+            "transliterated": {
+                "text": "Saeki, Akimitsu.",
+                "search": [
+                    {
+                        "field": "author",
+                        "value": "Saeki, Akimitsu."
+                    }
+                ],
+                "browse": "Saeki, Akimitsu."
+            },
+            "original": {
+                "text": "佐伯彰光.",
+                "search": [
+                    {
+                        "field": "author",
+                        "value": "佐伯彰光."
+                    }
+                ],
+                "browse": "佐伯彰光."
+            }
+        }
+    ],
+    "other_titles": [
+        {
+            "original": {
+                "text": "Concise field guide to land birds.",
+                "search": [
+                    {
+                        "field": "title",
+                        "value": "Concise field guide to land birds."
+                    }
+                ],
+                "tag": "740"
+            }
+        }
+    ],
+    "contributors": [
+        {
+            "transliterated": {
+                "text": "Taniguchi, Takashi.",
+                "search": [
+                    {
+                        "field": "author",
+                        "value": "Taniguchi, Takashi."
+                    }
+                ],
+                "browse": "Taniguchi, Takashi.",
+                "tag": "700"
+            },
+            "original": {
+                "text": "谷口高司.",
+                "search": [
+                    {
+                        "field": "author",
+                        "value": "谷口高司."
+                    }
+                ],
+                "browse": "谷口高司.",
+                "tag": "880"
+            }
+        }
+    ],
+    "published": [
+        {
+            "transliterated": {
+                "text": "Tōkyō : Nihon Yachō no Kai, 1983"
+            },
+            "original": {
+                "text": "東京 : 日本野鳥の会, 1983"
+            }
+        }
+    ],
+    "manufactured": [
+        {
+            "transliterated": {
+                "text": "(1984 printing)",
+                "tag": "260"
+            },
+            "original": {
+                "text": "(1984 printing)",
+                "tag": "880"
+            }
+        }
+    ],
+    "edition": [
+        {
+            "transliterated": {
+                "text": "3-teiban."
+            },
+            "original": {
+                "text": "3訂版."
+            }
+        }
+    ],
+    "series": [
+        {
+            "transliterated": {
+                "text": "Yagai kansatsu handobukku ; 1",
+                "tag": "490"
+            },
+            "original": {
+                "text": "野外観察ハンドブック ; 1",
+                "tag": "880"
+            }
+        }
+    ],
+    "series_statement": [
+        {
+            "transliterated": {
+                "text": "Yagai kansatsu handobukku ; 1.",
+                "tag": "830"
+            },
+            "original": {
+                "text": "野外観察ハンドブック ; 1.",
+                "tag": "880"
+            }
+        }
+    ],
+    "language": [
+        {
+            "text": "Japanese"
+        }
+    ],
+    "note": [
+        {
+            "original": {
+                "text": "Includes index.",
+                "tag": "500"
+            }
+        }
+    ],
+    "physical_description": [
+        {
+            "original": {
+                "tag": "300",
+                "text": "64 p. : ill. ; 18 cm."
+            }
+        }
+    ],
+    "isbn": [
+        {
+            "text": "9784931150010"
+        },
+        {
+            "text": "4931150012"
+        },
+        {
+            "text": "4931150012 :"
+        }
+    ],
+    "call_number": [
+        {
+            "text": "QL 691 .J3 S25 1983"
+        }
+    ],
+    "oclc": [
+        {
+            "text": "23343161"
+        }
+    ],
+    "lcsh_subjects": [
+        {
+            "text": "Birds -- Japan -- Identification"
+        }
+    ],
+    "academic_discipline": [
+        {
+            "list": [
+                "Science",
+                "Biology",
+                "Zoology"
+            ]
+        },
+        {
+            "list": [
+                "Science",
+                "Biology",
+                "Ecology and Evolutionary Biology"
+            ]
+        }
+    ]
 }
