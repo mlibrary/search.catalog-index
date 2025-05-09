@@ -111,8 +111,7 @@ class Record:
 class FieldRuleset:
     tags: list
     text_sfs: str = string.ascii_lowercase
-    search_sfs: str | None = None
-    search_field: str | None = None
+    search: list | None = None
     browse_sfs: str | None = None
     filter: Callable[..., bool] = lambda field: True
 
@@ -125,12 +124,13 @@ class FieldRuleset:
             "tag": field.tag,
         }
 
-        if self.search_sfs:
+        if self.search:
             result["search"] = [
                 {
-                    "field": self.search_field,
-                    "value": self._get_subfields(field, self.search_sfs),
+                    "field": s["field"],
+                    "value": self._get_subfields(field, s["subfields"]),
                 }
+                for s in self.search
             ]
 
         if self.browse_sfs:
@@ -159,21 +159,18 @@ class MARC:
         rulesets = (
             FieldRuleset(
                 tags=["246", "247", "740"],
-                search_sfs=string.ascii_lowercase,
-                search_field="title",
+                search=[{"subfields": string.ascii_lowercase, "field": "title"}],
             ),
             FieldRuleset(
                 tags=["700", "710"],
                 text_sfs="abcdefgjklmnopqrst",
-                search_sfs="fkjlmnoprst",
-                search_field="title",
+                search=[{"subfields": "fkjlmnoprst", "field": "title"}],
                 filter=is_a_title,
             ),
             FieldRuleset(
                 tags=["711"],
                 text_sfs="abcdefgjklmnopqrst",
-                search_sfs="fklmnoprst",  # no j subfield
-                search_field="title",
+                search=[{"subfields": "fklmnoprst", "field": "title"}],
                 filter=is_a_title,
             ),
         )
@@ -185,9 +182,8 @@ class MARC:
         search_sfs = "abcdgjkqu"
         ruleset = FieldRuleset(
             tags=["700", "710", "711"],
+            search=[{"subfields": search_sfs, "field": "author"}],
             text_sfs="abcdefgjklnpqu4",
-            search_sfs=search_sfs,
-            search_field="author",
             browse_sfs=search_sfs,
             filter=lambda field: (
                 not field.get_subfields("t") and field.indicator2 != "2"
