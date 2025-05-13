@@ -47,7 +47,7 @@ class SolrDoc:
 
     @property
     def call_number(self):
-        return self._get_text_field("callnumber")
+        return self._get_text_field("callnumber_browse")
 
     @property
     def oclc(self):
