@@ -48,7 +48,10 @@ class Record(BaseModel):
     id: str
     title: list[PairedTextField]
     format: list[str]
+    availability: list[str]
     main_author: list[PairedBrowseField]
+    preferred_title: list[PairedSearchField]
+    related_title: list[PairedSearchField]
     other_titles: list[PairedSearchField]
     contributors: list[PairedBrowseField]
     published: list[PairedTextField]
@@ -61,6 +64,7 @@ class Record(BaseModel):
     physical_description: list[PairedTextField]
     isbn: list[BareTextField]
     call_number: list[BareTextField]
+    oclc: list[BareTextField]
     lcsh_subjects: list[BareTextField]
     academic_discipline: list[AcademicDiscipline]
 

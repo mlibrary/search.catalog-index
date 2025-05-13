@@ -39,6 +39,7 @@ class TestRecord:
         "oclc",
         "lcsh_subjects",
         "academic_discipline",
+        "availability",
     ]
 
     @pytest.mark.parametrize("field", fields)
@@ -89,6 +90,126 @@ def a_to_z_str():
 
 
 class TestMARC:
+    ###################
+    # preferred_title #
+    ###################
+    @pytest.mark.parametrize("tag", ["130", "240", "243"])
+    def test_preferred_title_130_240_243(self, tag, a_to_z_str):
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={
+                "text": a_to_z_str,
+                "search": [
+                    {
+                        "field": "title",
+                        "value": "a b c d e f g h i j k m n o p q r s t u v w x y z",  # missing an l
+                    }
+                ],
+            },
+        )
+
+        assert (subject.preferred_title) == expected
+
+    def test_preferred_title_730(self):
+        record = self.create_record_with_paired_field(tag="730", ind2="2")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="730",
+            elements={
+                "text": "a b c d e f g h j k l m n o p q r s t u v w x y z",
+                "search": [
+                    {
+                        "field": "title",
+                        "value": "a b c d e f g h j k l m n o p q r s t u v w x y z",  # missing an i
+                    }
+                ],
+            },
+        )
+
+        assert (subject.preferred_title) == expected
+
+    def test_preferred_title_730_no_ind2(self):
+        record = self.create_record_with_paired_field(tag="730", ind2="1")
+        subject = MARC(record)
+        assert (subject.preferred_title) == []
+
+    #################
+    # related_title #
+    #################
+
+    def test_related_title_730_blank_ind2(self):
+        record = self.create_record_with_paired_field(tag="730", ind2=None)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="730",
+            elements={
+                "text": "a b c d e f g h j k l m n o p q r s t u v w x y z",
+                "search": [
+                    {
+                        "field": "title",
+                        "value": "a b c d e f g h j k l m n o p q r s t u v w x y z",  # missing an i
+                    }
+                ],
+            },
+        )
+        assert (subject.related_title) == expected
+
+    def test_related_title_730_present_ind2(self):
+        record = self.create_record_with_paired_field(tag="730", ind2="1")
+        subject = MARC(record)
+        assert (subject.related_title) == []
+
+    @pytest.mark.parametrize("tag", ["700", "710"])
+    def test_related_title_700_710_ind2_not_2_and_t(self, tag):
+        record = self.create_record_with_paired_field(tag=tag, ind2="1")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={
+                "text": "a b c d e f g j k l m n o p q r s t",
+                "search": [
+                    {
+                        "field": "title",
+                        "value": "f j k l m n o p r s t",
+                    }
+                ],
+            },
+        )
+
+        assert (subject.related_title) == expected
+
+    def test_related_title_711_ind2_not_2_and_t(self):
+        record = self.create_record_with_paired_field(tag="711", ind2="1")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="711",
+            elements={
+                "text": "a b c d e f g j k l m n o p q r s t",
+                "search": [
+                    {
+                        "field": "title",
+                        "value": "f k l m n o p r s t",
+                    }
+                ],
+            },
+        )
+        assert (subject.related_title) == expected
+
+    @pytest.mark.parametrize("tag", ["700", "710", "711"])
+    def test_related_title_ind2_not_2_no_t(self, tag):
+        no_t = string.ascii_lowercase.replace("t", "")
+        record = self.create_record_with_paired_field(tag=tag, ind2="2", subfields=no_t)
+        subject = MARC(record)
+        assert (subject.related_title) == []
+
+    @pytest.mark.parametrize("tag", ["700", "710", "711"])
+    def test_related_title_ind2_and_t(self, tag):
+        record = self.create_record_with_paired_field(tag=tag, ind2="2")
+        subject = MARC(record)
+        assert (subject.related_title) == []
+
     ################
     # other_titles #
     ################

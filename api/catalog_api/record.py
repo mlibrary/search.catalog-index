@@ -54,8 +54,12 @@ class SolrDoc:
         return self._get_text_field("oclc")
 
     @property
+    def availability(self) -> list:
+        return self._get_list("availability")
+
+    @property
     def format(self):
-        return self._get_solr_list("format")
+        return self._get_list("format")
 
     @property
     def main_author(self):
@@ -95,10 +99,10 @@ class SolrDoc:
     def academic_discipline(self):
         return [
             {"list": discipline.split(" | ")}
-            for discipline in self._get_solr_list("hlb3Delimited")
+            for discipline in self._get_list("hlb3Delimited")
         ]
 
-    def _get_solr_list(self, key):
+    def _get_list(self, key):
         return self.data.get(key) or []
 
     def _get_text_field(self, key):
@@ -123,6 +127,54 @@ class SolrDoc:
 class MARC:
     def __init__(self, record: pymarc.record.Record):
         self.record = record
+
+    @property
+    def preferred_title(self) -> list:
+        no_l = string.ascii_lowercase.replace("l", "")
+        no_i = string.ascii_lowercase.replace("i", "")
+        rulesets = [
+            FieldRuleset(
+                tags=["130", "240", "243"],
+                search=[{"subfields": no_l, "field": "title"}],
+            ),
+            FieldRuleset(
+                tags=["730"],
+                text_sfs=no_i,
+                search=[{"subfields": no_i, "field": "title"}],
+                filter=lambda field: (field.indicator2 == "2"),
+            ),
+        ]
+        return self._generate_paired_fields(rulesets)
+
+    @property
+    def related_title(self) -> list:
+        no_i = string.ascii_lowercase.replace("i", "")
+        display_sfs = "abcdefgjklmnopqrst"
+
+        def is_a_title(field: pymarc.Field) -> bool:
+            return field.get_subfields("t") and field.indicator2 != "2"
+
+        rulesets = [
+            FieldRuleset(
+                tags=["730"],
+                text_sfs=no_i,
+                search=[{"subfields": no_i, "field": "title"}],
+                filter=lambda field: (not field.indicator2),
+            ),
+            FieldRuleset(
+                tags=["700", "710"],
+                text_sfs=display_sfs,
+                search=[{"subfields": "fjklmnoprst", "field": "title"}],
+                filter=is_a_title,
+            ),
+            FieldRuleset(
+                tags=["711"],
+                text_sfs=display_sfs,
+                search=[{"subfields": "fklmnoprst", "field": "title"}],
+                filter=is_a_title,
+            ),
+        ]
+        return self._generate_paired_fields(rulesets)
 
     @property
     def other_titles(self) -> list:
