@@ -208,6 +208,46 @@ class MARC:
         return self._generate_paired_fields(rulesets)
 
     @property
+    def new_title(self):
+        ruleset = FieldRuleset(
+            tags=["785"],
+            text_sfs="ast",
+            search=[
+                {"subfields": "a", "field": "author"},
+                {"subfields": "st", "field": "title"},
+            ],
+        )
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def new_title_issn(self):
+        ruleset = FieldRuleset(
+            tags=["785"],
+            text_sfs="x",
+        )
+        return self._generate_unpaired_fields(tuple([ruleset]))
+
+    @property
+    def previous_title(self):
+        ruleset = FieldRuleset(
+            tags=["780"],
+            text_sfs="ast",
+            search=[
+                {"subfields": "a", "field": "author"},
+                {"subfields": "st", "field": "title"},
+            ],
+        )
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def previous_title_issn(self):
+        ruleset = FieldRuleset(
+            tags=["780"],
+            text_sfs="x",
+        )
+        return self._generate_unpaired_fields(tuple([ruleset]))
+
+    @property
     def contributors(self):
         search_sfs = "abcdgjkqu"
         ruleset = FieldRuleset(
@@ -268,6 +308,16 @@ class MARC:
         )
         return self._generate_paired_fields(tuple([ruleset]))
 
+    def _generate_unpaired_fields(self, rulesets: tuple) -> list:
+        result = []
+        for ruleset in rulesets:
+            for field in self.record.get_fields(*ruleset.tags):
+                if ruleset.has_any_subfields(field):
+                    result.append(ruleset.value_for(field))
+
+        # result = [dict(t) for t in {tuple(d.items()) for d in result}]
+        return set(result)
+
     def _generate_paired_fields(self, rulesets: tuple) -> list:
         result = []
         for ruleset in rulesets:
@@ -276,7 +326,7 @@ class MARC:
                     r = {}
                     for key in fields.keys():
                         r[key] = ruleset.value_for(fields[key])
-                    result.append(r)
+                    result.append(PairedField(**r))
         return result
 
     def _get_original_for_tags(self, tags: tuple) -> list:
@@ -326,6 +376,26 @@ class Linkage:
 
 
 @dataclass(frozen=True)
+class SearchField:
+    field: str
+    value: str
+
+
+@dataclass(frozen=True)
+class FieldElement:
+    text: str
+    tag: str
+    search: list[SearchField] | None = None
+    browse: str | None = None
+
+
+@dataclass(frozen=True)
+class PairedField:
+    original: FieldElement
+    transliterated: FieldElement | None = None
+
+
+@dataclass(frozen=True)
 class FieldRuleset:
     tags: list
     text_sfs: str = string.ascii_lowercase
@@ -344,17 +414,20 @@ class FieldRuleset:
 
         if self.search:
             result["search"] = [
-                {
-                    "field": s["field"],
-                    "value": self._get_subfields(field, s["subfields"]),
-                }
+                SearchField(
+                    field=s["field"], value=self._get_subfields(field, s["subfields"])
+                )
+                # {
+                #     "field": s["field"],
+                #     "value": self._get_subfields(field, s["subfields"]),
+                # }
                 for s in self.search
             ]
 
         if self.browse_sfs:
             result["browse"] = self._get_subfields(field, self.browse_sfs)
 
-        return result
+        return FieldElement(**result)
 
     def _get_subfields(self, field: pymarc.Field, subfields: str):
         return " ".join(field.get_subfields(*tuple(subfields)))
