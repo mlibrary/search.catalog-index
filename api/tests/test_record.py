@@ -442,6 +442,44 @@ class TestMARC:
         subject = MARC(record)
         assert subject.contributors == []
 
+    ###########
+    # created #
+    ###########
+    def test_created_264_with_ind_1_as_0(self, a_to_z_str):
+        record = self.create_record_with_paired_field(tag="264", ind2="0")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="264",
+            elements={
+                "text": a_to_z_str,
+            },
+        )
+        assert serialize(subject.created) == expected
+
+    def test_created_not_ind_1_as_0(self):
+        record = self.create_record_with_paired_field(tag="264", ind2="1")
+        subject = MARC(record)
+        assert serialize(subject.created) == []
+
+    ###########
+    # distributed #
+    ###########
+    def test_distributed_264_with_ind_1_as_2(self, a_to_z_str):
+        record = self.create_record_with_paired_field(tag="264", ind2="2")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="264",
+            elements={
+                "text": a_to_z_str,
+            },
+        )
+        assert serialize(subject.distributed) == expected
+
+    def test_distributed_not_ind_1_as_2(self):
+        record = self.create_record_with_paired_field(tag="264", ind2="1")
+        subject = MARC(record)
+        assert serialize(subject.distributed) == []
+
     ################
     # manufactured #
     ################

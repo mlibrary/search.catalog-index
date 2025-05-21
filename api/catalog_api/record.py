@@ -263,6 +263,22 @@ class MARC:
         return self._generate_paired_fields(tuple([ruleset]))
 
     @property
+    def created(self):
+        rulesets = (
+            FieldRuleset(tags=["264"], filter=lambda field: (field.indicator2 == "0")),
+        )
+
+        return self._generate_paired_fields(rulesets)
+
+    @property
+    def distributed(self):
+        rulesets = (
+            FieldRuleset(tags=["264"], filter=lambda field: (field.indicator2 == "2")),
+        )
+
+        return self._generate_paired_fields(rulesets)
+
+    @property
     def manufactured(self):
         rulesets = (
             FieldRuleset(tags=["260"], text_sfs="efg"),

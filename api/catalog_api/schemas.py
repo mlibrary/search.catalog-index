@@ -59,6 +59,8 @@ class Record(BaseModel):
     previous_title_issn: list[TextField]
     contributors: list[PairedBrowseField]
     published: list[PairedTextField]
+    created: list[PairedTextField]
+    distributed: list[PairedTextField]
     manufactured: list[PairedTextField]
     edition: list[PairedTextField]
     series: list[PairedTextField]
