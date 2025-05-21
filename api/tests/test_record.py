@@ -327,6 +327,38 @@ class TestMARC:
         )
         assert serialize(subject.new_title) == expected
 
+    def test_new_title_with_empty_author(self):
+        record = self.create_record_with_paired_field(tag="785")
+        record["785"]["a"] = ""
+        record["880"]["a"] = ""
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="785",
+            elements={
+                "text": "s t",
+                "search": [
+                    {"field": "title", "value": "s t"},
+                ],
+            },
+        )
+
+        assert serialize(subject.new_title) == expected
+
+    def test_new_title_with_missing_author(self):
+        record = self.create_record_with_paired_field(tag="785", subfields="st")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="785",
+            elements={
+                "text": "s t",
+                "search": [
+                    {"field": "title", "value": "s t"},
+                ],
+            },
+        )
+
+        assert serialize(subject.new_title) == expected
+
     ##################
     # new_title_issn #
     ##################

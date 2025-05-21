@@ -315,7 +315,6 @@ class MARC:
                 if ruleset.has_any_subfields(field):
                     result.append(ruleset.value_for(field))
 
-        # result = [dict(t) for t in {tuple(d.items()) for d in result}]
         return set(result)
 
     def _generate_paired_fields(self, rulesets: tuple) -> list:
@@ -408,21 +407,21 @@ class FieldRuleset:
 
     def value_for(self, field: pymarc.Field):
         result = {
-            "text": self._get_subfields(field, self.text_sfs),
+            "text": self._get_subfields(field, self.text_sfs).strip(),
             "tag": field.tag,
         }
 
         if self.search:
-            result["search"] = [
-                SearchField(
-                    field=s["field"], value=self._get_subfields(field, s["subfields"])
-                )
-                # {
-                #     "field": s["field"],
-                #     "value": self._get_subfields(field, s["subfields"]),
-                # }
-                for s in self.search
-            ]
+            result["search"] = []
+            for s in self.search:
+                value = self._get_subfields(field, s["subfields"])
+                if value:
+                    result["search"].append(
+                        SearchField(
+                            field=s["field"],
+                            value=self._get_subfields(field, s["subfields"]),
+                        )
+                    )
 
         if self.browse_sfs:
             result["browse"] = self._get_subfields(field, self.browse_sfs)
