@@ -658,6 +658,108 @@ class TestMARC:
         )
         assert serialize(subject.terms_of_use) == expected
 
+    #################
+    # language_note #
+    #################
+    def test_language_note(self, a_to_z_str):
+        record = self.create_record_with_paired_field(tag="546")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="546",
+            elements={"text": a_to_z_str},
+        )
+        assert serialize(subject.language_note) == expected
+
+    ##############
+    # performers #
+    ##############
+    def test_performers(self):
+        record = self.create_record_with_paired_field(tag="511")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="511",
+            elements={"text": "a"},
+        )
+        assert serialize(subject.performers) == expected
+
+    #######################
+    # date_place_of_event #
+    #######################
+    def test_date_place_of_event(self):
+        record = self.create_record_with_paired_field(tag="518")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="518",
+            elements={"text": "a d o p 2 3"},
+        )
+        assert serialize(subject.date_place_of_event) == expected
+
+    ######################
+    # preferred_citation #
+    ######################
+
+    def test_preferred_citation(self):
+        tag = "524"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": "a"},
+        )
+        assert serialize(subject.preferred_citation) == expected
+
+    #########################
+    # location_of_originals #
+    #########################
+    def test_location_of_originals(self, a_to_z_str):
+        tag = "535"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": f"{a_to_z_str} 3"},
+        )
+        assert serialize(subject.location_of_originals) == expected
+
+    #######################
+    # funding_information #
+    #######################
+    def test_funding_information(self):
+        tag = "536"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": "a"},
+        )
+        assert serialize(subject.funding_information) == expected
+
+    ########################
+    # source_of_acquistion #
+    ########################
+    def test_source_of_acquisition(self):
+        tag = "541"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": "a"},
+        )
+        assert serialize(subject.source_of_acquisition) == expected
+
+    #################
+    # related_items #
+    #################
+    def test_related_items(self):
+        tag = "580"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": "a"},
+        )
+        assert serialize(subject.related_items) == expected
+
     ########
     # note #
     ########
@@ -741,15 +843,3 @@ class TestMARC:
 
 def serialize(my_list: list):
     return [asdict(element) for element in my_list]
-
-
-# def add_none_fields(my_list: list):
-#     def none_for(key: str, my_dict: dict):
-#         if key not in my_dict:
-#             my_dict[key] = None
-
-#     for element in my_list:
-#         none_for("browse", element)
-#         none_for("search", element)
-
-#     return my_list

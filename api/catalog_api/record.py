@@ -332,6 +332,46 @@ class MARC:
         return self._generate_paired_fields(tuple([ruleset]))
 
     @property
+    def language_note(self):
+        ruleset = FieldRuleset(tags=["546"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def performers(self):
+        ruleset = FieldRuleset(tags=["511"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def date_place_of_event(self):
+        ruleset = FieldRuleset(tags=["518"], text_sfs="adop23")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def preferred_citation(self):
+        ruleset = FieldRuleset(tags=["524"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def location_of_originals(self):
+        ruleset = FieldRuleset(tags=["535"], text_sfs=f"{string.ascii_lowercase}3")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def funding_information(self):
+        ruleset = FieldRuleset(tags=["536"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def source_of_acquisition(self):
+        ruleset = FieldRuleset(tags=["541"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def related_items(self):
+        ruleset = FieldRuleset(tags=["580"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
     def physical_description(self):
         ruleset = FieldRuleset(tags=["300"])
         return self._generate_paired_fields(tuple([ruleset]))
