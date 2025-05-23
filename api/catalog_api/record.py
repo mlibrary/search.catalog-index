@@ -298,6 +298,40 @@ class MARC:
         return self._generate_paired_fields(tuple([ruleset]))
 
     @property
+    def biography_history(self):
+        ruleset = FieldRuleset(tags=["545"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def summary(self):
+        ruleset = FieldRuleset(
+            tags=["520"],
+            text_sfs="abc3",
+            filter=lambda field: (field.indicator1 != "4"),
+        )
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def in_collection(self):
+        ruleset = FieldRuleset(tags=["773"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def access(self):
+        ruleset = FieldRuleset(tags=["506"], text_sfs="abc")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def finding_aids(self):
+        ruleset = FieldRuleset(tags=["555"], text_sfs="abcd3u")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def terms_of_use(self):
+        ruleset = FieldRuleset(tags=["540"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
     def physical_description(self):
         ruleset = FieldRuleset(tags=["300"])
         return self._generate_paired_fields(tuple([ruleset]))

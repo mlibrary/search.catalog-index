@@ -461,9 +461,9 @@ class TestMARC:
         subject = MARC(record)
         assert serialize(subject.created) == []
 
-    ###########
+    ###############
     # distributed #
-    ###########
+    ###############
     def test_distributed_264_with_ind_1_as_2(self, a_to_z_str):
         record = self.create_record_with_paired_field(tag="264", ind2="2")
         subject = MARC(record)
@@ -576,18 +576,87 @@ class TestMARC:
         )
         assert serialize(subject.series_statement) == expected
 
-    ########################
-    # physical description #
-    ########################
+    #####################
+    # biography_history #
+    #####################
 
-    def test_physical_description(self, a_to_z_str):
-        record = self.create_record_with_paired_field(tag="300")
+    def test_biography_history(self):
+        record = self.create_record_with_paired_field(tag="545")
         subject = MARC(record)
         expected = self.expected_paired_field(
-            tag="300",
+            tag="545",
+            elements={"text": "a"},
+        )
+        assert serialize(subject.biography_history) == expected
+
+    ###########
+    # summary #
+    ###########
+
+    def test_summary(self):
+        record = self.create_record_with_paired_field(tag="520")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="520",
+            elements={"text": "a b c 3"},
+        )
+        assert serialize(subject.summary) == expected
+
+    def test_summary_ind_1_4(self):
+        record = self.create_record_with_paired_field(tag="520", ind1="4")
+        subject = MARC(record)
+        assert serialize(subject.summary) == []
+
+    #################
+    # in collection #
+    #################
+
+    def test_in_collection(self, a_to_z_str):
+        record = self.create_record_with_paired_field(tag="773")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="773",
             elements={"text": a_to_z_str},
         )
-        assert serialize(subject.physical_description) == expected
+        assert serialize(subject.in_collection) == expected
+
+    ##########
+    # access #
+    ##########
+
+    def test_access(self):
+        record = self.create_record_with_paired_field(tag="506")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="506",
+            elements={"text": "a b c"},
+        )
+        assert serialize(subject.access) == expected
+
+    ################
+    # finding_aids #
+    ################
+    # TODO mrio: I don't think this is right
+    def test_finding_aids(self):
+        record = self.create_record_with_paired_field(tag="555")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="555",
+            elements={"text": "a b c d u 3"},
+        )
+        assert serialize(subject.finding_aids) == expected
+
+    ################
+    # terms_of_use #
+    ################
+    def test_terms_of_use(self, a_to_z_str):
+        record = self.create_record_with_paired_field(tag="540")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="540",
+            elements={"text": a_to_z_str},
+        )
+        assert serialize(subject.terms_of_use) == expected
 
     ########
     # note #
@@ -619,6 +688,19 @@ class TestMARC:
             elements={"text": "a"},
         )
         assert serialize(subject.note) == expected
+
+    ########################
+    # physical description #
+    ########################
+
+    def test_physical_description(self, a_to_z_str):
+        record = self.create_record_with_paired_field(tag="300")
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="300",
+            elements={"text": a_to_z_str},
+        )
+        assert serialize(subject.physical_description) == expected
 
     def create_record_with_paired_field(
         self,
