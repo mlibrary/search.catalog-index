@@ -46,6 +46,18 @@ class SolrDoc:
         return self._get_text_field("isbn")
 
     @property
+    def issn(self):
+        return self._get_text_field("issn")
+
+    @property
+    def gov_doc_no(self):
+        return self._get_text_field("sudoc")
+
+    @property
+    def report_number(self):
+        return self._get_text_field("rptnum")
+
+    @property
     def call_number(self):
         return self._get_text_field("callnumber_browse")
 
@@ -504,6 +516,31 @@ class MARC:
     def bibliography(self):
         ruleset = FieldRuleset(tags=["504"], text_sfs="a")
         return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def publisher_number(self):
+        ruleset = FieldRuleset(tags=["028"], text_sfs="ab")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    # @property
+    # def chronology(self):
+    #     ruleset = FieldRuleset(tags=["945"], text_sfs="a")
+    #     return self._generate_paired_fields(tuple([ruleset]))
+
+    # @property
+    # def place(self):
+    #     ruleset = FieldRuleset(tags=["946"], text_sfs="a")
+    #     return self._generate_paired_fields(tuple([ruleset]))
+
+    # @property
+    # def printer(self):
+    #     ruleset = FieldRuleset(tags=["947"], text_sfs="a")
+    #     return self._generate_paired_fields(tuple([ruleset]))
+
+    # @property
+    # def association(self):
+    #     ruleset = FieldRuleset(tags=["948"], text_sfs="a")
+    #     return self._generate_paired_fields(tuple([ruleset]))
 
     def _generate_unpaired_fields(self, rulesets: tuple) -> list:
         result = []

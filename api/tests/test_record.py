@@ -88,6 +88,21 @@ class TestSolrDoc:
             }
         ]
 
+    def test_issn(self, solr_bib):
+        solr_bib["issn"] = ["some_issn"]
+        subject = SolrDoc(solr_bib)
+        assert subject.issn == [{"text": "some_issn"}]
+
+    def test_gov_doc_no(self, solr_bib):
+        solr_bib["sudoc"] = ["some_gov_doc_number"]
+        subject = SolrDoc(solr_bib)
+        assert subject.gov_doc_no == [{"text": "some_gov_doc_number"}]
+
+    def test_report_number(self, solr_bib):
+        solr_bib["rptnum"] = ["some_report_number"]
+        subject = SolrDoc(solr_bib)
+        assert subject.report_number == [{"text": "some_report_number"}]
+
     def test_main_author(self, solr_bib):
         subject = SolrDoc(solr_bib)
         assert subject.main_author == [
@@ -1075,6 +1090,71 @@ class TestMARC:
             elements={"text": "a"},
         )
         assert serialize(subject.bibliography) == expected
+
+    ####################
+    # publisher_number #
+    ####################
+    def test_publisher_number(self):
+        tag = "028"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": "a b"},
+        )
+        assert serialize(subject.publisher_number) == expected
+
+    # ##############
+    # # chronology #
+    # ##############
+    # def test_chronology(self):
+    #     tag = "945"
+    #     record = self.create_record_with_paired_field(tag=tag)
+    #     subject = MARC(record)
+    #     expected = self.expected_paired_field(
+    #         tag=tag,
+    #         elements={"text": "a"},
+    #     )
+    #     assert serialize(subject.chronology) == expected
+
+    # #########
+    # # place #
+    # #########
+    # def test_place(self):
+    #     tag = "946"
+    #     record = self.create_record_with_paired_field(tag=tag)
+    #     subject = MARC(record)
+    #     expected = self.expected_paired_field(
+    #         tag=tag,
+    #         elements={"text": "a"},
+    #     )
+    #     assert serialize(subject.place) == expected
+
+    # ###########
+    # # printer #
+    # ###########
+    # def test_printer(self):
+    #     tag = "947"
+    #     record = self.create_record_with_paired_field(tag=tag)
+    #     subject = MARC(record)
+    #     expected = self.expected_paired_field(
+    #         tag=tag,
+    #         elements={"text": "a"},
+    #     )
+    #     assert serialize(subject.printer) == expected
+
+    # ###############
+    # # association #
+    # ###############
+    # def test_association(self):
+    #     tag = "948"
+    #     record = self.create_record_with_paired_field(tag=tag)
+    #     subject = MARC(record)
+    #     expected = self.expected_paired_field(
+    #         tag=tag,
+    #         elements={"text": "a"},
+    #     )
+    #     assert serialize(subject.association) == expected
 
     def create_record_with_paired_field(
         self,
