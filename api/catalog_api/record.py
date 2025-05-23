@@ -372,6 +372,46 @@ class MARC:
         return self._generate_paired_fields(tuple([ruleset]))
 
     @property
+    def numbering(self):
+        ruleset = FieldRuleset(tags=["362"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def current_publication_frequency(self):
+        ruleset = FieldRuleset(tags=["310"], text_sfs="ab")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def former_publication_frequency(self):
+        ruleset = FieldRuleset(tags=["321"], text_sfs="ab")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def numbering_notes(self):
+        ruleset = FieldRuleset(tags=["515"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def source_of_description_note(self):
+        ruleset = FieldRuleset(tags=["588"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def copy_specific_note(self):
+        ruleset = FieldRuleset(tags=["590"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def references(self):
+        ruleset = FieldRuleset(tags=["510"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def copyright_status_information(self):
+        ruleset = FieldRuleset(tags=["542"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
     def physical_description(self):
         ruleset = FieldRuleset(tags=["300"])
         return self._generate_paired_fields(tuple([ruleset]))

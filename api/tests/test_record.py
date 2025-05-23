@@ -760,6 +760,110 @@ class TestMARC:
         )
         assert serialize(subject.related_items) == expected
 
+    #############
+    # numbering #
+    #############
+    def test_numbering(self):
+        tag = "362"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": "a"},
+        )
+        assert serialize(subject.numbering) == expected
+
+    #################################
+    # current_publication_frequency #
+    #################################
+    def test_current_publication_frequency(self):
+        tag = "310"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": "a b"},
+        )
+        assert serialize(subject.current_publication_frequency) == expected
+
+    ################################
+    # former_publication_frequency #
+    ################################
+    def test_former_publication_frequency(self):
+        tag = "321"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": "a b"},
+        )
+        assert serialize(subject.former_publication_frequency) == expected
+
+    ###################
+    # numbering_notes #
+    ###################
+    def test_numbering_notes(self):
+        tag = "515"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": "a"},
+        )
+        assert serialize(subject.numbering_notes) == expected
+
+    ##############################
+    # source_of_description_note #
+    ##############################
+    def test_source_of_description_note(self):
+        tag = "588"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": "a"},
+        )
+        assert serialize(subject.source_of_description_note) == expected
+
+    ######################
+    # copy_specific_note #
+    ######################
+    def test_copy_specific_note(self):
+        tag = "590"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": "a"},
+        )
+        assert serialize(subject.copy_specific_note) == expected
+
+    ##############
+    # references #
+    ##############
+    def test_references(self, a_to_z_str):
+        tag = "510"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": a_to_z_str},
+        )
+        assert serialize(subject.references) == expected
+
+    ################################
+    # copyright_status_information #
+    ################################
+    def test_copyright_status_information(self, a_to_z_str):
+        tag = "542"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": a_to_z_str},
+        )
+        assert serialize(subject.copyright_status_information) == expected
+
     ########
     # note #
     ########
