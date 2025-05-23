@@ -412,11 +412,6 @@ class MARC:
         return self._generate_paired_fields(tuple([ruleset]))
 
     @property
-    def physical_description(self):
-        ruleset = FieldRuleset(tags=["300"])
-        return self._generate_paired_fields(tuple([ruleset]))
-
-    @property
     def note(self):
         ruleset = FieldRuleset(
             tags=[
@@ -436,6 +431,78 @@ class MARC:
             ],
             text_sfs="a",
         )
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def arrangement(self):
+        ruleset = FieldRuleset(tags=["351"], text_sfs="ab3")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def copyright(self):
+        ruleset = FieldRuleset(
+            tags=["264"], filter=lambda field: (field.indicator2 == "4")
+        )
+
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def physical_description(self):
+        ruleset = FieldRuleset(tags=["300"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def map_scale(self):
+        ruleset = FieldRuleset(tags=["255"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def reproduction_note(self):
+        ruleset = FieldRuleset(tags=["533"], text_sfs=f"{string.ascii_lowercase}35")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def original_version_note(self):
+        ruleset = FieldRuleset(tags=["534"], text_sfs=f"{string.ascii_lowercase}35")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def playing_time(self):
+        ruleset = FieldRuleset(tags=["306"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def media_format(self):
+        ruleset = FieldRuleset(tags=["538"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def audience(self):
+        ruleset = FieldRuleset(tags=["521"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def content_advice(self):
+        ruleset = FieldRuleset(
+            tags=["520"],
+            text_sfs="abc3",
+            filter=lambda field: (field.indicator1 == "4"),
+        )
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def awards(self):
+        ruleset = FieldRuleset(tags=["586"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def production_credits(self):
+        ruleset = FieldRuleset(tags=["508"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def bibliography(self):
+        ruleset = FieldRuleset(tags=["504"], text_sfs="a")
         return self._generate_paired_fields(tuple([ruleset]))
 
     def _generate_unpaired_fields(self, rulesets: tuple) -> list:
