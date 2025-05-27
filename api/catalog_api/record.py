@@ -543,26 +543,6 @@ class MARC:
         ruleset = FieldRuleset(tags=["505"])
         return self._generate_paired_fields(tuple([ruleset]))
 
-    # @property
-    # def chronology(self):
-    #     ruleset = FieldRuleset(tags=["945"], text_sfs="a")
-    #     return self._generate_paired_fields(tuple([ruleset]))
-
-    # @property
-    # def place(self):
-    #     ruleset = FieldRuleset(tags=["946"], text_sfs="a")
-    #     return self._generate_paired_fields(tuple([ruleset]))
-
-    # @property
-    # def printer(self):
-    #     ruleset = FieldRuleset(tags=["947"], text_sfs="a")
-    #     return self._generate_paired_fields(tuple([ruleset]))
-
-    # @property
-    # def association(self):
-    #     ruleset = FieldRuleset(tags=["948"], text_sfs="a")
-    #     return self._generate_paired_fields(tuple([ruleset]))
-
     def _generate_unpaired_fields(self, rulesets: tuple) -> list:
         result = []
         for ruleset in rulesets:

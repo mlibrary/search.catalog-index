@@ -1137,58 +1137,6 @@ class TestMARC:
         )
         assert serialize(subject.contents) == expected
 
-    # ##############
-    # # chronology #
-    # ##############
-    # def test_chronology(self):
-    #     tag = "945"
-    #     record = self.create_record_with_paired_field(tag=tag)
-    #     subject = MARC(record)
-    #     expected = self.expected_paired_field(
-    #         tag=tag,
-    #         elements={"text": "a"},
-    #     )
-    #     assert serialize(subject.chronology) == expected
-
-    # #########
-    # # place #
-    # #########
-    # def test_place(self):
-    #     tag = "946"
-    #     record = self.create_record_with_paired_field(tag=tag)
-    #     subject = MARC(record)
-    #     expected = self.expected_paired_field(
-    #         tag=tag,
-    #         elements={"text": "a"},
-    #     )
-    #     assert serialize(subject.place) == expected
-
-    # ###########
-    # # printer #
-    # ###########
-    # def test_printer(self):
-    #     tag = "947"
-    #     record = self.create_record_with_paired_field(tag=tag)
-    #     subject = MARC(record)
-    #     expected = self.expected_paired_field(
-    #         tag=tag,
-    #         elements={"text": "a"},
-    #     )
-    #     assert serialize(subject.printer) == expected
-
-    # ###############
-    # # association #
-    # ###############
-    # def test_association(self):
-    #     tag = "948"
-    #     record = self.create_record_with_paired_field(tag=tag)
-    #     subject = MARC(record)
-    #     expected = self.expected_paired_field(
-    #         tag=tag,
-    #         elements={"text": "a"},
-    #     )
-    #     assert serialize(subject.association) == expected
-
     def create_record_with_paired_field(
         self,
         tag: str,
