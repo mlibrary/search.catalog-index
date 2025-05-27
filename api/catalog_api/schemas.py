@@ -1,5 +1,6 @@
 from pydantic import BaseModel, ConfigDict
 from typing import Optional
+import datetime
 
 
 class TextField(BaseModel):
@@ -114,7 +115,11 @@ class Record(BaseModel):
     # printer: list[PairedTextField]
     # association: list[PairedTextField]
     lcsh_subjects: list[BareTextField]
+    remediated_lcsh_subjects: list[BareTextField]
+    other_subjects: list[BareTextField]
     academic_discipline: list[AcademicDiscipline]
+    bookplate: list[BareTextField]
+    indexing_date: datetime.date
 
 
 class Response(BaseModel):

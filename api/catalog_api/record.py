@@ -66,6 +66,22 @@ class SolrDoc:
         return self._get_text_field("oclc")
 
     @property
+    def remediated_lcsh_subjects(self):
+        return self._get_text_field("remediated_lc_subject_display")
+
+    @property
+    def other_subjects(self):
+        return self._get_text_field("non_lc_subject_display")
+
+    @property
+    def bookplate(self):
+        return self._get_text_field("bookplate")
+
+    @property
+    def indexing_date(self):
+        return self.data.get("date_of_index")
+
+    @property
     def availability(self) -> list:
         return self._get_list("availability")
 

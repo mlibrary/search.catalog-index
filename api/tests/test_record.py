@@ -103,6 +103,26 @@ class TestSolrDoc:
         subject = SolrDoc(solr_bib)
         assert subject.report_number == [{"text": "some_report_number"}]
 
+    def test_remediated_lcsh_subjects(self, solr_bib):
+        solr_bib["remediated_lc_subject_display"] = ["some -- subject"]
+        subject = SolrDoc(solr_bib)
+        assert subject.remediated_lcsh_subjects == [{"text": "some -- subject"}]
+
+    def test_other_subjects(self, solr_bib):
+        solr_bib["non_lc_subject_display"] = ["some -- subject"]
+        subject = SolrDoc(solr_bib)
+        assert subject.other_subjects == [{"text": "some -- subject"}]
+
+    def test_bookplate(self, solr_bib):
+        solr_bib["bookplate"] = ["bookplate"]
+        subject = SolrDoc(solr_bib)
+        assert subject.bookplate == [{"text": "bookplate"}]
+
+    def test_indexing_date(self, solr_bib):
+        solr_bib["date_of_index"] = "some_valid_date_string"
+        subject = SolrDoc(solr_bib)
+        assert subject.indexing_date == "some_valid_date_string"
+
     def test_main_author(self, solr_bib):
         subject = SolrDoc(solr_bib)
         assert subject.main_author == [
