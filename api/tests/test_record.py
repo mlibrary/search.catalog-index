@@ -1124,6 +1124,19 @@ class TestMARC:
         )
         assert serialize(subject.publisher_number) == expected
 
+    ############
+    # contents #
+    ############
+    def test_contents(self, a_to_z_str):
+        tag = "505"
+        record = self.create_record_with_paired_field(tag=tag)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={"text": a_to_z_str},
+        )
+        assert serialize(subject.contents) == expected
+
     # ##############
     # # chronology #
     # ##############

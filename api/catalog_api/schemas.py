@@ -118,6 +118,7 @@ class Record(BaseModel):
     remediated_lcsh_subjects: list[BareTextField]
     other_subjects: list[BareTextField]
     academic_discipline: list[AcademicDiscipline]
+    contents: list[PairedTextField]
     bookplate: list[BareTextField]
     indexing_date: datetime.date
 

@@ -538,6 +538,11 @@ class MARC:
         ruleset = FieldRuleset(tags=["028"], text_sfs="ab")
         return self._generate_paired_fields(tuple([ruleset]))
 
+    @property
+    def contents(self):
+        ruleset = FieldRuleset(tags=["505"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
     # @property
     # def chronology(self):
     #     ruleset = FieldRuleset(tags=["945"], text_sfs="a")
