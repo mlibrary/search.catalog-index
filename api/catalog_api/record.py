@@ -34,7 +34,7 @@ class SolrDoc:
         return self._get_paired_field("edition")
 
     @property
-    def lcsh_subjects(self):
+    def lc_subjects(self):
         return self._get_text_field("lc_subject_display")
 
     @property
@@ -46,16 +46,48 @@ class SolrDoc:
         return self._get_text_field("isbn")
 
     @property
+    def issn(self):
+        return self._get_text_field("issn")
+
+    @property
+    def gov_doc_number(self):
+        return self._get_text_field("sudoc")
+
+    @property
+    def report_number(self):
+        return self._get_text_field("rptnum")
+
+    @property
     def call_number(self):
-        return self._get_text_field("callnumber")
+        return self._get_text_field("callnumber_browse")
 
     @property
     def oclc(self):
         return self._get_text_field("oclc")
 
     @property
+    def remediated_lc_subjects(self):
+        return self._get_text_field("remediated_lc_subject_display")
+
+    @property
+    def other_subjects(self):
+        return self._get_text_field("non_lc_subject_display")
+
+    @property
+    def bookplate(self):
+        return self._get_text_field("bookplate")
+
+    @property
+    def indexing_date(self):
+        return self.data.get("date_of_index")
+
+    @property
+    def availability(self) -> list:
+        return self._get_list("availability")
+
+    @property
     def format(self):
-        return self._get_solr_list("format")
+        return self._get_list("format")
 
     @property
     def main_author(self):
@@ -95,10 +127,10 @@ class SolrDoc:
     def academic_discipline(self):
         return [
             {"list": discipline.split(" | ")}
-            for discipline in self._get_solr_list("hlb3Delimited")
+            for discipline in self._get_list("hlb3Delimited")
         ]
 
-    def _get_solr_list(self, key):
+    def _get_list(self, key):
         return self.data.get(key) or []
 
     def _get_text_field(self, key):
@@ -123,6 +155,54 @@ class SolrDoc:
 class MARC:
     def __init__(self, record: pymarc.record.Record):
         self.record = record
+
+    @property
+    def preferred_title(self) -> list:
+        no_l = string.ascii_lowercase.replace("l", "")
+        no_i = string.ascii_lowercase.replace("i", "")
+        rulesets = [
+            FieldRuleset(
+                tags=["130", "240", "243"],
+                search=[{"subfields": no_l, "field": "title"}],
+            ),
+            FieldRuleset(
+                tags=["730"],
+                text_sfs=no_i,
+                search=[{"subfields": no_i, "field": "title"}],
+                filter=lambda field: (field.indicator2 == "2"),
+            ),
+        ]
+        return self._generate_paired_fields(rulesets)
+
+    @property
+    def related_title(self) -> list:
+        no_i = string.ascii_lowercase.replace("i", "")
+        display_sfs = "abcdefgjklmnopqrst"
+
+        def is_a_title(field: pymarc.Field) -> bool:
+            return field.get_subfields("t") and field.indicator2 != "2"
+
+        rulesets = [
+            FieldRuleset(
+                tags=["730"],
+                text_sfs=no_i,
+                search=[{"subfields": no_i, "field": "title"}],
+                filter=lambda field: (not field.indicator2),
+            ),
+            FieldRuleset(
+                tags=["700", "710"],
+                text_sfs=display_sfs,
+                search=[{"subfields": "fjklmnoprst", "field": "title"}],
+                filter=is_a_title,
+            ),
+            FieldRuleset(
+                tags=["711"],
+                text_sfs=display_sfs,
+                search=[{"subfields": "fklmnoprst", "field": "title"}],
+                filter=is_a_title,
+            ),
+        ]
+        return self._generate_paired_fields(rulesets)
 
     @property
     def other_titles(self) -> list:
@@ -156,6 +236,46 @@ class MARC:
         return self._generate_paired_fields(rulesets)
 
     @property
+    def new_title(self):
+        ruleset = FieldRuleset(
+            tags=["785"],
+            text_sfs="ast",
+            search=[
+                {"subfields": "a", "field": "author"},
+                {"subfields": "st", "field": "title"},
+            ],
+        )
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def new_title_issn(self):
+        ruleset = FieldRuleset(
+            tags=["785"],
+            text_sfs="x",
+        )
+        return self._generate_unpaired_fields(tuple([ruleset]))
+
+    @property
+    def previous_title(self):
+        ruleset = FieldRuleset(
+            tags=["780"],
+            text_sfs="ast",
+            search=[
+                {"subfields": "a", "field": "author"},
+                {"subfields": "st", "field": "title"},
+            ],
+        )
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def previous_title_issn(self):
+        ruleset = FieldRuleset(
+            tags=["780"],
+            text_sfs="x",
+        )
+        return self._generate_unpaired_fields(tuple([ruleset]))
+
+    @property
     def contributors(self):
         search_sfs = "abcdgjkqu"
         ruleset = FieldRuleset(
@@ -169,6 +289,22 @@ class MARC:
         )
 
         return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def created(self):
+        rulesets = (
+            FieldRuleset(tags=["264"], filter=lambda field: (field.indicator2 == "0")),
+        )
+
+        return self._generate_paired_fields(rulesets)
+
+    @property
+    def distributed(self):
+        rulesets = (
+            FieldRuleset(tags=["264"], filter=lambda field: (field.indicator2 == "2")),
+        )
+
+        return self._generate_paired_fields(rulesets)
 
     @property
     def manufactured(self):
@@ -190,8 +326,117 @@ class MARC:
         return self._generate_paired_fields(tuple([ruleset]))
 
     @property
-    def physical_description(self):
-        ruleset = FieldRuleset(tags=["300"])
+    def biography_history(self):
+        ruleset = FieldRuleset(tags=["545"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def summary(self):
+        ruleset = FieldRuleset(
+            tags=["520"],
+            text_sfs="abc3",
+            filter=lambda field: (field.indicator1 != "4"),
+        )
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def in_collection(self):
+        ruleset = FieldRuleset(tags=["773"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def access(self):
+        ruleset = FieldRuleset(tags=["506"], text_sfs="abc")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def finding_aids(self):
+        ruleset = FieldRuleset(tags=["555"], text_sfs="abcd3u")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def terms_of_use(self):
+        ruleset = FieldRuleset(tags=["540"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def language_note(self):
+        ruleset = FieldRuleset(tags=["546"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def performers(self):
+        ruleset = FieldRuleset(tags=["511"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def date_place_of_event(self):
+        ruleset = FieldRuleset(tags=["518"], text_sfs="adop23")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def preferred_citation(self):
+        ruleset = FieldRuleset(tags=["524"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def location_of_originals(self):
+        ruleset = FieldRuleset(tags=["535"], text_sfs=f"{string.ascii_lowercase}3")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def funding_information(self):
+        ruleset = FieldRuleset(tags=["536"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def source_of_acquisition(self):
+        ruleset = FieldRuleset(tags=["541"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def related_items(self):
+        ruleset = FieldRuleset(tags=["580"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def numbering(self):
+        ruleset = FieldRuleset(tags=["362"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def current_publication_frequency(self):
+        ruleset = FieldRuleset(tags=["310"], text_sfs="ab")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def former_publication_frequency(self):
+        ruleset = FieldRuleset(tags=["321"], text_sfs="ab")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def numbering_notes(self):
+        ruleset = FieldRuleset(tags=["515"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def source_of_description_note(self):
+        ruleset = FieldRuleset(tags=["588"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def copy_specific_note(self):
+        ruleset = FieldRuleset(tags=["590"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def references(self):
+        ruleset = FieldRuleset(tags=["510"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def copyright_status_information(self):
+        ruleset = FieldRuleset(tags=["542"])
         return self._generate_paired_fields(tuple([ruleset]))
 
     @property
@@ -216,6 +461,97 @@ class MARC:
         )
         return self._generate_paired_fields(tuple([ruleset]))
 
+    @property
+    def arrangement(self):
+        ruleset = FieldRuleset(tags=["351"], text_sfs="ab3")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def copyright(self):
+        ruleset = FieldRuleset(
+            tags=["264"], filter=lambda field: (field.indicator2 == "4")
+        )
+
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def physical_description(self):
+        ruleset = FieldRuleset(tags=["300"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def map_scale(self):
+        ruleset = FieldRuleset(tags=["255"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def reproduction_note(self):
+        ruleset = FieldRuleset(tags=["533"], text_sfs=f"{string.ascii_lowercase}35")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def original_version_note(self):
+        ruleset = FieldRuleset(tags=["534"], text_sfs=f"{string.ascii_lowercase}35")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def playing_time(self):
+        ruleset = FieldRuleset(tags=["306"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def media_format(self):
+        ruleset = FieldRuleset(tags=["538"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def audience(self):
+        ruleset = FieldRuleset(tags=["521"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def content_advice(self):
+        ruleset = FieldRuleset(
+            tags=["520"],
+            text_sfs="abc3",
+            filter=lambda field: (field.indicator1 == "4"),
+        )
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def awards(self):
+        ruleset = FieldRuleset(tags=["586"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def production_credits(self):
+        ruleset = FieldRuleset(tags=["508"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def bibliography(self):
+        ruleset = FieldRuleset(tags=["504"], text_sfs="a")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def publisher_number(self):
+        ruleset = FieldRuleset(tags=["028"], text_sfs="ab")
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    @property
+    def contents(self):
+        ruleset = FieldRuleset(tags=["505"])
+        return self._generate_paired_fields(tuple([ruleset]))
+
+    def _generate_unpaired_fields(self, rulesets: tuple) -> list:
+        result = []
+        for ruleset in rulesets:
+            for field in self.record.get_fields(*ruleset.tags):
+                if ruleset.has_any_subfields(field):
+                    result.append(ruleset.value_for(field))
+
+        return set(result)
+
     def _generate_paired_fields(self, rulesets: tuple) -> list:
         result = []
         for ruleset in rulesets:
@@ -224,7 +560,7 @@ class MARC:
                     r = {}
                     for key in fields.keys():
                         r[key] = ruleset.value_for(fields[key])
-                    result.append(r)
+                    result.append(PairedField(**r))
         return result
 
     def _get_original_for_tags(self, tags: tuple) -> list:
@@ -274,6 +610,26 @@ class Linkage:
 
 
 @dataclass(frozen=True)
+class SearchField:
+    field: str
+    value: str
+
+
+@dataclass(frozen=True)
+class FieldElement:
+    text: str
+    tag: str
+    search: list[SearchField] | None = None
+    browse: str | None = None
+
+
+@dataclass(frozen=True)
+class PairedField:
+    original: FieldElement
+    transliterated: FieldElement | None = None
+
+
+@dataclass(frozen=True)
 class FieldRuleset:
     tags: list
     text_sfs: str = string.ascii_lowercase
@@ -286,23 +642,26 @@ class FieldRuleset:
 
     def value_for(self, field: pymarc.Field):
         result = {
-            "text": self._get_subfields(field, self.text_sfs),
+            "text": self._get_subfields(field, self.text_sfs).strip(),
             "tag": field.tag,
         }
 
         if self.search:
-            result["search"] = [
-                {
-                    "field": s["field"],
-                    "value": self._get_subfields(field, s["subfields"]),
-                }
-                for s in self.search
-            ]
+            result["search"] = []
+            for s in self.search:
+                value = self._get_subfields(field, s["subfields"])
+                if value:
+                    result["search"].append(
+                        SearchField(
+                            field=s["field"],
+                            value=self._get_subfields(field, s["subfields"]),
+                        )
+                    )
 
         if self.browse_sfs:
             result["browse"] = self._get_subfields(field, self.browse_sfs)
 
-        return result
+        return FieldElement(**result)
 
     def _get_subfields(self, field: pymarc.Field, subfields: str):
         return " ".join(field.get_subfields(*tuple(subfields)))
