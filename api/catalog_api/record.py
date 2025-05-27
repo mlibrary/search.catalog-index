@@ -34,7 +34,7 @@ class SolrDoc:
         return self._get_paired_field("edition")
 
     @property
-    def lcsh_subjects(self):
+    def lc_subjects(self):
         return self._get_text_field("lc_subject_display")
 
     @property
@@ -50,7 +50,7 @@ class SolrDoc:
         return self._get_text_field("issn")
 
     @property
-    def gov_doc_no(self):
+    def gov_doc_number(self):
         return self._get_text_field("sudoc")
 
     @property
@@ -66,7 +66,7 @@ class SolrDoc:
         return self._get_text_field("oclc")
 
     @property
-    def remediated_lcsh_subjects(self):
+    def remediated_lc_subjects(self):
         return self._get_text_field("remediated_lc_subject_display")
 
     @property

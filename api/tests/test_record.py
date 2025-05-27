@@ -27,7 +27,7 @@ class TestRecord:
         "isbn",
         "call_number",
         "oclc",
-        "lcsh_subjects",
+        "lc_subjects",
         "academic_discipline",
         "availability",
     ]
@@ -93,20 +93,20 @@ class TestSolrDoc:
         subject = SolrDoc(solr_bib)
         assert subject.issn == [{"text": "some_issn"}]
 
-    def test_gov_doc_no(self, solr_bib):
+    def test_gov_doc_number(self, solr_bib):
         solr_bib["sudoc"] = ["some_gov_doc_number"]
         subject = SolrDoc(solr_bib)
-        assert subject.gov_doc_no == [{"text": "some_gov_doc_number"}]
+        assert subject.gov_doc_number == [{"text": "some_gov_doc_number"}]
 
     def test_report_number(self, solr_bib):
         solr_bib["rptnum"] = ["some_report_number"]
         subject = SolrDoc(solr_bib)
         assert subject.report_number == [{"text": "some_report_number"}]
 
-    def test_remediated_lcsh_subjects(self, solr_bib):
+    def test_remediated_lc_subjects(self, solr_bib):
         solr_bib["remediated_lc_subject_display"] = ["some -- subject"]
         subject = SolrDoc(solr_bib)
-        assert subject.remediated_lcsh_subjects == [{"text": "some -- subject"}]
+        assert subject.remediated_lc_subjects == [{"text": "some -- subject"}]
 
     def test_other_subjects(self, solr_bib):
         solr_bib["non_lc_subject_display"] = ["some -- subject"]
