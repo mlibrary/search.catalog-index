@@ -94,6 +94,14 @@ class TestRecord:
         subject = Record(solr_bib)
         assert (subject.marc) == json.loads(record.as_json())
 
+    def test_holdings_is_not_None(self, solr_bib):
+        subject = Record(solr_bib)
+        assert subject.holdings is not None
+
+    def test_physical_holdings_is_not_None(self, solr_bib):
+        subject = Record(solr_bib)
+        assert subject.holdings.physical is not None
+
 
 class TestSolrDoc:
     def test_title(self, solr_bib):

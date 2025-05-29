@@ -1,5 +1,4 @@
 from __future__ import annotations
-from catalog_api.solr_client import SolrClient
 import pymarc
 import io
 import re
@@ -7,6 +6,8 @@ import string
 import json
 from dataclasses import dataclass
 from collections.abc import Callable
+from catalog_api.solr_client import SolrClient
+from catalog_api.holdings import Holdings
 
 
 def record_for(id: str) -> Record:
@@ -678,3 +679,8 @@ class Record(SolrDoc, MARC):
     @property
     def marc(self):
         return json.loads(self.record.as_json())
+
+    @property
+    def holdings(self):
+        holdings_data = json.loads(self.data.get("hol"))
+        return Holdings(holdings_data)
