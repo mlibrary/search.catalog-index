@@ -1,5 +1,5 @@
 import pytest
-from catalog_api.holdings import PhysicalHolding, ElectronicItem
+from catalog_api.holdings import PhysicalHolding, ElectronicItem, HathiTrustItem
 
 
 @pytest.fixture
@@ -145,3 +145,29 @@ class TestElectronicItem:
         electronic_item["status"] = "Not Available"
         subject = ElectronicItem(electronic_item)
         assert subject.is_available is False
+
+
+@pytest.fixture
+def ht_item():
+    return {
+        "id": "mdp.39015040218748",
+        "rights": "ic",
+        "description": "some_description",
+        "collection_code": "MIU",
+        "access": False,
+        "source": "University of Michigan",
+        "status": "Search only (no full text)",
+    }
+
+
+class TestHathiTrustItem:
+    fields = ["id", "description", "source", "status"]
+
+    @pytest.mark.parametrize("field", fields)
+    def test_outer_fields(self, field, ht_item):
+        subject = HathiTrustItem(ht_item)
+        assert getattr(subject, field) == ht_item[field]
+
+    def test_url(self, ht_item):
+        subject = HathiTrustItem(ht_item)
+        assert subject.url == "http://hdl.handle.net/2027/mdp.39015040218748"

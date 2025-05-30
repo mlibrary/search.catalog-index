@@ -1,6 +1,31 @@
 from dataclasses import dataclass
 
 
+class HathiTrustItem:
+    def __init__(self, ht_item_data: dict):
+        self.data = ht_item_data
+
+    @property
+    def id(self):
+        return self.data.get("id")
+
+    @property
+    def url(self):
+        return f"http://hdl.handle.net/2027/{self.id}"
+
+    @property
+    def description(self):
+        return self.data.get("description")
+
+    @property
+    def source(self):
+        return self.data.get("source")
+
+    @property
+    def status(self):
+        return self.data.get("status")
+
+
 class ElectronicItem:
     def __init__(self, electronic_item_data: dict):
         self.data = electronic_item_data
@@ -146,7 +171,7 @@ def kind_of_holding(holding_item: dict):
         case "ALMA_DIGITAL":
             return None
         case "HathiTrust Digital Library":
-            return None
+            return "hathi_trust"
         case "ELEC":
             return "electronic"
         case _:
@@ -169,6 +194,18 @@ def electronic_items(holdings_data: list) -> list[ElectronicItem]:
     ]
 
 
+def hathi_trust_items(holdings_data: list) -> list[HathiTrustItem]:
+    ht_holding = None
+    for holding_item in holdings_data:
+        if kind_of_holding(holding_item) == "hathi_trust":
+            ht_holding = holding_item
+
+    if ht_holding:
+        return [HathiTrustItem(item) for item in ht_holding["items"]]
+    else:
+        return []
+
+
 class Holdings:
     def __init__(self, holdings_data: list):
         self.data = holdings_data
@@ -180,3 +217,7 @@ class Holdings:
     @property
     def electronic_items(self):
         return electronic_items(self.data)
+
+    @property
+    def hathi_trust_items(self):
+        return hathi_trust_items(self.data)

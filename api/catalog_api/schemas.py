@@ -6,6 +6,16 @@ import datetime
 ############
 # Holdings #
 ############
+
+
+class HathiTustItem(BaseModel):
+    id: str
+    url: str
+    description: str | None
+    source: str
+    status: str
+
+
 class ElectronicItem(BaseModel):
     url: str | None
     campuses: list[str]
@@ -53,8 +63,9 @@ class PhysicalHolding(BaseModel):
 
 
 class Holdings(BaseModel):
-    physical: list[PhysicalHolding]
+    hathi_trust_items: list[HathiTustItem]
     electronic_items: list[ElectronicItem]
+    physical: list[PhysicalHolding]
 
 
 ############
