@@ -17,16 +17,16 @@ def physical_holdings():
             "items": [
                 {
                     "barcode": "39015052384248",
-                    "library": "MUSM",
-                    "location": "BIR",
+                    "library": "SOME_LIBRARY",
+                    "location": "SOME_LOCATION",
                     "info_link": "http://lib.umich.edu/locations-and-hours/museums-library",
-                    "display_name": "Research Museums Center Birds Division",
+                    "display_name": "Some display name",
                     "fulfillment_unit": "General",
                     "location_type": "OPEN",
                     "can_reserve": False,
                     "permanent_library": "MUSM",
                     "permanent_location": "BIR",
-                    "temp_location": False,
+                    "temp_location": True,
                     "callnumber": "QL 691 .J3 S25 1983",
                     "public_note": "some_public_note",
                     "process_type": "some_process_type",
@@ -88,3 +88,13 @@ class TestPhysicalHolding:
         subject = PhysicalHolding(physical_holding).items[0]
         expected = physical_holding["items"][0][solr_field]
         assert getattr(subject, field) == expected
+
+    def test_item_has_a_physical_location(self, physical_holding):
+        subject = PhysicalHolding(physical_holding).items[0].physical_location
+        expected = physical_holding["items"][0]
+        assert subject.url == expected["info_link"]
+        assert subject.text == expected["display_name"]
+        assert subject.floor is None
+        assert subject.code.library == expected["library"]
+        assert subject.code.location == expected["location"]
+        assert subject.temporary is expected["temp_location"]

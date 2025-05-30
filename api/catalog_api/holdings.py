@@ -56,6 +56,17 @@ class PhysicalItem:
     def reservable(self):
         return self.data.get("can_reserve")
 
+    @property
+    def physical_location(self):
+        return PhysicalLocation(
+            url=self.data.get("info_link"),
+            text=self.data.get("display_name"),
+            code=LibLoc(
+                library=self.data.get("library"), location=self.data.get("location")
+            ),
+            temporary=self.data.get("temp_location"),
+        )
+
 
 class PhysicalHolding:
     def __init__(self, physical_holding_data: list):
@@ -95,6 +106,12 @@ class PhysicalHolding:
 
 def kind_of_holding(holding_item: dict):
     match holding_item["library"]:
+        case "ALMA_DIGITAL":
+            return None
+        case "HathiTrust Digital Library":
+            return None
+        case "ELEC":
+            return None
         case _:
             return "physical"
 
