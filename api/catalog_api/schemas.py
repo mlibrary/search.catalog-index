@@ -8,6 +8,13 @@ import datetime
 ############
 
 
+class AlmaDigitalItem(BaseModel):
+    url: str
+    delivery_description: str | None
+    label: str | None
+    public_note: str | None
+
+
 class HathiTustItem(BaseModel):
     id: str
     url: str
@@ -64,6 +71,7 @@ class PhysicalHolding(BaseModel):
 
 class Holdings(BaseModel):
     hathi_trust_items: list[HathiTustItem]
+    alma_digital_items: list[AlmaDigitalItem]
     electronic_items: list[ElectronicItem]
     physical: list[PhysicalHolding]
 

@@ -1,5 +1,10 @@
 import pytest
-from catalog_api.holdings import PhysicalHolding, ElectronicItem, HathiTrustItem
+from catalog_api.holdings import (
+    PhysicalHolding,
+    ElectronicItem,
+    HathiTrustItem,
+    AlmaDigitalItem,
+)
 
 
 @pytest.fixture
@@ -171,3 +176,29 @@ class TestHathiTrustItem:
     def test_url(self, ht_item):
         subject = HathiTrustItem(ht_item)
         assert subject.url == "http://hdl.handle.net/2027/mdp.39015040218748"
+
+
+@pytest.fixture
+def alma_digital_item():
+    return {
+        "library": "ALMA_DIGITAL",
+        "link": "https://umich.alma.exlibrisgroup.com/discovery/delivery/01UMICH_INST:UMICH/121314984090006381",
+        "link_text": "Available online",
+        "delivery_description": "1 file/s (pdf)",
+        "label": "Some Label",
+        "public_note": "Access requires institutional login. Authorized U-M users (no guest access).",
+    }
+
+
+class TestAlmaDigitalItem:
+    fields = [
+        ("url", "link"),
+        ("delivery_description", "delivery_description"),
+        ("label", "label"),
+        ("public_note", "public_note"),
+    ]
+
+    @pytest.mark.parametrize("field,solr_field", fields)
+    def test_outer_fields(self, field, solr_field, alma_digital_item):
+        subject = AlmaDigitalItem(alma_digital_item)
+        assert getattr(subject, field) == alma_digital_item[solr_field]
