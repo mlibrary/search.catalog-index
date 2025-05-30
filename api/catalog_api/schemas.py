@@ -6,6 +6,17 @@ import datetime
 ############
 # Holdings #
 ############
+class ElectronicItem(BaseModel):
+    url: str | None
+    campuses: list[str]
+    interface_name: str | None
+    collection_name: str | None
+    description: str | None
+    public_note: str | None
+    note: str | None
+    is_available: bool
+
+
 class LibLoc(BaseModel):
     library: str | None
     location: str | None
@@ -43,6 +54,7 @@ class PhysicalHolding(BaseModel):
 
 class Holdings(BaseModel):
     physical: list[PhysicalHolding]
+    electronic_items: list[ElectronicItem]
 
 
 ############

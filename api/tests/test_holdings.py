@@ -1,5 +1,5 @@
 import pytest
-from catalog_api.holdings import PhysicalHolding
+from catalog_api.holdings import PhysicalHolding, ElectronicItem
 
 
 @pytest.fixture
@@ -98,3 +98,50 @@ class TestPhysicalHolding:
         assert subject.code.library == expected["library"]
         assert subject.code.location == expected["location"]
         assert subject.temporary is expected["temp_location"]
+
+
+@pytest.fixture
+def electronic_item():
+    return {
+        "library": "ELEC",
+        "link": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl-UMAA?u.ignore_date_coverage=true&portfolio_pid=531314984450006381&Force_direct=true",
+        "link_text": "Available online",
+        "campuses": ["ann_arbor", "flint"],
+        "interface_name": "Miscellaneous Ejournals",
+        "collection_name": "Miscellaneous Ejournals",
+        "authentication_note": [
+            "Open access for all users.",
+            "Authorized U-M users (+ guests in U-M Libraries).",
+        ],
+        "description": " Available from 2001.",
+        "public_note": "Some public note",
+        "note": "Miscellaneous Ejournals. Miscellaneous Ejournals. Open access for all users. Authorized U-M users (+ guests in U-M Libraries)",
+        "finding_aid": False,
+        "status": "Available",
+    }
+
+
+class TestElectronicItem:
+    fields = [
+        ("url", "link"),
+        ("campuses", "campuses"),
+        ("interface_name", "interface_name"),
+        ("collection_name", "collection_name"),
+        ("description", "description"),
+        ("public_note", "public_note"),
+        ("note", "note"),
+    ]
+
+    @pytest.mark.parametrize("field,solr_field", fields)
+    def test_outer_fields(self, field, solr_field, electronic_item):
+        subject = ElectronicItem(electronic_item)
+        assert getattr(subject, field) == electronic_item[solr_field]
+
+    def test_is_available(self, electronic_item):
+        subject = ElectronicItem(electronic_item)
+        assert subject.is_available is True
+
+    def test_is_available_when_unavailable(self, electronic_item):
+        electronic_item["status"] = "Not Available"
+        subject = ElectronicItem(electronic_item)
+        assert subject.is_available is False

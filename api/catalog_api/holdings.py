@@ -1,6 +1,43 @@
 from dataclasses import dataclass
 
 
+class ElectronicItem:
+    def __init__(self, electronic_item_data: dict):
+        self.data = electronic_item_data
+
+    @property
+    def url(self):
+        return self.data.get("link")
+
+    @property
+    def campuses(self):
+        return self.data.get("campuses")
+
+    @property
+    def interface_name(self):
+        return self.data.get("interface_name")
+
+    @property
+    def collection_name(self):
+        return self.data.get("collection_name")
+
+    @property
+    def description(self):
+        return self.data.get("description")
+
+    @property
+    def public_note(self):
+        return self.data.get("public_note")
+
+    @property
+    def note(self):
+        return self.data.get("note")
+
+    @property
+    def is_available(self):
+        return self.data.get("status") == "Available"
+
+
 @dataclass(frozen=True)
 class LibLoc:
     library: str
@@ -111,7 +148,7 @@ def kind_of_holding(holding_item: dict):
         case "HathiTrust Digital Library":
             return None
         case "ELEC":
-            return None
+            return "electronic"
         case _:
             return "physical"
 
@@ -124,6 +161,14 @@ def physical_holdings(holdings_data: list) -> list[PhysicalHolding]:
     ]
 
 
+def electronic_items(holdings_data: list) -> list[ElectronicItem]:
+    return [
+        ElectronicItem(holding_item)
+        for holding_item in holdings_data
+        if kind_of_holding(holding_item) == "electronic"
+    ]
+
+
 class Holdings:
     def __init__(self, holdings_data: list):
         self.data = holdings_data
@@ -131,3 +176,7 @@ class Holdings:
     @property
     def physical(self):
         return physical_holdings(self.data)
+
+    @property
+    def electronic_items(self):
+        return electronic_items(self.data)
