@@ -78,6 +78,7 @@ class TestPhysicalHolding:
 
     item_fields = [
         ("item_id", "item_id"),
+        ("barcode", "barcode"),
         ("fulfillment_unit", "fulfillment_unit"),
         ("call_number", "callnumber"),
         ("process_type", "process_type"),

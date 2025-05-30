@@ -108,6 +108,10 @@ class PhysicalItem:
         return self.data.get("item_id")
 
     @property
+    def barcode(self):
+        return self.data.get("barcode")
+
+    @property
     def fulfillment_unit(self):
         return self.data.get("fulfillment_unit")
 

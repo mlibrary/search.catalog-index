@@ -49,6 +49,7 @@ class PhysicalLocation(BaseModel):
 
 class PhysicalItem(BaseModel):
     item_id: str
+    barcode: str | None
     fulfillment_unit: str
     call_number: str | None
     process_type: str | None
