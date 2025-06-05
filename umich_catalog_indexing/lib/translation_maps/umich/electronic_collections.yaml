@@ -456,12 +456,6 @@
   note: ESTC. Access to the ESTC Online version.
   link: http://estc.bl.uk/
   status: Available
-'990033234830106381':
-- collection_name: The ARTFL project.
-  interface_name: University of Chicago
-  note: University of Chicago. Access to the University of Chicago online version restricted; authentication maybe required.
-  link: https://artfl-project.uchicago.edu/
-  status: Available
 '990005222060106381':
 - collection_name: International political science abstracts.
   interface_name: EBSCOhost
@@ -4509,6 +4503,12 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.rockandroll.amdigital.co.uk/
   status: Available
+'99187252619406381':
+- collection_name: ARTFL reference collection
+  interface_name: University of Chicago Press
+  note: University of Chicago Press.
+  link: https://artfl-project-uchicago-edu.proxy.lib.umich.edu/artfl-resources/artfl-reference-collection
+  status: Available
 '99187252619806381':
 - collection_name: Current Digest of the Russian Press (DA-CDRP)
   interface_name: East View Information Services
@@ -4903,12 +4903,6 @@
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.eastindiacompany.amdigital.co.uk/
-  status: Available
-'99187252589706381':
-- collection_name: Bloomsbury Collections All Titles
-  interface_name: Bloomsbury Publishing Plc
-  note: Bloomsbury Publishing Plc. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.bloomsbury.com/dr/digital-resources/products/bloomsbury-collections/
   status: Available
 '99187252590206381':
 - collection_name: 'Meiji Japan: The Edward Sylvester Morse Collection from the Peabody Essex Museum, Salem'
@@ -10535,12 +10529,6 @@
   note: Bloomsbury Publishing Plc.
   link: https://www.theologyandreligiononline.com/anchor-yale-bible-dictionary
   status: Available
-'99187611783506381':
-- collection_name: Bloomsbury Theology and Religion Online Anchor Yale Bible Commentaries
-  interface_name: Bloomsbury Publishing Plc
-  note: Bloomsbury Publishing Plc. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.theologyandreligiononline.com/anchor-yale-bible-commentaries
-  status: Available
 '99188917979506381':
 - collection_name: ANU E Press
   interface_name: Australian National University (ANU)
@@ -14857,4 +14845,40 @@
   interface_name: Australian National University Library
   note: Australian National University Library. Open access for all users.
   link: https://openresearch-repository.anu.edu.au/home
+  status: Available
+'99188917889106381':
+- collection_name: Times Comprehensive Atlas of the World Digital Archiv
+  interface_name: ''
+  note: Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://dlib.eastview.com/browse/udb/2790
+  status: Available
+'99188918064106381':
+- collection_name: Corpus de la première littérature francophone de l'Afrique noire
+  interface_name: Classiques Garnier Numerique
+  note: Classiques Garnier Numerique. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.classiques-garnier.com/numerique-bases/index.php?module=App&action=FrameMain&colname=ColClf
+  status: Available
+'99188918065006381':
+- collection_name: 'Brill Palestine: The British Mandate, 1917-1948'
+  interface_name: Brillonline
+  note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/
+  status: Available
+'99188918065106381':
+- collection_name: 'Brill Palestine: The Legal Background'
+  interface_name: Brillonline
+  note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/
+  status: Available
+'99188917852806381':
+- collection_name: Digital South Asia Library
+  interface_name: Center for Research Libraries
+  note: Center for Research Libraries. Open access for all users.
+  link: http://dsal.uchicago.edu/index.html
+  status: Available
+'99188917854806381':
+- collection_name: ARTFL Project
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: http://artfl-project.uchicago.edu
   status: Available
