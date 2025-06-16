@@ -172,7 +172,7 @@ end
 #
 
 def ejournal?(context)
-  elec = context.clipboard[:ht][:hol_list].any? { |hol| hol[:library]&.include? "ELEC" }
+  elec = context.clipboard[:ht][:hol_list].any? { |hol| [hol[:library], hol["library"]].include? "ELEC" }
   form = context.output_hash["format"]
   elec and form&.include?("Serial")
 end
