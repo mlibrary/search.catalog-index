@@ -2865,7 +2865,7 @@
 '990163445020106381':
 - collection_name: Wards Intelligence.
   interface_name: Ward'sAuto
-  note: Ward'sAuto. Access to the Ward'sAuto online version restricted; authentication may be required.
+  note: Ward'sAuto. Access to the Ward's Intelligence online version restricted; authentication may be required.
   link: http://subscribers.wardsintelligence.com/
   status: Available
 '990159552960106381':
@@ -4507,7 +4507,7 @@
 - collection_name: ARTFL reference collection
   interface_name: University of Chicago Press
   note: University of Chicago Press.
-  link: https://artfl-project-uchicago-edu.proxy.lib.umich.edu/artfl-resources/artfl-reference-collection
+  link: https://artfl-project.uchicago.edu/artfl-resources/artfl-reference-collection
   status: Available
 '99187252619806381':
 - collection_name: Current Digest of the Russian Press (DA-CDRP)
@@ -4904,6 +4904,17 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.eastindiacompany.amdigital.co.uk/
   status: Available
+'99187252589706381':
+- collection_name: Bloomsbury Collections All Titles
+  interface_name: Bloomsbury Publishing Plc
+  note: Bloomsbury Publishing Plc. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.bloomsbury.com/dr/digital-resources/products/bloomsbury-collections/
+  status: Available
+- collection_name: Bloomsbury collections
+  interface_name: ''
+  note: ''
+  link: https://www.dramaonlinelibrary.com/critical-studies-and-performance-practice
+  status: Available
 '99187252590206381':
 - collection_name: 'Meiji Japan: The Edward Sylvester Morse Collection from the Peabody Essex Museum, Salem'
   interface_name: AM (Adam Matthew)
@@ -4985,7 +4996,7 @@
 '99187252603106381':
 - collection_name: Making of America Books
   interface_name: University of Michigan Library
-  note: University of Michigan Library.
+  note: University of Michigan Library. Open access for all users.
   link: https://quod.lib.umich.edu/m/moa/
   status: Available
 '99187252606206381':
@@ -6113,7 +6124,7 @@
 '99187252749706381':
 - collection_name: Web of Science Primary (SCIE, SSCI & AHCI)
   interface_name: Clarivate
-  note: Clarivate.
+  note: Clarivate. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.webofscience.com/
   status: Available
 '99187252749806381':
@@ -6637,7 +6648,7 @@
 '99187252559206381':
 - collection_name: Arts & Humanities Citation Index
   interface_name: Clarivate
-  note: Clarivate.
+  note: Clarivate. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.webofscience.com/wos/woscc/search-with-editions?editions=WOS.AHCI
   status: Available
 '99187252559306381':
@@ -7237,7 +7248,7 @@
 '99187252571006381':
 - collection_name: Social Sciences Citation Index
   interface_name: Clarivate
-  note: Clarivate.
+  note: Clarivate. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.webofscience.com/wos/woscc/search-with-editions?editions=WOS.SSCI
   status: Available
 '99187252571106381':
@@ -7285,7 +7296,7 @@
 '99187252571906381':
 - collection_name: Science Citation Index Expanded
   interface_name: Clarivate
-  note: Clarivate.
+  note: Clarivate. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.webofscience.com/wos/woscc/basic-searchhttps://www.webofscience.com/wos/woscc/search-with-editions?editions=WOS.SCI
   status: Available
 '99187252572106381':
@@ -7818,7 +7829,7 @@
 '99187252707006381':
 - collection_name: Book Citation Index
   interface_name: Clarivate
-  note: Clarivate.
+  note: Clarivate. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.webofscience.com/wos/ccc/basic-search
   status: Available
 '99187252707106381':
@@ -8526,7 +8537,7 @@
 '99187252721106381':
 - collection_name: 'ISI Proceedings: Science & Technology Proceedings'
   interface_name: Clarivate
-  note: Clarivate.
+  note: Clarivate. Authorized U-M users (+ guests in U-M Libraries)
   link: http://isiknowledge.com
   status: Available
 '99187252721206381':
@@ -8682,7 +8693,7 @@
 '99187252723906381':
 - collection_name: Zoological Record
   interface_name: Clarivate
-  note: Clarivate.
+  note: Clarivate. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.webofscience.com/wos/zoorec/basic-search
   status: Available
 '99187252724006381':
@@ -11744,67 +11755,67 @@
 - collection_name: De Gruyter Yale University Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99187937360606381':
 - collection_name: De Gruyter University of Toronto Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99187937360706381':
 - collection_name: De Gruyter University of Pennsylvania Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99187937361006381':
 - collection_name: De Gruyter Stanford University Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99187937362106381':
 - collection_name: De Gruyter Rutgers University Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99187937362206381':
 - collection_name: De Gruyter Princeton University Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99187937362506381':
 - collection_name: De Gruyter Penn State University Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99187937362706381':
 - collection_name: De Gruyter New York University Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99187937363206381':
 - collection_name: De Gruyter Harvard University Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99187937363306381':
 - collection_name: De Gruyter Fordham University Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99187937363506381':
 - collection_name: De Gruyter Edinburgh University Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99187937363606381':
 - collection_name: De Gruyter Cornell University Press Complete eBook-Package 2024
@@ -11822,7 +11833,7 @@
 - collection_name: De Gruyter University of Chicago Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99187937364406381':
 - collection_name: De Gruyter Berghahn Books Complete eBook-Package 2024
@@ -11960,12 +11971,6 @@
   interface_name: Coherent Digital
   note: Coherent Digital. Authorized U-M users (+ guests in U-M Libraries)
   link: https://southasiacommons.net/modules/history-and-culture/
-  status: Available
-'99187979361206381':
-- collection_name: 'Refugees, Relief, and Resettlement: The Early Cold War and Decolonization'
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/start.do?p=RRRW&u=umuser&aty=ip
   status: Available
 '99187979361406381':
 - collection_name: History of disabilities.
@@ -12432,25 +12437,25 @@
 - collection_name: De Gruyter University of Texas Press eBook-Package Backlist 2000-2013
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188040369306381':
 - collection_name: De Gruyter University of Texas Press Complete eBook-Package 2023
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188040370506381':
 - collection_name: De Gruyter University of Texas Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99188040372606381':
 - collection_name: De Gruyter University of Hawaii Press Complete eBook-Package 2024
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com/
+  link: https://www.degruyterbrill.com
   status: Available
 '99188040525906381':
 - collection_name: Church Missionary Society Archives
@@ -13290,103 +13295,103 @@
 - collection_name: De Gruyter Yale University Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403864006381':
 - collection_name: De Gruyter Vervuert Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403864106381':
 - collection_name: De Gruyter University of Toronto Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403864206381':
 - collection_name: De Gruyter University of Texas Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403864306381':
 - collection_name: De Gruyter University of Pennsylvania Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403864406381':
 - collection_name: De Gruyter University of Hawaii Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403864506381':
 - collection_name: De Gruyter University of Chicago Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403864606381':
 - collection_name: De Gruyter University of California Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403864706381':
 - collection_name: De Gruyter Stanford University Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403864806381':
 - collection_name: De Gruyter Rutgers University Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403864906381':
 - collection_name: De Gruyter Princeton University Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403865006381':
 - collection_name: De Gruyter Penn State University Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403865106381':
 - collection_name: De Gruyter New York University Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403865206381':
 - collection_name: De Gruyter Manchester University Press 2025 eBook-Package
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403865306381':
 - collection_name: De Gruyter Harvard University Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403865506381':
 - collection_name: De Gruyter Fordham University Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403865606381':
 - collection_name: De Gruyter Edinburgh University Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyter.com
+  link: https://www.degruyterbrill.com
   status: Available
 '99188403865706381':
 - collection_name: De Gruyter DG Plus DeG Package 2025 Part 1
@@ -14870,6 +14875,30 @@
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
   link: https://primarysources.brillonline.com/
   status: Available
+'99188924078706381':
+- collection_name: El Comercio Digital Archive
+  interface_name: ''
+  note: Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.eastview.com/resources/gpa/el-comercio/
+  status: Available
+'99188924078806381':
+- collection_name: Holos Ukrainy Digital Archive
+  interface_name: ''
+  note: Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.eastview.com/resources/gpa/holos-ukrainy/
+  status: Available
+'99188924079006381':
+- collection_name: Baghdad observer digital archive.
+  interface_name: ''
+  note: Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.eastview.com/resources/gpa/baghdad-observer/
+  status: Available
+'99188924085206381':
+- collection_name: 'Wiley Digital Archives: Royal College of Physicians Part I'
+  interface_name: Wiley Online Library
+  note: Wiley Online Library. Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://app.wileydigitalarchives.com/wiley
+  status: Available
 '99188917852806381':
 - collection_name: Digital South Asia Library
   interface_name: Center for Research Libraries
@@ -14878,7 +14907,163 @@
   status: Available
 '99188917854806381':
 - collection_name: ARTFL Project
-  interface_name: ''
-  note: Authorized U-M users (+ guests in U-M Libraries)
+  interface_name: University of Chicago Library
+  note: University of Chicago Library. Authorized U-M users (+ guests in U-M Libraries)
   link: http://artfl-project.uchicago.edu
+  status: Available
+'99188917855906381':
+- collection_name: ProQuest Government Documents
+  interface_name: ''
+  note: ''
+  link: https://www.proquest.com/index
+  status: Available
+'99188918041706381':
+- collection_name: De Gruyter University of Hawaii Press eBook Package 2000-2013
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918041806381':
+- collection_name: De Gruyter University of Hawaii Press eBook Package 2014-2016
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918041906381':
+- collection_name: De Gruyter University of Hawaii Press eBook Package 2016
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. The University of Hawaiʻi Press was founded in 1947, publishing research in all disciplines of the humanities and natural and social sciences in the regions of Asia and Pacific. The Press's core mission revolves around the acquisition of books and journals that support new scholarship, enhance student success, and nurture Native Hawaiian ways of learning. UH Press has an especially distinguished list in Asian studies and is recognized as a leader in the fields of Buddhist studies and Southeast Asian studies.
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918042006381':
+- collection_name: De Gruyter University of Hawaii Press eBook Package 2017
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918042106381':
+- collection_name: De Gruyter University of Hawaii Press eBook Package 2018
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918042206381':
+- collection_name: De Gruyter University of Hawaii Press eBook Package 2019
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918042406381':
+- collection_name: De Gruyter University of Hawaii Press eBook Package 2020
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918042506381':
+- collection_name: De Gruyter University of Hawaii Press Complete eBook-Package 2021
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918042706381':
+- collection_name: De Gruyter University of Hawaii Press Complete eBook-Package 2022
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918043106381':
+- collection_name: De Gruyter Edinburgh University Press Backlist eBook-Package 2013-2000
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918043206381':
+- collection_name: De Gruyter Edinburgh University Press Complete eBook-Package 2014-2015
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918043306381':
+- collection_name: De Gruyter Edinburgh University Press Complete eBook-Package 2016
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918043406381':
+- collection_name: De Gruyter Edinburgh University Press Complete eBook-Package 2017
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918043506381':
+- collection_name: De Gruyter Edinburgh University Press Complete eBook-Package 2018
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918043606381':
+- collection_name: De Gruyter Edinburgh University Press Complete eBook-Package 2019
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918043706381':
+- collection_name: De Gruyter Edinburgh University Press Complete eBook-Package 2020
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188918043806381':
+- collection_name: De Gruyter Edinburgh University Press Complete eBook-Package 2021
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188917749206381':
+- collection_name: ARTFL-FRANTEXT
+  interface_name: University of Chicago Press
+  note: University of Chicago Press. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://artfl-permalink.uchicago.edu/frantext
+  status: Available
+'99188924073106381':
+- collection_name: Springer Nature - Academic Journals on nature.com All
+  interface_name: SpringerNature
+  note: SpringerNature.
+  link: https://www.springernature.com
+  status: Available
+'99188927929006381':
+- collection_name: MIT Press Direct 2025 Trade Monographs
+  interface_name: Mit_Press
+  note: Mit_Press. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://direct.mit.edu/books
+  status: Available
+'99188927944606381':
+- collection_name: 'History of Disabilities: Disabilities in Society, Seventeenth to Twentieth Century'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/HODI?u=umuser
+  status: Available
+'99188928033806381':
+- collection_name: 'George H. W. Bush and Foreign Affairs: The Moscow Summit and the Dissolution of the USSR'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13sh/gdsc?u=umuser&sid=gdsc
+  status: Available
+'99188928034006381':
+- collection_name: 'George H. W. Bush and Foreign Affairs: The Middle East Peace Conference in Madrid'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/collection/13sk/gdsc?u=umuser&sid=gdsc
+  status: Available
+'99188928035206381':
+- collection_name: 'Refugees, Relief and Resettlement part 2: The Cold War'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/RRRW?u=umuser
+  status: Available
+'99188928040306381':
+- collection_name: A Global History of Epidemics, 1800-1970
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.globalhistoryofepidemics.amdigital.co.uk/
   status: Available
