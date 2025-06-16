@@ -59,6 +59,7 @@ class PhysicalItem(BaseModel):
     material_type: str | None
     reservable: bool
     physical_location: PhysicalLocation | None
+    url: str | None
 
 
 class PhysicalHolding(BaseModel):

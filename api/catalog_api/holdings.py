@@ -100,8 +100,9 @@ class PhysicalLocation:
 
 
 class PhysicalItem:
-    def __init__(self, physical_item_data: dict):
+    def __init__(self, physical_item_data: dict, bib_id: str):
         self.data = physical_item_data
+        self.bib_id = bib_id
 
     @property
     def item_id(self):
@@ -144,6 +145,10 @@ class PhysicalItem:
         return self.data.get("can_reserve")
 
     @property
+    def url(self):
+        return f"https://search.lib.umich.edu/catalog/record/{self.bib_id}/get-this/{self.barcode}"
+
+    @property
     def physical_location(self):
         return PhysicalLocation(
             url=self.data.get("info_link"),
@@ -156,8 +161,9 @@ class PhysicalItem:
 
 
 class PhysicalHolding:
-    def __init__(self, physical_holding_data: list):
+    def __init__(self, physical_holding_data: list, bib_id: str):
         self.data = physical_holding_data
+        self.bib_id = bib_id
 
     @property
     def holding_id(self):
@@ -188,7 +194,10 @@ class PhysicalHolding:
 
     @property
     def items(self):
-        return [PhysicalItem(item) for item in self.data.get("items", [])]
+        return [
+            PhysicalItem(item, bib_id=self.bib_id)
+            for item in self.data.get("items", [])
+        ]
 
 
 def kind_of_holding(holding_item: dict):
@@ -203,9 +212,9 @@ def kind_of_holding(holding_item: dict):
             return "physical"
 
 
-def physical_holdings(holdings_data: list) -> list[PhysicalHolding]:
+def physical_holdings(holdings_data: list, bib_id: str) -> list[PhysicalHolding]:
     return [
-        PhysicalHolding(holding_item)
+        PhysicalHolding(holding_item, bib_id=bib_id)
         for holding_item in holdings_data
         if kind_of_holding(holding_item) == "physical"
     ]
@@ -240,8 +249,9 @@ def hathi_trust_items(holdings_data: list) -> list[HathiTrustItem]:
 
 
 class Holdings:
-    def __init__(self, holdings_data: list):
+    def __init__(self, holdings_data: list, bib_id: str = ""):
         self.data = holdings_data
+        self.bib_id = bib_id
 
     @property
     def hathi_trust_items(self):
@@ -257,4 +267,4 @@ class Holdings:
 
     @property
     def physical(self):
-        return physical_holdings(self.data)
+        return physical_holdings(self.data, self.bib_id)

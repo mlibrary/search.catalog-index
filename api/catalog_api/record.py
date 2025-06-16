@@ -683,4 +683,4 @@ class Record(SolrDoc, MARC):
     @property
     def holdings(self):
         holdings_data = json.loads(self.data.get("hol"))
-        return Holdings(holdings_data)
+        return Holdings(holdings_data, bib_id=self.id)
