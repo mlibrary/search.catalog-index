@@ -1,10 +1,22 @@
 import pytest
+import pymarc
+import json
+import io
 from catalog_api.holdings import (
     PhysicalHolding,
     ElectronicItem,
     HathiTrustItem,
     AlmaDigitalItem,
 )
+
+
+@pytest.fixture
+def record():
+    bib = {}
+    with open("tests/fixtures/land_birds_solr.json") as data:
+        bib = json.load(data)
+    marc = bib["response"]["docs"][0]["fullrecord"]
+    return pymarc.parse_xml_to_array(io.StringIO(marc))[0]
 
 
 @pytest.fixture
@@ -54,6 +66,11 @@ def physical_holding(physical_holdings):
     return physical_holdings[0]
 
 
+@pytest.fixture
+def bib_id():
+    "9912345"
+
+
 class TestPhysicalHolding:
     fields = [
         ("holding_id", "hol_mmsid"),
@@ -63,12 +80,14 @@ class TestPhysicalHolding:
     ]
 
     @pytest.mark.parametrize("field,solr_field", fields)
-    def test_outer_fields(self, field, solr_field, physical_holding):
-        subject = PhysicalHolding(physical_holding, bib_id="9912345")
+    def test_outer_fields(self, field, solr_field, physical_holding, bib_id):
+        subject = PhysicalHolding(physical_holding, bib_id=bib_id, record=record)
         assert getattr(subject, field) == physical_holding[solr_field]
 
-    def test_physical_location(self, physical_holding):
-        subject = PhysicalHolding(physical_holding, bib_id="9912345").physical_location
+    def test_physical_location(self, physical_holding, bib_id):
+        subject = PhysicalHolding(
+            physical_holding, bib_id=bib_id, record=record
+        ).physical_location
         assert subject.url == physical_holding["info_link"]
         assert subject.text == physical_holding["display_name"]
         assert subject.floor == physical_holding["floor_location"]
@@ -90,21 +109,37 @@ class TestPhysicalHolding:
     ]
 
     @pytest.mark.parametrize("field,solr_field", item_fields)
-    def test_items_is_a_list_of_items(self, field, solr_field, physical_holding):
-        subject = PhysicalHolding(physical_holding, bib_id="9912345").items[0]
+    def test_items_is_a_list_of_items(
+        self, field, solr_field, physical_holding, bib_id, record
+    ):
+        subject = PhysicalHolding(physical_holding, bib_id=bib_id, record=record).items[
+            0
+        ]
         expected = physical_holding["items"][0][solr_field]
         assert getattr(subject, field) == expected
 
-    def test_item_has_get_this_url(self, physical_holding):
+    def test_item_has_get_this_url(self, physical_holding, bib_id, record):
         item = physical_holding["items"][0]
-        bib_id = "9912345"
-        subject = PhysicalHolding(physical_holding, bib_id=bib_id).items[0]
+        subject = PhysicalHolding(physical_holding, bib_id=bib_id, record=record).items[
+            0
+        ]
         expected = f"https://search.lib.umich.edu/catalog/record/{bib_id}/get-this/{item['barcode']}"
         assert subject.url == expected
 
-    def test_item_has_a_physical_location(self, physical_holding):
+    def test_item_has_request_this_url(self, physical_holding, bib_id, record):
+        item = physical_holding["items"][0]
+        item["can_reserve"] = True
+        expected = f"https://search.lib.umich.edu/catalog/record/{bib_id}/get-this/{item['barcode']}"
+        subject = PhysicalHolding(physical_holding, bib_id=bib_id, record=record).items[
+            0
+        ]
+        assert subject.url != expected
+
+    def test_item_has_a_physical_location(
+        self, physical_holding, bib_id, record=record
+    ):
         subject = (
-            PhysicalHolding(physical_holding, bib_id="9912345")
+            PhysicalHolding(physical_holding, bib_id=bib_id, record=record)
             .items[0]
             .physical_location
         )
