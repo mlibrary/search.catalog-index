@@ -1,6 +1,7 @@
 import pytest
 import json
 import pymarc
+import io
 import string
 from catalog_api.record import Record, MARC, SolrDoc, FieldElement
 from dataclasses import asdict
@@ -72,6 +73,26 @@ class TestRecord:
         solr_bib.pop("hlb3Delimited")
         subject = Record(solr_bib)
         assert subject.academic_discipline == []
+
+    def test_marc(self, solr_bib):
+        record = pymarc.record.Record()
+        field = pymarc.Field(
+            tag="245",
+            indicators=pymarc.Indicators("0", "1"),
+            subfields=[
+                pymarc.Subfield(code="a", value="The pragmatic programmer : "),
+                pymarc.Subfield(code="b", value="from journeyman to master /"),
+                pymarc.Subfield(code="c", value="Andrew Hunt, David Thomas."),
+            ],
+        )
+
+        record.add_field(field)
+
+        xml = pymarc.record_to_xml(record)
+        solr_bib["fullrecord"] = xml.decode("UTF8")
+
+        subject = Record(solr_bib)
+        assert (subject.marc) == json.loads(record.as_json())
 
 
 class TestSolrDoc:
