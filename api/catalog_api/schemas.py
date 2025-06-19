@@ -117,6 +117,7 @@ class Record(BaseModel):
     contents: list[PairedTextField]
     bookplate: list[BareTextField]
     indexing_date: datetime.date
+    marc: dict
 
 
 class Response(BaseModel):

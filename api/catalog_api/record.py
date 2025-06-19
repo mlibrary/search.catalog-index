@@ -4,6 +4,7 @@ import pymarc
 import io
 import re
 import string
+import json
 from dataclasses import dataclass
 from collections.abc import Callable
 
@@ -673,3 +674,7 @@ class Record(SolrDoc, MARC):
         self.record = pymarc.parse_xml_to_array(io.StringIO(data["fullrecord"]))[0]
         SolrDoc.__init__(self, data)
         MARC.__init__(self, self.record)
+
+    @property
+    def marc(self):
+        return json.loads(self.record.as_json())
