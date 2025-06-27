@@ -8,6 +8,7 @@ from catalog_api.record import (
     MARC,
     SolrDoc,
     FieldElement,
+    PairedField,
     TaggedCitation,
     FieldRuleset,
 )
@@ -1244,7 +1245,9 @@ def marc_mapping():
 class TestTaggedCitation:
     def test_to_list_for_base_paired_field(self, base_mapping, empty_marc_record):
         base_record_stub = BaseRecordFake(
-            field_name=[{"original": {"text": "CONTENT STRING"}}]
+            field_name=[
+                PairedField(original=FieldElement(text="CONTENT STRING", tag=None))
+            ],
         )
         expected = [{"content": "CONTENT STRING", "ris": ["EX"], "meta": ["example"]}]
         subject = TaggedCitation(
@@ -1257,11 +1260,11 @@ class TestTaggedCitation:
     ):
         base_record_stub = BaseRecordFake(
             field_name=[
-                {"original": {"text": "CONTENT1"}},
-                {
-                    "original": {"text": "CONTENT2"},
-                    "transliterated": {"text": "TCONTENT2"},
-                },
+                PairedField(original=FieldElement(text="CONTENT1", tag=None)),
+                PairedField(
+                    original=FieldElement(text="CONTENT2", tag=None),
+                    transliterated=FieldElement(text="TCONTENT2", tag=None),
+                ),
             ]
         )
 
@@ -1288,7 +1291,9 @@ class TestTaggedCitation:
         ) == expected
 
     def test_to_list_base_text_list(self, base_mapping, empty_marc_record):
-        base_record_stub = BaseRecordFake(field_name=[{"text": "CONTENT STRING"}])
+        base_record_stub = BaseRecordFake(
+            field_name=[FieldElement(text="CONTENT STRING", tag=None)]
+        )
 
         expected = [{"content": "CONTENT STRING", "ris": ["EX"], "meta": ["example"]}]
         subject = TaggedCitation(

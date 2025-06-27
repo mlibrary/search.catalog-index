@@ -680,12 +680,10 @@ class BaseRecord(SolrDoc, MARC):
     def marc(self):
         return json.loads(self.record.as_json())
 
-<<<<<<< HEAD
     @property
     def holdings(self):
         holdings_data = json.loads(self.data.get("hol"))
         return Holdings(holdings_data, bib_id=self.id, record=self.record)
-=======
 
 class TaggedCitation:
     TAG_MAPPING = [
@@ -713,10 +711,10 @@ class TaggedCitation:
         for field_value in field_content_list:
             if type(field_value) is str:
                 result.append(field_value)
-            elif "original" in field_value.keys():
-                result.append(field_value["original"]["text"])
+            elif hasattr(field_value, "original"):
+                result.append(field_value.original.text)
             else:
-                result.append(field_value["text"])
+                result.append(field_value.text)
         return result
 
     def get_marc_content(self, element):
@@ -754,6 +752,11 @@ class Record(BaseRecord):
         self.record = pymarc.parse_xml_to_array(io.StringIO(data["fullrecord"]))[0]
         BaseRecord.__init__(self, data)
 
+    @property
     def citation(self):
+<<<<<<< HEAD
         return {"tagged": TaggedCitation(marc_record=self.record, base_record=self)}
 >>>>>>> d2725b6 (WIP tagged citations)
+=======
+        return Citation(marc_record=self.record, base_record=self)
+>>>>>>> 5e42fa3 (things were objects not dicts)
