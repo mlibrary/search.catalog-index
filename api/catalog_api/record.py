@@ -669,7 +669,7 @@ class FieldRuleset:
         return " ".join(field.get_subfields(*tuple(subfields)))
 
 
-class Record(SolrDoc, MARC):
+class BaseRecord(SolrDoc, MARC):
     def __init__(self, data: dict):
         self.data = data
         self.record = pymarc.parse_xml_to_array(io.StringIO(data["fullrecord"]))[0]
@@ -680,7 +680,80 @@ class Record(SolrDoc, MARC):
     def marc(self):
         return json.loads(self.record.as_json())
 
+<<<<<<< HEAD
     @property
     def holdings(self):
         holdings_data = json.loads(self.data.get("hol"))
         return Holdings(holdings_data, bib_id=self.id, record=self.record)
+=======
+
+class TaggedCitation:
+    TAG_MAPPING = [
+        {"kind": "base", "field": "series", "ris": ["T3"], "meta": ["series_title"]}
+    ]
+
+    def __init__(self, marc_record, base_record):
+        self.marc_record = marc_record
+        self.base_record = base_record
+
+    def get_result(self, element):
+        if element["kind"] == "base":
+            contents = self.get_base_content(element)
+        else:
+            contents = self.get_marc_content(element)
+
+        return [
+            {"content": content, "ris": element["ris"], "meta": element["meta"]}
+            for content in contents
+        ]
+
+    def get_base_content(self, element):
+        field_content_list = getattr(self.base_record, element["field"])
+        result = []
+        for field_value in field_content_list:
+            if type(field_value) is str:
+                result.append(field_value)
+            elif "original" in field_value.keys():
+                result.append(field_value["original"]["text"])
+            else:
+                result.append(field_value["text"])
+        return result
+
+    def get_marc_content(self, element):
+        ruleset = element["ruleset"]
+        result = []
+        for field in self.marc_record.get_fields(*ruleset.tags):
+            if ruleset.has_any_subfields(field):
+                result.append(ruleset.value_for(field).text)
+        return result
+
+    def to_list(self, tag_mapping=TAG_MAPPING):
+        result = []
+        for element in tag_mapping:
+            for x in self.get_result(element):
+                result.append(x)
+
+        return result
+
+
+class Citation:
+    def __init__(self, marc_record, base_record):
+        self.marc_record = marc_record
+        self.base_record = base_record
+
+    @property
+    def tagged(self):
+        return TaggedCitation(
+            marc_record=self.marc_record, base_record=self.base_record
+        ).to_list()
+
+
+class Record(BaseRecord):
+    def __init__(self, data: dict):
+        self.data = data
+        self.record = pymarc.parse_xml_to_array(io.StringIO(data["fullrecord"]))[0]
+        BaseRecord.__init__(self, data)
+
+    def citation(self):
+        return {"tagged": TaggedCitation(marc_record=self.record, base_record=self)}
+>>>>>>> d2725b6 (WIP tagged citations)
