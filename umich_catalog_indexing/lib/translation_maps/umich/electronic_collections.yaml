@@ -16,42 +16,6 @@
   note: Kanopy. Flint. Access to films not already licensed is mediated. You may be prompted to make a request for a film to be added. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.kanopy.com/en/umflint/
   status: Available
-'990135303450106381':
-- collection_name: 'Conscientious objection during World War 1 : War resisters in Britain, 1914-1918.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/55/conscientious-objection-during-the-world-war-1
-  status: Available
-'990135303420106381':
-- collection_name: 'Scottish women''s suffrage movement, 1902-1933 : Glasgow women''s suffrage movement, 1902-1933.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/52/scottish-womens-suffrage-movement-1902-1933
-  status: Available
-'990135303370106381':
-- collection_name: 'British women trade unionists on strike at Bryant & May, 1888 : Bryant & May matchwomen''s strike, 1888.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/53/british-women-trade-unionists-on-strike-at-bryant-may-1888
-  status: Available
-'990135303340106381':
-- collection_name: 'Gambia under colonial rule, in Government reports, 1881-1966 : annual departmental reports relating to the Gambia, 1881-1966.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/56/gambia-under-colonial-rule-in-government-reports-1881-1966
-  status: Available
-'990135302980106381':
-- collection_name: 'British Army Lists of Officers, 1740-1784 : Annual British Army lists, 1740-1784.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/57/british-army-lists-of-officers-1740-1784
-  status: Available
-'990135302890106381':
-- collection_name: 'American prisoners of war, 1812-1815: Americans taken prisoner during the 1812 War.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/58/american-prisoners-of-war-1812-1815
-  status: Available
 '990135302770106381':
 - collection_name: 'MarinLit : a database of the marine natural products literature /'
   interface_name: Royal Society of Chemistry
@@ -319,23 +283,11 @@
   note: Chemical Abstracts Service. Access requires personal registration. Authorized U-M users (+ guests in U-M Libraries)
   link: https://scifinder-n.cas.org/
   status: Available
-'990149917830106381':
-- collection_name: 'Brazilian and Portuguese History and Culture: The Oliveira Lima Library'
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://infotrac.galegroup.com/itweb/umuser?db=BPHC
-  status: Available
 '990149915250106381':
 - collection_name: NEJM resident 360
   interface_name: New England journal of medicine
-  note: New England journal of medicine. Access to the New England journal of medicine online version restricted; authentication may be required.
+  note: New England journal of medicine. Information page. Discontinued as of January 15, 2025. See NEJM Group publication websites for relevant content.
   link: http://resident360.nejm.org/
-  status: Available
-'990176203390106381':
-- collection_name: 'Public health archives : public health in modern America, 1890-1970.'
-  interface_name: Gale (Firm)
-  note: Gale (Firm) Authorized U-M users (+ guests in U-M Libraries)
-  link: https://infotrac.gale.com/itweb/umuser?db=PHIA
   status: Available
 '990176825640106381':
 - collection_name: Birds of the world /
@@ -492,18 +444,6 @@
   note: Readex. Authorized U-M users (+ guests in U-M Libraries)
   link: https://infoweb.newsbank.com/apps/readex/?p=EANX
   status: Available
-'990173935050106381':
-- collection_name: 'American records in the House of Lords archive, 1621-1917 : American Papers in the House of Lords Record Office, 1621-1917.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/67/american-records-in-the-house-of-lords-archive-1621-1917
-  status: Available
-'990173935020106381':
-- collection_name: "'Black schools' in Canada, America and the Bahamas, 1645-1900 : the archives of the Associates of Dr Bray to 1900."
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/30/black-schools-in-canada-america-and-the-bahamas-1645-1900
-  status: Available
 '990127237830106381':
 - collection_name: Minguo shi qi qi kan quan wen shu ju ku (1911-1949).
   interface_name: National index to Chinese newspapers and periodicals
@@ -645,12 +585,6 @@
   note: Access via ProQuest restricted; authentication may be required.
   link: http://collections.chadwyck.com/home/home_cp.jsp
   status: Available
-'990154997630106381':
-- collection_name: 'Military intelligence files: land, sea & air, 1938-1974 : Cold War and World War Two intelligence from the British Army, Navy and RAF.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/78/military-intelligence-files-land-sea-air-1938-1974
-  status: Available
 '990106727780106381':
 - collection_name: Bridgeman education
   interface_name: Bridgeman
@@ -666,7 +600,7 @@
 '990127127180106381':
 - collection_name: Lexicons of Early Modern English LEME.
   interface_name: University of Toronto Libraries
-  note: University of Toronto Libraries.
+  note: University of Toronto Libraries. Open access for all users.
   link: https://leme.library.utoronto.ca/
   status: Available
 '990076102090106381':
@@ -728,24 +662,6 @@
   interface_name: online
   note: online. Access to the online version restricted; authentication may be required.
   link: http://english.victorianperiodicals.com/series3/index.asp
-  status: Available
-'990165200020106381':
-- collection_name: 'Colonial Law in Africa, 1946-1966 : African Government Gazettes, 1946-1966.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/80/colonial-law-in-africa-1946-1966
-  status: Available
-'990165200010106381':
-- collection_name: 'Colonial Law in Africa, 1920-1945 : African Government Gazettes, 1920-1945.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/79/colonial-law-in-africa-1920-1945
-  status: Available
-'990165199820106381':
-- collection_name: 'Colonial Law in Africa, 1808-1919 : African Government Gazettes, 1808-1919.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/77/colonial-law-in-africa-1808-1919
   status: Available
 '990059669860106381':
 - collection_name: Chao xing shu zi tu shu guan Chinamaxx digital library of Chinese e-books.
@@ -839,8 +755,8 @@
   status: Available
 '990178024480106381':
 - collection_name: NEJM journal watch.
-  interface_name: NEJM Group
-  note: NEJM Group. Access to the NEJM Group online version restricted; authentication may be required.
+  interface_name: Massachusetts Medical Society
+  note: Massachusetts Medical Society. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.jwatch.org/
   status: Available
 '990161346340106381':
@@ -931,12 +847,6 @@
   interface_name: ''
   note: Connect to online database; access restricted to subscribers.
   link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=bth
-  status: Available
-'990052372170106381':
-- collection_name: The African American years
-  interface_name: Gale Virtual Reference Library
-  note: Gale Virtual Reference Library. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://go.galegroup.com/ps/i.do?id=GALE%7C9780684314297&v=2.1&u=lom_umichanna&it=etoc&p=GVRL&sw=w
   status: Available
 '990113871370106381':
 - collection_name: Library literature & information science full text (H.W. Wilson)
@@ -1175,30 +1085,6 @@
   note: Reaxys. Access to the Reaxys online version retricted; authentication may be required.
   link: https://new.reaxys.com/
   status: Available
-'990049451000106381':
-- collection_name: Modern American literature
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://go.galegroup.com/ps/i.do?id=GALE%7C9781558625372&v=2.1&u=umuser&it=etoc&p=GVRL&sw=w
-  status: Available
-'990049450970106381':
-- collection_name: Reference guide to world literature
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://go.galegroup.com/ps/i.do?id=GALE%7C9781558625341&v=2.1&u=umuser&it=etoc&p=GVRL&sw=w
-  status: Available
-'990049450960106381':
-- collection_name: International dictionary of films and filmmakers
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://go.galegroup.com/ps/i.do?id=GALE%7C9781558625334&v=2.1&u=umuser&it=etoc&p=GVRL&sw=w
-  status: Available
-'990049450950106381':
-- collection_name: Reference guide to holocaust literature
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://go.galegroup.com/ps/i.do?id=GALE%7C9781558625310&v=2.1&u=umuser&it=etoc&p=GVRL&sw=w
-  status: Available
 '990050668220106381':
 - collection_name: Communication & mass media complete
   interface_name: EBSCOhost
@@ -1234,12 +1120,6 @@
   interface_name: Brepolis
   note: Brepolis. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.brepolsonline.net/
-  status: Available
-'990111931310106381':
-- collection_name: John Milton a bibliography.
-  interface_name: Iter
-  note: Iter. Access to the Iter online version restricted; authentication may be required.
-  link: http://cf.itergateway.org/mrts/milton/
   status: Available
 '990033138960106381':
 - collection_name: The NASA astrophysics data system
@@ -1425,78 +1305,6 @@
   note: Royal Society of Chemistry. Access to the Royal Society of Chemistry online version restricted; authentication may be required.
   link: https://www.rsc.org/Publishing/CurrentAwareness/DOSE/DOSESearchPage.cfm
   status: Available
-'990149246190106381':
-- collection_name: 'Uganda under colonial rule, in Government reports, 1903-1961 : annual departmental reports relating to Uganda, 1903-1961.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/64/uganda-under-colonial-rule-in-government-reports-1903-1961
-  status: Available
-'990149246120106381':
-- collection_name: 'Slavery: supporters and abolitionists, 1675-1865 : Slavery: advocacy & opposition, 1675-1865.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/69/slavery-supporters-and-abolitionists-1675-1865
-  status: Available
-'990149246110106381':
-- collection_name: 'Ghana and Togo under colonial rule, in Government reports, 1843-1957 : Annual departmental reports relating to the Gold Coast and Togoland, 1843-1957.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/71/ghana-and-togo-under-colonial-rule-in-government-reports-1843-1957
-  status: Available
-'990149246090106381':
-- collection_name: 'Scottish nationalist leaflets, 1844-1973 : pamphlets relating to Scottish nationalism, 1844-1973.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/70/scottish-nationalist-leaflets-1844-1973
-  status: Available
-'990149246070106381':
-- collection_name: 'Canada, America & the West Indies imports and exports to the UK, 1678-1825 : Naval Office shipping lists, 1678-1825.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/68/canada-america-the-west-indies-imports-and-exports-to-the-uk-1678-1825
-  status: Available
-'990149246040106381':
-- collection_name: 'Malawi under colonial rule, in Government reports, 1907-1967 : annual departmental reports relating to Nyasaland, 1907-1967 /'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/23/malawi-under-colonial-rule-in-government-reports-1907-1967
-  status: Available
-'990149246030106381':
-- collection_name: 'Sierra Leone under colonial rule, in Government reports, 1893-1961 : annual departmental reports relating to Sierra Leone, 1893-1961.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/62/sierra-leone-under-colonial-rule-in-government-reports-1893-1961
-  status: Available
-'990149246000106381':
-- collection_name: 'Nigeria and Cameroon under colonial rule, in Government reports, 1887-1962 : annual departmental reports relating to Nigeria and British Cameroons, 1887-1962.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/75/nigeria-and-cameroon-under-colonial-rule-in-government-reports-1887-1962
-  status: Available
-'990149245980106381':
-- collection_name: 'Kenya under colonial rule, in Government reports, 1907-1964 : annual departmental reports relating to Kenya, 1907-1964.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/72/kenya-under-colonial-rule-in-government-reports-1907-1964
-  status: Available
-'990149194910106381':
-- collection_name: 'Asia at war, World War 2 as described by USPG missionaries, 1914-1946 : war material in the USPG archives, 1914-1946.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/61/asia-at-war-world-war-2-as-described-by-uspg-missionaries-1914-1946
-  status: Available
-'990149194620106381':
-- collection_name: 'The American Revolution from a British Perspective, 1763-1783 : British pamphlets relating to the American Revolution, 1764-1783.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/66/the-american-revolution-from-a-british-perspective-1763-1783
-  status: Available
-'990149194310106381':
-- collection_name: 'Zimbabwe under colonial rule, in Government reports, 1897-1980 : annual departmental reports relating to Southern Rhodesia, 1897-1980.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/65/zimbabwe-under-colonial-rule-in-government-reports-1897-1980
-  status: Available
 '990127495240106381':
 - collection_name: NATLEX
   interface_name: International Labour Organisation
@@ -1549,18 +1357,6 @@
   interface_name: National Library of Medicine (U.S.)
   note: National Library of Medicine (U.S.) Access to the National Library of Medicine (U.S.) online version.
   link: https://www.nlm.nih.gov/toxnet
-  status: Available
-'990034409010106381':
-- collection_name: DDRS-US online
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://galenet.galegroup.com/servlet/DDRS?locID=umuser
-  status: Available
-'990034407330106381':
-- collection_name: Iter gateway to the Middle Ages and Renaissance.
-  interface_name: Iter gateway
-  note: Iter gateway. Access to the Iter gateway online version restricted (authentication may be required)
-  link: http://www.itergateway.org/
   status: Available
 '990051486550106381':
 - collection_name: 'Research Connections: Child Care & Early Education'
@@ -1705,18 +1501,6 @@
   interface_name: SimplyAnalytics
   note: SimplyAnalytics. 5 concurrent user limit. Some website features require a personal account. Authorized U-M users (+ guests in U-M Libraries)
   link: http://app.simplyanalytics.com/
-  status: Available
-'990053792520106381':
-- collection_name: Contemporary American religion
-  interface_name: Gale Virtual Reference Library
-  note: Gale Virtual Reference Library. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://galenet.galegroup.com/servlet/eBooks?ste=22&docNum=CX3401399999&q=umuser
-  status: Available
-'990053781960106381':
-- collection_name: 'American women writers : a critical reference guide : from colonial times to the present /'
-  interface_name: Gale Virtual Reference Library
-  note: Gale Virtual Reference Library. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://find.galegroup.com/gvrl/aboutEbook.do?prodId=GVRL&userGroupName=umuser&actionString=DO_DISPLAY_ABOUT_PAGE&eisbn=1558625380&searchType=PublicationSearchForm
   status: Available
 '990040091610106381':
 - collection_name: Water resources abstracts WRA.
@@ -1957,23 +1741,6 @@
   note: Gale/Cengage Learning. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/SPOL?u=umuser
   status: Available
-'990079966690106381':
-- collection_name: 'Slavery and Anti-Slavery, Part IV: The Age of Emancipation'
-  interface_name: Gale (Firm)
-  note: Gale (Firm) Authorized U-M users (+ guests in U-M Libraries)
-  link: http://find.galegroup.com/sas/dispBasicSearch.do?prodId=SAS&userGroupName=umuser
-  status: Available
-- collection_name: 'Slavery and Anti-Slavery, Part II: Slave Trade in the Atlantic World'
-  interface_name: Gale (Firm)
-  note: Gale (Firm) Authorized U-M users (+ guests in U-M Libraries)
-  link: http://find.galegroup.com/sas/dispBasicSearch.do?prodId=SAS&userGroupName=umuser
-  status: Available
-'990149073220106381':
-- collection_name: 'British Labour Party papers, 1906-1969 : Parliamentary Labour Party papers, 1906-1968.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/74/british-labour-party-papers-1906-1969
-  status: Available
 '990149056920106381':
 - collection_name: PsycTHERAPY.
   interface_name: American Psychological Association
@@ -2171,12 +1938,6 @@
   note: BrillOnline primary sources. Access to the BrillOnline primary sources online version restricted; authentication may be required.
   link: https://referenceworks.brillonline.com/browse/geschichte-des-globalen-christentums-online
   status: Available
-'990149008800106381':
-- collection_name: 'Independent Labour Party records, 1893-1960 : Independent Labour Party: formation and development.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/60/independent-labour-party-records-1893-1960
-  status: Available
 '990147288920106381':
 - collection_name: 'Kyobo Mun''go sŭk''olla : Kyobo Mun''go ka mandŭn kungnae haksul nonmun chŏnmun sait''ŭ.'
   interface_name: Kyobo Book Centre
@@ -2201,59 +1962,17 @@
   note: NTIS. Full text reports that are not available freely online. A patron can request it, NTRL will locate the report itself and send it to them; access to the NTIS online version restricted; some authentication may be required.
   link: https://ntrl.ntis.gov/NTRL/
   status: Available
-'990135670290106381':
-- collection_name: 'British parliamentary History, 1102-1803 : Pre-Hansard parliamentary papers, 1102-1803.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/54/british-parliamentary-history-1102-1803
-  status: Available
-'990053895220106381':
-- collection_name: International dictionary of films and filmmakers
-  interface_name: Gale Virtual Reference Library
-  note: Gale Virtual Reference Library. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://galenet.galegroup.com/servlet/eBooks?ste=22&docNum=CX3406899999&q=umuser
-  status: Available
-'990053895050106381':
-- collection_name: Historical atlas of the Islamic world
-  interface_name: Gale Virtual Reference Library
-  note: Gale Virtual Reference Library. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://galenet.galegroup.com/servlet/eBooks?ste=22&docNum=CX3455499999&q=umuser
-  status: Available
-'990053887850106381':
-- collection_name: Encyclopedia of science and religion /
-  interface_name: Gale Virtual Reference Library
-  note: Gale Virtual Reference Library. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://libproxy.umflint.edu:2048/login?url=http://find.galegroup.com/gvrl/aboutEbook.do?prodId=GVRL&userGroupName=umuser&actionString=DO_DISPLAY_ABOUT_PAGE&eisbn=0028659112&searchType=PublicationSearchForm
-  status: Available
 '990053886580106381':
 - collection_name: Encyclopedia of philosophy
   interface_name: Gale Virtual Reference Library
   note: Gale Virtual Reference Library. Authorized U-M users (+ guests in U-M Libraries)
   link: https://galenet.galegroup.com/servlet/eBooks?ste=22&docNum=CX3446899999&q=umuser
   status: Available
-'990053886500106381':
-- collection_name: Encyclopedia of Islam and the Muslim world
-  interface_name: Gale Virtual Reference Library
-  note: Gale Virtual Reference Library. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://galenet.galegroup.com/servlet/eBooks?ste=22&docNum=CX3403599999&q=umuser
-  status: Available
-'990053883850106381':
-- collection_name: Encyclopedia of aging
-  interface_name: Gale Virtual Reference Library
-  note: Gale Virtual Reference Library. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://galenet.galegroup.com/servlet/eBooks?ste=22&docNum=CX3402299999&q=umuser
-  status: Available
 '990098673950106381':
 - collection_name: African writers series
   interface_name: online
   note: online. Access to the online version restricted; authentication may be required.
   link: http://collections.chadwyck.com/home/home_aws.jsp
-  status: Available
-'990098672400106381':
-- collection_name: World scholar.
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://infotrac.galegroup.com/itweb/umuser?db=LAC
   status: Available
 '990069591380106381':
 - collection_name: DynaMed
@@ -2457,297 +2176,6 @@
   interface_name: Princeton University Pierpont Morgan Library
   note: Princeton University Pierpont Morgan Library. Access to the Princeton University Pierpont Morgan Library online version.
   link: http://corsair.morganlibrary.org/ICAIntro/ICAintroshortdesc.htm
-  status: Available
-'990134459400106381':
-- collection_name: 'Liverpool shipping records: imports and exports, 1820-1900 : Liverpool customs bills of entry, 1820-1900.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/50/liverpool-shipping-records-imports-and-exports-1820-1900-part-4
-  status: Available
-- collection_name: 'Liverpool shipping records: imports and exports, 1820-1900 : Liverpool customs bills of entry, 1820-1900.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/49/liverpool-shipping-records-imports-and-exports-1820-1900-part-3
-  status: Available
-- collection_name: 'Liverpool shipping records: imports and exports, 1820-1900 : Liverpool customs bills of entry, 1820-1900.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/46/liverpool-shipping-records-imports-and-exports-1820-1900-part-2
-  status: Available
-- collection_name: 'Liverpool shipping records: imports and exports, 1820-1900 : Liverpool customs bills of entry, 1820-1900.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/44/liverpool-shipping-records-imports-and-exports-1820-1900-part-1
-  status: Available
-'990134463350106381':
-- collection_name: 'West Indies in Records from colonial missionaries, 1704-1950 : West Indies material in the archives of the USPG, 1704-1950.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/22/the-west-indies-in-records-from-colonial-missionaries-1704-1950
-  status: Available
-'990134463340106381':
-- collection_name: Wesleyan and Primitive Methodist periodicals, 1744-1960.
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/3/wesleyan-and-primitive-methodist-periodicals-1744-1960
-  status: Available
-'990134463330106381':
-- collection_name: 'British officers'' diaries from World War 1, 1914-1919 : war diaries from the Imperial War Museum : the Great War.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/35/british-officers-diaries-from-world-war-1-1914-1919
-  status: Available
-'990134463310106381':
-- collection_name: 'Tanzania and Malawi in records from colonial missionaries, 1857-1965 : Universities'' Mission to Central Africa.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/29/tanzania-and-malawi-in-records-from-colonial-missionaries-1857-1965
-  status: Available
-'990134463290106381':
-- collection_name: 'Antigua, slavery and emancipation in the records of a sugar plantation, 1689-1907 : Tudway of Wells Antiguan estate papers, 1689-1907.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/45/antigua-slavery-and-emancipation-in-the-records-of-a-sugar-plantation-1689-1907
-  status: Available
-'990134463270106381':
-- collection_name: 'Trade unionist, electoral reformist and politican: George Howell, 1833-1910 : the selected papers of George Howell, 1833-1910.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/38/trade-unionist-electoral-reformist-and-politican-george-howell-1833-1910
-  status: Available
-'990134463260106381':
-- collection_name: 'Slave trading records from William Davenport & Co., 1745-1797 : The papers of William Davenport & Co., 1745-1797.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/12/slave-trading-records-from-william-davenport-co-1745-1797
-  status: Available
-'990134463240106381':
-- collection_name: 'The Middle East, its division into countries and the creation of Israel, 1879-1919 : The papers of Sir Mark Sykes, 1879-1919 : the Sykes-Picot Agreement & the Middle East.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/13/the-middle-east-its-division-into-countries-and-the-creation-of-israel-1879-1919
-  status: Available
-'990134463230106381':
-- collection_name: 'Indian Communists and Trade Unionists on Trial: The Meerut Conspiracy, 1929-1933 : the Meerut conspiracy trial, 1929-1933.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/36/indian-communists-and-trade-unionists-on-trial-the-meerut-conspiracy-1929-1933
-  status: Available
-'990134463220106381':
-- collection_name: 'India, uprising and reform 1879 to 1910: in the records of the Governor-General : the Indian papers of the 4th Earl of Minto.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/33/india-uprising-and-reform-1879-to-1910-in-the-records-of-the-governor-general
-  status: Available
-'990134463210106381':
-- collection_name: 'Taking India, how the military established Company rule, 1752-1774 : the Indian papers of Colonel Clive and Brigadier-General Carnac, 1752-1774.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/20/taking-india-how-the-military-established-company-rule-1752-1774
-  status: Available
-'990134462950106381':
-- collection_name: 'British diplomacy with America and Ireland, an Ambassador''s letters, 1909-1962 : the correspondence of Arthur C. Murray, 3rd Viscount Elibank.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/4/british-diplomacy-with-america-and-ireland-an-ambassadors-letters-1909-1962
-  status: Available
-'990134462770106381':
-- collection_name: 'Canada, between the US and Empire, 1883-1904: in the papers of the Governor-General : the Canadian papers of the 4th Earl of Minto.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/34/canada-between-the-us-and-empire-1883-1904-in-the-papers-of-the-governor-general
-  status: Available
-'990134462740106381':
-- collection_name: 'The British Union of Fascists: newspapers and secret files, 1933-1951 : fascism in Britain 1933-1951.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/9/the-british-union-of-fascists-newspapers-and-secret-files-1933-1951
-  status: Available
-'990134462700106381':
-- collection_name: 'Military tactics discussed in letters to and from military leaders, 1881-1935 : Spenser Wilkinson papers, 1881-1935.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/42/military-tactics-discussed-in-letters-to-and-from-military-leaders-1881-1935
-  status: Available
-'990134462690106381':
-- collection_name: 'Indian and Sri Lankan records from colonial missionaries, 1770-1931 : South Asian records of the USPG.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/28/indian-and-sri-lankan-records-from-colonial-missionaries-1770-1931
-  status: Available
-'990134462670106381':
-- collection_name: 'South American missionaries'' records, 1844-1919 : missionary records from South America, 1844-1919.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/17/south-american-missionaries-records-1844-1919
-  status: Available
-'990134462620106381':
-- collection_name: 'South Africa in records from colonial missionaries, 1819-1900 : South African archives of the USPG.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/43/south-africa-in-records-from-colonial-missionaries-1819-1900
-  status: Available
-'990134459740106381':
-- collection_name: 'South Africa under Apartheid, reports and research by a journalist, 1949-1995 : Selected papers from the personal library of Colin Legum, 1949-1995.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/40/south-africa-under-apartheid-reports-and-research-by-a-journalist-1949-1995
-  status: Available
-'990134459730106381':
-- collection_name: 'Slave trade records from Liverpool, 1754-1792 : records relating to the slave trade at the Liverpool Record Office.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/5/slave-trade-records-from-liverpool-1754-1792
-  status: Available
-'990134459720106381':
-- collection_name: 'Colonial women missionaries of the Committee for Women''s Work, 1861-1967 : records of the Committee for Women''s Work, 1861-1967.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/41/colonial-women-missionaries-of-the-committee-for-womens-work-1861-1967
-  status: Available
-'990134459550106381':
-- collection_name: 'British Labour Party papers, 1968-1994 : Parliamentary Labour Party papers, 1968-1994.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/2/british-labour-party-papers-1968-1994
-  status: Available
-'990134459540106381':
-- collection_name: 'Slavery in Jamaica, records from a family of slave owners, 1686-1860 : papers relating to the Jamaican estates of the Goulburn family of Betchworth House.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/14/slavery-in-jamaica-records-from-a-family-of-slave-owners-1686-1860
-  status: Available
-'990134459530106381':
-- collection_name: 'Scottish trade with Africa and the West Indies in the early 18th century, 1694-1709 : papers of the Company of Scotland Trading to Africa and the Indies, 1694-1709.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/7/scottish-trade-with-africa-and-the-west-indies-in-the-early-18th-century-1694-1709
-  status: Available
-'990134459520106381':
-- collection_name: 'World War 1 and the Spanish Civil War: as reported by an Ambassador, 1863-1939 : papers of Sir Esme Howard, 1863-1939.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/51/world-war-1-and-the-spanish-civil-war-as-reported-by-an-ambassador-1863-1939
-  status: Available
-'990134459510106381':
-- collection_name: 'The atheist politician and his anti-war daughter: the Bradlaughs, 1833-1948 : papers of Charles Bradlaugh.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/48/the-atheist-politician-and-his-anti-war-daughter-the-bradlaughs-1833-1948
-  status: Available
-'990134459490106381':
-- collection_name: 'New Zealand & Polynesian records from colonial missionaries, 1838-1958 : New Zealand & Polynesian records in the USPG archive.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/27/new-zealand-polynesian-records-from-colonial-missionaries-1838-1958
-  status: Available
-'990134459440106381':
-- collection_name: 'Trade and commerce in Liverpool to 1900 : Liverpool street and business directories, 1766-1900.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/8/trade-and-commerce-in-liverpool-to-1900
-  status: Available
-'990134459350106381':
-- collection_name: 'Colonial missionaries'' papers from America and the West Indies, 1701-1870 : journal, annual sermons and reports of the SPG, 1701-1870.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/18/colonial-missionaries-papers-from-america-and-the-west-indies-1701-1870
-  status: Available
-'990134459320106381':
-- collection_name: 'West Indies: slavery, plantations and trade, 1759-1832 : Jamaican material in the Slebech papers.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/1/the-west-indies-slavery-plantations-and-trade-1759-1832
-  status: Available
-'990134459220106381':
-- collection_name: 'Ghana in Records from colonial missionaries, 1886-1951 : Gold Coast records from the archives of the USPG, 1886-1951.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/24/ghana-in-records-from-colonial-missionaries-1886-1951
-  status: Available
-'990134459200106381':
-- collection_name: 'Church of England and social change in Manchester, 1635-1928 : Ecclesiastical, court and land records in the Manchester Cathedral archives.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/19/the-church-of-england-and-social-change-in-manchester-1635-1928
-  status: Available
-'990134459180106381':
-- collection_name: 'Ghana and Sierra Leone in colonial and missionary records, 1700-1850 : early colonial and missionary records from West Africa.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/10/ghana-and-sierra-leone-in-colonial-and-missionary-records-1700-1850
-  status: Available
-'990134459140106381':
-- collection_name: 'Medical essays read to the Royal Society in Scotland, 1751-1970 : dissertations read to the Royal Medical Society, Edinburgh.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/21/medical-essays-read-to-the-royal-society-in-scotland-1751-1970
-  status: Available
-'990134459110106381':
-- collection_name: 'Hitler''s Army, Nazi Germany at war and the Nuremburg trials, 1925-1956 : how Nazi politicians and generals set Germany on the path to war.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/31/hitlers-army-nazi-germany-at-war-and-the-nuremburg-trials-1925-1956
-  status: Available
-'990134459020106381':
-- collection_name: 'Walt Whitman and his fellowship of supporters in Bolton, 1891-1913 : Collected papers of the Bolton Whitman Fellowship.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/32/walt-whitman-and-his-fellowship-of-supporters-in-bolton-1891-1913
-  status: Available
-'990134458910106381':
-- collection_name: 'Bristol shipping records: imports and exports, 1770-1917 : Bristol Presentments, 1770-1917.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/47/bristol-shipping-records-imports-and-exports-1770-1917
-  status: Available
-'990134458870106381':
-- collection_name: 'Bolton''s mills, how the spinning mule changed the textile industry, 1672-1929 : Bolton''s textile industry, 18th-19th century : manufacture, trade and politics.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/25/boltons-mills-how-the-spinning-mule-changed-the-textile-industry-1672-1929
-  status: Available
-'990134458840106381':
-- collection_name: BBC Listener Research Department reports, 1937-c.1950.
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/16/bbc-listener-research-department-reports-1937-c1950
-  status: Available
-'990134458810106381':
-- collection_name: 'BBC handbooks, annual reports and accounts, 1927-2002 : British Broadcasting Corporation, 1927-2002.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/6/bbc-handbooks-annual-reports-and-accounts-1927-2002
-  status: Available
-'990134457280106381':
-- collection_name: 'Australia in records from colonial missionaries, 1808-1967 : Australian records in the USPG archive.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/26/australia-in-records-from-colonial-missionaries-1808-1967
-  status: Available
-'990134457270106381':
-- collection_name: 'Life under Nazi rule, reports by anti-fascists in occupied Europe, 1933-1945 : anti-fascist publications of the International Transport Workers'' Federation, 1933-1945 /'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/15/life-under-nazi-rule-reports-by-anti-fascists-in-occupied-europe-1933-1945
-  status: Available
-'990134457250106381':
-- collection_name: 'America in records from colonial missionaries, 1635-1928 : American material in the archives of the USPG, 1635-1928.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/11/america-in-records-from-colonial-missionaries-1635-1928
-  status: Available
-'990134457240106381':
-- collection_name: 'American slave trade records and other papers of the Tarleton family, 1678-1838 : American material from the Tarleton papers.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/37/american-slave-trade-records-and-other-papers-of-the-tarleton-family-1678-1838
-  status: Available
-'990134441620106381':
-- collection_name: 'Colonial Africa in official statistics, 1821-1953 : African blue books, 1821-1953.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/39/colonial-africa-in-official-statistics-1821-1953
   status: Available
 '990134430790106381':
 - collection_name: Economist Intelligence Unit country reports archive.
@@ -2956,12 +2384,6 @@
   note: Percussion Orchestrations. Access to the Percussion Orchestrations online version restricted; authentication may be required.
   link: http://www.percorch.com/composers?letter=A
   status: Available
-'990138704960106381':
-- collection_name: 'India, business and control 1806 to 1814: in the records of the Governor-General : Indian papers of the 1st Earl of Minto, 1606-1814.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/63/india-business-and-control-1806-to-1814-in-the-records-of-the-governor-general
-  status: Available
 '990130216690106381':
 - collection_name: CANSIM @ CHASS.
   interface_name: University of Toronto, CHASS
@@ -3079,54 +2501,6 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/socialservices?accountid=14667
-  status: Available
-'990147778100106381':
-- collection_name: 'Canada in records from colonial missionaries, 1722-1952 : Canadian records in the USPG Archive, 1722-1952.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/59/canada-in-records-from-colonial-missionaries-1722-1952
-  status: Available
-'990175830910106381':
-- collection_name: British poor schools in the nineteenth century, 1812-1901.
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/76/british-poor-schools-in-the-nineteenth-century-1812-1901
-  status: Available
-'990175830900106381':
-- collection_name: Liberal Party from Asquith to Ashdown, 1912-1988.
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/81/liberal-party-from-asquith-to-ashdown-1912-1988
-  status: Available
-'990175830870106381':
-- collection_name: 'Secrecy, sabotage and aiding the resistance : how Anglo-American cooperation shaped World War Two.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/82/secrecy-sabotage-and-aiding-the-resistance-how-anglo-american-cooperation-shaped-world-war-ii
-  status: Available
-'990175830860106381':
-- collection_name: International relations between Britain and America, 1796-1848.
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/83/international-relations-between-britain-and-america-1796-1848
-  status: Available
-'990175830840106381':
-- collection_name: Apartheid through the eyes of South African political parties, 1948-1994.
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/84/apartheid-through-the-eyes-of-south-african-political-parties-1948-1994
-  status: Available
-'990175830810106381':
-- collection_name: 'Prosecuting the Holocaust : British Investigations into Nazi Crimes : testimony of and interviews with victims and alleged perpetrators.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/85/prosecuting-the-holocaust-british-investigations-into-nazi-crimes
-  status: Available
-'990175830680106381':
-- collection_name: 'Paris Peace Conference and beyond, 1919-1939 : peace making and the aftermath of the First World War.'
-  interface_name: British Online Archives
-  note: British Online Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://microform.digital/boa/collections/86/paris-peace-conference-and-beyond-1919-1939
   status: Available
 '990150309790106381':
 - collection_name: LawnB = Lo aen bi.
@@ -5350,8 +4724,8 @@
 '99187252734006381':
 - collection_name: 'Iter: Gateway to the Middle Ages and Renaissance'
   interface_name: University of Toronto
-  note: University of Toronto.
-  link: http://search.itergateway.org/
+  note: University of Toronto. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.itergateway.org/
   status: Available
 '99187252734106381':
 - collection_name: Internet Movie Database Web site
@@ -6643,7 +6017,7 @@
 - collection_name: Bibliography of English Women Writers 1500-1640
   interface_name: University of Toronto
   note: University of Toronto. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://cf.itergateway.org/beww/
+  link: https://beww.iterpubs.org/
   status: Available
 '99187252559206381':
 - collection_name: Arts & Humanities Citation Index
@@ -7188,7 +6562,7 @@
 '99187252569706381':
 - collection_name: John Milton Bibliography
   interface_name: University of Toronto
-  note: University of Toronto.
+  note: University of Toronto. Authorized U-M users (+ guests in U-M Libraries)
   link: https://milton.iterpubs.org/
   status: Available
 '99187252569806381':
@@ -7298,12 +6672,6 @@
   interface_name: Clarivate
   note: Clarivate. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.webofscience.com/wos/woscc/basic-searchhttps://www.webofscience.com/wos/woscc/search-with-editions?editions=WOS.SCI
-  status: Available
-'99187252572106381':
-- collection_name: 'Slavery and Anti-Slavery, Part IV: The Age of Emancipation'
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/sas?u=umuser
   status: Available
 '99187252572306381':
 - collection_name: Republic of New Afrika
@@ -7503,12 +6871,6 @@
   note: Psychoanalytic Electronic Publishing. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.pep-web.org/
   status: Available
-'99187252576106381':
-- collection_name: 'Slavery and Anti-Slavery, Part III: The Institution of Slavery'
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/aboutThisArchive?userGroupName=umuser&inPS=true&mCode=72T2&prodId=SAS
-  status: Available
 '99187252576306381':
 - collection_name: ProQuest Congressional Hearings Digital Collection Unpublished Hearings Collection B (House 1980, Senate 1985-1990)
   interface_name: ProQuest
@@ -7628,12 +6990,6 @@
   interface_name: Europa World of Learning
   note: Europa World of Learning.
   link: http://www.worldoflearning.com/
-  status: Available
-'99187252700706381':
-- collection_name: 'Iter: Gateway to the Middle Ages and Renaissance'
-  interface_name: Iter, University of Toronto Libraries
-  note: Iter, University of Toronto Libraries.
-  link: https://www.itergateway.org/
   status: Available
 '99187252700806381':
 - collection_name: Bibliography of British and Irish history
@@ -8324,6 +7680,12 @@
   note: Airiti Inc.
   link: http://www.airiti.com/teps/ec/
   status: Available
+'99188933250506381':
+- collection_name: British Online Archives
+  interface_name: Microform Academic Publishers
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://microform.digital/boa/
+  status: Available
 '99187252717006381':
 - collection_name: DYABOLA Sachkatalog der Römisch-Germanischen Kommission Frankfurt, 1992-Dez 2007
   interface_name: Biering & Brinkmann Verlag
@@ -8947,6 +8309,12 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/bsc
+  status: Available
+'99187415662506381':
+- collection_name: 'U.K. Parliamentary Papers: House of Commons Hansard (1803-2005)'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://parlipapers.proquest.com/
   status: Available
 '99187415662706381':
 - collection_name: 'Digital National Security Archive (DNSA): U.S. Nuclear Nonproliferation 2, Part I: From Atoms for Peace to the NPT, 1954-1968'
@@ -9776,8 +9144,8 @@
 '99187529614506381':
 - collection_name: Iter Italicum
   interface_name: University of Toronto
-  note: University of Toronto.
-  link: https://iterpress.org/databases/
+  note: University of Toronto. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://italicum.iterpubs.org/
   status: Available
 '99187529626006381':
 - collection_name: PsycTESTS
@@ -9868,12 +9236,6 @@
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/ecco?u=umuser
-  status: Available
-'99187542824106381':
-- collection_name: 'Brazilian and Portuguese History and Culture: Oliveira Lima Library, Pamphlets'
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/bphc?u=umuser
   status: Available
 '99187542824206381':
 - collection_name: Black Liberation Army and the Program of Armed Struggle
@@ -10672,6 +10034,12 @@
   note: East View. Authorized U-M users (+ guests in U-M Libraries)
   link: https://gpa.eastview.com/cumhuriyet/newspapers/cumh
   status: Available
+'99187675515506381':
+- collection_name: Mathematical Surveys and Monographs -2021
+  interface_name: American Mathematical Society
+  note: American Mathematical Society. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.ams.org/books/surv/year/2021/
+  status: Available
 '99188116898606381':
 - collection_name: CRL Newspapers
   interface_name: Center for Research Libraries
@@ -10713,12 +10081,6 @@
   interface_name: Wiley Online Library
   note: Wiley Online Library. Authorized U-M users (+ guests in U-M Libraries)
   link: https://app.wileydigitalarchives.com/rgs
-  status: Available
-'99187680503606381':
-- collection_name: Sabinet Complete Collection
-  interface_name: Sabinet
-  note: Sabinet. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://journals.co.za/
   status: Available
 '99187680511906381':
 - collection_name: 'ProQuest Congressional: U.S. Serial Set Digital Collection 2, Part O (2021)'
@@ -11713,7 +11075,7 @@
 - collection_name: LLMC-Digital
   interface_name: Scholarly Publishing Office
   note: Scholarly Publishing Office. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://llmc.com/Default.aspx
+  link: https://discover.llmc.com/
   status: Available
 '99187926989306381':
 - collection_name: Complete Works of William Shakespeare
@@ -11971,12 +11333,6 @@
   interface_name: Coherent Digital
   note: Coherent Digital. Authorized U-M users (+ guests in U-M Libraries)
   link: https://southasiacommons.net/modules/history-and-culture/
-  status: Available
-'99187979361406381':
-- collection_name: History of disabilities.
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://go.gale.com/ps/start.do?p=HODI&u=umuser&aty=ip
   status: Available
 '99187980196106381':
 - collection_name: Amnesty International Archives
@@ -13173,8 +12529,8 @@
   status: Available
 '99188116899006381':
 - collection_name: 'Wiley Digital Archives: Environmental Science and History'
-  interface_name: Wiley Online Library withdrawn
-  note: Wiley Online Library withdrawn. Authorized U-M users (+ guests in U-M Libraries)
+  interface_name: Wiley Online Library
+  note: Wiley Online Library. Authorized U-M users (+ guests in U-M Libraries)
   link: https://app.wileydigitalarchives.com/env
   status: Available
 '99188119415106381':
@@ -14069,7 +13425,7 @@
 - collection_name: IBZ - Internationale Bibliographie der Geistes- und Sozialwissenschaftlichen Zeitschriftenliteratur
   interface_name: De Gruyter Saur
   note: De Gruyter Saur. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.degruyter.com/view/db/ibz?rskey=oyumz8&result=4
+  link: https://www.degruyterbrill.com/database/ibz/html
   status: Available
 '99188870059906381':
 - collection_name: Encyclopedia of the Bible and Its Reception
@@ -14088,12 +13444,6 @@
   interface_name: ''
   note: ''
   link: https://link.gale.com/apps/spoc?u=umuser
-  status: Available
-'99188878077206381':
-- collection_name: Power to the People! Counterculture, Social Movements, & Alternative Press, 1960-2015
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/POPC?u=umuser&aty=ip
   status: Available
 '99188878405406381':
 - collection_name: State of Michigan Government Documents
@@ -14284,7 +13634,7 @@
 '990165159370106381':
 - collection_name: Xiao bao
   interface_name: ''
-  note: ''
+  note: Access limited to 5 concurrent user; Access to the National index to Chinese newspapers and periodicals online version restricted; Search for content; authentication may be required.
   link: http://www.lib.umich.edu/database/link/45883
   status: Available
 '99188878077306381':
@@ -15066,4 +14416,130 @@
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.globalhistoryofepidemics.amdigital.co.uk/
+  status: Available
+'99188930352306381':
+- collection_name: Oxford Scholarly Editions Online Latin Prose
+  interface_name: Oxford Scholarly Editions Online
+  note: Oxford Scholarly Editions Online. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.oxfordscholarlyeditions.com/nos
+  status: Available
+'99188930352506381':
+- collection_name: Oxford Scholarly Editions Online Latin Poetry
+  interface_name: Oxford Scholarly Editions Online
+  note: Oxford Scholarly Editions Online. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://oxfordscholarlyeditions.com
+  status: Available
+'99188930352706381':
+- collection_name: Oxford Scholarly Editions Online Herodotus
+  interface_name: Oxford University Press
+  note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://global.oup.com/academic/
+  status: Available
+'99188930352906381':
+- collection_name: Oxford Scholarly Editions Online - Thucydides
+  interface_name: Oxford University Press
+  note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.oxfordscholarlyeditions.com/view/10.1093/oseo/person.00039625
+  status: Available
+'99188930353006381':
+- collection_name: Oxford Scholarly Editions Online Latin Drama
+  interface_name: Oxford Scholarly Editions Online
+  note: Oxford Scholarly Editions Online. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.oxfordscholarlyeditions.com/
+  status: Available
+'99188930353206381':
+- collection_name: Oxford Scholarly Editions Online Greek Poetry
+  interface_name: Oxford Scholarly Editions Online
+  note: Oxford Scholarly Editions Online. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.oxfordscholarlyeditions.com/page/18/title-lists%23greek-poetry
+  status: Available
+'99188930353406381':
+- collection_name: Oxford Scholarly Editions Online Greek Comedy
+  interface_name: Oxford University Press
+  note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.oxfordhandbooks.com/
+  status: Available
+'99188930353606381':
+- collection_name: Oxford Scholarly Editions Online Latin History
+  interface_name: Oxford Scholarly Editions Online
+  note: Oxford Scholarly Editions Online. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://oxfordscholarlyeditions.com
+  status: Available
+'99188930353706381':
+- collection_name: Oxford Scholarly Editions Online Greek Tragedy
+  interface_name: Oxford University Press
+  note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.oxfordhandbooks.com/
+  status: Available
+'99188930354406381':
+- collection_name: Oxford Scholarly Editions Online Greek Prose
+  interface_name: Oxford Scholarly Editions Online
+  note: Oxford Scholarly Editions Online. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.oxfordscholarlyeditions.com/page/18/title-lists%23greek-prose
+  status: Available
+'99188930354806381':
+- collection_name: Oxford Scholarly Editions Online Homer
+  interface_name: Oxford University Press
+  note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://corp.oup.com/
+  status: Available
+'99188930730706381':
+- collection_name: Sabinet African Journals Core Collection
+  interface_name: Sabinet
+  note: Sabinet. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://reference.sabinet.co.za
+  status: Available
+'99188930735706381':
+- collection_name: 'DIMACS Series in Discrete Mathematics and Theoretical Computer Science: Backfile'
+  interface_name: American Mathematical Society
+  note: American Mathematical Society. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.ams.org/publications/ebooks/dimacs-coll
+  status: Available
+'99188930737806381':
+- collection_name: 'Contemporary Mathematics: 2025'
+  interface_name: American Mathematical Society
+  note: American Mathematical Society. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.ams.org/publications/ebooks/conm-coll
+  status: Available
+'99188932359206381':
+- collection_name: 'Power to the People: Counterculture, Social Movements, and the Alternative Press, Nineteenth to Twenty-First Century'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/Popc?u=umuser
+  status: Available
+'99187542824106381':
+- collection_name: 'Brazilian and Portuguese History and Culture: Oliveira Lima Library, Pamphlets'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/bphc?u=umuser
+  status: Available
+'99188933246906381':
+- collection_name: 'Brazilian and Portuguese History and Culture: Oliveira Lima Library, Monographs'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/BPHC?u=umuser
+  status: Available
+'99188933247006381':
+- collection_name: 'Public Health Archives: Public Health in Modern America, 1890-1970'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/phia?u=umuser
+  status: Available
+'99187252572106381':
+- collection_name: 'Slavery and Anti-Slavery, Part IV: The Age of Emancipation'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/sas?u=umuser
+  status: Available
+'99187252576106381':
+- collection_name: 'Slavery and Anti-Slavery, Part III: The Institution of Slavery'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/sas?u=umuser
+  status: Available
+'99188933249006381':
+- collection_name: 'Slavery and Anti-Slavery, Part II: Slave Trade in the Atlantic World'
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/sas?u=umuser
   status: Available
