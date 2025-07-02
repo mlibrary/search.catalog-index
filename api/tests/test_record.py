@@ -7,10 +7,12 @@ from catalog_api.record import (
     Record,
     MARC,
     SolrDoc,
-    FieldElement,
-    PairedField,
     TaggedCitation,
+)
+from catalog_api.marc import (
+    FieldElement,
     FieldRuleset,
+    PairedField,
 )
 from dataclasses import asdict
 
@@ -1270,7 +1272,7 @@ class TestTaggedCitation:
 
         expected = [
             {"content": "CONTENT1", "ris": ["EX"], "meta": ["example"]},
-            {"content": "CONTENT2", "ris": ["EX"], "meta": ["example"]},
+            {"content": "TCONTENT2", "ris": ["EX"], "meta": ["example"]},
         ]
 
         assert (
@@ -1315,6 +1317,17 @@ class TestTaggedCitation:
 
     def test_to_list_marc(self, marc_mapping):
         record = create_record_with_paired_field(tag="300")
+        expected = [
+            {"content": "a b c", "ris": ["EX"], "meta": ["example"]},
+        ]
+        subject = TaggedCitation(base_record=None, marc_record=record).to_list(
+            tag_mapping=marc_mapping
+        )
+        assert expected == subject
+
+    def test_to_list_marc_lone_880(self, marc_mapping):
+        record = create_record_with_paired_field(tag="300")
+        record.remove_fields("300")
         expected = [
             {"content": "a b c", "ris": ["EX"], "meta": ["example"]},
         ]
