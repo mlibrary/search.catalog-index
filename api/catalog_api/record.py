@@ -1,9 +1,10 @@
 from __future__ import annotations
 from catalog_api.solr_client import SolrClient
+from catalog_api.solr import SolrDocProcessor
 from catalog_api.marc import Processor, FieldRuleset
+import re
 import pymarc
 import io
-import re
 import string
 import json
 from dataclasses import dataclass
@@ -19,66 +20,68 @@ def record_for(id: str) -> Record:
 class SolrDoc:
     def __init__(self, data: dict):
         self.data = data
+        # can't just be processor because of multiple inheritance
+        self.solr_processor = SolrDocProcessor(data)
 
     @property
     def id(self):
-        return self.data["id"]
+        return self.solr_processor.get("id")
 
     @property
     def title(self):
-        return self._get_paired_field("title_display")
+        return self.solr_processor.get_paired_field("title_display")
 
     @property
     def published(self) -> list:
-        return self._get_paired_field("publisher_display")
+        return self.solr_processor.get_paired_field("publisher_display")
 
     @property
     def edition(self) -> list:
-        return self._get_paired_field("edition")
+        return self.solr_processor.get_paired_field("edition")
 
     @property
     def lc_subjects(self):
-        return self._get_text_field("lc_subject_display")
+        return self.solr_processor.get_text_field("lc_subject_display")
 
     @property
     def language(self):
-        return self._get_text_field("language")
+        return self.solr_processor.get_text_field("language")
 
     @property
     def isbn(self):
-        return self._get_text_field("isbn")
+        return self.solr_processor.get_text_field("isbn")
 
     @property
     def issn(self):
-        return self._get_text_field("issn")
+        return self.solr_processor.get_text_field("issn")
 
     @property
     def gov_doc_number(self):
-        return self._get_text_field("sudoc")
+        return self.solr_processor.get_text_field("sudoc")
 
     @property
     def report_number(self):
-        return self._get_text_field("rptnum")
+        return self.solr_processor.get_text_field("rptnum")
 
     @property
     def call_number(self):
-        return self._get_text_field("callnumber_browse")
+        return self.solr_processor.get_text_field("callnumber_browse")
 
     @property
     def oclc(self):
-        return self._get_text_field("oclc")
+        return self.solr_processor.get_text_field("oclc")
 
     @property
     def remediated_lc_subjects(self):
-        return self._get_text_field("remediated_lc_subject_display")
+        return self.solr_processor.get_text_field("remediated_lc_subject_display")
 
     @property
     def other_subjects(self):
-        return self._get_text_field("non_lc_subject_display")
+        return self.solr_processor.get_text_field("non_lc_subject_display")
 
     @property
     def bookplate(self):
-        return self._get_text_field("bookplate")
+        return self.solr_processor.get_text_field("bookplate")
 
     @property
     def indexing_date(self):
@@ -86,11 +89,11 @@ class SolrDoc:
 
     @property
     def availability(self) -> list:
-        return self._get_list("availability")
+        return self.solr_processor.get_list("availability")
 
     @property
     def format(self):
-        return self._get_list("format")
+        return self.solr_processor.get_list("format")
 
     @property
     def main_author(self):
@@ -130,29 +133,8 @@ class SolrDoc:
     def academic_discipline(self):
         return [
             {"list": discipline.split(" | ")}
-            for discipline in self._get_list("hlb3Delimited")
+            for discipline in self.solr_processor.get_list("hlb3Delimited")
         ]
-
-    def _get_list(self, key):
-        return self.data.get(key) or []
-
-    def _get_text_field(self, key):
-        return [{"text": value} for value in (self.data.get(key) or [])]
-
-    def _get_paired_field(self, key):
-        values = self.data.get(key) or []
-        match len(values):
-            case 0:
-                return []
-            case 1:
-                return [{"original": {"text": values[0]}}]
-            case _:
-                return [
-                    {
-                        "transliterated": {"text": values[0]},
-                        "original": {"text": values[1]},
-                    }
-                ]
 
 
 class MARC:
@@ -592,14 +574,19 @@ class TaggedCitation:
             "ris": ["CP", "CY"],
             "meta": [],
         },
-        # display_date is from solr. Should use that because it is complicated
+        {
+            "kind": "solr",
+            "field": "display_date",
+            "ris": ["DA", "PY", "Y1"],
+            "meta": ["date", "publication_date", "online_date", "cover_date", "year"],
+        },
         {
             "kind": "marc",
             "ruleset": FieldRuleset(
                 tags=["700"],
                 text_sfs="ab",
                 filter=lambda field: (
-                    field.indicator1 == "0" and re.match(field.get("e"), "ed")
+                    field.indicator1 == "0" and re.match("ed", field.get("e", ""))
                 ),
             ),
             "ris": ["CP", "CY"],
@@ -607,7 +594,8 @@ class TaggedCitation:
         },
     ]
 
-    def __init__(self, marc_record, base_record):
+    def __init__(self, marc_record, base_record, solr_doc={}):
+        self.solr_processor = SolrDocProcessor(solr_doc)
         self.processor = Processor(marc_record)
         self.base_record = base_record
 
@@ -622,6 +610,8 @@ class TaggedCitation:
     def _get_result(self, element):
         if element["kind"] == "base":
             contents = self._get_base_content(element)
+        elif element["kind"] == "solr":
+            contents = self._get_solr_content(element)
         else:
             contents = self._get_marc_content(element)
 
@@ -640,31 +630,34 @@ class TaggedCitation:
         )
         return self._get_content(field_content_list)
 
+    def _get_solr_content(self, element):
+        field_content_list = self.solr_processor.get_list(element["field"])
+        return self._get_content(field_content_list)
+
     def _get_content(self, field_content_list):
         result = []
         for field_value in field_content_list:
             if type(field_value) is str:
                 result.append(field_value)
-            elif hasattr(field_value, "transliterated") and field_value.transliterated:
-                result.append(field_value.transliterated.text)
-            elif hasattr(field_value, "original"):
-                result.append(field_value.original.text)
-            elif hasattr(field_value, "text"):
-                result.append(field_value.text)
+            elif hasattr(field_value, "citation_text"):
+                result.append(field_value.citation_text)
             else:
                 result.append(field_value["text"])
         return result
 
 
 class Citation:
-    def __init__(self, marc_record, base_record):
+    def __init__(self, marc_record, base_record, solr_doc={}):
         self.marc_record = marc_record
         self.base_record = base_record
+        self.solr_doc = solr_doc
 
     @property
     def tagged(self):
         return TaggedCitation(
-            marc_record=self.marc_record, base_record=self.base_record
+            marc_record=self.marc_record,
+            base_record=self.base_record,
+            solr_doc=self.solr_doc,
         ).to_list()
 
 
@@ -676,4 +669,4 @@ class Record(BaseRecord):
 
     @property
     def citation(self):
-        return Citation(marc_record=self.record, base_record=self)
+        return Citation(marc_record=self.record, base_record=self, solr_doc=self.data)

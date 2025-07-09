@@ -9,10 +9,9 @@ from catalog_api.record import (
     SolrDoc,
     TaggedCitation,
 )
+from catalog_api.entities import FieldElement, PairedField
 from catalog_api.marc import (
-    FieldElement,
     FieldRuleset,
-    PairedField,
 )
 from dataclasses import asdict
 
@@ -31,6 +30,14 @@ def api_output():
         return json.load(data)
 
 
+def serialize(my_list: list):
+    if len(my_list) > 0 and (
+        isinstance(my_list[0], dict) or isinstance(my_list[0], str)
+    ):
+        return my_list
+    return [asdict(element) for element in my_list]
+
+
 class TestRecord:
     fields = [
         "format",
@@ -46,27 +53,29 @@ class TestRecord:
     @pytest.mark.parametrize("field", fields)
     def test_fields_success(self, field, solr_bib, api_output):
         subject = Record(solr_bib)
-        assert getattr(subject, field) == api_output[field]
+
+        assert serialize(getattr(subject, field)) == api_output[field]
 
     def test_title_with_only_default_script(self, solr_bib):
         solr_bib["title_display"].pop(1)
         subject = Record(solr_bib)
-        assert subject.title[0]["original"]["text"] == solr_bib["title_display"][0]
+        expected = serialize(subject.title)[0]["original"]["text"]
+        assert expected == solr_bib["title_display"][0]
 
     def test_title_with_no_title(self, solr_bib):
         solr_bib.pop("title_display")
         subject = Record(solr_bib)
-        assert subject.title == []
+        assert serialize(subject.title) == []
 
     def test_language_with_no_lanugages(self, solr_bib):
         solr_bib.pop("language")
         subject = Record(solr_bib)
-        assert subject.language == []
+        assert serialize(subject.language) == []
 
     def test_formats_with_no_formats(self, solr_bib):
         solr_bib.pop("format")
         subject = Record(solr_bib)
-        assert subject.format == []
+        assert serialize(subject.format) == []
 
     def test_main_author_no_vernacular(self, solr_bib):
         solr_bib["main_author"].pop(1)
@@ -77,12 +86,12 @@ class TestRecord:
     def test_with_no_main_author(self, solr_bib):
         solr_bib.pop("main_author_display")
         subject = Record(solr_bib)
-        assert subject.main_author == []
+        assert serialize(subject.main_author) == []
 
     def test_with_no_academic_disciplines(self, solr_bib):
         solr_bib.pop("hlb3Delimited")
         subject = Record(solr_bib)
-        assert subject.academic_discipline == []
+        assert serialize(subject.academic_discipline) == []
 
     def test_marc(self, solr_bib):
         record = pymarc.record.Record()
@@ -116,7 +125,7 @@ class TestRecord:
 class TestSolrDoc:
     def test_title(self, solr_bib):
         subject = SolrDoc(solr_bib)
-        assert subject.title == [
+        assert serialize(subject.title) == [
             {
                 "transliterated": {
                     "text": "Sanʼya no tori = Concise field guide to land birds / kaisetsu Saeki Akimitsu ; e Taniguchi Takashi."
@@ -130,32 +139,34 @@ class TestSolrDoc:
     def test_issn(self, solr_bib):
         solr_bib["issn"] = ["some_issn"]
         subject = SolrDoc(solr_bib)
-        assert subject.issn == [{"text": "some_issn"}]
+        assert serialize(subject.issn) == [{"text": "some_issn"}]
 
     def test_gov_doc_number(self, solr_bib):
         solr_bib["sudoc"] = ["some_gov_doc_number"]
         subject = SolrDoc(solr_bib)
-        assert subject.gov_doc_number == [{"text": "some_gov_doc_number"}]
+        assert serialize(subject.gov_doc_number) == [{"text": "some_gov_doc_number"}]
 
     def test_report_number(self, solr_bib):
         solr_bib["rptnum"] = ["some_report_number"]
         subject = SolrDoc(solr_bib)
-        assert subject.report_number == [{"text": "some_report_number"}]
+        assert serialize(subject.report_number) == [{"text": "some_report_number"}]
 
     def test_remediated_lc_subjects(self, solr_bib):
         solr_bib["remediated_lc_subject_display"] = ["some -- subject"]
         subject = SolrDoc(solr_bib)
-        assert subject.remediated_lc_subjects == [{"text": "some -- subject"}]
+        assert serialize(subject.remediated_lc_subjects) == [
+            {"text": "some -- subject"}
+        ]
 
     def test_other_subjects(self, solr_bib):
         solr_bib["non_lc_subject_display"] = ["some -- subject"]
         subject = SolrDoc(solr_bib)
-        assert subject.other_subjects == [{"text": "some -- subject"}]
+        assert serialize(subject.other_subjects) == [{"text": "some -- subject"}]
 
     def test_bookplate(self, solr_bib):
         solr_bib["bookplate"] = ["bookplate"]
         subject = SolrDoc(solr_bib)
-        assert subject.bookplate == [{"text": "bookplate"}]
+        assert serialize(subject.bookplate) == [{"text": "bookplate"}]
 
     def test_indexing_date(self, solr_bib):
         solr_bib["date_of_index"] = "some_valid_date_string"
@@ -164,7 +175,7 @@ class TestSolrDoc:
 
     def test_main_author(self, solr_bib):
         subject = SolrDoc(solr_bib)
-        assert subject.main_author == [
+        assert serialize(subject.main_author) == [
             {
                 "transliterated": {
                     "text": "Saeki, Akimitsu.",
@@ -181,7 +192,7 @@ class TestSolrDoc:
 
     def test_published(self, solr_bib):
         subject = SolrDoc(solr_bib)
-        assert subject.published == [
+        assert serialize(subject.published) == [
             {
                 "transliterated": {
                     "text": "Tōkyō : Nihon Yachō no Kai, 1983",
@@ -192,7 +203,7 @@ class TestSolrDoc:
 
     def test_edition(self, solr_bib):
         subject = SolrDoc(solr_bib)
-        assert subject.edition == [
+        assert serialize(subject.edition) == [
             {
                 "transliterated": {"text": "3-teiban."},
                 "original": {"text": "3訂版."},
@@ -1213,10 +1224,6 @@ class TestMARC:
         return result
 
 
-def serialize(my_list: list):
-    return [asdict(element) for element in my_list]
-
-
 @dataclass(frozen=True)
 class BaseRecordFake:
     field_name: list = field(default_factory=[])
@@ -1323,7 +1330,7 @@ class TestTaggedCitation:
         subject = TaggedCitation(base_record=None, marc_record=record).to_list(
             tag_mapping=marc_mapping
         )
-        assert expected == subject
+        assert subject == expected
 
     def test_to_list_marc_lone_880(self, marc_mapping):
         record = create_record_with_paired_field(tag="300")
@@ -1334,4 +1341,21 @@ class TestTaggedCitation:
         subject = TaggedCitation(base_record=None, marc_record=record).to_list(
             tag_mapping=marc_mapping
         )
-        assert expected == subject
+        assert subject == expected
+
+    def test_to_list_solr_display_date(self, empty_marc_record, solr_bib):
+        tagged_mapping = [
+            {
+                "kind": "solr",
+                "field": "display_date",
+                "ris": ["EX"],
+                "meta": ["example"],
+            }
+        ]
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record, solr_doc=solr_bib
+        ).to_list(tagged_mapping)
+        expected = [
+            {"content": "1983", "ris": ["EX"], "meta": ["example"]},
+        ]
+        assert subject == expected

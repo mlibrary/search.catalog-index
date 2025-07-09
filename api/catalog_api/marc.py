@@ -3,6 +3,7 @@ from dataclasses import dataclass
 import re
 import string
 from collections.abc import Callable
+from catalog_api.entities import SearchField, FieldElement, PairedField
 
 
 class Linkage:
@@ -22,26 +23,6 @@ class Linkage:
 
     def __str__(self):
         return f"{self.tag}-{self.occurence_number}"
-
-
-@dataclass(frozen=True)
-class SearchField:
-    field: str
-    value: str
-
-
-@dataclass(frozen=True)
-class FieldElement:
-    text: str
-    tag: str
-    search: list[SearchField] | None = None
-    browse: str | None = None
-
-
-@dataclass(frozen=True)
-class PairedField:
-    original: FieldElement
-    transliterated: FieldElement | None = None
 
 
 @dataclass(frozen=True)
@@ -93,7 +74,7 @@ class Processor:
                 if ruleset.has_any_subfields(field):
                     result.append(ruleset.value_for(field))
 
-        return set(result)
+        return list(set(result))
 
     def generate_paired_fields(self, rulesets: tuple) -> list:
         result = []
