@@ -790,6 +790,8 @@ class TaggedCitation:
             for x in self._get_result(element):
                 result.append(x)
 
+        result += self._end_record_tag()
+
         return result
 
     def _get_result(self, element):
@@ -868,6 +870,15 @@ class TaggedCitation:
                 "content": datetime.now().strftime("%Y-%m-%d"),
                 "ris": ["Y2"],
                 "meta": ["online_date"],
+            },
+        ]
+
+    def _end_record_tag(self):
+        return [
+            {
+                "content": "",
+                "ris": ["ER"],
+                "meta": [],
             },
         ]
 
