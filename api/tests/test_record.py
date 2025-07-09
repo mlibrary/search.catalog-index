@@ -1420,3 +1420,61 @@ class TestTaggedCitation:
 
         for example in expected:
             assert example in subject
+
+    def test_to_list_type_is_first_element(self, empty_marc_record, solr_bib):
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record, solr_doc=solr_bib
+        ).to_list([])
+
+        expected = {
+            "content": "BOOK",
+            "ris": ["TY"],
+            "meta": [],
+        }
+
+        assert subject[0] == expected
+
+    def test_to_list_type_is_jour_when_no_format(self, empty_marc_record):
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record
+        ).to_list([])
+
+        expected = {
+            "content": "JOUR",
+            "ris": ["TY"],
+            "meta": [],
+        }
+
+        assert subject[0] == expected
+
+    def test_to_list_type_is_gen_when_no_matching_format(
+        self, empty_marc_record, solr_bib
+    ):
+        solr_bib["format"] = ["some_non_standard_format"]
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record, solr_doc=solr_bib
+        ).to_list([])
+
+        expected = {
+            "content": "GEN",
+            "ris": ["TY"],
+            "meta": [],
+        }
+
+        assert subject[0] == expected
+
+    def test_to_list_type_tried_again_when_multiple_formats(
+        self, empty_marc_record, solr_bib
+    ):
+        solr_bib["format"] = ["some_non_standard_format", "Video (DVD)"]
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record, solr_doc=solr_bib
+        ).to_list([])
+
+        expected = {
+            "content": "VIDEO",
+            "ris": ["TY"],
+            "meta": [],
+        }
+
+        assert subject[0] == expected

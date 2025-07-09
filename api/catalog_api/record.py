@@ -550,6 +550,12 @@ class BaseRecord(SolrDoc, MARC):
 class TaggedCitation:
     TAG_MAPPING = [
         {
+            "kind": "solr",
+            "field": "id",
+            "ris": ["ID"],  # should this also be N2?
+            "meta": ["id"],
+        },
+        {
             "kind": "base",
             "field": "bibliography",
             "ris": ["AB"],  # should this also be N2?
@@ -698,13 +704,88 @@ class TaggedCitation:
         {"kind": "base", "field": "series", "ris": ["T3"], "meta": ["series_title"]},
     ]
 
-    def __init__(self, marc_record, base_record, solr_doc={}):
+    TYPE_MAPPING = {
+        "archival material manuscript": "MANSCPT",
+        "article": "JOUR",
+        "atlas": "MAP",
+        "audio": "SOUND",
+        "audio (music)": "MUSIC",
+        "audio (spoken word)": "SOUND",
+        "audio cd": "SOUND",
+        "audio lp": "SOUND",
+        "audio recording": "SOUND",
+        "book": "BOOK",
+        "book / ebook": "BOOK",
+        "book chapter": "CHAP",
+        "cdrom": "DBASE",
+        "computer file": "DBASE",
+        "conference": "CONF",
+        "conference proceeding": "CONF",
+        "data file": "DBASE",
+        "data set": "DBASE",
+        "dictionaries": "DICT",
+        "dissertation": "THES",
+        "ebook": "EBOOK",
+        "electronic resource": "WEB",
+        "encyclopedias": "ENCYC",
+        "gen": "GEN",
+        "government document": "GOVDOC",
+        "image": "ADVS",
+        "internet communication": "ICOMM",
+        "journal": "JFULL",
+        "journal / ejournal": "JFULL",
+        "journal article": "JOUR",
+        "magazine": "MGZN",
+        "magazine article": "MGZN",
+        "map": "MAP",
+        "maps-atlas": "MAP",
+        "motion picture": "VIDEO",
+        "music": "MUSIC",
+        "music recording": "MUSIC",
+        "musical score": "MUSIC",
+        "music score": "MUSIC",
+        "newsletter": "NEWS",
+        "newsletter article": "NEWS",
+        "newsletter articles": "NEWS",
+        "newspaper": "NEWS",
+        "newspaper article": "NEWS",
+        "newspaper articles": "NEWS",
+        "paper": "CPAPER",
+        "patent": "PAT",
+        "publication article": "JOUR",
+        "reference entry": "JOUR",
+        "report": "RPRT",
+        "review": "JOUR",
+        "serial": "SER",
+        "sheet music": "MUSIC",
+        "software": "DBASE",
+        "spoken word recording": "SOUND",
+        "streaming audio": "SOUND",
+        "streaming video": "VIDEO",
+        "student thesis": "THES",
+        "text resource": "JOUR",
+        "thesis": "THES",
+        "trade publication article": "JOUR",
+        "video": "VIDEO",
+        "video recording": "VIDEO",
+        "video (blu-ray)": "VIDEO",
+        "video (dvd)": "VIDEO",
+        "video (vhs)": "VIDEO",
+        "video games": "VIDEO",
+        "web resource": "WEB",
+    }
+
+    def __init__(
+        self, marc_record, base_record, solr_doc={}, type_mapping=TYPE_MAPPING
+    ):
         self.solr_processor = SolrDocProcessor(solr_doc)
         self.processor = Processor(marc_record)
         self.base_record = base_record
+        self.type_mapping = type_mapping
 
     def to_list(self, tag_mapping=TAG_MAPPING):
-        result = self._non_record_tags()
+        result = [self._type()]
+        result += self._non_record_tags()
         for element in tag_mapping:
             for x in self._get_result(element):
                 result.append(x)
@@ -724,6 +805,27 @@ class TaggedCitation:
             {"content": content, "ris": element["ris"], "meta": element["meta"]}
             for content in contents
         ]
+
+    def _type(self):
+        formats = (
+            self.solr_processor.get_list("format")
+            if self.solr_processor.get_list("format")
+            else ["Article"]
+        )
+
+        formats = [f.lower() for f in formats]
+        content = "GEN"
+        for f in formats:
+            c = self.type_mapping.get(f.lower())
+            if c:
+                content = c
+                break
+
+        return {
+            "content": content,
+            "ris": ["TY"],
+            "meta": [],
+        }
 
     def _get_base_content(self, element):
         field_content_list = getattr(self.base_record, element["field"])
