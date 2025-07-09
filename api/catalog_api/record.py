@@ -551,7 +551,7 @@ class TaggedCitation:
         {
             "kind": "base",
             "field": "bibliography",
-            "ris": ["AB"],
+            "ris": ["AB"],  # should this also be N2?
             "meta": ["citation_abstract"],
         },
         {
@@ -563,7 +563,6 @@ class TaggedCitation:
             "ris": ["AU"],
             "meta": ["citation_author"],
         },
-        {"kind": "base", "field": "series", "ris": ["T3"], "meta": ["series_title"]},
         {"kind": "base", "field": "call_number", "ris": ["CN"], "meta": []},
         {
             "kind": "marc",
@@ -589,9 +588,113 @@ class TaggedCitation:
                     field.indicator1 == "0" and re.match("ed", field.get("e", ""))
                 ),
             ),
-            "ris": ["CP", "CY"],
+            "ris": ["ED", "A2"],
+            "meta": ["editor"],
+        },
+        {
+            "kind": "base",
+            "field": "edition",
+            "ris": ["ET"],
             "meta": [],
         },
+        {
+            "kind": "marc",
+            "ruleset": FieldRuleset(
+                tags=["245"],
+                text_sfs="abnp",
+            ),
+            "ris": ["JF", "T1", "TI"],  # JF seems sus; how do we know it's a journal?
+            "meta": ["title", "journal_title"],
+        },
+        {
+            "kind": "base",
+            "field": "lc_subjects",
+            "ris": ["KW"],
+            "meta": ["keywords"],
+        },
+        {
+            "kind": "base",
+            "field": "remediated_lc_subjects",
+            "ris": ["KW"],
+            "meta": ["keywords"],
+        },
+        {
+            "kind": "base",
+            "field": "other_subjects",
+            "ris": ["KW"],
+            "meta": ["keywords"],
+        },
+        {
+            "kind": "solr",
+            "field": "hlb3Delimited",
+            "ris": ["KW"],
+            "meta": ["keywords"],
+        },
+        {  # are we even using 856s?
+            "kind": "marc",
+            "ruleset": FieldRuleset(
+                tags=["856"],
+                text_sfs="u",
+            ),
+            "ris": ["L2"],
+            "meta": ["fulltext_html_url", "abstract_html_url"],
+        },
+        {
+            "kind": "base",
+            "field": "language",
+            "ris": ["LA"],
+            "meta": ["language"],
+        },
+        {
+            "kind": "marc",
+            "ruleset": FieldRuleset(
+                tags=["300"],
+                text_sfs="a",
+            ),
+            "ris": ["M1", "NV"],
+            "meta": ["id"],
+        },
+        {
+            "kind": "base",
+            "field": "summary",
+            "ris": ["N2"],  # should this also be AB
+            "meta": ["abstract"],
+        },
+        {
+            "kind": "base",
+            "field": "content_advice",
+            "ris": ["N2"],  # should this also be AB
+            "meta": ["abstract"],
+        },
+        {
+            "kind": "marc",
+            "ruleset": FieldRuleset(
+                tags=["264", "260"],
+                text_sfs="b",
+            ),
+            "ris": ["PB"],
+            "meta": ["publisher"],
+        },
+        {
+            "kind": "base",
+            "field": "isbn",
+            "ris": ["SN"],
+            "meta": ["isbn"],
+        },
+        {
+            "kind": "base",
+            "field": "issn",
+            "ris": ["SN"],
+            "meta": ["issn"],
+        },
+        # should we include report_number or gov_doc_number?
+        {
+            "kind": "base",
+            "field": "previous_title",
+            "ris": ["T2"],
+            "meta": ["journal_title", "book_title", "conference", "conference_title"],
+        },
+        {"kind": "base", "field": "series", "ris": ["T3"], "meta": ["series_title"]},
     ]
 
     def __init__(self, marc_record, base_record, solr_doc={}):
@@ -608,12 +711,13 @@ class TaggedCitation:
         return result
 
     def _get_result(self, element):
-        if element["kind"] == "base":
-            contents = self._get_base_content(element)
-        elif element["kind"] == "solr":
-            contents = self._get_solr_content(element)
-        else:
-            contents = self._get_marc_content(element)
+        match element["kind"]:
+            case "base":
+                contents = self._get_base_content(element)
+            case "solr":
+                contents = self._get_solr_content(element)
+            case _:
+                contents = self._get_marc_content(element)
 
         return [
             {"content": content, "ris": element["ris"], "meta": element["meta"]}
