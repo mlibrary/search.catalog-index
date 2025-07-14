@@ -13,6 +13,7 @@ S.register(:app_env) { ENV["APP_ENV"] || "development" }
 
 S.register(:google_api_credentials) { ENV["GOOGLE_API_CREDENTIALS"] || "{}" }
 S.register(:floor_location_spreadsheet_id) { ENV["FLOOR_LOCATION_SPREADSHEET_ID"] || "" }
+S.register(:electronic_collections_ranking_spreadsheet_id) { ENV["ELECTRONIC_COLLECTIONS_RANKING_SPREADSHEET_ID"] || "" }
 S.register(:recommended_resources_url) { ENV["RECOMMENDED_RESOURCES_URL"] || "https://ddm.dnd.lib.umich.edu/sites/default/files/journal_recommendations.json" }
 
 require_relative "services/paths"
