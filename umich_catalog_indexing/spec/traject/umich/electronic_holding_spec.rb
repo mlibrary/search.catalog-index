@@ -135,6 +135,15 @@ describe Traject::UMich::ElectronicHolding do
       expect(subject.finding_aid).to eq(false)
     end
   end
+  context "#ranking" do
+    it "gets the ranking from the translation map" do
+      expect(subject.ranking).to eq(10100)
+    end
+    it "has a ranking of 99999 for items where the collection_id is not found" do
+      @e56.subfields.find { |x| x.code == "k" }.value = "not_a_collection_id"
+      expect(subject.ranking).to eq(99_999)
+    end
+  end
   context "#to_h" do
     it "returns expected hash" do
       s = subject

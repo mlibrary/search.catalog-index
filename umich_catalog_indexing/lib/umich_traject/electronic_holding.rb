@@ -1,6 +1,7 @@
 module Traject
   module UMich
     class ElectronicHolding
+      RANKING = Traject::TranslationMap.new("umich/electronic_collections_ranking")
       def initialize(e56)
         @e56 = e56
       end
@@ -49,6 +50,14 @@ module Traject
 
       def collection_name
         @e56["n"]
+      end
+
+      def collection_id
+        @e56["k"]
+      end
+
+      def ranking
+        (RANKING[collection_id]&.dig("ranking") || 99_999).to_i
       end
 
       def authentication_note
