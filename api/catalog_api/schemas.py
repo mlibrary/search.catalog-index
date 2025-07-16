@@ -123,6 +123,16 @@ class AcademicDiscipline(BaseModel):
     list: list[str]
 
 
+class TaggedCitation(BaseModel):
+    content: str
+    ris: list[str]
+    meta: list[str]
+
+
+class Citation(BaseModel):
+    tagged: list[TaggedCitation]
+
+
 ##########
 # Record #
 ##########
@@ -200,6 +210,7 @@ class Record(BaseModel):
     indexing_date: datetime.date
     holdings: Holdings
     marc: dict
+    citation: Citation
 
 
 class Response(BaseModel):

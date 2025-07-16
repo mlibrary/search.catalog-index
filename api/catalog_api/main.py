@@ -24,6 +24,7 @@ def get_record(id: str) -> schemas.Record:
     record
     """
     try:
-        return record_for(id)
+        result = record_for(id)
+        return result
     except NotFoundError:
         raise HTTPException(status_code=404, detail="Item not found")

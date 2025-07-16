@@ -1,9 +1,19 @@
 import pytest
 import json
 import pymarc
-import io
 import string
-from catalog_api.record import Record, MARC, SolrDoc, FieldElement
+from datetime import datetime
+from dataclasses import dataclass, field
+from catalog_api.record import (
+    Record,
+    MARC,
+    SolrDoc,
+    TaggedCitation,
+)
+from catalog_api.entities import FieldElement, PairedField
+from catalog_api.marc import (
+    FieldRuleset,
+)
 from dataclasses import asdict
 
 
@@ -21,6 +31,14 @@ def api_output():
         return json.load(data)
 
 
+def serialize(my_list: list):
+    if len(my_list) > 0 and (
+        isinstance(my_list[0], dict) or isinstance(my_list[0], str)
+    ):
+        return my_list
+    return [asdict(element) for element in my_list]
+
+
 class TestRecord:
     fields = [
         "format",
@@ -36,27 +54,29 @@ class TestRecord:
     @pytest.mark.parametrize("field", fields)
     def test_fields_success(self, field, solr_bib, api_output):
         subject = Record(solr_bib)
-        assert getattr(subject, field) == api_output[field]
+
+        assert serialize(getattr(subject, field)) == api_output[field]
 
     def test_title_with_only_default_script(self, solr_bib):
         solr_bib["title_display"].pop(1)
         subject = Record(solr_bib)
-        assert subject.title[0]["original"]["text"] == solr_bib["title_display"][0]
+        expected = serialize(subject.title)[0]["original"]["text"]
+        assert expected == solr_bib["title_display"][0]
 
     def test_title_with_no_title(self, solr_bib):
         solr_bib.pop("title_display")
         subject = Record(solr_bib)
-        assert subject.title == []
+        assert serialize(subject.title) == []
 
     def test_language_with_no_lanugages(self, solr_bib):
         solr_bib.pop("language")
         subject = Record(solr_bib)
-        assert subject.language == []
+        assert serialize(subject.language) == []
 
     def test_formats_with_no_formats(self, solr_bib):
         solr_bib.pop("format")
         subject = Record(solr_bib)
-        assert subject.format == []
+        assert serialize(subject.format) == []
 
     def test_main_author_no_vernacular(self, solr_bib):
         solr_bib["main_author"].pop(1)
@@ -67,12 +87,12 @@ class TestRecord:
     def test_with_no_main_author(self, solr_bib):
         solr_bib.pop("main_author_display")
         subject = Record(solr_bib)
-        assert subject.main_author == []
+        assert serialize(subject.main_author) == []
 
     def test_with_no_academic_disciplines(self, solr_bib):
         solr_bib.pop("hlb3Delimited")
         subject = Record(solr_bib)
-        assert subject.academic_discipline == []
+        assert serialize(subject.academic_discipline) == []
 
     def test_marc(self, solr_bib):
         record = pymarc.record.Record()
@@ -106,7 +126,7 @@ class TestRecord:
 class TestSolrDoc:
     def test_title(self, solr_bib):
         subject = SolrDoc(solr_bib)
-        assert subject.title == [
+        assert serialize(subject.title) == [
             {
                 "transliterated": {
                     "text": "Sanʼya no tori = Concise field guide to land birds / kaisetsu Saeki Akimitsu ; e Taniguchi Takashi."
@@ -120,32 +140,34 @@ class TestSolrDoc:
     def test_issn(self, solr_bib):
         solr_bib["issn"] = ["some_issn"]
         subject = SolrDoc(solr_bib)
-        assert subject.issn == [{"text": "some_issn"}]
+        assert serialize(subject.issn) == [{"text": "some_issn"}]
 
     def test_gov_doc_number(self, solr_bib):
         solr_bib["sudoc"] = ["some_gov_doc_number"]
         subject = SolrDoc(solr_bib)
-        assert subject.gov_doc_number == [{"text": "some_gov_doc_number"}]
+        assert serialize(subject.gov_doc_number) == [{"text": "some_gov_doc_number"}]
 
     def test_report_number(self, solr_bib):
         solr_bib["rptnum"] = ["some_report_number"]
         subject = SolrDoc(solr_bib)
-        assert subject.report_number == [{"text": "some_report_number"}]
+        assert serialize(subject.report_number) == [{"text": "some_report_number"}]
 
     def test_remediated_lc_subjects(self, solr_bib):
         solr_bib["remediated_lc_subject_display"] = ["some -- subject"]
         subject = SolrDoc(solr_bib)
-        assert subject.remediated_lc_subjects == [{"text": "some -- subject"}]
+        assert serialize(subject.remediated_lc_subjects) == [
+            {"text": "some -- subject"}
+        ]
 
     def test_other_subjects(self, solr_bib):
         solr_bib["non_lc_subject_display"] = ["some -- subject"]
         subject = SolrDoc(solr_bib)
-        assert subject.other_subjects == [{"text": "some -- subject"}]
+        assert serialize(subject.other_subjects) == [{"text": "some -- subject"}]
 
     def test_bookplate(self, solr_bib):
         solr_bib["bookplate"] = ["bookplate"]
         subject = SolrDoc(solr_bib)
-        assert subject.bookplate == [{"text": "bookplate"}]
+        assert serialize(subject.bookplate) == [{"text": "bookplate"}]
 
     def test_indexing_date(self, solr_bib):
         solr_bib["date_of_index"] = "some_valid_date_string"
@@ -154,7 +176,7 @@ class TestSolrDoc:
 
     def test_main_author(self, solr_bib):
         subject = SolrDoc(solr_bib)
-        assert subject.main_author == [
+        assert serialize(subject.main_author) == [
             {
                 "transliterated": {
                     "text": "Saeki, Akimitsu.",
@@ -171,7 +193,7 @@ class TestSolrDoc:
 
     def test_published(self, solr_bib):
         subject = SolrDoc(solr_bib)
-        assert subject.published == [
+        assert serialize(subject.published) == [
             {
                 "transliterated": {
                     "text": "Tōkyō : Nihon Yachō no Kai, 1983",
@@ -182,7 +204,7 @@ class TestSolrDoc:
 
     def test_edition(self, solr_bib):
         subject = SolrDoc(solr_bib)
-        assert subject.edition == [
+        assert serialize(subject.edition) == [
             {
                 "transliterated": {"text": "3-teiban."},
                 "original": {"text": "3訂版."},
@@ -195,13 +217,40 @@ def a_to_z_str():
     return " ".join(list(string.ascii_lowercase))
 
 
+def create_record_with_paired_field(
+    tag: str,
+    subfields: str = (string.ascii_lowercase + "12345"),
+    ind1: str | None = None,
+    ind2: str | None = None,
+):
+    record = pymarc.record.Record()
+    subfields = [pymarc.Subfield(code=code, value=code) for code in list(subfields)]
+
+    vsubfields = subfields.copy()
+
+    subfields.append(pymarc.Subfield(code="6", value="880-06"))
+    vsubfields.append(pymarc.Subfield(code="6", value=f"{tag}-06"))
+
+    field = pymarc.Field(
+        tag=tag, indicators=pymarc.Indicators(ind1, ind2), subfields=subfields
+    )
+
+    vfield = pymarc.Field(
+        tag="880", indicators=pymarc.Indicators(ind1, ind2), subfields=vsubfields
+    )
+
+    record.add_field(field)
+    record.add_field(vfield)
+    return record
+
+
 class TestMARC:
     ###################
     # preferred_title #
     ###################
     @pytest.mark.parametrize("tag", ["130", "240", "243"])
     def test_preferred_title_130_240_243(self, tag, a_to_z_str):
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -219,7 +268,7 @@ class TestMARC:
         assert serialize(subject.preferred_title) == expected
 
     def test_preferred_title_730(self):
-        record = self.create_record_with_paired_field(tag="730", ind2="2")
+        record = create_record_with_paired_field(tag="730", ind2="2")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="730",
@@ -237,7 +286,7 @@ class TestMARC:
         assert serialize(subject.preferred_title) == expected
 
     def test_preferred_title_730_no_ind2(self):
-        record = self.create_record_with_paired_field(tag="730", ind2="1")
+        record = create_record_with_paired_field(tag="730", ind2="1")
         subject = MARC(record)
         assert (subject.preferred_title) == []
 
@@ -246,7 +295,7 @@ class TestMARC:
     #################
 
     def test_related_title_730_blank_ind2(self):
-        record = self.create_record_with_paired_field(tag="730", ind2=None)
+        record = create_record_with_paired_field(tag="730", ind2=None)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="730",
@@ -263,13 +312,13 @@ class TestMARC:
         assert serialize(subject.related_title) == expected
 
     def test_related_title_730_present_ind2(self):
-        record = self.create_record_with_paired_field(tag="730", ind2="1")
+        record = create_record_with_paired_field(tag="730", ind2="1")
         subject = MARC(record)
         assert (subject.related_title) == []
 
     @pytest.mark.parametrize("tag", ["700", "710"])
     def test_related_title_700_710_ind2_not_2_and_t(self, tag):
-        record = self.create_record_with_paired_field(tag=tag, ind2="1")
+        record = create_record_with_paired_field(tag=tag, ind2="1")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -287,7 +336,7 @@ class TestMARC:
         assert serialize(subject.related_title) == expected
 
     def test_related_title_711_ind2_not_2_and_t(self):
-        record = self.create_record_with_paired_field(tag="711", ind2="1")
+        record = create_record_with_paired_field(tag="711", ind2="1")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="711",
@@ -306,13 +355,13 @@ class TestMARC:
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
     def test_related_title_ind2_not_2_no_t(self, tag):
         no_t = string.ascii_lowercase.replace("t", "")
-        record = self.create_record_with_paired_field(tag=tag, ind2="2", subfields=no_t)
+        record = create_record_with_paired_field(tag=tag, ind2="2", subfields=no_t)
         subject = MARC(record)
         assert (subject.related_title) == []
 
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
     def test_related_title_ind2_and_t(self, tag):
-        record = self.create_record_with_paired_field(tag=tag, ind2="2")
+        record = create_record_with_paired_field(tag=tag, ind2="2")
         subject = MARC(record)
         assert (subject.related_title) == []
 
@@ -322,7 +371,7 @@ class TestMARC:
 
     @pytest.mark.parametrize("tag", ["246", "247", "740"])
     def test_other_titles_246_247_740_with_t_and_indicator_2(self, tag, a_to_z_str):
-        record = self.create_record_with_paired_field(tag=tag, ind2="2")
+        record = create_record_with_paired_field(tag=tag, ind2="2")
         subject = MARC(record)
 
         expected = self.expected_paired_field(
@@ -337,7 +386,7 @@ class TestMARC:
 
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
     def test_other_titles_700_710_711_with_t_and_indicator_2(self, tag):
-        record = self.create_record_with_paired_field(tag=tag, ind2="2")
+        record = create_record_with_paired_field(tag=tag, ind2="2")
         subject = MARC(record)
         if tag in ["700", "710"]:
             expected = self.expected_paired_field(
@@ -361,7 +410,7 @@ class TestMARC:
 
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
     def test_other_titles_700_710_711_with_t_and_no_indicator_2(self, tag):
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = []
         assert subject.other_titles == expected
@@ -369,7 +418,7 @@ class TestMARC:
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
     def test_other_titles_700_710_711_with_indicator_2_and_no_t(self, tag):
         sfs = string.ascii_lowercase.replace("t", "")
-        record = self.create_record_with_paired_field(tag=tag, subfields=sfs, ind2="2")
+        record = create_record_with_paired_field(tag=tag, subfields=sfs, ind2="2")
         subject = MARC(record)
         assert subject.other_titles == []
 
@@ -377,7 +426,7 @@ class TestMARC:
     # new_title #
     ##############
     def test_new_title(self):
-        record = self.create_record_with_paired_field(tag="785")
+        record = create_record_with_paired_field(tag="785")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="785",
@@ -392,7 +441,7 @@ class TestMARC:
         assert serialize(subject.new_title) == expected
 
     def test_new_title_with_empty_author(self):
-        record = self.create_record_with_paired_field(tag="785")
+        record = create_record_with_paired_field(tag="785")
         record["785"]["a"] = ""
         record["880"]["a"] = ""
         subject = MARC(record)
@@ -409,7 +458,7 @@ class TestMARC:
         assert serialize(subject.new_title) == expected
 
     def test_new_title_with_missing_author(self):
-        record = self.create_record_with_paired_field(tag="785", subfields="st")
+        record = create_record_with_paired_field(tag="785", subfields="st")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="785",
@@ -427,13 +476,13 @@ class TestMARC:
     # new_title_issn #
     ##################
     def test_new_title_issn(self):
-        record = self.create_record_with_paired_field(tag="785")
+        record = create_record_with_paired_field(tag="785")
         subject = MARC(record)
         expected = [{"tag": "785", "text": "x", "browse": None, "search": None}]
         assert serialize(subject.new_title_issn) == expected
 
     def test_new_title_issn_does_not_have_duplicates(self):
-        record = self.create_record_with_paired_field(tag="785")
+        record = create_record_with_paired_field(tag="785")
         subfields = [
             pymarc.Subfield(code=code, value=code)
             for code in list(string.ascii_lowercase)
@@ -449,7 +498,7 @@ class TestMARC:
     # previous_title #
     ##################
     def test_previous_title(self):
-        record = self.create_record_with_paired_field(tag="780")
+        record = create_record_with_paired_field(tag="780")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="780",
@@ -467,7 +516,7 @@ class TestMARC:
     # previous_title_issn #
     #######################
     def test_previous_title_issn(self):
-        record = self.create_record_with_paired_field(tag="780")
+        record = create_record_with_paired_field(tag="780")
         subject = MARC(record)
         expected = [{"tag": "780", "text": "x", "browse": None, "search": None}]
         assert serialize(subject.previous_title_issn) == expected
@@ -478,7 +527,7 @@ class TestMARC:
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
     def test_contributors_with_indicator_2_not_2_and_no_t(self, tag):
         sfs = string.ascii_lowercase.replace("t", "") + "4"
-        record = self.create_record_with_paired_field(tag=tag, subfields=sfs)
+        record = create_record_with_paired_field(tag=tag, subfields=sfs)
 
         subject = MARC(record)
         expected = self.expected_paired_field(
@@ -495,14 +544,14 @@ class TestMARC:
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
     def test_contributors_with_indicator_2_not_2_and_t(self, tag):
         sfs = string.ascii_lowercase + "4"
-        record = self.create_record_with_paired_field(tag=tag, subfields=sfs)
+        record = create_record_with_paired_field(tag=tag, subfields=sfs)
         subject = MARC(record)
         assert subject.contributors == []
 
     @pytest.mark.parametrize("tag", ["700", "710", "711"])
     def test_contributors_with_indicator_2_as_2_and_no_t(self, tag):
         sfs = string.ascii_lowercase.replace("t", "") + "4"
-        record = self.create_record_with_paired_field(tag=tag, subfields=sfs, ind2="2")
+        record = create_record_with_paired_field(tag=tag, subfields=sfs, ind2="2")
         subject = MARC(record)
         assert subject.contributors == []
 
@@ -510,7 +559,7 @@ class TestMARC:
     # created #
     ###########
     def test_created_264_with_ind_1_as_0(self, a_to_z_str):
-        record = self.create_record_with_paired_field(tag="264", ind2="0")
+        record = create_record_with_paired_field(tag="264", ind2="0")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="264",
@@ -521,7 +570,7 @@ class TestMARC:
         assert serialize(subject.created) == expected
 
     def test_created_not_ind_1_as_0(self):
-        record = self.create_record_with_paired_field(tag="264", ind2="1")
+        record = create_record_with_paired_field(tag="264", ind2="1")
         subject = MARC(record)
         assert serialize(subject.created) == []
 
@@ -529,7 +578,7 @@ class TestMARC:
     # distributed #
     ###############
     def test_distributed_264_with_ind_1_as_2(self, a_to_z_str):
-        record = self.create_record_with_paired_field(tag="264", ind2="2")
+        record = create_record_with_paired_field(tag="264", ind2="2")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="264",
@@ -540,7 +589,7 @@ class TestMARC:
         assert serialize(subject.distributed) == expected
 
     def test_distributed_not_ind_1_as_2(self):
-        record = self.create_record_with_paired_field(tag="264", ind2="1")
+        record = create_record_with_paired_field(tag="264", ind2="1")
         subject = MARC(record)
         assert serialize(subject.distributed) == []
 
@@ -548,7 +597,7 @@ class TestMARC:
     # manufactured #
     ################
     def test_manufactured_260(self):
-        record = self.create_record_with_paired_field(tag="260")
+        record = create_record_with_paired_field(tag="260")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="260",
@@ -560,12 +609,12 @@ class TestMARC:
         assert serialize(subject.manufactured) == expected
 
     def test_manufactured_260_with_missing_fields(self):
-        record = self.create_record_with_paired_field(tag="260", subfields="a")
+        record = create_record_with_paired_field(tag="260", subfields="a")
         subject = MARC(record)
         assert subject.manufactured == []
 
     def test_manufactured_264_with_indicator2_as_3(self, a_to_z_str):
-        record = self.create_record_with_paired_field(tag="264", ind2="3")
+        record = create_record_with_paired_field(tag="264", ind2="3")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="264",
@@ -582,7 +631,7 @@ class TestMARC:
 
     @pytest.mark.parametrize("tag", ["400", "410", "411", "440", "490"])
     def test_series(self, tag, a_to_z_str):
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -591,7 +640,7 @@ class TestMARC:
         assert serialize(subject.series) == expected
 
     def test_series_with_only_880(self, a_to_z_str):
-        record = self.create_record_with_paired_field(tag="400")
+        record = create_record_with_paired_field(tag="400")
         record.remove_fields("400")
 
         subject = MARC(record)
@@ -609,7 +658,7 @@ class TestMARC:
         assert serialize(subject.series) == expected
 
     def test_series_with_only_400(self, a_to_z_str):
-        record = self.create_record_with_paired_field(tag="400")
+        record = create_record_with_paired_field(tag="400")
         record.remove_fields("880")
 
         subject = MARC(record)
@@ -632,7 +681,7 @@ class TestMARC:
 
     @pytest.mark.parametrize("tag", ["440", "800", "810", "811", "830"])
     def test_series_statement(self, tag, a_to_z_str):
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -645,7 +694,7 @@ class TestMARC:
     #####################
 
     def test_biography_history(self):
-        record = self.create_record_with_paired_field(tag="545")
+        record = create_record_with_paired_field(tag="545")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="545",
@@ -658,7 +707,7 @@ class TestMARC:
     ###########
 
     def test_summary(self):
-        record = self.create_record_with_paired_field(tag="520")
+        record = create_record_with_paired_field(tag="520")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="520",
@@ -667,7 +716,7 @@ class TestMARC:
         assert serialize(subject.summary) == expected
 
     def test_summary_ind_1_4(self):
-        record = self.create_record_with_paired_field(tag="520", ind1="4")
+        record = create_record_with_paired_field(tag="520", ind1="4")
         subject = MARC(record)
         assert serialize(subject.summary) == []
 
@@ -676,7 +725,7 @@ class TestMARC:
     #################
 
     def test_in_collection(self, a_to_z_str):
-        record = self.create_record_with_paired_field(tag="773")
+        record = create_record_with_paired_field(tag="773")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="773",
@@ -689,7 +738,7 @@ class TestMARC:
     ##########
 
     def test_access(self):
-        record = self.create_record_with_paired_field(tag="506")
+        record = create_record_with_paired_field(tag="506")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="506",
@@ -702,7 +751,7 @@ class TestMARC:
     ################
     # TODO mrio: I don't think this is right
     def test_finding_aids(self):
-        record = self.create_record_with_paired_field(tag="555")
+        record = create_record_with_paired_field(tag="555")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="555",
@@ -714,7 +763,7 @@ class TestMARC:
     # terms_of_use #
     ################
     def test_terms_of_use(self, a_to_z_str):
-        record = self.create_record_with_paired_field(tag="540")
+        record = create_record_with_paired_field(tag="540")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="540",
@@ -726,7 +775,7 @@ class TestMARC:
     # language_note #
     #################
     def test_language_note(self, a_to_z_str):
-        record = self.create_record_with_paired_field(tag="546")
+        record = create_record_with_paired_field(tag="546")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="546",
@@ -738,7 +787,7 @@ class TestMARC:
     # performers #
     ##############
     def test_performers(self):
-        record = self.create_record_with_paired_field(tag="511")
+        record = create_record_with_paired_field(tag="511")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="511",
@@ -750,7 +799,7 @@ class TestMARC:
     # date_place_of_event #
     #######################
     def test_date_place_of_event(self):
-        record = self.create_record_with_paired_field(tag="518")
+        record = create_record_with_paired_field(tag="518")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="518",
@@ -764,7 +813,7 @@ class TestMARC:
 
     def test_preferred_citation(self):
         tag = "524"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -777,7 +826,7 @@ class TestMARC:
     #########################
     def test_location_of_originals(self, a_to_z_str):
         tag = "535"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -790,7 +839,7 @@ class TestMARC:
     #######################
     def test_funding_information(self):
         tag = "536"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -803,7 +852,7 @@ class TestMARC:
     ########################
     def test_source_of_acquisition(self):
         tag = "541"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -816,7 +865,7 @@ class TestMARC:
     #################
     def test_related_items(self):
         tag = "580"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -829,7 +878,7 @@ class TestMARC:
     #############
     def test_numbering(self):
         tag = "362"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -842,7 +891,7 @@ class TestMARC:
     #################################
     def test_current_publication_frequency(self):
         tag = "310"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -855,7 +904,7 @@ class TestMARC:
     ################################
     def test_former_publication_frequency(self):
         tag = "321"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -868,7 +917,7 @@ class TestMARC:
     ###################
     def test_numbering_notes(self):
         tag = "515"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -881,7 +930,7 @@ class TestMARC:
     ##############################
     def test_source_of_description_note(self):
         tag = "588"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -894,7 +943,7 @@ class TestMARC:
     ######################
     def test_copy_specific_note(self):
         tag = "590"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -907,7 +956,7 @@ class TestMARC:
     ##############
     def test_references(self, a_to_z_str):
         tag = "510"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -920,7 +969,7 @@ class TestMARC:
     ################################
     def test_copyright_status_information(self, a_to_z_str):
         tag = "542"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -951,7 +1000,7 @@ class TestMARC:
         ],
     )
     def test_note(self, tag):
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -964,7 +1013,7 @@ class TestMARC:
     ###############
     def test_arrangement(self):
         tag = "351"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -977,7 +1026,7 @@ class TestMARC:
     #############
     def test_copyright_with_ind_2_as_4(self, a_to_z_str):
         tag = "264"
-        record = self.create_record_with_paired_field(tag=tag, ind2="4")
+        record = create_record_with_paired_field(tag=tag, ind2="4")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -987,7 +1036,7 @@ class TestMARC:
 
     def test_copyright_with_ind_2_not_4(self):
         tag = "264"
-        record = self.create_record_with_paired_field(tag=tag, ind2="1")
+        record = create_record_with_paired_field(tag=tag, ind2="1")
         subject = MARC(record)
         assert serialize(subject.copyright) == []
 
@@ -996,7 +1045,7 @@ class TestMARC:
     ########################
 
     def test_physical_description(self, a_to_z_str):
-        record = self.create_record_with_paired_field(tag="300")
+        record = create_record_with_paired_field(tag="300")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="300",
@@ -1009,7 +1058,7 @@ class TestMARC:
     #############
     def test_map_scale(self):
         tag = "255"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -1022,7 +1071,7 @@ class TestMARC:
     #####################
     def test_reproduction_note(self, a_to_z_str):
         tag = "533"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -1035,7 +1084,7 @@ class TestMARC:
     #########################
     def test_original_version_note(self, a_to_z_str):
         tag = "534"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -1048,7 +1097,7 @@ class TestMARC:
     ################
     def test_playing_time(self):
         tag = "306"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -1061,7 +1110,7 @@ class TestMARC:
     ################
     def test_media_format(self):
         tag = "538"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -1074,7 +1123,7 @@ class TestMARC:
     ############
     def test_audience(self):
         tag = "521"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -1087,7 +1136,7 @@ class TestMARC:
     ##################
     def test_content_advice_ind1_as_4(self):
         tag = "520"
-        record = self.create_record_with_paired_field(tag=tag, ind1="4")
+        record = create_record_with_paired_field(tag=tag, ind1="4")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -1097,7 +1146,7 @@ class TestMARC:
 
     def test_content_advice_ind1_not_4(self):
         tag = "520"
-        record = self.create_record_with_paired_field(tag=tag, ind1="1")
+        record = create_record_with_paired_field(tag=tag, ind1="1")
         subject = MARC(record)
         assert serialize(subject.content_advice) == []
 
@@ -1106,7 +1155,7 @@ class TestMARC:
     ##########
     def test_awards(self):
         tag = "586"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -1119,7 +1168,7 @@ class TestMARC:
     ######################
     def test_production_credits(self):
         tag = "508"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -1132,7 +1181,7 @@ class TestMARC:
     ################
     def test_bibliography(self):
         tag = "504"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -1145,7 +1194,7 @@ class TestMARC:
     ####################
     def test_publisher_number(self):
         tag = "028"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
@@ -1158,40 +1207,13 @@ class TestMARC:
     ############
     def test_contents(self, a_to_z_str):
         tag = "505"
-        record = self.create_record_with_paired_field(tag=tag)
+        record = create_record_with_paired_field(tag=tag)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag=tag,
             elements={"text": a_to_z_str},
         )
         assert serialize(subject.contents) == expected
-
-    def create_record_with_paired_field(
-        self,
-        tag: str,
-        subfields: str = (string.ascii_lowercase + "12345"),
-        ind1: str | None = None,
-        ind2: str | None = None,
-    ):
-        record = pymarc.record.Record()
-        subfields = [pymarc.Subfield(code=code, value=code) for code in list(subfields)]
-
-        vsubfields = subfields.copy()
-
-        subfields.append(pymarc.Subfield(code="6", value="880-06"))
-        vsubfields.append(pymarc.Subfield(code="6", value=f"{tag}-06"))
-
-        field = pymarc.Field(
-            tag=tag, indicators=pymarc.Indicators(ind1, ind2), subfields=subfields
-        )
-
-        vfield = pymarc.Field(
-            tag="880", indicators=pymarc.Indicators(ind1, ind2), subfields=vsubfields
-        )
-
-        record.add_field(field)
-        record.add_field(vfield)
-        return record
 
     def expected_paired_field(self, tag: str, elements: dict):
         result = [
@@ -1203,5 +1225,268 @@ class TestMARC:
         return result
 
 
-def serialize(my_list: list):
-    return [asdict(element) for element in my_list]
+@dataclass(frozen=True)
+class BaseRecordFake:
+    field_name: list = field(default_factory=[])
+
+
+@pytest.fixture()
+def empty_marc_record():
+    return pymarc.record.Record()
+
+
+@pytest.fixture()
+def base_mapping():
+    return [{"kind": "base", "field": "field_name", "ris": ["EX"], "meta": ["example"]}]
+
+
+@pytest.fixture()
+def marc_mapping():
+    return [
+        {
+            "kind": "marc",
+            "ruleset": FieldRuleset(tags=["300"], text_sfs="abc"),
+            "ris": ["EX"],
+            "meta": ["example"],
+        }
+    ]
+
+
+class TestTaggedCitation:
+    def test_to_list_for_base_paired_field(self, base_mapping, empty_marc_record):
+        base_record_stub = BaseRecordFake(
+            field_name=[
+                PairedField(original=FieldElement(text="CONTENT STRING", tag=None))
+            ],
+        )
+        expected = [{"content": "CONTENT STRING", "ris": ["EX"], "meta": ["example"]}]
+        subject = TaggedCitation(
+            base_record=base_record_stub, marc_record=empty_marc_record
+        ).to_list(tag_mapping=base_mapping)
+
+        for example in expected:
+            assert example in subject
+
+    def test_to_list_for_base_multiple_paired_fields(
+        self, base_mapping, empty_marc_record
+    ):
+        base_record_stub = BaseRecordFake(
+            field_name=[
+                PairedField(original=FieldElement(text="CONTENT1", tag=None)),
+                PairedField(
+                    original=FieldElement(text="CONTENT2", tag=None),
+                    transliterated=FieldElement(text="TCONTENT2", tag=None),
+                ),
+            ]
+        )
+
+        expected = [
+            {"content": "CONTENT1", "ris": ["EX"], "meta": ["example"]},
+            {"content": "TCONTENT2", "ris": ["EX"], "meta": ["example"]},
+        ]
+
+        subject = TaggedCitation(
+            base_record=base_record_stub, marc_record=empty_marc_record
+        ).to_list(tag_mapping=base_mapping)
+        for example in expected:
+            assert example in subject
+
+    def test_to_list_for_base_empty(self, base_mapping, empty_marc_record):
+        base_record_stub = BaseRecordFake(field_name=[])
+
+        expected = []
+
+        subject = TaggedCitation(
+            base_record=base_record_stub, marc_record=empty_marc_record
+        ).to_list(tag_mapping=base_mapping)
+        for example in expected:
+            assert example in subject
+
+    def test_to_list_base_text_list(self, base_mapping, empty_marc_record):
+        base_record_stub = BaseRecordFake(
+            field_name=[FieldElement(text="CONTENT STRING", tag=None)]
+        )
+
+        expected = [{"content": "CONTENT STRING", "ris": ["EX"], "meta": ["example"]}]
+        subject = TaggedCitation(
+            base_record=base_record_stub, marc_record=empty_marc_record
+        ).to_list(tag_mapping=base_mapping)
+        for example in expected:
+            assert example in subject
+
+    def test_to_list_base_bare_text_list(self, base_mapping, empty_marc_record):
+        base_record_stub = BaseRecordFake(field_name=["CONTENT1", "CONTENT2"])
+
+        expected = [
+            {"content": "CONTENT1", "ris": ["EX"], "meta": ["example"]},
+            {"content": "CONTENT2", "ris": ["EX"], "meta": ["example"]},
+        ]
+        subject = TaggedCitation(
+            base_record=base_record_stub, marc_record=empty_marc_record
+        ).to_list(tag_mapping=base_mapping)
+        for example in expected:
+            assert example in subject
+
+    def test_to_list_marc(self, marc_mapping):
+        record = create_record_with_paired_field(tag="300")
+        expected = [
+            {"content": "a b c", "ris": ["EX"], "meta": ["example"]},
+        ]
+        subject = TaggedCitation(base_record=None, marc_record=record).to_list(
+            tag_mapping=marc_mapping
+        )
+        for example in expected:
+            assert example in subject
+
+    def test_to_list_marc_lone_880(self, marc_mapping):
+        record = create_record_with_paired_field(tag="300")
+        record.remove_fields("300")
+        expected = [
+            {"content": "a b c", "ris": ["EX"], "meta": ["example"]},
+        ]
+        subject = TaggedCitation(base_record=None, marc_record=record).to_list(
+            tag_mapping=marc_mapping
+        )
+        for example in expected:
+            assert example in subject
+
+    def test_to_list_solr_display_date(self, empty_marc_record, solr_bib):
+        tagged_mapping = [
+            {
+                "kind": "solr",
+                "field": "display_date",
+                "ris": ["EX"],
+                "meta": ["example"],
+            }
+        ]
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record, solr_doc=solr_bib
+        ).to_list(tagged_mapping)
+        expected = [
+            {"content": "1983", "ris": ["EX"], "meta": ["example"]},
+        ]
+        for example in expected:
+            assert example in subject
+
+    def test_to_list_solr_academic_discipline(self, empty_marc_record, solr_bib):
+        tagged_mapping = [
+            {
+                "kind": "solr",
+                "field": "hlb3Delimited",
+                "ris": ["KW"],
+                "meta": ["keywords"],
+            }
+        ]
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record, solr_doc=solr_bib
+        ).to_list(tagged_mapping)
+
+        expected = [
+            {
+                "content": "Science | Biology | Zoology",
+                "ris": ["KW"],
+                "meta": ["keywords"],
+            },
+            {
+                "content": "Science | Biology | Ecology and Evolutionary Biology",
+                "ris": ["KW"],
+                "meta": ["keywords"],
+            },
+        ]
+        for example in expected:
+            assert example in subject
+
+    def test_non_record_specific_tags(self, empty_marc_record):
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record
+        ).to_list(tag_mapping=[])
+        expected = [
+            {
+                "content": "U-M Catalog Search",
+                "ris": ["DB"],
+                "meta": [],
+            },
+            {
+                "content": "University of Michigan Library",
+                "ris": ["DP"],
+                "meta": [],
+            },
+            {
+                "content": datetime.now().strftime("%Y-%m-%d"),
+                "ris": ["Y2"],
+                "meta": ["online_date"],
+            },
+        ]
+
+        for example in expected:
+            assert example in subject
+
+    def test_to_list_type_is_first_element(self, empty_marc_record, solr_bib):
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record, solr_doc=solr_bib
+        ).to_list([])
+
+        expected = {
+            "content": "BOOK",
+            "ris": ["TY"],
+            "meta": [],
+        }
+
+        assert subject[0] == expected
+
+    def test_to_list_type_is_jour_when_no_format(self, empty_marc_record):
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record
+        ).to_list([])
+
+        expected = {
+            "content": "JOUR",
+            "ris": ["TY"],
+            "meta": [],
+        }
+
+        assert subject[0] == expected
+
+    def test_to_list_type_is_gen_when_no_matching_format(
+        self, empty_marc_record, solr_bib
+    ):
+        solr_bib["format"] = ["some_non_standard_format"]
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record, solr_doc=solr_bib
+        ).to_list([])
+
+        expected = {
+            "content": "GEN",
+            "ris": ["TY"],
+            "meta": [],
+        }
+
+        assert subject[0] == expected
+
+    def test_to_list_type_tried_again_when_multiple_formats(
+        self, empty_marc_record, solr_bib
+    ):
+        solr_bib["format"] = ["some_non_standard_format", "Video (DVD)"]
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record, solr_doc=solr_bib
+        ).to_list([])
+
+        expected = {
+            "content": "VIDEO",
+            "ris": ["TY"],
+            "meta": [],
+        }
+
+        assert subject[0] == expected
+
+    def test_end_record_tag(self, empty_marc_record):
+        subject = TaggedCitation(
+            base_record=None, marc_record=empty_marc_record
+        ).to_list(tag_mapping=[])
+        expected = {
+            "content": "",
+            "ris": ["ER"],
+            "meta": [],
+        }
+
+        assert subject[-1] == expected
