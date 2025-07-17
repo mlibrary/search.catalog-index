@@ -26,7 +26,7 @@ jobs:
       - name: Fetch Electronic Collections Ranking Translation map
         working-directory: ./umich_catalog_indexing
         env:
-          FLOOR_LOCATION_SPREADSHEET_ID: ${{ vars.ELECTRONIC_COLLECTIONS_RANKING_SPREADSHEET_ID }}
+          ELECTRONIC_COLLECTIONS_RANKING_SPREADSHEET_ID: ${{ vars.ELECTRONIC_COLLECTIONS_RANKING_SPREADSHEET_ID }}
           GOOGLE_API_CREDENTIALS: ${{ secrets.GOOGLE_API_CREDENTIALS }}
         run: bundle exec ruby bin/generate_translation_map.rb --force electronic_collections_ranking
       - name: Fetch Electronic Collections Translation map
