@@ -559,7 +559,7 @@ class TaggedCitation:
             "kind": "base",
             "field": "bibliography",
             "ris": ["AB"],  # should this also be N2?
-            "meta": ["citation_abstract"],
+            "meta": ["abstract"],
         },
         {
             "kind": "marc",
@@ -568,7 +568,7 @@ class TaggedCitation:
                 text_sfs="abcdefgjklnpqtu4",
             ),
             "ris": ["AU"],
-            "meta": ["citation_author"],
+            "meta": ["author"],
         },
         {"kind": "base", "field": "call_number", "ris": ["CN"], "meta": []},
         {
