@@ -10,6 +10,9 @@ describe "umich_alma" do
     file = JSON.parse(fixture("zephir_record.json"))
     MARC::Record.new_from_hash(file)
   end
+  let(:e_science) do
+    get_record("./spec/fixtures/science_e_resource.xml")
+  end
   let(:indexer) do
     Traject::Indexer.new do
       load_config_file("./spec/support/traject_settings.rb")
@@ -180,5 +183,10 @@ describe "umich_alma" do
     @record = arborist
     hol = JSON.parse(subject["hol"].first)
     expect(hol).to eq(expected_arborist)
+  end
+  it "has ordered electronic resources" do
+    @record = e_science
+    hol = JSON.parse(subject["hol"].first)
+    expect(hol[1]["collection_name"]).to eq("Single Journals")
   end
 end

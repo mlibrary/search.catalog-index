@@ -69,7 +69,7 @@ module Traject
         electronic_holdings = e56.map do |field|
           ElectronicHolding.new(field)
         end
-        electronic_holdings.each do |holding|
+        electronic_holdings.sort_by(&:collection_name).sort_by(&:ranking).each do |holding|
           hol_list << holding.to_h
           locations << holding.library
           inst_codes.concat(holding.institution_codes)
