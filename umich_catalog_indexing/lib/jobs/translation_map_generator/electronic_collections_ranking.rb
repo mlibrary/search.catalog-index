@@ -30,7 +30,7 @@ module Jobs
             scope: scope
           )
           client.authorization = authorizer
-          range = "Sheet1!A2:G6875"
+          range = "Data!A2:G7000"
           data = client.get_spreadsheet_values(S.electronic_collections_ranking_spreadsheet_id, range).values
           _generate_data_structure(data)
         end

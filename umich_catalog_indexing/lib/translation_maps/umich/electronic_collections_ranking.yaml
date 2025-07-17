@@ -7622,6 +7622,30 @@
 '611030064780006381':
   ranking: '22000'
   collection_name: 'EEBO : early English books online /'
+'611228097830006381':
+  ranking: '22000'
+  collection_name: The Far Eastern Economic Review Archive
+'611130210140006381':
+  ranking: '22000'
+  collection_name: The GQ Archive
+'611072767130006381':
+  ranking: '22000'
+  collection_name: The Harper's Bazaar Archive (US edition only)
+'611130226270006381':
+  ranking: '22000'
+  collection_name: The Rolling Stone Archive
+'611249839170006381':
+  ranking: '22000'
+  collection_name: The Vibe Archive
+'611072768420006381':
+  ranking: '22000'
+  collection_name: The Vogue Archive
+'611005393560006381':
+  ranking: '22000'
+  collection_name: The women's wear daily archive.
+'611072768930006381':
+  ranking: '22000'
+  collection_name: Women's Wear Daily Archive
 '611072773480006381':
   ranking: '24000'
   collection_name: 'ProQuest Recent Newspapers: Chicago Tribune'
@@ -7652,6 +7676,12 @@
 '611072783110006381':
   ranking: '24000'
   collection_name: PressReader
+'611179764960006381':
+  ranking: '24000'
+  collection_name: 'ProQuest Recent Newspapers: The Guardian'
+'611179765010006381':
+  ranking: '24000'
+  collection_name: 'ProQuest Recent Newspapers: Toronto Star'
 '611031233080006381':
   ranking: '25000'
   collection_name: The Chicago defender
@@ -8045,12 +8075,6 @@
 '611279189780006381':
   ranking: '25000'
   collection_name: ProQuest historical newspapers.
-'611179764960006381':
-  ranking: '25000'
-  collection_name: 'ProQuest Recent Newspapers: The Guardian'
-'611179765010006381':
-  ranking: '25000'
-  collection_name: 'ProQuest Recent Newspapers: Toronto Star'
 '611184411940006381':
   ranking: '25000'
   collection_name: The Canadian Observer, 1914-1919
@@ -8138,21 +8162,9 @@
 '611211145860006381':
   ranking: '25000'
   collection_name: 'Music Magazine Archive: Rock'
-'611072750070006381':
-  ranking: '25000'
-  collection_name: Music Periodicals Database
-'611072420400006381':
-  ranking: '25000'
-  collection_name: Music periodicals database.
 '611046130250006381':
   ranking: '25000'
   collection_name: News, policy & politics magazine archive.
-'611072750010006381':
-  ranking: '25000'
-  collection_name: Performing Arts Periodicals Database
-'611036132390006381':
-  ranking: '25000'
-  collection_name: Performing arts periodicals database.
 '611053609590006381':
   ranking: '25000'
   collection_name: Periodicals archive online
@@ -8369,9 +8381,6 @@
 '611072766020006381':
   ranking: '25000'
   collection_name: 'ProQuest Historical Newspapers: The Nashville Tennessean (1812-1922)'
-'611072779600006381':
-  ranking: '25000'
-  collection_name: 'ProQuest Historical Newspapers: The New York Times'
 '611130229540006381':
   ranking: '25000'
   collection_name: 'ProQuest Historical Newspapers: The New York Times with Index'
@@ -8414,30 +8423,9 @@
 '611300708630006381':
   ranking: '25000'
   collection_name: Socialist and Radical Periodicals
-'611228097830006381':
-  ranking: '25000'
-  collection_name: The Far Eastern Economic Review Archive
 '611036132400006381':
   ranking: '25000'
   collection_name: The Gerritsen collection of women's history
-'611130210140006381':
-  ranking: '25000'
-  collection_name: The GQ Archive
-'611072767130006381':
-  ranking: '25000'
-  collection_name: The Harper's Bazaar Archive (US edition only)
-'611130226270006381':
-  ranking: '25000'
-  collection_name: The Rolling Stone Archive
-'611249839170006381':
-  ranking: '25000'
-  collection_name: The Vibe Archive
-'611072768420006381':
-  ranking: '25000'
-  collection_name: The Vogue Archive
-'611005393560006381':
-  ranking: '25000'
-  collection_name: The women's wear daily archive.
 '611042330570006381':
   ranking: '25000'
   collection_name: Trench journals and unit magazines of the First World War
@@ -8462,9 +8450,6 @@
 '611032141060006381':
   ranking: '25000'
   collection_name: Women's magazine archive.
-'611072768930006381':
-  ranking: '25000'
-  collection_name: Women's Wear Daily Archive
 '611130225520006381':
   ranking: '25000'
   collection_name: Youth and Popular Culture Magazine Archive
@@ -8777,6 +8762,18 @@
 '611072769770006381':
   ranking: '28350'
   collection_name: Sociology Database
+'611072750070006381':
+  ranking: '28360'
+  collection_name: Music Periodicals Database
+'611072420400006381':
+  ranking: '28360'
+  collection_name: Music periodicals database.
+'611072750010006381':
+  ranking: '28370'
+  collection_name: Performing Arts Periodicals Database
+'611036132390006381':
+  ranking: '28370'
+  collection_name: Performing arts periodicals database.
 '611059740130006381':
   ranking: '28400'
   collection_name: PubMed central an archive of life science journals.
@@ -8786,12 +8783,12 @@
 '611059740230006381':
   ranking: '28400'
   collection_name: PubMed central an archive of life science journals.
-'611072767550006381':
-  ranking: '29000'
-  collection_name: Nexis Uni
 '611072761670006381':
-  ranking: '29100'
+  ranking: '29000'
   collection_name: Global Newsstream
+'611072767550006381':
+  ranking: '29100'
+  collection_name: Nexis Uni
 '611303294720006381':
   ranking: '29200'
   collection_name: Newsbank Access World News Research Collection 2021 Edition
@@ -8801,6 +8798,9 @@
 '611050246790006381':
   ranking: '29200'
   collection_name: Access world news collection the ultimate news archive.
+'611072779600006381':
+  ranking: '29500'
+  collection_name: 'ProQuest Historical Newspapers: The New York Times'
 '611072808350006381':
   ranking: '30000'
   collection_name: Accessible Archives Complete
@@ -10841,6 +10841,93 @@
 '611226887730006381':
   ranking: '30000'
   collection_name: 'HUSCAP: Hokkaido University Collection of Scholarly and Academic Papers'
+'611072767940006381':
+  ranking: '35000'
+  collection_name: EBSCOhost MasterFILE Complete
+'611072767850006381':
+  ranking: '36000'
+  collection_name: EBSCOhost OmniFile Full Text Select
+'611028245990006381':
+  ranking: '36000'
+  collection_name: Wilson omnifile full text, select edition
+'611072768270006381':
+  ranking: '37000'
+  collection_name: EBSCOhost MAS Complete
+'611061544780006381':
+  ranking: '38000'
+  collection_name: Art & architecture source.
+'611072802110006381':
+  ranking: '38000'
+  collection_name: Art and Architecture Source
+'611072805470006381':
+  ranking: '38000'
+  collection_name: Biography Reference Source
+'611022913980006381':
+  ranking: '38000'
+  collection_name: Dentistry & oral sciences source
+'611072768120006381':
+  ranking: '38000'
+  collection_name: EBSCOhost Applied Science & Technology Source
+'611232968980006381':
+  ranking: '38000'
+  collection_name: EBSCOhost Art & Architecture Source
+'611072768780006381':
+  ranking: '38000'
+  collection_name: EBSCOhost Associates Programs Source
+'611072767760006381':
+  ranking: '38000'
+  collection_name: EBSCOhost Central & Eastern European Academic Source
+'611072769230006381':
+  ranking: '38000'
+  collection_name: EBSCOhost Dentistry & Oral Sciences Source
+'611072768240006381':
+  ranking: '38000'
+  collection_name: EBSCOhost Entrepreneurial Studies Source
+'611072768060006381':
+  ranking: '38000'
+  collection_name: EBSCOhost Humanities Source
+'611072767880006381':
+  ranking: '38000'
+  collection_name: EBSCOhost Jewish Studies Source
+'611072768030006381':
+  ranking: '38000'
+  collection_name: EBSCOhost Legal Source
+'611072750460006381':
+  ranking: '38000'
+  collection_name: EBSCOhost LGBTQ+ Source
+'611072769290006381':
+  ranking: '38000'
+  collection_name: EBSCOhost Newspaper Source Plus
+'611072751740006381':
+  ranking: '38000'
+  collection_name: History Reference Source
+'611072790540006381':
+  ranking: '38000'
+  collection_name: Hobbies & Crafts Source
+'611072790510006381':
+  ranking: '38000'
+  collection_name: Home Improvement Source
+'611072768180006381':
+  ranking: '38000'
+  collection_name: Legal Information Source
+'611072750610006381':
+  ranking: '38000'
+  collection_name: Literary Reference Source
+'611072750160006381':
+  ranking: '38000'
+  collection_name: Points of View Reference Source
+'611072750640006381':
+  ranking: '38000'
+  collection_name: Science Reference Source
+'611072769560006381':
+  ranking: '38000'
+  collection_name: Small Business Source
+'611072805800006381':
+  ranking: '38000'
+  collection_name: Small Engine Repair Source
+'611072768090006381':
+  ranking: '38000'
+  collection_name: EBSCOhost Education Source
 '611237795990006381':
   ranking: '40000'
   collection_name: Bacon Proquest Couperin Factiva $PROQUEST_COUPERIN_FACTIVA
@@ -10853,21 +10940,12 @@
 '611025444370006381':
   ranking: '40000'
   collection_name: Applied science & technology full text.
-'611061544780006381':
-  ranking: '40000'
-  collection_name: Art & architecture source.
-'611072802110006381':
-  ranking: '40000'
-  collection_name: Art and Architecture Source
 '611072825820006381':
   ranking: '40000'
   collection_name: Biography Index Past and Present (H.W. Wilson)
 '611025445000006381':
   ranking: '40000'
   collection_name: Biography index past and present.
-'611072805470006381':
-  ranking: '40000'
-  collection_name: Biography Reference Source
 '611025444880006381':
   ranking: '40000'
   collection_name: Biological & agricultural index plus (H.W. Wilson)
@@ -10886,9 +10964,6 @@
 '611059283070006381':
   ranking: '40000'
   collection_name: Communication & mass media complete
-'611022913980006381':
-  ranking: '40000'
-  collection_name: Dentistry & oral sciences source
 '611072791440006381':
   ranking: '40000'
   collection_name: eBook Business Collection
@@ -10901,18 +10976,9 @@
 '611072767820006381':
   ranking: '40000'
   collection_name: EBSCOhost Applied Science & Technology Full Text
-'611072768120006381':
-  ranking: '40000'
-  collection_name: EBSCOhost Applied Science & Technology Source
-'611232968980006381':
-  ranking: '40000'
-  collection_name: EBSCOhost Art & Architecture Source
 '611310020440006381':
   ranking: '40000'
   collection_name: EBSCOhost Art Full Text
-'611072768780006381':
-  ranking: '40000'
-  collection_name: EBSCOhost Associates Programs Source
 '611157063200006381':
   ranking: '40000'
   collection_name: EBSCOhost ATLA Religion Database with ATLASerials [RFH]
@@ -10922,18 +10988,12 @@
 '611310966720006381':
   ranking: '40000'
   collection_name: EBSCOhost Business Abstracts with Full Text
-'611072767760006381':
-  ranking: '40000'
-  collection_name: EBSCOhost Central & Eastern European Academic Source
 '611072767910006381':
   ranking: '40000'
   collection_name: EBSCOhost CINAHL Complete
 '611072751530006381':
   ranking: '40000'
   collection_name: EBSCOhost Communication & Mass Media Complete
-'611072769230006381':
-  ranking: '40000'
-  collection_name: EBSCOhost Dentistry & Oral Sciences Source
 '611154999880006381':
   ranking: '40000'
   collection_name: EBSCOhost Ebook Business Collection
@@ -10946,12 +11006,6 @@
 '611158151370006381':
   ranking: '40000'
   collection_name: EBSCOhost Ebook Subscription K-8 Collection
-'611072768090006381':
-  ranking: '40000'
-  collection_name: EBSCOhost Education Source
-'611072768240006381':
-  ranking: '40000'
-  collection_name: EBSCOhost Entrepreneurial Studies Source
 '611072750730006381':
   ranking: '40000'
   collection_name: EBSCOhost Environment Complete
@@ -10970,21 +11024,9 @@
 '611072769590006381':
   ranking: '40000'
   collection_name: EBSCOhost Historical Abstracts with Full Text
-'611072768060006381':
-  ranking: '40000'
-  collection_name: EBSCOhost Humanities Source
 '611072751180006381':
   ranking: '40000'
   collection_name: EBSCOhost International Bibliography of Theatre & Dance with Full Text
-'611072767880006381':
-  ranking: '40000'
-  collection_name: EBSCOhost Jewish Studies Source
-'611072768030006381':
-  ranking: '40000'
-  collection_name: EBSCOhost Legal Source
-'611072750460006381':
-  ranking: '40000'
-  collection_name: EBSCOhost LGBTQ+ Source
 '611072768000006381':
   ranking: '40000'
   collection_name: EBSCOhost Library & Information Science Source
@@ -10994,18 +11036,6 @@
 '611162510680006381':
   ranking: '40000'
   collection_name: EBSCOhost Literary Reference Center eBook Collection
-'611072768270006381':
-  ranking: '40000'
-  collection_name: EBSCOhost MAS Complete
-'611072767940006381':
-  ranking: '40000'
-  collection_name: EBSCOhost MasterFILE Complete
-'611072769290006381':
-  ranking: '40000'
-  collection_name: EBSCOhost Newspaper Source Plus
-'611072767850006381':
-  ranking: '40000'
-  collection_name: EBSCOhost OmniFile Full Text Select
 '611279219810006381':
   ranking: '40000'
   collection_name: EBSCOhost Poetry & Short Story Reference Source Ebook Collec
@@ -11042,15 +11072,6 @@
 '611066720190006381':
   ranking: '40000'
   collection_name: Historical abstracts with full text
-'611072751740006381':
-  ranking: '40000'
-  collection_name: History Reference Source
-'611072790540006381':
-  ranking: '40000'
-  collection_name: Hobbies & Crafts Source
-'611072790510006381':
-  ranking: '40000'
-  collection_name: Home Improvement Source
 '611063845920006381':
   ranking: '40000'
   collection_name: Index to legal periodicals and books full text
@@ -11060,18 +11081,12 @@
 '611046574910006381':
   ranking: '40000'
   collection_name: Legal Information Reference Center
-'611072768180006381':
-  ranking: '40000'
-  collection_name: Legal Information Source
 '611029991190006381':
   ranking: '40000'
   collection_name: LGBT life with full text
 '611025443620006381':
   ranking: '40000'
   collection_name: Library literature & information science full text (H.W. Wilson)
-'611072750610006381':
-  ranking: '40000'
-  collection_name: Literary Reference Source
 '611072812260006381':
   ranking: '40000'
   collection_name: Nursing Reference Center Plus
@@ -11081,27 +11096,12 @@
 '611028161280006381':
   ranking: '40000'
   collection_name: Nursing reference center plus.
-'611072750160006381':
-  ranking: '40000'
-  collection_name: Points of View Reference Source
 '611044412170006381':
   ranking: '40000'
   collection_name: PsycARTICLES.
 '611053541510006381':
   ranking: '40000'
   collection_name: Retrospective index to music periodicals with full text.
-'611072750640006381':
-  ranking: '40000'
-  collection_name: Science Reference Source
-'611072769560006381':
-  ranking: '40000'
-  collection_name: Small Business Source
-'611072805800006381':
-  ranking: '40000'
-  collection_name: Small Engine Repair Source
-'611028245990006381':
-  ranking: '40000'
-  collection_name: Wilson omnifile full text, select edition
 '611072750910006381':
   ranking: '40000'
   collection_name: Factiva - Classic
