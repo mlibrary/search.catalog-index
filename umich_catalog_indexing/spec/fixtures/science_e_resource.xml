@@ -1,0 +1,544 @@
+<record xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" xmlns="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <leader>05369cas a2201009 a 4500</leader>
+  <controlfield tag="001">99187259385906381</controlfield>
+  <controlfield tag="005">20250607213023.0</controlfield>
+  <controlfield tag="006">m     o  d</controlfield>
+  <controlfield tag="007">cr cnu||||||||</controlfield>
+  <controlfield tag="008">960301c18809999dcuwr pso     0   a0eng c</controlfield>
+  <datafield tag="010" ind1=" " ind2=" ">
+    <subfield code="a">sn 96036234</subfield>
+    <subfield code="z">00227002</subfield>
+    <subfield code="z">00227487</subfield>
+  </datafield>
+  <datafield tag="016" ind1="7" ind2=" ">
+    <subfield code="a">010730516</subfield>
+    <subfield code="2">DE-101</subfield>
+  </datafield>
+  <datafield tag="016" ind1="7" ind2=" ">
+    <subfield code="a">000270349</subfield>
+    <subfield code="2">IsJJNL</subfield>
+  </datafield>
+  <datafield tag="022" ind1=" " ind2=" ">
+    <subfield code="a">1095-9203</subfield>
+  </datafield>
+  <datafield tag="030" ind1=" " ind2=" ">
+    <subfield code="a">SCIEAS</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(DE-599)ZDB2066996-3</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)34298537</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(CONSER)sn 96036234</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(CKB)954925443632</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(EXLCZ)99954925443632</subfield>
+  </datafield>
+  <datafield tag="037" ind1=" " ind2=" ">
+    <subfield code="b">AAAS, 1333 H St., NW, Washington, DC 20005</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="a">EYM</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="c">EYM</subfield>
+    <subfield code="d">OCL</subfield>
+    <subfield code="d">IXA</subfield>
+    <subfield code="d">GUA</subfield>
+    <subfield code="d">NSD</subfield>
+    <subfield code="d">OCL</subfield>
+    <subfield code="d">IUL</subfield>
+    <subfield code="d">MXC</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">FQM</subfield>
+    <subfield code="d">OCL</subfield>
+    <subfield code="d">NSD</subfield>
+    <subfield code="d">SBH</subfield>
+    <subfield code="d">CUS</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">OCLCE</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">OCLCF</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">CUD</subfield>
+    <subfield code="d">FIE</subfield>
+    <subfield code="d">CCO</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">UKBOL</subfield>
+    <subfield code="d">Z#Q</subfield>
+    <subfield code="d">MUX</subfield>
+    <subfield code="d">AU@</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">CUS</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">DEBBG</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">AUD</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">DEFHM</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">VT2</subfield>
+    <subfield code="d">OCLCA</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">TSC</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">Z5A</subfield>
+    <subfield code="d">WT2</subfield>
+    <subfield code="d">ZAC</subfield>
+    <subfield code="d">IOG</subfield>
+    <subfield code="d">TYC</subfield>
+    <subfield code="d">BUF</subfield>
+    <subfield code="d">U3W</subfield>
+    <subfield code="d">UUM</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">GILDS</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">DCHUA</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">IBD</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">CGU</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">REDDC</subfield>
+    <subfield code="d">LIP</subfield>
+    <subfield code="d">XFH</subfield>
+    <subfield code="d">APUMS</subfield>
+    <subfield code="d">BRL</subfield>
+    <subfield code="d">LVT</subfield>
+    <subfield code="d">INARC</subfield>
+    <subfield code="d">W2U</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">NTG</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">ZH7</subfield>
+    <subfield code="d">PIFBR</subfield>
+    <subfield code="d">RECBK</subfield>
+    <subfield code="d">OCLCA</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">OCLCA</subfield>
+    <subfield code="d">NLE</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">S2H</subfield>
+    <subfield code="d">EZN</subfield>
+    <subfield code="d">HUL</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">Z#6</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">QGK</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">TNF</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">MRM</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">OCLCL</subfield>
+  </datafield>
+  <datafield tag="042" ind1=" " ind2=" ">
+    <subfield code="a">pcc</subfield>
+    <subfield code="a">nsdp</subfield>
+    <subfield code="a">dlr</subfield>
+  </datafield>
+  <datafield tag="050" ind1="1" ind2="4">
+    <subfield code="a">Q1</subfield>
+    <subfield code="b">.S352</subfield>
+  </datafield>
+  <datafield tag="060" ind1=" " ind2="0">
+    <subfield code="a">W1 SC653</subfield>
+  </datafield>
+  <datafield tag="082" ind1="1" ind2="0">
+    <subfield code="a">505</subfield>
+    <subfield code="2">12</subfield>
+    <subfield code="1">https://id.oclc.org/worldcat/ddc/E3rqjbqVFrrqdYQFtkxCHHwjrm</subfield>
+  </datafield>
+  <datafield tag="130" ind1="0" ind2=" ">
+    <subfield code="a">Science (New York, N.Y. : Online)</subfield>
+  </datafield>
+  <datafield tag="210" ind1="0" ind2=" ">
+    <subfield code="a">Science</subfield>
+    <subfield code="b">(N.Y. N.Y., Online)</subfield>
+  </datafield>
+  <datafield tag="222" ind1=" " ind2="0">
+    <subfield code="a">Science</subfield>
+    <subfield code="b">(New York, N.Y. Online)</subfield>
+  </datafield>
+  <datafield tag="245" ind1="1" ind2="0">
+    <subfield code="a">Science.</subfield>
+  </datafield>
+  <datafield tag="246" ind1="1" ind2=" ">
+    <subfield code="i">HTML source title from Science mag. website:</subfield>
+    <subfield code="a">Science magazine on-line</subfield>
+  </datafield>
+  <datafield tag="246" ind1="1" ind2=" ">
+    <subfield code="i">Title on introductory screen from Science mag.:</subfield>
+    <subfield code="a">Science online</subfield>
+  </datafield>
+  <datafield tag="246" ind1="3" ind2=" ">
+    <subfield code="a">Science on-line</subfield>
+  </datafield>
+  <datafield tag="246" ind1="3" ind2=" ">
+    <subfield code="a">Science magazine online</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="3">1880-&lt;1883> :</subfield>
+    <subfield code="a">New York, N.Y. :</subfield>
+    <subfield code="b">[publisher not identified],</subfield>
+    <subfield code="c">1880-</subfield>
+  </datafield>
+  <datafield tag="260" ind1="2" ind2=" ">
+    <subfield code="3">1883-&lt;1944> :</subfield>
+    <subfield code="a">Cambridge, Mass. :</subfield>
+    <subfield code="b">Science Company, Moses King</subfield>
+  </datafield>
+  <datafield tag="260" ind1="2" ind2=" ">
+    <subfield code="3">1944-&lt;1945> :</subfield>
+    <subfield code="a">Lancaster, Pa. :</subfield>
+    <subfield code="b">Science Press</subfield>
+  </datafield>
+  <datafield tag="260" ind1="2" ind2=" ">
+    <subfield code="3">1945-&lt;1991> :</subfield>
+    <subfield code="a">Lancaster, Pa. :</subfield>
+    <subfield code="b">American Association for the Advancement of Science</subfield>
+  </datafield>
+  <datafield tag="260" ind1="3" ind2=" ">
+    <subfield code="3">&lt;Oct. 4, 1991-> :</subfield>
+    <subfield code="a">Washington, DC :</subfield>
+    <subfield code="b">American Association for the Advancement of Science</subfield>
+  </datafield>
+  <datafield tag="310" ind1=" " ind2=" ">
+    <subfield code="a">Weekly</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">text</subfield>
+    <subfield code="b">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">computer</subfield>
+    <subfield code="b">c</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="a">online resource</subfield>
+    <subfield code="b">cr</subfield>
+    <subfield code="2">rdacarrier</subfield>
+  </datafield>
+  <datafield tag="362" ind1="0" ind2=" ">
+    <subfield code="a">Vol. 1, no. 1 (July 3, 1880)-v. 3, no. 82 (Mar. 4, 1882); [New ser.] vol. 1, no. 1 (Feb. 9, 1883)-v. 23, no. 581 (Mar. 23, 1894); [2nd ser.] v. 1, no. 1 (Jan. 4, 1895)-</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Refereed/Peer-reviewed</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Title from pdf title page, (Science Mag. website, viewed March 8, 2007).</subfield>
+  </datafield>
+  <datafield tag="515" ind1=" " ind2=" ">
+    <subfield code="a">None issued for Jan. 7, Jan. 28-Feb. 1882.</subfield>
+  </datafield>
+  <datafield tag="538" ind1=" " ind2=" ">
+    <subfield code="a">Master and use copy. Digital master created according to Biodiversity Heritage Library Digital Imaging Specifications.</subfield>
+    <subfield code="u">http://biodivlib.wikispaces.com/Digital+Imaging+Specifications</subfield>
+    <subfield code="5">DcWaBHL</subfield>
+  </datafield>
+  <datafield tag="538" ind1=" " ind2=" ">
+    <subfield code="a">Mode of access: World Wide Web.</subfield>
+  </datafield>
+  <datafield tag="580" ind1=" " ind2=" ">
+    <subfield code="a">Volumes for 1911-1913 contain: the Proceedings of the Helminthological Society of Washington, 1st-15th meeting.</subfield>
+  </datafield>
+  <datafield tag="583" ind1="1" ind2=" ">
+    <subfield code="a">digitized</subfield>
+    <subfield code="c">2010</subfield>
+    <subfield code="h">Biodiversity Heritage Library</subfield>
+    <subfield code="l">committed to preserve</subfield>
+    <subfield code="5">DcWaBHL</subfield>
+    <subfield code="2">pda</subfield>
+  </datafield>
+  <datafield tag="588" ind1="1" ind2=" ">
+    <subfield code="a">Vol. 346, no. 6205 (Oct. 3, 2014) (JSTOR website, viewed October 30, 2020).</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Science</subfield>
+    <subfield code="v">Periodicals.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/subjects/sh85118580</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="2">
+    <subfield code="a">Science</subfield>
+    <subfield code="0">http://id.nlm.nih.gov/mesh/D012586</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="2">
+    <subfield code="a">Societies, Scientific</subfield>
+    <subfield code="0">http://id.nlm.nih.gov/mesh/D012958</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="6">
+    <subfield code="a">Sciences</subfield>
+    <subfield code="v">Périodiques.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Hebdomadaires.</subfield>
+    <subfield code="2">eclas</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Sciences.</subfield>
+    <subfield code="2">eclas</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Science</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">http://id.worldcat.org/fast/1108176</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Forschung</subfield>
+    <subfield code="2">gnd</subfield>
+    <subfield code="0">https://d-nb.info/gnd/040178943</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Naturwissenschaften</subfield>
+    <subfield code="2">gnd</subfield>
+    <subfield code="0">https://d-nb.info/gnd/040414213</subfield>
+  </datafield>
+  <datafield tag="650" ind1="1" ind2="7">
+    <subfield code="a">Natuurwetenschappen.</subfield>
+    <subfield code="2">gtt</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Science</subfield>
+    <subfield code="v">Periodicals.</subfield>
+    <subfield code="2">sears</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">USA</subfield>
+    <subfield code="0">(DE-601)091396867</subfield>
+    <subfield code="0">(DE-STW)17829-1</subfield>
+    <subfield code="2">stw</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Wirtschaftswissenschaft</subfield>
+    <subfield code="0">(DE-601)091401372</subfield>
+    <subfield code="0">(DE-STW)10032-2</subfield>
+    <subfield code="2">stw</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Wissenschaftspolitik</subfield>
+    <subfield code="0">(DE-601)09140147X</subfield>
+    <subfield code="0">(DE-STW)16487-1</subfield>
+    <subfield code="2">stw</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Naturwissenschaft</subfield>
+    <subfield code="0">(DE-601)091379644</subfield>
+    <subfield code="0">(DE-STW)15664-3</subfield>
+    <subfield code="2">stw</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Wissenschaft</subfield>
+    <subfield code="0">(DE-601)091401410</subfield>
+    <subfield code="0">(DE-STW)15685-2</subfield>
+    <subfield code="2">stw</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="2">
+    <subfield code="a">Periodical</subfield>
+    <subfield code="0">http://id.nlm.nih.gov/mesh/D020492</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">Periodicals</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">http://id.worldcat.org/fast/1411641</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">Zeitschrift.</subfield>
+    <subfield code="0">(DE-588)4067488-5.</subfield>
+    <subfield code="2">gnd</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">Periodicals.</subfield>
+    <subfield code="2">lcgft</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/genreForms/gf2014026139</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">Periodicals.</subfield>
+    <subfield code="2">rbgenr</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">Zeitschrift.</subfield>
+    <subfield code="0">(DE-836)31414</subfield>
+    <subfield code="2">swd</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">Elektronische Publikation.</subfield>
+    <subfield code="0">(DE-836)35693</subfield>
+    <subfield code="2">swd</subfield>
+  </datafield>
+  <datafield tag="776" ind1="0" ind2="8">
+    <subfield code="x">0036-8075</subfield>
+    <subfield code="0">http://worldcat.org/issn/0036-8075</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">American Association for the Advancement of Science.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/names/n79053772</subfield>
+    <subfield code="0">http://viaf.org/viaf/135543655</subfield>
+  </datafield>
+  <datafield tag="850" ind1=" " ind2=" ">
+    <subfield code="a">InU</subfield>
+    <subfield code="a">TxU</subfield>
+  </datafield>
+  <datafield tag="BIB" ind1=" " ind2=" ">
+    <subfield code="u">2025-06-12 00:54:00 US/Eastern</subfield>
+    <subfield code="c">2012-02-25 17:38:05 US/Eastern</subfield>
+    <subfield code="s">false</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="k">611072789070006381</subfield>
+    <subfield code="m">JSTOR</subfield>
+    <subfield code="n">JSTOR Early Journal Content Free</subfield>
+    <subfield code="t">param</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531083047280006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2021-06-24 19:43:33</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187259385906381</subfield>
+    <subfield code="3">Available from 07/03/1880 volume: 1 issue: 1 until 12/27/1929 volume: 70.</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531083047280006381</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="4">Authorized U-M users (+ guests in U-M Libraries).</subfield>
+    <subfield code="k">611130228020006381</subfield>
+    <subfield code="m">ProQuest</subfield>
+    <subfield code="n">ProQuest Technology Collection</subfield>
+    <subfield code="t">param</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531134428810006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2021-06-27 11:19:00</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187259385906381</subfield>
+    <subfield code="3">Available from 01/01/1988 volume: 239 until 12/23/2005 volume: 310.</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531134428810006381</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="4">Authorized U-M users (+ guests in U-M Libraries).</subfield>
+    <subfield code="k">611072750520006381</subfield>
+    <subfield code="m">JSTOR</subfield>
+    <subfield code="n">JSTOR Life Sciences Collection</subfield>
+    <subfield code="t">param</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531087882440006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2021-06-23 13:04:28</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187259385906381</subfield>
+    <subfield code="3">Available from 07/03/1880 volume: 1 issue: 1. Most recent 6 year(s) not available.</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531087882440006381</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="4">Authorized U-M users (+ guests in U-M Libraries).</subfield>
+    <subfield code="k">611072796090006381</subfield>
+    <subfield code="m">Single Journals</subfield>
+    <subfield code="n">Single Journals</subfield>
+    <subfield code="t">dynamic</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531341875860006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2025-05-13 21:00:24</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187259385906381</subfield>
+    <subfield code="3">Available from 07/03/1880 issue: 1.</subfield>
+    <subfield code="z">Access via American Association for the Advancement of Science (science.org)</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531341875860006381</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="4">Authorized U-M users (+ guests in U-M Libraries).</subfield>
+    <subfield code="k">611072751230006381</subfield>
+    <subfield code="m">Gale</subfield>
+    <subfield code="n">Gale Academic OneFile</subfield>
+    <subfield code="t">param</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531161189410006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2021-10-08 14:23:36</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187259385906381</subfield>
+    <subfield code="3">Available from 07/22/1983 volume: 221 until 12/23/2005 volume: 310.</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531161189410006381</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="4">Authorized U-M users (+ guests in U-M Libraries).</subfield>
+    <subfield code="k">611072750940006381</subfield>
+    <subfield code="m">Gale</subfield>
+    <subfield code="n">Gale General OneFile</subfield>
+    <subfield code="t">param</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531307128060006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2024-07-25 10:12:57</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187259385906381</subfield>
+    <subfield code="3">Available from 07/22/1983 volume: 221 until 12/23/2005 volume: 310.</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531307128060006381</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="4">Authorized U-M users (+ guests in U-M Libraries).</subfield>
+    <subfield code="k">611072773690006381</subfield>
+    <subfield code="m">ProQuest</subfield>
+    <subfield code="n">Research Library</subfield>
+    <subfield code="t">param</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531092694110006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2021-06-24 21:22:34</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187259385906381</subfield>
+    <subfield code="3">Available from 01/01/1988 volume: 239 until 12/23/2005 volume: 310.</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531092694110006381</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="4">Authorized U-M users (+ guests in U-M Libraries).</subfield>
+    <subfield code="k">611072808320006381</subfield>
+    <subfield code="m">Ovid</subfield>
+    <subfield code="n">Journals@Ovid Complete</subfield>
+    <subfield code="t">param</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531174398420006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2022-01-31 22:06:42</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187259385906381</subfield>
+    <subfield code="3">Available from 12/01/1999 volume: 286 issue: 5448 until 11/30/2002 volume: 298 issue: 5597.</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531174398420006381</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="4">Authorized U-M users (+ guests in U-M Libraries).</subfield>
+    <subfield code="k">611072787150006381</subfield>
+    <subfield code="m">American Association for the Advancement of Science</subfield>
+    <subfield code="n">AAAS Science Journals via science.org</subfield>
+    <subfield code="t">param</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531236661070006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2023-04-11 20:18:29</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187259385906381</subfield>
+    <subfield code="3">Available from 07/03/1880 issue: 1.</subfield>
+    <subfield code="z">Science.org</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531236661070006381</subfield>
+  </datafield>
+  <datafield tag="E56" ind1=" " ind2=" ">
+    <subfield code="4">Open access for all users.</subfield>
+    <subfield code="k">611072789460006381</subfield>
+    <subfield code="m">Biodiversity Heritage Library</subfield>
+    <subfield code="n">Biodiversity Heritage Library</subfield>
+    <subfield code="t">param</subfield>
+    <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531328305540006381&amp;Force_direct=true</subfield>
+    <subfield code="a">2025-02-17 16:28:23</subfield>
+    <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187259385906381</subfield>
+    <subfield code="3">Available from 1880 until 1922.</subfield>
+    <subfield code="q">true</subfield>
+    <subfield code="s">Available</subfield>
+    <subfield code="8">531328305540006381</subfield>
+  </datafield>
+</record>

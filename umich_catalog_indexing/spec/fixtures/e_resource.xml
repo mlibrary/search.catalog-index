@@ -1,13 +1,10 @@
 <record xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" xmlns="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <leader>01619nam  2200481 a 4500</leader>
+  <leader>01284nam  2200325 a 4500</leader>
   <controlfield tag="001">99187438120106381</controlfield>
-  <controlfield tag="005">20230120012551.0</controlfield>
+  <controlfield tag="005">20200520144314.0</controlfield>
   <controlfield tag="006">m     o  d |</controlfield>
   <controlfield tag="007">cr -n---------</controlfield>
   <controlfield tag="008">860314s1987    flua    ob    001 0 eng d</controlfield>
-  <datafield tag="010" ind1=" " ind2=" ">
-    <subfield code="z">86003525</subfield>
-  </datafield>
   <datafield tag="020" ind1=" " ind2=" ">
     <subfield code="a">0-323-15582-0</subfield>
   </datafield>
@@ -43,6 +40,9 @@
   </datafield>
   <datafield tag="040" ind1=" " ind2=" ">
     <subfield code="a">MiAaPQ</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="e">rda</subfield>
+    <subfield code="e">pn</subfield>
     <subfield code="c">MiAaPQ</subfield>
     <subfield code="d">MiAaPQ</subfield>
   </datafield>
@@ -53,19 +53,19 @@
     <subfield code="a">QC173.4.C65</subfield>
     <subfield code="b">D38 1987</subfield>
   </datafield>
-  <datafield tag="082" ind1="0" ind2="0">
-    <subfield code="a">530.4</subfield>
+  <datafield tag="082" ind1="0" ind2=" ">
+    <subfield code="a">530.4/1</subfield>
+    <subfield code="2">19</subfield>
   </datafield>
   <datafield tag="100" ind1="1" ind2=" ">
     <subfield code="a">Dattagupta, S.</subfield>
     <subfield code="q">(Sushanta),</subfield>
     <subfield code="d">1947-</subfield>
     <subfield code="0">http://id.loc.gov/authorities/names/n83125519</subfield>
-    <subfield code="0">http://viaf.org/viaf/sourceID/LC|n83125519</subfield>
+    <subfield code="0">http://viaf.org/viaf/85643596</subfield>
   </datafield>
   <datafield tag="245" ind1="1" ind2="0">
-    <subfield code="a">Relaxation phenomena in condensed matter physics</subfield>
-    <subfield code="h">[electronic resource] /</subfield>
+    <subfield code="a">Relaxation phenomena in condensed matter physics /</subfield>
     <subfield code="c">Sushanta Dattagupta.</subfield>
   </datafield>
   <datafield tag="260" ind1=" " ind2=" ">
@@ -127,27 +127,26 @@
     <subfield code="a">BOOK</subfield>
   </datafield>
   <datafield tag="BIB" ind1=" " ind2=" ">
-    <subfield code="u">2023-01-21 10:27:48 US/Eastern</subfield>
+    <subfield code="u">2024-08-06 11:11:39 US/Eastern</subfield>
     <subfield code="c">2012-12-30 03:23:59 US/Eastern</subfield>
     <subfield code="s">false</subfield>
   </datafield>
   <datafield tag="E56" ind1=" " ind2=" ">
-    <subfield code="4">Access to the Elsevier ScienceDirect eBook - Physics and Astronomy (Legacy 1) online version restricted; authentication may be required.</subfield>
-    <subfield code="4">Elsevier ScienceDirect access restricted; authentication may be required.</subfield>
-    <subfield code="m">Elsevier ScienceDirect;</subfield>
-    <subfield code="n">Elsevier SD eBook - Physics and Astronomy?</subfield>
+    <subfield code="4">Authorized U-M users (+ guests in U-M Libraries).</subfield>
+    <subfield code="k">611161808160006381</subfield>
+    <subfield code="m">Elsevier ScienceDirect</subfield>
+    <subfield code="n">Elsevier SD eBook - Physics and Astronomy</subfield>
     <subfield code="t">param</subfield>
     <subfield code="u">https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=531162080550006381&amp;Force_direct=true</subfield>
     <subfield code="a">2021-10-15 12:52:25</subfield>
     <subfield code="v">https://umich.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?&amp;rfr_id=info:sid/primo.exlibrisgroup.com&amp;svc_dat=CTO?u.ignore_date_coverage=true?u.ignore_date_coverage=true&amp;rft.mms_id=99187438120106381</subfield>
     <subfield code="q">true</subfield>
     <subfield code="s">Available</subfield>
-    <subfield code="z">Public note:</subfield>
-    <subfield code="3">Description</subfield>
     <subfield code="8">531162080550006381</subfield>
   </datafield>
   <datafield tag="E56" ind1=" " ind2=" ">
-    <subfield code="4">Elsevier ScienceDirect access restricted; authentication may be required.</subfield>
+    <subfield code="4">Authorized U-M users (+ guests in U-M Libraries)</subfield>
+    <subfield code="k">611072809100006381</subfield>
     <subfield code="m">Elsevier ScienceDirect</subfield>
     <subfield code="n">Elsevier ScienceDirect Books Complete</subfield>
     <subfield code="t">param</subfield>

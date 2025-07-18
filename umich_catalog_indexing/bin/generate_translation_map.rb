@@ -6,6 +6,7 @@ force = false
 tm_list = {
   "floor_location" => Jobs::TranslationMapGenerator::FloorLocations,
   "electronic_collections" => Jobs::TranslationMapGenerator::ElectronicCollections,
+  "electronic_collections_ranking" => Jobs::TranslationMapGenerator::ElectronicCollectionsRanking,
 }
 
 optparse = OptionParser.new do |opts|

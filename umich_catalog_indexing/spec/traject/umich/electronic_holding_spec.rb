@@ -18,6 +18,8 @@ describe Traject::UMich::ElectronicHolding do
   end
   before(:each) do
     @e56 = e56_1
+    @e56.append(MARC::Subfield.new("z", "Public note:"))
+    @e56.append(MARC::Subfield.new("3", "Description"))
   end
   subject do
     described_class.new(@e56)
@@ -88,33 +90,34 @@ describe Traject::UMich::ElectronicHolding do
   end
   context "#interface_name" do
     it "shows the interface from subfield m" do
-      expect(subject.interface_name).to eq("Elsevier ScienceDirect;")
+      expect(subject.interface_name).to eq("Elsevier ScienceDirect")
     end
   end
   context "#public_note" do
     it "shows the public note from subfield z" do
+      @e56.subfields.find { |x| x.code == "z" }.value = "Public note:"
       expect(subject.public_note).to eq("Public note:")
     end
   end
   context "#collection_name" do
     it "show the collection_name from subfield n" do
-      expect(subject.collection_name).to eq("Elsevier SD eBook - Physics and Astronomy?")
+      expect(subject.collection_name).to eq("Elsevier SD eBook - Physics and Astronomy")
     end
   end
   context "#authentication_note" do
     it "shows the authentication note from subfield 4" do
-      expect(subject.authentication_note).to eq(["Access to the Elsevier ScienceDirect eBook - Physics and Astronomy (Legacy 1) online version restricted; authentication may be required.", "Elsevier ScienceDirect access restricted; authentication may be required."])
+      expect(subject.authentication_note).to eq(["Authorized U-M users (+ guests in U-M Libraries)."])
     end
   end
   context "#note" do
     it "shows combined note" do
-      expect(subject.note).to eq("Elsevier ScienceDirect. Elsevier SD eBook - Physics and Astronomy. Access to the Elsevier ScienceDirect eBook - Physics and Astronomy (Legacy 1) online version restricted; authentication may be required. Elsevier ScienceDirect access restricted; authentication may be required. Public note.")
+      expect(subject.note).to eq("Elsevier ScienceDirect. Elsevier SD eBook - Physics and Astronomy. Authorized U-M users (+ guests in U-M Libraries) Public note.")
     end
     it "handles concatenates with periods unless theres a ] or ) ending" do
       @e56.subfields.find { |x| x.code == "z" }.value = "(Parens)"
       @e56.subfields.find { |x| x.code == "4" }.value = "[Square]"
       @e56.subfields.find { |x| x.code == "n" }.value = "Ends in semicolon;"
-      expect(subject.note).to eq("Elsevier ScienceDirect. Ends in semicolon. [Square] Elsevier ScienceDirect access restricted; authentication may be required. (Parens)")
+      expect(subject.note).to eq("Elsevier ScienceDirect. Ends in semicolon. [Square] (Parens)")
     end
   end
   context "#status" do
@@ -130,6 +133,15 @@ describe Traject::UMich::ElectronicHolding do
   context "#finding_aid" do
     it "is false" do
       expect(subject.finding_aid).to eq(false)
+    end
+  end
+  context "#ranking" do
+    it "gets the ranking from the translation map" do
+      expect(subject.ranking).to eq(10100)
+    end
+    it "has a ranking of 99999 for items where the collection_id is not found" do
+      @e56.subfields.find { |x| x.code == "k" }.value = "not_a_collection_id"
+      expect(subject.ranking).to eq(99_999)
     end
   end
   context "#to_h" do
