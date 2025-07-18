@@ -47,6 +47,13 @@ class PhysicalLocation(BaseModel):
     temporary: bool
 
 
+class FindingAidItem(BaseModel):
+    url: str | None
+    call_number: str | None
+    description: str | None
+    physical_location: PhysicalLocation | None
+
+
 class PhysicalItem(BaseModel):
     item_id: str
     barcode: str | None
@@ -75,6 +82,7 @@ class Holdings(BaseModel):
     hathi_trust_items: list[HathiTustItem]
     alma_digital_items: list[AlmaDigitalItem]
     electronic_items: list[ElectronicItem]
+    finding_aid_items: list[FindingAidItem]
     physical: list[PhysicalHolding]
 
 

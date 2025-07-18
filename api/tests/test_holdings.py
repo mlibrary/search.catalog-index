@@ -7,6 +7,7 @@ from catalog_api.holdings import (
     ElectronicItem,
     HathiTrustItem,
     AlmaDigitalItem,
+    FindingAidItem,
 )
 
 
@@ -197,6 +198,97 @@ class TestElectronicItem:
         electronic_item["status"] = "Not Available"
         subject = ElectronicItem(electronic_item)
         assert subject.is_available is False
+
+
+@pytest.fixture
+def finding_aid_item():
+    return {
+        "link": "http://quod.lib.umich.edu/c/clementsead/umich-wcl-M-341gag?view=text",
+        "library": "ELEC",
+        "link_text": "Finding aid",
+        "description": "Thomas Gage Papers",
+        "finding_aid": True,
+    }
+
+
+@pytest.fixture
+def finding_aid_physical_holding():
+    return {
+        "hol_mmsid": "22900647900006381",
+        "callnumber": "Manuscripts",
+        "library": "CLEM",
+        "location": "NONE",
+        "info_link": "https://clements.umich.edu/",
+        "display_name": "William L. Clements",
+        "floor_location": "",
+        "public_note": [],
+        "items": [
+            {
+                "barcode": "B4555680",
+                "library": "CLEM",
+                "location": "NONE",
+                "info_link": "https://clements.umich.edu/",
+                "display_name": "William L. Clements",
+                "fulfillment_unit": "Limited",
+                "location_type": "CLOSED",
+                "can_reserve": False,
+                "permanent_library": "CLEM",
+                "permanent_location": "NONE",
+                "temp_location": False,
+                "callnumber": "Manuscripts M-341",
+                "public_note": None,
+                "process_type": None,
+                "item_policy": None,
+                "description": None,
+                "inventory_number": None,
+                "item_id": "23900647890006381",
+                "material_type": "MIXED",
+                "record_has_finding_aid": True,
+            }
+        ],
+        "summary_holdings": None,
+        "record_has_finding_aid": True,
+    }
+
+
+class TestFindingAidItem:
+    def test_url(self, finding_aid_item, finding_aid_physical_holding):
+        subject = FindingAidItem(
+            finding_aid_item_data=finding_aid_item,
+            physical_holding=finding_aid_physical_holding,
+        )
+        assert subject.url == finding_aid_item["link"]
+
+    def test_decription(self, finding_aid_item, finding_aid_physical_holding):
+        subject = FindingAidItem(
+            finding_aid_item_data=finding_aid_item,
+            physical_holding=finding_aid_physical_holding,
+        )
+        assert subject.description == finding_aid_item["description"]
+
+    def test_call_number(self, finding_aid_item, finding_aid_physical_holding):
+        subject = FindingAidItem(
+            finding_aid_item_data=finding_aid_item,
+            physical_holding=finding_aid_physical_holding,
+        )
+        assert subject.call_number == "Manuscripts M-341"
+
+    def test_call_number_handles_missing_item(
+        self, finding_aid_item, finding_aid_physical_holding
+    ):
+        finding_aid_physical_holding["items"] = None
+        subject = FindingAidItem(
+            finding_aid_item_data=finding_aid_item,
+            physical_holding=finding_aid_physical_holding,
+        )
+        assert subject.call_number is None
+
+    def test_physical_location(self, finding_aid_item, finding_aid_physical_holding):
+        subject = FindingAidItem(
+            finding_aid_item_data=finding_aid_item,
+            physical_holding=finding_aid_physical_holding,
+        )
+        assert subject.physical_location.text == "William L. Clements"
 
 
 @pytest.fixture

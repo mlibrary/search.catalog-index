@@ -206,6 +206,38 @@ class PhysicalHolding:
         ]
 
 
+class FindingAidItem:
+    def __init__(self, finding_aid_item_data: dict, physical_holding: dict):
+        self.data = finding_aid_item_data
+        self.physical_holding = physical_holding  # the holding with one item
+
+    @property
+    def url(self):
+        return self.data.get("link")
+
+    @property
+    def description(self):
+        return self.data.get("description")
+
+    @property
+    def call_number(self):
+        items = self.physical_holding.get("items")
+        item = items[0] if items else None
+        return item.get("callnumber") if item else None
+
+    @property
+    def physical_location(self):
+        return PhysicalLocation(
+            url=self.physical_holding.get("info_link"),
+            text=self.physical_holding.get("display_name"),
+            floor=self.physical_holding.get("floor_location"),
+            code=LibLoc(
+                library=self.physical_holding.get("library"),
+                location=self.physical_holding.get("location"),
+            ),
+        )
+
+
 def kind_of_holding(holding_item: dict):
     match holding_item["library"]:
         case "ALMA_DIGITAL":
@@ -213,7 +245,10 @@ def kind_of_holding(holding_item: dict):
         case "HathiTrust Digital Library":
             return "hathi_trust"
         case "ELEC":
-            return "electronic"
+            if holding_item["finding_aid"]:
+                return "finding_aid"
+            else:
+                return "electronic"
         case _:
             return "physical"
 
@@ -233,6 +268,21 @@ def electronic_items(holdings_data: list) -> list[ElectronicItem]:
         ElectronicItem(holding_item)
         for holding_item in holdings_data
         if kind_of_holding(holding_item) == "electronic"
+    ]
+
+
+def finding_aid_items(holdings_data: list) -> list[FindingAidItem]:
+    physical_holding = None
+    for holding in holdings_data:
+        if holding.get("record_has_finding_aid"):
+            physical_holding = holding
+
+    return [
+        FindingAidItem(
+            finding_aid_item_data=holding_item, physical_holding=physical_holding
+        )
+        for holding_item in holdings_data
+        if kind_of_holding(holding_item) == "finding_aid"
     ]
 
 
@@ -273,6 +323,10 @@ class Holdings:
     @property
     def electronic_items(self):
         return electronic_items(self.data)
+
+    @property
+    def finding_aid_items(self):
+        return finding_aid_items(self.data)
 
     @property
     def physical(self):
