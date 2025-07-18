@@ -58,7 +58,7 @@ class ElectronicItem:
 
     @property
     def campuses(self):
-        return self.data.get("campuses")
+        return self.data.get("campuses") or []
 
     @property
     def interface_name(self):
