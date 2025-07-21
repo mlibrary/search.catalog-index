@@ -49,7 +49,7 @@ module Traject
       end
 
       def collection_name
-        @e56["n"]
+        @e56["n"] || ""
       end
 
       def collection_id
@@ -77,7 +77,7 @@ module Traject
           collection_name,
           authentication_note,
           public_note
-        ].flatten.compact.map do |x|
+        ].flatten.reject { |x| x.to_s.empty? }.map do |x|
           out = x.strip
             .sub(/[[\p{P}]&&[^\])]]$/, "")
           out.sub!(/$/, ".") if out.match?(/[^\])]$/)
