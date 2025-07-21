@@ -338,7 +338,11 @@ class MARC:
 
     @property
     def finding_aids(self):
-        ruleset = FieldRuleset(tags=["555"], text_sfs="abcd3u")
+        ruleset = FieldRuleset(
+            tags=["555"],
+            text_sfs="abcd3",
+            filter=lambda field: (not field.get("u")),
+        )
         return self.processor.generate_paired_fields(tuple([ruleset]))
 
     @property
@@ -546,6 +550,7 @@ class BaseRecord(SolrDoc, MARC):
     def holdings(self):
         holdings_data = json.loads(self.data.get("hol"))
         return Holdings(holdings_data, bib_id=self.id, record=self.record)
+
 
 class TaggedCitation:
     TAG_MAPPING = [

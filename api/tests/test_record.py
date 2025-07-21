@@ -749,15 +749,20 @@ class TestMARC:
     ################
     # finding_aids #
     ################
-    # TODO mrio: I don't think this is right
-    def test_finding_aids(self):
-        record = create_record_with_paired_field(tag="555")
+    def test_finding_aids_without_u_subfield(self):
+        sfs = string.ascii_lowercase.replace("u", "") + "3"
+        record = create_record_with_paired_field(tag="555", subfields=sfs)
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="555",
-            elements={"text": "a b c d u 3"},
+            elements={"text": "a b c d 3"},
         )
         assert serialize(subject.finding_aids) == expected
+
+    def test_finding_aids_with_u_subfield(self):
+        record = create_record_with_paired_field(tag="555")
+        subject = MARC(record)
+        assert serialize(subject.finding_aids) == []
 
     ################
     # terms_of_use #
