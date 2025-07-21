@@ -103,6 +103,10 @@ describe Traject::UMich::ElectronicHolding do
     it "show the collection_name from subfield n" do
       expect(subject.collection_name).to eq("Elsevier SD eBook - Physics and Astronomy")
     end
+    it "is an empty string if there is no collection name" do
+      @e56.subfields.delete_if { |x| x.code == "n" }
+      expect(subject.collection_name).to eq("")
+    end
   end
   context "#authentication_note" do
     it "shows the authentication note from subfield 4" do
@@ -118,6 +122,11 @@ describe Traject::UMich::ElectronicHolding do
       @e56.subfields.find { |x| x.code == "4" }.value = "[Square]"
       @e56.subfields.find { |x| x.code == "n" }.value = "Ends in semicolon;"
       expect(subject.note).to eq("Elsevier ScienceDirect. Ends in semicolon. [Square] (Parens)")
+    end
+
+    it "handles empty collection_name field" do
+      @e56.subfields.delete_if { |x| x.code == "n" }
+      expect(subject.note).to eq("Elsevier ScienceDirect. Authorized U-M users (+ guests in U-M Libraries) Public note.")
     end
   end
   context "#status" do

@@ -36,7 +36,7 @@ describe "umich_alma" do
 
         "finding_aid" => false,
         "authentication_note" => [],
-        "collection_name" => nil
+        "collection_name" => ""
       },
       {
         "finding_aid" => false,
@@ -53,7 +53,7 @@ describe "umich_alma" do
         "International Society of Arboriculture. Institutional password required for access to the International Society of Arboriculture online version; authentication required.",
         "status" => "Available",
         "authentication_note" => [],
-        "collection_name" => nil
+        "collection_name" => ""
       },
       {
         "callnumber" => "SB 435 .A71",
