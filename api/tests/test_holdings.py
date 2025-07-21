@@ -7,6 +7,7 @@ from catalog_api.holdings import (
     ElectronicItem,
     HathiTrustItem,
     AlmaDigitalItem,
+    FindingAids,
     FindingAidItem,
 )
 
@@ -251,6 +252,22 @@ def finding_aid_physical_holding():
     }
 
 
+class TestFindingAids:
+    def test_location(self, finding_aid_physical_holding, finding_aid_item):
+        subject = FindingAids(
+            physical_holding=finding_aid_physical_holding,
+            items=[finding_aid_item],
+        )
+        assert subject.physical_location.text == "William L. Clements"
+
+    def test_items(self, finding_aid_physical_holding, finding_aid_item):
+        subject = FindingAids(
+            physical_holding=finding_aid_physical_holding,
+            items=[finding_aid_item],
+        )
+        assert subject.items[0].url == finding_aid_item["link"]
+
+
 class TestFindingAidItem:
     def test_url(self, finding_aid_item, finding_aid_physical_holding):
         subject = FindingAidItem(
@@ -282,13 +299,6 @@ class TestFindingAidItem:
             physical_holding=finding_aid_physical_holding,
         )
         assert subject.call_number is None
-
-    def test_physical_location(self, finding_aid_item, finding_aid_physical_holding):
-        subject = FindingAidItem(
-            finding_aid_item_data=finding_aid_item,
-            physical_holding=finding_aid_physical_holding,
-        )
-        assert subject.physical_location.text == "William L. Clements"
 
 
 @pytest.fixture

@@ -7,8 +7,9 @@ import pymarc
 import io
 import string
 import json
-from dataclasses import dataclass
-from collections.abc import Callable
+
+# from dataclasses import dataclass
+# from collections.abc import Callable
 from catalog_api.holdings import Holdings
 from datetime import datetime
 
