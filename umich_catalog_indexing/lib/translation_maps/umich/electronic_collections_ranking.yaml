@@ -6458,57 +6458,6 @@
 '611280505630006381':
   ranking: '20000'
   collection_name: Knowledge Unlatched Sustainable Development Goals
-'611300228590006381':
-  ranking: '20000'
-  collection_name: OVID Ebook Package May 2024
-'611209925710006381':
-  ranking: '20000'
-  collection_name: Books@Ovid Purchase
-'611072781310006381':
-  ranking: '20000'
-  collection_name: Books@Ovid Purchase
-'611154719540006381':
-  ranking: '20000'
-  collection_name: Books@Ovid Purchase Complete
-'611232769820006381':
-  ranking: '20000'
-  collection_name: Books@Ovid Purchase Complete
-'611072766680006381':
-  ranking: '20000'
-  collection_name: Books@Ovid Subscription Complete
-'611227801000006381':
-  ranking: '20000'
-  collection_name: JCO Digital Library (JOCO-DL-ALG)
-'611229668830006381':
-  ranking: '20000'
-  collection_name: Journals@Ovid
-'611229833330006381':
-  ranking: '20000'
-  collection_name: Journals@Ovid
-'611072808320006381':
-  ranking: '20000'
-  collection_name: Journals@Ovid Complete
-'611299899740006381':
-  ranking: '20000'
-  collection_name: Journals@Ovid Extended Archive
-'611229668740006381':
-  ranking: '20000'
-  collection_name: Journals@Ovid LWW Total Access Collection 2020 minus Neurology N20 Years 2 and 3 (LTOT-Y2-N20)
-'611072773000006381':
-  ranking: '20000'
-  collection_name: Journals@Ovid LWW Total Access Collection 2020 with Neurology Years 2 and 3 (LTOT-20-YR2)
-'611300091200006381':
-  ranking: '20000'
-  collection_name: Journals@Ovid LWW Total Access Collection 2024 version with Neurology (LTOT-24-YR1)
-'611072782810006381':
-  ranking: '20000'
-  collection_name: Ovid Circulation Collection
-'611072782210006381':
-  ranking: '20000'
-  collection_name: Ovid Lippincott Williams & Wilkins Journal Definitive Archive
-'611072784070006381':
-  ranking: '20000'
-  collection_name: Ovid Lippincott Williams and Wilkins Journal Legacy Archive
 '611072750100006381':
   ranking: '20100'
   collection_name: ACLS Humanities eBook
@@ -7682,6 +7631,105 @@
 '611179765010006381':
   ranking: '24000'
   collection_name: 'ProQuest Recent Newspapers: Toronto Star'
+'611072809130006381':
+  ranking: '24900'
+  collection_name: Agricultural History Society
+'611211822020006381':
+  ranking: '24900'
+  collection_name: American Prison Newspapers
+'611072814200006381':
+  ranking: '24900'
+  collection_name: Artstor on JSTOR (For institutions outside of the US)
+'611308745900006381':
+  ranking: '24900'
+  collection_name: Artstor on JSTOR (For US-based institutions)
+'611308745850006381':
+  ranking: '24900'
+  collection_name: Artstor Open Access on JSTOR
+'611289245230006381':
+  ranking: '24900'
+  collection_name: JSTOR 19th Century British Pamphlets
+'611072802680006381':
+  ranking: '24900'
+  collection_name: JSTOR Archive Complimentary Collection
+'611072780110006381':
+  ranking: '24900'
+  collection_name: JSTOR Arts & Sciences X Current
+'611072750430006381':
+  ranking: '24900'
+  collection_name: JSTOR Arts & Sciences XI
+'611072750040006381':
+  ranking: '24900'
+  collection_name: JSTOR Arts & Sciences XIII
+'611072751150006381':
+  ranking: '24900'
+  collection_name: JSTOR Arts and Sciences I
+'611072750820006381':
+  ranking: '24900'
+  collection_name: JSTOR Arts and Sciences II
+'611072751470006381':
+  ranking: '24900'
+  collection_name: JSTOR Arts and Sciences III
+'611072751410006381':
+  ranking: '24900'
+  collection_name: JSTOR Arts and Sciences IV
+'611072769650006381':
+  ranking: '24900'
+  collection_name: JSTOR Arts and Sciences IX
+'611154790080006381':
+  ranking: '24900'
+  collection_name: JSTOR Arts and Sciences V
+'611072768840006381':
+  ranking: '24900'
+  collection_name: JSTOR Arts and Sciences VI
+'611072751590006381':
+  ranking: '24900'
+  collection_name: JSTOR Arts and Sciences VII
+'611072769260006381':
+  ranking: '24900'
+  collection_name: JSTOR Arts and Sciences VIII
+'611072786560006381':
+  ranking: '24900'
+  collection_name: Jstor Complete Legacy
+'611054809100006381':
+  ranking: '24900'
+  collection_name: JSTOR global plants
+'611072814480006381':
+  ranking: '24900'
+  collection_name: JSTOR Global Plants
+'611072780440006381':
+  ranking: '24900'
+  collection_name: JSTOR Journal Hosting Program
+'611297179330006381':
+  ranking: '24900'
+  collection_name: Jstor Journals Open Access
+'611072750520006381':
+  ranking: '24900'
+  collection_name: JSTOR Life Sciences Collection
+'611280489860006381':
+  ranking: '24900'
+  collection_name: JSTOR Path to Open
+'611009395190006381':
+  ranking: '24900'
+  collection_name: JSTOR Primary Sources
+'611072788650006381':
+  ranking: '24900'
+  collection_name: Reveal Digital Independent Voices Open Access
+'611038599990006381':
+  ranking: '24900'
+  collection_name: South Asia open archives (SAOA).
+'611289245330006381':
+  ranking: '24900'
+  collection_name: 'Struggles for Freedom: Southern Africa'
+'611211822110006381':
+  ranking: '24900'
+  collection_name: Student Activism
+'611289245310006381':
+  ranking: '24900'
+  collection_name: 'World Heritage Sites: Africa'
+'611072789070006381':
+  ranking: '24910'
+  collection_name: JSTOR Early Journal Content Free
 '611031233080006381':
   ranking: '25000'
   collection_name: The Chicago defender
@@ -7910,105 +7958,6 @@
 '611058300490006381':
   ranking: '25000'
   collection_name: Index to foreign legal periodicals.
-'611072809130006381':
-  ranking: '25000'
-  collection_name: Agricultural History Society
-'611211822020006381':
-  ranking: '25000'
-  collection_name: American Prison Newspapers
-'611072814200006381':
-  ranking: '25000'
-  collection_name: Artstor on JSTOR (For institutions outside of the US)
-'611308745900006381':
-  ranking: '25000'
-  collection_name: Artstor on JSTOR (For US-based institutions)
-'611308745850006381':
-  ranking: '25000'
-  collection_name: Artstor Open Access on JSTOR
-'611289245230006381':
-  ranking: '25000'
-  collection_name: JSTOR 19th Century British Pamphlets
-'611072802680006381':
-  ranking: '25000'
-  collection_name: JSTOR Archive Complimentary Collection
-'611072780110006381':
-  ranking: '25000'
-  collection_name: JSTOR Arts & Sciences X Current
-'611072750430006381':
-  ranking: '25000'
-  collection_name: JSTOR Arts & Sciences XI
-'611072750040006381':
-  ranking: '25000'
-  collection_name: JSTOR Arts & Sciences XIII
-'611072751150006381':
-  ranking: '25000'
-  collection_name: JSTOR Arts and Sciences I
-'611072750820006381':
-  ranking: '25000'
-  collection_name: JSTOR Arts and Sciences II
-'611072751470006381':
-  ranking: '25000'
-  collection_name: JSTOR Arts and Sciences III
-'611072751410006381':
-  ranking: '25000'
-  collection_name: JSTOR Arts and Sciences IV
-'611072769650006381':
-  ranking: '25000'
-  collection_name: JSTOR Arts and Sciences IX
-'611154790080006381':
-  ranking: '25000'
-  collection_name: JSTOR Arts and Sciences V
-'611072768840006381':
-  ranking: '25000'
-  collection_name: JSTOR Arts and Sciences VI
-'611072751590006381':
-  ranking: '25000'
-  collection_name: JSTOR Arts and Sciences VII
-'611072769260006381':
-  ranking: '25000'
-  collection_name: JSTOR Arts and Sciences VIII
-'611072786560006381':
-  ranking: '25000'
-  collection_name: Jstor Complete Legacy
-'611072789070006381':
-  ranking: '25000'
-  collection_name: JSTOR Early Journal Content Free
-'611054809100006381':
-  ranking: '25000'
-  collection_name: JSTOR global plants
-'611072814480006381':
-  ranking: '25000'
-  collection_name: JSTOR Global Plants
-'611072780440006381':
-  ranking: '25000'
-  collection_name: JSTOR Journal Hosting Program
-'611297179330006381':
-  ranking: '25000'
-  collection_name: Jstor Journals Open Access
-'611072750520006381':
-  ranking: '25000'
-  collection_name: JSTOR Life Sciences Collection
-'611280489860006381':
-  ranking: '25000'
-  collection_name: JSTOR Path to Open
-'611009395190006381':
-  ranking: '25000'
-  collection_name: JSTOR Primary Sources
-'611072788650006381':
-  ranking: '25000'
-  collection_name: Reveal Digital Independent Voices Open Access
-'611038599990006381':
-  ranking: '25000'
-  collection_name: South Asia open archives (SAOA).
-'611289245330006381':
-  ranking: '25000'
-  collection_name: 'Struggles for Freedom: Southern Africa'
-'611211822110006381':
-  ranking: '25000'
-  collection_name: Student Activism
-'611289245310006381':
-  ranking: '25000'
-  collection_name: 'World Heritage Sites: Africa'
 '611046452950006381':
   ranking: '25000'
   collection_name: Music magazine archive.
@@ -8744,6 +8693,57 @@
 '611017951370006381':
   ranking: '28230'
   collection_name: Gale OneFile.
+'611300228590006381':
+  ranking: '28300'
+  collection_name: OVID Ebook Package May 2024
+'611209925710006381':
+  ranking: '28300'
+  collection_name: Books@Ovid Purchase
+'611072781310006381':
+  ranking: '28300'
+  collection_name: Books@Ovid Purchase
+'611154719540006381':
+  ranking: '28300'
+  collection_name: Books@Ovid Purchase Complete
+'611232769820006381':
+  ranking: '28300'
+  collection_name: Books@Ovid Purchase Complete
+'611072766680006381':
+  ranking: '28300'
+  collection_name: Books@Ovid Subscription Complete
+'611227801000006381':
+  ranking: '28300'
+  collection_name: JCO Digital Library (JOCO-DL-ALG)
+'611229668830006381':
+  ranking: '28300'
+  collection_name: Journals@Ovid
+'611229833330006381':
+  ranking: '28300'
+  collection_name: Journals@Ovid
+'611072808320006381':
+  ranking: '28300'
+  collection_name: Journals@Ovid Complete
+'611299899740006381':
+  ranking: '28300'
+  collection_name: Journals@Ovid Extended Archive
+'611229668740006381':
+  ranking: '28300'
+  collection_name: Journals@Ovid LWW Total Access Collection 2020 minus Neurology N20 Years 2 and 3 (LTOT-Y2-N20)
+'611072773000006381':
+  ranking: '28300'
+  collection_name: Journals@Ovid LWW Total Access Collection 2020 with Neurology Years 2 and 3 (LTOT-20-YR2)
+'611300091200006381':
+  ranking: '28300'
+  collection_name: Journals@Ovid LWW Total Access Collection 2024 version with Neurology (LTOT-24-YR1)
+'611072782810006381':
+  ranking: '28300'
+  collection_name: Ovid Circulation Collection
+'611072782210006381':
+  ranking: '28300'
+  collection_name: Ovid Lippincott Williams & Wilkins Journal Definitive Archive
+'611072784070006381':
+  ranking: '28300'
+  collection_name: Ovid Lippincott Williams and Wilkins Journal Legacy Archive
 '611130226960006381':
   ranking: '28320'
   collection_name: Publicly Available Content Database
