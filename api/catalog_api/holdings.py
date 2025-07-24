@@ -58,7 +58,7 @@ class ElectronicItem:
 
     @property
     def campuses(self):
-        return self.data.get("campuses")
+        return self.data.get("campuses") or []
 
     @property
     def interface_name(self):
@@ -82,7 +82,10 @@ class ElectronicItem:
 
     @property
     def is_available(self):
-        return self.data.get("status") == "Available"
+        return (
+            self.data.get("status") == "Available"
+            or self.data.get("link_text") == "Available online"
+        )
 
 
 @dataclass(frozen=True)
@@ -206,6 +209,53 @@ class PhysicalHolding:
         ]
 
 
+class FindingAids:
+    def __init__(self, items: list, physical_holding: dict):
+        self.items_data = items
+        self.physical_holding = physical_holding  # the holding with one item
+
+    @property
+    def physical_location(self):
+        return PhysicalLocation(
+            url=self.physical_holding.get("info_link"),
+            text=self.physical_holding.get("display_name"),
+            floor=self.physical_holding.get("floor_location"),
+            code=LibLoc(
+                library=self.physical_holding.get("library"),
+                location=self.physical_holding.get("location"),
+            ),
+        )
+
+    @property
+    def items(self):
+        return [
+            FindingAidItem(
+                finding_aid_item_data=item_data, physical_holding=self.physical_holding
+            )
+            for item_data in self.items_data
+        ]
+
+
+class FindingAidItem:
+    def __init__(self, finding_aid_item_data: dict, physical_holding: dict):
+        self.data = finding_aid_item_data
+        self.physical_holding = physical_holding  # the holding with one item
+
+    @property
+    def url(self):
+        return self.data.get("link")
+
+    @property
+    def description(self):
+        return self.data.get("description")
+
+    @property
+    def call_number(self):
+        items = self.physical_holding.get("items")
+        item = items[0] if items else None
+        return item.get("callnumber") if item else None
+
+
 def kind_of_holding(holding_item: dict):
     match holding_item["library"]:
         case "ALMA_DIGITAL":
@@ -213,7 +263,10 @@ def kind_of_holding(holding_item: dict):
         case "HathiTrust Digital Library":
             return "hathi_trust"
         case "ELEC":
-            return "electronic"
+            if holding_item["finding_aid"]:
+                return "finding_aid"
+            else:
+                return "electronic"
         case _:
             return "physical"
 
@@ -234,6 +287,21 @@ def electronic_items(holdings_data: list) -> list[ElectronicItem]:
         for holding_item in holdings_data
         if kind_of_holding(holding_item) == "electronic"
     ]
+
+
+def finding_aids(holdings_data: list) -> list[FindingAidItem]:
+    physical_holding = None
+    for holding in holdings_data:
+        if holding.get("record_has_finding_aid"):
+            physical_holding = holding
+
+    items = [
+        holding_item
+        for holding_item in holdings_data
+        if kind_of_holding(holding_item) == "finding_aid"
+    ]
+    if items:
+        return FindingAids(physical_holding=physical_holding, items=items)
 
 
 def alma_digital_items(holdings_data: list) -> list[AlmaDigitalItem]:
@@ -273,6 +341,10 @@ class Holdings:
     @property
     def electronic_items(self):
         return electronic_items(self.data)
+
+    @property
+    def finding_aids(self):
+        return finding_aids(self.data)
 
     @property
     def physical(self):
