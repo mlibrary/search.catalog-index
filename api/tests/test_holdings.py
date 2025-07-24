@@ -197,8 +197,15 @@ class TestElectronicItem:
 
     def test_is_available_when_unavailable(self, electronic_item):
         electronic_item["status"] = "Not Available"
+        electronic_item["link_text"] = "Not Available"
         subject = ElectronicItem(electronic_item)
         assert subject.is_available is False
+
+    def test_is_available_when_link_text_is_Available_Online(self, electronic_item):
+        electronic_item["link_text"] = "Available online"
+        electronic_item["status"] = None
+        subject = ElectronicItem(electronic_item)
+        assert subject.is_available is True
 
 
 @pytest.fixture

@@ -82,7 +82,10 @@ class ElectronicItem:
 
     @property
     def is_available(self):
-        return self.data.get("status") == "Available"
+        return (
+            self.data.get("status") == "Available"
+            or self.data.get("link_text") == "Available online"
+        )
 
 
 @dataclass(frozen=True)
