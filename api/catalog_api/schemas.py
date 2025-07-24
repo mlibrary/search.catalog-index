@@ -171,7 +171,7 @@ class Record(BaseModel):
     series_statement: list[PairedTextField]
     biography_history: list[PairedTextField]
     summary: list[PairedTextField]
-    in_collection: list[PairedTextField]
+    in_collection: list[PairedSearchField]
     access: list[PairedTextField]
     finding_aids: list[PairedTextField]
     terms_of_use: list[PairedTextField]
