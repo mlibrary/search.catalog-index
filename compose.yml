@@ -16,6 +16,7 @@ services:
       - ./api/.:/app
     ports:
       - 8000:8000
+      - 8002:8002
     env_file:
       - ./api/.env
     command: "poetry run uvicorn catalog_api.main:app --host 0.0.0.0 --reload"

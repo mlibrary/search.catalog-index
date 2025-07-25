@@ -1,4 +1,6 @@
 from fastapi import FastAPI, HTTPException
+from prometheus_fastapi_instrumentator import Instrumentator
+
 from catalog_api import schemas
 from catalog_api.solr_client import NotFoundError
 from catalog_api.record import record_for
@@ -6,6 +8,8 @@ from catalog_api.record import record_for
 app = FastAPI(
     title="Catalog Search API", description="REST API for Catalog Search Solr"
 )
+
+Instrumentator().instrument(app).expose(app)
 
 
 @app.get(
