@@ -724,12 +724,28 @@ class TestMARC:
     # in collection #
     #################
 
-    def test_in_collection(self, a_to_z_str):
+    def test_in_collection_with_t_and_w(self):
         record = create_record_with_paired_field(tag="773")
         subject = MARC(record)
         expected = self.expected_paired_field(
             tag="773",
-            elements={"text": a_to_z_str},
+            elements={
+                "text": "t",
+                "search": [{"field": "isn", "value": "w"}],
+            },
+        )
+        assert serialize(subject.in_collection) == expected
+
+    def test_in_collection_with_w_and_no_t(self):
+        sfs = string.ascii_lowercase.replace("t", "")
+        record = create_record_with_paired_field(tag="773", subfields=sfs)
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag="773",
+            elements={
+                "text": "w",
+                "search": [{"field": "isn", "value": "w"}],
+            },
         )
         assert serialize(subject.in_collection) == expected
 

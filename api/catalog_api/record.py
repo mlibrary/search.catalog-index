@@ -329,8 +329,21 @@ class MARC:
 
     @property
     def in_collection(self):
-        ruleset = FieldRuleset(tags=["773"])
-        return self.processor.generate_paired_fields(tuple([ruleset]))
+        rulesets = (
+            FieldRuleset(
+                tags=["773"],
+                text_sfs="t",
+                search=[{"subfields": "w", "field": "isn"}],
+                filter=lambda field: (field.get("t")),
+            ),
+            FieldRuleset(
+                tags=["773"],
+                text_sfs="w",
+                search=[{"subfields": "w", "field": "isn"}],
+                filter=lambda field: (not field.get("t")),
+            ),
+        )
+        return self.processor.generate_paired_fields(rulesets)
 
     @property
     def access(self):
