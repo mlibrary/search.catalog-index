@@ -1,10 +1,20 @@
 from fastapi import FastAPI, HTTPException
+from prometheus_fastapi_instrumentator import Instrumentator
+from prometheus_client import Histogram
+
 from catalog_api import schemas
 from catalog_api.solr_client import NotFoundError
 from catalog_api.record import record_for
 
 app = FastAPI(
     title="Catalog Search API", description="REST API for Catalog Search Solr"
+)
+
+Instrumentator().instrument(app).expose(app)
+
+RECORD_HISTOGRAM = Histogram(
+    "catalog_api_record_request_duration_seconds",
+    "Length of api request for a catalog record",
 )
 
 
@@ -18,6 +28,7 @@ app = FastAPI(
     },
     response_model_exclude_none=True,
 )
+@RECORD_HISTOGRAM.time()
 def get_record(id: str) -> schemas.Record:
     """
     Gets a record from catalog solr. The record is fetched by the solr id, which
