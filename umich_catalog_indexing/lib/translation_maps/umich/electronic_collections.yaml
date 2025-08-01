@@ -40,12 +40,6 @@
   note: NewsBank. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.lib.umich.edu/database/link/11775
   status: Available
-'990138248150106381':
-- collection_name: International encyclopedia of the social & behavioral sciences /
-  interface_name: ScienceDirect
-  note: ScienceDirect. Access to the ScienceDirect online version restricted; authentication may be required.
-  link: http://www.sciencedirect.com/science/referenceworks/9780080970875
-  status: Available
 '990129130720106381':
 - collection_name: ProQuest congressional publications.
   interface_name: ProQuest Congressional Publications
@@ -384,12 +378,6 @@
   note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/toxline
   status: Available
-'990033245120106381':
-- collection_name: World news connection
-  interface_name: East View
-  note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://wnc.eastview.com
-  status: Available
 '990033236190106381':
 - collection_name: Electronic collections online
   interface_name: ''
@@ -723,12 +711,6 @@
   note: Web of Science. Access to the Web of Science online version restricted; authentication may be required.
   link: http://webofknowledge.com/?DestApp=WOS&editions=SSCI
   status: Available
-'990114961320106381':
-- collection_name: RISM-OPAC
-  interface_name: RISM
-  note: RISM. Access to the RISM online version.
-  link: http://opac.rism.info/index.php?id=2&L=1
-  status: Available
 '990041361700106381':
 - collection_name: The international plant names index
   interface_name: ''
@@ -847,12 +829,6 @@
   interface_name: ''
   note: Connect to online database; access restricted to subscribers.
   link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=bth
-  status: Available
-'990113871370106381':
-- collection_name: Library literature & information science full text (H.W. Wilson)
-  interface_name: EBSCOhost
-  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=lii
   status: Available
 '990041925780106381':
 - collection_name: Thesaurus Linguae Graecae a digital library of Greek literature /
@@ -1311,18 +1287,6 @@
   note: Centre for Reviews and Dissemination archived. Access to the Centre for Reviews and Dissemination archived online version restricted; authentication may be required.
   link: https://www.crd.york.ac.uk/crdweb/
   status: Available
-'990033431610106381':
-- collection_name: AP images
-  interface_name: ''
-  note: Access restricted; authentication may be required.
-  link: http://apimages.ap.org/unsecured/logip.aspx
-  status: Available
-'990033351520106381':
-- collection_name: Early Canadiana online Notre mémoire en ligne.
-  interface_name: Early Canadiana
-  note: Early Canadiana. Access to the Early Canadiana online version.
-  link: http://www.canadiana.org/
-  status: Available
 '990033326560106381':
 - collection_name: Micromedex healthcare series
   interface_name: ''
@@ -1337,13 +1301,8 @@
   status: Available
 '990034439930106381':
 - collection_name: TOXNET (toxicology data network) /
-  interface_name: Internet Archive
-  note: Internet Archive. Access to the Internet Archive online version.
-  link: https://www.nlm.nih.gov/pubs/factsheets/toxnetfs.html
-  status: Available
-- collection_name: TOXNET (toxicology data network) /
   interface_name: National Library of Medicine (U.S.)
-  note: National Library of Medicine (U.S.) Access to the National Library of Medicine (U.S.) online version.
+  note: National Library of Medicine (U.S.) Retired in 2019. NLM toxicology information services have been integrated into other NLM products and services.
   link: https://www.nlm.nih.gov/toxnet
   status: Available
 '990051486550106381':
@@ -1578,12 +1537,6 @@
   interface_name: ''
   note: Access restricted (authentication may be required) Authorized U-M users (+ guests in U-M Libraries)
   link: http://libproxy.umflint.edu:2048/login?url=http://proquest.umi.com/login?COPT=U01EPTYmSU5UPTAmVkVSPTImREJTPUc1&clientId=16043
-  status: Available
-'990045996440106381':
-- collection_name: Library literature & information science.
-  interface_name: Ebsco
-  note: Ebsco. Access to the Ebsco online version restricted (authentication may be required)
-  link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=llf
   status: Available
 '990043798460106381':
 - collection_name: Television news archive
@@ -2954,6 +2907,17 @@
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=asf
   status: Available
+'99187252537506381':
+- collection_name: EBSCOhost CINAHL Complete
+  interface_name: EBSCOhost
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.ebscohost.com/nursing/products/cinahl-databases/cinahl-complete
+  status: Available
+- collection_name: CINAHL Complete
+  interface_name: EBSCOhost
+  note: EBSCOhost.
+  link: https://research.ebsco.com/c/j5lwq3/search?db=ccm
+  status: Available
 '99187252538206381':
 - collection_name: EBSCOhost Applied Science & Technology Source
   interface_name: EBSCOhost
@@ -3072,7 +3036,7 @@
 - collection_name: EBSCOhost America History and Life with Full Text
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.ebscohost.com/academic/america-history-and-life-with-full-text
+  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=31h
   status: Available
 '99187252543606381':
 - collection_name: 'British Library Newspapers, Part II: 1800-1900'
@@ -3830,12 +3794,6 @@
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: http://infotrac.galegroup.com/itweb/umuser?db=SAS
   status: Available
-'99187252615406381':
-- collection_name: MathSciNet
-  interface_name: American Mathematical Society
-  note: American Mathematical Society.
-  link: https://mathscinet.ams.org/mathscinet/
-  status: Available
 '99187252615506381':
 - collection_name: AIAA Conference Proceedings
   interface_name: AIAA Aerospace Research Central
@@ -4022,6 +3980,12 @@
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.macmillancabinetpapers.amdigital.co.uk
   status: Available
+'99187252631406381':
+- collection_name: PERSEE - Portail de revues scientifiques en sciences humaines et sociales
+  interface_name: Persee
+  note: Persee.
+  link: http://www.persee.fr/
+  status: Available
 '99187252631806381':
 - collection_name: Perdita Manuscripts, 1500-1700
   interface_name: AM (Adam Matthew)
@@ -4193,7 +4157,7 @@
 - collection_name: 'Short Story Index Retrospective: 1915-1983 (H.W. Wilson)'
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.ebscohost.com
+  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=sxr
   status: Available
 '99187252577806381':
 - collection_name: Reaxys
@@ -4644,12 +4608,6 @@
   note: Sigma Theta Tau International.
   link: http://www.nursinglibrary.org
   status: Available
-'99187252732406381':
-- collection_name: Ferguson's Career Guidance Center
-  interface_name: InfoBase Publishers, Inc.
-  note: InfoBase Publishers, Inc. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.fofweb.com
-  status: Available
 '99187252732506381':
 - collection_name: 'Country Intelligence Reports/State Department''s Bureau of Intelligence and Research Reports: Japan'
   interface_name: Gale
@@ -4989,7 +4947,7 @@
 '99187252740206381':
 - collection_name: RISM
   interface_name: RISM - Repertoire International des Sources Musicales
-  note: RISM - Repertoire International des Sources Musicales.
+  note: RISM - Repertoire International des Sources Musicales. Open access for all users.
   link: http://opac.rism.info/index.php
   status: Available
 '99187252740406381':
@@ -5812,7 +5770,7 @@
 - collection_name: Index to 19th Century American Art Periodicals
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.ebscohost.com
+  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=iap
   status: Available
 '99187252555306381':
 - collection_name: Middle English Compendium-Dictionary
@@ -6001,12 +5959,6 @@
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=alr
-  status: Available
-'99187252558706381':
-- collection_name: Family Studies Abstracts
-  interface_name: EBSCOhost
-  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=26h
   status: Available
 '99187252558806381':
 - collection_name: American Bibliography of Slavic, East European & Eurasian Studies (ABSEEES)
@@ -6499,12 +6451,6 @@
   interface_name: Newsbank, Inc.
   note: Newsbank, Inc.
   link: http://infoweb.newsbank.com/?db=FBIS
-  status: Available
-'99187252568506381':
-- collection_name: FRANCIS
-  interface_name: EBSCOhost
-  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.ebscohost.com/login.aspx?profile=ehost&defaultdb=fcs
   status: Available
 '99187252568706381':
 - collection_name: Middle English Compendium
@@ -7999,12 +7945,6 @@
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
   link: http://primarysources.brillonline.com/browse/chinese-filmscript-and-advertisement-collection-19461985
   status: Available
-'99187252722806381':
-- collection_name: Early Canadiana Online
-  interface_name: Canadiana.org
-  note: Canadiana.org.
-  link: http://eco.canadiana.ca/?usrlang=en
-  status: Available
 '99187252722906381':
 - collection_name: 'Digital National Security Archive (DNSA): U.S. Intelligence on Weapons of Mass Destruction: From World War II to Iraq'
   interface_name: ProQuest
@@ -8441,7 +8381,7 @@
 - collection_name: EBSCOhost ATLA Religion Database with ATLASerials [RFH]
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=rfh
+  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=rfh
   status: Available
 '99188116898506381':
 - collection_name: Rockefeller University Press
@@ -9163,7 +9103,7 @@
 '99187529614506381':
 - collection_name: Iter Italicum
   interface_name: University of Toronto
-  note: University of Toronto. Authorized U-M users (+ guests in U-M Libraries)
+  note: University of Toronto. Moving to EBSCOhost in 2025. Authorized U-M users (+ guests in U-M Libraries)
   link: https://italicum.iterpubs.org/
   status: Available
 '99187529626006381':
@@ -10040,12 +9980,6 @@
   interface_name: IEEE Xplore
   note: IEEE Xplore. Authorized U-M users (+ guests in U-M Libraries)
   link: https://ieeexplore.ieee.org/courses/home
-  status: Available
-'99187667771006381':
-- collection_name: Cumhuriyet
-  interface_name: East View
-  note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://gpa.eastview.com/cumhuriyet/newspapers/cumh
   status: Available
 '99187675515506381':
 - collection_name: Mathematical Surveys and Monographs -2021
@@ -11233,6 +11167,12 @@
   interface_name: Institute of Physics
   note: Institute of Physics. Authorized U-M users (+ guests in U-M Libraries)
   link: https://iopscience.iop.org/booklistinfo/home
+  status: Available
+'99187947279606381':
+- collection_name: AP newsroom.
+  interface_name: EBSCOhost
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&groupid=main&custid=s8873650&site=apnr&return=y
   status: Available
 '99187947286206381':
 - collection_name: Zhongguo ji ben gu ji ku.
@@ -14228,9 +14168,9 @@
   status: Available
 '99188924078706381':
 - collection_name: El Comercio Digital Archive
-  interface_name: ''
-  note: Access to the Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.eastview.com/resources/gpa/el-comercio/
+  interface_name: East View
+  note: East View. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://gpa.eastview.com/ec/
   status: Available
 '99188924078806381':
 - collection_name: Holos Ukrainy Digital Archive
@@ -14568,9 +14508,57 @@
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.degruyterbrill.com
   status: Available
-'99188951572806381':
-- collection_name: 'Wiley Digital Archives: Royal College of Physicians Part II'
-  interface_name: Wiley Online Library
-  note: Wiley Online Library. Access to the Authorized U-M users (+ guests in U-M Libraries)
-  link: https://app.wileydigitalarchives.com/rcp
+'99188996966706381':
+- collection_name: East View World News Connection
+  interface_name: East View
+  note: East View. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://wnc.eastview.com/wnc/news
+  status: Available
+'99188996966906381':
+- collection_name: 'Iter: Bibliography'
+  interface_name: EBSCOhost
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=itb
+  status: Available
+'99188996552606381':
+- collection_name: 'European Views of the Americas: 1493 to 1750'
+  interface_name: EBSCOhost
+  note: EBSCOhost. Open access for all users.
+  link: http://www.europeanamericana.com/
+  status: Available
+'99188996533306381':
+- collection_name: English Language Learner Reference Center
+  interface_name: EBSCOhost
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=elr
+  status: Available
+'99188996604206381':
+- collection_name: De Gruyter University of Washington Press Complete eBook-Package 2025
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com/
+  status: Available
+'99188996604306381':
+- collection_name: De Gruyter University Press of Colorado Complete eBook-Package 2025
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com/
+  status: Available
+'99188996604706381':
+- collection_name: De Gruyter Amsterdam University Press Complete eBook-Package 2025
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com
+  status: Available
+'99188997009906381':
+- collection_name: Global Health Archive
+  interface_name: EBSCOhost
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=gha
+  status: Available
+'99188997010006381':
+- collection_name: Pascal-Francis
+  interface_name: INIST-CNRS - Institut de l'Information Scientifique et Technique du CNRS
+  note: INIST-CNRS - Institut de l'Information Scientifique et Technique du CNRS. Open access for all users.
+  link: https://pascal-francis.inist.fr/
   status: Available
