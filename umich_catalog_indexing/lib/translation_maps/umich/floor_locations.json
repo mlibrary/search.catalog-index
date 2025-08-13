@@ -51,8 +51,8 @@
         "collection": "GRAD",
         "start": "c",
         "stop": "ctz",
-        "floor_key": "4S",
-        "text": "4 South",
+        "floor_key": "3S",
+        "text": "3 South",
         "type": "LC"
       },
       {
@@ -60,8 +60,8 @@
         "collection": "GRAD",
         "start": "d",
         "stop": "dbz",
-        "floor_key": "4S",
-        "text": "4 South",
+        "floor_key": "3S",
+        "text": "3 South",
         "type": "LC"
       },
       {
