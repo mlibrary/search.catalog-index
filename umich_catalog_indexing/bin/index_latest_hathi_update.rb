@@ -17,11 +17,10 @@ files.each do |file|
     logger.info "Sending job to index #{file} into live solr: #{ENV.fetch("LIVE_SOLR_URL")}"
     IndexJson.perform_async(file, ENV.fetch("LIVE_SOLR_URL"))
   else
-    logger.info "Sending job to index #{file} into hatcher production solr: #{ENV.fetch("HATCHER_PRODUCTION_SOLR_URL")}"
-    IndexJson.perform_async(file, ENV.fetch("HATCHER_PRODUCTION_SOLR_URL"))
-    
-    logger.info "Sending job to index #{file} into macc production solr: #{ENV.fetch("MACC_PRODUCTION_SOLR_URL")}"
-    IndexJson.perform_async(file, ENV.fetch("MACC_PRODUCTION_SOLR_URL"))
+    ENV.fetch("PRODUCTION_SOLR_URLS").split(",").each do |solr_url|
+      logger.info "Sending job to index #{file} into #{solr_url}"
+      IndexJson.perform_async(file, solr_url)
+    end
   end
 end
 

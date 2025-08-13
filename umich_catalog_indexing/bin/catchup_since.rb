@@ -22,17 +22,9 @@ opt_parser = OptionParser.new do |opts|
     raise ArgumentError, "date must be today or earlier" if x > Date.today
     start_date = x
   end
-  opts.on("-sSOLR", "--solr=SOLR", "Solr url to index into; options are: reindex|hatcher_prod|macc_prod; Default is reindex: #{solr_url}") do |x|
-    case x
-    when "reindex"
-      solr_url = ENV.fetch("REINDEX_SOLR_URL") 
-    when "hatcher_prod"
-      solr_url = ENV.fetch("HATCHER_PRODUCTION_SOLR_URL") 
-    when "macc_prod"
-      solr_url = ENV.fetch("MACC_PRODUCTION_SOLR_URL") 
-    else
-      raise ArgumentError, "solr must be reindex|hatcher_prod|macc_prod"
-    end
+  opts.on("-sSOLR", "--solr=SOLR", "Solr url to index into; must provide a valid url; Default: #{solr_url}") do |url|
+    raise ArgumentError, "solr must be a valid url" unless url =~ /^#{URI::regexp(%w(http https))}$/ 
+    solr_url = url
   end
 
 
