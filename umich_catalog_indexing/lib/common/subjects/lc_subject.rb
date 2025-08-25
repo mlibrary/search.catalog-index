@@ -5,6 +5,9 @@ require_relative "normalize"
 module Common
   class Subjects
     class LCSubject
+      LC_SUBJECT_FIELD_TAGS = ["600", "610", "611", "630", "650", "651", "655"]
+      LC_SUBJECT_FIELD_TAGS.freeze
+
       include Common::Subjects::Normalize
 
       # Create an LC Subject object from the passed field
@@ -23,21 +26,29 @@ module Common
         end
       end
 
-      # In theory, an LC subject field is any 6xx with ind2==0
-      # Sometimes we get subject fields with ind2=0 that are NOT LC. In many of theses
-      # cases, the field correctly has a $2 ("Source of heading or term"). If that $2 exists,
-      # and isn't "lcsh", we designate the field as "not LCSH".
+      # Only certain subject tags can be LCSH tags. Of those, they need to have
+      # a ind2=0 to be a valid LCSH heading. $2 also says something about the
+      # nature of the heading. We expect it to be nil when ind2=0, but if it
+      # had "naf" or "lcsh" in it that would be weird but fine. Anything else
+      # in $2 is not LCSH.
+      #
       # @param [MARC::DataField] field A 6XX field
       # @return [Boolean]
       def self.lc_subject_field?(field)
-        SUBJECT_FIELDS.include?(field.tag) &&
+        LC_SUBJECT_FIELD_TAGS.include?(field.tag) &&
           field.indicator2 == "0" &&
           lcsh_subject_field_2?(field)
       end
 
-      # @param [MARC::DataField] field A 6xx field
+      # @param [MARC::DataField] an lcsh field
       def self.lcsh_subject_field_2?(field)
-        field["2"].nil? || field["2"] == "lsch"
+        return true if field["2"].nil?
+        if field["2"].include?("lcsh") || field["2"].include?("naf")
+          S.logger.warn("LCSH_UNNECESSARY_SUBFIELD_2", field: field.to_s)
+          return true
+        end
+        S.logger.warn("LCSH_SUBFIELD_2_NOT_LCSH", field: field.to_s)
+        false
       end
 
       def initialize(field)
