@@ -20,12 +20,24 @@ RSpec.describe Common::Subjects::LCSubject do
     it "returns true for appropriate subject field" do
       expect(described_class.lc_subject_field?(subject_field)).to eq(true)
     end
-    it "returns false for field with incorrect tag" do
+    it "is true for ind2 and $2 contains the string naf" do
+      naf = MARC::DataField.new("600", "0", "0", ["a", "subjectA"], ["2", "zznafzz"])
+      expect(described_class.lc_subject_field?(naf)).to eq(true)
+    end
+    it "is true for ind2 and $2 contains the string lcsh" do
+      lcsh = MARC::DataField.new("600", "0", "0", ["a", "subjectA"], ["2", "aalcshaa"])
+      expect(described_class.lc_subject_field?(lcsh)).to eq(true)
+    end
+    it "returns false for field with incorrect second indicator field" do
       not_lc_subject = instance_double(MARC::DataField, tag: "600", indicator2: "1")
       expect(described_class.lc_subject_field?(not_lc_subject)).to eq(false)
     end
     it "returns false for a field with ind2=0 but a $2 that says otherwise" do
       expect(described_class.lc_subject_field?(wrongindicator_subject_field)).to eq(false)
+    end
+    it "is false a non LC appropriate field (even with ind2=0)" do
+      not_lc_subject = MARC::DataField.new("653", "0", "0", ["a", "subjectA"])
+      expect(described_class.lc_subject_field?(not_lc_subject)).to eq(false)
     end
   end
   context "#subject_data_subfield_codes" do
