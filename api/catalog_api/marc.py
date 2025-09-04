@@ -71,7 +71,7 @@ class Processor:
         result = []
         for ruleset in rulesets:
             for field in self.record.get_fields(*ruleset.tags):
-                if ruleset.has_any_subfields(field):
+                if ruleset.filter(field) and ruleset.has_any_subfields(field):
                     result.append(ruleset.value_for(field))
 
         return list(set(result))

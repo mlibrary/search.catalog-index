@@ -1,15 +1,12 @@
 import pytest
 import json
 import pymarc
+import xml.etree.ElementTree as ET
+from io import StringIO
 import string
 from datetime import datetime
 from dataclasses import dataclass, field
-from catalog_api.record import (
-    Record,
-    MARC,
-    SolrDoc,
-    TaggedCitation,
-)
+from catalog_api.record import Record, MARC, SolrDoc, TaggedCitation, CSL, BaseRecord
 from catalog_api.entities import FieldElement, PairedField
 from catalog_api.marc import (
     FieldRuleset,
@@ -220,8 +217,8 @@ def a_to_z_str():
 def create_record_with_paired_field(
     tag: str,
     subfields: str = (string.ascii_lowercase + "12345"),
-    ind1: str | None = None,
-    ind2: str | None = None,
+    ind1: str = "",
+    ind2: str = "",
 ):
     record = pymarc.record.Record()
     subfields = [pymarc.Subfield(code=code, value=code) for code in list(subfields)]
@@ -1511,3 +1508,245 @@ class TestTaggedCitation:
         }
 
         assert subject[-1] == expected
+
+
+class TestCSL:
+    def test_id(self, solr_bib):
+        subject = CSL(solr_doc=solr_bib)
+        assert subject.id == solr_bib["id"]
+
+    def test_title(self):
+        record = create_record_with_paired_field(tag="245")
+        subject = CSL(marc_record=record)
+
+        assert subject.title == "a b p"
+
+    def test_call_number(self, solr_bib):
+        solr_bib["callnumber"].append("some other call number")
+        subject = CSL(solr_doc=solr_bib)
+        assert subject.call_number == solr_bib["callnumber"][0]
+
+    def test_empty_call_number(self, solr_bib):
+        del solr_bib["callnumber"]
+        subject = CSL(solr_doc=solr_bib)
+        assert subject.call_number is None
+
+    def test_edition(self, solr_bib):
+        base = BaseRecord(solr_bib)
+        subject = CSL(base_record=base, solr_doc=solr_bib)
+        assert subject.edition == "3-teiban."
+
+    def test_edition_not_paired(self, solr_bib):
+        solr_bib["edition"].pop()
+        base = BaseRecord(solr_bib)
+        subject = CSL(base_record=base, solr_doc=solr_bib)
+        assert subject.edition == "3-teiban."
+
+    def test_isbn(self, solr_bib):
+        base = BaseRecord(solr_bib)
+        subject = CSL(base_record=base, solr_doc=solr_bib)
+        assert subject.isbn == ["9784931150010", "4931150012", "4931150012 :"]
+
+    def test_issn(self, solr_bib):
+        solr_bib["issn"] = ["some_issn"]
+        base = BaseRecord(solr_bib)
+        subject = CSL(base_record=base, solr_doc=solr_bib)
+        assert subject.issn == ["some_issn"]
+
+    def test_publisher_place_when_260(self):
+        record = create_record_with_paired_field(tag="260")
+        subject = CSL(marc_record=record)
+        assert subject.publisher_place == "a"
+
+    def test_publisher_place_when_264_and_indicator_2_not_1(self):
+        record = create_record_with_paired_field(tag="264", ind2="0")
+        subject = CSL(marc_record=record)
+        assert subject.publisher_place is None
+
+    def test_publisher_place_when_264_and_indicator_2_is_1(self):
+        record = create_record_with_paired_field(tag="264", ind2="1")
+        subject = CSL(marc_record=record)
+        assert subject.publisher_place == "a"
+
+    def test_publisher_when_260(self):
+        record = create_record_with_paired_field(tag="260")
+        subject = CSL(marc_record=record)
+        assert subject.publisher == "b"
+
+    def test_publisher_when_264_and_indicator_2_not_1(self):
+        record = create_record_with_paired_field(tag="264", ind2="0")
+        subject = CSL(marc_record=record)
+        assert subject.publisher is None
+
+    def test_publisher_when_264_and_indicator_2_is_1(self):
+        record = create_record_with_paired_field(tag="264", ind2="1")
+        subject = CSL(marc_record=record)
+        assert subject.publisher == "b"
+
+    ##############
+    # csl editor #
+    ##############
+    def test_editor_700_and_ind1_is_1_and_e_is_editor(self):
+        record = create_record_with_paired_field(tag="700", ind1="1")
+        record["700"]["e"] = "editor"
+        subject = CSL(marc_record=record)
+        assert subject.editor == [{"literal": "a"}]
+
+    def test_editor_has_given_and_family_name_700_and_ind1_is_1_and_e_is_editor(self):
+        record = create_record_with_paired_field(tag="700", ind1="1")
+        record["700"]["e"] = "editor"
+        record["700"]["a"] = "Last, First"
+        subject = CSL(marc_record=record)
+        assert subject.editor == [{"family": "Last", "given": "First"}]
+
+    def test_editor_700_and_ind1_is_1_and_e_is_not_editor(self):
+        record = create_record_with_paired_field(tag="700", ind1="1")
+        subject = CSL(marc_record=record)
+        assert subject.editor is None
+
+    def test_editor_700_and_ind1_is_not_1_or_0_and_e_is_editor(self):
+        record = create_record_with_paired_field(tag="700", ind1="2")
+        record["700"]["e"] = "editor"
+        subject = CSL(marc_record=record)
+        assert subject.editor is None
+
+    def test_editor_700_and_ind1_is_0_and_e_is_editor(self):
+        record = create_record_with_paired_field(tag="700", ind1="0")
+        record["700"]["e"] = "editor"
+        subject = CSL(marc_record=record)
+        assert subject.editor == [{"literal": "a b"}]
+
+    def test_editor_700_and_ind1_is_0_and_e_is_not_editor(self):
+        record = create_record_with_paired_field(tag="700", ind1="0")
+        subject = CSL(marc_record=record)
+        assert subject.editor is None
+
+    def test_collection_title(self, solr_bib):
+        base = BaseRecord(solr_bib)
+        subject = CSL(base_record=base, solr_doc=solr_bib)
+        assert subject.collection_title == "Yagai kansatsu handobukku ; 1"
+
+    def test_number_gets_value_from_numbering(
+        self,
+        solr_bib,
+    ):
+        record = create_record_with_paired_field(tag="362")
+
+        solr_bib["fullrecord"] = pymarc.marcxml.record_to_xml(record).decode("utf-8")
+        base = BaseRecord(solr_bib)
+        subject = CSL(base_record=base, solr_doc=solr_bib)
+
+        assert subject.number == "a"
+
+    def test_number_gets_value_from_report_number(self, solr_bib):
+        solr_bib["rptnum"] = ["my_report_number"]
+        base = BaseRecord(solr_bib)
+        subject = CSL(base_record=base, solr_doc=solr_bib)
+        assert subject.number == "my_report_number"
+
+    def test_number_chooses_report_number_over_numbering(
+        self,
+        solr_bib,
+    ):
+        solr_bib["rptnum"] = ["my_report_number"]
+        record = create_record_with_paired_field(tag="362")
+        solr_bib["fullrecord"] = pymarc.marcxml.record_to_xml(record).decode("utf-8")
+        base = BaseRecord(solr_bib)
+        subject = CSL(base_record=base, solr_doc=solr_bib)
+
+        assert subject.number == "my_report_number"
+
+    def test_issued(self, solr_bib):
+        expected = {"literal": solr_bib["display_date"]}
+        base = BaseRecord(solr_bib)
+        subject = CSL(base_record=base, solr_doc=solr_bib)
+
+        assert subject.issued == expected
+
+    def test_issued_when_no_display_date(self, solr_bib):
+        del solr_bib["display_date"]
+        base = BaseRecord(solr_bib)
+        subject = CSL(base_record=base, solr_doc=solr_bib)
+        assert subject.issued is None
+
+    ##############
+    # csl author #
+    ##############
+    @pytest.mark.parametrize("tag", ["100", "700"])
+    def test_author_and_ind1_is_1_and_e_is_not_editor(self, tag):
+        record = create_record_with_paired_field(tag=tag, ind1="1")
+        record[tag]["e"] = "author"
+        subject = CSL(marc_record=record)
+        assert subject.author == [{"literal": "a"}]
+
+    @pytest.mark.parametrize("tag", ["100", "700"])
+    def test_author_and_ind1_is_1_and_e_is_editor(self, tag):
+        record = create_record_with_paired_field(tag=tag, ind1="1")
+        record[tag]["e"] = "editor"
+        subject = CSL(marc_record=record)
+        assert subject.author is None
+
+    @pytest.mark.parametrize("tag", ["100", "700"])
+    def test_author_and_ind1_is_not_1_or_0_and_e_is_not_editor(self, tag):
+        record = create_record_with_paired_field(tag=tag, ind1="2")
+        record[tag]["e"] = "author"
+        subject = CSL(marc_record=record)
+        assert subject.author is None
+
+    @pytest.mark.parametrize("tag", ["100", "700"])
+    def test_author_and_ind1_is_0_and_e_is_not_editor(self, tag):
+        record = create_record_with_paired_field(tag=tag, ind1="0")
+        record[tag]["e"] = "author"
+        subject = CSL(marc_record=record)
+        assert subject.author == [{"literal": "a b"}]
+
+    @pytest.mark.parametrize("tag", ["100", "700"])
+    def test_author_and_ind1_is_0_and_e_is_editor(self, tag):
+        record = create_record_with_paired_field(tag=tag, ind1="0")
+        record[tag]["e"] = "editor"
+        subject = CSL(marc_record=record)
+        assert subject.author is None
+
+    @pytest.mark.parametrize("tag", ["100", "700"])
+    def test_author_has_a_comma(self, tag):
+        record = create_record_with_paired_field(tag=tag, ind1="1")
+        record[tag]["e"] = "author"
+        record[tag]["a"] = "Last, First"
+        subject = CSL(marc_record=record)
+        assert subject.author == [{"family": "Last", "given": "First"}]
+
+    @pytest.mark.parametrize("tag", ["110", "111", "710", "711"])
+    def test_author_corporate_e_is_not_editor(self, tag):
+        record = create_record_with_paired_field(tag=tag)
+        record[tag]["e"] = "author"
+        subject = CSL(marc_record=record)
+        assert subject.author == [{"literal": "a b"}]
+
+    @pytest.mark.parametrize("tag", ["110", "111", "710", "711"])
+    def test_author_corporate_e_is_editor(self, tag):
+        record = create_record_with_paired_field(tag=tag)
+        record[tag]["e"] = "editor"
+        subject = CSL(marc_record=record)
+        assert subject.author is None
+
+    @pytest.mark.parametrize("tag", ["110", "111", "710", "711"])
+    def test_author_corporate_with_comma(self, tag):
+        record = create_record_with_paired_field(tag=tag)
+        record[tag]["e"] = "author"
+        record[tag]["a"] = "Last, First"
+        subject = CSL(marc_record=record)
+        assert subject.author == [{"literal": "Last, First b"}]
+
+    ############
+    # csl type #
+    ############
+    def test_type(self, solr_bib):
+        base = BaseRecord(solr_bib)
+        subject = CSL(base_record=base, solr_doc=solr_bib)
+        assert subject.type == "book"
+
+    def test_type_returns_more_specific_type(self, solr_bib):
+        solr_bib["format"] = ["Music", "Musical Score"]
+        base = BaseRecord(solr_bib)
+        subject = CSL(base_record=base, solr_doc=solr_bib)
+        assert subject.type == "musical_score"
