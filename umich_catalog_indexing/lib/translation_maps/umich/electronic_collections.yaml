@@ -13,7 +13,7 @@
   status: Available
 - collection_name: Kanopy Streaming Service - Flint Campus
   interface_name: Kanopy
-  note: Kanopy. Flint. Access to films not already licensed is mediated. You may be prompted to make a request for a film to be added. Authorized U-M users (+ guests in U-M Libraries)
+  note: Kanopy. Flint. Access to films not already licensed is mediated. You may be prompted to make a request for a film to be added. Authorized UM-Flint users (+ guests in the Thompson Library)
   link: https://www.kanopy.com/en/umflint/
   status: Available
 '990135302770106381':
@@ -57,12 +57,6 @@
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://infotrac.galegroup.com/itweb/umuser?db=TLSH
-  status: Available
-'990068558530106381':
-- collection_name: Bibliography of linguistic literature Bibliographie linguistischer Literatur.
-  interface_name: BLLDB
-  note: BLLDB. Access to the BLLDB online version.
-  link: http://www.blldb-online.de
   status: Available
 '990146270750106381':
 - collection_name: The Oxford companion to music /
@@ -230,12 +224,6 @@
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://infotrac.galegroup.com/itweb/umuser?db=EAPB
   status: Available
-'990135481740106381':
-- collection_name: Monumenta Germaniae Historica
-  interface_name: Brepolis
-  note: Brepolis. Access to the Brepolis version restricted (authentication may be required)
-  link: http://clt.brepolis.net/eMGH/Default.aspx
-  status: Available
 '990140273820106381':
 - collection_name: Alexander Street
   interface_name: Alexander Street Press
@@ -318,12 +306,6 @@
   interface_name: GPO
   note: GPO. Access to the GPO online version.
   link: http://purl.access.gpo.gov/GPO/LPS76746
-  status: Available
-'990000454090106381':
-- collection_name: Current index to statistics, applications, methods and theory.
-  interface_name: American Mathematical Society
-  note: American Mathematical Society. Access to the American Mathematical Society online version restricted; authentication may be required.
-  link: https://mathscinet.ams.org/cis
   status: Available
 '990051307810106381':
 - collection_name: World Bank e-Library.
@@ -444,17 +426,6 @@
   note: National Library of Medicine. Access to the National Library of Medicine online version.
   link: http://wwwihm.nlm.nih.gov/
   status: Available
-'990148534710106381':
-- collection_name: ACP journal club.
-  interface_name: American College of Physicians
-  note: American College of Physicians. Access to the American College of Physicians online version restricted; authentication may be required.
-  link: https://www.acpjournals.org/loi/ajc
-  status: Available
-- collection_name: ACP journal club.
-  interface_name: American College of Physicians
-  note: American College of Physicians. Access to the American College of Physicians online version restricted; authentication may be required.
-  link: https://www.acpjournals.org/topic/category/journal-club
-  status: Available
 '990148541480106381':
 - collection_name: 'PhilPapers : philosophical research online /'
   interface_name: Philpapers
@@ -466,12 +437,6 @@
   interface_name: GPO
   note: GPO. Access to the GPO online version.
   link: http://purl.fdlp.gov/GPO/gpo2995
-  status: Available
-'990094518210106381':
-- collection_name: Berg fashion library
-  interface_name: Berg fashion library
-  note: Berg fashion library. Access to the Berg fashion library online version restricted; authentication may be required.
-  link: https://www.bloomsburyfashioncentral.com/products/berg-fashion-library
   status: Available
 '990140933130106381':
 - collection_name: Han'guk Sahoe Kwahak Charyowŏn Korean Social Science Data Archive.
@@ -570,7 +535,7 @@
 '990106727780106381':
 - collection_name: Bridgeman education
   interface_name: Bridgeman
-  note: Bridgeman. Access to the Bridgeman online version restricted; authentication may be required.
+  note: Bridgeman. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.bridgemaneducation.com/
   status: Available
 '990127127290106381':
@@ -1103,17 +1068,6 @@
   note: University of Michigan, Digital Library Platform & Services. Access to the University of Michigan, Digital Library Platform & Services online version.
   link: https://quod.lib.umich.edu/g/glrr/
   status: Available
-'990142348800106381':
-- collection_name: World politics review
-  interface_name: World Politics Review
-  note: World Politics Review. Access to the World Politics Review online version restricted; authentication may be required.
-  link: http://www.worldpoliticsreview.com/
-  status: Available
-- collection_name: World politics review
-  interface_name: EBSCOhost
-  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.ebscohost.com/direct.asp?db=poh&jid=FDSQ&scope=site
-  status: Available
 '990140816130106381':
 - collection_name: Women's magazine archive.
   interface_name: ProQuest
@@ -1628,12 +1582,6 @@
   note: Digital library of the Caribbean. Access to the Digital library of the Caribbean online version.
   link: http://www.dloc.com/
   status: Available
-'990162747470106381':
-- collection_name: South Asia archive.
-  interface_name: Coherent Digital
-  note: Coherent Digital. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://southasiacommons.net/modules/south-asia-archive/
-  status: Available
 '990133897530106381':
 - collection_name: NGA GEOnet names server (GNS).
   interface_name: GPO
@@ -1718,16 +1666,10 @@
   note: Proquest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/nppma?accountid=14667
   status: Available
-'990166094800106381':
-- collection_name: Hebrew, Judeo-Arabic, and Marathi Jewish printing in India online.
-  interface_name: BrillOnline primary sources
-  note: BrillOnline primary sources. Access to the BrillOnline primary sources online version restricted; authentication may be required.
-  link: https://primarysources.brillonline.com/browse/hebrew-printing-in-india
-  status: Available
 '990166094290106381':
 - collection_name: Index Buddhicus Online.
   interface_name: BrillOnline primary sources
-  note: BrillOnline primary sources. Access to the BrillOnline primary sources online version restricted; authentication may be required:v.
+  note: BrillOnline primary sources. Authorized U-M users (+ guests in U-M Libraries)
   link: http://bibliographies.brillonline.com/browse/index-buddhicus-online
   status: Available
 '990166091470106381':
@@ -1863,8 +1805,8 @@
   status: Available
 '990141285160106381':
 - collection_name: AAMI Standards eSubscription.
-  interface_name: AAMI Standards
-  note: AAMI Standards. 5 concurrent user limit. Authorized U-M users (no guest access)
+  interface_name: AAMI ARRAY
+  note: AAMI ARRAY. 5 concurrent user limit. Authorized U-M users (no guest access)
   link: https://array.aami.org/standards-and-publications
   status: Available
 '990165946830106381':
@@ -1937,13 +1879,7 @@
 - collection_name: Archive of Celtic-Latin literature (ACLL).
   interface_name: Brepols Publishers
   note: Brepols Publishers. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://clt.brepolis.net/acll/Default.aspx
-  status: Available
-'990056473170106381':
-- collection_name: Aristoteles Latinus database ALD.
-  interface_name: Brepolis
-  note: Brepolis. Access to the Brepolis version restricted (authentication may be required)
-  link: http://clt.brepolis.net/ald/Default.aspx
+  link: https://clt.brepolis.net/acll/Default.aspx
   status: Available
 '990039872100106381':
 - collection_name: ERIC
@@ -1973,12 +1909,6 @@
   interface_name: online
   note: online. Access to the online version restricted; authentication may be required.
   link: http://www.ontheboards.tv
-  status: Available
-'990000506240106381':
-- collection_name: L'Année philologique ; bibliographie critique et analytique de l'antiquité gréco-latine.
-  interface_name: Brepolis
-  note: Brepolis. Access to the Brepolis online version restricted; authentication may be required.
-  link: http://cpps.brepolis.net/aph/search.cfm
   status: Available
 '990005055590106381':
 - collection_name: Pollution abstracts.
@@ -2051,12 +1981,6 @@
   interface_name: GPO
   note: GPO. Access to the GPO online version.
   link: http://purl.fdlp.gov/GPO/gpo906
-  status: Available
-'990098536620106381':
-- collection_name: Art history research net.
-  interface_name: Design Research Publications
-  note: Design Research Publications. Access to the Design Research Publications online version restricted; authentication may be required.
-  link: http://www.arthistoryresearch.net/database/
   status: Available
 '990120981060106381':
 - collection_name: Shen bao /
@@ -2166,12 +2090,6 @@
   note: Infobase. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.fofweb.com/Direct2.asp?ID=16234&ItemID=WE43
   status: Available
-'990005186310106381':
-- collection_name: Bibliographie der Deutschen Sprach- und Literaturwissenschaft.
-  interface_name: BDSL
-  note: BDSL. Access to the BDSL online version restricted (authentication may be required)
-  link: http://www.bdsl-online.de/
-  status: Available
 '990042906160106381':
 - collection_name: Geographic Names Information System
   interface_name: GNIS
@@ -2189,12 +2107,6 @@
   interface_name: Roper Center for Public Opinion Research
   note: Roper Center for Public Opinion Research. Access to the Roper Center for Public Opinion Research online version restricted ; authentication may be required.
   link: https://ropercenter.cornell.edu/CFIDE/cf/action/ipoll/index.cfm
-  status: Available
-'990050699570106381':
-- collection_name: AnthroSource /
-  interface_name: Wiley
-  note: Wiley. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://anthrosource.onlinelibrary.wiley.com/
   status: Available
 '990163445020106381':
 - collection_name: Wards Intelligence.
@@ -2272,12 +2184,6 @@
   note: InfoTrac Web version ; Access restricted ; authentication may be required.
   link: http://libproxy.umflint.edu:2048/login?url=http://find.galegroup.com/itx/start.do?prodId=CDB&userGroupName=lom_umichflint
   status: Available
-'990056659990106381':
-- collection_name: Bibliographie der Deutschen Sprach- und Literaturwissenschaft.
-  interface_name: ''
-  note: Access restricted (authentication may be required)
-  link: https://www.bdsl-online.de/
-  status: Available
 '990154694590106381':
 - collection_name: Ancient Near East monographs = Monografías sobre el Antiguo Cercano Oriente.
   interface_name: Society of Biblical Literature
@@ -2335,7 +2241,7 @@
 '990005031550106381':
 - collection_name: Patrologia orientalis.
   interface_name: Brepolis
-  note: Brepolis. Access to the Brepolis version restricted (authentication may be required)
+  note: Brepolis. Authorized U-M users (+ guests in U-M Libraries)
   link: http://clt.brepolis.net/pod/pages/Search.aspx
   status: Available
 '990042734570106381':
@@ -2467,28 +2373,11 @@
   note: Winmo. Access to the Winmo online version restricted; authentication may be required.
   link: https://launch.winmo.com/login/university?key=VxL7FxrzSFA43OtSID7A&name=Michigan%2520University
   status: Available
-'990166492180106381':
-- collection_name: 'Cuban culture and cultural relations, 1959- : the vertical archive of the Casa de las Américas.'
-  interface_name: BrillOnline primary sources
-  note: BrillOnline primary sources. Access to the BrillOnline primary sources online version restricted; authentication may be required.
-  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-2
-  status: Available
 '990142475770106381':
 - collection_name: Openedition revues.org, calenda, hypotheses.org.
   interface_name: OpenEdition
   note: OpenEdition. Access to the OpenEdition online version restricated; authentication may be required.
   link: http://www.openedition.org/?lang=en
-  status: Available
-'990000648850106381':
-- collection_name: Zoological record.
-  interface_name: Biodiversity Heritage Library
-  note: Biodiversity Heritage Library. Access to the Biodiversity Heritage Library online version.
-  link: http://www.biodiversitylibrary.org//bibliography/100112
-  status: Available
-- collection_name: Zoological record.
-  interface_name: Biodiversity Heritage Library
-  note: Biodiversity Heritage Library. Access to the Biodiversity Heritage Library online version.
-  link: http://www.biodiversitylibrary.org//bibliography/100798
   status: Available
 '990041668940106381':
 - collection_name: Pew Internet & American life project an initiative of the Pew Research Center, a project of the Tides Center, and fully funded by the Pew Charitable Trusts.
@@ -2895,11 +2784,6 @@
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.ebscohost.com/nursing/products/cinahl-databases/cinahl-complete
   status: Available
-- collection_name: CINAHL Complete
-  interface_name: EBSCOhost
-  note: EBSCOhost.
-  link: https://research.ebsco.com/c/j5lwq3/search?db=ccm
-  status: Available
 '99187252538206381':
 - collection_name: EBSCOhost Applied Science & Technology Source
   interface_name: EBSCOhost
@@ -2958,7 +2842,7 @@
 - collection_name: EBSCOhost Political Science Complete
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=poh
+  link: http://search.ebscohost.com/login.aspx?authtype=ip%252Cuid&profile=ehost&defaultdb=poh
   status: Available
 '99187252541606381':
 - collection_name: Advanced Technologies & Aerospace Database
@@ -3656,6 +3540,12 @@
   note: Artech House. Authorized U-M users (+ guests in U-M Libraries)
   link: https://us.artechhouse.com/CloudPublish/Patron.aspx?c=umich
   status: Available
+'99187252468206381':
+- collection_name: Wiley Online Library Current Protocols
+  interface_name: Wiley Online Library
+  note: Wiley Online Library. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://currentprotocols.onlinelibrary.wiley.com/
+  status: Available
 '99187252468406381':
 - collection_name: Access Medicine Case Files Collection
   interface_name: McGraw Hill Access
@@ -3823,6 +3713,12 @@
   interface_name: East View Information Services
   note: East View Information Services. Authorized U-M users (+ guests in U-M Libraries)
   link: https://dlib.eastview.com/browse/udb/350
+  status: Available
+'99187252620106381':
+- collection_name: Monumenta Germaniae Historica
+  interface_name: Brepols Publishers
+  note: Brepols Publishers. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://clt.brepolis.net/eMGH/pages/QuickSearch.aspx
   status: Available
 '99187252622306381':
 - collection_name: 'Confidential Print: Latin America, 1833-1969'
@@ -4123,6 +4019,12 @@
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.medievalfamilylife.amdigital.co.uk/
+  status: Available
+'99187252643206381':
+- collection_name: Bloomsbury Berg Fashion Library
+  interface_name: Bloomsbury Publishing Plc
+  note: Bloomsbury Publishing Plc. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.bloomsburyfashioncentral.com/berg-fashion-library
   status: Available
 '990042655240106381':
 - collection_name: Oxford Reference Library
@@ -5058,12 +4960,6 @@
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
   link: http://primarysources.brillonline.com/browse/missionary-archives-from-lesotho-1832-2006
   status: Available
-'99187252742406381':
-- collection_name: Patrologia Orientalis
-  interface_name: Brepols Publishers
-  note: Brepols Publishers. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://clt.brepolis.net/pod/pages/Search.aspx
-  status: Available
 '99187252742506381':
 - collection_name: ProQuest Digital U.S. Bills and Resolutions, 2016
   interface_name: ProQuest
@@ -5141,12 +5037,6 @@
   interface_name: Chadwyck-Healey
   note: Chadwyck-Healey.
   link: http://www.proquest.co.uk/en-UK/catalogs/databases/detail/arttheorists.shtml
-  status: Available
-'99187252743906381':
-- collection_name: BBC Monitoring Library
-  interface_name: British Broadcasting Corporation (B B C)
-  note: British Broadcasting Corporation (B B C)
-  link: http://bbcmonitoringlibrary.com/
   status: Available
 '99187252744006381':
 - collection_name: 'China INFOBANK: Global Business Information Library INFOBANK [INFOBANK环球商讯库]'
@@ -5334,12 +5224,6 @@
   note: On the Boards.
   link: http://www.ontheboards.tv/
   status: Available
-'99187252747706381':
-- collection_name: World Christian Database
-  interface_name: Brill
-  note: Brill.
-  link: http://worldchristiandatabase.org/wcd/
-  status: Available
 '99187252747806381':
 - collection_name: LearningExpressLibrary.com
   interface_name: Learning Express
@@ -5369,12 +5253,6 @@
   interface_name: Micropaleontology Press
   note: Micropaleontology Press.
   link: http://micropress.org/bim/
-  status: Available
-'99187252748306381':
-- collection_name: Index Religiosus
-  interface_name: Brepols Publishers
-  note: Brepols Publishers. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://cpps.brepolis.net/ir/search.cfm
   status: Available
 '99187252748406381':
 - collection_name: 'MAUSDNQ00000 - US: Retailing'
@@ -5801,12 +5679,6 @@
   interface_name: Chadwyck-Healey
   note: Chadwyck-Healey.
   link: http://wellesley.chadwyck.com
-  status: Available
-'99187252556006381':
-- collection_name: Aristoteles Latinus Database (DFG Nationallizenzen)
-  interface_name: Brepols Publishers
-  note: Brepols Publishers. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.brepolis.net/
   status: Available
 '99187252556206381':
 - collection_name: TOXLINE
@@ -7987,12 +7859,6 @@
   note: University of Michigan.
   link: http://quod.lib.umich.edu/c/cme/
   status: Available
-'99187252723906381':
-- collection_name: Zoological Record
-  interface_name: Clarivate
-  note: Clarivate. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.webofscience.com/wos/zoorec/basic-search
-  status: Available
 '99187252724006381':
 - collection_name: 'Digital National Security Archive (DNSA): U.S. Policy in the Vietnam War, Part I: 1954-1968'
   interface_name: ProQuest
@@ -8473,6 +8339,12 @@
   note: East View. Authorized U-M users (+ guests in U-M Libraries)
   link: https://dlib.eastview.com/browse/udb/1670
   status: Available
+'99187479504006381':
+- collection_name: 'Wiley Digital Archives : Royal Anthropological Institute of Great Britain and Ireland'
+  interface_name: Wiley Online Library
+  note: Wiley Online Library. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://app.wileydigitalarchives.com/rai/location/cu/auth/
+  status: Available
 '99187479507706381':
 - collection_name: 'Gale OneFile: Economics and Theory'
   interface_name: Gale
@@ -8484,6 +8356,12 @@
   interface_name: Ezb
   note: Ezb. Open access for all users.
   link: https://ezb.uni-regensburg.de/ezeit/index.phtml?bibid=AAAAA&colors=7&lang=en
+  status: Available
+'99187486195406381':
+- collection_name: 'Wiley Digital Archives : New York Academy of Sciences'
+  interface_name: Wiley Online Library
+  note: Wiley Online Library. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://app.wileydigitalarchives.com/nyas/location/cu/auth/
   status: Available
 '99188073306306381':
 - collection_name: America's Historical Newspapers
@@ -9975,6 +9853,12 @@
   note: IEEE Xplore. Authorized U-M users (+ guests in U-M Libraries)
   link: https://ieeexplore.ieee.org/courses/home
   status: Available
+'99187674710406381':
+- collection_name: Art History Research Net (formerly Arts:Search)
+  interface_name: Art History Research net
+  note: Art History Research net. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.arthistoryresearch.net/
+  status: Available
 '99187675515506381':
 - collection_name: Mathematical Surveys and Monographs -2021
   interface_name: American Mathematical Society
@@ -10071,12 +9955,6 @@
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://congressional.proquest.com/
   status: Available
-'99187680514406381':
-- collection_name: North American City Reports
-  interface_name: Coherent Digital
-  note: Coherent Digital. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://policycommons.net/modules/north-american-city-reports
-  status: Available
 '99187682305206381':
 - collection_name: Japan Times Archives
   interface_name: Japan Times
@@ -10092,7 +9970,7 @@
 '99187682178506381':
 - collection_name: Bridgeman Education
   interface_name: Bridgeman Art Library
-  note: Bridgeman Art Library.
+  note: Bridgeman Art Library. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.bridgemaneducation.com
   status: Available
 '99187686512706381':
@@ -10106,12 +9984,6 @@
   interface_name: De Gruyter
   note: De Gruyter. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.degruyter.com/database/SIBA/html?lang=en
-  status: Available
-'99187686884706381':
-- collection_name: MIT Press Trade Ebook Collections ( 2022 and 2023)
-  interface_name: MIT Press
-  note: MIT Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://mitpress.mit.edu/books/subjects/
   status: Available
 '99187688497906381':
 - collection_name: ProQuest Digital U.S. Bills and Resolutions 2019
@@ -10362,7 +10234,7 @@
 '99187784912106381':
 - collection_name: Bates' Visual Guide to Physical Examination
   interface_name: Lippincott Williams & Wilkins
-  note: 'Lippincott Williams & Wilkins. At login screen:  Click on "Library. Continue as anonymous library user.. Authorized U-M users (+ guests in U-M Libraries)'
+  note: 'Lippincott Williams & Wilkins. At login screen:  Click on "Library. Continue as anonymous library user". Authorized U-M users (+ guests in U-M Libraries)'
   link: https://clinicalcontext.lww.com/en/batesvisualguide
   status: Available
 '99187784993406381':
@@ -10629,12 +10501,6 @@
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
   link: https://primarysources.brillonline.com/browse/israels-messenger
   status: Available
-'99187857572206381':
-- collection_name: Brill Online E-Books Hebrew, Judeo-Arabic, And Marathi Jewish Printing In India Online
-  interface_name: Brillonline
-  note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/hebrew-printing-in-india
-  status: Available
 '99187857326806381':
 - collection_name: University of Michigan Library Digital General Collection
   interface_name: University of Michigan Library
@@ -10652,18 +10518,6 @@
   interface_name: SCOAP3 Journals
   note: SCOAP3 Journals. Authorized U-M users (+ guests in U-M Libraries)
   link: https://scoap3.org/scoap3-books/
-  status: Available
-'99187857538706381':
-- collection_name: 'Cuban Culture and Cultural Relations, 1959-, Part 3: Theater'
-  interface_name: Brill
-  note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-3
-  status: Available
-'99187857539106381':
-- collection_name: 'Cuban Culture and Cultural Relations, 1959-, Part 2: Writers'
-  interface_name: Brill
-  note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-2
   status: Available
 '99187857539206381':
 - collection_name: Classic Brazilian Cinema Online
@@ -11274,12 +11128,6 @@
   interface_name: Coherent Digital
   note: Coherent Digital. Some website features require a personal account. Authorized U-M users (+ guests in U-M Libraries)
   link: https://africacommons.net/modules/southern-african-films-and-documentaries/
-  status: Available
-'99187979405806381':
-- collection_name: 'South Asia Commons: History and Culture'
-  interface_name: Coherent Digital
-  note: Coherent Digital. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://southasiacommons.net/modules/history-and-culture/
   status: Available
 '99187980196106381':
 - collection_name: Amnesty International Archives
@@ -12588,12 +12436,6 @@
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
   link: http://primarysources.brillonline.com/browse/mobilizing-east-asia-online
   status: Available
-'99188403862606381':
-- collection_name: 'Cuban Culture and Cultural Relations, 1959, The Vertical Archive of the Casa de las Américas, Part 4 : Music'
-  interface_name: Brillonline
-  note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-4
-  status: Available
 '99188403863906381':
 - collection_name: De Gruyter Yale University Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
@@ -13266,12 +13108,6 @@
   note: Bloomsbury Publishing Plc. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.dramaonlinelibrary.com/
   status: Available
-'99188865652706381':
-- collection_name: Sources chrétiennes online.
-  interface_name: ''
-  note: ''
-  link: http://clt.brepolis.net/sco/Pages/Search/Basic.aspx
-  status: Available
 '99188865658506381':
 - collection_name: Universitäts- und Landesbibliothek Sachsen-Anhalt (ULB)
   interface_name: Martin-Luther-Universität Halle-Wittenberg
@@ -13430,8 +13266,8 @@
   status: Available
 '99188891169006381':
 - collection_name: UMPEBC University of Michigan Press eBooks 2025
-  interface_name: University of Michigan
-  note: University of Michigan. Authorized U-M users (+ guests in U-M Libraries)
+  interface_name: University of Michigan Press
+  note: University of Michigan Press. Authorized U-M users (+ guests in U-M Libraries)
   link: https://umich.edu/
   status: Available
 '99187252532706381':
@@ -13849,7 +13685,7 @@
   link: https://dlib.eastview.com/browse/udb/3671
   status: Available
 '99188909932106381':
-- collection_name: Sage Knowledge EBA KNCCBR25 Sage Reference and Academic Books Collection
+- collection_name: Sage Knowledge EBA KNCCBR25 Complete Books and Reference Collection
   interface_name: SAGE
   note: SAGE.
   link: https://sk.sagepub.com/
@@ -14182,7 +14018,7 @@
 - collection_name: 'Wiley Digital Archives: Royal College of Physicians Part I'
   interface_name: Wiley Online Library
   note: Wiley Online Library. Access to the Authorized U-M users (+ guests in U-M Libraries)
-  link: https://app.wileydigitalarchives.com/wiley
+  link: https://app.wileydigitalarchives.com/rcp
   status: Available
 '99188917852806381':
 - collection_name: Digital South Asia Library
@@ -14315,12 +14151,6 @@
   interface_name: SpringerNature
   note: SpringerNature.
   link: https://www.springernature.com
-  status: Available
-'99188927929006381':
-- collection_name: MIT Press Direct 2025 Trade Monographs
-  interface_name: Mit_Press
-  note: Mit_Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://direct.mit.edu/books
   status: Available
 '99188927944606381':
 - collection_name: 'History of Disabilities: Disabilities in Society, Seventeenth to Twentieth Century'
@@ -14514,12 +14344,6 @@
   note: East View. Authorized U-M users (+ guests in U-M Libraries)
   link: https://wnc.eastview.com/wnc/news
   status: Available
-'99188996966906381':
-- collection_name: 'Iter: Bibliography'
-  interface_name: EBSCOhost
-  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=itb
-  status: Available
 '99188996552606381':
 - collection_name: 'European Views of the Americas: 1493 to 1750'
   interface_name: EBSCOhost
@@ -14562,6 +14386,12 @@
   note: INIST-CNRS - Institut de l'Information Scientifique et Technique du CNRS. Open access for all users.
   link: https://pascal-francis.inist.fr/
   status: Available
+'99189002941906381':
+- collection_name: Dynamic Health
+  interface_name: EBSCOhost
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&groupid=main&custid=s1221850&profile=dhe
+  status: Available
 '99189004436506381':
 - collection_name: Documenting White Supremacy and its Opponents in the 1920s
   interface_name: JSTOR
@@ -14591,4 +14421,46 @@
   interface_name: Coherent Digital
   note: Coherent Digital. Authorized U-M users (+ guests in U-M Libraries)
   link: https://southasiacommons.net/modules/south-asia-archive
+  status: Available
+'99189010247506381':
+- collection_name: Sources Chrétiennes Online
+  interface_name: BREPOLIS
+  note: BREPOLIS. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://apps.brepolis.net/ltool/entrance.aspx?w=34
+  status: Available
+'99189011847806381':
+- collection_name: 'Policy Commons: North American City Reports'
+  interface_name: Coherent Digital
+  note: Coherent Digital. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://policycommons.net/modules/north-american-city-reports
+  status: Available
+'99188996966906381':
+- collection_name: 'Iter: Bibliography'
+  interface_name: EBSCOhost
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=itb&groupid=main
+  status: Available
+'99189013485006381':
+- collection_name: Bibliography of Linguistic Literature - Bibliographie Linguistischer Literatur
+  interface_name: semantics Kommunikationsmanagement GmbH.
+  note: semantics Kommunikationsmanagement GmbH. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://www.blldb-online.de
+  status: Available
+'99189013494006381':
+- collection_name: Current Index to Statistics
+  interface_name: American Statistical Association
+  note: American Statistical Association. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://mathscinet.ams.org/cis
+  status: Available
+'990033089410106381':
+- collection_name: Documenting the American South (DocSouth)
+  interface_name: UNC University Libraries
+  note: UNC University Libraries. Open access for all users.
+  link: https://docsouth.unc.edu/
+  status: Available
+'99189015069006381':
+- collection_name: Modernist Journals Project
+  interface_name: Brown University
+  note: Brown University. Open access for all users.
+  link: https://modjourn.org/journal/
   status: Available
