@@ -1027,7 +1027,6 @@ class CSL:
         "entry-dictionary",
         "entry-encyclopedia",
         "figure",
-        "graphic",
         "interview",
         "legal_case",
         "legislation",
@@ -1048,6 +1047,7 @@ class CSL:
         "thesis",
         "treaty",
         "webpage",
+        "graphic",
         "song",
         "entry",
         "article",
@@ -1158,14 +1158,14 @@ class CSL:
                 tags=["100", "700"],
                 text_sfs="a",
                 filter=lambda field: (
-                    field.indicator1 == "1" and field["e"] not in field_e_strings
+                    field.indicator1 == "1" and field.get("e") not in field_e_strings
                 ),
             ),
             FieldRuleset(
                 tags=["100", "700"],
                 text_sfs="ab",
                 filter=lambda field: (
-                    field.indicator1 == "0" and field["e"] not in field_e_strings
+                    field.indicator1 == "0" and field.get("e") not in field_e_strings
                 ),
             ),
         )
@@ -1176,7 +1176,7 @@ class CSL:
             FieldRuleset(
                 tags=["110", "111", "710", "711"],
                 text_sfs="ab",
-                filter=lambda field: (field["e"] not in field_e_strings),
+                filter=lambda field: (field.get("e") not in field_e_strings),
             ),
         )
         corporate_authors = self._to_literal(
@@ -1196,14 +1196,14 @@ class CSL:
                 tags=["700"],
                 text_sfs="a",
                 filter=lambda field: (
-                    field.indicator1 == "1" and field["e"] in field_e_strings
+                    field.indicator1 == "1" and field.get("e") in field_e_strings
                 ),
             ),
             FieldRuleset(
                 tags=["700"],
                 text_sfs="ab",
                 filter=lambda field: (
-                    field.indicator1 == "0" and field["e"] in field_e_strings
+                    field.indicator1 == "0" and field.get("e") in field_e_strings
                 ),
             ),
         )
@@ -1266,6 +1266,14 @@ class Citation:
             base_record=self.base_record,
             solr_doc=self.solr_doc,
         ).to_list()
+
+    @property
+    def csl(self):
+        return CSL(
+            marc_record=self.marc_record,
+            base_record=self.base_record,
+            solr_doc=self.solr_doc,
+        )
 
 
 class Record(BaseRecord):

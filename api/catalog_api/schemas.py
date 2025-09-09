@@ -1,6 +1,10 @@
-from pydantic import BaseModel, ConfigDict
-from typing import Optional
+from pydantic import BaseModel, ConfigDict, Field, AliasGenerator
+from typing import Optional, Annotated
 import datetime
+
+
+def to_kebab_case(string: str) -> str:
+    return string.replace("_", "-")
 
 
 ############
@@ -141,8 +145,41 @@ class TaggedCitation(BaseModel):
     meta: list[str]
 
 
+class CSLLiteral(BaseModel):
+    literal: str
+
+
+class CSLName(BaseModel):
+    family: Optional[str]
+    given: Optional[str]
+
+
+class CSL(BaseModel):
+    model_config = ConfigDict(
+        # CSL has kebab case JSON keys
+        alias_generator=AliasGenerator(
+            serialization_alias=lambda field_name: to_kebab_case(field_name)
+        )
+    )
+    id: str
+    type: str
+    title: str
+    edition: Optional[str]
+    collection_title: Optional[str]
+    isbn: Optional[list[str]] = Field(serialization_alias="ISBN")
+    issn: Optional[list[str]] = Field(serialization_alias="ISSN")
+    call_number: Optional[str]
+    publisher_place: Optional[str]
+    publisher: Optional[str]
+    issued: Optional[CSLLiteral]
+    author: Optional[list[CSLName | CSLLiteral]]
+    editor: Optional[list[CSLName | CSLLiteral]]
+    number: Optional[str]
+
+
 class Citation(BaseModel):
     tagged: list[TaggedCitation]
+    csl: CSL
 
 
 ##########
@@ -223,6 +260,8 @@ class Record(BaseModel):
     holdings: Holdings
     marc: dict
     citation: Citation
+
+    model_config = ConfigDict(populate_by_name=True)
 
 
 class Response(BaseModel):

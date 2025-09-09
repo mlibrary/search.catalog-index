@@ -16,6 +16,7 @@ app = FastAPI(
             "model": schemas.Response404,
         }
     },
+    response_model_exclude_none=True,
 )
 def get_record(id: str) -> schemas.Record:
     """
