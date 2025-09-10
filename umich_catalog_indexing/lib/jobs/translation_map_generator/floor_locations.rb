@@ -30,7 +30,7 @@ module Jobs
             scope: scope
           )
           client.authorization = authorizer
-          range = "Sheet1!A2:G100"
+          range = "Data!A2:G100"
           data = client.get_spreadsheet_values(S.floor_location_spreadsheet_id, range).values
           _generate_data_structure(data)
         end
@@ -121,10 +121,10 @@ module Jobs
           numbers = parts[1].split(".")
           integer_part = numbers[0] || "0"
           fractional_part = numbers[1] || "0"
-          
+
           rest = parts[2]
-          
-          "#{letters}#{integer_part.rjust(4,'0')}.#{fractional_part.ljust(5,'0')}#{parts[2]}"
+
+          "#{letters}#{integer_part.rjust(4, "0")}.#{fractional_part.ljust(5, "0")}#{parts[2]}"
         end
       end
     end
