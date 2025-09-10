@@ -3,11 +3,9 @@
     "title": [
         {
             "transliterated": {
-                "tag": null,
                 "text": "Sanʼya no tori = Concise field guide to land birds / kaisetsu Saeki Akimitsu ; e Taniguchi Takashi."
             },
             "original": {
-                "tag": null,
                 "text": "山野の鳥 = Concise field guide to land birds / 解說佐伯彰光 ; 絵谷口高司."
             }
         }
@@ -18,7 +16,6 @@
     "main_author": [
         {
             "transliterated": {
-                "tag": null,
                 "text": "Saeki, Akimitsu.",
                 "search": [
                     {
@@ -29,7 +26,6 @@
                 "browse": "Saeki, Akimitsu."
             },
             "original": {
-                "tag": null,
                 "text": "佐伯彰光.",
                 "search": [
                     {
@@ -43,7 +39,6 @@
     ],
     "other_titles": [
         {
-            "transliterated": null, 
             "original": {
                 "text": "Concise field guide to land birds.",
                 "search": [
@@ -85,11 +80,9 @@
     "published": [
         {
             "transliterated": {
-                "tag": null,
                 "text": "Tōkyō : Nihon Yachō no Kai, 1983"
             },
             "original": {
-                "tag": null,
                 "text": "東京 : 日本野鳥の会, 1983"
             }
         }
@@ -109,11 +102,9 @@
     "edition": [
         {
             "transliterated": {
-                "tag": null,
                 "text": "3-teiban."
             },
             "original": {
-                "tag": null,
                 "text": "3訂版."
             }
         }
@@ -149,7 +140,6 @@
     ],
     "note": [
         {
-            "transliterated": null, 
             "original": {
                 "text": "Includes index.",
                 "tag": "500"
@@ -158,7 +148,6 @@
     ],
     "physical_description": [
         {
-            "transliterated": null, 
             "original": {
                 "tag": "300",
                 "text": "64 p. : ill. ; 18 cm."

@@ -902,6 +902,357 @@ class TaggedCitation:
         ]
 
 
+class CSL:
+    TYPE_MAPPING = {
+        "Article": "article-journal",
+        "Archival Material": "article-journal",
+        "Archive": "article-journal",
+        "Audio Recording": "article",
+        "Clothing": "article",
+        "Furnishing": "article",
+        "Serial": "article-journal",
+        "Government Document": "article",
+        "Journal / eJournal": "article-journal",
+        "Journal": "article-journal",
+        "Magazine": "article-magazine",
+        "Market Research": "article-journal",
+        "Model": "article",
+        "Microform": "article",
+        "Mixed Material": "article",
+        "Publication": "article-journal",
+        "Publication Article": "article-journal",
+        "Reference": "article-journal",
+        "Spoken Word Recoding": "article",
+        "Audio (spoken word)": "article",
+        "Standard": "article",
+        "Unknown": "article",
+        "Trade Publication Article": "article-journal",
+        "Transcript": "article",
+        "Artifact": "article",
+        "Reference Entry": "article-journal",
+        "Magazine Article": "article-magazine",
+        "Newspaper Article": "article-newspaper",
+        "Journal Article": "article-journal",
+        "bill": "bill",
+        "Biography": "book",
+        "Book / eBook": "book",
+        "Book": "book",
+        "Dictionaries": "book",
+        "Directories": "book",
+        "Encyclopedias": "book",
+        "broadcast": "broadcast",
+        "Book Chapter": "chapter",
+        "CDROM": "dataset",
+        "Computer File": "dataset",
+        "Data File": "dataset",
+        "Data Set": "dataset",
+        "Software": "dataset",
+        "Statistics": "dataset",
+        "Dataset": "dataset",
+        "entry": "entry",
+        "entry-dictionary": "entry-dictionary",
+        "entry-encyclopedia": "entry-encyclopedia",
+        "figure": "figure",
+        "Image": "graphic",
+        "Photographs and Pictorial Works": "graphic",
+        "Photograph": "graphic",
+        "Drawing": "graphic",
+        "Painting": "graphic",
+        "Graphic Arts": "graphic",
+        "Visual Material": "graphic",
+        "interview": "interview",
+        "legislation": "legislation",
+        "Case": "legal_case",
+        "Manuscript": "manuscript",
+        "Newsletter": "manuscript",
+        "Newspaper": "article-newspaper",
+        "Play": "manuscript",
+        "Poem": "manuscript",
+        "Postcard": "manuscript",
+        "Archival Material Manuscript": "manuscript",
+        "Atlas": "map",
+        "Map": "map",
+        "Map-Atlas": "map",
+        "Video Recording": "motion_picture",
+        "Video (Blu-ray)": "motion_picture",
+        "Video (DVD)": "motion_picture",
+        "Video (VHS)": "motion_picture",
+        "Video Games": "motion_picture",
+        "Sheet Music": "musical_score",
+        "Music Score": "musical_score",
+        "Musical Score": "musical_score",
+        "Pamphlet": "pamphlet",
+        "Conference": "paper-conference",
+        "Conference Proceeding": "paper-conference",
+        "Paper": "paper-conference",
+        "Patent": "patent",
+        "Audio CD": "song",
+        "Audio LP": "song",
+        "Streaming Audio": "song",
+        "Music Recording": "song",
+        "Audio": "song",
+        "Music": "song",
+        "Audio (music)": "song",
+        "Motion Picture": "motion_picture",
+        "Streaming Video": "motion_picture",
+        "Video Game": "motion_picture",
+        "Video": "motion_picture",
+        "post": "post",
+        "post-weblog": "post-weblog",
+        "Personal Narrative": "personal_communication",
+        "Report": "report",
+        "Technical Report": "report",
+        "review": "review",
+        "Book Review": "review-book",
+        "Review": "review-book",
+        "Presentation": "speech",
+        "Dissertation": "thesis",
+        "Student Thesis": "thesis",
+        "treaty": "treaty",
+        "Electronic Resource": "webpage",
+        "Finding Aid": "webpage",
+        "Web Resource": "webpage",
+        "Text Resource": "article",
+        "Newsletter Article": "article",
+    }
+
+    TYPE_ORDER = [
+        "article-journal",
+        "article-magazine",
+        "article-newspaper",
+        "bill",
+        "broadcast",
+        "chapter",
+        "dataset",
+        "entry-dictionary",
+        "entry-encyclopedia",
+        "figure",
+        "interview",
+        "legal_case",
+        "legislation",
+        "manuscript",
+        "map",
+        "motion_picture",
+        "musical_score",
+        "pamphlet",
+        "paper-conference",
+        "patent",
+        "personal_communication",
+        "post-weblog",
+        "post",
+        "report",
+        "review-book",
+        "review",
+        "speech",
+        "thesis",
+        "treaty",
+        "webpage",
+        "graphic",
+        "song",
+        "entry",
+        "article",
+        "book",
+    ]
+
+    def __init__(self, base_record=None, marc_record=None, solr_doc={}):
+        self.solr_processor = SolrDocProcessor(solr_doc)
+        self.processor = Processor(marc_record)
+        self.base_record = base_record
+
+    @property
+    def id(self):
+        return self.solr_processor.get("id")
+
+    @property
+    def type(self):
+        formats = self.solr_processor.get("format")
+        if formats:
+            types = [self.TYPE_MAPPING[f] for f in formats]
+            for t in self.TYPE_ORDER:
+                if t in types:
+                    return t
+
+    @property
+    def title(self):
+        rulesets = (
+            FieldRuleset(
+                tags=["245"],
+                text_sfs="abp",
+            ),
+        )
+        return self._get_marc_content(rulesets)
+
+    @property
+    def edition(self):
+        return self._get_base_content("edition")
+
+    @property
+    def collection_title(self):
+        return self._get_base_content("series")
+
+    @property
+    def isbn(self):
+        return self.solr_processor.get("isbn")
+
+    @property
+    def issn(self):
+        return self.solr_processor.get("issn")
+
+    @property
+    def call_number(self):
+        result = self.solr_processor.get("callnumber")
+        if result:
+            return result[0]
+
+    @property
+    def publisher_place(self):
+        rulesets = (
+            FieldRuleset(
+                tags=["260"],
+                text_sfs="a",
+            ),
+            FieldRuleset(
+                tags=["264"],
+                text_sfs="a",
+                filter=lambda field: (field.indicator2 == "1"),
+            ),
+        )
+        return self._get_marc_content(rulesets)
+
+    @property
+    def publisher(self):
+        rulesets = (
+            FieldRuleset(
+                tags=["260"],
+                text_sfs="b",
+            ),
+            FieldRuleset(
+                tags=["264"],
+                text_sfs="b",
+                filter=lambda field: (field.indicator2 == "1"),
+            ),
+        )
+        return self._get_marc_content(rulesets)
+
+    @property
+    def issued(self):
+        date_str = self.solr_processor.get("display_date")
+        if date_str:
+            return {"literal": date_str}
+
+    @property
+    def author(self):
+        result = []
+        field_e_strings = [
+            "ed",
+            "ed.",
+            "editor",
+            "editor.",
+            "trans.",
+            "translator",
+            "translator.",
+        ]
+        # regular main authors
+        main_author_rulesets = (
+            FieldRuleset(
+                tags=["100", "700"],
+                text_sfs="a",
+                filter=lambda field: (
+                    field.indicator1 == "1" and field.get("e") not in field_e_strings
+                ),
+            ),
+            FieldRuleset(
+                tags=["100", "700"],
+                text_sfs="ab",
+                filter=lambda field: (
+                    field.indicator1 == "0" and field.get("e") not in field_e_strings
+                ),
+            ),
+        )
+
+        result = self._to_author(self._get_marc_contents(main_author_rulesets))
+        # corporate authors
+        corporate_author_rulesets = (
+            FieldRuleset(
+                tags=["110", "111", "710", "711"],
+                text_sfs="ab",
+                filter=lambda field: (field.get("e") not in field_e_strings),
+            ),
+        )
+        corporate_authors = self._to_literal(
+            self._get_marc_contents(corporate_author_rulesets)
+        )
+        if corporate_authors:
+            for c in corporate_authors:
+                result.append(c)
+        if result:
+            return result
+
+    @property
+    def editor(self):
+        field_e_strings = ["ed", "ed.", "editor", "editor."]
+        rulesets = (
+            FieldRuleset(
+                tags=["700"],
+                text_sfs="a",
+                filter=lambda field: (
+                    field.indicator1 == "1" and field.get("e") in field_e_strings
+                ),
+            ),
+            FieldRuleset(
+                tags=["700"],
+                text_sfs="ab",
+                filter=lambda field: (
+                    field.indicator1 == "0" and field.get("e") in field_e_strings
+                ),
+            ),
+        )
+        result = self._to_author(self._get_marc_contents(rulesets))
+        if result:
+            return result
+
+    @property
+    def number(self):
+        if self._get_base_content("report_number"):
+            return self._get_base_content("report_number")
+        return self._get_base_content("numbering")
+
+    def _get_marc_contents(self, rulesets):
+        result = self.processor.generate_unpaired_fields(rulesets)
+        if result:
+            return [r.text for r in result]
+
+    def _get_marc_content(self, rulesets):
+        result = self.processor.generate_unpaired_fields(rulesets)
+        if result:
+            return result[0].text
+
+    def _get_base_content(self, field):
+        result = getattr(self.base_record, field)
+        if result:
+            if hasattr(result[0], "text"):
+                return result[0].text
+            elif result[0].transliterated:
+                return result[0].transliterated.text
+            else:
+                return result[0].original.text
+
+    def _to_author(self, author_list):
+        result = []
+        if author_list:
+            for name in author_list:
+                if ", " in name:
+                    family, given = name.split(", ")
+                    result.append({"family": family, "given": given})
+                else:
+                    result.append({"literal": name})
+        return result
+
+    def _to_literal(self, string_list):
+        if string_list:
+            return [{"literal": s} for s in string_list]
+
+
 class Citation:
     def __init__(self, marc_record, base_record, solr_doc={}):
         self.marc_record = marc_record
@@ -915,6 +1266,14 @@ class Citation:
             base_record=self.base_record,
             solr_doc=self.solr_doc,
         ).to_list()
+
+    @property
+    def csl(self):
+        return CSL(
+            marc_record=self.marc_record,
+            base_record=self.base_record,
+            solr_doc=self.solr_doc,
+        )
 
 
 class Record(BaseRecord):

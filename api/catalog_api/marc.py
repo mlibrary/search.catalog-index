@@ -71,10 +71,11 @@ class Processor:
         result = []
         for ruleset in rulesets:
             for field in self.record.get_fields(*ruleset.tags):
-                if ruleset.has_any_subfields(field):
-                    result.append(ruleset.value_for(field))
-
-        return list(set(result))
+                if ruleset.filter(field) and ruleset.has_any_subfields(field):
+                    value = ruleset.value_for(field)
+                    if value not in result:
+                        result.append(value)
+        return result
 
     def generate_paired_fields(self, rulesets: tuple) -> list:
         result = []
