@@ -1928,12 +1928,6 @@
   note: ''
   link: http://zassaku-plus.com/
   status: Available
-'990159330650106381':
-- collection_name: Prize papers online.
-  interface_name: BrillOnline primary sources
-  note: BrillOnline primary sources. Access to the BrillOnline primary sources online version restricted; authentication may be required.
-  link: http://primarysources.brillonline.com/browse/prize-papers-part-3-online
-  status: Available
 '990159330500106381':
 - collection_name: Sacramentum mundi online /
   interface_name: BrillOnline reference works
@@ -6826,7 +6820,7 @@
 - collection_name: AP images
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=apg
+  link: https://research.ebsco.com/c/72mzer?acr_values=uid&db=apg
   status: Available
 '99187252701306381':
 - collection_name: ProQuest Dissertations & Theses Global
@@ -14463,4 +14457,46 @@
   interface_name: Brown University
   note: Brown University. Open access for all users.
   link: https://modjourn.org/journal/
+  status: Available
+'99189018199306381':
+- collection_name: EBSCOhost APA PsycEXTRA
+  interface_name: EBSCOhost
+  note: EBSCOhost. Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.apa.org/pubs/databases/psycextra
+  status: Available
+'99189018287606381':
+- collection_name: East View Global Press Archive Area Studies Initiative 2025
+  interface_name: East View Information Services
+  note: East View Information Services. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://gpa.eastview.com/
+  status: Available
+'99189018287806381':
+- collection_name: East View Global Press Archive Area Studies Initiative 2024
+  interface_name: East View
+  note: East View. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://gpa.eastview.com/
+  status: Available
+'99189019301506381':
+- collection_name: 'Cuban Culture and Cultural Relations, 1959, The Vertical Archive of the Casa de las Américas, Part 4 : Music'
+  interface_name: Brillonline
+  note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-4
+  status: Available
+'99189019301606381':
+- collection_name: 'Cuban Culture and Cultural Relations, 1959-, Part 3: Theater'
+  interface_name: Brill
+  note: Brill. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-3
+  status: Available
+'99189019301706381':
+- collection_name: 'Cuban Culture and Cultural Relations, 1959-, Part 2: Writers'
+  interface_name: Brill
+  note: Brill. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-2
+  status: Available
+'99189019301806381':
+- collection_name: 'Cuban Culture and Cultural Relations, 1959-The Vertical Archive of the Casa de las Américas, Part 1: “Casa y Cultura”'
+  interface_name: Brill
+  note: Brill. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations
   status: Available
