@@ -110,11 +110,17 @@ module Common
       end.map do |field|
         a = field["a"]
         more = []
+        topic_subfields = _topic_subfields_for(field)
         field.each do |sf|
-          more.push sf.value if TOPICS[field.tag]&.chars&.include?(sf.code)
+          more.push sf.value if topic_subfields&.include?(sf.code)
         end
         [a, more.join(" ")]
       end.flatten.uniq
+    end
+
+    def _topic_subfields_for(field)
+      tag = (field.tag == "880") ? field["6"].split("-")&.first : field.tag
+      TOPICS[tag]&.chars
     end
 
     # Get all the subject fields including associated 880 linked fields

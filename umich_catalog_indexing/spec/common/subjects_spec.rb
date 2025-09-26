@@ -19,6 +19,10 @@ RSpec.describe Common::Subjects do
     get_record("./spec/fixtures/subjects/other_subjects.xml")
   end
 
+  let(:original_script_subjects_record) do
+    get_record("./spec/fixtures/subjects/original_script_subjects.xml")
+  end
+
   before(:each) do
     @record = record
   end
@@ -212,6 +216,10 @@ RSpec.describe Common::Subjects do
         "Noncitizens.",
         "Right to counsel."
       )
+    end
+    it "handles original script" do
+      @record = original_script_subjects_record
+      expect(subject.subject_facets).not_to include("")
     end
   end
 end

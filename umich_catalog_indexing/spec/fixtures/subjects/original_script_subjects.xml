@@ -1,0 +1,238 @@
+<record xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" xmlns="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <leader>02649cam a2200601 i 4500</leader>
+  <controlfield tag="005">20241218051327.0</controlfield>
+  <controlfield tag="008">151130s2015    ja af         000 0 jpn d</controlfield>
+  <controlfield tag="001">990140836660106381</controlfield>
+  <datafield tag="010" ind1=" " ind2=" ">
+    <subfield code="a">2015523775</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">9784792410438</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">4792410436</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(MiU)014083666MIU01</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)930589045</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)ocn930589045</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="a">TRCLS</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="e">rda</subfield>
+    <subfield code="c">TRCLS</subfield>
+    <subfield code="d">DLC</subfield>
+    <subfield code="d">HMY</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">OCLCQ</subfield>
+    <subfield code="d">OCLCF</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">EYM</subfield>
+  </datafield>
+  <datafield tag="042" ind1=" " ind2=" ">
+    <subfield code="a">lccopycat</subfield>
+  </datafield>
+  <datafield tag="043" ind1=" " ind2=" ">
+    <subfield code="a">a-ja---</subfield>
+  </datafield>
+  <datafield tag="050" ind1="0" ind2="0">
+    <subfield code="a">CD2189.5.M58</subfield>
+    <subfield code="b">A34 2015</subfield>
+  </datafield>
+  <datafield tag="099" ind1=" " ind2=" ">
+    <subfield code="a">CD 2189.5 .M58 A34 2015</subfield>
+  </datafield>
+  <datafield tag="245" ind1="0" ind2="0">
+    <subfield code="6">880-01</subfield>
+    <subfield code="a">Akechi ichizoku Miyake-ke no shiryō /</subfield>
+    <subfield code="c">Miyake-ke Shiryō Kankōkai hen.</subfield>
+  </datafield>
+  <datafield tag="880" ind1="0" ind2="0">
+    <subfield code="6">245-01/</subfield>
+    <subfield code="a">明智一族三宅家の史料 /</subfield>
+    <subfield code="c">三宅家史料刊行会編.</subfield>
+  </datafield>
+  <datafield tag="250" ind1=" " ind2=" ">
+    <subfield code="6">880-02</subfield>
+    <subfield code="a">Shohan.</subfield>
+  </datafield>
+  <datafield tag="880" ind1=" " ind2=" ">
+    <subfield code="6">250-02/</subfield>
+    <subfield code="a">初版.</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="1">
+    <subfield code="6">880-03</subfield>
+    <subfield code="a">Ōsaka-shi :</subfield>
+    <subfield code="b">Seibundō Shuppan,</subfield>
+    <subfield code="c">Heisei 27 [2015]</subfield>
+  </datafield>
+  <datafield tag="880" ind1=" " ind2="1">
+    <subfield code="6">264-03/</subfield>
+    <subfield code="a">大阪市 :</subfield>
+    <subfield code="b">清文堂出版,</subfield>
+    <subfield code="c">平成27 [2015]</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">xvii, 811 pages, 8 unnumbered pages of plates :</subfield>
+    <subfield code="b">illustrations ;</subfield>
+    <subfield code="c">22 cm</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">text</subfield>
+    <subfield code="b">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">unmediated</subfield>
+    <subfield code="b">n</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="a">volume</subfield>
+    <subfield code="b">nc</subfield>
+    <subfield code="2">rdacarrier</subfield>
+  </datafield>
+  <datafield tag="600" ind1="3" ind2="0">
+    <subfield code="a">Miyake family</subfield>
+    <subfield code="v">Archives.</subfield>
+  </datafield>
+  <datafield tag="600" ind1="3" ind2="0">
+    <subfield code="a">Miyake family</subfield>
+    <subfield code="x">History</subfield>
+    <subfield code="v">Sources.</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2="0">
+    <subfield code="a">Japan</subfield>
+    <subfield code="x">History</subfield>
+    <subfield code="y">Azuchi-Momoyama period, 1568-1603</subfield>
+    <subfield code="v">Sources.</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2="0">
+    <subfield code="a">Japan</subfield>
+    <subfield code="x">History</subfield>
+    <subfield code="y">Tokugawa period, 1600-1868</subfield>
+    <subfield code="v">Sources.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/subjects/sh2008115644</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="6">880-04</subfield>
+    <subfield code="a">Nihon-Rekishi-Azuchi momoyama jidai-Shiryō.</subfield>
+    <subfield code="2">jlabsh/4</subfield>
+  </datafield>
+  <datafield tag="880" ind1=" " ind2="7">
+    <subfield code="6">650-04/</subfield>
+    <subfield code="a">日本-歴史-安土桃山時代-史料.</subfield>
+    <subfield code="2">jlabsh/4</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="6">880-05</subfield>
+    <subfield code="a">Nihon-Rekishi-Edo jidai-Shiryō.</subfield>
+    <subfield code="2">jlabsh/4</subfield>
+  </datafield>
+  <datafield tag="880" ind1=" " ind2="7">
+    <subfield code="6">650-05/</subfield>
+    <subfield code="a">日本-歴史-江戶時代-史料.</subfield>
+    <subfield code="2">jlabsh/4</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="6">880-06</subfield>
+    <subfield code="a">Miyake ke.</subfield>
+    <subfield code="2">jlabsh/4</subfield>
+  </datafield>
+  <datafield tag="880" ind1=" " ind2="7">
+    <subfield code="6">650-06/</subfield>
+    <subfield code="a">三宅家.</subfield>
+    <subfield code="2">jlabsh/4</subfield>
+  </datafield>
+  <datafield tag="600" ind1="3" ind2="7">
+    <subfield code="a">Miyake family.</subfield>
+    <subfield code="2">fast</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2="7">
+    <subfield code="a">Japan.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">http://id.worldcat.org/fast/1204082</subfield>
+  </datafield>
+  <datafield tag="648" ind1=" " ind2="7">
+    <subfield code="a">1568-1868</subfield>
+    <subfield code="2">fast</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">Archives.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">http://id.worldcat.org/fast/1423700</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">History.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">http://id.worldcat.org/fast/1411628</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">Sources.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">http://id.worldcat.org/fast/1423900</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="6">880-07</subfield>
+    <subfield code="a">Miyakeke Shiryō Kankōkai.</subfield>
+    <subfield code="0">http://id.loc.gov/authorities/names/n2016027496</subfield>
+    <subfield code="1">http://id.loc.gov/rwo/agents/n2016027496</subfield>
+    <subfield code="1">http://viaf.org/viaf/31146461429427730130</subfield>
+  </datafield>
+  <datafield tag="880" ind1="2" ind2=" ">
+    <subfield code="6">710-07/</subfield>
+    <subfield code="a">三宅家史料刊行会.</subfield>
+  </datafield>
+  <datafield tag="880" ind1=" " ind2=" ">
+    <subfield code="6">260-00/</subfield>
+    <subfield code="a">大阪市 :</subfield>
+    <subfield code="b">清文堂出版,</subfield>
+    <subfield code="c">平成27 [2015]</subfield>
+  </datafield>
+  <datafield tag="880" ind1=" " ind2=" ">
+    <subfield code="6">500-00/</subfield>
+    <subfield code="a">三宅家略年表:p796-805.</subfield>
+  </datafield>
+  <datafield tag="908" ind1=" " ind2=" ">
+    <subfield code="a">AuthComplete 2024-12-16</subfield>
+  </datafield>
+  <datafield tag="958" ind1=" " ind2=" ">
+    <subfield code="a">MiU</subfield>
+  </datafield>
+  <datafield tag="995" ind1=" " ind2=" ">
+    <subfield code="a">20</subfield>
+  </datafield>
+  <datafield tag="998" ind1=" " ind2=" ">
+    <subfield code="c">kazmic-asia CopyCat20160714</subfield>
+  </datafield>
+  <datafield tag="BIB" ind1=" " ind2=" ">
+    <subfield code="u">2025-01-12 10:23:16 US/Eastern</subfield>
+    <subfield code="c">2021-06-21 07:06:01 US/Eastern</subfield>
+    <subfield code="s">false</subfield>
+  </datafield>
+  <datafield tag="852" ind1="0" ind2=" ">
+    <subfield code="b">HATCH</subfield>
+    <subfield code="a">MiU</subfield>
+    <subfield code="c">ASIA</subfield>
+    <subfield code="h">CD 2189.5 .M58 A34 2015</subfield>
+    <subfield code="8">22784720910006381</subfield>
+  </datafield>
+  <datafield tag="974" ind1=" " ind2=" ">
+    <subfield code="8">22784720910006381</subfield>
+    <subfield code="f">1</subfield>
+    <subfield code="c">ASIA</subfield>
+    <subfield code="m">BOOK</subfield>
+    <subfield code="a">39015097089109</subfield>
+    <subfield code="e">ASIA</subfield>
+    <subfield code="7">23784720900006381</subfield>
+    <subfield code="r">2016-01-25 05:59:00 US/Eastern</subfield>
+    <subfield code="h">CD 2189.5 .M58 A34 2015</subfield>
+    <subfield code="d">HATCH</subfield>
+    <subfield code="b">HATCH</subfield>
+  </datafield>
+</record>
