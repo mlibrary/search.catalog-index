@@ -152,7 +152,7 @@ class PhysicalItem:
     @property
     def url(self):
         if self.reservable:
-            return "what"
+            return ReservableItem(physical_item_data=self.data, record=self.record).url
             # send over the marc record to some classes that can parse the Reserve This item
         return f"https://search.lib.umich.edu/catalog/record/{self.bib_id}/get-this/{self.barcode}"
 
@@ -166,6 +166,26 @@ class PhysicalItem:
             ),
             temporary=self.data.get("temp_location"),
         )
+
+
+class ReservableItem:
+    def __init__(self, physical_item_data, record):
+        self.data = physical_item_data
+        self.record = record
+
+    @property
+    def title(self):
+        title_field = self.record.get("245")
+        if title_field:
+            return " ".join(title_field.get_subfields("a", "b", "k"))
+
+    @property
+    def url(self):
+        return self.base_url()
+
+    def base_url(self):
+        if self.data.get("library") == "BENT":
+            return "https://aeon.bentley.umich.edu/login?"
 
 
 class PhysicalHolding:

@@ -9,6 +9,7 @@ from catalog_api.holdings import (
     AlmaDigitalItem,
     FindingAids,
     FindingAidItem,
+    ReservableItem,
 )
 
 
@@ -130,12 +131,14 @@ class TestPhysicalHolding:
 
     def test_item_has_request_this_url(self, physical_holding, bib_id, record):
         item = physical_holding["items"][0]
+
         item["can_reserve"] = True
-        expected = f"https://search.lib.umich.edu/catalog/record/{bib_id}/get-this/{item['barcode']}"
+        item["library"] = "BENT"
+        expected = "https://aeon.bentley.umich.edu/login?"
         subject = PhysicalHolding(physical_holding, bib_id=bib_id, record=record).items[
             0
         ]
-        assert subject.url != expected
+        assert expected in subject.url
 
     def test_item_has_a_physical_location(
         self, physical_holding, bib_id, record=record
@@ -358,3 +361,13 @@ class TestAlmaDigitalItem:
     def test_outer_fields(self, field, solr_field, alma_digital_item):
         subject = AlmaDigitalItem(alma_digital_item)
         assert getattr(subject, field) == alma_digital_item[solr_field]
+
+
+class TestReservableItem:
+    def test_title(self, record, physical_holding):
+        subject = ReservableItem(record=record, physical_item_data=physical_holding)
+        assert subject.title == "Sanʼya no tori = Concise field guide to land birds /"
+
+    def test_author(self, record, physical_holding):
+        subject = ReservableItem(record=record, physical_item_data=physical_holding)
+        assert subject.author == "blah"
