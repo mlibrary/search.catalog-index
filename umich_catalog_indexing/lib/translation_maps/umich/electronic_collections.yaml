@@ -25,13 +25,13 @@
 '990093544650106381':
 - collection_name: African-American newspapers, 1827-1998
   interface_name: NewsBank
-  note: NewsBank. Access to the NewsBank online version restricted; authentication may be required.
+  note: NewsBank. Authorized U-M users (+ guests in U-M Libraries)
   link: http://infoweb.newsbank.com/?db=EANX&d_collections=EANAAA%7CEANAAA2
   status: Available
 '990121606470106381':
 - collection_name: African American periodicals, 1825-1995
   interface_name: NewsBank
-  note: NewsBank. Access to the NewsBank online version restricted; authentication may be required.
+  note: NewsBank. Authorized U-M users (+ guests in U-M Libraries)
   link: http://infoweb.newsbank.com/?db=EAPX
   status: Available
 '990121606440106381':
@@ -173,7 +173,7 @@
 '990040693670106381':
 - collection_name: Dartmouth Dante project
   interface_name: Dartmouth College
-  note: Dartmouth College. Access to the Dartmouth College online version.
+  note: Dartmouth College. Authorized U-M users (+ guests in U-M Libraries)
   link: http://dante.dartmouth.edu/
   status: Available
 '990040668830106381':
@@ -272,9 +272,9 @@
   link: http://resident360.nejm.org/
   status: Available
 '990176825640106381':
-- collection_name: Birds of the world /
+- collection_name: Birds of the world
   interface_name: Cornell Lab of Ornithology
-  note: Cornell Lab of Ornithology. Access to the Cornell Lab of Ornithology online version restricted; authentication may be required.
+  note: Cornell Lab of Ornithology. Authorized U-M users (+ guests in U-M Libraries)
   link: https://birdsoftheworld.org
   status: Available
 '990176679430106381':
@@ -377,12 +377,6 @@
   interface_name: ESTC
   note: ESTC. Access to the ESTC Online version.
   link: http://estc.bl.uk/
-  status: Available
-'990005222060106381':
-- collection_name: International political science abstracts.
-  interface_name: EBSCOhost
-  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=ijh
   status: Available
 '990005213580106381':
 - collection_name: Sociological abstracts.
@@ -924,7 +918,7 @@
 '990092479820106381':
 - collection_name: Cairn.info
   interface_name: Cairn
-  note: Cairn. Access to the Cairn online version restricted; authentication may be required.
+  note: Cairn. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.cairn.info/accueil.php
   status: Available
 '990092476570106381':
@@ -995,7 +989,7 @@
 '990099613600106381':
 - collection_name: Littérature de l'Océan Indien
   interface_name: Classiques Garnier Numérique
-  note: Classiques Garnier Numérique. Access to the Classiques Garnier Numérique online version restricted; authentication may be required.
+  note: Classiques Garnier Numérique. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.classiques-garnier.com/numerique-bases/index.php?module=App&action=FrameMain&colname=ColOceanIndien
   status: Available
 '990079312230106381':
@@ -1166,7 +1160,7 @@
 '990121844710106381':
 - collection_name: The microfinance gateway
   interface_name: CGAP
-  note: CGAP. Access to the CGAP online version.
+  note: CGAP. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.microfinancegateway.org/
   status: Available
 '990121787490106381':
@@ -1226,7 +1220,7 @@
 '990056690730106381':
 - collection_name: NHS economic evaluation database (NHS EED)
   interface_name: Centre for Reviews and Dissemination archived
-  note: Centre for Reviews and Dissemination archived. Access to the Centre for Reviews and Dissemination archived online version restricted; authentication may be required.
+  note: Centre for Reviews and Dissemination archived. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.crd.york.ac.uk/crdweb/
   status: Available
 '990033326560106381':
@@ -1678,12 +1672,6 @@
   note: BrillOnline primary sources. Access to the BrillOnline primary sources online version restricted; authentication may be required.
   link: https://referenceworks.brillonline.com/browse/history-of-global-christianity-online
   status: Available
-'990058128360106381':
-- collection_name: World newspaper archive
-  interface_name: Readex
-  note: Readex. Access to the Readex online version restricted; authentication may be required.
-  link: http://infoweb.newsbank.com/?db=WHNPX
-  status: Available
 '990123356210106381':
 - collection_name: OATD -- Open access theses and dissertations.
   interface_name: ''
@@ -1854,14 +1842,14 @@
 '990161384810106381':
 - collection_name: CINDAS
   interface_name: CINDAS LLC
-  note: CINDAS LLC. Access to the CINDAS LLC online version restricted; authentication may be required.
+  note: CINDAS LLC. Authorized U-M users (+ guests in U-M Libraries)
   link: https://cindasdata.com/Applications?
   status: Available
 '990056200560106381':
-- collection_name: Bookshelf
-  interface_name: online
-  note: online. Access to the online version.
-  link: http://purl.access.gpo.gov/GPO/LPS86584
+- collection_name: National Center for Biotechnology Information Bookshelf
+  interface_name: National Center for Biotechnology Information
+  note: National Center for Biotechnology Information. Open access for all users.
+  link: https://purl.access.gpo.gov/GPO/LPS86584
   status: Available
 '990056172250106381':
 - collection_name: PTSDpubs
@@ -1904,12 +1892,6 @@
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/pao
   status: Available
-'990117394390106381':
-- collection_name: OntheBoards. TV
-  interface_name: online
-  note: online. Access to the online version restricted; authentication may be required.
-  link: http://www.ontheboards.tv
-  status: Available
 '990005055590106381':
 - collection_name: Pollution abstracts.
   interface_name: ProQuest (Firm)
@@ -1928,16 +1910,10 @@
   note: ''
   link: http://zassaku-plus.com/
   status: Available
-'990159330650106381':
-- collection_name: Prize papers online.
-  interface_name: BrillOnline primary sources
-  note: BrillOnline primary sources. Access to the BrillOnline primary sources online version restricted; authentication may be required.
-  link: http://primarysources.brillonline.com/browse/prize-papers-part-3-online
-  status: Available
 '990159330500106381':
-- collection_name: Sacramentum mundi online /
+- collection_name: Sacramentum mundi online
   interface_name: BrillOnline reference works
-  note: BrillOnline reference works. Access to the BrillOnline reference works online version restricted; authentication may be required.
+  note: BrillOnline reference works. Authorized U-M users (+ guests in U-M Libraries)
   link: http://referenceworks.brillonline.com/browse/sacramentum-mundi
   status: Available
 '990159330470106381':
@@ -2128,8 +2104,8 @@
   status: Available
 '990143226390106381':
 - collection_name: 'Musical Theater Songs : The Song is You.'
-  interface_name: ''
-  note: ''
+  interface_name: MusicalTheaterSongs.com
+  note: MusicalTheaterSongs.com. Authorized U-M users (+ guests in U-M Libraries)
   link: https://musicaltheatersongs.com/
   status: Available
 '990165009740106381':
@@ -2166,17 +2142,6 @@
   interface_name: BBC
   note: BBC. Access to the BBC online version restricted; authentication may be required.
   link: https://monitoring.bbc.co.uk/api/login/sso?entityId=https://shibboleth.umich.edu/idp/shibboleth
-  status: Available
-'990056671000106381':
-- collection_name: Chronicling America historic American newspapers.
-  interface_name: ''
-  note: ''
-  link: http://bibpurl.oclc.org/web/19370
-  status: Available
-- collection_name: Chronicling America historic American newspapers.
-  interface_name: Library of Congress
-  note: Library of Congress. Access to the Library of Congress online version.
-  link: http://www.loc.gov/chroniclingamerica/
   status: Available
 '990056663670106381':
 - collection_name: Computer database
@@ -2470,7 +2435,7 @@
 '990129036760106381':
 - collection_name: Met Opera on demand.
   interface_name: Metropolitan Opera
-  note: Metropolitan Opera. Metropolitan Opera access restricted; authentication may be required.
+  note: Metropolitan Opera. Authorized U-M users (+ guests in U-M Libraries)
   link: https://ondemand.metopera.org/
   status: Available
 '990056036530106381':
@@ -3600,6 +3565,18 @@
   note: Biodiversity Heritage Library. Open access for all users.
   link: https://www.biodiversitylibrary.org/
   status: Available
+'99187252476106381':
+- collection_name: Open Book Publishers
+  interface_name: Open Book Publishers
+  note: Open Book Publishers. Open access for all users.
+  link: https://www.openbookpublishers.com/
+  status: Available
+'99187252476206381':
+- collection_name: 'Chronicling America: Historic American newspapers'
+  interface_name: Library of Congress
+  note: Library of Congress.
+  link: https://www.loc.gov/collections/chronicling-america/about-this-collection/
+  status: Available
 '99187252477406381':
 - collection_name: Brillonline Ebooks Companions To Classical Studies Online Iii
   interface_name: Brillonline
@@ -3695,6 +3672,12 @@
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.cap.amdigital.co.uk/
+  status: Available
+'99187252617606381':
+- collection_name: World Newspaper Archive
+  interface_name: Readex
+  note: Readex. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://infoweb.newsbank.com/apps/readex?p=WHNPX
   status: Available
 '99187252618106381':
 - collection_name: 'Popular Culture in Britain and America 1950-1975: Module I'
@@ -4096,6 +4079,12 @@
   interface_name: IEEE Xplore
   note: IEEE Xplore. Authorized U-M users (+ guests in U-M Libraries)
   link: http://ieeexplore.ieee.org/
+  status: Available
+'99187252578706381':
+- collection_name: NewsBank Rand Daily Mail Archive
+  interface_name: Newsbank, Inc.
+  note: Newsbank, Inc. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://infoweb.newsbank.com/apps/readex/welcome?p=HN-SARDM
   status: Available
 '99187252579706381':
 - collection_name: East View Current Digest of the Chinese Press Digital Archive (DA-CDCP)
@@ -5220,8 +5209,8 @@
   status: Available
 '99187252747606381':
 - collection_name: OnTheBoards.TV
-  interface_name: On the Boards
-  note: On the Boards.
+  interface_name: OntheBoards.tv
+  note: OntheBoards.tv. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.ontheboards.tv/
   status: Available
 '99187252747806381':
@@ -6309,7 +6298,7 @@
 '99187252568406381':
 - collection_name: Foreign Broadcast Information Service Electronic Index
   interface_name: Newsbank, Inc.
-  note: Newsbank, Inc.
+  note: Newsbank, Inc. Authorized U-M users (+ guests in U-M Libraries)
   link: http://infoweb.newsbank.com/?db=FBIS
   status: Available
 '99187252568706381':
@@ -6826,7 +6815,7 @@
 - collection_name: AP images
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=apg
+  link: https://research.ebsco.com/c/72mzer?acr_values=uid&db=apg
   status: Available
 '99187252701306381':
 - collection_name: ProQuest Dissertations & Theses Global
@@ -6857,12 +6846,6 @@
   interface_name: ERIC
   note: ERIC. Authorized U-M users (+ guests in U-M Libraries)
   link: https://eric.ed.gov/
-  status: Available
-'99187252703106381':
-- collection_name: Dartmouth Dante Project
-  interface_name: Dartmouth College
-  note: Dartmouth College. Open access for all users.
-  link: http://dante.dartmouth.edu/
   status: Available
 '99187252703506381':
 - collection_name: Bibliography of the History of Art (BHA) and Répertoire international de la littérature de l'art (RILA)
@@ -9005,13 +8988,13 @@
 '99187529529206381':
 - collection_name: Early American Imprints, Series II, Shaw-Shoemaker Supplement from the Library Company of Philadelphia
   interface_name: Newsbank, Inc.
-  note: Newsbank, Inc.
+  note: Newsbank, Inc. Authorized U-M users (+ guests in U-M Libraries)
   link: https://infoweb.newsbank.com/?db=SHAW2
   status: Available
 '99187529529306381':
 - collection_name: 'Early American Imprints, Series I: Evans: Library Company of Philadelphia Supplements'
   interface_name: Newsbank, Inc.
-  note: Newsbank, Inc.
+  note: Newsbank, Inc. Authorized U-M users (+ guests in U-M Libraries)
   link: https://infoweb.newsbank.com/apps/readex/?p=EVAN2%C3%83%C2%82%C3%82%C2%A0
   status: Available
 '99187529530006381':
@@ -9276,12 +9259,6 @@
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780190280024
-  status: Available
-'99187570000306381':
-- collection_name: Gale Nineteenth Century Collections Online
-  interface_name: Gale
-  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://link.gale.com/apps/ncco?u=umuser
   status: Available
 '99187569874306381':
 - collection_name: MorphoBank
@@ -14332,12 +14309,6 @@
   note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.degruyterbrill.com
   status: Available
-'99188951572806381':
-- collection_name: 'Wiley Digital Archives: Royal College of Physicians Part II'
-  interface_name: Wiley Online Library
-  note: Wiley Online Library. Access to the Authorized U-M users (+ guests in U-M Libraries)
-  link: https://app.wileydigitalarchives.com/rcp
-  status: Available
 '99188996966706381':
 - collection_name: East View World News Connection
   interface_name: East View
@@ -14463,4 +14434,106 @@
   interface_name: Brown University
   note: Brown University. Open access for all users.
   link: https://modjourn.org/journal/
+  status: Available
+'99189018199306381':
+- collection_name: EBSCOhost APA PsycEXTRA
+  interface_name: EBSCOhost
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://research.ebsco.com/c/mqk2bj?db=pxh
+  status: Available
+'99189018276106381':
+- collection_name: Times-Picayune
+  interface_name: Newsbank, Inc.
+  note: Newsbank, Inc. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://infoweb.newsbank.com/apps/news/browse-multi?t=favorite%253A1223BCE5%2521Times-Picayune+Historical+and+Current+Collection&p=AWNB&f=advanced
+  status: Available
+'99189018276206381':
+- collection_name: Kansas City Star
+  interface_name: Newsbank, Inc.
+  note: Newsbank, Inc. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://infoweb.newsbank.com/apps/news/browse-multi?t=favorite%253A1126152C%2521Kansas+City+Star+Historical+and+Current+Collection&p=WORLDNEWS&f=advanced
+  status: Available
+'99189018279906381':
+- collection_name: NewsBank Acceda Noticias
+  interface_name: Newsbank, Inc.
+  note: Newsbank, Inc. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://infoweb.newsbank.com/?db=
+  status: Available
+'99189018280406381':
+- collection_name: Oklahoman
+  interface_name: Newsbank, Inc.
+  note: Newsbank, Inc. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://infoweb.newsbank.com/apps/news/browse-multi?t=favorite%253A18E8D497%2521Oklahoman+Historical+and+Current+Collection&p=WORLDNEWS&f=advanced
+  status: Available
+'99189018287606381':
+- collection_name: East View Global Press Archive Area Studies Initiative 2025
+  interface_name: East View Information Services
+  note: East View Information Services. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://gpa.eastview.com/
+  status: Available
+'99189018287806381':
+- collection_name: East View Global Press Archive Area Studies Initiative 2024
+  interface_name: East View
+  note: East View. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://gpa.eastview.com/
+  status: Available
+'99189019289006381':
+- collection_name: 'The Nineteenth Century Stage: Industry, Performance and Celebrity'
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.nineteenthcenturystage.amdigital.co.uk/
+  status: Available
+'99189019289306381':
+- collection_name: 'China on Film: Twentieth Century Sources from the British Film Institute'
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.chinaonfilm.amdigital.co.uk/
+  status: Available
+'99189019289506381':
+- collection_name: Apartheid South Africa, 1989-1994
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.apartheidsouthafrica.amdigital.co.uk/
+  status: Available
+'99189019301506381':
+- collection_name: 'Cuban Culture and Cultural Relations, 1959, The Vertical Archive of the Casa de las Américas, Part 4 : Music'
+  interface_name: Brillonline
+  note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-4
+  status: Available
+'99189019301606381':
+- collection_name: 'Cuban Culture and Cultural Relations, 1959-, Part 3: Theater'
+  interface_name: Brill
+  note: Brill. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-3
+  status: Available
+'99189019301706381':
+- collection_name: 'Cuban Culture and Cultural Relations, 1959-, Part 2: Writers'
+  interface_name: Brill
+  note: Brill. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-2
+  status: Available
+'99189019301806381':
+- collection_name: 'Cuban Culture and Cultural Relations, 1959-The Vertical Archive of the Casa de las Américas, Part 1: “Casa y Cultura”'
+  interface_name: Brill
+  note: Brill. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations
+  status: Available
+'99189025277806381':
+- collection_name: 'American Committee on Africa Module II: Anti-Apartheid Movements and Democracy'
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.americancommitteeonafrica.amdigital.co.uk
+  status: Available
+'99189027296106381':
+- collection_name: De Gruyter Hong Kong University Press Complete eBook Package 2025
+  interface_name: Walter De Gruyter Publishing
+  note: Walter De Gruyter Publishing. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com/
+  status: Available
+'99189027300406381':
+- collection_name: Air & Space and Smithsonian Magazine 2011-Present
+  interface_name: Gale
+  note: Gale.
+  link: https://link.gale.com/apps/smit?u=umuser
   status: Available
