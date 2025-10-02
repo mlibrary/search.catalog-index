@@ -56,6 +56,10 @@ module Jobs
       end
 
       class Item
+        CAMPUS_TO_INST_CODE = {
+          "ann_arbor" => "MIU",
+          "flint" => "MIFLIC"
+        }
         def self.for(data)
           if data["Electronic Collection Level URL (override)"] || data["Electronic Collection Level URL"]
             AvailableItem.new(data)
@@ -82,6 +86,20 @@ module Jobs
         # do anything with the Collection ID.
         def collection_id
           @data["Electronic Collection Id"]
+        end
+
+        def campuses
+          @data["Available For Group"]
+            &.split("; ")
+            &.map { |x| x.downcase.strip.sub("\s", "_") } || CAMPUS_TO_INST_CODE.keys
+        end
+
+        def institution_codes
+          if campuses.nil?
+            CAMPUS_TO_INST_CODE.values
+          else
+            campuses.map { |x| CAMPUS_TO_INST_CODE[x] }
+          end
         end
 
         def link
@@ -122,7 +140,9 @@ module Jobs
             "interface_name",
             "note",
             "link",
-            "status"
+            "status",
+            "campuses",
+            "institution_codes"
           ].map do |x|
             [x, send(x)]
           end.to_h
