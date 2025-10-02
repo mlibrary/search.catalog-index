@@ -102,6 +102,7 @@ each_record do |r, context|
     if electronic_collections_for_id
 
       hol_list = electronic_collections_for_id.map do |x|
+        inst_codes.push(*x["institution_codes"])
         {
           link: x["link"],
           library: "ELEC",
@@ -110,7 +111,8 @@ each_record do |r, context|
           note: x["note"],
           collection_name: x["collection_name"],
           interface_name: x["interface_name"],
-          finding_aid: false
+          finding_aid: false,
+          campuses: x["campuses"]
         }
       end
       locations << "ELEC"

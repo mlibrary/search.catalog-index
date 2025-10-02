@@ -13,7 +13,8 @@ RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::List do
        "Electronic Collection Interface Name" => "INTERFACE",
        "Electronic Collection Public Name (override)" => "OVERRIDE_NAME",
        "Electronic Collection Public Name" => "NAME",
-       "Electronic Collection Public Note" => "PUBLIC_NOTE"}
+       "Electronic Collection Public Note" => "PUBLIC_NOTE",
+       "Available For Group" => "Ann Arbor; Flint"}
     ]
   end
   subject do
@@ -28,7 +29,9 @@ RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::List do
           "interface_name" => "OVERRIDE_INTERFACE",
           "note" => "OVERRIDE_INTERFACE. PUBLIC_NOTE. AUTH_NOTE.",
           "link" => "OVERRIDE_URL",
-          "status" => "Available"
+          "status" => "Available",
+          "campuses" => ["ann_arbor", "flint"],
+          "institution_codes" => ["MIU", "MIFLIC"]
         }
       ]
     }
@@ -58,7 +61,8 @@ RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::Item do
       "Electronic Collection Interface Name" => "INTERFACE",
       "Electronic Collection Public Name (override)" => "OVERRIDE_NAME",
       "Electronic Collection Public Name" => "NAME",
-      "Electronic Collection Public Note" => "PUBLIC_NOTE"
+      "Electronic Collection Public Note" => "PUBLIC_NOTE",
+      "Available For Group" => "Ann Arbor; Flint"
     }
   end
   subject do
@@ -125,6 +129,40 @@ RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::Item do
       expect(subject.interface_name).to eq("")
     end
   end
+  context "campuses" do
+    it "splits into array on the semicolon; lc and snake case" do
+      expect(subject.campuses).to contain_exactly("ann_arbor", "flint")
+    end
+    it "returns both when there's nil" do
+      @item["Available For Group"] = nil
+      expect(subject.campuses).to contain_exactly("ann_arbor", "flint")
+    end
+    it "returns flint when only flint" do
+      @item["Available For Group"] = "Flint"
+      expect(subject.campuses).to contain_exactly("flint")
+    end
+    it "returns ann_arbor when only Ann Arbor" do
+      @item["Available For Group"] = "Ann Arbor"
+      expect(subject.campuses).to contain_exactly("ann_arbor")
+    end
+  end
+  context "institution_codes" do
+    it "splits into array on the semicolon; MIU MIFLIC" do
+      expect(subject.institution_codes).to contain_exactly("MIU", "MIFLIC")
+    end
+    it "returns both when there's nil" do
+      @item["Available For Group"] = nil
+      expect(subject.institution_codes).to contain_exactly("MIU", "MIFLIC")
+    end
+    it "returns flint when only flint" do
+      @item["Available For Group"] = "Flint"
+      expect(subject.institution_codes).to contain_exactly("MIFLIC")
+    end
+    it "returns ann_arbor when only Ann Arbor" do
+      @item["Available For Group"] = "Ann Arbor"
+      expect(subject.institution_codes).to contain_exactly("MIU")
+    end
+  end
   context "#note" do
     it "returns the Interface name. Public Note. Authentication Note. when they all exist" do
       s = subject
@@ -162,7 +200,9 @@ RSpec.describe Jobs::TranslationMapGenerator::ElectronicCollections::Item do
         "interface_name" => "OVERRIDE_INTERFACE",
         "note" => "OVERRIDE_INTERFACE. PUBLIC_NOTE. AUTH_NOTE.",
         "link" => "OVERRIDE_URL",
-        "status" => "Available"
+        "status" => "Available",
+        "campuses" => ["ann_arbor", "flint"],
+        "institution_codes" => ["MIU", "MIFLIC"]
       })
     end
   end
