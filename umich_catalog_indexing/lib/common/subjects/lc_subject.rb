@@ -44,10 +44,10 @@ module Common
       def self.lcsh_subject_field_2?(field)
         return true if field["2"].nil?
         if field["2"].include?("lcsh") || field["2"].include?("naf")
-          S.logger.warn("LCSH_UNNECESSARY_SUBFIELD_2", field: field.to_s)
+          # S.logger.warn("LCSH_UNNECESSARY_SUBFIELD_2", field: field.to_s)
           return true
         end
-        S.logger.warn("LCSH_SUBFIELD_2_NOT_LCSH", field: field.to_s)
+        # S.logger.warn("LCSH_SUBFIELD_2_NOT_LCSH", field: field.to_s)
         false
       end
 
