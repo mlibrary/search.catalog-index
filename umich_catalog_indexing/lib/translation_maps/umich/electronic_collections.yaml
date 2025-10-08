@@ -114,18 +114,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990146270750106381':
-- collection_name: The Oxford companion to music /
-  interface_name: Oxford Reference
-  note: Oxford Reference. Access to the Oxford Reference online version restricted; authentication may be required. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.oxfordreference.com/view/10.1093/acref/9780199579037.001.0001/acref-9780199579037
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990148943610106381':
 - collection_name: Zhonghua jing dian gu ji ku.
   interface_name: Zhonghua ancient books database
@@ -256,40 +244,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990049670050106381':
-- collection_name: Historic documents.
-  interface_name: SAGE
-  note: SAGE. Access to the SAGE online version restricted; authentication may be required.
-  link: http://dx.doi.org/10.4135/9781483380506
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-- collection_name: Historic documents.
-  interface_name: SAGE
-  note: SAGE. Access to the SAGE online version restricted; authentication may be required.
-  link: http://dx.doi.org/10.4135/9781506333496
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-- collection_name: Historic documents.
-  interface_name: SAGE
-  note: SAGE. Access to the SAGE online version restricted; authentication may be required.
-  link: http://dx.doi.org/10.4135/9781506374383
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990049687040106381':
 - collection_name: Empire Online
   interface_name: AM (Adam Matthew)
@@ -399,7 +353,7 @@
   - MIU
   - MIFLIC
 '990182937410106381':
-- collection_name: Russian Islamic studies.
+- collection_name: Russian Islamic Studies
   interface_name: East View
   note: East View. Authorized U-M users (+ guests in U-M Libraries)
   link: https://dlib.eastview.com/browse/udb/1890
@@ -477,20 +431,8 @@
   - ann_arbor
   institution_codes:
   - MIU
-'990058999180106381':
-- collection_name: The Global library of women's medicine
-  interface_name: GLOWM
-  note: GLOWM. Access to the GLOWM online version.
-  link: http://www.glowm.com/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990152201870106381':
-- collection_name: Russian governmental publications.
+- collection_name: Russian Governmental Publications
   interface_name: East View
   note: East View. Authorized U-M users (+ guests in U-M Libraries)
   link: https://dlib.eastview.com/browse/udb/5
@@ -1268,7 +1210,7 @@
   - MIU
   - MIFLIC
 '990047335220106381':
-- collection_name: Emergence of advertising in America, 1850-1920 John W. Hartman Center for Sales, Advertising & Marketing History /
+- collection_name: 'Emergence of Advertising in America: 1850-1920'
   interface_name: Duke University
   note: Duke University. Authorized U-M users (+ guests in U-M Libraries)
   link: https://repository.duke.edu/dc/eaa
@@ -1926,7 +1868,7 @@
 '990162003750106381':
 - collection_name: DESTech Publications, Inc.
   interface_name: DEStech Publishing
-  note: DEStech Publishing. Access to the DEStech Publishing online version restricted; authentication may be required.
+  note: DEStech Publishing. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.destechpub.com/ebooks/
   status: Available
   campuses:
@@ -2702,22 +2644,10 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990151579330106381':
-- collection_name: Social movements, elections, ephemera.
-  interface_name: East View
-  note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/search/simple?clear=true
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990138349020106381':
 - collection_name: AIDS.gov.
   interface_name: ''
-  note: Archived site.
+  note: Archived site. Authorized U-M users (+ guests in U-M Libraries)
   link: http://purl.fdlp.gov/GPO/gpo60188
   status: Available
   campuses:
@@ -3137,18 +3067,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990163702190106381':
-- collection_name: Digital library of the Caribbean.
-  interface_name: Digital library of the Caribbean
-  note: Digital library of the Caribbean. Access to the Digital library of the Caribbean online version.
-  link: http://www.dloc.com/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990133897530106381':
 - collection_name: NGA GEOnet names server (GNS).
   interface_name: GPO
@@ -3426,9 +3344,9 @@
   - MIU
   - MIFLIC
 '990182973680106381':
-- collection_name: BuddhaNexus.
+- collection_name: BuddhaNexus
   interface_name: Digital orientalist
-  note: Digital orientalist. Access to the Digital orientalist online version.
+  note: Digital orientalist. Authorized U-M users (+ guests in U-M Libraries)
   link: https://buddhanexus.net/
   status: Available
   campuses:
@@ -3924,7 +3842,7 @@
 '990100423640106381':
 - collection_name: AgEcon search
   interface_name: ''
-  note: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: http://ageconsearch.umn.edu/
   status: Available
   campuses:
@@ -3950,18 +3868,6 @@
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
   link: https://referenceworks.brill.com/display/db/broo
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990136784640106381':
-- collection_name: Sage stats
-  interface_name: Sage
-  note: Sage. Access to the Sage online version restricted; authentication may be required.
-  link: http://data.sagepub.com/sagestats/
   status: Available
   campuses:
   - ann_arbor
@@ -4218,19 +4124,8 @@
 '990068227680106381':
 - collection_name: The Global library of women's medicine
   interface_name: GLOWM
-  note: GLOWM. Access to the GLOWM online version.
-  link: http://www.glowm.com/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-- collection_name: The Global library of women's medicine
-  interface_name: SAGE
-  note: SAGE. Access to the SAGE online version restricted; authentication may be required.
-  link: http://dx.doi.org/10.4135/9781412963916
+  note: GLOWM. Open access for all users.
+  link: https://www.glowm.com/
   status: Available
   campuses:
   - ann_arbor
@@ -4419,7 +4314,7 @@
 '990029868870106381':
 - collection_name: AMA FREIDA fellowship and residency electronic interactive database access system.
   interface_name: ''
-  note: Acess to the AMA online version.
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: https://freida.ama-assn.org/
   status: Available
   campuses:
@@ -4690,8 +4585,18 @@
 '990041668860106381':
 - collection_name: Advisory Board.
   interface_name: ''
-  note: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.advisory.com/
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'990041656040106381':
+- collection_name: Data Axle Reference Solutions /
+  interface_name: ''
+  note: Access to the Data Axle online version restricted; authentication may be required.
+  link: http://www.referenceusa.com/Home/Home
   status: Available
   campuses:
   - ann_arbor
@@ -4699,11 +4604,11 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990041656040106381':
-- collection_name: Data Axle Reference Solutions /
-  interface_name: ''
-  note: Access to the Data Axle online version restricted; authentication may be required.
-  link: http://www.referenceusa.com/Home/Home
+'990049624370106381':
+- collection_name: APA PsycCRITIQUES.
+  interface_name: Portico
+  note: Portico. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://access.portico.org/stable?cs=ISSN_00107549
   status: Available
   campuses:
   - ann_arbor
@@ -4898,7 +4803,7 @@
 '990176060520106381':
 - collection_name: Agency for Healthcare Research and Quality.
   interface_name: ''
-  note: Collection page seed list.
+  note: Collection page seed list. Authorized U-M users (+ guests in U-M Libraries)
   link: https://purl.fdlp.gov/GPO/gpo127691
   status: Available
   campuses:
@@ -4909,7 +4814,7 @@
   - MIFLIC
 - collection_name: Agency for Healthcare Research and Quality.
   interface_name: ''
-  note: Home page by archived dates.
+  note: Home page by archived dates. Authorized U-M users (+ guests in U-M Libraries)
   link: https://purl.fdlp.gov/GPO/gpo127692
   status: Available
   campuses:
@@ -5137,18 +5042,6 @@
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/hrca?u=umuser
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187252548006381':
-- collection_name: Russian Governmental Publications (UDB-GOV)
-  interface_name: East View
-  note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/udb/5
   status: Available
   campuses:
   - ann_arbor
@@ -9269,6 +9162,18 @@
   - ann_arbor
   institution_codes:
   - MIU
+'99187252736806381':
+- collection_name: SAGE Knowledge Video - Media & Communication Collection
+  interface_name: SAGE
+  note: SAGE. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://sk-sagepub-com.proxy.lib.umich.edu/video
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99187252736906381':
 - collection_name: Making of the Modern World, Part II
   interface_name: Gale
@@ -10491,7 +10396,7 @@
 - collection_name: Data-Planet Statistical Datasets
   interface_name: SAGE
   note: SAGE. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dataplanet.sagepub.com/
+  link: https://data.sagepub.com/dataset
   status: Available
   campuses:
   - ann_arbor
@@ -10773,7 +10678,7 @@
 - collection_name: International Political Science Abstracts
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.ebscohost.com
+  link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=ijh
   status: Available
   campuses:
   - ann_arbor
@@ -13473,16 +13378,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187252701106381':
-- collection_name: AP images
-  interface_name: EBSCOhost
-  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://research.ebsco.com/c/72mzer?acr_values=uid&db=apg
-  status: Available
-  campuses:
-  - ann_arbor
-  institution_codes:
-  - MIU
 '99187252701306381':
 - collection_name: ProQuest Dissertations & Theses Global
   interface_name: ProQuest
@@ -14561,8 +14456,8 @@
 '99187252714606381':
 - collection_name: SAGE Stats
   interface_name: SAGE
-  note: SAGE.
-  link: http://data.sagepub.com/sagestats/
+  note: SAGE. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://search.lib.umich.edu/databases/record/11441
   status: Available
   campuses:
   - ann_arbor
@@ -16456,6 +16351,30 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99187478224806381':
+- collection_name: 'SAGE Research Methods Cases: Medicine and Health'
+  interface_name: SAGE
+  note: SAGE. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://methods.sagepub.com/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99187478226706381':
+- collection_name: SAGE Research Methods Foundations
+  interface_name: SAGE
+  note: SAGE. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://methods.sagepub.com/foundations
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99187479504006381':
 - collection_name: 'Wiley Digital Archives : Royal Anthropological Institute of Great Britain and Ireland'
   interface_name: Wiley Online Library
@@ -17703,30 +17622,6 @@
   interface_name: American Psychological Association
   note: American Psychological Association. Authorized U-M users (+ guests in U-M Libraries)
   link: https://psycnet.apa.org/PsycTESTS
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187252620406381':
-- collection_name: Library of Latin Texts - A
-  interface_name: Brepols Publishers
-  note: Brepols Publishers. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://clt.brepolis.net/llta/Default.aspx
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187252618606381':
-- collection_name: Library of Latin Texts - B
-  interface_name: Brepols Publishers
-  note: Brepols Publishers. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://clt.brepolis.net/lltb/Default.aspx
   status: Available
   campuses:
   - ann_arbor
@@ -19842,18 +19737,6 @@
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.ebscohost.com/login.aspx?profile=ehost&defaultdb=asu
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187707908406381':
-- collection_name: SAGE Journals Shallow Backfile Upgrade 2021
-  interface_name: SAGE
-  note: SAGE.
-  link: https://journals.sagepub.com/
   status: Available
   campuses:
   - ann_arbor
@@ -26956,18 +26839,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99188909932106381':
-- collection_name: Sage Knowledge EBA KNCCBR25 Complete Books and Reference Collection
-  interface_name: SAGE
-  note: SAGE.
-  link: https://sk.sagepub.com/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99188909825206381':
 - collection_name: 'Public Housing, Racial Policies, and Civil Rights: The Intergroup Relations Branch of the Federal Public Housing Administration, 1936-1963'
   interface_name: Gale
@@ -28696,11 +28567,43 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99189028197506381':
+- collection_name: Rav-Milim Hebrew Dictionary
+  interface_name: Melingo
+  note: Melingo. Access to the Authorized U-M users (+ guests in U-M Libraries)
+  link: https://org.ravmilim.com/
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
 '99189030496806381':
 - collection_name: EBSCOHOST Dynamic Health CDS and SKILLS
   interface_name: EBSCOhost
-  note: EBSCOhost.
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.dynahealth.com/
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189031094006381':
+- collection_name: Washington Information Directory Online Edition
+  interface_name: C Q Press
+  note: C Q Press. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://library.cqpress.com/wid
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189031098906381':
+- collection_name: Digital Library of the Caribbean
+  interface_name: University of Florida Digital Collections
+  note: University of Florida Digital Collections. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://www.dloc.com
   status: Available
   campuses:
   - ann_arbor
