@@ -59,7 +59,7 @@
         "library": "HATCH",
         "collection": "GRAD",
         "start": "d",
-        "stop": "dbz",
+        "stop": "dcz",
         "floor_key": "3S",
         "text": "3 South",
         "type": "LC"
@@ -67,7 +67,7 @@
       {
         "library": "HATCH",
         "collection": "GRAD",
-        "start": "dc",
+        "start": "dd",
         "stop": "dxz",
         "floor_key": "5S",
         "text": "5 South",
