@@ -5,6 +5,10 @@ module Traject
       m = MatchMap.new
       m.echo = :onmiss
 
+      #====added 10-2025 for SCRC
+      m[/^SPEC SC[HB]-ART.*/] = "SPEC ART"
+      #====end of 10-2025 SCRC additions
+
       #====added 03-2023 for SCRC
       m[/^SPEC SC[HB]-RARE.*/] = "SPEC RARE"
       m[/^SPEC SCB-SCI/] = "SPEC RARE"
