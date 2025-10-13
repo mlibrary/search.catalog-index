@@ -1,5 +1,7 @@
 import pymarc
+from urllib.parse import urlencode
 from dataclasses import dataclass
+from catalog_api.marc import Processor, FieldRuleset
 
 
 class AlmaDigitalItem:
@@ -169,23 +171,171 @@ class PhysicalItem:
 
 
 class ReservableItem:
+    """
+    The rules come a spreadsheet in the issue SEARCH-1421
+    """
+
     def __init__(self, physical_item_data, record):
         self.data = physical_item_data
         self.record = record
+        self.processor = Processor(record)
 
     @property
     def title(self):
-        title_field = self.record.get("245")
-        if title_field:
-            return " ".join(title_field.get_subfields("a", "b", "k"))
+        rulesets = [FieldRuleset(tags=["245"], text_sfs="abk")]
+        return self._format_paired_fields(rulesets)
+
+    @property
+    def author(self):
+        rulesets = [
+            FieldRuleset(tags=["100", "110"], text_sfs="abcd"),
+            FieldRuleset(tags=["111"], text_sfs="anbc"),
+            FieldRuleset(tags=["130"], text_sfs="aplskf"),
+        ]
+        return self._format_paired_fields(rulesets)
+
+    @property
+    def date(self):
+        rulesets = [
+            FieldRuleset(tags=["260", "264"], text_sfs="c"),
+            FieldRuleset(tags=["245"], text_sfs="f"),
+        ]
+        fields = self.processor.generate_unpaired_fields(rulesets)
+        if fields:
+            return "; ".join([str(f) for f in fields])
+
+    @property
+    def edition(self):
+        rulesets = [FieldRuleset(tags=["250"], text_sfs="a")]
+        return self._format_paired_fields(rulesets)
+
+    @property
+    def publisher(self):
+        rulesets = [FieldRuleset(tags=["260", "264"], text_sfs="b")]
+        return self._format_paired_fields(rulesets)
+
+    @property
+    def place(self):
+        rulesets = [FieldRuleset(tags=["260", "264"], text_sfs="a")]
+        return self._format_paired_fields(rulesets)
+
+    @property
+    def extent(self):
+        rulesets = [FieldRuleset(tags=["300"], text_sfs="abcf")]
+        return self._format_paired_fields(rulesets)
+
+    @property
+    def isbn(self):
+        """
+        This is from the Metadata Component spreadsheet
+        """
+        rulesets = [
+            FieldRuleset(tags=["020"], text_sfs=["a"]),
+            FieldRuleset(tags=["020"], text_sfs=["z"]),
+        ]
+        fields = self.processor.generate_unpaired_fields(rulesets)
+        if fields:
+            return str(fields[0])
+
+    @property
+    def issn(self):
+        """
+        This is from the Metadata Component spreadsheet
+        """
+        rulesets = [
+            FieldRuleset(tags=["022"], text_sfs=["a"]),
+            FieldRuleset(tags=["022"], text_sfs=["y"]),
+            FieldRuleset(tags=["022"], text_sfs=["z"]),
+            FieldRuleset(tags=["776"], text_sfs=["x"]),
+        ]
+        fields = self.processor.generate_unpaired_fields(rulesets)
+        if fields:
+            return str(fields[0])
+
+    @property
+    def sysnum(self):
+        return self.record["001"].value()
+
+    @property
+    def genre(self):
+        return self.data.get("material_type")
+
+    @property
+    def barcode(self):
+        return self.data.get("barcode")
+
+    @property
+    def description(self):
+        return self.data.get("description")
+
+    @property
+    def library_code(self):
+        return self.data.get("library")
+
+    @property
+    def location_code(self):
+        return self.data.get("location")
+
+    @property
+    def call_number(self):
+        return self.data.get("callnumber")
+
+    @property
+    def inventory_number(self):
+        return self.data.get("inventory_number")
+
+    @property
+    def fields(self):
+        return {
+            "Action": "10",
+            "Form": "30",
+            "callnumber": self.call_number,
+            "genre": self.genre,
+            "title": self.title,
+            "author": self.author,
+            "date": self.date,
+            "edition": self.edition,
+            "publisher": self.publisher,
+            "place": self.place,
+            "extent": self.extent,
+            "barcode": self.barcode,
+            "description": self.description,
+            "sysnum": self.sysnum,
+            "location": self.library_code,
+            "sublocation": self.location_code,
+            "fixedshelf": self.inventory_number,
+            "issn": self.issn,
+            "isbn": self.isbn,
+        }
+        # get rid of None values
+        return
 
     @property
     def url(self):
-        return self.base_url()
+        # get rid of empty fields
+        fields = {k: v for k, v in self.fields.items() if v is not None}
+        return self.base_url() + urlencode(fields)
 
     def base_url(self):
         if self.data.get("library") == "BENT":
             return "https://aeon.bentley.umich.edu/login?"
+        return "https://aeon.lib.umich.edu/logon?"
+
+    def _format_paired_fields(self, rulesets, separator="; "):
+        paired_fields = self.processor.generate_paired_fields(rulesets)
+        return self._join_paired_fields(paired_fields, separator)
+
+    def _join_paired_fields(self, paired_fields, separator="; "):
+        if paired_fields:
+            return separator.join(
+                [self._join_paired_field(pf, separator) for pf in paired_fields]
+            )
+
+    def _join_paired_field(self, paired_field, separator="; "):
+        pf = [paired_field.original.text]
+        if paired_field.transliterated:
+            pf.append(paired_field.transliterated.text)
+        return separator.join(pf)
 
 
 class PhysicalHolding:
