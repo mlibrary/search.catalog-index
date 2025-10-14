@@ -154,7 +154,9 @@ class PhysicalItem:
     @property
     def url(self):
         if self.reservable:
-            return ReservableItem(physical_item_data=self.data, record=self.record).url
+            return ReservableItem.given(
+                physical_item_data=self.data, record=self.record
+            ).url
             # send over the marc record to some classes that can parse the Reserve This item
         return f"https://search.lib.umich.edu/catalog/record/{self.bib_id}/get-this/{self.barcode}"
 
@@ -171,6 +173,18 @@ class PhysicalItem:
 
 
 class ReservableItem:
+    @staticmethod
+    def given(physical_item_data, record):
+        match physical_item_data["library"]:
+            case "BENT":
+                cls = BentleyItem
+            case "CLEM":
+                cls = ClementsItem
+            case _:
+                cls = ReservableItem
+
+        return cls(physical_item_data, record)
+
     """
     The rules come a spreadsheet in the issue SEARCH-1421
     """
@@ -307,8 +321,6 @@ class ReservableItem:
             "issn": self.issn,
             "isbn": self.isbn,
         }
-        # get rid of None values
-        return
 
     @property
     def url(self):
@@ -317,8 +329,6 @@ class ReservableItem:
         return self.base_url() + urlencode(fields)
 
     def base_url(self):
-        if self.data.get("library") == "BENT":
-            return "https://aeon.bentley.umich.edu/login?"
         return "https://aeon.lib.umich.edu/logon?"
 
     def _format_paired_fields(self, rulesets, separator="; "):
@@ -336,6 +346,41 @@ class ReservableItem:
         if paired_field.transliterated:
             pf.append(paired_field.transliterated.text)
         return separator.join(pf)
+
+
+class BentleyItem(ReservableItem):
+    def base_url(self):
+        return "https://aeon.bentley.umich.edu/login?"
+
+
+class ClementsItem(ReservableItem):
+    def base_url(self):
+        return "https://aeon.clements.umich.edu/logon?"
+
+    @property
+    def author(self):
+        rulesets = [
+            FieldRuleset(tags=["100"], text_sfs="abcd"),
+            FieldRuleset(tags=["110"], text_sfs="ab"),
+            FieldRuleset(tags=["111"], text_sfs="acd"),
+            FieldRuleset(tags=["130"], text_sfs="aplskf"),
+        ]
+        return self._format_paired_fields(rulesets)
+
+    @property
+    def genre(self):
+        mapping = {
+            "BOOK": "Book",
+            "ISSBD": "Book",
+            "ISSUE": "Book",
+            "SCORE": "Graphics",
+            "OTHERVM": "Graphics",
+            "MIXED": "Manuscripts",
+            "ATLAS": "Map",
+            "MAP": "Map",
+        }
+        value = self.data.get("material_type")
+        return mapping.get(value)
 
 
 class PhysicalHolding:

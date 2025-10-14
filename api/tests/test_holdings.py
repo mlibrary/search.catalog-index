@@ -11,6 +11,7 @@ from catalog_api.holdings import (
     FindingAids,
     FindingAidItem,
     ReservableItem,
+    ClementsItem,
 )
 
 
@@ -144,8 +145,8 @@ class TestPhysicalHolding:
         item = physical_holding["items"][0]
 
         item["can_reserve"] = True
-        item["library"] = "BENT"
-        expected = "https://aeon.bentley.umich.edu/login?"
+        item["library"] = "SPEC"
+        expected = "https://aeon.lib.umich.edu/logon?"
         subject = PhysicalHolding(physical_holding, bib_id=bib_id, record=record).items[
             0
         ]
@@ -415,6 +416,13 @@ def base_reservable_item_fields():
 
 
 class TestReservableItem:
+    def test_for_gets_spec(self, record, physical_item):
+        physical_item["library"] = "BENT"
+        assert (
+            "aeon.bentley.umich.edu"
+            in ReservableItem.given(record=record, physical_item_data=physical_item).url
+        )
+
     def test_title(self, base_reservable_item):
         assert (
             base_reservable_item.title
@@ -491,5 +499,27 @@ class TestReservableItem:
         subject = parse_qs(url_parts.query)
         for key in base_reservable_item_fields.keys():
             assert subject[key][0] == base_reservable_item_fields[key]
+
+    def test_clements_genre(self, record, physical_item):
+        subject = ClementsItem(record=record, physical_item_data=physical_item)
+        assert subject.genre == "Book"
+
+    def test_clements_author(self, record, physical_item):
+        record.remove_field(record["100"])
+        record.remove_field(record["880"])
+        record.add_field(
+            pymarc.Field(
+                tag="110",
+                indicators=pymarc.Indicators("0", "1"),
+                subfields=[
+                    pymarc.Subfield(code="a", value="a"),
+                    pymarc.Subfield(code="b", value="b"),
+                    pymarc.Subfield(code="c", value="c"),
+                    pymarc.Subfield(code="d", value="d"),
+                ],
+            )
+        )
+        subject = ClementsItem(record=record, physical_item_data=physical_item)
+        assert subject.author == "a b"
 
     # Next need to handle Bentley and Clements
