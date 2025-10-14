@@ -27,6 +27,9 @@ class FieldElement:
     def citation_text(self):
         return self.text
 
+    def __str__(self):
+        return self.text
+
 
 @dataclass(frozen=True)
 class PairedField:

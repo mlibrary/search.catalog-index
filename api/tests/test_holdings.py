@@ -2,6 +2,7 @@ import pytest
 import pymarc
 import json
 import io
+from urllib.parse import urlparse, parse_qs
 from catalog_api.holdings import (
     PhysicalHolding,
     ElectronicItem,
@@ -9,15 +10,22 @@ from catalog_api.holdings import (
     AlmaDigitalItem,
     FindingAids,
     FindingAidItem,
+    ReservableItem,
+    ClementsItem,
 )
 
 
 @pytest.fixture
-def record():
+def solr_doc():
     bib = {}
     with open("tests/fixtures/land_birds_solr.json") as data:
         bib = json.load(data)
-    marc = bib["response"]["docs"][0]["fullrecord"]
+    return bib["response"]["docs"][0]
+
+
+@pytest.fixture
+def record(solr_doc):
+    marc = solr_doc["fullrecord"]
     return pymarc.parse_xml_to_array(io.StringIO(marc))[0]
 
 
@@ -66,6 +74,11 @@ def physical_holdings():
 @pytest.fixture
 def physical_holding(physical_holdings):
     return physical_holdings[0]
+
+
+@pytest.fixture
+def physical_item(physical_holding):
+    return physical_holding["items"][0]
 
 
 @pytest.fixture
@@ -130,12 +143,14 @@ class TestPhysicalHolding:
 
     def test_item_has_request_this_url(self, physical_holding, bib_id, record):
         item = physical_holding["items"][0]
+
         item["can_reserve"] = True
-        expected = f"https://search.lib.umich.edu/catalog/record/{bib_id}/get-this/{item['barcode']}"
+        item["library"] = "SPEC"
+        expected = "https://aeon.lib.umich.edu/logon?"
         subject = PhysicalHolding(physical_holding, bib_id=bib_id, record=record).items[
             0
         ]
-        assert subject.url != expected
+        assert expected in subject.url
 
     def test_item_has_a_physical_location(
         self, physical_holding, bib_id, record=record
@@ -358,3 +373,153 @@ class TestAlmaDigitalItem:
     def test_outer_fields(self, field, solr_field, alma_digital_item):
         subject = AlmaDigitalItem(alma_digital_item)
         assert getattr(subject, field) == alma_digital_item[solr_field]
+
+
+@pytest.fixture
+def base_reservable_item(record, physical_item):
+    record.add_field(
+        pymarc.Field(
+            tag="022",
+            indicators=pymarc.Indicators("0", "1"),
+            subfields=[
+                pymarc.Subfield(code="y", value="y"),
+                pymarc.Subfield(code="z", value="z"),
+            ],
+        )
+    )
+    return ReservableItem(record=record, physical_item_data=physical_item)
+
+
+@pytest.fixture
+def base_reservable_item_fields():
+    return {
+        "Action": "10",
+        "Form": "30",
+        "callnumber": "QL 691 .J3 S25 1983",
+        "genre": "BOOK",
+        "title": "山野の鳥 = Concise field guide to land birds /; Sanʼya no tori = Concise field guide to land birds /",
+        "author": "佐伯彰光.; Saeki, Akimitsu.",
+        "date": "1983",
+        "edition": "3訂版.; 3-teiban.",
+        "publisher": "日本野鳥の会,; Nihon Yachō no Kai,",
+        "place": "東京 :; Tōkyō :",
+        "extent": "64 p. : ill. ; 18 cm.",
+        "barcode": "39015052384248",
+        "description": "description",
+        "sysnum": "990008019700106381",
+        "location": "SOME_LIBRARY",
+        "sublocation": "SOME_LOCATION",
+        "fixedshelf": "inventory_number",
+        "issn": "y",
+        "isbn": "4931150012 :",
+    }
+
+
+class TestReservableItem:
+    def test_for_gets_spec(self, record, physical_item):
+        physical_item["library"] = "BENT"
+        assert (
+            "aeon.bentley.umich.edu"
+            in ReservableItem.given(record=record, physical_item_data=physical_item).url
+        )
+
+    def test_title(self, base_reservable_item):
+        assert (
+            base_reservable_item.title
+            == "山野の鳥 = Concise field guide to land birds /; Sanʼya no tori = Concise field guide to land birds /"
+        )
+
+    def test_author_has_original_and_transliterated_with_semicolon_sep(
+        self, base_reservable_item
+    ):
+        assert base_reservable_item.author == "佐伯彰光.; Saeki, Akimitsu."
+
+    def test_author_handles_empty_mainauthor(self, record, physical_item):
+        record.remove_field(record["100"])
+        record.remove_field(record["880"])
+        subject = ReservableItem(record=record, physical_item_data=physical_item)
+        assert subject.author is None
+
+    def test_date(self, base_reservable_item):
+        assert base_reservable_item.date == "1983"
+
+    def test_edition(self, base_reservable_item):
+        assert base_reservable_item.edition == "3訂版.; 3-teiban."
+
+    def test_publisher(self, base_reservable_item):
+        assert base_reservable_item.publisher == "日本野鳥の会,; Nihon Yachō no Kai,"
+
+    def test_place(self, base_reservable_item):
+        assert base_reservable_item.place == "東京 :; Tōkyō :"
+
+    def test_extent(self, base_reservable_item):
+        assert base_reservable_item.extent == "64 p. : ill. ; 18 cm."
+
+    def test_genre(self, base_reservable_item):
+        assert base_reservable_item.genre == "BOOK"
+
+    def test_barcode(self, base_reservable_item):
+        assert base_reservable_item.barcode == "39015052384248"
+
+    def test_description(self, base_reservable_item):
+        assert base_reservable_item.description == "description"
+
+    def test_sysnum(self, base_reservable_item):
+        assert base_reservable_item.sysnum == "990008019700106381"
+
+    def test_isbn_gets_first_value(self, base_reservable_item):
+        assert base_reservable_item.isbn == "4931150012 :"
+
+    def test_issn_gets_first_value(self, base_reservable_item):
+        assert base_reservable_item.issn == "y"
+
+    def test_library_code(self, base_reservable_item):
+        assert base_reservable_item.library_code == "SOME_LIBRARY"
+
+    def test_location_code(self, base_reservable_item):
+        assert base_reservable_item.location_code == "SOME_LOCATION"
+
+    def test_call_number(self, base_reservable_item):
+        assert base_reservable_item.call_number == "QL 691 .J3 S25 1983"
+
+    def test_inventory_number(self, base_reservable_item):
+        assert base_reservable_item.inventory_number == "inventory_number"
+
+    def test_fields(self, base_reservable_item, base_reservable_item_fields):
+        assert base_reservable_item.fields == base_reservable_item_fields
+
+    def test_url_does_not_include_none_values(self, record, physical_item):
+        subject = ReservableItem(record=record, physical_item_data=physical_item)
+        assert "issn" not in parse_qs(urlparse(subject.url).query)
+
+    def test_url_includes_appropriate_query_params(
+        self, base_reservable_item, base_reservable_item_fields
+    ):
+        url_parts = urlparse(base_reservable_item.url)
+        subject = parse_qs(url_parts.query)
+        for key in base_reservable_item_fields.keys():
+            assert subject[key][0] == base_reservable_item_fields[key]
+
+    def test_clements_genre(self, record, physical_item):
+        subject = ClementsItem(record=record, physical_item_data=physical_item)
+        assert subject.genre == "Book"
+
+    def test_clements_author(self, record, physical_item):
+        record.remove_field(record["100"])
+        record.remove_field(record["880"])
+        record.add_field(
+            pymarc.Field(
+                tag="110",
+                indicators=pymarc.Indicators("0", "1"),
+                subfields=[
+                    pymarc.Subfield(code="a", value="a"),
+                    pymarc.Subfield(code="b", value="b"),
+                    pymarc.Subfield(code="c", value="c"),
+                    pymarc.Subfield(code="d", value="d"),
+                ],
+            )
+        )
+        subject = ClementsItem(record=record, physical_item_data=physical_item)
+        assert subject.author == "a b"
+
+    # Next need to handle Bentley and Clements

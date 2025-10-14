@@ -955,11 +955,13 @@ class CSL:
         "figure": "figure",
         "Image": "graphic",
         "Photographs and Pictorial Works": "graphic",
+        "Photographs & Pictorial Works": "graphic",
         "Photograph": "graphic",
         "Drawing": "graphic",
         "Painting": "graphic",
         "Graphic Arts": "graphic",
         "Visual Material": "graphic",
+        "Board Games": "graphic",
         "interview": "interview",
         "legislation": "legislation",
         "Case": "legal_case",
@@ -973,6 +975,7 @@ class CSL:
         "Atlas": "map",
         "Map": "map",
         "Map-Atlas": "map",
+        "Maps-Atlas": "map",
         "Video Recording": "motion_picture",
         "Video (Blu-ray)": "motion_picture",
         "Video (DVD)": "motion_picture",
@@ -1067,7 +1070,7 @@ class CSL:
     def type(self):
         formats = self.solr_processor.get("format")
         if formats:
-            types = [self.TYPE_MAPPING[f] for f in formats]
+            types = [self.TYPE_MAPPING.get(f) for f in formats]
             for t in self.TYPE_ORDER:
                 if t in types:
                     return t
