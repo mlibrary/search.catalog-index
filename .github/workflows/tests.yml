@@ -4,7 +4,7 @@ on: push
 
 jobs:
   # Run tests
-  test:
+  test-ruby:
     runs-on: ubuntu-latest
     env:  
       BUNDLE_GEMFILE: ${{ github.workspace }}/umich_catalog_indexing/Gemfile
@@ -19,7 +19,7 @@ jobs:
         working-directory: ./umich_catalog_indexing
         run: cat env.* > .env
       - name: Load .env file
-        uses: xom9ikk/dotenv@v2
+        uses: xom9ikk/dotenv@v2.3.0
         with:
           path: umich_catalog_indexing
       - name: copy libLocInfo.yaml
@@ -29,3 +29,33 @@ jobs:
       - name: Run tests
         working-directory: ./umich_catalog_indexing
         run: bundle exec rspec
+
+  test-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Create .env file
+        working-directory: ./api
+        run: cat env.* > .env
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v2.3.0
+        with:
+          path: api
+      - name: Install poetry
+        run: pipx install poetry
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: 'poetry'
+      - name: install poetry packages    
+        working-directory: ./api
+        run: poetry install --no-root
+      - name: Linting
+        working-directory: ./api
+        run: poetry run ruff check
+      - name: Run tests
+        env:
+          CI: "true"
+        working-directory: ./api
+        run: poetry run pytest 
