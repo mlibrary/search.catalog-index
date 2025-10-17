@@ -10,7 +10,6 @@ on:
 
 jobs:
   get-short-tag:
-    id: get-short-tag
     runs-on: ubuntu-latest
     steps:
       - name: save short tag to environment 
