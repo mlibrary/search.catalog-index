@@ -1,8 +1,6 @@
 import pytest
 import json
 import pymarc
-import xml.etree.ElementTree as ET
-from io import StringIO
 import string
 from datetime import datetime
 from dataclasses import dataclass, field

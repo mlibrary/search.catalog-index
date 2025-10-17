@@ -8,6 +8,9 @@ authors = [
 readme = "README.md"
 packages = [{include = "catalog-api"}]
 
+[tool.ruff]
+exclude = [".venv",".vscode",".vscode-server", ".local"]
+
 [tool.poetry.dependencies]
 python = "^3.11"
 requests = "^2.31.0"
