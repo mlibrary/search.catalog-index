@@ -221,5 +221,12 @@ RSpec.describe Common::Subjects do
       @record = original_script_subjects_record
       expect(subject.subject_facets).not_to include("")
     end
+    it "skips over empty results" do
+      @record = other_subjects_record
+      sf = @record["655"].subfields.first
+      sf.code = "2"
+      expect(subject.subject_facets).not_to include("")
+      expect(subject.subject_facets).not_to include(nil)
+    end
   end
 end

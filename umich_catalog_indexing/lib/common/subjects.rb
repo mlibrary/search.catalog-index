@@ -115,7 +115,7 @@ module Common
           more.push sf.value if topic_subfields&.include?(sf.code)
         end
         [a, more.join(" ")]
-      end.flatten.uniq
+      end.flatten.uniq.reject { |x| x.nil? || x == "" }
     end
 
     def _topic_subfields_for(field)
