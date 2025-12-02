@@ -966,11 +966,11 @@ class CSL:
         "legislation": "legislation",
         "Case": "legal_case",
         "Manuscript": "manuscript",
-        "Newsletter": "manuscript",
+        "Newsletter": "article-newspaper",
         "Newspaper": "article-newspaper",
-        "Play": "manuscript",
-        "Poem": "manuscript",
-        "Postcard": "manuscript",
+        "Play": "book",
+        "Poem": "book",
+        "Postcard": "graphic",
         "Archival Material Manuscript": "manuscript",
         "Atlas": "map",
         "Map": "map",
@@ -1033,7 +1033,6 @@ class CSL:
         "interview",
         "legal_case",
         "legislation",
-        "manuscript",
         "map",
         "motion_picture",
         "musical_score",
@@ -1055,6 +1054,7 @@ class CSL:
         "entry",
         "article",
         "book",
+        "manuscript",  # putting this at the bottom because chicago-notes-bibliography doesn't render it
     ]
 
     def __init__(self, base_record=None, marc_record=None, solr_doc={}):
