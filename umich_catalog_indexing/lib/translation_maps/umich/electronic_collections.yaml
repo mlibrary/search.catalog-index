@@ -377,7 +377,7 @@
   - MIU
   - MIFLIC
 '990140273820106381':
-- collection_name: Alexander Street
+- collection_name: Alexander Street LOCAL
   interface_name: Alexander Street Press
   note: Alexander Street Press. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.alexanderstreet.com
@@ -386,7 +386,7 @@
   - ann_arbor
   institution_codes:
   - MIU
-- collection_name: Alexander Street
+- collection_name: Alexander Street LOCAL
   interface_name: Alexander Street Press
   note: Alexander Street Press. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.alexanderstreet.com
@@ -596,44 +596,20 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990033245310106381':
-- collection_name: TOXLINE
-  interface_name: ProQuest (Firm)
-  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
-  link: https://search.proquest.com/toxline
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990033236190106381':
-- collection_name: Electronic collections online
-  interface_name: ''
-  note: Access to the OCLC online version restricted (authentication may be required)
-  link: http://firstsearch.oclc.org/fsip?dbname=ECO&done=http://www.lib.umich.edu/
-  status: Available
-  campuses:
-  - ann_arbor
-  institution_codes:
-  - MIU
 '990033234850106381':
 - collection_name: History of science, technology & medicine
-  interface_name: EBSCO
-  note: EBSCO. Access to the EBSCO online version restricted; authentication may be required.
+  interface_name: EBSCOhost
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.lib.umich.edu/database/link/8291
   status: Available
   campuses:
   - ann_arbor
-  - flint
   institution_codes:
   - MIU
-  - MIFLIC
 '990033234840106381':
 - collection_name: English short title catalogue ESTC.
   interface_name: ESTC
-  note: ESTC. Access to the ESTC Online version.
+  note: ESTC. Authorized U-M users (+ guests in U-M Libraries)
   link: http://estc.bl.uk/
   status: Available
   campuses:
@@ -665,7 +641,7 @@
 '990147728310106381':
 - collection_name: GeoRef.
   interface_name: Engineering Village
-  note: Engineering Village. Access to the Engineering Village online version restricted; authentication may be required.
+  note: Engineering Village. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.engineeringvillage.com/search/quick.url?database=2097152
   status: Available
   campuses:
@@ -739,18 +715,6 @@
   interface_name: ''
   note: Authentication may be required; Internet Explorer recommend; Contact ask-korea@umich.edu for assistance.
   link: http://www.kossda.or.kr/eng/index_kossda.asp
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990127660960106381':
-- collection_name: The Merck index online
-  interface_name: Merck Index
-  note: Merck Index. Access to the Merck Index Online version restricted; authentication may be required.
-  link: https://www.rsc.org/Merck-Index/
   status: Available
   campuses:
   - ann_arbor
@@ -1020,16 +984,14 @@
   - MIFLIC
 '990137007700106381':
 - collection_name: MarketResearch.com academic
-  interface_name: ''
-  note: Access restricted; authentication may be required.
+  interface_name: MarketResearch.com
+  note: MarketResearch.com. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.academic.marketresearch.com
   status: Available
   campuses:
   - ann_arbor
-  - flint
   institution_codes:
   - MIU
-  - MIFLIC
 '990182421750106381':
 - collection_name: Quan guo bao kan suo yin = National index to Chinese newspapers & periodicals /
   interface_name: National index to Chinese newspapers and periodicals
@@ -1124,18 +1086,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990005196540106381':
-- collection_name: 'Language and language behavior abstracts : LLBA /'
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.proquest.com/llba/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990047335220106381':
 - collection_name: 'Emergence of Advertising in America: 1850-1920'
   interface_name: Duke University
@@ -1199,7 +1149,7 @@
 '990041361700106381':
 - collection_name: The international plant names index
   interface_name: ''
-  note: Accrss to the IPNI online version.
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.ipni.org/
   status: Available
   campuses:
@@ -1222,16 +1172,14 @@
   - MIFLIC
 '990123339180106381':
 - collection_name: ICSD web
-  interface_name: ''
-  note: Access via FIZ Karlsruhe restricted; authentication may be required.
+  interface_name: ICSD
+  note: ICSD. Authorized U-M users (+ guests in U-M Libraries)
   link: http://icsd.fiz-karlsruhe.de/icsd/
   status: Available
   campuses:
   - ann_arbor
-  - flint
   institution_codes:
   - MIU
-  - MIFLIC
 '990133150640106381':
 - collection_name: Samuel Beckett digital manuscript project.
   interface_name: Samuel Beckett Digital Manuscript Project
@@ -1284,18 +1232,7 @@
 - collection_name: 'U.S. Energy Information Administration : independent statistics & analysis.'
   interface_name: ''
   note: All archived contents for United States Census 2020.
-  link: http://purl.fdlp.gov/GPO/gpo129288
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-- collection_name: 'U.S. Energy Information Administration : independent statistics & analysis.'
-  interface_name: ''
-  note: Archived site.
-  link: http://purl.fdlp.gov/GPO/gpo129287
+  link: https://archive-it.org/collections/11722
   status: Available
   campuses:
   - ann_arbor
@@ -1411,18 +1348,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990054014270106381':
-- collection_name: House of Commons parliamentary papers
-  interface_name: ''
-  note: Access restricted ; authentication may be required.
-  link: http://parlipapers.chadwyck.com/home.do
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990054254400106381':
 - collection_name: Business source complete
   interface_name: ''
@@ -1459,9 +1384,9 @@
   - MIU
 '990040177980106381':
 - collection_name: 'TRID : the TRIS and ITRD database.'
-  interface_name: ''
-  note: Authorized U-M users (+ guests in U-M Libraries)
-  link: http://trid.trb.org/
+  interface_name: Transportation Research Board of the National Academies
+  note: Transportation Research Board of the National Academies. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://trid.trb.org/
   status: Available
   campuses:
   - ann_arbor
@@ -1484,7 +1409,7 @@
 '990040141930106381':
 - collection_name: FAOSTAT statistical database
   interface_name: FAOSTAT
-  note: FAOSTAT. Access to the FAOSTAT online version.
+  note: FAOSTAT. Authorized U-M users (+ guests in U-M Libraries)
   link: http://faostat.fao.org/
   status: Available
   campuses:
@@ -1604,15 +1529,13 @@
 '990154140430106381':
 - collection_name: 'LAPOP : Latin American Public Opinion Project.'
   interface_name: Latin American Public Opinion Project
-  note: Latin American Public Opinion Project. Access to the Latin American Public Opinion Project restricted; authentication may be required.
+  note: Latin American Public Opinion Project. Authorized U-M users (+ guests in U-M Libraries)
   link: http://datasets.americasbarometer.org/database/
   status: Available
   campuses:
   - ann_arbor
-  - flint
   institution_codes:
   - MIU
-  - MIFLIC
 '990058447920106381':
 - collection_name: Han ji dian zi wen xian zi liao ku
   interface_name: Scripta Sinica
@@ -1761,18 +1684,6 @@
   interface_name: GPO
   note: GPO. Access to the GPO online version.
   link: http://purl.access.gpo.gov/GPO/LPS81894
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990055706700106381':
-- collection_name: Philosopher's index
-  interface_name: CSA Illumina
-  note: CSA Illumina. Access to the CSA Illumina online version restricted (authentication may be required)
-  link: http://libproxy.umflint.edu:2048/login?url=http://csaweb116v.csa.com/ids70/quick_search.php?SID=i2eotnnhjkmrj80vc1mklo4616
   status: Available
   campuses:
   - ann_arbor
@@ -2178,10 +2089,10 @@
   - MIU
   - MIFLIC
 '990121844710106381':
-- collection_name: The microfinance gateway
+- collection_name: FinDev Gateway
   interface_name: CGAP
-  note: CGAP. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.microfinancegateway.org/
+  note: CGAP. Open access for all users.
+  link: https://www.findevgateway.org/
   status: Available
   campuses:
   - ann_arbor
@@ -2216,7 +2127,7 @@
 '990151907720106381':
 - collection_name: English-Corpora.org
   interface_name: English-Corpora.org
-  note: English-Corpora.org. Access to the English-Corpora.org online version restricted; authentication may be required.
+  note: English-Corpora.org. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.english-corpora.org
   status: Available
   campuses:
@@ -2239,8 +2150,8 @@
   - MIFLIC
 '990060805180106381':
 - collection_name: Social explorer
-  interface_name: ''
-  note: Access to the Social Explorer online version restricted; authentication may be required.
+  interface_name: Oxford University Press
+  note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.socialexplorer.com/explore-maps
   status: Available
   campuses:
@@ -2251,9 +2162,9 @@
   - MIFLIC
 '990060547000106381':
 - collection_name: 'Index translationum : Répertoire international des traductions. International bibliography of translations.'
-  interface_name: ''
-  note: ''
-  link: http://portal.unesco.org/culture/en/ev.php-URL_ID=7810&URL_DO=DO_TOPIC&URL_SECTION=201.html
+  interface_name: UNESCO
+  note: UNESCO. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.unesco.org/xtrans/bsform.aspx
   status: Available
   campuses:
   - ann_arbor
@@ -2309,8 +2220,8 @@
   - MIU
 '990033326560106381':
 - collection_name: Micromedex healthcare series
-  interface_name: ''
-  note: Access restricted (authentication may be required)
+  interface_name: Micromedex
+  note: Micromedex. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.lib.umich.edu/health-sciences-libraries/accessing-micromedex
   status: Available
   campuses:
@@ -2360,18 +2271,6 @@
   interface_name: World Bank
   note: World Bank. Access to the World Bank online version.
   link: https://openknowledge.worldbank.org/search?query=%2522Global%2520development%2520finance%2522
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990035202000106381':
-- collection_name: Performing arts periodicals database.
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://search.proquest.com/iipa?accountid=14667
   status: Available
   campuses:
   - ann_arbor
@@ -2674,18 +2573,6 @@
   - ann_arbor
   institution_codes:
   - MIU
-'990042418700106381':
-- collection_name: Digital Sanborn maps 1867-1970
-  interface_name: Sanborn
-  note: Sanborn. Access to the Sanborn online version restricted ; authentication may be required.
-  link: http://sanborn.umi.com/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990035083400106381':
 - collection_name: Thomas A. Edison papers
   interface_name: Rutgers School of Arts and Sciences
@@ -2780,8 +2667,8 @@
   - MIFLIC
 '990043798460106381':
 - collection_name: Television news archive
-  interface_name: Vanderbuilt University
-  note: Vanderbuilt University. Access to the Vanderbuilt University online version .
+  interface_name: Vanderbilt Television News Archive
+  note: Vanderbilt Television News Archive. Access to the Vanderbuilt University online version .
   link: http://tvnews.vanderbilt.edu/
   status: Available
   campuses:
@@ -2831,18 +2718,6 @@
   interface_name: GPO
   note: GPO. Access to the GPO online version .
   link: https://purl.fdlp.gov/GPO/gpo120978
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990121601730106381':
-- collection_name: ProQuest statistical abstract of the U.S.
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://statabs.proquest.com/sa/
   status: Available
   campuses:
   - ann_arbor
@@ -2927,18 +2802,6 @@
   interface_name: Kinokuniya Digital Library
   note: Kinokuniya Digital Library. Access limited to 1 concurrent user per title; Access to the Kinokuniya Digital Library restricted; authentication may be required.
   link: https://kinoden.kinokuniya.co.jp/umichigan/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990127770240106381':
-- collection_name: Trench journals and unit magazines of the First World War
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.proquest.com/trenchjournals
   status: Available
   campuses:
   - ann_arbor
@@ -3114,30 +2977,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990140483270106381':
-- collection_name: U.S. Department of Health and Human Services Office of Minority Health.
-  interface_name: ''
-  note: Archived site.
-  link: http://purl.fdlp.gov/GPO/gpo63888
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990098969800106381':
-- collection_name: Hooked on evidence
-  interface_name: ''
-  note: Free access; personal registration required.
-  link: http://www.hookedonevidence.com/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990166094290106381':
 - collection_name: Index Buddhicus Online.
   interface_name: BrillOnline primary sources
@@ -3165,7 +3004,7 @@
 '990123356210106381':
 - collection_name: OATD -- Open access theses and dissertations.
   interface_name: ''
-  note: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: http://oatd.org/
   status: Available
   campuses:
@@ -3200,9 +3039,9 @@
   - MIFLIC
 '990155823050106381':
 - collection_name: TRB publications /
-  interface_name: ''
-  note: Access to the Transportaion Research Board.
-  link: http://www.trb.org/TRB/publications/Publications.asp
+  interface_name: Transportation Research Board of the National Academies
+  note: Transportation Research Board of the National Academies. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.trb.org/Publications/Publications.aspx
   status: Available
   campuses:
   - ann_arbor
@@ -3389,18 +3228,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990147288920106381':
-- collection_name: 'Kyobo Mun''go sŭk''olla : Kyobo Mun''go ka mandŭn kungnae haksul nonmun chŏnmun sait''ŭ.'
-  interface_name: Kyobo Book Centre
-  note: Kyobo Book Centre. Access to the Kyobo Book Centre online version restricted; authentication may be required.
-  link: http://scholar.dkyobobook.co.kr/main.laf
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990141285160106381':
 - collection_name: AAMI Standards eSubscription.
   interface_name: AAMI ARRAY
@@ -3483,9 +3310,9 @@
   - MIFLIC
 '990069579880106381':
 - collection_name: Material conneXion
-  interface_name: ''
-  note: Access via Material ConneXion restricted; authentication may be required.
-  link: https://search.lib.umich.edu/databases/record/10691
+  interface_name: Material ConneXion
+  note: Material ConneXion. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.materialconnexion.com/search
   status: Available
   campuses:
   - ann_arbor
@@ -3565,35 +3392,11 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990039827120106381':
-- collection_name: Philosopher's index
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.proquest.com/philosophersindex/accountid=14667
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990051187980106381':
 - collection_name: Periodicals archive online
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.proquest.com/pao
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990005055590106381':
-- collection_name: Pollution abstracts.
-  interface_name: ProQuest (Firm)
-  note: ProQuest (Firm) Authorized U-M users (+ guests in U-M Libraries)
-  link: https://search.proquest.com/pollution
   status: Available
   campuses:
   - ann_arbor
@@ -3837,18 +3640,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990041798200106381':
-- collection_name: ISI emerging markets /
-  interface_name: ''
-  note: Access restricted (authentication may be required)
-  link: http://site.securities.com/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990041772500106381':
 - collection_name: Projekt DYABOLA.
   interface_name: Biering & Brinkmann
@@ -3932,17 +3723,15 @@
   - MIU
   - MIFLIC
 '990050721690106381':
-- collection_name: iPOLL /
+- collection_name: Roper iPOLL
   interface_name: Roper Center for Public Opinion Research
-  note: Roper Center for Public Opinion Research. Access to the Roper Center for Public Opinion Research online version restricted ; authentication may be required.
-  link: https://ropercenter.cornell.edu/CFIDE/cf/action/ipoll/index.cfm
+  note: Roper Center for Public Opinion Research. Access requires personal account with @umich.edu email address when not connected to the campus network. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://ropercenter.cornell.edu/ipoll/
   status: Available
   campuses:
   - ann_arbor
-  - flint
   institution_codes:
   - MIU
-  - MIFLIC
 '990163445020106381':
 - collection_name: Automotive Data Directory (Wards Intelligence)
   interface_name: Omdia
@@ -3969,8 +3758,8 @@
   - MIFLIC
 '990159906340106381':
 - collection_name: Latin American Public Opinion Project (LAPOP), 2004-2015 [28 COUNTRIES]
-  interface_name: ''
-  note: Access restricted ; authentication may be required.
+  interface_name: Latin American Public Opinion Project
+  note: Latin American Public Opinion Project. Access restricted ; authentication may be required.
   link: http://doi.org/10.3886/ICPSR36562.v1
   status: Available
   campuses:
@@ -3992,7 +3781,7 @@
 '990165009740106381':
 - collection_name: Fire insurance maps online.
   interface_name: Fire Insurance Maps
-  note: Fire Insurance Maps. Access to the Fire Insurance Maps Online Library Edition restricted; authentication may be required.
+  note: Fire Insurance Maps. Authorized U-M users (+ guests in U-M Libraries)
   link: https://fims.historicalinfo.com
   status: Available
   campuses:
@@ -4016,7 +3805,7 @@
 '990068222330106381':
 - collection_name: Embase.
   interface_name: Elsevier
-  note: Elsevier. Access to the Elsevier online version restricted; authentication may be required.
+  note: Elsevier. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.embase.com/
   status: Available
   campuses:
@@ -4145,18 +3934,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990000733520106381':
-- collection_name: 'Linguistics and language behavior abstracts : LLBA.'
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.proquest.com/llba/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990034458880106381':
 - collection_name: Local climatological data
   interface_name: NOAA
@@ -4179,18 +3956,6 @@
   - ann_arbor
   institution_codes:
   - MIU
-'990042734570106381':
-- collection_name: The international movie industry
-  interface_name: EBSCO eBook collection
-  note: EBSCO eBook collection. Access limited to 1 concurrent user; Access to the EBSCO eBook collection online version restricted; authentication may be required.
-  link: http://search.ebscohost.com/login.aspx?direct=true&scope=site&db=nlebk&db=nlabk&AN=45744
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990029868870106381':
 - collection_name: AMA FREIDA fellowship and residency electronic interactive database access system.
   interface_name: JAMA
@@ -4374,7 +4139,7 @@
 - collection_name: Goinglobal
   interface_name: GoinGlobal
   note: GoinGlobal. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://online.goinglobal.com/
+  link: http://online.goinglobal.com/?accid=2025Adxyoa31umich
   status: Available
   campuses:
   - ann_arbor
@@ -4484,18 +4249,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990005458940106381':
-- collection_name: International index to film periodicals.
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://fiaf.chadwyck.com/search/initIndexSearch.do
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990052170480106381':
 - collection_name: Photographic portraits of American artists from the Peter A. Juley & Son Collection
   interface_name: Smithsonian
@@ -4579,7 +4332,7 @@
 '990155376990106381':
 - collection_name: Dialnet Plus.
   interface_name: Fundación Dialnet
-  note: Fundación Dialnet. Access to the Fundación Dialnet online version.
+  note: Fundación Dialnet. Authorized U-M users (+ guests in U-M Libraries)
   link: https://dialnet.unirioja.es/
   status: Available
   campuses:
@@ -4600,8 +4353,8 @@
   - MIU
 '990056036530106381':
 - collection_name: MyHeritage library edition.
-  interface_name: EBSCO
-  note: EBSCO. Access to the EBSCO online version restricted; authentication may be required.
+  interface_name: EBSCOhost
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.ebscohost.com/Community.aspx?site=mhlibed&return=y&groupid=main&authtype=ip
   status: Available
   campuses:
@@ -4613,15 +4366,13 @@
 '990056023730106381':
 - collection_name: Mideastwire.com
   interface_name: ''
-  note: Access restricted; authentication may be required.
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.mideastwire.com/
   status: Available
   campuses:
   - ann_arbor
-  - flint
   institution_codes:
   - MIU
-  - MIFLIC
 '990056015330106381':
 - collection_name: IPA Source
   interface_name: IPA
@@ -4753,6 +4504,16 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99187252544506381':
+- collection_name: Performing Arts Periodicals Database
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/iipa
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
 '99187252544706381':
 - collection_name: Music Periodicals Database
   interface_name: ProQuest
@@ -5155,6 +4916,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99187252534906381':
+- collection_name: The Harper's Bazaar Archive (US edition only)
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/harpersbazaar
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99187252535006381':
 - collection_name: 'ProQuest Historical Newspapers: Chinese Newspapers Collection'
   interface_name: ProQuest
@@ -5167,11 +4940,45 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99187252535206381':
+- collection_name: Women's Magazine Archive I
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://search.proquest.com/wma1
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99187252535406381':
 - collection_name: Agricultural & Environmental Science Collection
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/agricenvironm
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99187252536206381':
+- collection_name: Trench Journals and Unit Magazines of the First World War
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://search.proquest.com/trenchjournals
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99187252536606381':
+- collection_name: Women's Magazine Archive II
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://search.proquest.com/wma2
   status: Available
   campuses:
   - ann_arbor
@@ -6778,6 +6585,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99187252473106381':
+- collection_name: Making Of America Cornell Journal
+  interface_name: Making of America (Cornell)
+  note: Making of America (Cornell)
+  link: http://ebooks.library.cornell.edu
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99187252473306381':
 - collection_name: Reveal Digital Independent Voices Open Access
   interface_name: JSTOR
@@ -6795,6 +6614,18 @@
   interface_name: PubMed Central
   note: PubMed Central.
   link: https://www.ncbi.nlm.nih.gov/pubmed/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99187252475306381':
+- collection_name: US Government Documents
+  interface_name: US Government Documents
+  note: US Government Documents. Open access for all users.
+  link: https://www.govinfo.gov/
   status: Available
   campuses:
   - ann_arbor
@@ -6855,6 +6686,18 @@
   interface_name: Library of Congress
   note: Library of Congress.
   link: https://www.loc.gov/collections/chronicling-america/about-this-collection/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99187252476606381':
+- collection_name: Open Access Titles of Japan
+  interface_name: National Institute of Informatics
+  note: National Institute of Informatics. Open access for all users.
+  link: https://erdb-jp.nii.ac.jp/ja/providerpackage-name/open-access-titles-japan
   status: Available
   campuses:
   - ann_arbor
@@ -7286,6 +7129,18 @@
   - ann_arbor
   institution_codes:
   - MIU
+'99187252626906381':
+- collection_name: Publishers Weekly Digital Archive
+  interface_name: Publishers Weekly Digital Archive
+  note: Publishers Weekly Digital Archive. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://digitalarchives.publishersweekly.com/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99187252627006381':
 - collection_name: 'Confidential Print: Middle East, 1839-1969'
   interface_name: AM (Adam Matthew)
@@ -7303,6 +7158,18 @@
   interface_name: University of Toronto
   note: University of Toronto. Authorized U-M users (+ guests in U-M Libraries)
   link: https://dictionary.doe.utoronto.ca/doe/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99187252628006381':
+- collection_name: Making of America Journals (Michigan)
+  interface_name: University of Michigan Library
+  note: University of Michigan Library. Open access for all users.
+  link: https://quod.lib.umich.edu/m/moajrnl/
   status: Available
   campuses:
   - ann_arbor
@@ -8489,8 +8356,8 @@
 '99187252730406381':
 - collection_name: Valley of the Shadow
   interface_name: Edward L. Ayers
-  note: Edward L. Ayers.
-  link: http://valley.vcdh.virginia.edu
+  note: Edward L. Ayers. Open access for all users.
+  link: https://valley.newamericanhistory.org/
   status: Available
   campuses:
   - ann_arbor
@@ -9162,16 +9029,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187252738906381':
-- collection_name: Nursing Reference Center Plus
-  interface_name: EBSCOhost
-  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=nup
-  status: Available
-  campuses:
-  - ann_arbor
-  institution_codes:
-  - MIU
 '99187252739006381':
 - collection_name: 'World Scholar: Latin America and the Caribbean Historical Archive'
   interface_name: Gale
@@ -9846,9 +9703,9 @@
   - MIFLIC
 '99187252745606381':
 - collection_name: Catena digital archive of historic gardens and landscapes
-  interface_name: Cornell University
-  note: Cornell University.
-  link: http://library24.library.cornell.edu:8280/luna/servlet/BardBar~1~1
+  interface_name: LUNA Imaging
+  note: LUNA Imaging. Open access for all users.
+  link: https://www.lunacommons.org/luna/servlet/BardBar~1~1
   status: Available
   campuses:
   - ann_arbor
@@ -10736,18 +10593,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187252553806381':
-- collection_name: History of Science, Technology, and Medicine
-  interface_name: OCLC
-  note: OCLC.
-  link: http://firstsearch.oclc.org
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99187252553906381':
 - collection_name: Health and Safety Science Abstracts (Full archive)
   interface_name: ProQuest
@@ -11338,18 +11183,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187252559706381':
-- collection_name: English Short Title Catalogue
-  interface_name: British Library Board
-  note: British Library Board.
-  link: http://estc.bl.uk/F/?func=file&file_name=login-bl-estc
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99187252560106381':
 - collection_name: 'CHANT (CHinese ANcient Texts) : Han da wen ku.'
   interface_name: Chinese University of Hong Kong Press
@@ -11475,18 +11308,6 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/econlit
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187252561306381':
-- collection_name: Embase
-  interface_name: Elsevier BV
-  note: Elsevier BV.
-  link: http://www.embase.com/
   status: Available
   campuses:
   - ann_arbor
@@ -11882,18 +11703,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187252565506381':
-- collection_name: iPoll Databank
-  interface_name: Cornell University
-  note: Cornell University.
-  link: https://ropercenter.cornell.edu/CFIDE/cf/action/home/index.cfm
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99187252565606381':
 - collection_name: 'India from Crown Rule to Republic, 1945-1949: Records of the U.S. State Department'
   interface_name: Gale
@@ -11957,7 +11766,7 @@
 '99187252566206381':
 - collection_name: Merck Index Online
   interface_name: Royal Society of Chemistry
-  note: Royal Society of Chemistry.
+  note: Royal Society of Chemistry. Authorized U-M users (+ guests in U-M Libraries)
   link: https://merckindex.rsc.org/
   status: Available
   campuses:
@@ -11971,18 +11780,6 @@
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/collection/3fgr/gdsc?u=umuser&sid=gdsc
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187252566406381':
-- collection_name: Material ConneXion
-  interface_name: Material ConneXion
-  note: Material ConneXion.
-  link: https://www.materialconnexion.com/search
   status: Available
   campuses:
   - ann_arbor
@@ -12087,18 +11884,6 @@
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=mzh
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187252567406381':
-- collection_name: MarketResearch.com Academic
-  interface_name: MarketResearch.com
-  note: MarketResearch.com.
-  link: http://academic.marketresearch.com/
   status: Available
   campuses:
   - ann_arbor
@@ -12448,35 +12233,11 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187252570806381':
-- collection_name: ProQuest Statistical Insight
-  interface_name: ProQuest
-  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://search.proquest.com/statistical
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99187252571006381':
 - collection_name: Social Sciences Citation Index
   interface_name: Clarivate
   note: Clarivate. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.webofscience.com/wos/woscc/search-with-editions?editions=WOS.SSCI
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187252571106381':
-- collection_name: Roper Center Public Opinion Archives (with iPOLL)
-  interface_name: Roper Center for Public Opinion Research
-  note: Roper Center for Public Opinion Research.
-  link: http://ropercenter.cornell.edu/
   status: Available
   campuses:
   - ann_arbor
@@ -12521,18 +12282,6 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://congressional.proquest.com/congressional/search/advanced/advanced
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187252571706381':
-- collection_name: Social Explorer
-  interface_name: Oxford University Press
-  note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.socialexplorer.com/pub/home/home.aspx
   status: Available
   campuses:
   - ann_arbor
@@ -13625,8 +13374,8 @@
   - MIFLIC
 '99187252707906381':
 - collection_name: Alcohol Studies Database
-  interface_name: Rutgers University
-  note: Rutgers University.
+  interface_name: Rutgers University Libraries
+  note: Rutgers University Libraries.
   link: https://alcoholstudies.libraries.rutgers.edu/alcohol-studies-database
   status: Available
   campuses:
@@ -14075,18 +13824,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187252712606381':
-- collection_name: Latin American Public Opinion Project
-  interface_name: Vanderbilt University
-  note: Vanderbilt University.
-  link: http://www.vanderbilt.edu/lapop/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99187252712806381':
 - collection_name: Correspondence of Arthur C. Murray, 3rd Viscount Elibank
   interface_name: Microform Academic Publishers
@@ -14222,18 +13959,6 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://congressional.proquest.com/congressional/search/advanced/advanced
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187252714106381':
-- collection_name: Georef
-  interface_name: Engineering Village
-  note: Engineering Village.
-  link: http://www.engineeringvillage.com/controller/servlet/Controller
   status: Available
   campuses:
   - ann_arbor
@@ -14776,10 +14501,10 @@
   - MIU
   - MIFLIC
 '99187252719506381':
-- collection_name: Gnomon Online
+- collection_name: Gnomon bibliographische Datenbank
   interface_name: Katholische Universität
-  note: Katholische Universität.
-  link: http://www.gnomon.ku-eichstaett.de/Gnomon/en/Gnomon.html
+  note: Katholische Universität. Open access for all users.
+  link: https://www.gbd.digital/
   status: Available
   campuses:
   - ann_arbor
@@ -15722,6 +15447,18 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/bsc
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99187415662306381':
+- collection_name: ProQuest Statistical Insight - Tables
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://statistical.proquest.com/
   status: Available
   campuses:
   - ann_arbor
@@ -17737,8 +17474,8 @@
   - MIU
 '990175408700106381':
 - collection_name: Survei sosial ekonomi nasional (SUSENAS)
-  interface_name: ''
-  note: ''
+  interface_name: University of Michigan Library
+  note: University of Michigan Library. Authorized U-M users (+ guests in U-M Libraries)
   link: https://quod.lib.umich.edu/e/errwpc/umall/1/7/5/17540870.html
   status: Available
   campuses:
@@ -18990,6 +18727,18 @@
   - ann_arbor
   institution_codes:
   - MIU
+'990186070620106381':
+- collection_name: Kyobo eBooks | 교보 eBooks
+  interface_name: Kyobo Book Center Co.
+  note: Kyobo Book Center Co. Contact ask-Korea@umich.edu for access. Authorized U-M users (no guest access). Access requires personal registration.
+  link: https://umich.dkyobobook.co.kr/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99187623206306381':
 - collection_name: 'ProQuest Historical Newspapers: Hindustan Times'
   interface_name: ProQuest
@@ -19694,8 +19443,10 @@
   status: Available
   campuses:
   - ann_arbor
+  - flint
   institution_codes:
   - MIU
+  - MIFLIC
 '99187725788406381':
 - collection_name: The Guatemala Collection
   interface_name: Brill
@@ -19866,7 +19617,7 @@
 - collection_name: Imperial Russian Newspapers
   interface_name: East View
   note: East View. Open access for all users.
-  link: https://www.eastview.com/resources/gpa/crl-irn/
+  link: https://gpa.eastview.com/crl/irn/
   status: Available
   campuses:
   - ann_arbor
@@ -20116,8 +19867,8 @@
   - MIFLIC
 '99187829299806381':
 - collection_name: Revolución y cultura, 1967-2009
-  interface_name: ''
-  note: Authorized U-M users (+ guests in U-M Libraries)
+  interface_name: Brill Primary Sources
+  note: Brill Primary Sources. Authorized U-M users (+ guests in U-M Libraries)
   link: https://primarysources.brillonline.com/browse/revolucion-y-cultura
   status: Available
   campuses:
@@ -20425,7 +20176,7 @@
   - MIU
   - MIFLIC
 '99187857501206381':
-- collection_name: 'Political Extremism and Radicalism, Part 3: Communist and Socialist Movements'
+- collection_name: 'Political Extremism and Radicalism, Part 3: Communist and Socialist Movements - to be replaced by full text'
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/plex?u=umuser
@@ -20449,7 +20200,7 @@
   - MIU
   - MIFLIC
 '99187857326806381':
-- collection_name: University of Michigan Library Digital General Collection
+- collection_name: Digital General Collection
   interface_name: University of Michigan Library
   note: University of Michigan Library. Open access for all users.
   link: https://quod.lib.umich.edu/g/genpub/
@@ -20738,7 +20489,7 @@
 - collection_name: South Asian Newspapers
   interface_name: East View
   note: East View. Open access for all users.
-  link: https://www.eastview.com/resources/gpa/crl-san/
+  link: https://gpa.eastview.com/crl/san/
   status: Available
   campuses:
   - ann_arbor
@@ -24141,8 +23892,8 @@
 - collection_name: Edition.fi
   interface_name: HULib_OA
   note: HULib_OA. Open access for all users.
-  link: ''
-  status: Not Available
+  link: https://edition.fi/
+  status: Available
   campuses:
   - ann_arbor
   institution_codes:
@@ -26385,7 +26136,7 @@
   - MIU
   - MIFLIC
 '99188878074006381':
-- collection_name: 'Blacks in the U.S. Armed Forces: Basic Documents, 1639-1973'
+- collection_name: 'Gale Archives Unbound: Black Soldiers in the U.S. Armed Forces: Basic Documents, 1639-1973'
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/collection/117M/GDSC?u=umuser&sid=GDSC
@@ -26626,8 +26377,8 @@
   - MIFLIC
 '99188878074306381':
 - collection_name: U.S. Relations with Panama and Operation Just Cause
-  interface_name: U.S. Relations with Panama and Operation Just Cause
-  note: U.S. Relations with Panama and Operation Just Cause. Authorized U-M users (+ guests in U-M Libraries)
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/collection/60GF/GDSC?u=umuser&sid=GDSC
   status: Available
   campuses:
@@ -27078,6 +26829,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'990147288920106381':
+- collection_name: Kyobo Mun'go sŭk'olla
+  interface_name: Kyobo Scholar Journals
+  note: Kyobo Scholar Journals. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://scholar.kyobobook.co.kr/main
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99188918004806381':
 - collection_name: 'Turkey, Greece, and the Balkan States: Records of the U.S. Department of State, 1930-1944'
   interface_name: Gale
@@ -27330,34 +27093,10 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99188924078806381':
-- collection_name: Holos Ukrainy Digital Archive
-  interface_name: ''
-  note: Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.eastview.com/resources/gpa/holos-ukrainy/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99188924079006381':
-- collection_name: Baghdad observer digital archive.
-  interface_name: East View
-  note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.eastview.com/resources/gpa/baghdad-observer/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99188924085206381':
 - collection_name: 'Wiley Digital Archives: Royal College of Physicians Part I'
   interface_name: Wiley Online Library
-  note: Wiley Online Library. Access to the Authorized U-M users (+ guests in U-M Libraries)
+  note: Wiley Online Library. Authorized U-M users (+ guests in U-M Libraries)
   link: https://app.wileydigitalarchives.com/rcp
   status: Available
   campuses:
@@ -27941,7 +27680,7 @@
 '99188933333106381':
 - collection_name: OverDrive Ebooks and Audiobooks
   interface_name: OverDrive
-  note: OverDrive. 1 concurrent user limit. Authorized U-M users (+ guests in U-M Libraries)
+  note: OverDrive. 1 concurrent user limit. Access requires personal registration. Authorized U-M users (no guest access)
   link: http://www.overdrive.com
   status: Available
   campuses:
@@ -28102,8 +27841,8 @@
   - MIFLIC
 '99189004439306381':
 - collection_name: Rock's Backpages
-  interface_name: Rock''s Backpages
-  note: Rock''s Backpages. Authorized U-M users (+ guests in U-M Libraries)
+  interface_name: Rock's Backpages
+  note: Rock's Backpages. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.rocksbackpages.com/
   status: Available
   campuses:
@@ -28222,8 +27961,8 @@
   - MIFLIC
 '99189015069006381':
 - collection_name: Modernist Journals Project
-  interface_name: Brown University
-  note: Brown University. Open access for all users.
+  interface_name: Modernist Journals Project
+  note: Modernist Journals Project. Open access for all users.
   link: https://modjourn.org/journal/
   status: Available
   campuses:
@@ -28400,6 +28139,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99189023877306381':
+- collection_name: 'Wiley Digital Archives: Royal College of Physicians Part II'
+  interface_name: Wiley Online Library
+  note: Wiley Online Library.
+  link: https://app.wileydigitalarchives.com/wiley
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99189025277806381':
 - collection_name: 'American Committee on Africa Module II: Anti-Apartheid Movements and Democracy'
   interface_name: AM (Adam Matthew)
@@ -28496,7 +28247,7 @@
 - collection_name: Holos Ukrainy Digital Archive
   interface_name: East View
   note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/publication/314086
+  link: https://gpa.eastview.com/hukr/
   status: Available
   campuses:
   - ann_arbor
@@ -28617,6 +28368,138 @@
   interface_name: Institute of Physics
   note: Institute of Physics. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.iop.org/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189043820006381':
+- collection_name: Bentley Historical Library Online
+  interface_name: ''
+  note: Open access for all users.
+  link: ''
+  status: Not Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189044614706381':
+- collection_name: Farm Security Administration/Office of War Information Color Photographs
+  interface_name: Library of Congress
+  note: Library of Congress. Open access for all users.
+  link: https://www.loc.gov/collections/fsa-owi-color-photographs/about-this-collection/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189044614806381':
+- collection_name: Farm Security Administration/Office of War Information Black-and-White Negatives
+  interface_name: Library of Congress
+  note: Library of Congress. Open access for all users.
+  link: https://www.loc.gov/collections/fsa-owi-black-and-white-negatives/about-this-collection/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189044614906381':
+- collection_name: Abraham Lincoln Papers at the Library of Congress
+  interface_name: Library of Congress
+  note: Library of Congress. Open access for all users.
+  link: https://www.loc.gov/collections/abraham-lincoln-papers/about-this-collection/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189047723506381':
+- collection_name: Baghdad Observer Digital Archive
+  interface_name: East View
+  note: East View. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://gpa.eastview.com/bgdo/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189048714706381':
+- collection_name: Literature and Culture Collection
+  interface_name: University of Virginia
+  note: University of Virginia. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.upress.virginia.edu/rotunda/%23lit
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189048722806381':
+- collection_name: The papers of the revolutionary era Pinckney statesmen
+  interface_name: University of Virginia
+  note: University of Virginia. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://rotunda.upress.virginia.edu/founders/PNKY.html
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'990155363620106381':
+- collection_name: University of Michigan Library Digital Collections
+  interface_name: University of Michigan Library
+  note: University of Michigan Library. Open access for all users.
+  link: https://quod.lib.umich.edu/lib/colllist/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189050714306381':
+- collection_name: Cornell University Library Digital Collections
+  interface_name: Cornell University Library
+  note: Cornell University Library. Open access for all users.
+  link: https://digital.library.cornell.edu/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189050324406381':
+- collection_name: Independent Publishing in America
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.independentpublishinginamerica.amdigital.co.uk
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189051317906381':
+- collection_name: 'History Vault: Bexar Archives: Colonial Archives of Texas during the Spanish and Mexican Periods, 1717-1836'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hvbexarcolonialtexas
   status: Available
   campuses:
   - ann_arbor
