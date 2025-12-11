@@ -1,7 +1,7 @@
 from __future__ import annotations
 from catalog_api.solr_client import SolrClient
 from catalog_api.solr import SolrDocProcessor
-from catalog_api.marc import Processor, FieldRuleset
+from catalog_api.marc import Processor, FieldRuleset, TRIM_CHARS
 import re
 import pymarc
 import io
@@ -585,6 +585,7 @@ class TaggedCitation:
             "ruleset": FieldRuleset(
                 tags=["100", "101", "110", "111", "700", "710", "711"],
                 text_sfs="abcdefgjklnpqtu4",
+                rstrip_chars=TRIM_CHARS,
             ),
             "ris": ["AU"],
             "meta": ["author"],
@@ -613,6 +614,7 @@ class TaggedCitation:
                 filter=lambda field: (
                     field.indicator1 == "0" and re.match("ed", field.get("e", ""))
                 ),
+                rstrip_chars=TRIM_CHARS,
             ),
             "ris": ["ED", "A2"],
             "meta": ["editor"],
@@ -625,7 +627,9 @@ class TaggedCitation:
         },
         {
             "kind": "marc",
-            "ruleset": FieldRuleset(tags=["245"], text_sfs="abnp", rstrip_chars=" /"),
+            "ruleset": FieldRuleset(
+                tags=["245"], text_sfs="abnp", rstrip_chars=TRIM_CHARS
+            ),
             "ris": ["JF", "T1", "TI"],  # JF seems sus; how do we know it's a journal?
             "meta": ["title", "journal_title"],
         },
@@ -694,6 +698,7 @@ class TaggedCitation:
             "ruleset": FieldRuleset(
                 tags=["264", "260"],
                 text_sfs="b",
+                rstrip_chars=TRIM_CHARS,
             ),
             "ris": ["PB"],
             "meta": ["publisher"],
@@ -1074,7 +1079,9 @@ class CSL:
 
     @property
     def title(self):
-        rulesets = (FieldRuleset(tags=["245"], text_sfs="abp", rstrip_chars="/ "),)
+        rulesets = (
+            FieldRuleset(tags=["245"], text_sfs="abp", rstrip_chars=TRIM_CHARS),
+        )
         return self._get_marc_content(rulesets)
 
     @property
@@ -1105,11 +1112,13 @@ class CSL:
             FieldRuleset(
                 tags=["260"],
                 text_sfs="a",
+                rstrip_chars=TRIM_CHARS,
             ),
             FieldRuleset(
                 tags=["264"],
                 text_sfs="a",
                 filter=lambda field: (field.indicator2 == "1"),
+                rstrip_chars=TRIM_CHARS,
             ),
         )
         return self._get_marc_content(rulesets)
@@ -1120,11 +1129,13 @@ class CSL:
             FieldRuleset(
                 tags=["260"],
                 text_sfs="b",
+                rstrip_chars=TRIM_CHARS,
             ),
             FieldRuleset(
                 tags=["264"],
                 text_sfs="b",
                 filter=lambda field: (field.indicator2 == "1"),
+                rstrip_chars=TRIM_CHARS,
             ),
         )
         return self._get_marc_content(rulesets)
@@ -1155,6 +1166,7 @@ class CSL:
                 filter=lambda field: (
                     field.indicator1 == "1" and field.get("e") not in field_e_strings
                 ),
+                rstrip_chars=TRIM_CHARS,
             ),
             FieldRuleset(
                 tags=["100", "700"],
@@ -1162,6 +1174,7 @@ class CSL:
                 filter=lambda field: (
                     field.indicator1 == "0" and field.get("e") not in field_e_strings
                 ),
+                rstrip_chars=TRIM_CHARS,
             ),
         )
 
@@ -1172,6 +1185,7 @@ class CSL:
                 tags=["110", "111", "710", "711"],
                 text_sfs="ab",
                 filter=lambda field: (field.get("e") not in field_e_strings),
+                rstrip_chars=TRIM_CHARS,
             ),
         )
         corporate_authors = self._to_literal(
@@ -1193,6 +1207,7 @@ class CSL:
                 filter=lambda field: (
                     field.indicator1 == "1" and field.get("e") in field_e_strings
                 ),
+                rstrip_chars=TRIM_CHARS,
             ),
             FieldRuleset(
                 tags=["700"],
@@ -1200,6 +1215,7 @@ class CSL:
                 filter=lambda field: (
                     field.indicator1 == "0" and field.get("e") in field_e_strings
                 ),
+                rstrip_chars=TRIM_CHARS,
             ),
         )
         result = self._to_author(self._get_marc_contents(rulesets))

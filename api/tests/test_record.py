@@ -1519,9 +1519,9 @@ class TestCSL:
 
         assert subject.title == "a b p"
 
-    def test_title_does_not_have_trailing_slash(self):
+    def test_title_does_not_have_trailing_chars(self):
         record = create_record_with_paired_field(tag="245")
-        record["245"]["p"] = "p /"
+        record["245"]["p"] = "p . /,: / "
         subject = CSL(marc_record=record)
         assert subject.title == "a b p"
 
