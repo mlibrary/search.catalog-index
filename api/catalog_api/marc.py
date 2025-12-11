@@ -32,13 +32,16 @@ class FieldRuleset:
     search: list | None = None
     browse_sfs: str | None = None
     filter: Callable[..., bool] = lambda field: True
+    rstrip_chars: str = ""
 
     def has_any_subfields(self, field: pymarc.Field) -> bool:
         return bool(self._get_subfields(field, self.text_sfs))
 
     def value_for(self, field: pymarc.Field):
         result = {
-            "text": self._get_subfields(field, self.text_sfs).strip(),
+            "text": self._get_subfields(field, self.text_sfs)
+            .rstrip(self.rstrip_chars)
+            .strip(),
             "tag": field.tag,
         }
 

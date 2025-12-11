@@ -625,10 +625,7 @@ class TaggedCitation:
         },
         {
             "kind": "marc",
-            "ruleset": FieldRuleset(
-                tags=["245"],
-                text_sfs="abnp",
-            ),
+            "ruleset": FieldRuleset(tags=["245"], text_sfs="abnp", rstrip_chars=" /"),
             "ris": ["JF", "T1", "TI"],  # JF seems sus; how do we know it's a journal?
             "meta": ["title", "journal_title"],
         },
@@ -1077,12 +1074,7 @@ class CSL:
 
     @property
     def title(self):
-        rulesets = (
-            FieldRuleset(
-                tags=["245"],
-                text_sfs="abp",
-            ),
-        )
+        rulesets = (FieldRuleset(tags=["245"], text_sfs="abp", rstrip_chars="/ "),)
         return self._get_marc_content(rulesets)
 
     @property
