@@ -5,6 +5,10 @@ import string
 from collections.abc import Callable
 from catalog_api.entities import SearchField, FieldElement, PairedField
 
+# used with rstrip_chars. When we want to trim the end of a string, these are
+# the ones that usually should be removed.
+TRIM_CHARS = "/.,: "
+
 
 class Linkage:
     def __init__(self, field: pymarc.Field):
@@ -32,13 +36,16 @@ class FieldRuleset:
     search: list | None = None
     browse_sfs: str | None = None
     filter: Callable[..., bool] = lambda field: True
+    rstrip_chars: str = ""
 
     def has_any_subfields(self, field: pymarc.Field) -> bool:
         return bool(self._get_subfields(field, self.text_sfs))
 
     def value_for(self, field: pymarc.Field):
         result = {
-            "text": self._get_subfields(field, self.text_sfs).strip(),
+            "text": self._get_subfields(field, self.text_sfs)
+            .rstrip(self.rstrip_chars)
+            .strip(),
             "tag": field.tag,
         }
 

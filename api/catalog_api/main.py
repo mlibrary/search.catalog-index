@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.gzip import GZipMiddleware
 from prometheus_fastapi_instrumentator import Instrumentator
 from prometheus_client import Histogram
 
@@ -9,6 +10,7 @@ from catalog_api.record import record_for
 app = FastAPI(
     title="Catalog Search API", description="REST API for Catalog Search Solr"
 )
+app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 Instrumentator().instrument(app).expose(app)
 
