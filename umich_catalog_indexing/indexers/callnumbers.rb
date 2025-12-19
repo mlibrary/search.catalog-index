@@ -71,6 +71,11 @@ to_field "callnumber_browse" do |rec, acc, context|
   else
     acc.replace cns_852
   end
+
+  # No one or two letter call numbers in browse. The browse index doesn't
+  # generate "id" fields for these which make browsing these callnumbers fail.
+  # Also these are invalid LC call numbers.
+  acc.reject! { |x| x =~ /^\w{1,2}$/ }
 end
 
 # In solr, data from callnumber_browse is copied into callnumber_search
