@@ -4,12 +4,24 @@ require "semantic_logger"
 Services = Canister.new
 S = Services
 
+S.register(:project_root) do
+  File.absolute_path(File.join(__dir__, ".."))
+end
+
 # When splitting MARC records from zephir into smaller files, how many records should each file have?
 S.register(:marc_record_batch_size) { ENV.fetch("MARC_RECORD_BATCH_SIZE", 200_000) }
 
 S.register(:subject_heading_remediation_set_id) { ENV["SUBJECT_HEADING_REMEDIATION_SET_ID"] }
 
 S.register(:app_env) { ENV["APP_ENV"] || "development" }
+
+S.register(:hlb_path) do
+  if S.app_env == "test"
+    File.join(S.project_root, "spec", "fixtures", "translation_maps")
+  else
+    File.join(S.project_root, "lib", "translation_maps")
+  end
+end
 
 S.register(:google_api_credentials) { ENV["GOOGLE_API_CREDENTIALS"] || "{}" }
 S.register(:floor_location_spreadsheet_id) { ENV["FLOOR_LOCATION_SPREADSHEET_ID"] || "" }
