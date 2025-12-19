@@ -37,24 +37,24 @@ end
 # We want the 050 for LC callnumbers if we don't have another LC, but want to keep them
 # separate so we always get a sort value from the 852
 
-lc_852_extractor    = Traject::MarcExtractor.cached('852|0*|h', { alternate_script: false })
-dewey_852_extractor = Traject::MarcExtractor.cached('852|1*|h', { alternate_script: false })
-lc_050_extractor    = Traject::MarcExtractor.cached('050ab', { alternate_script: false })
+lc_852_extractor = Traject::MarcExtractor.cached("852|0*|h", {alternate_script: false})
+dewey_852_extractor = Traject::MarcExtractor.cached("852|1*|h", {alternate_script: false})
+lc_050_extractor = Traject::MarcExtractor.cached("050ab", {alternate_script: false})
 
 ####################################################
 # Puts values by tag on the clipboard for later use
 ####################################################
 
 each_record do |rec, context|
-  context.clipboard['callnumbers'] = {
-    lc_852:    lc_852_extractor.extract(rec).flatten.compact.uniq,
+  context.clipboard["callnumbers"] = {
+    lc_852: lc_852_extractor.extract(rec).flatten.compact.uniq,
     dewey_852: dewey_852_extractor.extract(rec).flatten.compact.uniq,
-    lc_050:    lc_050_extractor.extract(rec).flatten.compact.uniq,
+    lc_050: lc_050_extractor.extract(rec).flatten.compact.uniq
   }
 end
 
 # Unrestricted: whatever we have in an 852, put it here
-to_field 'callnumber', extract_marc('852hij') do |rec, acc|
+to_field "callnumber", extract_marc("852hij") do |rec, acc|
   acc.select! { |x| x =~ /\S/ }
 end
 
@@ -62,8 +62,8 @@ end
 # We'll take an LC or Dewey from the 852, or an LC from the 050
 # if we've got nothing else
 
-to_field 'callnumber_browse' do |rec, acc, context|
-  cns     = context.clipboard['callnumbers']
+to_field "callnumber_browse" do |rec, acc, context|
+  cns = context.clipboard["callnumbers"]
   cns_852 = cns[:lc_852].concat(cns[:dewey_852])
 
   if cns_852.empty?
@@ -71,6 +71,11 @@ to_field 'callnumber_browse' do |rec, acc, context|
   else
     acc.replace cns_852
   end
+
+  # No one or two letter call numbers in browse. The browse index doesn't
+  # generate "id" fields for these which make browsing these callnumbers fail.
+  # Also these are invalid LC call numbers.
+  acc.reject! { |x| x =~ /^\w{1,2}$/ }
 end
 
 # In solr, data from callnumber_browse is copied into callnumber_search
@@ -85,15 +90,13 @@ end
 # due to the copyField from callnumber_browse), but it
 # doesn't hurt anything.
 
-
-to_field "callnumber_search", extract_marc('852hij')
-
+to_field "callnumber_search", extract_marc("852hij")
 
 # For the main sort, we'll restrict to LC/Dewey from an 852
-to_field 'callnosort' do |rec, acc, context|
-  lc    = context.clipboard['callnumbers'][:lc_852].first
-  dewey = context.clipboard['callnumbers'][:dewey_852].first
-  best  = [lc, dewey].compact.first
+to_field "callnosort" do |rec, acc, context|
+  lc = context.clipboard["callnumbers"][:lc_852].first
+  dewey = context.clipboard["callnumbers"][:dewey_852].first
+  best = [lc, dewey].compact.first
   acc.replace [best] if best
 end
 
@@ -104,12 +107,12 @@ end
 # Note that this doesn't do anything if there's already a sort key
 # in callnosort
 
-to_field 'callnosort' do |rec, acc, context|
-  need_sort = context.output_hash['callnosort'].nil?
+to_field "callnosort" do |rec, acc, context|
+  need_sort = context.output_hash["callnosort"].nil?
 
   if need_sort
-    any_852   = Array(context.output_hash['callnumber']).first
-    any_050   = Array(context.clipboard['callnumbers'][:lc_050]).first
+    any_852 = Array(context.output_hash["callnumber"]).first
+    any_050 = Array(context.clipboard["callnumbers"][:lc_050]).first
 
     best = [any_852, any_050].compact.first
     acc << best
@@ -121,20 +124,20 @@ end
 
 def extract_letters(cn)
   return nil if cn.nil?
-  m      = /\A\s*([A-Za-z]+.*\Z)/.match(cn)
+  m = /\A\s*([A-Za-z]+.*\Z)/.match(cn)
   m ? m[1].upcase : nil
 end
 
-to_field 'callnoletters', extract_marc('852hij:050ab:090ab', :first => true) do |rec, acc|
+to_field "callnoletters", extract_marc("852hij:050ab:090ab", first: true) do |rec, acc|
   acc.select! { |cn| looks_like_lc?(cn) }
   acc.replace [extract_letters(acc.first)].compact
 end
 
 ### High Level Browse ###
-require 'high_level_browse'
+require "high_level_browse"
 
-hlb = HighLevelBrowse.load(dir: Pathname.new(__dir__) + "../lib/translation_maps")
-to_field 'hlb3Delimited', extract_marc('050ab:082a:090ab:099a:086a:086z:852|0*|hij') do |rec, acc, context|
+hlb = HighLevelBrowse.load(dir: S.hlb_path)
+to_field "hlb3Delimited", extract_marc("050ab:082a:090ab:099a:086a:086z:852|0*|hij") do |rec, acc, context|
   acc.select! { |cn| looks_like_lc?(cn) }
   acc.map! { |c| hlb[c] }
   acc.compact!
@@ -143,9 +146,8 @@ to_field 'hlb3Delimited', extract_marc('050ab:082a:090ab:099a:086a:086z:852|0*|h
 
   # Get the individual conmponents and stash them
   components = acc.flatten.to_a.uniq
-  context.output_hash['hlb3'] = components unless components.empty?
+  context.output_hash["hlb3"] = components unless components.empty?
 
   # Turn them into pipe-delimited strings
-  acc.map! { |c| c.to_a.join(' | ') }
+  acc.map! { |c| c.to_a.join(" | ") }
 end
-
