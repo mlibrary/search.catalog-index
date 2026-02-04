@@ -3923,6 +3923,9 @@
 '611297322790006381':
   ranking: '12000'
   collection_name: e-Duke Books Scholarly Collection 2024
+'611350346750006381':
+  ranking: '12000'
+  collection_name: e-Duke Books Scholarly Collection 2025
 '611072800790006381':
   ranking: '12000'
   collection_name: 'e-Duke Journals Scholarly Collections: Expanded 2021'
@@ -3932,6 +3935,9 @@
 '611234198600006381':
   ranking: '12000'
   collection_name: 'e-Duke Journals Scholarly Collections: Expanded 2023'
+'611350346700006381':
+  ranking: '12000'
+  collection_name: 'e-Duke Journals Scholarly Collections: Expanded 2025'
 '611072798370006381':
   ranking: '12000'
   collection_name: eDuke Books scholarly collection 2008
@@ -7631,6 +7637,9 @@
 '611179765010006381':
   ranking: '24000'
   collection_name: 'ProQuest Recent Newspapers: Toronto Star'
+'611367450100006381':
+  ranking: '24890'
+  collection_name: JSTOR Archival Journals and Primary Sources Collection
 '611072809130006381':
   ranking: '24900'
   collection_name: Agricultural History Society
