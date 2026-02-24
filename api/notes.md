@@ -21,3 +21,14 @@ http://bulleit-1.umdl.umich.edu:8026/solr/biblio/select?f.authorStr.facet.mincou
 /catalog/debug # show some output for debugging a query
 /catalog/solr # send solr queries straight through. Might be useful for super advanced search. 
 ```
+
+This handles changing the complicated availability filter into something solr/query parser can read.
+
+## Results response
+{
+  records: []
+  filters: []
+  total: int
+  limit: int
+  offset: int
+}
