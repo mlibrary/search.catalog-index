@@ -85,7 +85,7 @@ module Traject
       end
 
       def public_note
-        f852.filter_map { |x| x.value if x.code == "z" }
+        f852.filter_map { |x| x.value if public_note_subfields.include?(x.code) }
       end
 
       def field_is_finding_aid?(f)
@@ -134,9 +134,40 @@ module Traject
       def f974
         @f974 ||= @record.fields("974").select { |f| f["8"] == @holding_id }
       end
+
+      private
+
+      def public_note_subfields
+        ["z", "g"]
+      end
     end
 
     class PhysicalHolding::Offsite < PhysicalHolding
+      def display_name
+        "Offsite Shelving"
+      end
+
+      def locations
+        ["OFFS"]
+      end
+
+      def library
+        "OFFS"
+      end
+
+      def location
+        "MAIN"
+      end
+
+      def info_link
+        "https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/request-offsite-shelving"
+      end
+
+      private
+
+      def public_note_subfields
+        ["g"]
+      end
     end
   end
 end
