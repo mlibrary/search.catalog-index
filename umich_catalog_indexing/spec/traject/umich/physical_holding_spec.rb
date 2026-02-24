@@ -4,12 +4,40 @@ describe Traject::UMich::PhysicalHolding do
   let(:arborist) do
     get_record("./spec/fixtures/arborist.xml")
   end
+  let(:offsite) do
+    record_with_library_code("OFFS")
+  end
+  def record_with_library_code(code)
+    arborist.fields("852").each do |f|
+      f.subfields.each do |s|
+        s.value = code if s.code == "b"
+      end
+    end
+    arborist
+  end
   let(:holding_id) { "22767949280006381" }
   before(:each) do
     @record = arborist
   end
   subject do
-    described_class.new(record: @record, holding_id: holding_id)
+    described_class.for(record: @record, holding_id: holding_id)
+  end
+  context ".for" do
+    it "returns a PhysicalHolding object by default" do
+      expect(subject.class.name).to eq("Traject::UMich::PhysicalHolding")
+    end
+    it "returns an OffsiteHolding when the library code is OFFS" do
+      @record = offsite
+      expect(subject.class.name).to eq("Traject::UMich::PhysicalHolding::Offsite")
+    end
+    it "returns an OffsiteHolding when the library code is BUHR" do
+      @record = record_with_library_code("BUHR")
+      expect(subject.class.name).to eq("Traject::UMich::PhysicalHolding::Offsite")
+    end
+    it "returns an OffsiteHolding when the library code is HSRS" do
+      @record = record_with_library_code("HSRS")
+      expect(subject.class.name).to eq("Traject::UMich::PhysicalHolding::Offsite")
+    end
   end
   context "#institution_code" do
     it "returns upcased institution code" do

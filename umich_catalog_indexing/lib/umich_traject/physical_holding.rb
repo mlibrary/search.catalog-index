@@ -2,6 +2,17 @@ module Traject
   module UMich
     class PhysicalHolding
       attr_reader :holding_id
+      def self.for(record:, holding_id:)
+        holding_data = record.fields("852").find do |f|
+          f.subfields.any? { |sf| sf.code == "8" && sf.value == holding_id }
+        end
+        klass = if ["OFFS", "BUHR", "HSRS"].include?(holding_data["b"])
+          Offsite
+        else
+          self
+        end
+        klass.new(record: record, holding_id: holding_id)
+      end
 
       def initialize(record:, holding_id:)
         @holding_id = holding_id
@@ -123,6 +134,9 @@ module Traject
       def f974
         @f974 ||= @record.fields("974").select { |f| f["8"] == @holding_id }
       end
+    end
+
+    class PhysicalHolding::Offsite < PhysicalHolding
     end
   end
 end
