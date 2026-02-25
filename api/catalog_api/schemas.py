@@ -80,8 +80,8 @@ class PhysicalItem(BaseModel):
 class PhysicalHolding(BaseModel):
     holding_id: str | None
     call_number: str | None
-    summary: str | None
-    # public_note: str | None
+    summary: list[str] | None
+    public_note: list[str] | None
     physical_location: PhysicalLocation
     items: list[PhysicalItem]
 
