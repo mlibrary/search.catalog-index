@@ -47,8 +47,8 @@ describe Traject::UMich::PhysicalHolding do
     end
   end
   context "#summary_holdings" do
-    it "returns the appropriate summary holdings" do
-      expect(subject.summary_holdings).to eq("2- : 1993-")
+    it "returns an array of the appropriate summary holdings" do
+      expect(subject.summary_holdings).to eq(["2- : 1993-"])
     end
   end
   context "#callnumber" do
@@ -193,10 +193,57 @@ describe Traject::UMich::PhysicalHolding::Offsite do
   let(:offsite) do
     get_record("./spec/fixtures/hsrs_one_item.xml")
   end
-  let(:holding_data) { offsite.fields.find { |f| f["8"] == holding_id } }
   let(:holding_id) { "221349371140006381" }
   subject do
     described_class.new(record: offsite, holding_id: holding_id)
+  end
+  # context "#display_name" do
+  # it "should return 'Offsite Shelving'" do
+  # expect(subject.display_name).to eq("Offsite Shelving")
+  # end
+  # end
+
+  # context "#locations" do
+  # it "should add just 'OFFS'" do
+  # expect(subject.locations).to eq(["OFFS"])
+  # end
+  # end
+
+  # context "#library" do
+  # it "should add just 'OFFS'" do
+  # expect(subject.library).to eq("OFFS")
+  # end
+  # end
+  # context "#location" do
+  # it "should add just 'OFFS'" do
+  # expect(subject.location).to eq("MAIN")
+  # end
+  # end
+  # context "#info_link" do
+  # it "links to offsite shelving site" do
+  # expect(subject.info_link).to eq("https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/request-offsite-shelving")
+  # end
+  # end
+  context "#public_note" do
+    it "should not include the 'z' field" do
+      offsite["852"].append(MARC::Subfield.new("z", "Some Public Note"))
+      expect(subject.public_note).to eq([])
+    end
+    it "should include the g field" do
+      offsite["852"].append(MARC::Subfield.new("g", "This is a g field"))
+      expect(subject.public_note).to eq(["This is a g field"])
+    end
+  end
+end
+describe Traject::UMich::PhysicalHolding::CombinedOffsite do
+  let(:offsite_holdings) {
+    [
+      instance_double(Traject::UMich::PhysicalHolding::Offsite),
+      instance_double(Traject::UMich::PhysicalHolding::Offsite)
+    ]
+  }
+  subject do
+    described_class.new(offsite_holdings)
   end
   context "#display_name" do
     it "should return 'Offsite Shelving'" do
@@ -204,6 +251,33 @@ describe Traject::UMich::PhysicalHolding::Offsite do
     end
   end
 
+  context "#summary_holdings" do
+    it "combines summary holdings from all of the holdings" do
+      allow(offsite_holdings[0]).to receive(:summary_holdings).and_return(["Summary1"])
+      allow(offsite_holdings[1]).to receive(:summary_holdings).and_return(["Summary2"])
+      expect(subject.summary_holdings).to eq(["Summary1", "Summary2"])
+    end
+
+    it "only returns unique holdings" do
+      allow(offsite_holdings[0]).to receive(:summary_holdings).and_return(["Summary1"])
+      allow(offsite_holdings[1]).to receive(:summary_holdings).and_return(["Summary1"])
+      expect(subject.summary_holdings).to eq(["Summary1"])
+    end
+  end
+
+  context "#public_note" do
+    it "combines public notes from all of the holdings" do
+      allow(offsite_holdings[0]).to receive(:public_note).and_return(["Public Note1"])
+      allow(offsite_holdings[1]).to receive(:public_note).and_return(["Public Note2"])
+      expect(subject.public_note).to eq(["Public Note1", "Public Note2"])
+    end
+
+    it "only returns unique public notes" do
+      allow(offsite_holdings[0]).to receive(:public_note).and_return(["Public Note1"])
+      allow(offsite_holdings[1]).to receive(:public_note).and_return(["Public Note1"])
+      expect(subject.public_note).to eq(["Public Note1"])
+    end
+  end
   context "#locations" do
     it "should add just 'OFFS'" do
       expect(subject.locations).to eq(["OFFS"])
@@ -223,16 +297,6 @@ describe Traject::UMich::PhysicalHolding::Offsite do
   context "#info_link" do
     it "links to offsite shelving site" do
       expect(subject.info_link).to eq("https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/request-offsite-shelving")
-    end
-  end
-  context "#public_note" do
-    it "should not include the 'z' field" do
-      offsite["852"].append(MARC::Subfield.new("z", "Some Public Note"))
-      expect(subject.public_note).to eq([])
-    end
-    it "should include the g field" do
-      offsite["852"].append(MARC::Subfield.new("g", "This is a g field"))
-      expect(subject.public_note).to eq(["This is a g field"])
     end
   end
 end

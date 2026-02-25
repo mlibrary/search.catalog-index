@@ -19,6 +19,10 @@ module Traject
         @record = record
       end
 
+      def offsite?
+        false
+      end
+
       def institution_code
         f852["a"]&.upcase
       end
@@ -29,7 +33,7 @@ module Traject
           output.push(f["a"]) if f["8"] == holding_id
         end
         str = output.join(" : ")
-        (str == "") ? nil : str
+        (str == "") ? [] : [str]
       end
 
       # An array of PhysicalItem objects with enumcron sorting and not including
@@ -143,6 +147,55 @@ module Traject
     end
 
     class PhysicalHolding::Offsite < PhysicalHolding
+      def offsite?
+        true
+      end
+
+      private
+
+      def public_note_subfields
+        ["g"]
+      end
+    end
+
+    class PhysicalHolding::CombinedOffsite < PhysicalHolding::Offsite
+      def initialize(holdings)
+        @holdings = holdings
+        @first_holding = holdings.first
+      end
+
+      def public_note
+        @holdings.map { |h| h.public_note }.flatten.compact.uniq
+      end
+
+      def institution_code
+        @first_holding.institution_code
+      end
+
+      def summary_holdings
+        # TBD
+        @holdings.map { |h| h.summary_holdings }.flatten.compact.uniq
+      end
+
+      def items
+        @items ||= @holdings.map { |h| h.items }.flatten
+      end
+
+      def callnumber
+        @first_holding.callnumber
+      end
+
+      def floor_location
+        ""
+      end
+
+      # Checks whether there exists a finding aid in the 856 field
+      #
+      # @return [Boolean] whether or not the 856 has a a finding aid
+      def finding_aid?
+        false
+      end
+
       def display_name
         "Offsite Shelving"
       end
@@ -161,12 +214,6 @@ module Traject
 
       def info_link
         "https://lib.umich.edu/find-borrow-request/request-items-pick-or-delivery/request-offsite-shelving"
-      end
-
-      private
-
-      def public_note_subfields
-        ["g"]
       end
     end
   end
