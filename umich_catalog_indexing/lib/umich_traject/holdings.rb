@@ -95,7 +95,7 @@ module Traject
             if link_text =~ /finding aid/i and hol[:link] =~ /umich/i
               hol[:finding_aid] = true
               record_has_finding_aid = true
-              id = context.output_hash["id"]
+              context.output_hash["id"]
             else
               hol[:finding_aid] = false
             end
@@ -112,10 +112,7 @@ module Traject
           inst_codes << "MIU"
         end
 
-        physical_holdings = physical_holding_ids.map do |id|
-          PhysicalHolding.new(record: @record, holding_id: id)
-        end.reject { |x| x.items.empty? }
-        physical_holdings.each do |holding|
+        PhysicalHoldings.new(holding_ids: physical_holding_ids, record: @record).each do |holding|
           hol_list << holding.to_h
           locations << holding.institution_code
           inst_codes << holding.institution_code

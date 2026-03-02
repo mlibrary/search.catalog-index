@@ -113,7 +113,7 @@ describe "umich_alma" do
         "public_note" => ["CURRENT ISSUES IN SERIAL SERVICES, 203 NORTH HATCHER",
           "MISSING: 24 no.1-2 2015, v.28 no.6 2019"],
         "record_has_finding_aid" => false,
-        "summary_holdings" => "2- : 1993-"
+        "summary_holdings" => ["2- : 1993-"]
       }
     ]
   end
@@ -150,7 +150,7 @@ describe "umich_alma" do
       "location" => "MAIN",
       "public_note" => [],
       "record_has_finding_aid" => false,
-      "summary_holdings" => nil}]
+      "summary_holdings" => []}]
   end
   before(:each) do
     @record = nil
