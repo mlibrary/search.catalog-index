@@ -16,7 +16,13 @@ class Results:
         page3 = json.load(f)
 
     def __init__(self, data: dict):
-        self.data = self.page1
+        offset = data["offset"]
+        if offset < 10:
+            self.data = self.page1
+        elif offset < 20:
+            self.data = self.page2
+        else:
+            self.data = self.page3
 
     @property
     def records(self):
