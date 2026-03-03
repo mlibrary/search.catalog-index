@@ -264,6 +264,24 @@ class Record(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
 
 
+class FilterValue(BaseModel):
+    text: str
+    count: int
+
+
+class Filter(BaseModel):
+    field: str
+    values: list[FilterValue]
+
+
+class Results(BaseModel):
+    records: list[Record]
+    filters: list[Filter]
+    limit: int
+    offset: int
+    total: int
+
+
 class Response(BaseModel):
     detail: str
 
