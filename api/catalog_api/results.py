@@ -47,10 +47,25 @@ class Results:
 
 
 # problems with filter data.
-# 1. the fields aren't the correct name
-# 2. dates probably need to be handled differently
-# 3.
+# 1. the fields aren't the correct names
+# 2. location filter has the wrong name (time for the other api???)
+# 3. some of them (just search only?) are empty
+# 4. availability has some special rules
 class Filter:
+    filter_field_map = {
+        "availability": "availability",
+        "format": "format",
+        "topicStr": "subject",
+        "publishDateRange": "date_of_publication",
+        "language": "language",
+        "location": "collection",
+        "hlb3Str": "academic_discipline",
+        "authorStr": "author",
+        "place_of_publication": "place_of_publication",
+        "geographicSt": "region",
+        "building": "location",
+    }  # institution and search_only are skipped for this
+
     def __init__(self, field: str, values: list):
         self.field = field
         self.values = self.get_values(values)
