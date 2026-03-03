@@ -53,3 +53,6 @@ overlap/*.tsv
 
 #this is so github actions doesn't try to add all the gems to the repo when updating a translation map
 vendor/
+
+api/*.md
+api/*.txt
