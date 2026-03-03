@@ -1,4 +1,3 @@
-import pytest
 from catalog_api.results import Filter
 
 
