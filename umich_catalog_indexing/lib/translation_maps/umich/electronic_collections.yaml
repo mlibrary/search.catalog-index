@@ -1098,8 +1098,8 @@
 '990078205620106381':
 - collection_name: SPIE eBooks
   interface_name: SPIE
-  note: SPIE. Access to the SPIE online version restricted; authentication may be required.
-  link: http://ebooks.spiedigitallibrary.org/
+  note: SPIE. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://ebooks.spiedigitallibrary.org/
   status: Available
   campuses:
   - ann_arbor
@@ -1462,9 +1462,9 @@
   - MIU
   - MIFLIC
 '990043474480106381':
-- collection_name: SPIE digital library.
+- collection_name: SPIE Digital Library
   interface_name: SPIE
-  note: SPIE. Access to the SPIE online version restricted; authentication may be required.
+  note: SPIE. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.spiedigitallibrary.org/
   status: Available
   campuses:
@@ -2722,7 +2722,7 @@
   - MIU
   - MIFLIC
 '990055809260106381':
-- collection_name: Anatomy.tv. the world's most detailed 3D model of human anatomy online.
+- collection_name: Anatomy.tv
   interface_name: STAT!Ref
   note: STAT!Ref. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.anatomy.tv/titles
@@ -11854,18 +11854,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187252700406381':
-- collection_name: Brill.com
-  interface_name: Brill
-  note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://brill.com
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99187252700506381':
 - collection_name: Trismegistos
   interface_name: Trismegistos
@@ -13417,16 +13405,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187252720206381':
-- collection_name: anatomy.tv
-  interface_name: Teton Data Systems
-  note: Teton Data Systems. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.anatomy.tv/titles
-  status: Available
-  campuses:
-  - ann_arbor
-  institution_codes:
-  - MIU
 '99187252720306381':
 - collection_name: 'Digital National Security Archive (DNSA): The Cuban Missile Crisis Revisited: An International Collection, From Bay of Pigs to Nuclear Brink'
   interface_name: ProQuest
@@ -28467,18 +28445,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99189118123506381':
-- collection_name: 'Bloomsbury Collections: Gender & Sexuality Studies 2026'
-  interface_name: Bloomsbury Publishing Plc
-  note: Bloomsbury Publishing Plc. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.bloomsburycollections.com/collections-gender-and-sexuality-studies
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99189118124206381':
 - collection_name: STS Cardiothoracic Surgery E-book
   interface_name: Unbound Medicine
@@ -28551,3 +28517,13 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99189122532006381':
+- collection_name: 'Orlando: Women''s Writing in the British Isles from the Beginnings to the Present'
+  interface_name: Cambridge University Press
+  note: Cambridge University Press. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://orlando.cambridge.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
