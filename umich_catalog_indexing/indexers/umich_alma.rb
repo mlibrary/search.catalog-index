@@ -21,7 +21,6 @@ UMich::FloorLocation.configure("lib/translation_maps/umich/floor_locations.json"
 # skip course reserve records
 
 each_record do |r, context|
-  cr_pattern = /CR_RESTRICTED/
   r.each_by_tag("999") do |f|
     if f["a"] and f["a"] =~ /CR_RESTRICTED/
       id = context.output_hash["id"]
@@ -46,9 +45,7 @@ cc_to_of = Traject::TranslationMap.new("ht/collection_code_to_original_from")
 each_record do |r, context|
   locations = []
   inst_codes = []
-  sh = {}
-  has_e56 = false
-  id = context.output_hash["id"]
+  context.output_hash["id"]
 
   # "OWN" field
   r.each_by_tag(["958", "OWN"]) do |f|
@@ -147,6 +144,14 @@ to_field "location" do |record, acc, context|
   acc.replace locations
   acc.map! { |code| location_map[code.strip] }
   acc.flatten!
+  acc.uniq!
+end
+
+to_field "collection" do |record, acc, context|
+  locations = Array(context.clipboard[:ht][:locations]).map { |code| location_map[code.strip] }.flatten
+  acc.replace locations
+  acc.map! { |library_location| Traject::UMich.collection_map(library_location) }
+  acc.compact!
   acc.uniq!
 end
 
