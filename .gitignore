@@ -31,12 +31,7 @@ umich_catalog_indexing/lib/translation_maps/umich/subject_heading_remediation.js
 umich_catalog_indexing/scratch/*
 !umich_catalog_indexing/scratch/.keep
 
-umich_catalog_indexing/examples/*.xml
-umich_catalog_indexing/examples/*/*.xml
-umich_catalog_indexing/examples/*.tar.gz
-umich_catalog_indexing/examples/*/*.tar.gz
-umich_catalog_indexing/examples/*.json
-umich_catalog_indexing/examples/*/*.json
+umich_catalog_indexing/examples/*
 
 /sftp/ssh/*
 !/sftp/ssh/.keep

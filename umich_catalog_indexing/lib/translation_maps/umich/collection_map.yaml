@@ -1,0 +1,287 @@
+# This is structured for Advanced Search in Spectrum. The "ALL" collections and
+# the "desc" field are needed for spectrum but not for indexing. It lives in
+# search.catalog-indexing because this has more to do with Alma and indexing
+# than the library search front end. mrio 2026-03-06
+---
+ALL:
+  desc: 'All locations'
+  collections:
+    ALL: 'All collections'
+AAEL:
+  desc: 'Art Architecture & Engineering'
+  collections:
+    ALL: All collections
+    AAEL SECD: '2nd Floor - 2321 M'
+    AAEL SLD: '2nd Floor Service Desk'
+    AAEL EQAAEL: 'AAEL Equipment'
+    AAEL OVR: 'Book Collection -- Oversize'
+    AAEL CAR: 'Career Collection'
+    AAEL CLOSD: 'Closed Shelving' #grouping for STNO, STO, STOF
+    AAEL RESRV: 'Course Reserves' #grouping for RESC, RESI, RESP
+    AAEL SERU: 'Current Journals'
+    AAEL MAIN: 'Main Collection'
+    AAEL MICE: 'Microfiche - Basement'
+    AAEL MICM: 'Microfilm - Basement'
+    AAEL NONE: 'Main Collection'
+    AAEL RAR: 'Special Collections'
+    AAEL REF: 'Reference'
+    AAEL FUN: 'Recreational Reading'
+    #updated 2025-02-21
+BENT:
+  desc: 'Bentley Historical'
+  collections:
+    ALL: All collections
+    BENT ELEC: 'Electronic resources'
+    BENT NONE: 'Main Collection'
+    BENT RR: 'Reading Room'
+    BENT SF: 'Security File'
+    BENT STOR: 'Storage'
+    #updated 2025-02-21
+BSTA:
+  desc: 'Biological Station'
+  collections:
+    ALL: All collections
+    BSTA CAGE: 'Cage'
+    BSTA RESC: 'Course Reserve'
+    BSTA NONE: 'Main Collection'
+    BSTA OVR: 'Oversize'
+    BSTA REF: 'Reference'
+    #updated 2025-02-21
+BUHR:
+  desc: 'Buhr Shelving Facility'
+  collections:
+    ALL: All collections
+    #all locations combined in grouping
+CLEM:
+  desc: 'William L. Clements'
+  collections:
+    ALL: All collections
+    CLEM NONE: 'Main Collection'
+    CLEM RBR: 'Rare Book Room'
+    CLEM RSTO: 'Remote Storage'
+    #updated 2025-02-21
+FINE:
+  desc: 'Fine Arts'
+  collections:
+    ALL: All collections
+    FINE SERU: 'Current Journals'
+    FINE EQFINE: 'Fine Arts Equipment'
+    FINE FOL: 'Flat Folio Collection'
+    FINE SER: 'Journals'
+    FINE MAIN: 'Main Collection'
+    FINE NEW: 'New Books Shelf'
+    FINE RESP: 'Open Reserves Shelving Area'
+    FINE OSR: 'Oriental Seminar Rm.'
+    FINE OSFF: 'Oriental Seminar Rm. Flat Folios'
+    FINE OSRF: 'Oriental Seminar Rm. Folios'
+    FINE OSRJ: 'Oriental Seminar Rm. Journals'
+    FINE OSRR: 'Oriental Seminar Rm. Reference'
+    FINE OVR: 'Oversize'
+    FINE REF: 'Reference'
+    FINE RESC: 'Reserves - Circulation Desk'
+    FINE SPE: 'Special Collections'
+    FINE SPO: 'Special Collections Oversize'
+    FINE ADM: 'Staff Offices'
+    #updated 2025-02-21
+FLINT:
+  desc: 'Flint Thompson Library'
+  collections:
+    ALL: All collections
+    FLINT ARCH: 'Archives - Special Collections' #ARCH + SPEC grouping
+    FLINT MODEL: 'Anatomical Models'
+    FLINT ATLAS: 'Atlas Collection'
+    FLINT BROWS: 'Browsing Collection'
+    FLINT CHILD: 'Children''s Literature'
+    FLINT ELP: 'English Language Program' #ELP 1-3 grouping
+    FLINT GRAPH: 'Graphic Novels' 
+    FLINT MAIN: 'Main Collection'
+    FLINT MSTR: 'Masters Theses'
+    FLINT MEDIA: 'Media Collection'
+    FLINT MICRO: 'Microforms' #MCARD + MFICH + MFILM grouping
+    FLINT NEWB: 'New Books'
+    FLINT OVERZ: 'Oversized Collection'
+    FLINT FSPAM: 'Pamphlets'
+    FLINT PERI: 'Periodicals'
+    FLINT REF: 'Reference Collection' #ABST + REF + REFD + TECH grouping
+    FLINT RESV: 'Reserved Readings'
+    #updated 2025-02-21
+FVL:
+  desc: 'Askwith Media Library'
+  collections:
+    ALL: All collections
+    FVL BUH: 'Offsite Shelving'
+    FVL ELL: 'Offsite Shelving'
+    FVL EQASKW: 'Askwith Equipment'
+    FVL H1: 'Room 2002 Shapiro'
+    FVL F2: 'Room 2002 Shapiro - Non-circulating'
+    FVL RESC: 'University Reserves'
+    #updated 2025-02-21
+HATCH:
+  desc: 'Hatcher Graduate'
+  collections:
+    ALL: All collections
+    HATCH ARGM: 'Argus - MoA'
+    HATCH ASIA: 'Asia Library' #grouping for ASIA, AMIC, AREF, AOVR, AOFF, AOFFNC, AOKA, ASPEC
+    HATCH AMHC: 'The Azad and Margaret Hogikyan Armenian Studies Collection'
+    HATCH CLATL: 'Clark Library Atlas Shelves'
+    HATCH CLARKBKS: 'Clark Library Book Shelves' #grouping for CLARK, CLBKS, CLBKS-CIRC
+    HATCH CLFIL: 'Clark Library File Cabinets'
+    HATCH CLFOL: 'Clark Library Folio'
+    HATCH CLMAP: 'Clark Library Map Cases'
+    HATCH CLOFF: 'Clark Library Office'
+    HATCH CLFIR: 'Clark Library Rare File'
+    HATCH CLOVD: 'Clark Library Oversize Drawer'
+    HATCH CLOVR: 'Clark Library Oversize'
+    HATCH CLRAR: 'Clark Library Rare Cases'
+    HATCH CLSOF: 'Clark Library Software'
+    HATCH CLOS: 'Closed Shelving' #NOT in Clark
+    HATCH CLC: 'Children''s Literature Collection' #NOT in Clark
+    HATCH GFOL: 'Folio'
+    HATCH GRAD: 'Graduate Library Stacks'
+    HATCH MIXM: 'Graduate Library Mixed Media'
+    HATCH EQHATC: 'Hatcher Equipment - Service Desk'
+    HATCH IS-SEEES: 'International Studies In Process Closed Shelving'
+    HATCH NER: 'Middle East Reference'
+    HATCH MONO: 'MonoCat'
+    HATCH SEM: 'Near East Seminar - Rm. 3020 Thayer Academic Bldg (Dept of Middle East Studies)'
+    HATCH PAPY: 'Papyrology'
+    HATCH REF: 'Reference' #grouping for GDESK, GLRF, GRNT
+    HATCH GLMR: 'Serials and Microforms'
+    HATCH SLVR: 'Slavic Reference'
+    HATCH SLVRH: 'Slavic Reference - Holtzman - Restricted'
+    HATCH SAR: 'South Asia Reference'
+    HATCH SEAR: 'Southeast Asia Reference'
+    #updated 2025-02-21
+HSRS:
+  desc: 'Health Sciences Remote Storage'
+  collections:
+    ALL: All collections
+    HSRS IND: 'Indexes'
+    HSRS OVR: 'Oversize'
+    HSRS PER: 'Journals'
+    HSRS STOR: ''
+MUSIC:
+  desc: 'Music'
+  collections:
+    ALL: All collections
+    MUSIC EDIS: 'American Sheet Music'
+    MUSIC DIS: 'Dissertations'
+    MUSIC DVD: 'DVD Collection'
+    MUSIC FOLIO: 'Folio Collection'
+    MUSIC MAIN: 'Main Collection'
+    MUSIC MINI: 'Miniature Scores'
+    MUSIC EQMUSI: 'Music Equipment'
+    MUSIC OVCD: 'Oversize Recordings'
+    MUSIC OVR: 'Oversize Shelves'
+    MUSIC RARS: 'Sheet Music Collection'
+    MUSIC ADM: 'Staff Offices'
+    MUSIC RAR: 'Rare Book Rm.'
+    MUSIC REC: 'Recordings'
+    MUSIC REF: 'Reference'
+    MUSIC RESC: 'Reserves'
+    MUSIC SOFT: 'Software'
+    MUSIC VID: 'Videos'
+    MUSIC RARW: 'Women Composers Collection'
+    #updated 2025-02-21
+MUSM:
+  desc: 'Museums'
+  collections:
+    ALL: All collections
+    MUSM ANTE: 'Anthro. Div. - Ethnobotany Lab'
+    MUSM ANTO: 'Anthro. Div. Lib. - Oversize'
+    MUSM ANT: 'Anthropology Div. Library'
+    MUSM BIRC: 'Birds Div. Lib. - Case'
+    MUSM BIR: 'Birds Division Library'
+    MUSM RESC: 'Course Reserves - Rm. 2500'
+    MUSM FISO: 'Fish Div. Lib. - Oversize'
+    MUSM FIS: 'Fish Division Library'
+    MUSM HEPO: 'Herpetology Div. Lib. - Oversize'
+    MUSM HEP: 'Herpetology Division Library'
+    MUSM HERB: 'Herbarium Stacks'
+    MUSM HEBC: 'Herbarium Cage - By appointment only'
+    MUSM HEBO: 'Herbarium Oversize'
+    MUSM HEBR: 'Herbarium Reference'
+    MUSM INST: 'Insect Div. Lib. - Orthoptera'
+    MUSM INSO: 'Insect Div. Lib. - Oversize'
+    MUSM INS: 'Insect Division Library'
+    MUSM PER: 'Journals - Rm. 2500'
+    MUSM MAM: 'Mammals Division Library'
+    MUSM MAMO: 'Mammals Division - Oversize'
+    MUSM MIC: 'Microform Collection - Rm. 2500'
+    MUSM MOLO: 'Mollusks Division - Oversize'
+    MUSM MOL: 'Mollusks Division Library'
+    MUSM PAL: 'Paleontology Div. Library'
+    MUSM PALO: 'Paleontology Lib. - Oversize'
+    MUSM PALR: 'Paleontology Lib. - Reference'
+    MUSM RESP: 'Permanent Reserves - Rm. 2500'
+    MUSM REF: 'Reference - Rm. 2500'
+    MUSM ERES: 'Reserves - Electronic Resource'
+    MUSM MAIN: 'Room 2500'
+    MUSM CAGE: 'Room 2500 - Cage - By appointment only'
+    MUSM OVR: 'Room 2500 - Oversize'
+    MUSM SPE: 'Special Formats'
+OFFS:
+  desc: 'Offsite Shelving'
+  collections:
+    ALL: All collections
+    OFFS ELLS: ''
+    OFFS STATE: ''
+SHAP:
+  desc: 'Shapiro'
+  collections:
+    ALL: All collections
+    SHAP PRON: 'Shapiro 2nd floor Leisure Reading Collection'
+    SHAP ATL: 'Atlases & Maps'
+    SHAP SBCS: 'Basement Compact Shelving'
+    SHAP COLSC: 'College and Career Success Collection'
+    SHAP DLAB: 'Design Lab'
+    SHAP DIS: 'Dissertations/Masters'
+    SHAP MAS: 'Masters Theses Archival Collection'
+    SHAP FLOW: 'Overflow'
+    SHAP REFU: 'Reference - The Wu Reading Room'
+    SHAP SCI: 'Science Book Stacks'
+    SHAP SER: 'Science Journals'
+    SHAP RESP: 'Science Media Cabinet'
+    SHAP SOVR: 'Science Oversize Stacks'
+    SHAP GOV: 'Shapiro Basement Government Publications'
+    SHAP EQSHAP: 'Shapiro Equipment - Service Desk'
+    SHAP OVR: 'Undergraduate Oversize - basement'
+    SHAP UGL: 'Undergraduate stacks'
+    SHAP GAME: 'Video Games'
+    SHAP GAMEB: 'Video Games - Books'
+    SHAP DISP: 'On Display - Hatcher/Shapiro'
+    SHAP SERU: 'Unbound serials'
+    SHAP UNASSIGNED: 'Unassigned location'
+    #updated 2025-02-21
+SPEC: 
+  desc: 'Special Collections' 
+  collections: 
+    ALL: All collections 
+    SPEC ART: 'Artists'' Books'
+    SPEC SCB-ASG: 'Asa Gray Collection' 
+    SPEC CHIL: 'Children''s Literature' 
+    SPEC FAUL: 'Faulkner Collection' 
+    SPEC RARE: 'General and Rare'
+    SPEC TAUB: 'History of Medicine Collection' 
+    SPEC SCB-HUB: 'Hubbard Imaginary Voyages Collection'
+    SPEC SCH-ISLM: 'Islamic Manuscripts' 
+    SPEC CUL: 'Janice Bluestein Longone Culinary Archive'
+    SPEC JHC: 'Jewish Heritage Collection' 
+    SPEC LABD: 'Joseph A. Labadie Collection' 
+    SPEC SCH-PAPYR: 'Papyrology Reference Collection'
+    SPEC SCB-PARS: 'Parsons-Rau Collection' 
+    SPEC WOR: 'Philippine History Collection' 
+    SPEC SCB-GOSL: 'Pop-Up and Movable Books' 
+    SPEC BIND: 'Publishers'' Bindings'
+    SPEC REF: 'Reference Collection'
+    SPEC SCB-SCFI: 'Science Fiction Collection' 
+    SPEC SCB-SHA: 'Shakespeare Collection' 
+    SPEC THC: 'Transportation History Collection' 
+TAUB:
+  desc: 'Taubman Health Sciences'
+  collections:
+    ALL: All collections
+    TAUB RESC: 'Reserves'
+    TAUB STOR: 'Storage' 
+    TAUB EQTAUB: 'Taubman Equipment'
+    #updated 2025-02-21

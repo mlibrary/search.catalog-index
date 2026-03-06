@@ -1,17 +1,15 @@
-require 'match_map'
-
+require "match_map"
 
 module Traject
   module UMich
     def self.building_map
-
       m = MatchMap.new
 
-      m[/^HATCH ASIA/]  = "Hatcher Graduate Asia Library"
-      m[/^HATCH AREF/]  = "Hatcher Graduate Asia Library"
-      m[/^HATCH AOVR/]  = "Hatcher Graduate Asia Library"
-      m[/^HATCH AOFF/]  = "Hatcher Graduate Asia Library"
-      m[/^HATCH AMIC/]  = "Hatcher Graduate Asia Library"
+      m[/^HATCH ASIA/] = "Hatcher Graduate Asia Library"
+      m[/^HATCH AREF/] = "Hatcher Graduate Asia Library"
+      m[/^HATCH AOVR/] = "Hatcher Graduate Asia Library"
+      m[/^HATCH AOFF/] = "Hatcher Graduate Asia Library"
+      m[/^HATCH AMIC/] = "Hatcher Graduate Asia Library"
       m[/^HATCH CLARK/] = "Hatcher Graduate Clark Library"
       m[/^HATCH CLBKS/] = "Hatcher Graduate Clark Library"
       m[/^HATCH CLATL/] = "Hatcher Graduate Clark Library"
@@ -26,14 +24,11 @@ module Traject
       m[/^HATCH CLOFF/] = "Hatcher Graduate Clark Library"
       m[/^HATCH CLSOF/] = "Hatcher Graduate Clark Library"
       m[/^HATCH CLSTR/] = "Hatcher Graduate Clark Library"
-      m[/^HATCH.*/]     = "Hatcher Graduate"
-      m[/^HSRS.*/]      = "Offsite Shelving H"
-#      m[/^UMTRI.*/]     = "Transportation Research Institute Library (UMTRI)"
+      m[/^HATCH.*/] = "Hatcher Graduate"
       m[/^UGL.*/] = "Shapiro Undergraduate"
       m[/^TAUB.*/] = "Taubman Medical"
       m[/^SPEC.*/] = "Special Collections"
       m[/^DENT.*/] = "Dentistry"
-      m[/^BUHR.*/] = "Buhr Shelving Facility"
       m[/^BSTA.*/] = "Biological Station"
       m[/^CLEM.*/] = "William L. Clements Library"
       m[/^BENT.*/] = "Bentley Historical Library"
@@ -73,11 +68,11 @@ module Traject
       m[/^HATCH DOCS/] = "Hatcher Graduate Documents Center"
       m[/^HATCH DMIC/] = "Hatcher Graduate Documents Center"
       m[/^HATCH DFILE/] = "Hatcher Graduate Documents Center"
-      m[/^ELLS.*/] = "Offsite Shelving"
+      m[/^HSRS.*/] = "Offsite Shelving"
+      m[/^BUHR.*/] = "Offsite Shelving"
       m[/^OFFS.*/] = "Offsite Shelving"
-      m[/^STATE.*/] = "Offsite Shelving"
 
-      return m
+      m
     end
   end
 end

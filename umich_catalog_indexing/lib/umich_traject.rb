@@ -1,5 +1,6 @@
 require "umich_traject/building_map"
 require "umich_traject/location_map"
+require "umich_traject/collection_map"
 require "umich_traject/floor_location"
 require "umich_traject/lib_loc_info"
 
