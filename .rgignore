@@ -1,0 +1,4 @@
+biblio/examples/*.json
+umich_catalog_indexing/spec/fixtures/*
+
+!.env
