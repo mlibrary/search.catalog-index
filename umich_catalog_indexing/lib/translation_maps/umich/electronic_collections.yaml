@@ -233,10 +233,10 @@
   - MIU
   - MIFLIC
 '990043368940106381':
-- collection_name: UN comtrade.
+- collection_name: UN Comtrade
   interface_name: United Nations
-  note: United Nations. Access to the United Nations online version restricted; authentication may be required.
-  link: http://comtrade.un.org/
+  note: United Nations. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://comtradeplus.un.org
   status: Available
   campuses:
   - ann_arbor
@@ -616,9 +616,9 @@
   - MIU
   - MIFLIC
 '990041188890106381':
-- collection_name: The Faber poetry library
-  interface_name: University of Michigan, Digital Library Platform & Services
-  note: University of Michigan, Digital Library Platform & Services. Access to the University of Michigan, Digital Library Platform & Services online version restricted; authentication may be required.
+- collection_name: Faber Poetry Library
+  interface_name: University of Michigan Library
+  note: University of Michigan Library. Select "Log In" from MLibrary Digital Collections "access restricted" page. Authorized U-M users (+ guests in U-M Libraries)
   link: https://quod.lib.umich.edu/f/faber/
   status: Available
   campuses:
@@ -746,7 +746,7 @@
   - MIU
   - MIFLIC
 '990127127180106381':
-- collection_name: Lexicons of Early Modern English LEME.
+- collection_name: 'LEME: Lexicons of Early Modern English'
   interface_name: University of Toronto Libraries
   note: University of Toronto Libraries. Open access for all users.
   link: https://leme.library.utoronto.ca/
@@ -1119,18 +1119,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990041925780106381':
-- collection_name: Thesaurus Linguae Graecae a digital library of Greek literature /
-  interface_name: University of California, Irvine
-  note: University of California, Irvine. Access to the University of California, Irvine online version restricted; Individual registration required; authentication may be required.
-  link: https://stephanus.tlg.uci.edu/index.php%23login=true
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990040186300106381':
 - collection_name: The Chicano database
   interface_name: EBSCOhost
@@ -1158,18 +1146,6 @@
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=rsb
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990000529970106381':
-- collection_name: Hapi, Hispanic American periodicals index.
-  interface_name: UCLA
-  note: UCLA. Access to the UCLA online version restricted (authentication may be required)
-  link: http://hapi.ucla.edu/
   status: Available
   campuses:
   - ann_arbor
@@ -1252,18 +1228,6 @@
   interface_name: Yale University Library
   note: Yale University Library. Individual registration required for access to the Yale University Library online version; authentication may be required.
   link: https://www.lib.umich.edu/database/link/45667
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990038834730106381':
-- collection_name: Mafteaḥ le-maʼamarim be-ʻIvrit.
-  interface_name: University of Haifa Library
-  note: University of Haifa Library. Access to the University of Haifa Library online version restricted; authentication may be required.
-  link: https://haifa-primo.hosted.exlibrisgroup.com/primo-explore/search?vid=IHP&lang=en_US
   status: Available
   campuses:
   - ann_arbor
@@ -1426,9 +1390,9 @@
   - MIU
   - MIFLIC
 '990040331030106381':
-- collection_name: 'EEBO : early English books online /'
+- collection_name: Early English Books Online
   interface_name: University of Michigan Library
-  note: University of Michigan Library.
+  note: University of Michigan Library. Open access for all users.
   link: https://quod.lib.umich.edu/e/eebogroup/
   status: Available
   campuses:
@@ -1474,9 +1438,9 @@
   - MIU
   - MIFLIC
 '990155077230106381':
-- collection_name: University of Michigan Great Lakes digital library.
-  interface_name: University of Michigan, Digital Library Platform & Services
-  note: University of Michigan, Digital Library Platform & Services. Access to the University of Michigan, Digital Library Platform & Services online version.
+- collection_name: Great Lakes Digital Library
+  interface_name: University of Michigan Library
+  note: University of Michigan Library. Open access for all users.
   link: https://quod.lib.umich.edu/g/glrr/
   status: Available
   campuses:
@@ -1508,10 +1472,10 @@
   institution_codes:
   - MIU
 '990121851700106381':
-- collection_name: College affordability and transparency center
+- collection_name: College Affordability and Transparency Center
   interface_name: US Department of Education
-  note: US Department of Education. Access to the US Department of Education online version .
-  link: http://collegecost.ed.gov/catc/Default.aspx
+  note: US Department of Education. Open access for all users.
+  link: https://collegecost.ed.gov/
   status: Available
   campuses:
   - ann_arbor
@@ -1734,7 +1698,7 @@
   - MIU
   - MIFLIC
 '990161530020106381':
-- collection_name: 'CHEMnetBASE : chemical databases online.'
+- collection_name: CHEMnetBASE
   interface_name: Taylor and Francis Online
   note: Taylor and Francis Online. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.chemnetbase.com
@@ -1877,10 +1841,10 @@
   - MIU
   - MIFLIC
 '990040028560106381':
-- collection_name: Michigan ethnic directory.
+- collection_name: Michigan Ethnic Directory
   interface_name: University of Michigan
-  note: University of Michigan. Access to the University of Michigan online version.
-  link: http://quod.lib.umich.edu/cgi/b/bib/bib-idx?c=ethnic
+  note: University of Michigan. Open access for all users.
+  link: https://quod.lib.umich.edu/cgi/b/bib/bib-idx?c=ethnic
   status: Available
   campuses:
   - ann_arbor
@@ -1901,7 +1865,7 @@
   - MIU
   - MIFLIC
 '990039635080106381':
-- collection_name: Past masters philosophical texts.
+- collection_name: Past Masters Philosophical Texts
   interface_name: University of Michigan Library
   note: University of Michigan Library. Select "Log In" from MLibrary Digital Collections "access restricted" page. Authorized U-M users (+ guests in U-M Libraries)
   link: https://quod.lib.umich.edu/p/pmast/
@@ -2071,10 +2035,10 @@
   - MIU
   - MIFLIC
 '990146236310106381':
-- collection_name: UNIDO statistics data portal.
+- collection_name: UNIDO Statistics Portal
   interface_name: United Nations
-  note: United Nations. Access to the United Nations online version.
-  link: http://stat.unido.org/
+  note: United Nations. Open access for all users.
+  link: https://stat.unido.org/
   status: Available
   campuses:
   - ann_arbor
@@ -2777,18 +2741,6 @@
   - ann_arbor
   institution_codes:
   - MIU
-'990041732520106381':
-- collection_name: Wright American fiction, 1851-1875
-  interface_name: University of Indiana
-  note: University of Indiana. Access to the University of Indiana online version.
-  link: http://www.letrs.indiana.edu/web/w/wright2/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990043266360106381':
 - collection_name: Early American Imprints, Series I, Evans (1639-1800)
   interface_name: Readex
@@ -2964,7 +2916,7 @@
   - MIU
   - MIFLIC
 '990130216690106381':
-- collection_name: CANSIM @ CHASS.
+- collection_name: CANSIM @ CHASS
   interface_name: University of Toronto, CHASS
   note: University of Toronto, CHASS. Authorized U-M users (+ guests in U-M Libraries)
   link: http://dc.chass.utoronto.ca/chasscansim/
@@ -2980,18 +2932,6 @@
   interface_name: HathiTrust
   note: HathiTrust. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.hathitrust.org/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990134873780106381':
-- collection_name: Caribbean newspaper digital library
-  interface_name: University of Florida Digital Collections
-  note: University of Florida Digital Collections. Access to the University of Florida Digital Collections online version.
-  link: http://dloc.com/cndl
   status: Available
   campuses:
   - ann_arbor
@@ -7888,18 +7828,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187252735206381':
-- collection_name: CANSIM
-  interface_name: Computing in the Humanities and Social Sciences (CHASS)
-  note: Computing in the Humanities and Social Sciences (CHASS)
-  link: http://datacenter2.chass.utoronto.ca/cansimdim/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99187252735406381':
 - collection_name: American FactFinder
   interface_name: U.S. Census Bureau
@@ -11564,18 +11492,6 @@
   - ann_arbor
   institution_codes:
   - MIU
-'99187252575006381':
-- collection_name: UN Comtrade
-  interface_name: United Nations
-  note: United Nations.
-  link: http://comtrade.un.org/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99187252575106381':
 - collection_name: PolicyMap
   interface_name: The Reinvestment Fund (TRF)
@@ -11941,7 +11857,7 @@
 '99187252701506381':
 - collection_name: Index to Hebrew Periodicals (IHP)
   interface_name: IHP - Index to Hebrew Periodicals - מפתח חיפה למאמרים בעברית
-  note: IHP - Index to Hebrew Periodicals - מפתח חיפה למאמרים בעברית.
+  note: IHP - Index to Hebrew Periodicals - מפתח חיפה למאמרים בעברית. Authorized U-M users (+ guests in U-M Libraries)
   link: https://haifa-primo.hosted.exlibrisgroup.com/primo-explore/search?vid=IHP&lang=iw_IL
   status: Available
   campuses:
@@ -12450,18 +12366,6 @@
   interface_name: Mergent, Inc.
   note: Mergent, Inc. Authorized U-M users (+ guests in U-M Libraries)
   link: http://www.eventsdata.com/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187252709206381':
-- collection_name: United Nations Commodity Trade Statistics Database (UN comtrade)
-  interface_name: United Nations
-  note: United Nations.
-  link: https://comtradeplus.un.org/
   status: Available
   campuses:
   - ann_arbor
@@ -13952,7 +13856,7 @@
 '99187252725806381':
 - collection_name: Hispanic-American Periodicals Index (HAPI)
   interface_name: University of California Regents
-  note: University of California Regents.
+  note: University of California Regents. Authorized U-M users (+ guests in U-M Libraries)
   link: http://hapi.ucla.edu/
   status: Available
   campuses:
@@ -17539,6 +17443,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99187611782606381':
+- collection_name: 'ProQuest Historical Newspapers: Indianapolis Star'
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/hnpindianapolisstarshell
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99187492100306381':
 - collection_name: Bloomsbury Theology and Religion Online Anchor Yale Bible Dictionary
   interface_name: Bloomsbury Publishing Plc
@@ -20170,18 +20086,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187948402606381':
-- collection_name: University of Michigan Library ERRWPC
-  interface_name: University of Michigan Library
-  note: University of Michigan Library.
-  link: ''
-  status: Not Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99187950696706381':
 - collection_name: Global Press Archive Donetsk and Luhansk Newspaper Collection
   interface_name: East View
@@ -21933,7 +21837,7 @@
 '990043368930106381':
 - collection_name: 'The United States and its Territories, 1870 - 1925: The Age of Imperialism'
   interface_name: University of Michigan Library
-  note: University of Michigan Library.
+  note: University of Michigan Library. Open access for all users.
   link: https://quod.lib.umich.edu/p/philamer/
   status: Available
   campuses:
@@ -28527,3 +28431,27 @@
   - ann_arbor
   institution_codes:
   - MIU
+'99189122929506381':
+- collection_name: 'ProQuest Historical Newspapers: Pittsburgh Post-Gazette'
+  interface_name: ProQuest
+  note: ProQuest.
+  link: https://search.proquest.com/hnppittsburghpostgazette
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189122930406381':
+- collection_name: Jet Magazine Archive
+  interface_name: EBSCOhost
+  note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://search.ebscohost.com/direct.asp?db=jar&jid=LFJK&scope=site
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
