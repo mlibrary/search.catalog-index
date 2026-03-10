@@ -24,7 +24,7 @@ module Common
 
       # Normalization is just turning tabs into spaces and the applying the cleaner.
       def normalize(str)
-        CLEANER.match(str.tr("\t", " "))[1]
+        CLEANER.match(str.tr("\t\n", " "))[1]
       end
     end
   end
