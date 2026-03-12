@@ -31,7 +31,11 @@ class Results:
     @property
     def filters(self):
         facet_fields = self.data["facet_counts"]["facet_fields"]
-        return [Filter(field=x, values=facet_fields[x]) for x in facet_fields.keys()]
+        return [
+            Filter(field=x, values=facet_fields[x])
+            for x in facet_fields.keys()
+            if x in Filter.filter_field_map
+        ]
 
     @property
     def total(self):
@@ -58,7 +62,7 @@ class Filter:
         "topicStr": "subject",
         "publishDateRange": "date_of_publication",
         "language": "language",
-        "location": "collection",
+        "collection": "collection",
         "hlb3Str": "academic_discipline",
         "authorStr": "author",
         "place_of_publication": "place_of_publication",
@@ -67,7 +71,7 @@ class Filter:
     }  # institution and search_only are skipped for this
 
     def __init__(self, field: str, values: list):
-        self.field = field
+        self.field = self.filter_field_map[field]
         self.values = self.get_values(values)
 
     def get_values(self, values):
