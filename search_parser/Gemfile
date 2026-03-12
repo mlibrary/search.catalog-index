@@ -1,0 +1,32 @@
+source "https://rubygems.org"
+
+gem "sinatra"
+gem "puma"
+gem "ostruct"
+gem "semantic_logger"
+gem "canister"
+
+group :metrics do
+  gem "yabeda-puma-plugin"
+  gem "yabeda-prometheus"
+  gem "prometheus-client"
+end
+
+group :development, :test do
+  gem "faker"
+  gem "ruby-prof"
+  gem "debug"
+end
+
+group :test do
+  gem "rspec"
+  gem "rack-test"
+  gem "simplecov"
+  gem "simplecov-lcov"
+  gem "webmock"
+end
+
+group :development do
+  gem "standard"
+  gem "ruby-lsp"
+end
