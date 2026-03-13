@@ -5,6 +5,13 @@ gem "puma"
 gem "ostruct"
 gem "semantic_logger"
 gem "canister"
+gem "pry" # for mlibrary_search_parser
+gem "activesupport"
+gem "faraday"
+
+gem "mlibrary_search_parser",
+  git: "https://github.com/mlibrary/mlibrary_search_parser",
+  branch: "main"
 
 group :metrics do
   gem "yabeda-puma-plugin"

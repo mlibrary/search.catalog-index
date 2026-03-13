@@ -1,5 +1,6 @@
 require "canister"
 require "semantic_logger"
+require "faraday"
 
 Services = Canister.new
 
@@ -7,6 +8,25 @@ S = Services
 
 S.register(:app_env) { ENV["APP_ENV"] || "development" }
 S.register(:app_name) { ENV["APP_NAME"] || "search_parser" }
+
+#######
+# Solr
+######
+
+S.register(:solr_url) { ENV.fetch("CATALOG_SOLR_URL") }
+S.register(:solr_core) { ENV["CATALOG_SOLR_CORE"] || "biblio" }
+S.register(:solr_conn) do
+  Faraday.new(
+    url: S.solr_url, request: {params_encoder: Faraday::FlatParamsEncoder}
+  ) do |f|
+    f.request :json
+    f.response :json
+  end
+end
+
+#######
+# Logging
+######
 
 S.register(:log_stream) do
   $stdout.sync = true

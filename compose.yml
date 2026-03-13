@@ -28,6 +28,8 @@ services:
       - ./search_parser/.:/app
     ports:
       - 4567:4567
+    env_file:
+      - ./search_parser/.env
     command:
       - bundle
       - exec
