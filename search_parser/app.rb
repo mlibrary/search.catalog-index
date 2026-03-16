@@ -1,4 +1,5 @@
 require "sinatra/base"
+require "sinatra/namespace"
 require "puma"
 require "mlibrary_search_parser"
 require_relative "lib/services"
@@ -71,13 +72,16 @@ module SearchParser
 end
 
 class SearchParser::Application < Sinatra::Base
-  get "/" do
-    content_type :json
-    query_params = {
-      query: params["query"] || "",
-      rows: params["rows"] || 10,
-      start: params["start"] || 0
-    }
-    S.solr_conn.get("solr/#{S.solr_core}/select", SearchParser.solr_query(**query_params)).body.to_json
+  register Sinatra::Namespace
+  namespace "/catalog" do
+    get "/search" do
+      content_type :json
+      query_params = {
+        query: params["query"] || "",
+        rows: params["rows"] || 10,
+        start: params["start"] || 0
+      }
+      S.solr_conn.get("solr/#{S.solr_core}/select", SearchParser.solr_query(**query_params)).body.to_json
+    end
   end
 end
