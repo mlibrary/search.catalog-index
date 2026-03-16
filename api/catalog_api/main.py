@@ -46,9 +46,11 @@ def get_record(id: str) -> schemas.Record:
 
 
 @app.get("/search", response_model_exclude_none=True)
-def get_search_results(offset: int = 0) -> schemas.Results:
+def get_search_results(
+    query: str = "", offset: int = 0, limit: int = 10
+) -> schemas.Results:
     """
     Does a search in catalog solr
     """
-    results = Results({"offset": offset})
+    results = Results({"query": query, "offset": offset, "limit": limit})
     return results
