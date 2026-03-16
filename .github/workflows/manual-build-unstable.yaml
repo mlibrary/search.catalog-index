@@ -28,7 +28,7 @@ jobs:
           if [[ $IMAGE == "api" ]]; then
               echo "directory=api" >> "$GITHUB_OUTPUT"
               echo "image_name=search.catalog-api" >> "$GITHUB_OUTPUT"
-          if [[ $IMAGE == "parser" ]]; then
+          elif [[ $IMAGE == "parser" ]]; then
               echo "directory=search_parser" >> "$GITHUB_OUTPUT"
               echo "image_name=search.parser" >> "$GITHUB_OUTPUT"
           else
