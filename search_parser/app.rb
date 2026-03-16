@@ -4,7 +4,7 @@ require "puma"
 require "mlibrary_search_parser"
 require_relative "lib/services"
 require "yaml"
-require "debug"
+require "debug" if S.app_env == "development"
 require "active_support"
 require "active_support/core_ext/hash/indifferent_access"
 
