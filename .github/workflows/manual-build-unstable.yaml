@@ -1,6 +1,5 @@
 #saved so that I can have a workflow to try out in a branch
 name: Manual Build image
-
 on:
   workflow_dispatch:
     inputs:
@@ -10,10 +9,10 @@ on:
         type: choice
         options:
           - api
+          - parser
       tag:
         description: tag
         required: true
-
 jobs:
   get-image-info:
     runs-on: ubuntu-latest
@@ -21,19 +20,21 @@ jobs:
       directory: ${{ steps.get_step.outputs.directory }}
       image_name: ${{ steps.get_step.outputs.image_name }}
     steps:
-    - name: Get step
-      id: get_step
-      env:
-        IMAGE: ${{ github.event.inputs.image }}
-      run: |
-        if [[ $IMAGE == "api" ]]; then
-            echo "directory=api" >> "$GITHUB_OUTPUT"
-            echo "image_name=search.catalog-api" >> "$GITHUB_OUTPUT"
-        else
-          echo "somehow didn't provide a image"
-          false
-        fi
-
+      - name: Get step
+        id: get_step
+        env:
+          IMAGE: ${{ github.event.inputs.image }}
+        run: |
+          if [[ $IMAGE == "api" ]]; then
+              echo "directory=api" >> "$GITHUB_OUTPUT"
+              echo "image_name=search.catalog-api" >> "$GITHUB_OUTPUT"
+          elif [[ $IMAGE == "parser" ]]; then
+              echo "directory=search_parser" >> "$GITHUB_OUTPUT"
+              echo "image_name=search.parser" >> "$GITHUB_OUTPUT"
+          else
+            echo "somehow didn't provide a image"
+            false
+          fi
   build-unstable:
     name: Build unstable ${{ github.event.inputs.tag }}
     needs: [get-image-info]

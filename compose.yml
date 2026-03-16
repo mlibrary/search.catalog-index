@@ -19,6 +19,23 @@ services:
     env_file:
       - ./api/.env
     command: "poetry run uvicorn catalog_api.main:app --host 0.0.0.0 --reload"
+
+  parser:
+    build:
+      context: search_parser/.
+      target: development
+    volumes:
+      - ./search_parser/.:/app
+    ports:
+      - 4567:4567
+    env_file:
+      - ./search_parser/.env
+    command:
+      - bundle
+      - exec
+      - puma
+      - -b
+      - "tcp://0.0.0.0:4567"
   
   supervisor:
     image: "ghcr.io/mlibrary/sidekiq-supervisor-unstable:latest"

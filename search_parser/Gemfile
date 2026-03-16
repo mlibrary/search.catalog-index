@@ -1,0 +1,40 @@
+source "https://rubygems.org"
+
+gem "sinatra"
+gem "sinatra-contrib"
+gem "puma"
+gem "ostruct"
+gem "semantic_logger"
+gem "canister"
+gem "pry" # for mlibrary_search_parser
+gem "activesupport"
+gem "faraday"
+
+gem "mlibrary_search_parser",
+  git: "https://github.com/mlibrary/mlibrary_search_parser",
+  branch: "main"
+
+group :metrics do
+  gem "yabeda-puma-plugin"
+  gem "yabeda-prometheus"
+  gem "prometheus-client"
+end
+
+group :development, :test do
+  gem "faker"
+  gem "ruby-prof"
+  gem "debug"
+end
+
+group :test do
+  gem "rspec"
+  gem "rack-test"
+  gem "simplecov"
+  gem "simplecov-lcov"
+  gem "webmock"
+end
+
+group :development do
+  gem "standard"
+  gem "ruby-lsp"
+end
