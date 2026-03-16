@@ -8,12 +8,9 @@ require "active_support"
 require "active_support/core_ext/hash/indifferent_access"
 
 module SearchParser
-  CATALOG_CONFIG = YAML.safe_load_file("./00-catalog.yml", aliases: true)
+  CATALOG_CONFIG = YAML.safe_load_file("./config/catalog.yaml", aliases: true)
   CATALOG_BUILDER = MLibrarySearchParser::SearchBuilder.new(CATALOG_CONFIG)
-  FACETS = ["authorStr", "availability", "building", "collection", "format",
-    "geographicStr", "hlb3Str", "institution", "language",
-    "place_of_publication", "publishDateRange", "search_only",
-    "topicStr"]
+  FACETS = CATALOG_CONFIG["facets"]
 
   def self.catalog_config
     CATALOG_CONFIG
@@ -56,12 +53,15 @@ module SearchParser
   end
 
   def self.solr_query(query:, rows: 10, start: 0)
+    # how to handle fq:
+    # fq":["topicStr:(Motion\\ pictures)","institution:(UM\\ Ann\\ Arbor\\ Libraries)","+(new_availability:physical OR new_availability:hathi_trust_full_text_or_electronic_holding)"]
+    # sort comes from config/sorts.yml
     lp = MLibrarySearchParser::Transformer::Solr::LocalParams.new(build(query))
     result = {
       rows: rows,
       start: start
     }.merge(facet_params).merge(lp.params).with_indifferent_access
-    result["qt"] = "standard" unless ["edismax", "dismax"].include?(result["qt"])
+    result["qt"] = "standard" unless ["edismax", "dismax"].include?(result["qt"]) # code from spectrum so I don't forget. Don't know if we need this.
     result["qq"] = '"' + solr_escape(result["q"]) + '"'
     result["sort"] = "score desc"
     result["fq"] = ["institution:(UM\\ Ann\\ Arbor\\ Libraries)", "+(new_availability:physical OR new_availability:hathi_trust_full_text_or_electronic_holding)"]
@@ -73,7 +73,11 @@ end
 class SearchParser::Application < Sinatra::Base
   get "/" do
     content_type :json
-    query = params["query"] || ""
-    S.solr_conn.get("solr/#{S.solr_core}/select", SearchParser.solr_query(query: query)).body.to_json
+    query_params = {
+      query: params["query"] || "",
+      rows: params["rows"] || 10,
+      start: params["start"] || 0
+    }
+    S.solr_conn.get("solr/#{S.solr_core}/select", SearchParser.solr_query(**query_params)).body.to_json
   end
 end
