@@ -3,6 +3,7 @@ import requests
 from pathlib import Path
 from dataclasses import dataclass
 from catalog_api.record import Record
+from catalog_api.services import S
 
 
 class Results:
@@ -23,7 +24,7 @@ class Results:
             "rows": data["limit"],
         }
         response = requests.Session().get(
-            "http://parser:4567/catalog/search", params=params
+            f"{S.parser_url}/catalog/search", params=params
         )
         self.data = response.json()
 
