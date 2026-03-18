@@ -7,6 +7,9 @@ ARG POETRY_VERSION=1.8.3
 ARG UID=1000
 ARG GID=1000
 
+RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
+  curl
+
 # Where python should look for packages and modules when using import
 ENV PYTHONPATH="/app"
 
@@ -66,7 +69,7 @@ RUN poetry export --without dev -f requirements.txt --output requirements.txt
 FROM poetry AS development
 
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
-    boxes
+  boxes
 
 USER app
 

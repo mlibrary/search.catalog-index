@@ -1,7 +1,9 @@
 import json
+import requests
 from pathlib import Path
 from dataclasses import dataclass
 from catalog_api.record import Record
+from catalog_api.services import S
 
 
 class Results:
@@ -16,13 +18,15 @@ class Results:
         page3 = json.load(f)
 
     def __init__(self, data: dict):
-        offset = data["offset"]
-        if offset < 10:
-            self.data = self.page1
-        elif offset < 20:
-            self.data = self.page2
-        else:
-            self.data = self.page3
+        params = {
+            "query": data["query"],
+            "start": data["offset"],
+            "rows": data["limit"],
+        }
+        response = requests.Session().get(
+            f"{S.parser_url}/catalog/search", params=params
+        )
+        self.data = response.json()
 
     @property
     def records(self):

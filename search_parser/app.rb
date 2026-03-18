@@ -73,8 +73,10 @@ end
 
 class SearchParser::Application < Sinatra::Base
   register Sinatra::Namespace
+  set :host_authorization, {permitted_hosts: []}
   namespace "/catalog" do
     get "/search" do
+      # headers "Access-Control-Allow-Origin" => "*"
       content_type :json
       query_params = {
         query: params["query"] || "",
