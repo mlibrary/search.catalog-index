@@ -13,7 +13,7 @@ S.register(:app_name) { ENV["APP_NAME"] || "search_parser" }
 # Solr
 ######
 
-S.register(:solr_url) { ENV.fetch("CATALOG_SOLR_URL") }
+S.register(:solr_url) { ENV["CATALOG_SOLR_URL"] || "http://solr:8983" }
 S.register(:solr_core) { ENV["CATALOG_SOLR_CORE"] || "biblio" }
 S.register(:solr_conn) do
   Faraday.new(
