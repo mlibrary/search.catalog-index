@@ -6,7 +6,7 @@ ENV["APP_ENV"] = "test"
 require_relative "../app"
 
 # enabling this breaks hash_include which really is needed for this testing
-# WebMock::Config.instance.query_values_notation = :flat_array
+WebMock::Config.instance.query_values_notation = :flat_array
 module RSpecMixin
   include Rack::Test::Methods
 

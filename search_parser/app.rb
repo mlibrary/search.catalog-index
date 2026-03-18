@@ -49,18 +49,19 @@ module SearchParser
     str.gsub(/([+\-&|!(){}\[\]\^"~*?:\\\/])/, '\\\\\1')
   end
 
-  def self.solr_query(query:, rows: 10, start: 0)
+  def self.solr_query(query:, rows:, start:, sort:)
     # how to handle fq:
     # fq":["topicStr:(Motion\\ pictures)","institution:(UM\\ Ann\\ Arbor\\ Libraries)","+(new_availability:physical OR new_availability:hathi_trust_full_text_or_electronic_holding)"]
     # sort comes from config/sorts.yml
     lp = MLibrarySearchParser::Transformer::Solr::LocalParams.new(build(query))
     result = {
       rows: rows,
-      start: start
+      start: start,
+      sort: sort
     }.merge(facet_params).merge(lp.params).with_indifferent_access
     result["qt"] = "standard" unless ["edismax", "dismax"].include?(result["qt"]) # code from spectrum so I don't forget. Don't know if we need this.
     result["qq"] = '"' + solr_escape(result["q"]) + '"'
-    result["sort"] = "score desc"
+    # result["sort"] = "score desc"
     result["fq"] = ["institution:(UM\\ Ann\\ Arbor\\ Libraries)", "+(new_availability:physical OR new_availability:hathi_trust_full_text_or_electronic_holding)"]
 
     result
@@ -77,7 +78,8 @@ class SearchParser::Application < Sinatra::Base
       query_params = {
         query: params["query"] || "",
         rows: params["rows"] || 10,
-        start: params["start"] || 0
+        start: params["start"] || 0,
+        sort: params["sort"] || "score desc"
       }
       S.solr_conn.get("solr/#{S.solr_core}/select", SearchParser.solr_query(**query_params)).body.to_json
     end
