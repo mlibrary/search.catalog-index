@@ -2,27 +2,23 @@ require "sinatra/base"
 require "sinatra/namespace"
 require "puma"
 require "mlibrary_search_parser"
-require_relative "lib/services"
 require "yaml"
-require "debug" if S.app_env == "development"
 require "active_support"
 require "active_support/core_ext/hash/indifferent_access"
+require_relative "lib/services"
+require "debug" if S.app_env == "development"
 
 module SearchParser
   CATALOG_CONFIG = YAML.safe_load_file("./config/catalog.yaml", aliases: true)
   CATALOG_BUILDER = MLibrarySearchParser::SearchBuilder.new(CATALOG_CONFIG)
   FACETS = CATALOG_CONFIG["facets"]
 
-  def self.catalog_config
-    CATALOG_CONFIG
-  end
-
   def self.build(query)
     CATALOG_BUILDER.build(query)
   end
 
-  def self.misc
-    {}
+  def self.facets
+    FACETS
   end
 
   def self.facet_params
