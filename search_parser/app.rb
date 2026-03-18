@@ -23,6 +23,7 @@ module SearchParser
 
   def self.facet_params
     result = {}
+
     FACETS.map do |field|
       result["f.#{field}.facet.limit"] = "50"
       result["f.#{field}.facet.mincount"] = "1"
@@ -49,20 +50,21 @@ module SearchParser
     str.gsub(/([+\-&|!(){}\[\]\^"~*?:\\\/])/, '\\\\\1')
   end
 
-  def self.solr_query(query:, rows:, start:, sort:)
+  def self.solr_query(query:, rows:, start:, sort:, fq:)
     # how to handle fq:
     # fq":["topicStr:(Motion\\ pictures)","institution:(UM\\ Ann\\ Arbor\\ Libraries)","+(new_availability:physical OR new_availability:hathi_trust_full_text_or_electronic_holding)"]
     # sort comes from config/sorts.yml
     lp = MLibrarySearchParser::Transformer::Solr::LocalParams.new(build(query))
+
     result = {
       rows: rows,
       start: start,
-      sort: sort
+      sort: sort,
+      fq: fq
     }.merge(facet_params).merge(lp.params).with_indifferent_access
+
     result["qt"] = "standard" unless ["edismax", "dismax"].include?(result["qt"]) # code from spectrum so I don't forget. Don't know if we need this.
     result["qq"] = '"' + solr_escape(result["q"]) + '"'
-    # result["sort"] = "score desc"
-    result["fq"] = ["institution:(UM\\ Ann\\ Arbor\\ Libraries)", "+(new_availability:physical OR new_availability:hathi_trust_full_text_or_electronic_holding)"]
 
     result
   end
@@ -73,13 +75,13 @@ class SearchParser::Application < Sinatra::Base
   set :host_authorization, {permitted_hosts: []}
   namespace "/catalog" do
     get "/search" do
-      # headers "Access-Control-Allow-Origin" => "*"
       content_type :json
       query_params = {
         query: params["query"] || "",
         rows: params["rows"] || 10,
         start: params["start"] || 0,
-        sort: params["sort"] || "score desc"
+        sort: params["sort"] || "score desc",
+        fq: params["fq"] || ["institution:(UM\\ Ann\\ Arbor\\ Libraries)", "+(availability:physical OR availability:hathi_trust_full_text_or_electronic_holding)"]
       }
       S.solr_conn.get("solr/#{S.solr_core}/select", SearchParser.solr_query(**query_params)).body.to_json
     end

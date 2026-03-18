@@ -74,5 +74,24 @@ RSpec.describe "requests" do
         end
       end
     end
+
+    context "filter query" do
+      it "passes the filter query from fq param" do
+        params["fq"] = ["first", "second"]
+        expect_has_param("fq", "first")
+      end
+      it "includes the second parameter too" do
+        params["fq"] = ["first", "second"]
+        expect_has_param("fq", "second")
+      end
+
+      # these two won't last for ever. The api should always send a fq
+      it "defaults to um library" do
+        expect_has_param("fq", "institution.*")
+      end
+      it "defaults to not-search-only" do
+        expect_has_param("fq", '%2B\(availability:physical.*')
+      end
+    end
   end
 end
