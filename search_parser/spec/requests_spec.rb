@@ -1,0 +1,97 @@
+RSpec.describe "requests" do
+  context "get /catalog/search" do
+    let(:key) { "" }
+    let(:value) { "" }
+    def gen_solr_stub(key, value)
+      # this should do proper matching.
+      # (?=&|\z) means the string is followed by either the "&" character or
+      # the end of the string
+      stub_request(:get, /#{S.solr_url}\/solr\/biblio\/select.*[?&]#{key}=#{value}(?=&|\z)/)
+    end
+    let(:params) do
+      {query: "blah"}
+    end
+
+    def expect_has_param(key, value)
+      solr_stub = gen_solr_stub(key, value)
+      get "/catalog/search", params
+      expect(solr_stub).to have_been_requested
+    end
+
+    subject do
+      get "/catalog/search", params
+    end
+
+    context "standard params" do
+      it "has a q1 param" do
+        expect_has_param("q1", "blah")
+      end
+      it "has fl of *,score" do
+        expect_has_param("fl", '\*,score')
+      end
+      it "has a default start of 0" do
+        expect_has_param("start", "0")
+      end
+      it "uses start from query parameters" do
+        params[:start] = "22"
+        expect_has_param("start", "22")
+      end
+      it "has a default rows of 10" do
+        expect_has_param("rows", "10")
+      end
+      it "uses the rows param for rows" do
+        params[:rows] = "20"
+        expect_has_param("rows", "20")
+      end
+      it "has a default for sort" do
+        expect_has_param("sort", "score desc")
+      end
+      it "uses the sort param for sort" do
+        params["sort"] = "created asc"
+        expect_has_param("sort", "created asc")
+      end
+      it "includes solr quoted string for qq" do
+        expect_has_param("qq", '"_query_.*')
+      end
+    end
+
+    SearchParser.facets.each do |facet|
+      context "#{facet} parameters" do
+        it "has the default facet limit" do
+          expect_has_param("f.#{facet}.facet.limit", "50")
+        end
+        it "has the default facet mincount" do
+          expect_has_param("f.#{facet}.facet.mincount", "1")
+        end
+        it "has the default facet offset" do
+          expect_has_param("f.#{facet}.facet.offset", "0")
+        end
+        it "has the default facet sort" do
+          expect_has_param("f.#{facet}.facet.sort", "count")
+        end
+        it "has the facet field" do
+          expect_has_param("f.#{facet}.facet.sort", "count")
+        end
+      end
+    end
+
+    context "filter query" do
+      it "passes the filter query from fq param" do
+        params["fq"] = ["first", "second"]
+        expect_has_param("fq", "first")
+      end
+      it "includes the second parameter too" do
+        params["fq"] = ["first", "second"]
+        expect_has_param("fq", "second")
+      end
+
+      # these two won't last for ever. The api should always send a fq
+      it "defaults to um library" do
+        expect_has_param("fq", "institution.*")
+      end
+      it "defaults to not-search-only" do
+        expect_has_param("fq", '%2B\(availability:physical.*')
+      end
+    end
+  end
+end
