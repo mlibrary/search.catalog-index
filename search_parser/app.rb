@@ -9,9 +9,9 @@ require_relative "lib/services"
 require "debug" if S.app_env == "development"
 
 module SearchParser
-  CATALOG_CONFIG = YAML.safe_load_file("./config/catalog.yaml", aliases: true)
+  CATALOG_CONFIG = YAML.safe_load_file("./config/catalog.yaml", aliases: true).freeze
   CATALOG_BUILDER = MLibrarySearchParser::SearchBuilder.new(CATALOG_CONFIG)
-  FACETS = CATALOG_CONFIG["facets"]
+  FACETS = CATALOG_CONFIG["facets"].freeze
 
   def self.build(query)
     CATALOG_BUILDER.build(query)
