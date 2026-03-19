@@ -336,9 +336,9 @@ class ResultRecord(BaseModel):
     # contents: list[PairedTextField]
     # bookplate: list[BareTextField]
     # indexing_date: datetime.date
-    # holdings: Holdings
+    holdings: Holdings
     # marc: dict
-    # citation: Citation
+    citation: Citation
 
     model_config = ConfigDict(populate_by_name=True)
 
