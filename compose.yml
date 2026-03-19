@@ -1,16 +1,15 @@
 services:
   api-dev:
-    build: 
-      context: api/. 
+    build:
+      context: api/.
       target: development
     volumes:
       - ./api/.:/app
     env_file:
       - ./api/.env
-
   api:
-    build: 
-      context: api/. 
+    build:
+      context: api/.
       target: development
     volumes:
       - ./api/.:/app
@@ -19,7 +18,6 @@ services:
     env_file:
       - ./api/.env
     command: "poetry run uvicorn catalog_api.main:app --host 0.0.0.0 --reload"
-
   parser:
     build:
       context: search_parser/.
@@ -28,6 +26,7 @@ services:
       - ./search_parser/.:/app
     ports:
       - 4567:4567
+      - 9100:9100
     env_file:
       - ./search_parser/.env
     command:
@@ -36,11 +35,10 @@ services:
       - puma
       - -b
       - "tcp://0.0.0.0:4567"
-  
   supervisor:
     image: "ghcr.io/mlibrary/sidekiq-supervisor-unstable:latest"
     ports:
-     - "3333:3000"
+      - "3333:3000"
     environment:
       - REDIS_URL=redis://redis:6379
       - MARIADB_USER=supervisor
@@ -48,8 +46,6 @@ services:
       - MARIADB_DATABASE=supervisor
       - MARIADB_ROOT_PASSWORD=pass
       - DATABASE_HOST=database
-
-
   database:
     image: mariadb
     volumes:
@@ -59,7 +55,6 @@ services:
       - MARIADB_PASSWORD=supervisor_password
       - MARIADB_DATABASE=supervisor
       - MARIADB_ROOT_PASSWORD=pass
-
   sftp:
     image: 'atmoz/sftp'
     volumes:
@@ -68,11 +63,10 @@ services:
       - ./sftp/ssh/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key
       - ./sftp/ssh/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key
     command: alma:1001
-
   support:
-    build: 
+    build:
       context: support_dbs/.
-      target: development 
+      target: development
     volumes:
       - ./support_dbs/.:/app
       - support_gem_cache:/gems
@@ -80,7 +74,6 @@ services:
       - HATHIFILES_MYSQL_CONNECTION=mysql2://root:pass@hathifiles/hathifiles
       - HT_HOST=https://www.hathitrust.org
       - REDIS_URL=redis://redis:6379
-
   web:
     build:
       context: umich_catalog_indexing/.
@@ -97,7 +90,6 @@ services:
       - ./umich_catalog_indexing/.env
       - ./umich_catalog_indexing/env.development
       - ./mock-ht/env.development
-
   redis:
     image: 'redis:6.2'
     command: redis-server
@@ -105,9 +97,8 @@ services:
       - '6379:6379'
     volumes:
       - 'redis:/data'
-
   solr:
-    build: 
+    build:
       context: biblio/.
       dockerfile: Dockerfile.dev
     ports:
@@ -117,7 +108,6 @@ services:
     depends_on:
       - zoo
     command: solr-foreground
-
   zoo:
     image: zookeeper
     ports:
@@ -125,7 +115,6 @@ services:
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181
-
   mock-ht:
     build: mock-ht/.
     ports:
@@ -134,26 +123,24 @@ services:
       - ./mock-ht/.:/app
     env_file:
       - ./mock-ht/env.development
-
-  #hathifiles:
+      #hathifiles:
     #image: mariadb
     #volumes:
-      #- hathidb:/var/lib/mysql
+    #- hathidb:/var/lib/mysql
     #environment:
-      #- MARIADB_ROOT_PASSWORD=pass
-      #- MARIADB_USER=user
-      #- MARIADB_PASSWORD=password
-      #- MARIADB_DATABASE=hathifiles
-
+    #- MARIADB_ROOT_PASSWORD=pass
+    #- MARIADB_USER=user
+    #- MARIADB_PASSWORD=password
+    #- MARIADB_DATABASE=hathifiles
   #hathioverlap:
-    #build: overlap/.
-    #volumes:
-      #- overlap:/var/lib/mysql
-    #environment:
-      #- MARIADB_ROOT_PASSWORD=pass
-      #- MARIADB_USER=user
-      #- MARIADB_PASSWORD=password
-      #- MARIADB_DATABASE=overlap
+  #build: overlap/.
+  #volumes:
+  #- overlap:/var/lib/mysql
+  #environment:
+  #- MARIADB_ROOT_PASSWORD=pass
+  #- MARIADB_USER=user
+  #- MARIADB_PASSWORD=password
+  #- MARIADB_DATABASE=overlap
 
   prometheus:
     image: prom/prometheus
@@ -161,12 +148,10 @@ services:
       - 9090:9090
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
-
   pushgateway:
     image: prom/pushgateway
     ports:
       - 9091:9091
-
 volumes:
   gem_cache:
   support_gem_cache:
