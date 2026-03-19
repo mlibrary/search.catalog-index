@@ -18,6 +18,7 @@ group :metrics do
   gem "yabeda-puma-plugin"
   gem "yabeda-prometheus"
   gem "prometheus-client"
+  gem "benchmark"
 end
 
 group :development, :test do

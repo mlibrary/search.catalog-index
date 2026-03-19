@@ -6,7 +6,10 @@ require "yaml"
 require "active_support"
 require "active_support/core_ext/hash/indifferent_access"
 require_relative "lib/services"
+require_relative "lib/metrics"
 require "debug" if S.app_env == "development"
+
+Metrics::Yabeda.configure!
 
 module SearchParser
   CATALOG_CONFIG = YAML.safe_load_file("./config/catalog.yaml", aliases: true).freeze
@@ -75,6 +78,7 @@ class SearchParser::Application < Sinatra::Base
   set :host_authorization, {permitted_hosts: []}
   namespace "/catalog" do
     get "/search" do
+      headers "metrics.route" => "catalog/search"
       content_type :json
       query_params = {
         query: params["query"] || "",
@@ -83,7 +87,12 @@ class SearchParser::Application < Sinatra::Base
         sort: params["sort"] || "score desc",
         fq: params["fq"] || ["institution:(UM\\ Ann\\ Arbor\\ Libraries)", "+(availability:physical OR availability:hathi_trust_full_text_or_electronic_holding)"]
       }
-      S.solr_conn.get("solr/#{S.solr_core}/select", SearchParser.solr_query(**query_params)).body.to_json
+      #      response = nil
+      solr_params = SearchParser.solr_query(**query_params)
+      #      Yabeda.catalog_solr_query_duration.measure do
+      response = S.solr_conn.get("solr/#{S.solr_core}/select", solr_params)
+      #      end
+      response.body.to_json
     end
   end
 end
