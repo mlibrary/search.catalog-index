@@ -1,22 +1,11 @@
-import json
 import requests
-from pathlib import Path
+import re
 from dataclasses import dataclass
 from catalog_api.record import Record
 from catalog_api.services import S
 
 
 class Results:
-    fixture_path = Path(__file__).parents[0] / "../tests/fixtures/results/"
-    with open(fixture_path / "page1.json") as f:
-        page1 = json.load(f)
-
-    with open(fixture_path / "page2.json") as f:
-        page2 = json.load(f)
-
-    with open(fixture_path / "page3.json") as f:
-        page3 = json.load(f)
-
     def __init__(self, data: dict):
         params = {
             "query": data["query"],
@@ -38,7 +27,7 @@ class Results:
         return [
             Filter(field=x, values=facet_fields[x])
             for x in facet_fields.keys()
-            if x in Filter.filter_field_map
+            if x in filter_to_facet
         ]
 
     @property
@@ -54,28 +43,82 @@ class Results:
         return self.data["response"]["start"]
 
 
+def solr_escape(string):
+    result = re.sub(r'([+\-&|!(){}\[\]\^"~*?:\\\/])', r"\\\1", string)
+    return re.sub(r"\s+", "\\\\ ", result)
+
+
+filter_to_facet = {
+    "availability": "availability",
+    "format": "format",
+    "subject": "topicStr",
+    "date_of_publication": "publishDateRange",
+    "language": "language",
+    "collection": "collection",
+    "academic_discipline": "hlb3Str",
+    "author": "authorStr",
+    "place_of_publication": "place_of_publication",
+    "region": "geographicSt",
+    "location": "building",
+}
+
+facet_to_filter = {}
+
+for filter_field in filter_to_facet.keys():
+    facet_to_filter[filter_to_facet[filter_field]] = filter_field
+
+
+def facet_field_for(f):
+    if f in filter_to_facet:
+        return filter_to_facet[f]
+
+
+def filter_field_for(f):
+    if f in facet_to_filter:
+        return facet_to_filter[f]
+
+
+class FilterQuery:
+    def __init__(self, data: dict):
+        self.data = data
+        self.facets = {}
+        for f in data["filters"]:
+            field, value = f.split(":", 1)
+            facet = filter_to_facet[field] if field in filter_to_facet else None
+            # if facet isn't in the facet list skip it
+            if not facet:
+                continue
+
+            if facet not in self.facets:
+                self.facets[facet] = []
+            self.facets[facet].append(value)
+
+        self.filter_param = [f.split(":", 1) for f in data["filters"]]
+
+    def query(self):
+        result = []
+        for field in self.facets.keys():
+            match field:
+                case "availability":
+                    next
+                case _:
+                    result.append(self.basic_facet(field, self.facets[field]))
+        return result
+
+    def basic_facet(self, field, values):
+        escaped = map(lambda v: solr_escape(v), values)
+        value = " AND ".join(escaped)
+        return f"{field}:({value})"
+
+
 # problems with filter data.
 # 1. the fields aren't the correct names
 # 2. location filter has the wrong name (time for the other api???)
 # 3. some of them (just search only?) are empty
 # 4. availability has some special rules
 class Filter:
-    filter_field_map = {
-        "availability": "availability",
-        "format": "format",
-        "topicStr": "subject",
-        "publishDateRange": "date_of_publication",
-        "language": "language",
-        "collection": "collection",
-        "hlb3Str": "academic_discipline",
-        "authorStr": "author",
-        "place_of_publication": "place_of_publication",
-        "geographicSt": "region",
-        "building": "location",
-    }  # institution and search_only are skipped for this
-
     def __init__(self, field: str, values: list):
-        self.field = self.filter_field_map[field]
+        self.field = filter_field_for(field)
         self.values = self.get_values(values)
 
     def get_values(self, values):
