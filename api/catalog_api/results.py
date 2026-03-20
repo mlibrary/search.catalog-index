@@ -103,7 +103,30 @@ class FilterQuery:
                     next
                 case _:
                     result.append(self.basic_facet(field, self.facets[field]))
+
+        result.append(self.availability())
         return result
+
+    def availability(self):
+        full_text = {
+            "Available Online": "hathi_trust_full_text_or_electronic_holding",
+            "Hathi Trust": "hathi_trust_full_text",
+            "Physical": "physical",
+        }
+        search_only = {
+            "Available Online": "hathi_trust_or_electronic_holding",
+            "Hathi Trust": "hathi_trust",
+            "Physical": "physical",
+        }
+
+        options = search_only if self.data["ht_search_only"] else full_text
+        result = f"availability:physical OR availability:{options['Available Online']}"
+        if "availability" in self.facets:
+            mapped = map(lambda v: options[v], self.facets["availability"])
+            result = " AND ".join(mapped)
+            result = f"availability:({result})"
+
+        return f"({result})"
 
     def basic_facet(self, field, values):
         escaped = map(lambda v: solr_escape(v), values)
