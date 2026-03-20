@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException
+from typing import Annotated
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.gzip import GZipMiddleware
 from prometheus_fastapi_instrumentator import Instrumentator
 from prometheus_client import Histogram
@@ -47,7 +48,10 @@ def get_record(id: str) -> schemas.Record:
 
 @app.get("/search", response_model_exclude_none=True)
 def get_search_results(
-    query: str = "", offset: int = 0, limit: int = 10
+    query: str = "",
+    offset: int = 0,
+    limit: int = 10,
+    filters: Annotated[list[str], Query()] = [],
 ) -> schemas.Results:
     """
     Does a search in catalog solr
