@@ -114,7 +114,7 @@ class FilterQuery:
         return result
 
     def institution(self):
-        insitution_map = {
+        institution_map = {
             "aa": "UM Ann Arbor Libraries",
             "flint": "Flint Thompson Library",
             "clements": "William L. Clements Library",
@@ -122,8 +122,11 @@ class FilterQuery:
             "all": "all",
         }
         if "institution" in self.facets:
-            mapped = list(map(lambda v: insitution_map[v], self.facets["institution"]))
-            if "all" in mapped:
+            filtered = filter(
+                lambda v: v in institution_map.keys(), self.facets["institution"]
+            )
+            mapped = list(map(lambda v: institution_map[v], filtered))
+            if "all" in mapped or not mapped:
                 return None
             return self.basic_facet("institution", mapped)
 

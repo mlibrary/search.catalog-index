@@ -127,3 +127,19 @@ class TestFilterQuery:
         subject = FilterQuery(no_search_only)
 
         assert len(subject.query()) == 1
+
+    def test_library_returns_no_institution_when_given_nonsense_library(
+        self, no_search_only
+    ):
+        no_search_only["filters"].append("library:nonsense")
+        subject = FilterQuery(no_search_only)
+        assert len(subject.query()) == 1
+
+    def test_library_returns_only_valid_institution_when_given(self, no_search_only):
+        expected = "institution:(UM\\ Ann\\ Arbor\\ Libraries)"
+        no_search_only["filters"].append("library:aa")
+        no_search_only["filters"].append("library:nonsense")
+        subject = FilterQuery(no_search_only)
+
+        assert expected in subject.query()
+        assert len(subject.query()) == 2
