@@ -30,11 +30,26 @@ class Results:
     @property
     def filters(self):
         facet_fields = self.data["facet_counts"]["facet_fields"]
-        return [
-            Filter(field=x, values=facet_fields[x])
-            for x in facet_fields.keys()
-            if x in filter_to_facet
-        ]
+
+        result = []
+        for f in facet_fields.keys():
+            if f in filter_to_facet:
+                if f == "availability":
+                    r = AvailabilityFilter(
+                        field=f,
+                        values=facet_fields[f],
+                        ht_search_only=self.query_params["ht_search_only"],
+                    )
+                else:
+                    r = Filter(field=f, values=facet_fields[f])
+                result.append(r)
+        # result = [
+        # Filter(field=x, values=facet_fields[x])
+        # for x in facet_fields.keys()
+        # if x in filter_to_facet
+        # ]
+
+        return result
 
     @property
     def total(self):
@@ -181,6 +196,35 @@ class Filter:
         result = []
         for x in range(0, len(values), 2):
             result.append(FilterValue(text=values[x], count=values[x + 1]))
+        return result
+
+
+class AvailabilityFilter(Filter):
+    def __init__(self, field: str, values: list, ht_search_only: bool):
+        self.ht_search_only = ht_search_only
+        self.field = filter_field_for(field)
+        basic_values = self.get_values(values)
+        self.values = self.get_availability_values(basic_values, ht_search_only)
+
+    def get_availability_values(self, basic_values, ht_search_only):
+        full_text = {
+            "hathi_trust_full_text_or_electronic_holding": "Available Online",
+            "hathi_trust_full_text": "Hathi Trust",
+            "physical": "Physical",
+        }
+        search_only = {
+            "hathi_trust_or_electronic_holding": "Available Online",
+            "hathi_trust": "Hathi Trust",
+            "physical": "Physical",
+        }
+
+        options = search_only if self.ht_search_only else full_text
+        result = []
+        for bv in basic_values:
+            if bv.text in options:
+                fv = FilterValue(text=options[bv.text], count=bv.count)
+                result.append(fv)
+
         return result
 
 

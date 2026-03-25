@@ -1,15 +1,13 @@
 import pytest
-from catalog_api.results import Filter, FilterQuery
+import json
+from catalog_api.results import Filter, FilterQuery, Results
 
 
-class TestFilter:
-    def test_filter_has_values(self):
-        subject = Filter(field="format", values=["Value1", 1, "Value2", 25]).values
-
-        assert subject[0].text == "Value1"
-        assert subject[0].count == 1
-        assert subject[1].text == "Value2"
-        assert subject[1].count == 25
+@pytest.fixture()
+def solr_results():
+    with open("tests/fixtures/results/page1.json") as data:
+        bib = json.load(data)
+    return bib
 
 
 @pytest.fixture()
@@ -21,6 +19,40 @@ def no_search_only():
 def search_only(no_search_only):
     no_search_only["ht_search_only"] = True
     return no_search_only
+
+
+class TestResults:
+    def test_availability_filter_full_text(self, solr_results, no_search_only):
+        results = {}
+        filters = Results(data=solr_results, query_params=no_search_only).filters
+        availability_filters = next(f for f in filters if f.field == "availability")
+        for f in availability_filters.values:
+            results[f.text] = f.count
+        assert len(availability_filters.values) == 3
+        assert results["Hathi Trust"] == 8
+        assert results["Available Online"] == 6
+        assert results["Physical"] == 10
+
+    def test_availability_filter_search_only(self, solr_results, search_only):
+        results = {}
+        filters = Results(data=solr_results, query_params=search_only).filters
+        availability_filters = next(f for f in filters if f.field == "availability")
+        for f in availability_filters.values:
+            results[f.text] = f.count
+        assert len(availability_filters.values) == 3
+        assert results["Hathi Trust"] == 9
+        assert results["Available Online"] == 7
+        assert results["Physical"] == 10
+
+
+class TestFilter:
+    def test_filter_has_values(self):
+        subject = Filter(field="format", values=["Value1", 1, "Value2", 25]).values
+
+        assert subject[0].text == "Value1"
+        assert subject[0].count == 1
+        assert subject[1].text == "Value2"
+        assert subject[1].count == 25
 
 
 class TestFilterQuery:
