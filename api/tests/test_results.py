@@ -96,5 +96,19 @@ class TestFilterQuery:
         assert expected in subject.query()
         assert len(subject.query()) == 1
 
+    # need to deal with nonsense availability value
 
-# need to deal with nonsense availability value
+    def test_library_handles_aa(self, no_search_only):
+        expected = "institution:(UM\\ Ann\\ Arbor\\ Libraries)"
+        no_search_only["filters"].append("library:aa")
+        subject = FilterQuery(no_search_only)
+
+        assert expected in subject.query()
+        assert len(subject.query()) == 2
+
+    def test_library_returns_no_instition_when_all_included(self, no_search_only):
+        no_search_only["filters"].append("library:aa")
+        no_search_only["filters"].append("library:all")
+        subject = FilterQuery(no_search_only)
+
+        assert len(subject.query()) == 1

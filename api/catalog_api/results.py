@@ -11,6 +11,7 @@ class Results:
             "query": data["query"],
             "start": data["offset"],
             "rows": data["limit"],
+            "fq[]": FilterQuery(data).query(),
         }
         response = requests.Session().get(
             f"{S.parser_url}/catalog/search", params=params
@@ -60,6 +61,7 @@ filter_to_facet = {
     "place_of_publication": "place_of_publication",
     "region": "geographicSt",
     "location": "building",
+    "library": "institution",
 }
 
 facet_to_filter = {}
@@ -101,11 +103,29 @@ class FilterQuery:
             match field:
                 case "availability":
                     next
+                case "institution":
+                    next
                 case _:
                     result.append(self.basic_facet(field, self.facets[field]))
 
+        if self.institution():
+            result.append(self.institution())
         result.append(self.availability())
         return result
+
+    def institution(self):
+        insitution_map = {
+            "aa": "UM Ann Arbor Libraries",
+            "flint": "Flint Thompson Library",
+            "clements": "William L. Clements Library",
+            "bentley": "Bentley Historical Library",
+            "all": "all",
+        }
+        if "institution" in self.facets:
+            mapped = list(map(lambda v: insitution_map[v], self.facets["institution"]))
+            if "all" in mapped:
+                return None
+            return self.basic_facet("institution", mapped)
 
     def availability(self):
         full_text = {

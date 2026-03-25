@@ -52,9 +52,18 @@ def get_search_results(
     offset: int = 0,
     limit: int = 10,
     filters: Annotated[list[str], Query()] = [],
+    ht_search_only: bool = False,
 ) -> schemas.Results:
     """
     Does a search in catalog solr
     """
-    results = Results({"query": query, "offset": offset, "limit": limit})
+    results = Results(
+        {
+            "query": query,
+            "offset": offset,
+            "limit": limit,
+            "filters": filters,
+            "ht_search_only": ht_search_only,
+        }
+    )
     return results
