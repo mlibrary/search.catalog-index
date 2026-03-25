@@ -7,7 +7,7 @@ from prometheus_client import Histogram
 from catalog_api import schemas
 from catalog_api.solr_client import NotFoundError
 from catalog_api.record import record_for
-from catalog_api.results import Results
+from catalog_api.results import get_results
 
 app = FastAPI(
     title="Catalog Search API", description="REST API for Catalog Search Solr"
@@ -57,7 +57,7 @@ def get_search_results(
     """
     Does a search in catalog solr
     """
-    results = Results(
+    results = get_results(
         {
             "query": query,
             "offset": offset,

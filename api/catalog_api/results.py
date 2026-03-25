@@ -5,18 +5,23 @@ from catalog_api.record import Record
 from catalog_api.services import S
 
 
+def get_results(query_params: dict):
+    parser_params = {
+        "query": query_params["query"],
+        "start": query_params["offset"],
+        "rows": query_params["limit"],
+        "fq[]": FilterQuery(query_params).query(),
+    }
+    response = requests.Session().get(
+        f"{S.parser_url}/catalog/search", params=parser_params
+    )
+    return Results(data=response.json(), query_params=query_params)
+
+
 class Results:
-    def __init__(self, data: dict):
-        params = {
-            "query": data["query"],
-            "start": data["offset"],
-            "rows": data["limit"],
-            "fq[]": FilterQuery(data).query(),
-        }
-        response = requests.Session().get(
-            f"{S.parser_url}/catalog/search", params=params
-        )
-        self.data = response.json()
+    def __init__(self, data: dict, query_params: dict):
+        self.data = data
+        self.query_params = query_params
 
     @property
     def records(self):
