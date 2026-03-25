@@ -142,9 +142,14 @@ class FilterQuery:
         options = search_only if self.data["ht_search_only"] else full_text
         result = f"availability:physical OR availability:{options['Available Online']}"
         if "availability" in self.facets:
-            mapped = map(lambda v: options[v], self.facets["availability"])
-            result = " AND ".join(mapped)
-            result = f"availability:({result})"
+            filtered = filter(
+                lambda v: v in options.keys(), self.facets["availability"]
+            )
+            mapped = list(map(lambda v: options[v], filtered))
+
+            if len(mapped) > 0:
+                result = " AND ".join(mapped)
+                result = f"availability:({result})"
 
         return f"({result})"
 

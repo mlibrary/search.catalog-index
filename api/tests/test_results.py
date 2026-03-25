@@ -57,6 +57,23 @@ class TestFilterQuery:
         subject = FilterQuery(no_search_only)
         assert expected in subject.query()
 
+    def test_availability_for_exclude_search_only_and_nonsense_availability_value(
+        search, no_search_only
+    ):
+        expected = "(availability:physical OR availability:hathi_trust_full_text_or_electronic_holding)"
+        no_search_only["filters"].append("availability:non a real availability value")
+        subject = FilterQuery(no_search_only)
+        assert expected in subject.query()
+
+    def test_availability_for_exclude_search_only_and_valid_and_nonsense_nonsense_availability_value(
+        search, no_search_only
+    ):
+        expected = "(availability:(hathi_trust_full_text))"
+        no_search_only["filters"].append("availability:non a real availability value")
+        no_search_only["filters"].append("availability:Hathi Trust")
+        subject = FilterQuery(no_search_only)
+        assert expected in subject.query()
+
     def test_availability_for_exclude_search_only_with_physical_filter(
         self, no_search_only
     ):
@@ -95,8 +112,6 @@ class TestFilterQuery:
         subject = FilterQuery(search_only)
         assert expected in subject.query()
         assert len(subject.query()) == 1
-
-    # need to deal with nonsense availability value
 
     def test_library_handles_aa(self, no_search_only):
         expected = "institution:(UM\\ Ann\\ Arbor\\ Libraries)"
