@@ -36,4 +36,13 @@ describe "callnumber_browse" do
     @record.leader[6] = "j"
     expect(subject["callnumber_browse"]).to be_nil
   end
+  it "does not include call numbers with W or w" do
+    @record = hurdy_gurdy
+    @record.fields.delete_if { |x| x.tag == "852" }
+    @record.append(MARC::DataField.new("050", "", "4",
+      ["a", "WB 925"], ["b", ".H236 2006"]))
+    @record.append(MARC::DataField.new("050", "", "4",
+      ["a", "wb 925"], ["b", ".H236 2006"]))
+    expect(subject["callnumber_browse"]).to be_nil
+  end
 end

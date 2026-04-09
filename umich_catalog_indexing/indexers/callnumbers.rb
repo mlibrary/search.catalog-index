@@ -78,6 +78,8 @@ to_field "callnumber_browse" do |rec, acc, context|
     # generate "id" fields for these which make browsing these callnumbers fail.
     # Also these are invalid LC call numbers.
     acc.reject! { |x| x =~ /^\w{1,2}$/ }
+    # W is not a valid LC call number classification
+    acc.reject! { |x| x =~ /^[wW]/ }
   end
 end
 
