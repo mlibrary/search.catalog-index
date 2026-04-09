@@ -31,4 +31,9 @@ describe "callnumber_browse" do
       ["h", "ML760 .P18 2025"]))
     expect(subject["callnumber_browse"]).to eq(["ML760 .P18", "ML760 .P18 2025"])
   end
+  it "does not include any callnumbers when the item type is j" do
+    @record = hurdy_gurdy
+    @record.leader[6] = "j"
+    expect(subject["callnumber_browse"]).to be_nil
+  end
 end
