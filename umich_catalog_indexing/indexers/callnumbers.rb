@@ -58,24 +58,27 @@ to_field "callnumber", extract_marc("852hij") do |rec, acc|
   acc.select! { |x| x =~ /\S/ }
 end
 
-# Callnumbers that are viable for use in the callnumber browse
-# We'll take an LC or Dewey from the 852, or an LC from the 050
-# if we've got nothing else
+# Callnumbers that are viable for use in the callnumber browse We'll take an LC
+# or Dewey from the 852, or an LC from the 050 if we've got nothing else. If
+# the item is a "Musical sound recording" (Leader 06 = j) don't include it in
+# callnumber_browse
 
 to_field "callnumber_browse" do |rec, acc, context|
-  cns = context.clipboard["callnumbers"]
-  cns_852 = cns[:lc_852].concat(cns[:dewey_852])
+  if rec.leader[6] != "j"
+    cns = context.clipboard["callnumbers"]
+    cns_852 = cns[:lc_852].concat(cns[:dewey_852])
 
-  if cns_852.empty?
-    acc.replace cns[:lc_050]
-  else
-    acc.replace cns_852
+    if cns_852.empty?
+      acc.replace cns[:lc_050]
+    else
+      acc.replace cns_852
+    end
+
+    # No one or two letter call numbers in browse. The browse index doesn't
+    # generate "id" fields for these which make browsing these callnumbers fail.
+    # Also these are invalid LC call numbers.
+    acc.reject! { |x| x =~ /^\w{1,2}$/ }
   end
-
-  # No one or two letter call numbers in browse. The browse index doesn't
-  # generate "id" fields for these which make browsing these callnumbers fail.
-  # Also these are invalid LC call numbers.
-  acc.reject! { |x| x =~ /^\w{1,2}$/ }
 end
 
 # In solr, data from callnumber_browse is copied into callnumber_search
