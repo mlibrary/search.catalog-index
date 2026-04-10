@@ -141,13 +141,42 @@ end
 ### High Level Browse ###
 require "high_level_browse"
 
+def age_or_grade_level_at_or_below?(value, highest_level)
+  # between is inclusive
+  value.to_i.between?(1, highest_level)
+end
+
+def target_audience?(rec)
+  rec.fields("521").any? do |ta|
+    case ta.indicator1
+    when "0" # reading grade
+      age_or_grade_level_at_or_below?(ta["a"], 12)
+    when "1" # interest age
+      age_or_grade_level_at_or_below?(ta["a"], 17)
+    when "2" # interest grade
+      age_or_grade_level_at_or_below?(ta["a"], 12)
+    else
+      false
+    end
+  end
+end
+
+def childrens_literature(rec)
+  if ["a", "b", "c", "d", "j"].include?(rec["008"].value[22]) || target_audience?(rec)
+    [["Humanities", "Children's Literature"]]
+  else
+    []
+  end
+end
+
 hlb = HighLevelBrowse.load(dir: S.hlb_path)
 to_field "hlb3Delimited", extract_marc("050ab:082a:090ab:099a:086a:086z:852|0*|hij") do |rec, acc, context|
   acc.select! { |cn| looks_like_lc?(cn) }
   acc.map! { |c| hlb[c] }
+  acc << childrens_literature(rec)
   acc.compact!
-  acc.uniq!
   acc.flatten!(1)
+  acc.uniq!
 
   # Get the individual conmponents and stash them
   components = acc.flatten.to_a.uniq
