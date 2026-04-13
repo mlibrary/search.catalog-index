@@ -33,7 +33,7 @@ class Results:
 
         result = []
         for f in facet_fields.keys():
-            if f in filter_to_facet:
+            if f in facet_to_filter:
                 if f == "availability":
                     r = AvailabilityFilter(
                         field=f,
