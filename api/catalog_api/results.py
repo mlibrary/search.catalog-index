@@ -79,7 +79,7 @@ filter_to_facet = {
     "academic_discipline": "hlb3Str",
     "author": "authorStr",
     "place_of_publication": "place_of_publication",
-    "region": "geographicSt",
+    "region": "geographicStr",
     "location": "building",
     "library": "institution",
 }
