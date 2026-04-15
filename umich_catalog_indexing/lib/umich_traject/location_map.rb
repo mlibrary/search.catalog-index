@@ -62,6 +62,11 @@ module Traject
       m[/^HATCH DREF/] = "HATCH DOCS"
       m[/^HATCH DMIC/] = "HATCH DOCS"
 
+      m[/^FVL BUH/] = "FVL OFFS"
+      m[/^FVL ELL/] = "FVL OFFS"
+      m[/^FVL H1/] = "FVL MAIN"
+      m[/^FVL F2/] = "FVL MAIN"
+
       m[/^MiU-H/] = "BENT"
       m[/^MiU-C/] = "CLEM"
       m[/^MiFliC/] = "FLINT"
