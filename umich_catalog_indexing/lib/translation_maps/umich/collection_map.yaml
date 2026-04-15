@@ -2,7 +2,6 @@
 # the "desc" field are needed for spectrum but not for indexing. It lives in
 # search.catalog-indexing because this has more to do with Alma and indexing
 # than the library search front end. mrio 2026-03-06
----
 ALL:
   desc: 'All locations'
   collections:
@@ -88,7 +87,7 @@ FLINT:
     FLINT BROWS: 'Browsing Collection'
     FLINT CHILD: 'Children''s Literature'
     FLINT ELP: 'English Language Program' #ELP 1-3 grouping
-    FLINT GRAPH: 'Graphic Novels' 
+    FLINT GRAPH: 'Graphic Novels'
     FLINT MAIN: 'Main Collection'
     FLINT MSTR: 'Masters Theses'
     FLINT MEDIA: 'Media Collection'
@@ -104,13 +103,10 @@ FVL:
   desc: 'Askwith Media Library'
   collections:
     ALL: All collections
-    FVL BUH: 'Offsite Shelving'
-    FVL ELL: 'Offsite Shelving'
-    FVL EQASKW: 'Askwith Equipment'
-    FVL H1: 'Room 2002 Shapiro'
-    FVL F2: 'Room 2002 Shapiro - Non-circulating'
+    FVL OFFS: 'Offsite Shelving'
+    FVL MAIN: 'Room 2002 Shapiro'
     FVL RESC: 'University Reserves'
-    #updated 2025-02-21
+    #updated 2026-04-15
 HATCH:
   desc: 'Hatcher Graduate'
   collections:
@@ -234,35 +230,35 @@ SHAP:
     SHAP SERU: 'Unbound serials'
     SHAP UNASSIGNED: 'Unassigned location'
     #updated 2025-02-21
-SPEC: 
-  desc: 'Special Collections' 
-  collections: 
-    ALL: All collections 
+SPEC:
+  desc: 'Special Collections'
+  collections:
+    ALL: All collections
     SPEC ART: 'Artists'' Books'
-    SPEC SCB-ASG: 'Asa Gray Collection' 
-    SPEC CHIL: 'Children''s Literature' 
-    SPEC FAUL: 'Faulkner Collection' 
+    SPEC SCB-ASG: 'Asa Gray Collection'
+    SPEC CHIL: 'Children''s Literature'
+    SPEC FAUL: 'Faulkner Collection'
     SPEC RARE: 'General and Rare'
-    SPEC TAUB: 'History of Medicine Collection' 
+    SPEC TAUB: 'History of Medicine Collection'
     SPEC SCB-HUB: 'Hubbard Imaginary Voyages Collection'
-    SPEC SCH-ISLM: 'Islamic Manuscripts' 
+    SPEC SCH-ISLM: 'Islamic Manuscripts'
     SPEC CUL: 'Janice Bluestein Longone Culinary Archive'
-    SPEC JHC: 'Jewish Heritage Collection' 
-    SPEC LABD: 'Joseph A. Labadie Collection' 
+    SPEC JHC: 'Jewish Heritage Collection'
+    SPEC LABD: 'Joseph A. Labadie Collection'
     SPEC SCH-PAPYR: 'Papyrology Reference Collection'
-    SPEC SCB-PARS: 'Parsons-Rau Collection' 
-    SPEC WOR: 'Philippine History Collection' 
-    SPEC SCB-GOSL: 'Pop-Up and Movable Books' 
+    SPEC SCB-PARS: 'Parsons-Rau Collection'
+    SPEC WOR: 'Philippine History Collection'
+    SPEC SCB-GOSL: 'Pop-Up and Movable Books'
     SPEC BIND: 'Publishers'' Bindings'
     SPEC REF: 'Reference Collection'
-    SPEC SCB-SCFI: 'Science Fiction Collection' 
-    SPEC SCB-SHA: 'Shakespeare Collection' 
-    SPEC THC: 'Transportation History Collection' 
+    SPEC SCB-SCFI: 'Science Fiction Collection'
+    SPEC SCB-SHA: 'Shakespeare Collection'
+    SPEC THC: 'Transportation History Collection'
 TAUB:
   desc: 'Taubman Health Sciences'
   collections:
     ALL: All collections
     TAUB RESC: 'Reserves'
-    TAUB STOR: 'Storage' 
+    TAUB STOR: 'Storage'
     TAUB EQTAUB: 'Taubman Equipment'
     #updated 2025-02-21
