@@ -31,10 +31,8 @@ iucla: University of California
 iufl: State University System of Florida
 iuiuc: University of Illinois at Urbana-Champaign
 iunc: University of North Carolina at Chapel Hill
-keio: "Keio University \u6176\u61C9\u7FA9\u587E\u5927\u5B66 "
-lebau: "American University of Beirut - \u0627\u0644\u062C\u0627\u0645\u0639\u0629\
-  \ \u0627\u0644\u0623\u0645\u064A\u0631\u0643\u064A\u0651\u0629 \u0641\u064A \u0628\
-  \u064A\u0631\u0648\u062A"
+keio: "Keio University 慶應義塾大学 "
+lebau: "American University of Beirut - الجامعة الأميركيّة في بيروت"
 mdbj: Johns Hopkins University
 mdl: Minnesota Digital Library
 mdu: University of Maryland, College Park
@@ -45,6 +43,7 @@ msu: Michigan State University
 mu: University of Massachusetts Amherst
 mwica: Sterling and Francine Clark Art Institute
 nbb: Brooklyn Museum
+nbu: University of Nebraska - Lincoln
 nbuu: University At Buffalo, The State University of New York
 ncwsw: Wake Forest University
 njp: Princeton University
@@ -56,9 +55,9 @@ nrlf: University of California
 nwu: Northwestern University
 nyp: New York Public Library
 oclw: Case Western Reserve University
-ohm: McMaster University 
+ohm: McMaster University
 oks: Oklahoma State University
-oktu: The University Of Tulsa 
+oktu: The University Of Tulsa
 osu: The Ohio State University
 phc: Haverford College
 ppt: Temple University
@@ -88,7 +87,7 @@ ufdc: State University System of Florida
 uiuc: University of Illinois at Urbana-Champaign
 uiucl: University of Illinois at Urbana-Champaign
 ukloku: Knowledge Unlatched
-ukoxu: University of Oxford 
+ukoxu: University of Oxford
 umbus: University of Michigan
 umdb: University of Michigan
 umdcmp: Millennium Project
