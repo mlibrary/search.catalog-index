@@ -162,7 +162,7 @@ def target_audience?(rec)
 end
 
 def childrens_literature(rec)
-  if ["a", "b", "c", "d", "j"].include?(rec["008"].value[22]) || target_audience?(rec)
+  if ["a", "b", "c", "d", "j"].include?(rec["008"]&.value&.[](22)) || target_audience?(rec)
     [["Humanities", "Children's Literature"]]
   else
     []
