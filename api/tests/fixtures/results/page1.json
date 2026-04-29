@@ -1129,9 +1129,11 @@
     "facet_fields":{
       "search_only":[],
       "availability":[
-        "hathi_trust_full_text_or_electronic_holding",15,
-        "hathi_trust_or_electronic_holding",15,
-        "physical",6],
+        "hathi_trust_full_text_or_electronic_holding",6,
+        "hathi_trust_or_electronic_holding",7,
+        "hathi_trust_full_text",8,
+        "hathi_trust", 9,
+        "physical",10],
       "format":[
         "Book",19,
         "Biography",4,

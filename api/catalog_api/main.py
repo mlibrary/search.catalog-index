@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException
+from typing import Annotated
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.gzip import GZipMiddleware
 from prometheus_fastapi_instrumentator import Instrumentator
 from prometheus_client import Histogram
@@ -6,7 +7,7 @@ from prometheus_client import Histogram
 from catalog_api import schemas
 from catalog_api.solr_client import NotFoundError
 from catalog_api.record import record_for
-from catalog_api.results import Results
+from catalog_api.results import get_results
 
 app = FastAPI(
     title="Catalog Search API", description="REST API for Catalog Search Solr"
@@ -47,10 +48,22 @@ def get_record(id: str) -> schemas.Record:
 
 @app.get("/search", response_model_exclude_none=True)
 def get_search_results(
-    query: str = "", offset: int = 0, limit: int = 10
+    query: str = "",
+    offset: int = 0,
+    limit: int = 10,
+    filters: Annotated[list[str], Query()] = [],
+    ht_search_only: bool = False,
 ) -> schemas.Results:
     """
     Does a search in catalog solr
     """
-    results = Results({"query": query, "offset": offset, "limit": limit})
+    results = get_results(
+        {
+            "query": query,
+            "offset": offset,
+            "limit": limit,
+            "filters": filters,
+            "ht_search_only": ht_search_only,
+        }
+    )
     return results
