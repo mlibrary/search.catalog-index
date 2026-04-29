@@ -24,6 +24,7 @@ search_fields:
       product(
 
 
+
         if(termfreq('format', 'Journal'), 1.4, 1),
         max(
           map(
@@ -115,13 +116,3 @@ facets:
   - search_only
   - topicStr
 qt: standard
-default_sort: relevance
-sorts:
-  relevance: relevance
-  date_asc: date_asc
-  date_desc: date_desc
-  author_asc: author_asc
-  author_desc: author_desc
-  cat_date: date_added
-  mirlyn_title_asc: mirlyn_title_asc
-  mirlyn_title_desc: mirlyn_title_desc

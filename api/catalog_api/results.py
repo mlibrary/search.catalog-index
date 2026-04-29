@@ -11,6 +11,7 @@ def get_results(query_params: dict):
         "start": query_params["offset"],
         "rows": query_params["limit"],
         "fq[]": FilterQuery(query_params).query(),
+        "sort": Results.sort_map[query_params["sort"]],
     }
     response = requests.Session().get(
         f"{S.parser_url}/catalog/search", params=parser_params
@@ -19,6 +20,19 @@ def get_results(query_params: dict):
 
 
 class Results:
+    sort_map = {
+        "relevance": "score desc",
+        "date_asc": "publishDateTrie asc",
+        "date_desc": "publishDateTrie desc",
+        "author_asc": "authorSort asc",
+        "author_desc": "authorSort desc",
+        "date_added": "cat_date desc",
+        "title_asc": "titleSort asc",
+        "title_desc": "titleSort desc",
+    }
+
+    inverse_sort_map = {v: k for k, v in sort_map.items()}
+
     def __init__(self, data: dict, query_params: dict):
         self.data = data
         self.query_params = query_params
@@ -62,6 +76,10 @@ class Results:
     @property
     def offset(self):
         return self.data["response"]["start"]
+
+    @property
+    def sort(self):
+        return self.inverse_sort_map[self.data["responseHeader"]["params"]["sort"]]
 
 
 def solr_escape(string):
