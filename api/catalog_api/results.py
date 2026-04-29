@@ -31,6 +31,8 @@ class Results:
         "title_desc": "titleSort desc",
     }
 
+    inverse_sort_map = {v: k for k, v in sort_map.items()}
+
     def __init__(self, data: dict, query_params: dict):
         self.data = data
         self.query_params = query_params
@@ -74,6 +76,10 @@ class Results:
     @property
     def offset(self):
         return self.data["response"]["start"]
+
+    @property
+    def sort(self):
+        return self.inverse_sort_map[self.data["responseHeader"]["params"]["sort"]]
 
 
 def solr_escape(string):

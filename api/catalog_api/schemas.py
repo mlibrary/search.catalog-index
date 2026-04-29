@@ -360,6 +360,7 @@ class Results(BaseModel):
     limit: int
     offset: int
     total: int
+    sort: str
 
 
 class Sort(str, Enum):
