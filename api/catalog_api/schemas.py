@@ -1,6 +1,7 @@
 from pydantic import BaseModel, ConfigDict, Field, AliasGenerator
 from typing import Optional
 import datetime
+from enum import Enum
 
 
 def to_kebab_case(string: str) -> str:
@@ -359,6 +360,17 @@ class Results(BaseModel):
     limit: int
     offset: int
     total: int
+
+
+class Sort(str, Enum):
+    relevance = "relevance"
+    date_asc = "date_asc"
+    date_desc = "date_desc"
+    author_asc = "author_asc"
+    author_desc = "author_desc"
+    date_added = "date_added"
+    title_asc = "title_asc"
+    title_desc = "title_desc"
 
 
 class Response(BaseModel):

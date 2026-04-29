@@ -53,6 +53,7 @@ def get_search_results(
     limit: int = 10,
     filters: Annotated[list[str], Query()] = [],
     ht_search_only: bool = False,
+    sort: schemas.Sort = schemas.Sort.relevance,
 ) -> schemas.Results:
     """
     Does a search in catalog solr
@@ -64,6 +65,7 @@ def get_search_results(
             "limit": limit,
             "filters": filters,
             "ht_search_only": ht_search_only,
+            "sort": sort,
         }
     )
     return results
