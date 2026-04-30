@@ -64,7 +64,7 @@ end
 # callnumber_browse
 
 to_field "callnumber_browse" do |rec, acc, context|
-  if rec.leader[6] != "j"
+  if !["j", "g"].include?(rec.leader[6])
     cns = context.clipboard["callnumbers"]
     cns_852 = cns[:lc_852].concat(cns[:dewey_852])
 
