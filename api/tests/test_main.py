@@ -30,7 +30,7 @@ def test_get_record(client, valid_mms_id, solr_bib):
     with open("tests/fixtures/land_birds.json") as data:
         expected = json.load(data)
 
-    response = client.get(f"/records/{valid_mms_id}")
+    response = client.get(f"/catalog/records/{valid_mms_id}")
     assert response.status_code == 200
     subject = response.json()
     for field in expected:
