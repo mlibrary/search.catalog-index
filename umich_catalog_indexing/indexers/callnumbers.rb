@@ -64,7 +64,7 @@ end
 # callnumber_browse
 
 to_field "callnumber_browse" do |rec, acc, context|
-  if rec.leader[6] != "j"
+  if !["j", "g"].include?(rec.leader[6])
     cns = context.clipboard["callnumbers"]
     cns_852 = cns[:lc_852].concat(cns[:dewey_852])
 
@@ -78,8 +78,8 @@ to_field "callnumber_browse" do |rec, acc, context|
     # generate "id" fields for these which make browsing these callnumbers fail.
     # Also these are invalid LC call numbers.
     acc.reject! { |x| x =~ /^\w{1,2}$/ }
-    # W is not a valid LC call number classification
-    acc.reject! { |x| x =~ /^[wW]/ }
+    # W is not a valid LC call number classification (with or without a leading period)
+    acc.reject! { |x| x =~ /^\.?[wW]/ }
   end
 end
 
