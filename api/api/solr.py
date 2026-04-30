@@ -1,4 +1,4 @@
-from catalog_api.entities import TextField, PairedField
+from api.entities import TextField, PairedField
 
 
 class SolrDocProcessor:

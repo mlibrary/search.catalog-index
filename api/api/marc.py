@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import re
 import string
 from collections.abc import Callable
-from catalog_api.entities import SearchField, FieldElement, PairedField
+from api.entities import SearchField, FieldElement, PairedField
 
 # used with rstrip_chars. When we want to trim the end of a string, these are
 # the ones that usually should be removed.

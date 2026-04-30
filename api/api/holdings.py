@@ -1,7 +1,7 @@
 import pymarc
 from urllib.parse import urlencode
 from dataclasses import dataclass
-from catalog_api.marc import Processor, FieldRuleset
+from api.marc import Processor, FieldRuleset
 
 
 class AlmaDigitalItem:

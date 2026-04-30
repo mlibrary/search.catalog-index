@@ -4,10 +4,10 @@ from fastapi.middleware.gzip import GZipMiddleware
 from prometheus_fastapi_instrumentator import Instrumentator
 from prometheus_client import Histogram
 
-from catalog_api import schemas
-from catalog_api.solr_client import NotFoundError
-from catalog_api.record import record_for
-from catalog_api.results import get_results
+from api import schemas
+from api.solr_client import NotFoundError
+from api.record import record_for
+from api.results import get_results
 
 app = FastAPI(
     title="Catalog Search API", description="REST API for Catalog Search Solr"

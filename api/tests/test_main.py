@@ -2,8 +2,8 @@ import responses
 import pytest
 import json
 from fastapi.testclient import TestClient
-from catalog_api.main import app
-from catalog_api.services import S
+from api.main import app
+from api.services import S
 
 
 @pytest.fixture()

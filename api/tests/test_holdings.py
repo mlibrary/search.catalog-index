@@ -3,7 +3,7 @@ import pymarc
 import json
 import io
 from urllib.parse import urlparse, parse_qs
-from catalog_api.holdings import (
+from api.holdings import (
     PhysicalHolding,
     ElectronicItem,
     HathiTrustItem,
