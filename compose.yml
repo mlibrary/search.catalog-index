@@ -17,7 +17,7 @@ services:
       - 8000:8000
     env_file:
       - ./api/.env
-    command: "poetry run uvicorn catalog_api.main:app --host 0.0.0.0 --reload"
+    command: "poetry run uvicorn api.main:app --host 0.0.0.0 --reload"
   parser:
     build:
       context: search_parser/.
