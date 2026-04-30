@@ -1,8 +1,8 @@
 import requests
 import re
 from dataclasses import dataclass
-from catalog_api.record import Record
-from catalog_api.services import S
+from api.record import Record
+from api.services import S
 
 
 def get_results(query_params: dict):

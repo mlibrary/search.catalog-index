@@ -4,9 +4,9 @@ import pymarc
 import string
 from datetime import datetime
 from dataclasses import dataclass, field
-from catalog_api.record import Record, MARC, SolrDoc, TaggedCitation, CSL, BaseRecord
-from catalog_api.entities import FieldElement, PairedField
-from catalog_api.marc import (
+from api.record import Record, MARC, SolrDoc, TaggedCitation, CSL, BaseRecord
+from api.entities import FieldElement, PairedField
+from api.marc import (
     FieldRuleset,
 )
 from dataclasses import asdict

@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "catalog-api"
 version = "0.1.0"
-description = "API for interacting with solr cores for Library Search"
+description = "API for interacting with solr indexes for Library Search"
 authors = [
   "Monique Rio <mrio@umich.edu>", 
   ]
 readme = "README.md"
-packages = [{include = "catalog-api"}]
+packages = [{include = "api"}]
 
 [tool.ruff]
 exclude = [".venv",".vscode",".vscode-server", ".local"]

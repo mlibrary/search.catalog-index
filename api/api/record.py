@@ -1,7 +1,7 @@
 from __future__ import annotations
-from catalog_api.solr_client import SolrClient
-from catalog_api.solr import SolrDocProcessor
-from catalog_api.marc import Processor, FieldRuleset, TRIM_CHARS
+from api.solr_client import SolrClient
+from api.solr import SolrDocProcessor
+from api.marc import Processor, FieldRuleset, TRIM_CHARS
 import re
 import pymarc
 import io
@@ -10,7 +10,7 @@ import json
 
 # from dataclasses import dataclass
 # from collections.abc import Callable
-from catalog_api.holdings import Holdings
+from api.holdings import Holdings
 from datetime import datetime
 
 
@@ -157,7 +157,7 @@ class MARC:
                 tags=["730"],
                 text_sfs=no_i,
                 search=[{"subfields": no_i, "field": "title"}],
-                filter=lambda field: (field.indicator2 == "2"),
+                filter=lambda field: field.indicator2 == "2",
             ),
         ]
         return self.processor.generate_paired_fields(rulesets)
@@ -175,7 +175,7 @@ class MARC:
                 tags=["730"],
                 text_sfs=no_i,
                 search=[{"subfields": no_i, "field": "title"}],
-                filter=lambda field: (not field.indicator2),
+                filter=lambda field: not field.indicator2,
             ),
             FieldRuleset(
                 tags=["700", "710"],
@@ -281,7 +281,7 @@ class MARC:
     @property
     def created(self):
         rulesets = (
-            FieldRuleset(tags=["264"], filter=lambda field: (field.indicator2 == "0")),
+            FieldRuleset(tags=["264"], filter=lambda field: field.indicator2 == "0"),
         )
 
         return self.processor.generate_paired_fields(rulesets)
@@ -289,7 +289,7 @@ class MARC:
     @property
     def distributed(self):
         rulesets = (
-            FieldRuleset(tags=["264"], filter=lambda field: (field.indicator2 == "2")),
+            FieldRuleset(tags=["264"], filter=lambda field: field.indicator2 == "2"),
         )
 
         return self.processor.generate_paired_fields(rulesets)
@@ -298,7 +298,7 @@ class MARC:
     def manufactured(self):
         rulesets = (
             FieldRuleset(tags=["260"], text_sfs="efg"),
-            FieldRuleset(tags=["264"], filter=lambda field: (field.indicator2 == "3")),
+            FieldRuleset(tags=["264"], filter=lambda field: field.indicator2 == "3"),
         )
 
         return self.processor.generate_paired_fields(rulesets)
@@ -323,7 +323,7 @@ class MARC:
         ruleset = FieldRuleset(
             tags=["520"],
             text_sfs="abc3",
-            filter=lambda field: (field.indicator1 != "4"),
+            filter=lambda field: field.indicator1 != "4",
         )
         return self.processor.generate_paired_fields(tuple([ruleset]))
 
@@ -334,13 +334,13 @@ class MARC:
                 tags=["773"],
                 text_sfs="t",
                 search=[{"subfields": "w", "field": "isn"}],
-                filter=lambda field: (field.get("t")),
+                filter=lambda field: field.get("t"),
             ),
             FieldRuleset(
                 tags=["773"],
                 text_sfs="w",
                 search=[{"subfields": "w", "field": "isn"}],
-                filter=lambda field: (not field.get("t")),
+                filter=lambda field: not field.get("t"),
             ),
         )
         return self.processor.generate_paired_fields(rulesets)
@@ -355,7 +355,7 @@ class MARC:
         ruleset = FieldRuleset(
             tags=["555"],
             text_sfs="abcd3",
-            filter=lambda field: (not field.get("u")),
+            filter=lambda field: not field.get("u"),
         )
         return self.processor.generate_paired_fields(tuple([ruleset]))
 
@@ -474,7 +474,7 @@ class MARC:
     @property
     def copyright(self):
         ruleset = FieldRuleset(
-            tags=["264"], filter=lambda field: (field.indicator2 == "4")
+            tags=["264"], filter=lambda field: field.indicator2 == "4"
         )
 
         return self.processor.generate_paired_fields(tuple([ruleset]))
@@ -519,7 +519,7 @@ class MARC:
         ruleset = FieldRuleset(
             tags=["520"],
             text_sfs="abc3",
-            filter=lambda field: (field.indicator1 == "4"),
+            filter=lambda field: field.indicator1 == "4",
         )
         return self.processor.generate_paired_fields(tuple([ruleset]))
 
@@ -1117,7 +1117,7 @@ class CSL:
             FieldRuleset(
                 tags=["264"],
                 text_sfs="a",
-                filter=lambda field: (field.indicator2 == "1"),
+                filter=lambda field: field.indicator2 == "1",
                 rstrip_chars=TRIM_CHARS,
             ),
         )
@@ -1134,7 +1134,7 @@ class CSL:
             FieldRuleset(
                 tags=["264"],
                 text_sfs="b",
-                filter=lambda field: (field.indicator2 == "1"),
+                filter=lambda field: field.indicator2 == "1",
                 rstrip_chars=TRIM_CHARS,
             ),
         )
@@ -1184,7 +1184,7 @@ class CSL:
             FieldRuleset(
                 tags=["110", "111", "710", "711"],
                 text_sfs="ab",
-                filter=lambda field: (field.get("e") not in field_e_strings),
+                filter=lambda field: field.get("e") not in field_e_strings,
                 rstrip_chars=TRIM_CHARS,
             ),
         )

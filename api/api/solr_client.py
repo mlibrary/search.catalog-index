@@ -1,6 +1,6 @@
 import requests
 from requests.auth import HTTPBasicAuth
-from catalog_api.services import S
+from api.services import S
 from prometheus_client import Histogram
 
 
