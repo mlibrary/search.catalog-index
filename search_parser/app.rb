@@ -71,6 +71,21 @@ module SearchParser
 
     result
   end
+
+  def self.academic_discipline_solr_query(query:, sort:, fq:)
+    # how to handle fq:
+    # fq":["topicStr:(Motion\\ pictures)","institution:(UM\\ Ann\\ Arbor\\ Libraries)","+(new_availability:physical OR new_availability:hathi_trust_full_text_or_electronic_holding)"]
+    # sort comes from config/sorts.yml
+    lp = MLibrarySearchParser::Transformer::Solr::LocalParams.new(build(query))
+
+    {
+      rows: 100,
+      start: 0,
+      sort: sort,
+      fq: fq,
+      fl: "hlb3Str"
+    }.merge(lp.params).with_indifferent_access
+  end
 end
 
 class SearchParser::Application < Sinatra::Base
@@ -92,6 +107,21 @@ class SearchParser::Application < Sinatra::Base
       #      Yabeda.catalog_solr_query_duration.measure do
       response = S.solr_conn.get("solr/#{S.solr_core}/select", solr_params)
       #      end
+      response.body.to_json
+    end
+
+    get "/academic_disciplines" do
+      headers "metrics.route" => "catalog/academic_disciplines"
+      content_type :json
+      query_params = {
+        query: params["query"] || "",
+        sort: "score desc",
+        fq: params["fq"] || ["institution:(UM\\ Ann\\ Arbor\\ Libraries)", "+(availability:physical OR availability:hathi_trust_full_text_or_electronic_holding)"]
+      }
+      solr_params = SearchParser.academic_discipline_solr_query(**query_params)
+
+      response = S.solr_conn.get("solr/#{S.solr_core}/select", solr_params)
+
       response.body.to_json
     end
   end

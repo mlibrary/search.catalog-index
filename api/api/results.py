@@ -19,6 +19,38 @@ def get_results(query_params: dict):
     return Results(data=response.json(), query_params=query_params)
 
 
+def get_specialists(query_params: dict):
+    parser_params = {
+        "query": query_params["query"],
+        "fq[]": FilterQuery(query_params).query(),
+    }
+    response = requests.Session().get(
+        f"{S.parser_url}/catalog/academic_disciplines", params=parser_params
+    )
+    top_academic_disciplines = top_academic_disciplines(response.json())
+    # Next figure out how to query website solr for people
+    pass
+    # return Specialists(data=response.json(), query_params=query_params)
+
+
+def top_academic_disciplines(data: dict):
+    term_threshold = 25
+    term_counts = {}
+    for doc in data["response"]["docs"]:
+        if "hlb3Str" in doc:
+            for term in doc["hlb3Str"]:
+                if term in term_counts:
+                    term_counts[term] += 1
+                else:
+                    term_counts[term] = 1
+
+    result = []
+    for term in term_counts:
+        if term_counts[term] >= term_threshold:
+            result.append({"discipline": term, "count": term_counts[term]})
+    return result
+
+
 class Results:
     sort_map = {
         "relevance": "score desc",

@@ -1,0 +1,652 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 123,
+    "params": {
+      "q1": "birds",
+      "df": "allfields",
+      "all_fields_pf2": "title_author^500 title_equiv^80 title_l^50",
+      "fl": "hlb3Str",
+      "start": "0",
+      "fq": [
+        "institution:(UM\\ Ann\\ Arbor\\ Libraries)",
+        "+(availability:physical OR availability:hathi_trust_full_text_or_electronic_holding)"
+      ],
+      "sort": "score desc",
+      "rows": "100",
+      "default_mm": "2<-1 5<67%",
+      "mm.autoRelax": "true",
+      "all_fields_boost": "product( if(termfreq('format', 'Journal'), 1.4, 1), max( map( query({!field f=title_common_exact v=$q1}, 1), 0, 1, 1, 180 ), map( query({!field f=title_equiv_exact v=$q1}, 1), 0, 1, 1, 50 ), map( query({!field f=title_a_exact v=$q1}, 1), 0, 1, 1, 10 )), map( query({!dismax f=title_author v=$q1 mm=\"100%\"}, 1), 0, 1, 1, 50 ), )",
+      "qq1": "\"birds\"",
+      "q": "_query_:{!edismax mm=$default_mm mm.autoRelax=$mm.autoRelax tie=$tie qf=$all_fields_qf pf=$all_fields_pf pf2=$all_fields_pf2 ps2=$all_fields_ps2 boost=$all_fields_boost v=$q1}",
+      "tie": "0.1",
+      "all_fields_pf": "title_equiv^40 title_top^20 title_rest^10 author^80 author_top^30 author_rest^20",
+      "all_fields_ps2": "2",
+      "all_fields_qf": "allfieldsProper^2 allfields^1 title_common^50 title_equiv^10 mainauthor^80 author^50 isbn issn oclc lccn barcode htid callnosearch bookplate",
+      "facet.threads": "10",
+      "clean_string": "birds",
+      "t1": "birds"
+    }
+  },
+  "response": {
+    "numFound": 39624,
+    "start": 0,
+    "docs": [
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Arts",
+          "Film and Video Studies"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Classical Studies",
+          "International Studies",
+          "European Studies",
+          "Modern Greek Studies",
+          "Southeast European Studies"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Classical Studies",
+          "International Studies",
+          "European Studies",
+          "Modern Greek Studies",
+          "Southeast European Studies"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Classical Studies",
+          "International Studies",
+          "European Studies",
+          "Modern Greek Studies",
+          "Southeast European Studies"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Classical Studies",
+          "International Studies",
+          "European Studies",
+          "Modern Greek Studies",
+          "Southeast European Studies"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Classical Studies",
+          "International Studies",
+          "European Studies",
+          "Modern Greek Studies",
+          "Southeast European Studies"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Classical Studies",
+          "International Studies",
+          "European Studies",
+          "Modern Greek Studies",
+          "Southeast European Studies"
+        ]
+      },
+      {},
+      {},
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Classical Studies",
+          "International Studies",
+          "European Studies",
+          "Modern Greek Studies",
+          "Southeast European Studies"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Children's Literature",
+          "Arts",
+          "Music"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Classical Studies",
+          "International Studies",
+          "European Studies",
+          "Modern Greek Studies",
+          "Southeast European Studies"
+        ]
+      },
+      {},
+      {},
+      {},
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "English Language and Literature"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Arts",
+          "Film and Video Studies"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "English Language and Literature"
+        ]
+      },
+      {},
+      {},
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Children's Literature",
+          "English Language and Literature",
+          "Social Sciences",
+          "Women's and Gender Studies",
+          "Scandinavian Languages and Literatures"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Children's Literature",
+          "English Language and Literature"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Children's Literature"
+        ]
+      },
+      {},
+      {},
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology",
+          "Humanities",
+          "Children's Literature"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Social Sciences",
+          "Anthropology"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Humanities",
+          "Children's Literature"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Humanities",
+          "Classical Studies",
+          "Social Sciences",
+          "Anthropology",
+          "Archaeology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Children's Literature"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Children's Literature",
+          "English Language and Literature"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology",
+          "Humanities",
+          "Children's Literature"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Children's Literature",
+          "English Language and Literature"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Classical Studies",
+          "International Studies",
+          "European Studies",
+          "Modern Greek Studies",
+          "Southeast European Studies"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Arts",
+          "Art History",
+          "Art and Design"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Arts",
+          "Art History",
+          "Art and Design"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Science (General)"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Government, Politics and Law",
+          "Government Information",
+          "International Government Information",
+          "International Studies",
+          "European Studies",
+          "British and Irish Studies"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology",
+          "Humanities",
+          "Children's Literature"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology",
+          "Humanities",
+          "Children's Literature"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {},
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {},
+      {},
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "English Language and Literature"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Romance Languages and Literatures",
+          "French Language and Literatures"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Humanities",
+          "General and Comparative Literature",
+          "Romance Languages and Literatures",
+          "French Language and Literatures"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology",
+          "Humanities",
+          "Children's Literature"
+        ]
+      },
+      {
+        "hlb3Str": [
+          "Science",
+          "Biology",
+          "Zoology",
+          "Ecology and Evolutionary Biology",
+          "Humanities",
+          "Children's Literature"
+        ]
+      }
+    ]
+  }
+}

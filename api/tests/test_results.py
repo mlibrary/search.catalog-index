@@ -1,6 +1,6 @@
 import pytest
 import json
-from api.results import Filter, FilterQuery, Results
+from api.results import Filter, FilterQuery, Results, top_academic_disciplines
 
 
 @pytest.fixture()
@@ -175,3 +175,22 @@ class TestFilterQuery:
 
         assert expected in subject.query()
         assert len(subject.query()) == 2
+
+
+@pytest.fixture()
+def academic_discipline_data():
+    with open("tests/fixtures/results/academic_discipline_response.json") as data:
+        body = json.load(data)
+    return body
+
+
+def test_top_academic_disciplines(academic_discipline_data):
+    subject = top_academic_disciplines(academic_discipline_data)
+
+    assert subject == [
+        {"discipline": "Science", "count": 40},
+        {"discipline": "Biology", "count": 39},
+        {"discipline": "Zoology", "count": 39},
+        {"discipline": "Ecology and Evolutionary Biology", "count": 39},
+        {"discipline": "Humanities", "count": 31},
+    ]
