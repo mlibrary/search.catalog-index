@@ -20,20 +20,62 @@ def get_results(query_params: dict):
 
 
 def get_specialists(query_params: dict):
+    fq = FilterQuery(query_params)
     parser_params = {
         "query": query_params["query"],
-        "fq[]": FilterQuery(query_params).query(),
+        "fq[]": fq.query(),
     }
     response = requests.Session().get(
         f"{S.parser_url}/catalog/academic_disciplines", params=parser_params
     )
-    top_academic_disciplines = top_academic_disciplines(response.json())
+    top_academic_disciplines = get_top_academic_disciplines(response.json())
+    website_response = fetch_website_solr_specialists(
+        top_academic_disciplines, query_params
+    )
+    return website_response.json()
     # Next figure out how to query website solr for people
-    pass
     # return Specialists(data=response.json(), query_params=query_params)
 
 
-def top_academic_disciplines(data: dict):
+def fetch_website_solr_specialists(top_academic_disciplines, query_params):
+    fq_academic_disciplines = []
+
+    for f in query_params["filters"]:
+        term, value = f.split(":")
+        if term == "academic_discipline":
+            fq_academic_disciplines.append(solr_escape(value))
+
+    fq = "+source:drupal-users +status:true"
+    if fq_academic_disciplines:
+        ad_str = " AND ".join(fq_academic_disciplines)
+        fq += f" +(taxonomy_name:({ad_str}))"
+
+    query = " OR ".join([tad["discipline"] for tad in top_academic_disciplines])
+
+    bq = [
+        f"taxonomy_name:({tad['discipline']})^{tad['count']}"
+        for tad in top_academic_disciplines
+    ]
+
+    result = {
+        "mm": 1,
+        "qf": "taxonomy_name",
+        "pf": "taxonomy_name",
+        "q": query,
+        "fq": fq,
+        "bq": bq,
+        "rows": 10,
+        "defType": "edismax",
+        "fl": "*",
+        "wt": "json",
+    }
+    resp = requests.Session().get(
+        f"{S.website_solr_url}/solr/www.lib/select", params=result
+    )
+    return resp
+
+
+def get_top_academic_disciplines(data: dict):
     term_threshold = 25
     term_counts = {}
     for doc in data["response"]["docs"]:
@@ -47,7 +89,7 @@ def top_academic_disciplines(data: dict):
     result = []
     for term in term_counts:
         if term_counts[term] >= term_threshold:
-            result.append({"discipline": term, "count": term_counts[term]})
+            result.append({"discipline": solr_escape(term), "count": term_counts[term]})
     return result
 
 
@@ -225,6 +267,11 @@ class FilterQuery:
                 result = f"availability:({result})"
 
         return f"({result})"
+
+    def academic_disciplines(self):
+        if "hlb3Str" in self.facets:
+            return self.facets["hlb3Str"]
+        return []
 
     def basic_facet(self, field, values):
         escaped = map(lambda v: solr_escape(v), values)
