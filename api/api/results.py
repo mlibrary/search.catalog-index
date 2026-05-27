@@ -32,9 +32,30 @@ def get_specialists(query_params: dict):
     website_response = fetch_website_solr_specialists(
         top_academic_disciplines, query_params
     )
-    return website_response.json()
+    specialists = specialist_response(website_response.json())
+    return {
+        "specialists": specialists,
+        "academic_dicsiplines": top_academic_disciplines,
+    }
     # Next figure out how to query website solr for people
     # return Specialists(data=response.json(), query_params=query_params)
+    #
+
+
+def specialist_response(data):
+    specialists = []
+    for person in data["response"]["docs"]:
+        specialists.append(
+            {
+                "name": person["title"],
+                "uniqname": person["ssfield_uniqname"],
+                "title": person["job_title"],
+                "email": person["email"][0],
+                "phone": person["ssfield_phone"],
+                "academic_dicsiplines": person["taxonomy_name"],
+            }
+        )
+    return specialists
 
 
 def fetch_website_solr_specialists(top_academic_disciplines, query_params):
@@ -267,11 +288,6 @@ class FilterQuery:
                 result = f"availability:({result})"
 
         return f"({result})"
-
-    def academic_disciplines(self):
-        if "hlb3Str" in self.facets:
-            return self.facets["hlb3Str"]
-        return []
 
     def basic_facet(self, field, values):
         escaped = map(lambda v: solr_escape(v), values)
