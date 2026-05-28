@@ -1,0 +1,116 @@
+{
+    "responseHeader": {
+        "status": 0,
+        "QTime": 1,
+        "params": {
+            "mm": "1",
+            "q": "Science OR Biology OR Zoology OR Ecology\\ and\\ Evolutionary\\ Biology OR Humanities",
+            "defType": "edismax",
+            "qf": "taxonomy_name",
+            "pf": "taxonomy_name",
+            "fl": "*",
+            "fq": "+source:drupal-users +status:true",
+            "rows": "10",
+            "wt": "json",
+            "bq": [
+                "taxonomy_name:(Science)^38",
+                "taxonomy_name:(Biology)^37",
+                "taxonomy_name:(Zoology)^37",
+                "taxonomy_name:(Ecology\\ and\\ Evolutionary\\ Biology)^37",
+                "taxonomy_name:(Humanities)^30"
+            ]
+        }
+    },
+    "response": {
+        "numFound": 1,
+        "start": 0,
+        "docs": [
+            {
+                "source": "drupal-users",
+                "segment": "staff",
+                "bsfield-highly-recommended": false,
+                "ssfield_page_type": "Staff Directory / People",
+                "status": true,
+                "uid": 99,
+                "ssfield_uniqname": "soandso",
+                "email": [
+                    "soandso@umich.edu"
+                ],
+                "job_title": "Biological Sciences Librarian",
+                "title": "So And So",
+                "title_l": [
+                    "So And So"
+                ],
+                "title_lj": [
+                    "So And So"
+                ],
+                "title_ngram": [
+                    "So And So"
+                ],
+                "title_unstemmed": "So And So",
+                "all_titles": [
+                    "So And So"
+                ],
+                "all_titles_unstemmed": [
+                    "So And So"
+                ],
+                "sort_title": "So And So",
+                "sort_title_english": "So And So",
+                "sort_english_title": "So And So",
+                "ssfield_user_department_id": "999999",
+                "ssfield_phone": "999-999-9999",
+                "changed": "2026-05-27T11:46:49Z",
+                "taxonomy_name": [
+                    "Genetics",
+                    "Molecular, Cellular and Developmental Biology",
+                    "Zoology",
+                    "Ecology and Evolutionary Biology",
+                    "Botany",
+                    "Biology"
+                ],
+                "tmfield_taxonomy_name": [
+                    "Genetics",
+                    "Molecular, Cellular and Developmental Biology",
+                    "Zoology",
+                    "Ecology and Evolutionary Biology",
+                    "Botany",
+                    "Biology"
+                ],
+                "smfield_expertise_term_name": [
+                    "Data Management"
+                ],
+                "tmfield_expertise_term_name": [
+                    "Data Management"
+                ],
+                "tags": [
+                    "genetics",
+                    "molecular_cellular_and_developmental_biology",
+                    "zoology",
+                    "ecology_and_evolutionary_biology",
+                    "botany",
+                    "biology"
+                ],
+                "ssfield_user_department": "HS-STEM",
+                "id": "https://www.lib.umich.edu/users/soandso",
+                "url": "https://www.lib.umich.edu/users/soandso",
+                "profile_picture": "https://search.lib.umich.edu/photos/sites/default/files/staff_photos/picture.jpg",
+                "smfield_picture_url": [
+                    "https://search.lib.umich.edu/photos/sites/default/files/staff_photos/picture.jpg"
+                ],
+                "content": "soandso@umich.edu Biological Sciences Librarian So And So soandso 999-999-9999",
+                "content_unstemmed": [
+                    "soandso@umich.edu Biological Sciences Librarian So And So soandso 999-999-9999"
+                ],
+                "smfield_user_location": [
+                    "4020 Taubman Hlth Sciences Library\nAnn Arbor, MI 48109-5726"
+                ],
+                "smfield_user_location_json": [
+                    "{\"street\":\"4020 Taubman Hlth Sciences Library\",\"additional\":\"\",\"postal_code\":\"48109-5726\",\"city\":\"Ann Arbor\",\"province\":\"MI\",\"country\":\"US\"}"
+                ],
+                "_version_": 1866421995892113408,
+                "timestamp": "2026-05-28T08:58:41.052Z"
+            }
+        ]
+    }
+}
+

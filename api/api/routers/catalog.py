@@ -4,7 +4,8 @@ from prometheus_client import Histogram
 from api import schemas
 from api.solr_client import NotFoundError
 from api.record import record_for
-from api.results import get_results, get_specialists as fetch_specialists
+from api.results import get_results
+from api import specialists
 
 router = APIRouter(prefix="/catalog", tags=["catalog"])
 
@@ -73,7 +74,7 @@ def get_specialists(
     """
     Looks up specialists associated with given query
     """
-    results = fetch_specialists(
+    results = specialists.get_specialists(
         {
             "query": query,
             "filters": filters,
