@@ -1,6 +1,6 @@
 import requests
 from api.services import S
-from api.results import FilterQuery, solr_escape
+from api.results import FilterQuery, solr_escape, Results
 
 
 def get_specialists(query_params: dict):
@@ -23,6 +23,7 @@ def fetch_academic_disciplines(query_params: dict):
     parser_params = {
         "query": query_params["query"],
         "fq[]": fq.query(),
+        "sort": Results.sort_map[query_params["sort"]],
     }
     response = requests.Session().get(
         f"{S.parser_url}/catalog/academic_disciplines", params=parser_params

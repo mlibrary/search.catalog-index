@@ -1,25 +1,20 @@
 RSpec.describe "requests" do
+  def gen_solr_stub(key, value)
+    # this should do proper matching.
+    # (?=&|\z) means the string is followed by either the "&" character or
+    # the end of the string
+    stub_request(:get, /#{S.solr_url}\/solr\/biblio\/select.*[?&]#{key}=#{value}(?=&|\z)/)
+  end
+  let(:key) { "" }
+  let(:value) { "" }
+  let(:params) do
+    {query: "blah"}
+  end
   context "get /catalog/search" do
-    let(:key) { "" }
-    let(:value) { "" }
-    def gen_solr_stub(key, value)
-      # this should do proper matching.
-      # (?=&|\z) means the string is followed by either the "&" character or
-      # the end of the string
-      stub_request(:get, /#{S.solr_url}\/solr\/biblio\/select.*[?&]#{key}=#{value}(?=&|\z)/)
-    end
-    let(:params) do
-      {query: "blah"}
-    end
-
     def expect_has_param(key, value)
       solr_stub = gen_solr_stub(key, value)
       get "/catalog/search", params
       expect(solr_stub).to have_been_requested
-    end
-
-    subject do
-      get "/catalog/search", params
     end
 
     context "standard params" do
@@ -75,6 +70,53 @@ RSpec.describe "requests" do
       end
     end
 
+    context "filter query" do
+      it "passes the filter query from fq param" do
+        params["fq"] = ["first", "second"]
+        expect_has_param("fq", "first")
+      end
+      it "includes the second parameter too" do
+        params["fq"] = ["first", "second"]
+        expect_has_param("fq", "second")
+      end
+
+      # these two won't last for ever. The api should always send a fq
+      it "defaults to um library" do
+        expect_has_param("fq", "institution.*")
+      end
+      it "defaults to not-search-only" do
+        expect_has_param("fq", '%2B\(availability:physical.*')
+      end
+    end
+  end
+  context "get /catalog/academic_disciplines" do
+    def expect_has_param(key, value)
+      solr_stub = gen_solr_stub(key, value)
+      get "/catalog/academic_disciplines", params
+      expect(solr_stub).to have_been_requested
+    end
+
+    context "standard params" do
+      it "has a q1 param" do
+        expect_has_param("q1", "blah")
+      end
+      it "has fl of hlb3Str" do
+        expect_has_param("fl", "hlb3Str")
+      end
+      it "has a start of 0" do
+        expect_has_param("start", "0")
+      end
+      it "has a rows of " do
+        expect_has_param("rows", "100")
+      end
+      it "has a default for sort" do
+        expect_has_param("sort", "score desc")
+      end
+      it "uses the sort param for sort" do
+        params["sort"] = "created asc"
+        expect_has_param("sort", "created asc")
+      end
+    end
     context "filter query" do
       it "passes the filter query from fq param" do
         params["fq"] = ["first", "second"]

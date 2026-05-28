@@ -115,7 +115,7 @@ class SearchParser::Application < Sinatra::Base
       content_type :json
       query_params = {
         query: params["query"] || "",
-        sort: "score desc",
+        sort: params["sort"] || "score desc",
         fq: params["fq"] || ["institution:(UM\\ Ann\\ Arbor\\ Libraries)", "+(availability:physical OR availability:hathi_trust_full_text_or_electronic_holding)"]
       }
       solr_params = SearchParser.academic_discipline_solr_query(**query_params)
