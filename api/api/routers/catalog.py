@@ -70,7 +70,7 @@ def get_specialists(
     filters: Annotated[list[str], Query()] = [],
     ht_search_only: bool = False,
     sort: schemas.Sort = schemas.Sort.relevance,
-):
+) -> schemas.Specialists:
     """
     Looks up specialists associated with given query
     """

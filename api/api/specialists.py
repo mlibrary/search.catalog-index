@@ -11,11 +11,10 @@ def get_specialists(query_params: dict):
     website_response = fetch_website_solr_specialists(
         website_solr_query_params(top_academic_disciplines, query_params)
     )
-    breakpoint()
     specialists = specialist_response(website_response)
     return {
         "specialists": specialists,
-        "academic_dicsiplines": top_academic_disciplines,
+        "academic_disciplines": top_academic_disciplines,
     }
 
 
