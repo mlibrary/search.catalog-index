@@ -36,10 +36,10 @@ def specialist_response(data):
     for person in data["response"]["docs"]:
         specialists.append(
             {
-                "name": person.get("title", None),
-                "uniqname": person.get("ssfield_uniqname", None),
+                "name": person["title"],
+                "uniqname": person["ssfield_uniqname"],
                 "title": person.get("job_title", None),
-                "email": person["email"][0],  # there is always an email
+                "email": person["email"][0],
                 "phone": person.get("ssfield_phone", None),
                 "academic_disciplines": person["taxonomy_name"],
             }

@@ -347,9 +347,9 @@ class ResultRecord(BaseModel):
 class Specialist(BaseModel):
     name: str
     uniqname: str
-    title: str
+    title: Optional[str] = None
     email: str
-    phone: str
+    phone: Optional[str] = None
     academic_disciplines: list[str]
 
 
