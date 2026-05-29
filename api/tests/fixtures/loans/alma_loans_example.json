@@ -1,0 +1,49 @@
+{
+  "item_loan": [
+    {
+      "loan_id": "some_loan_id",
+      "circ_desk": {
+        "value": "DEFAULT_CIRC_DESK",
+        "desc": "FA Information Desk",
+        "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/libraries/FINE/circ-desks/DEFAULT_CIRC_DESK"
+      },
+      "return_circ_desk": {},
+      "library": {
+        "value": "HATCH",
+        "desc": "Hatcher Graduate"
+      },
+      "user_id": "emcard",
+      "item_barcode": "39015053134410",
+      "due_date": "2026-08-28T21:00:00Z",
+      "loan_status": "ACTIVE",
+      "loan_date": "2026-01-22T21:03:43.627Z",
+      "returned_by": {
+        "value": ""
+      },
+      "process_status": "RENEW",
+      "mms_id": "990042028180106381",
+      "holding_id": "22836290780006381",
+      "item_id": "23836290770006381",
+      "title": "Hildegard of Bingen : an integrated vision / Anne H. King-Lenzmeier.",
+      "author": "King-Lenzmeier, Anne H.,",
+      "publication_year": "c2001.",
+      "location_code": {
+        "value": "GRAD",
+        "name": "GRAD"
+      },
+      "item_policy": {},
+      "call_number": "BX 4700 .H5 K561 2001",
+      "request_id": {
+        "value": "93847415690006381",
+        "link": "https://api-na.hosted.exlibrisgroup.com/almaws/v1/users/ramauney/requests/93847415690006381"
+      },
+      "renewable": true,
+      "last_renew_date": "2026-04-27T07:34:15.780Z",
+      "last_renew_status": {
+        "value": "401193;",
+        "desc": "Renewed Successfully"
+      }
+    }
+  ],
+  "total_record_count": 1
+}
