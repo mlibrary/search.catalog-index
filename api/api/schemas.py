@@ -344,6 +344,25 @@ class ResultRecord(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
 
 
+class Specialist(BaseModel):
+    name: str
+    uniqname: str
+    title: Optional[str] = None
+    email: str
+    phone: Optional[str] = None
+    academic_disciplines: list[str]
+
+
+class SpecialistAcademicDiscipline(BaseModel):
+    discipline: str
+    count: int
+
+
+class Specialists(BaseModel):
+    specialists: list[Specialist]
+    academic_disciplines: list[SpecialistAcademicDiscipline]
+
+
 class FilterValue(BaseModel):
     text: str
     count: int
