@@ -12,6 +12,7 @@ from api.holdings import (
     FindingAidItem,
     ReservableItem,
     ClementsItem,
+    has_physical_holdings,
 )
 
 
@@ -21,6 +22,11 @@ def solr_doc():
     with open("tests/fixtures/land_birds_solr.json") as data:
         bib = json.load(data)
     return bib["response"]["docs"][0]
+
+
+@pytest.fixture
+def holdings_data(solr_doc):
+    return json.loads(solr_doc["hol"])
 
 
 @pytest.fixture
@@ -84,6 +90,20 @@ def physical_item(physical_holding):
 @pytest.fixture
 def bib_id():
     "9912345"
+
+
+def test_has_physical_holdings(holdings_data):
+    assert has_physical_holdings(holdings_data) is True
+
+
+def test_has_physical_holdings_is_false_when_there_are_none(solr_doc):
+    assert has_physical_holdings([]) is False
+
+
+def test_has_physical_holdings_is_false_when_all_elec(holdings_data):
+    for h in holdings_data:
+        h["library"] = "ELEC"
+    assert has_physical_holdings(holdings_data) is False
 
 
 class TestPhysicalHolding:

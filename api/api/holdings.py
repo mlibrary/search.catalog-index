@@ -2,6 +2,7 @@ import pymarc
 from urllib.parse import urlencode
 from dataclasses import dataclass
 from api.marc import Processor, FieldRuleset
+from api.alma_client import AlmaClient
 
 
 class AlmaDigitalItem:
@@ -478,12 +479,35 @@ def kind_of_holding(holding_item: dict):
         case "HathiTrust Digital Library":
             return "hathi_trust"
         case "ELEC":
-            if holding_item["finding_aid"]:
+            if holding_item.get("finding_aid"):
                 return "finding_aid"
             else:
                 return "electronic"
         case _:
             return "physical"
+
+
+def has_physical_holdings(holdings_data: list):
+    return any(kind_of_holding(holding) == "physical" for holding in holdings_data)
+
+
+def get_alma_loans(mms_id, holdings_data: list):
+    if has_physical_holdings(holdings_data):
+        return AlmaLoans((AlmaClient().get_loans(mms_id)))
+    return EmptyAlmaLoans
+
+
+class AlmaLoans:
+    def __init__(self, data):
+        self.data = data
+
+    def find(item_id: str):
+        pass
+
+
+class EmptyAlmaLoans:
+    def find(item_id: str):
+        pass
 
 
 def physical_holdings(
