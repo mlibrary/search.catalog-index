@@ -395,18 +395,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990054099170106381':
-- collection_name: NASA Technical Reports Server (NTRS)
-  interface_name: GPO
-  note: GPO. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://ntrs.nasa.gov/search
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990051307810106381':
 - collection_name: World Bank e-Library.
   interface_name: World Bank Group
@@ -1657,18 +1645,6 @@
   - ann_arbor
   institution_codes:
   - MIU
-'990178771220106381':
-- collection_name: South Asia open archives (SAOA).
-  interface_name: JSTOR
-  note: JSTOR.
-  link: https://www.jstor.org/site/saoa/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990138349020106381':
 - collection_name: AIDS.gov
   interface_name: ''
@@ -2213,7 +2189,7 @@
 - collection_name: GuideStar
   interface_name: GuideStar
   note: GuideStar. Some website features require a personal account. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.guidestar.org/
+  link: https://app.candid.org/ipl
   status: Available
   campuses:
   - ann_arbor
@@ -4751,7 +4727,7 @@
 - collection_name: 'North American Indian Drama: Second Edition'
   interface_name: Alexander Street
   note: Alexander Street. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://ind2.alexanderstreet.com/
+  link: https://search.alexanderstreet.com/ind2
   status: Available
   campuses:
   - ann_arbor
@@ -4811,7 +4787,7 @@
 - collection_name: 'Harper''s Weekly: 1857-1912'
   interface_name: Alexander Street
   note: Alexander Street. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://content.harpweek.com/
+  link: https://harp.alexanderstreet.com
   status: Available
   campuses:
   - ann_arbor
@@ -4824,6 +4800,18 @@
   interface_name: Alexander Street
   note: Alexander Street. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.alexanderstreet.com/ticc
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99187252494506381':
+- collection_name: Goethes Werke
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/goethe
   status: Available
   campuses:
   - ann_arbor
@@ -5196,6 +5184,29 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/eebo
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99187252503706381':
+- collection_name: SAGE CQ Press Researcher Online
+  interface_name: SAGE
+  note: SAGE. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://cqpress.sagepub.com/cqresearcher/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+- collection_name: SAGE CQ Press Researcher Online
+  interface_name: ''
+  note: ''
+  link: https://us.sagepub.com/en-us/nam/home
   status: Available
   campuses:
   - ann_arbor
@@ -5609,9 +5620,9 @@
   - MIU
   - MIFLIC
 '99187252475306381':
-- collection_name: US Government Documents
-  interface_name: US Government Documents
-  note: US Government Documents. Open access for all users.
+- collection_name: U.S. Federal Government Documents (from US GPO)
+  interface_name: U.S. Government Publishing Office (US GPO)
+  note: U.S. Government Publishing Office (US GPO) Open access for all users.
   link: https://www.govinfo.gov/
   status: Available
   campuses:
@@ -5788,7 +5799,7 @@
   - MIU
   - MIFLIC
 '99187252613306381':
-- collection_name: Daily Mail Historical Archive
+- collection_name: 'Gale Primary Sources: Daily Mail Historical Archive 1896-2016'
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: http://infotrac.galegroup.com/itweb/umuser?db=DMHA
@@ -9160,7 +9171,7 @@
 - collection_name: Foundation Directory
   interface_name: Foundation Center
   note: Foundation Center. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://fconline.fdncenter.org/ipl.php
+  link: https://app.candid.org/ipl
   status: Available
   campuses:
   - ann_arbor
@@ -9268,7 +9279,7 @@
 - collection_name: ChiltonLibrary.com
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://infotrac.galegroup.com/itweb/umuser?db=CHLL
+  link: https://link.gale.com/apps/CHLL?u=umuser
   status: Available
   campuses:
   - ann_arbor
@@ -9497,18 +9508,6 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://search.proquest.com/copper
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187252554906381':
-- collection_name: Editions & Adaptations of Shakespeare (Legacy)
-  interface_name: Chadwyck-Healey
-  note: Chadwyck-Healey.
-  link: http://collections.chadwyck.com/eas/htxview?template=basic.htx&content=frameset.htx
   status: Available
   campuses:
   - ann_arbor
@@ -11883,7 +11882,7 @@
 - collection_name: USPTO Issued Patents
   interface_name: USPTO
   note: USPTO.
-  link: http://www.uspto.gov/patft/index.html
+  link: https://www.uspto.gov/patents/search/published-patent-application-access-and-status-information
   status: Available
   campuses:
   - ann_arbor
@@ -14517,6 +14516,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99187479517706381':
+- collection_name: Marquis Biographies Online
+  interface_name: Marquis Who's Who
+  note: Marquis Who's Who. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://search.marquiswhoswho.com/executable/login.aspx
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99188865854206381':
 - collection_name: EZB-FREE-00999 freely available EZB journals
   interface_name: Ezb
@@ -15407,7 +15418,7 @@
 - collection_name: Cambridge Edition of the Works of Ben Jonson Online
   interface_name: Cambridge University Press
   note: Cambridge University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://universitypublishingonline.org/cambridge/benjonson/
+  link: https://hcmc.uvic.ca/eol/cambridge/benjonson/
   status: Available
   campuses:
   - ann_arbor
@@ -16021,6 +16032,29 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99187570033906381':
+- collection_name: Drama Criticism
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://go.gale.com/ps/dynamicAboutSeries?p=LCO&u=umuser&seriesId=0XUS
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+- collection_name: Drama Criticism
+  interface_name: Gale
+  note: Gale. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://link.gale.com/apps/lco?u=umuser
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99187570036006381':
 - collection_name: 'Gale OneFile: Contemporary Womens Issues'
   interface_name: Gale
@@ -16073,7 +16107,7 @@
 - collection_name: 'Oxford Bibliographies Online: Sociology'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199756384
+  link: https://academic.oup.com/reference/62417
   status: Available
   campuses:
   - ann_arbor
@@ -16085,7 +16119,7 @@
 - collection_name: 'Oxford Bibliographies Online: Social Work'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.oxfordbibliographies.com/browse?module_0=obo-9780195389678
+  link: https://academic.oup.com/reference/62418
   status: Available
   campuses:
   - ann_arbor
@@ -16097,7 +16131,7 @@
 - collection_name: 'Oxford Bibliographies Online: Political Science'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199756223
+  link: https://academic.oup.com/reference/62402
   status: Available
   campuses:
   - ann_arbor
@@ -16109,7 +16143,7 @@
 - collection_name: 'Oxford Bibliographies Online: Latino Studies'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199913701
+  link: https://academic.oup.com/reference/62380
   status: Available
   campuses:
   - ann_arbor
@@ -16121,7 +16155,7 @@
 - collection_name: 'Oxford Bibliographies Online: Latin American Studies'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199766581
+  link: https://academic.oup.com/reference/62379
   status: Available
   campuses:
   - ann_arbor
@@ -16133,7 +16167,7 @@
 - collection_name: 'Oxford Bibliographies Online: International Relations'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199743292
+  link: https://academic.oup.com/reference/62360
   status: Available
   campuses:
   - ann_arbor
@@ -16145,7 +16179,7 @@
 - collection_name: 'Oxford Bibliographies : Evolutionary Biology'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.oxfordbibliographies.com/browse?module_0=obo-9780199941728
+  link: https://academic.oup.com/reference/62354
   status: Available
   campuses:
   - ann_arbor
@@ -16157,7 +16191,7 @@
 - collection_name: Oxford Bibliographies Online: Environmental Science
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199363445
+  link: https://academic.oup.com/reference/62351
   status: Available
   campuses:
   - ann_arbor
@@ -16169,7 +16203,7 @@
 - collection_name: 'Oxford Bibliographies Online : Education'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199756810
+  link: https://academic.oup.com/reference/62345
   status: Available
   campuses:
   - ann_arbor
@@ -16181,7 +16215,7 @@
 - collection_name: 'Oxford Bibliographies Online : Ecology'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.oxfordbibliographies.com/browse?module_0=obo-9780199830060
+  link: https://academic.oup.com/reference/62344
   status: Available
   campuses:
   - ann_arbor
@@ -16193,7 +16227,7 @@
 - collection_name: 'Oxford Bibliographies Online: Criminology'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.oxfordbibliographies.com/browse?module_0=obo-9780195396607
+  link: https://academic.oup.com/reference/62346
   status: Available
   campuses:
   - ann_arbor
@@ -16205,7 +16239,7 @@
 - collection_name: 'Oxford Bibliographies Online: Communication'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199756841
+  link: https://academic.oup.com/reference/62347
   status: Available
   campuses:
   - ann_arbor
@@ -16217,7 +16251,7 @@
 - collection_name: 'Oxford Bibliographies Online: Classics'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780195389661
+  link: https://academic.oup.com/reference/62365
   status: Available
   campuses:
   - ann_arbor
@@ -16229,7 +16263,7 @@
 - collection_name: 'Oxford Bibliographies Online: Cinema and Media Studies'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199791286
+  link: https://academic.oup.com/reference/62339
   status: Available
   campuses:
   - ann_arbor
@@ -16241,7 +16275,7 @@
 - collection_name: 'Oxford Bibliographies Online: Atlantic History'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?sticky=true&module_0=obo-9780199730414&q=
+  link: https://academic.oup.com/reference/62333
   status: Available
   campuses:
   - ann_arbor
@@ -16253,7 +16287,7 @@
 - collection_name: 'Oxford Bibliographies Online : Art History'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199920105
+  link: https://academic.oup.com/reference/62285
   status: Available
   campuses:
   - ann_arbor
@@ -16265,7 +16299,7 @@
 - collection_name: 'Oxford Bibliographies Online: African Studies'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199846733
+  link: https://academic.oup.com/reference/62328
   status: Available
   campuses:
   - ann_arbor
@@ -16277,7 +16311,7 @@
 - collection_name: 'Oxford Bibliographies Online: African American Studies'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780190280024
+  link: https://academic.oup.com/reference/62284
   status: Available
   campuses:
   - ann_arbor
@@ -19958,16 +19992,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187964286206381':
-- collection_name: GCA Pubs and GIS Collection
-  interface_name: ''
-  note: Access to the East View online version restricted; authentication may be required.
-  link: https://dlib.eastview.com/browse/udb/3870
-  status: Available
-  campuses:
-  - ann_arbor
-  institution_codes:
-  - MIU
 '99187979394906381':
 - collection_name: 'History commons : Weimar and Nazi Germany'
   interface_name: ''
@@ -20042,8 +20066,8 @@
 '99187980606706381':
 - collection_name: SAO/NASA Astrophysics Data System Abstract Service
   interface_name: NASA
-  note: NASA.
-  link: http://adsabs.harvard.edu/ads_abstracts.html
+  note: NASA. Open access for all users.
+  link: https://adsabs.harvard.edu/ads_abstracts.html
   status: Available
   campuses:
   - ann_arbor
@@ -20401,7 +20425,7 @@
 - collection_name: 'Oxford Bibliographies Online: Medieval Studies'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780195396584
+  link: https://academic.oup.com/reference/62384
   status: Available
   campuses:
   - ann_arbor
@@ -20413,7 +20437,7 @@
 - collection_name: 'Oxford Bibliographies Online: Jewish Studies'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199840731
+  link: https://academic.oup.com/reference/62376
   status: Available
   campuses:
   - ann_arbor
@@ -20425,7 +20449,7 @@
 - collection_name: 'Oxford Bibliographies Online: Islamic Studies'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780195390155
+  link: https://academic.oup.com/reference/62361
   status: Available
   campuses:
   - ann_arbor
@@ -20437,7 +20461,7 @@
 - collection_name: 'Oxford Bibliographies Online: Hinduism'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.oxfordbibliographies.com/browse?sticky=true&module_1=obo-9780195399318&q=
+  link: https://academic.oup.com/reference/62357
   status: Available
   campuses:
   - ann_arbor
@@ -20449,7 +20473,7 @@
 - collection_name: 'Oxford Bibliographies Online : Chinese Studies'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780199920082
+  link: https://academic.oup.com/reference/62338
   status: Available
   campuses:
   - ann_arbor
@@ -20461,7 +20485,7 @@
 - collection_name: 'Oxford Bibliographies Online : Childhood Studies'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://oxfordbibliographies.com/browse?module_0=obo-9780199791231
+  link: https://academic.oup.com/reference/62336
   status: Available
   campuses:
   - ann_arbor
@@ -20473,7 +20497,7 @@
 - collection_name: 'Oxford Bibliographies Online: Buddhism'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.oxfordbibliographies.com/browse?module_0=obo-9780195393521
+  link: https://academic.oup.com/reference/62340
   status: Available
   campuses:
   - ann_arbor
@@ -20485,7 +20509,7 @@
 - collection_name: 'Oxford Bibliographies Online: Biblical Studies'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780195393361
+  link: https://academic.oup.com/reference/62341
   status: Available
   campuses:
   - ann_arbor
@@ -20497,7 +20521,7 @@
 - collection_name: 'Oxford Bibliographies Online : Anthropology'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.oxfordbibliographies.com/browse?module_0=obo-9780199766567
+  link: https://academic.oup.com/reference/62334
   status: Available
   campuses:
   - ann_arbor
@@ -20772,7 +20796,7 @@
 - collection_name: 'Oxford Bibliographies Online: Urban Studies'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780190922481
+  link: https://academic.oup.com/reference/62419
   status: Available
   campuses:
   - ann_arbor
@@ -20784,7 +20808,7 @@
 - collection_name: 'Oxford Bibliographies Online: Philosophy'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.oxfordbibliographies.com/browse?module_0=obo-9780195396577
+  link: https://academic.oup.com/reference/62401
   status: Available
   campuses:
   - ann_arbor
@@ -20796,7 +20820,7 @@
 - collection_name: 'Oxford Bibliographies Online: Music'
   interface_name: Oxford University Press
   note: Oxford University Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://www.oxfordbibliographies.com/browse?module_0=obo-9780199757824
+  link: https://academic.oup.com/reference/62400
   status: Available
   campuses:
   - ann_arbor
@@ -21363,7 +21387,7 @@
 '99189059612606381':
 - collection_name: Swank Digital Campus - Flint Campus
   interface_name: Swank Digital Campus
-  note: Swank Digital Campus.
+  note: Swank Digital Campus. Authorized U-M users (+ guests in U-M Libraries)
   link: https://permalinks.swankmp.net
   status: Available
   campuses:
@@ -25331,6 +25355,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99188918006106381':
+- collection_name: Sage electronic resources
+  interface_name: ''
+  note: ''
+  link: https://us.sagepub.com/en-us/nam/home
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99188918005406381':
 - collection_name: Shakespeare Collection (Archives Unbound)
   interface_name: Gale
@@ -26225,6 +26261,18 @@
   - ann_arbor
   institution_codes:
   - MIU
+'99187252615406381':
+- collection_name: MathSciNet
+  interface_name: American Mathematical Society
+  note: American Mathematical Society. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://mathscinet.ams.org/mathscinet/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99188996604206381':
 - collection_name: De Gruyter University of Washington Press Complete eBook-Package 2025
   interface_name: Walter De Gruyter Publishing
@@ -26985,6 +27033,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99189052407306381':
+- collection_name: Zhongguo dang dai di fang zhi quan wen shu ju ku =
+  interface_name: ''
+  note: ''
+  link: https://cngazetteer.com
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99189058528006381':
 - collection_name: 'State Papers Online: Eighteenth Century, 1714-1782: Part IV: State Papers Foreign: Scandinavia, Eastern Europe and Turkey'
   interface_name: Gale
@@ -27038,6 +27098,18 @@
   interface_name: Gale
   note: Gale. Authorized U-M users (+ guests in U-M Libraries)
   link: https://link.gale.com/apps/SPOC?u=umuser
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189059518606381':
+- collection_name: NASA Technical Reports Server
+  interface_name: NASA
+  note: NASA. Publicly Available Content. Open access for all users.
+  link: https://ntrs.nasa.gov/
   status: Available
   campuses:
   - ann_arbor
@@ -27604,18 +27676,6 @@
   interface_name: 'EuDML: The European Digital Mathematics Library'
   note: 'EuDML: The European Digital Mathematics Library. Open access for all users.'
   link: https://eudml.org/journals
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99189109631706381':
-- collection_name: UMPEBC University of Michigan Press eBooks 2026
-  interface_name: University of Michigan Press
-  note: University of Michigan Press. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://umich.edu/
   status: Available
   campuses:
   - ann_arbor
@@ -28541,7 +28601,7 @@
 - collection_name: 'East India Company: Module 7, India Office records, F: the Board of Commissioners: expansion, control and education'
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.eastindiacompany.amdigital.co.uk/
+  link: https://www.eastindiacompany.amdigital.co.uk/documents/filter/East%2520India%2520Company%253A%2520India%2520Office%2520Records,%2520F%253A%2520Expansion,%2520Control%2520and%2520Education
   status: Available
   campuses:
   - ann_arbor
@@ -28804,6 +28864,342 @@
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.shakespeareinsilentfilm.amdigital.co.uk
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189150018006381':
+- collection_name: 'Bloomsbury Open Collections: Gender & Sexuality 2026 (Frontlist)'
+  interface_name: Bloomsbury Publishing Plc
+  note: Bloomsbury Publishing Plc. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.bloomsburycollections.com/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189150018206381':
+- collection_name: 'Bloomsbury Open Collections: Environment & Climate Change 2026 (Frontlist)'
+  interface_name: Bloomsbury Publishing Plc
+  note: Bloomsbury Publishing Plc. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.bloomsburycollections.com/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189150018506381':
+- collection_name: 'Bloomsbury Open Collections: African Studies and International Development 2026 (Frontlist)'
+  interface_name: Bloomsbury Publishing Plc
+  note: Bloomsbury Publishing Plc. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.bloomsburycollections.com/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189151514706381':
+- collection_name: Seminar on the Acquisition of Latin American Library Materials
+  interface_name: Project Muse
+  note: Project Muse. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://muse.jhu.edu/search?action=browse&limit=publisher_id:449
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189151903806381':
+- collection_name: Sage Reference & Academic Books EBA KNCCBR26 Complete Books and Reference Collection
+  interface_name: SAGE
+  note: SAGE. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://sk.sagepub.com/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189151904706381':
+- collection_name: University of Michigan Press Ebook Collection 2026
+  interface_name: Fulcrum
+  note: Fulcrum. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.fulcrum.org/michigan
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189151494806381':
+- collection_name: Who's Who in American History
+  interface_name: Marquis Who's Who
+  note: Marquis Who's Who. Authorized U-M users (+ guests in U-M Libraries)
+  link: http://search.marquiswhoswho.com/search/advanced-historic
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153614406381':
+- collection_name: French Revolutionary Opinions Online
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/french-revolutionary-opinions
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153614506381':
+- collection_name: Soviet Cinema Online. Archival Documents from RGALI, 1923-1935
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/soviet-cinema-online-archival-documents-from-rgali-19231935
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153614706381':
+- collection_name: Russian Anarchist Periodicals of the Early 20th Century Online
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/anarchist-periodicals
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153614806381':
+- collection_name: Richard Wagner Online
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/richard-wagner
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153614906381':
+- collection_name: Reformation in Heidelberg Online, The
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/reformation-in-heidelberg
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153615406381':
+- collection_name: 'Cuban Periodicals: Cultural Magazines Published by Casa de las Américas, 1960–2009'
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com/database/cicu/html
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153615606381':
+- collection_name: Cine Cubano
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com/database/cicu/html
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153615706381':
+- collection_name: British Intelligence on Yemen, c. 1880–1967
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com/database/yem/html
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153615806381':
+- collection_name: Warfare in China, 1839–1945
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com/database/wch/html%23bibliographicData
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153615906381':
+- collection_name: Seoul Press Online
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com/database/spo/html
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153616006381':
+- collection_name: Colonial Period Korea Online
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com/database/cpko/html
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153616106381':
+- collection_name: Archive of the Evangelical Theological Seminary of Cuba Online
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/archive-of-the-evangelical-theological-seminary-of-cuba-online
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153616606381':
+- collection_name: Archive of the Christian Student Movement of Cuba Online
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://primarysources.brillonline.com/browse/archive-of-the-christian-student-movement-of-cuba-online
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189154019306381':
+- collection_name: Lexikon des gesamten Buchwesens Online
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://referenceworks.brill.com/display/db/lgbo
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189154020006381':
+- collection_name: The SHAFR guide online.
+  interface_name: Brill Primary Sources
+  note: Brill Primary Sources. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://referenceworks.brill.com/display/db/shaf
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153615206381':
+- collection_name: Eine Globalgeschichte der Lyrik Online
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://referenceworks.brill.com/display/db/gglo
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189154103506381':
+- collection_name: 'Foreign Office, Consulate and Legation Files, China: 1896-1911'
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.foreignofficeconsulatelegationchina.amdigital.co.uk
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189154110906381':
+- collection_name: GuideStar
+  interface_name: GuideStar
+  note: GuideStar. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://app.candid.org/ipl
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189154113106381':
+- collection_name: South Asia Open Archives
+  interface_name: JSTOR
+  note: JSTOR. Open access for all users.
+  link: https://www.jstor.org/site/saoa/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189154389906381':
+- collection_name: Editions and Adaptations of Shakespeare
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/eas
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189154391806381':
+- collection_name: Bible in English
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/bible
   status: Available
   campuses:
   - ann_arbor
