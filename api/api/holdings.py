@@ -385,10 +385,13 @@ class ClementsItem(ReservableItem):
 
 
 class PhysicalHolding:
-    def __init__(self, physical_holding_data: list, bib_id: str, record: pymarc.Record):
+    def __init__(
+        self, physical_holding_data: list, bib_id: str, record: pymarc.Record, loans
+    ):
         self.data = physical_holding_data
         self.bib_id = bib_id
         self.record = record
+        self.loans = loans
 
     @property
     def holding_id(self):
@@ -420,7 +423,12 @@ class PhysicalHolding:
     @property
     def items(self):
         return [
-            PhysicalItem(item, bib_id=self.bib_id, record=self.record)
+            PhysicalItem(
+                item,
+                bib_id=self.bib_id,
+                record=self.record,
+                loan=self.loans.find(item["something_id"]),
+            )
             for item in self.data.get("items", [])
         ]
 
@@ -511,10 +519,10 @@ class EmptyAlmaLoans:
 
 
 def physical_holdings(
-    holdings_data: list, bib_id: str, record
+    holdings_data: list, bib_id: str, record, loans
 ) -> list[PhysicalHolding]:
     return [
-        PhysicalHolding(holding_item, bib_id=bib_id, record=record)
+        PhysicalHolding(holding_item, bib_id=bib_id, record=record, loans=loans)
         for holding_item in holdings_data
         if kind_of_holding(holding_item) == "physical"
     ]
@@ -564,10 +572,13 @@ def hathi_trust_items(holdings_data: list) -> list[HathiTrustItem]:
 
 
 class Holdings:
-    def __init__(self, holdings_data: list, bib_id: str, record: pymarc.Record):
+    def __init__(
+        self, holdings_data: list, bib_id: str, record: pymarc.Record, loans: AlmaLoans
+    ):
         self.data = holdings_data
         self.bib_id = bib_id
         self.record = record
+        self.loans = loans
 
     @property
     def hathi_trust_items(self):
@@ -587,4 +598,4 @@ class Holdings:
 
     @property
     def physical(self):
-        return physical_holdings(self.data, self.bib_id, self.record)
+        return physical_holdings(self.data, self.bib_id, self.record, self.loans)

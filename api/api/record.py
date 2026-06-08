@@ -563,6 +563,8 @@ class BaseRecord(SolrDoc, MARC):
     @property
     def holdings(self):
         holdings_data = json.loads(self.data.get("hol"))
+        # if has_physical_holdings(holdings_data):
+        # loans = get_loans("mms_id")
         return Holdings(holdings_data, bib_id=self.id, record=self.record)
 
 
