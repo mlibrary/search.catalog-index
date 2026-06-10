@@ -43,7 +43,10 @@ class AlmaClient:
                 response = self.session.get(
                     url, params={"limit": limit, "offset": offset}
                 )
-                for loan in response.json()["item_loan"]:
+                for loan in response.json().get("item_loan", []):
                     result["item_loan"].append(loan)
+
+        if "item_loan" not in result:
+            result["item_loan"] = []
 
         return result

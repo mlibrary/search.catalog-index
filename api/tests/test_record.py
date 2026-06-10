@@ -2,6 +2,7 @@ import pytest
 import json
 import pymarc
 import string
+import responses
 from datetime import datetime
 from dataclasses import dataclass, field
 from api.record import Record, MARC, SolrDoc, TaggedCitation, CSL, BaseRecord
@@ -9,6 +10,7 @@ from api.entities import FieldElement, PairedField
 from api.marc import (
     FieldRuleset,
 )
+from api.services import S
 from dataclasses import asdict
 
 
@@ -24,6 +26,11 @@ def solr_bib():
 def api_output():
     with open("tests/fixtures/land_birds.json") as data:
         return json.load(data)
+
+
+@pytest.fixture
+def loan_data():
+    return json.loads('{"total_record_count": 0}')
 
 
 def serialize(my_list: list):
@@ -109,11 +116,25 @@ class TestRecord:
         subject = Record(solr_bib)
         assert (subject.marc) == json.loads(record.as_json())
 
-    def test_holdings_is_not_None(self, solr_bib):
+    @responses.activate
+    def test_holdings_is_not_None(self, solr_bib, loan_data):
+        mms_id = solr_bib["id"]
+        responses.get(
+            f"{S.alma_api_url}/bibs/{mms_id}/loans?limit=100",
+            json=loan_data,
+            status=200,
+        )
         subject = Record(solr_bib)
         assert subject.holdings is not None
 
-    def test_physical_holdings_is_not_None(self, solr_bib):
+    @responses.activate
+    def test_physical_holdings_is_not_None(self, solr_bib, loan_data):
+        mms_id = solr_bib["id"]
+        responses.get(
+            f"{S.alma_api_url}/bibs/{mms_id}/loans?limit=100",
+            json=loan_data,
+            status=200,
+        )
         subject = Record(solr_bib)
         assert subject.holdings.physical is not None
 

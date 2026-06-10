@@ -13,6 +13,11 @@ def loan():
     return loan
 
 
+@pytest.fixture
+def empty_loan_data():
+    return json.loads('{"total_record_count": 0}')
+
+
 @pytest.fixture()
 def mms_id(loan):
     return loan["item_loan"][0]["mms_id"]
@@ -42,3 +47,14 @@ def test_alma_client_get_loans_gets_all_results(loan, mms_id):
     )
     loans = AlmaClient().get_loans(mms_id)
     assert len(loans["item_loan"]) == 2
+
+
+@responses.activate
+def test_alma_client_get_loans_handles_no_loans(empty_loan_data, mms_id):
+    responses.get(
+        f"{S.alma_api_url}/bibs/{mms_id}/loans?limit=100",
+        json=empty_loan_data,
+        status=200,
+    )
+    loans = AlmaClient().get_loans(mms_id)
+    assert len(loans["item_loan"]) == 0

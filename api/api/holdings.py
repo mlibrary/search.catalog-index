@@ -1,6 +1,7 @@
 import pymarc
 from urllib.parse import urlencode
 from dataclasses import dataclass
+from datetime import datetime
 from api.marc import Processor, FieldRuleset
 from api.alma_client import AlmaClient
 
@@ -107,7 +108,14 @@ class PhysicalLocation:
 
 
 class PhysicalItem:
-    def __init__(self, physical_item_data: dict, bib_id: str, record=None):
+    def __init__(
+        self,
+        physical_item_data: dict,
+        bib_id: str,
+        record=None,
+        loan={},
+    ):
+        self.loan = loan
         self.data = physical_item_data
         self.bib_id = bib_id
         self.record = record
@@ -130,7 +138,14 @@ class PhysicalItem:
 
     @property
     def process_type(self):
+        if self.loan:
+            return "LOAN"
         return self.data.get("process_type")
+
+    @property
+    def due_back_at(self):
+        if self.loan:
+            return datetime.fromisoformat(self.loan["due_date"])
 
     @property
     def item_policy(self):
@@ -427,7 +442,7 @@ class PhysicalHolding:
                 item,
                 bib_id=self.bib_id,
                 record=self.record,
-                loan=self.loans.find(item["something_id"]),
+                loan=self.loans.find(item["item_id"]),
             )
             for item in self.data.get("items", [])
         ]
@@ -502,20 +517,18 @@ def has_physical_holdings(holdings_data: list):
 def get_alma_loans(mms_id, holdings_data: list):
     if has_physical_holdings(holdings_data):
         return AlmaLoans((AlmaClient().get_loans(mms_id)))
-    return EmptyAlmaLoans
+    return AlmaLoans()
 
 
 class AlmaLoans:
-    def __init__(self, data):
-        self.data = data
+    def __init__(self, data={}):
+        self.loans = data.get("item_loan", [])
 
-    def find(item_id: str):
-        pass
-
-
-class EmptyAlmaLoans:
-    def find(item_id: str):
-        pass
+    def find(self, item_id: str):
+        return next(
+            (item for item in self.loans if item["item_id"] == item_id),
+            None,
+        )
 
 
 def physical_holdings(

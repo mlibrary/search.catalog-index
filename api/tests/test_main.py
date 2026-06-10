@@ -21,12 +21,21 @@ def client():
 
 @pytest.fixture()
 def valid_mms_id():
-    return "990040063470106381"
+    return "990008019700106381"
+
+
+@pytest.fixture
+def loan_data():
+    return json.loads('{"total_record_count": 0}')
 
 
 @responses.activate
-def test_get_record(client, valid_mms_id, solr_bib):
+def test_get_record(client, valid_mms_id, solr_bib, loan_data):
+    responses.get(
+        f"{S.alma_api_url}/bibs/{valid_mms_id}/loans", json=loan_data, status=200
+    )
     responses.get(f"{S.solr_url}/solr/biblio/select", json=solr_bib, status=200)
+
     with open("tests/fixtures/land_birds.json") as data:
         expected = json.load(data)
 
