@@ -186,7 +186,7 @@ class TestPhysicalHolding:
         )
         subject = holding.items[0]
         assert subject.process_type == "some_process_type"
-        assert subject.due_back_at == None
+        assert subject.due_back_at is None
 
     def test_item_has_get_this_url(self, physical_holding, bib_id, record):
         item = physical_holding["items"][0]
