@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import logging
 import os
 
 
@@ -16,6 +17,14 @@ class Services:
     parser_url: str
     alma_api_url: str
     alma_api_key: str
+    logger: logging.Logger
+
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
 
 
 S = Services(
@@ -27,4 +36,5 @@ S = Services(
     parser_url=os.getenv("PARSER_URL") or "http://parser:4567",
     alma_api_url="https://api-na.hosted.exlibrisgroup.com/almaws/v1",
     alma_api_key=os.getenv("ALMA_API_KEY") or "your_alma_api_key",
+    logger=logging.getLogger(__name__),
 )

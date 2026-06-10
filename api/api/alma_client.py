@@ -1,7 +1,7 @@
 import requests
-from requests.auth import HTTPBasicAuth
 from api.services import S
 from prometheus_client import Histogram
+import xml.etree.ElementTree as ET
 
 
 class NotFoundError(Exception):
@@ -31,11 +31,20 @@ class AlmaClient:
         limit = 100
         offset = 0
         url = f"{self.base_url}/bibs/{mms_id}/loans"
+        total = 0
+        result = {"item_loan": [], "total_record_count": 0}
 
-        response = self.session.get(url, params={"limit": limit})
-        total = response.json()["total_record_count"]
-
-        result = response.json()
+        try:
+            response = self.session.get(url, params={"limit": limit})
+            response.raise_for_status()
+            result = response.json()
+            total = result["total_record_count"]
+        except requests.exceptions.HTTPError as e:
+            S.logger.error(
+                f"HTTP error occurred: {e} {self.get_alma_error_string(response.text)}"
+            )
+        except requests.exceptions.RequestException as e:
+            S.logger.error("A request error occurred:", e)
 
         if total > 100:
             while total > offset + limit:
@@ -50,3 +59,14 @@ class AlmaClient:
             result["item_loan"] = []
 
         return result
+
+    def get_alma_error_string(self, error_string):
+        ns = {"alma": "http://com/exlibris/urm/general/xmlbeans"}
+        root = ET.fromstring(error_string)
+        result = []
+        for error in root.findall(".//alma:error", ns):
+            code = error.find("alma:errorCode", ns)
+            message = error.find("alma:errorMessage", ns)
+            result.append(f"code: {code.text}, message: {message.text}")
+
+        return " | ".join(result)

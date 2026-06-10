@@ -18,6 +18,11 @@ def empty_loan_data():
     return json.loads('{"total_record_count": 0}')
 
 
+@pytest.fixture
+def alma_error_string():
+    return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\r\n<web_service_result xmlns="http://com/exlibris/urm/general/xmlbeans">\r\n            <errorsExist>true</errorsExist>\r\n            <errorList>\r\n                        <error>\r\n                                    <errorCode>UNAUTHORIZED</errorCode>\r\n                                    <errorMessage>API-key not defined or not configured to allow this API.</errorMessage>\r\n                        </error>\r\n            </errorList>\r\n</web_service_result>'
+
+
 @pytest.fixture()
 def mms_id(loan):
     return loan["item_loan"][0]["mms_id"]
@@ -57,4 +62,16 @@ def test_alma_client_get_loans_handles_no_loans(empty_loan_data, mms_id):
         status=200,
     )
     loans = AlmaClient().get_loans(mms_id)
+    assert len(loans["item_loan"]) == 0
+
+
+@responses.activate
+def test_alma_client_get_loans_handles_error_response(alma_error_string, mms_id):
+    responses.get(
+        f"{S.alma_api_url}/bibs/{mms_id}/loans?limit=100",
+        body=alma_error_string,
+        status=500,
+    )
+    loans = AlmaClient().get_loans(mms_id)
+    # resturns a response with no loans. We do want it to log the situation.
     assert len(loans["item_loan"]) == 0
