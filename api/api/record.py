@@ -2,6 +2,7 @@ from __future__ import annotations
 from api.solr_client import SolrClient
 from api.solr import SolrDocProcessor
 from api.marc import Processor, FieldRuleset, TRIM_CHARS
+from api.holdings import get_alma_loans
 import re
 import pymarc
 import io
@@ -563,7 +564,8 @@ class BaseRecord(SolrDoc, MARC):
     @property
     def holdings(self):
         holdings_data = json.loads(self.data.get("hol"))
-        return Holdings(holdings_data, bib_id=self.id, record=self.record)
+        loans = get_alma_loans(self.id, holdings_data)
+        return Holdings(holdings_data, bib_id=self.id, record=self.record, loans=loans)
 
 
 class TaggedCitation:

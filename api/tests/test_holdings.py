@@ -2,6 +2,7 @@ import pytest
 import pymarc
 import json
 import io
+from datetime import datetime
 from urllib.parse import urlparse, parse_qs
 from api.holdings import (
     PhysicalHolding,
@@ -12,6 +13,8 @@ from api.holdings import (
     FindingAidItem,
     ReservableItem,
     ClementsItem,
+    has_physical_holdings,
+    AlmaLoans,
 )
 
 
@@ -24,9 +27,22 @@ def solr_doc():
 
 
 @pytest.fixture
+def holdings_data(solr_doc):
+    return json.loads(solr_doc["hol"])
+
+
+@pytest.fixture
 def record(solr_doc):
     marc = solr_doc["fullrecord"]
     return pymarc.parse_xml_to_array(io.StringIO(marc))[0]
+
+
+@pytest.fixture
+def loan_data():
+    loan = None
+    with open("tests/fixtures/loans/alma_loans_example.json") as data:
+        loan = json.load(data)
+    return loan
 
 
 @pytest.fixture
@@ -86,6 +102,20 @@ def bib_id():
     "9912345"
 
 
+def test_has_physical_holdings(holdings_data):
+    assert has_physical_holdings(holdings_data) is True
+
+
+def test_has_physical_holdings_is_false_when_there_are_none(solr_doc):
+    assert has_physical_holdings([]) is False
+
+
+def test_has_physical_holdings_is_false_when_all_elec(holdings_data):
+    for h in holdings_data:
+        h["library"] = "ELEC"
+    assert has_physical_holdings(holdings_data) is False
+
+
 class TestPhysicalHolding:
     fields = [
         ("holding_id", "hol_mmsid"),
@@ -95,13 +125,17 @@ class TestPhysicalHolding:
     ]
 
     @pytest.mark.parametrize("field,solr_field", fields)
-    def test_outer_fields(self, field, solr_field, physical_holding, bib_id):
-        subject = PhysicalHolding(physical_holding, bib_id=bib_id, record=record)
+    def test_outer_fields(
+        self, field, solr_field, physical_holding, bib_id, loans=AlmaLoans()
+    ):
+        subject = PhysicalHolding(
+            physical_holding, bib_id=bib_id, record=record, loans=loans
+        )
         assert getattr(subject, field) == physical_holding[solr_field]
 
     def test_physical_location(self, physical_holding, bib_id):
         subject = PhysicalHolding(
-            physical_holding, bib_id=bib_id, record=record
+            physical_holding, bib_id=bib_id, record=record, loans=AlmaLoans()
         ).physical_location
         assert subject.url == physical_holding["info_link"]
         assert subject.text == physical_holding["display_name"]
@@ -127,17 +161,38 @@ class TestPhysicalHolding:
     def test_items_is_a_list_of_items(
         self, field, solr_field, physical_holding, bib_id, record
     ):
-        subject = PhysicalHolding(physical_holding, bib_id=bib_id, record=record).items[
-            0
-        ]
+        holding = PhysicalHolding(
+            physical_holding, bib_id=bib_id, record=record, loans=AlmaLoans()
+        )
+        items = holding.items
+        subject = items[0]
         expected = physical_holding["items"][0][solr_field]
         assert getattr(subject, field) == expected
 
+    def test_items_finds_loan_info(self, physical_holding, bib_id, record, loan_data):
+
+        holding = PhysicalHolding(
+            physical_holding, bib_id=bib_id, record=record, loans=AlmaLoans(loan_data)
+        )
+        subject = holding.items[0]
+        assert subject.process_type == "LOAN"
+        assert subject.due_back_at == datetime.fromisoformat("2026-08-28T21:00:00Z")
+
+    def test_items_has_None_due_back_at_when_it_is_not_due(
+        self, physical_holding, bib_id, record
+    ):
+        holding = PhysicalHolding(
+            physical_holding, bib_id=bib_id, record=record, loans=AlmaLoans()
+        )
+        subject = holding.items[0]
+        assert subject.process_type == "some_process_type"
+        assert subject.due_back_at is None
+
     def test_item_has_get_this_url(self, physical_holding, bib_id, record):
         item = physical_holding["items"][0]
-        subject = PhysicalHolding(physical_holding, bib_id=bib_id, record=record).items[
-            0
-        ]
+        subject = PhysicalHolding(
+            physical_holding, bib_id=bib_id, record=record, loans=AlmaLoans()
+        ).items[0]
         expected = f"https://search.lib.umich.edu/catalog/record/{bib_id}/get-this/{item['barcode']}"
         assert subject.url == expected
 
@@ -147,16 +202,18 @@ class TestPhysicalHolding:
         item["can_reserve"] = True
         item["library"] = "SPEC"
         expected = "https://aeon.lib.umich.edu/logon?"
-        subject = PhysicalHolding(physical_holding, bib_id=bib_id, record=record).items[
-            0
-        ]
+        subject = PhysicalHolding(
+            physical_holding, bib_id=bib_id, record=record, loans=AlmaLoans()
+        ).items[0]
         assert expected in subject.url
 
     def test_item_has_a_physical_location(
         self, physical_holding, bib_id, record=record
     ):
         subject = (
-            PhysicalHolding(physical_holding, bib_id=bib_id, record=record)
+            PhysicalHolding(
+                physical_holding, bib_id=bib_id, record=record, loans=AlmaLoans()
+            )
             .items[0]
             .physical_location
         )

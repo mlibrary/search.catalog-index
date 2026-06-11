@@ -69,6 +69,7 @@ class PhysicalItem(BaseModel):
     fulfillment_unit: str
     call_number: str | None
     process_type: str | None
+    due_back_at: datetime.datetime | None
     item_policy: str | None
     description: str | None
     inventory_number: str | None
