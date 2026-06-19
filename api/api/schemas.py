@@ -349,6 +349,10 @@ class ResultRecord(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
 
 
+class OnlinejournalsResultsRecord(ResultRecord):
+    holdings: OnlinejournalsHoldings
+
+
 class OnlinejournalsRecord(Record):
     holdings: OnlinejournalsHoldings
 
@@ -389,6 +393,10 @@ class Results(BaseModel):
     offset: int
     total: int
     sort: str
+
+
+class OnlinejournalsResults(Results):
+    records: list[OnlinejournalsResultsRecord]
 
 
 class Sort(str, Enum):
