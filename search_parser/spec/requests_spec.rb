@@ -50,7 +50,7 @@ RSpec.describe "requests" do
       end
     end
 
-    SearchParser.facets.each do |facet|
+    SearchParser::Catalog.facets.each do |facet|
       context "#{facet} parameters" do
         it "has the default facet limit" do
           expect_has_param("f.#{facet}.facet.limit", "50")
@@ -134,6 +134,32 @@ RSpec.describe "requests" do
       it "defaults to not-search-only" do
         expect_has_param("fq", '%2B\(availability:physical.*')
       end
+    end
+  end
+  context "get /onlinejournals/search" do
+    def expect_has_param(key, value)
+      solr_stub = gen_solr_stub(key, value)
+      get "/onlinejournals/search", params
+      expect(solr_stub).to have_been_requested
+    end
+    it "has location:ELEC in filter query" do
+      expect_has_param("fq", "location:ELEC")
+    end
+    it "has format:Serial in filter query" do
+      expect_has_param("fq", "format:Serial")
+    end
+  end
+  context "get /catalog/academic_disciplines" do
+    def expect_has_param(key, value)
+      solr_stub = gen_solr_stub(key, value)
+      get "/onlinejournals/academic_disciplines", params
+      expect(solr_stub).to have_been_requested
+    end
+    it "has location:ELEC in filter query" do
+      expect_has_param("fq", "location:ELEC")
+    end
+    it "has format:Serial in filter query" do
+      expect_has_param("fq", "format:Serial")
     end
   end
 end
