@@ -1,6 +1,6 @@
 from typing import Annotated
 from fastapi import APIRouter, HTTPException, Query
-from prometheus_client import Histogram
+from api.metrics import REQUEST_HISTOGRAM
 from api import schemas
 from api.solr_client import NotFoundError
 from api.record import record_for
@@ -8,11 +8,6 @@ from api.results import get_catalog_results
 from api import specialists
 
 router = APIRouter(prefix="/catalog", tags=["catalog"])
-
-RECORD_HISTOGRAM = Histogram(
-    "catalog_record_request_duration_seconds",
-    "Length of api request for a catalog record",
-)
 
 
 @router.get(
@@ -25,7 +20,7 @@ RECORD_HISTOGRAM = Histogram(
     },
     response_model_exclude_none=True,
 )
-@RECORD_HISTOGRAM.time()
+@REQUEST_HISTOGRAM.labels(datastore="catalog", route="record").time()
 def get_record(id: str) -> schemas.Record:
     """
     Gets a record from catalog solr. The record is fetched by the solr id, which
@@ -39,6 +34,7 @@ def get_record(id: str) -> schemas.Record:
         raise HTTPException(status_code=404, detail="Item not found")
 
 
+@REQUEST_HISTOGRAM.labels(datastore="catalog", route="results").time()
 @router.get("/search", response_model_exclude_none=True)
 def get_search_results(
     query: str = "",
@@ -64,6 +60,7 @@ def get_search_results(
     return results
 
 
+@REQUEST_HISTOGRAM.labels(datastore="catalog", route="specialists").time()
 @router.get("/specialists", response_model_exclude_none=True)
 def get_specialists(
     query: str = "",

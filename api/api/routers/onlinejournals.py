@@ -1,5 +1,6 @@
 from typing import Annotated
 from fastapi import APIRouter, HTTPException, Query
+from api.metrics import REQUEST_HISTOGRAM
 from api import schemas
 from api.solr_client import NotFoundError
 from api.record import onlinejournals_record_for
@@ -7,11 +8,6 @@ from api.results import get_onlinejournals_results
 from api import specialists
 
 router = APIRouter(prefix="/onlinejournals", tags=["onlinejournals"])
-
-# RECORD_HISTOGRAM = Histogram(
-# "catalog_record_request_duration_seconds",
-# "Length of api request for a catalog record",
-# )
 
 
 @router.get(
@@ -24,7 +20,7 @@ router = APIRouter(prefix="/onlinejournals", tags=["onlinejournals"])
     },
     response_model_exclude_none=True,
 )
-# @RECORD_HISTOGRAM.time()
+@REQUEST_HISTOGRAM.labels(datastore="onlinejournals", route="record").time()
 def get_record(id: str) -> schemas.OnlinejournalsRecord:
     """
     Gets a record from catalog solr. The record is fetched by the solr id, which
@@ -38,6 +34,7 @@ def get_record(id: str) -> schemas.OnlinejournalsRecord:
         raise HTTPException(status_code=404, detail="Item not found")
 
 
+@REQUEST_HISTOGRAM.labels(datastore="onlinejournals", route="results").time()
 @router.get("/search", response_model_exclude_none=True)
 def get_search_results(
     query: str = "",
@@ -61,6 +58,7 @@ def get_search_results(
     return results
 
 
+@REQUEST_HISTOGRAM.labels(datastore="onlinejournals", route="specialists").time()
 @router.get("/specialists", response_model_exclude_none=True)
 def get_specialists(
     query: str = "",

@@ -20,8 +20,6 @@ def get_catalog_results(query_params: dict):
 
 
 def get_onlinejournals_results(query_params: dict):
-    # need to deal with availability and library (we don't need them!)
-    # should have fewer allowed filters
     parser_params = {
         "query": query_params["query"],
         "start": query_params["offset"],

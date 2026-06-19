@@ -395,13 +395,8 @@ class Results(BaseModel):
     sort: str
 
 
-class OnlinejournalsResults(BaseModel):
-    records: list[ResultRecord]
-    filters: list[Filter]
-    limit: int
-    offset: int
-    total: int
-    sort: str
+class OnlinejournalsResults(Results):
+    records: list[OnlinejournalsResultRecord]
 
 
 class Sort(str, Enum):
