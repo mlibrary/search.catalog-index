@@ -73,7 +73,7 @@ def get_specialists(
     """
     Looks up specialists associated with given query
     """
-    results = specialists.get_specialists(
+    results = specialists.get_catalog_specialists(
         {
             "query": query,
             "filters": filters,

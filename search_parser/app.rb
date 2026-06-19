@@ -53,6 +53,10 @@ class SearchParser
     str.gsub(/([+\-&|!(){}\[\]\^"~*?:\\\/])/, '\\\\\1')
   end
 
+  def self.datastore
+    name.to_s.split("::").last.downcase
+  end
+
   def self.solr_query(query:, rows:, start:, sort:, fq:)
     # how to handle fq:
     # fq":["topicStr:(Motion\\ pictures)","institution:(UM\\ Ann\\ Arbor\\ Libraries)","+(new_availability:physical OR new_availability:hathi_trust_full_text_or_electronic_holding)"]
@@ -68,7 +72,7 @@ class SearchParser
 
     result["qt"] = "standard" unless ["edismax", "dismax"].include?(result["qt"]) # code from spectrum so I don't forget. Don't know if we need this.
     result["qq"] = '"' + solr_escape(result["q"]) + '"'
-
+    S.logger.info("results_query", datastore: datastore, query: result)
     result
   end
 
@@ -78,13 +82,15 @@ class SearchParser
     # sort comes from config/sorts.yml
     lp = MLibrarySearchParser::Transformer::Solr::LocalParams.new(build(query))
 
-    {
+    result = {
       rows: 100,
       start: 0,
       sort: "score desc",
       fq: fq,
       fl: "hlb3Str"
     }.merge(lp.params).with_indifferent_access
+    S.logger.info("academic_disciplines_query", datastore: datastore, query: result)
+    result
   end
 
   class Catalog < self

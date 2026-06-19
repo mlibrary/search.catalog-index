@@ -66,16 +66,14 @@ def get_search_results(
 def get_specialists(
     query: str = "",
     filters: Annotated[list[str], Query()] = [],
-    ht_search_only: bool = False,
 ) -> schemas.Specialists:
     """
     Looks up specialists associated with given query
     """
-    results = specialists.get_specialists(
+    results = specialists.get_onlinejournals_specialists(
         {
             "query": query,
             "filters": filters,
-            "ht_search_only": ht_search_only,
         }
     )
     return results
