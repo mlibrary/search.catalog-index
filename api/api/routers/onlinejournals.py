@@ -1,6 +1,5 @@
 from typing import Annotated
 from fastapi import APIRouter, HTTPException, Query
-from prometheus_client import Histogram
 from api import schemas
 from api.solr_client import NotFoundError
 from api.record import onlinejournals_record_for
