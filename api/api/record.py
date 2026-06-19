@@ -20,6 +20,16 @@ def record_for(id: str) -> Record:
     return Record(data)
 
 
+def catalog_record_for(id: str) -> Record:
+    data = SolrClient().get_record(id)
+    return Record(data)
+
+
+def onlinejournals_record_for(id: str) -> Record:
+    data = SolrClient().get_onlinejournals_record(id)
+    return Record(data)
+
+
 class SolrDoc:
     def __init__(self, data: dict):
         self.data = data

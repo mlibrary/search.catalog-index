@@ -96,6 +96,10 @@ class Holdings(BaseModel):
     physical: list[PhysicalHolding]
 
 
+class OnlinejournalsHoldings(BaseModel):
+    electronic_items: list[ElectronicItem]
+
+
 ############
 # Metadata #
 ############
@@ -343,6 +347,10 @@ class ResultRecord(BaseModel):
     citation: Citation
 
     model_config = ConfigDict(populate_by_name=True)
+
+
+class OnlinejournalsRecord(Record):
+    holdings: OnlinejournalsHoldings
 
 
 class Specialist(BaseModel):
