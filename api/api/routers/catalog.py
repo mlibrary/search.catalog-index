@@ -4,7 +4,7 @@ from prometheus_client import Histogram
 from api import schemas
 from api.solr_client import NotFoundError
 from api.record import record_for
-from api.results import get_results
+from api.results import get_catalog_results
 from api import specialists
 
 router = APIRouter(prefix="/catalog", tags=["catalog"])
@@ -51,7 +51,7 @@ def get_search_results(
     """
     Does a search in catalog solr
     """
-    results = get_results(
+    results = get_catalog_results(
         {
             "query": query,
             "offset": offset,

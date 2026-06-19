@@ -5,7 +5,7 @@ from api.record import Record
 from api.services import S
 
 
-def get_results(query_params: dict):
+def get_catalog_results(query_params: dict):
     parser_params = {
         "query": query_params["query"],
         "start": query_params["offset"],
@@ -150,7 +150,7 @@ class OnlinejournalsResults(BaseResults):
         result = []
         for f in facet_fields.keys():
             if f in self.fh.facet_to_filter:
-                result.append(Filter(field=f, values=facet_fields[f]))
+                result.append(OnlinejournalsFilter(field=f, values=facet_fields[f]))
 
         return result
 
@@ -278,6 +278,10 @@ class Filter:
         for x in range(0, len(values), 2):
             result.append(FilterValue(text=values[x], count=values[x + 1]))
         return result
+
+
+class OnlinejournalsFilter(Filter):
+    fh = onlinejournals_filter_handler
 
 
 class CatalogFilter(Filter):
