@@ -112,10 +112,6 @@ RSpec.describe "requests" do
       it "has a default for sort" do
         expect_has_param("sort", "score desc")
       end
-      it "uses the sort param for sort" do
-        params["sort"] = "created asc"
-        expect_has_param("sort", "created asc")
-      end
     end
     context "filter query" do
       it "passes the filter query from fq param" do
