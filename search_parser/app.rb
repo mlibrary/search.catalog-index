@@ -72,7 +72,7 @@ class SearchParser
     result
   end
 
-  def self.academic_discipline_solr_query(query:, sort:, fq:)
+  def self.academic_discipline_solr_query(query:, fq:)
     # how to handle fq:
     # fq":["topicStr:(Motion\\ pictures)","institution:(UM\\ Ann\\ Arbor\\ Libraries)","+(new_availability:physical OR new_availability:hathi_trust_full_text_or_electronic_holding)"]
     # sort comes from config/sorts.yml
@@ -81,7 +81,7 @@ class SearchParser
     {
       rows: 100,
       start: 0,
-      sort: sort,
+      sort: "score desc",
       fq: fq,
       fl: "hlb3Str"
     }.merge(lp.params).with_indifferent_access
@@ -123,7 +123,6 @@ class SearchParser::Application < Sinatra::Base
       content_type :json
       query_params = {
         query: params["query"] || "",
-        sort: params["sort"] || "score desc",
         fq: params["fq"] || ["institution:(UM\\ Ann\\ Arbor\\ Libraries)", "+(availability:physical OR availability:hathi_trust_full_text_or_electronic_holding)"]
       }
       solr_params = SearchParser::Catalog.academic_discipline_solr_query(**query_params)
@@ -160,7 +159,6 @@ class SearchParser::Application < Sinatra::Base
       content_type :json
       query_params = {
         query: params["query"] || "",
-        sort: params["sort"] || "score desc",
         fq: params["fq"] || []
       }
       query_params[:fq].push("location:ELEC")
