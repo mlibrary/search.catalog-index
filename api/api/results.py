@@ -1,7 +1,7 @@
 import requests
 import re
 from dataclasses import dataclass
-from api.record import Record
+from api.record import Record, OnlinejournalsRecord
 from api.services import S
 
 
@@ -95,10 +95,6 @@ class BaseResults:
         self.query_params = query_params
 
     @property
-    def records(self):
-        return [Record(data) for data in self.data["response"]["docs"]]
-
-    @property
     def total(self):
         return self.data["response"]["numFound"]
 
@@ -117,6 +113,10 @@ class BaseResults:
 
 class CatalogResults(BaseResults):
     fh = catalog_filter_handler
+
+    @property
+    def records(self):
+        return [Record(data) for data in self.data["response"]["docs"]]
 
     @property
     def filters(self):
@@ -140,6 +140,10 @@ class CatalogResults(BaseResults):
 
 class OnlinejournalsResults(BaseResults):
     fh = onlinejournals_filter_handler
+
+    @property
+    def records(self):
+        return [OnlinejournalsRecord(data) for data in self.data["response"]["docs"]]
 
     @property
     def filters(self):
