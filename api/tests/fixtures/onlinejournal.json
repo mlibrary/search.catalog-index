@@ -1,0 +1,219 @@
+{
+  "id": "990030459090106381",
+  "title": [
+    {
+      "original": {
+        "text": "Technical proceedings / International Power Electronics Congress."
+      }
+    }
+  ],
+  "format": [
+    "Serial",
+    "Conference"
+  ],
+  "availability": [
+    "physical",
+    "hathi_trust",
+    "hathi_trust_or_electronic_holding",
+    "hathi_trust_full_text_or_electronic_holding"
+  ],
+  "main_author": [
+    {
+      "original": {
+        "text": "International Power Electronics Congress.",
+        "search": [
+          {
+            "field": "author",
+            "value": "International Power Electronics Congress."
+          }
+        ],
+        "browse": "International Power Electronics Congress."
+      }
+    }
+  ],
+  "preferred_title": [],
+  "related_title": [
+    {
+      "original": {
+        "text": "International Power Electronics Congress. Technical proceedings (Online)",
+        "tag": "711",
+        "search": [
+          {
+            "field": "title",
+            "value": "Technical proceedings (Online)"
+          }
+        ]
+      }
+    }
+  ],
+  "other_titles": [
+    {
+      "original": {
+        "text": "CIEP",
+        "tag": "246",
+        "search": [
+          {
+            "field": "title",
+            "value": "CIEP"
+          }
+        ]
+      }
+    },
+    {
+      "original": {
+        "text": "Some vols. have also title in Spanish: Memoria técnica",
+        "tag": "246",
+        "search": [
+          {
+            "field": "title",
+            "value": "Some vols. have also title in Spanish: Memoria técnica"
+          }
+        ]
+      }
+    }
+  ],
+  "new_title": [],
+  "new_title_issn": [],
+  "previous_title": [],
+  "previous_title_issn": [],
+  "contributors": [
+    {
+      "original": {
+        "text": "Centro Nacional de Investigación y Desarrollo Tecnológico (Mexico)",
+        "tag": "710",
+        "search": [
+          {
+            "field": "author",
+            "value": "Centro Nacional de Investigación y Desarrollo Tecnológico (Mexico)"
+          }
+        ],
+        "browse": "Centro Nacional de Investigación y Desarrollo Tecnológico (Mexico)"
+      }
+    }
+  ],
+  "published": [
+    {
+      "original": {
+        "text": "New York, N.Y. : IEEE"
+      }
+    }
+  ],
+  "created": [],
+  "distributed": [],
+  "manufactured": [],
+  "edition": [],
+  "series": [],
+  "series_statement": [],
+  "biography_history": [],
+  "summary": [],
+  "in_collection": [],
+  "access": [],
+  "finding_aids": [],
+  "terms_of_use": [],
+  "language": [
+    {
+      "text": "English"
+    },
+    {
+      "text": "Spanish"
+    }
+  ],
+  "language_note": [
+    {
+      "original": {
+        "text": "English and Spanish, summaries in English.",
+        "tag": "546"
+      }
+    }
+  ],
+  "performers": [],
+  "date_place_of_event": [],
+  "preferred_citation": [],
+  "location_of_originals": [],
+  "funding_information": [],
+  "source_of_acquisition": [],
+  "related_items": [
+    {
+      "original": {
+        "text": "Electronic serial mode of access: World Wide Web via IEEE Xplore.",
+        "tag": "580"
+      }
+    }
+  ],
+  "numbering": [],
+  "current_publication_frequency": [
+    {
+      "original": {
+        "text": "Biennial, 1998-",
+        "tag": "310"
+      }
+    }
+  ],
+  "former_publication_frequency": [
+    {
+      "original": {
+        "text": "Annual, 1993-1996",
+        "tag": "321"
+      }
+    }
+  ],
+  "numbering_notes": [],
+  "source_of_description_note": [],
+  "copy_specific_note": [],
+  "references": [],
+  "copyright_status_information": [],
+  "note": [
+    {
+      "original": {
+        "text": "Description based on surrogate of: 3rd (Aug. 21-25, 1994); title from cover.",
+        "tag": "500"
+      }
+    },
+    {
+      "original": {
+        "text": "Sponsored by: Centro Nacional de Investigacion y Desarrollo Tecnológico (CENIDET) and various local groups.",
+        "tag": "500"
+      }
+    },
+    {
+      "original": {
+        "text": "Also issued online.",
+        "tag": "530"
+      }
+    }
+  ],
+  "arrangement": [],
+  "copyright": [],
+  "physical_description": [
+    {
+      "original": {
+        "text": "v. : ill. ; 28 cm",
+        "tag": "300"
+      }
+    }
+  ],
+  "call_number": [
+    {
+      "text": "TK 5 .I12"
+    }
+  ],
+  "oclc": [
+    {
+      "text": "34491406"
+    }
+  ],
+  "lc_subjects": [
+    {
+      "text": "Power electronics -- Congresses"
+    }
+  ],
+  "academic_discipline": [
+    {
+      "list": [
+        "Engineering",
+        "Electrical Engineering"
+      ]
+    }
+  ],
+  "indexing_date": "2026-06-08"
+}

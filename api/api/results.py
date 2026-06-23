@@ -1,25 +1,83 @@
 import requests
 import re
 from dataclasses import dataclass
-from api.record import Record
+from api.record import Record, OnlinejournalsRecord
 from api.services import S
 
 
-def get_results(query_params: dict):
+def get_catalog_results(query_params: dict):
     parser_params = {
         "query": query_params["query"],
         "start": query_params["offset"],
         "rows": query_params["limit"],
-        "fq[]": FilterQuery(query_params).query(),
-        "sort": Results.sort_map[query_params["sort"]],
+        "fq[]": CatalogFilterQuery(query_params).query(),
+        "sort": BaseResults.sort_map[query_params["sort"]],
     }
     response = requests.Session().get(
         f"{S.parser_url}/catalog/search", params=parser_params
     )
-    return Results(data=response.json(), query_params=query_params)
+    return CatalogResults(data=response.json(), query_params=query_params)
 
 
-class Results:
+def get_onlinejournals_results(query_params: dict):
+    parser_params = {
+        "query": query_params["query"],
+        "start": query_params["offset"],
+        "rows": query_params["limit"],
+        "fq[]": OnlinejournalsFilterQuery(query_params).query(),
+        "sort": BaseResults.sort_map[query_params["sort"]],
+    }
+    response = requests.Session().get(
+        f"{S.parser_url}/onlinejournals/search", params=parser_params
+    )
+    return OnlinejournalsResults(data=response.json(), query_params=query_params)
+
+
+class FilterHandler:
+    def __init__(self, filter_to_facet):
+        self.filter_to_facet = filter_to_facet
+        self.facet_to_filter = {}
+
+        for filter_field in self.filter_to_facet.keys():
+            self.facet_to_filter[self.filter_to_facet[filter_field]] = filter_field
+
+    def filter_field_for(self, f):
+        if f in self.facet_to_filter:
+            return self.facet_to_filter[f]
+
+    def facet_field_for(self, f):
+        if f in self.filter_to_facet:
+            return self.filter_to_facet[f]
+
+
+catalog_filter_handler = FilterHandler(
+    {
+        "availability": "availability",
+        "format": "format",
+        "subject": "topicStr",
+        "date_of_publication": "publishDateRange",
+        "language": "language",
+        "collection": "collection",
+        "academic_discipline": "hlb3Str",
+        "author": "authorStr",
+        "place_of_publication": "place_of_publication",
+        "region": "geographicStr",
+        "location": "building",
+        "library": "institution",
+    }
+)
+
+onlinejournals_filter_handler = FilterHandler(
+    {
+        "subject": "topicStr",
+        "language": "language",
+        "place_of_publication": "place_of_publication",
+        "academic_discipline": "hlb3Str",
+    }
+)
+
+
+class BaseResults:
     sort_map = {
         "relevance": "score desc",
         "date_asc": "publishDateTrie asc",
@@ -30,40 +88,11 @@ class Results:
         "title_asc": "titleSort asc",
         "title_desc": "titleSort desc",
     }
-
     inverse_sort_map = {v: k for k, v in sort_map.items()}
 
     def __init__(self, data: dict, query_params: dict):
         self.data = data
         self.query_params = query_params
-
-    @property
-    def records(self):
-        return [Record(data) for data in self.data["response"]["docs"]]
-
-    @property
-    def filters(self):
-        facet_fields = self.data["facet_counts"]["facet_fields"]
-
-        result = []
-        for f in facet_fields.keys():
-            if f in facet_to_filter:
-                if f == "availability":
-                    r = AvailabilityFilter(
-                        field=f,
-                        values=facet_fields[f],
-                        ht_search_only=self.query_params["ht_search_only"],
-                    )
-                else:
-                    r = Filter(field=f, values=facet_fields[f])
-                result.append(r)
-        # result = [
-        # Filter(field=x, values=facet_fields[x])
-        # for x in facet_fields.keys()
-        # if x in filter_to_facet
-        # ]
-
-        return result
 
     @property
     def total(self):
@@ -82,49 +111,70 @@ class Results:
         return self.inverse_sort_map[self.data["responseHeader"]["params"]["sort"]]
 
 
+class CatalogResults(BaseResults):
+    fh = catalog_filter_handler
+
+    @property
+    def records(self):
+        return [Record(data) for data in self.data["response"]["docs"]]
+
+    @property
+    def filters(self):
+        facet_fields = self.data["facet_counts"]["facet_fields"]
+
+        result = []
+        for f in facet_fields.keys():
+            if f in self.fh.facet_to_filter:
+                if f == "availability":
+                    r = AvailabilityFilter(
+                        field=f,
+                        values=facet_fields[f],
+                        ht_search_only=self.query_params["ht_search_only"],
+                    )
+                else:
+                    r = CatalogFilter(field=f, values=facet_fields[f])
+                result.append(r)
+
+        return result
+
+
+class OnlinejournalsResults(BaseResults):
+    fh = onlinejournals_filter_handler
+
+    @property
+    def records(self):
+        return [OnlinejournalsRecord(data) for data in self.data["response"]["docs"]]
+
+    @property
+    def filters(self):
+        facet_fields = self.data["facet_counts"]["facet_fields"]
+
+        result = []
+        for f in facet_fields.keys():
+            if f in self.fh.facet_to_filter:
+                result.append(OnlinejournalsFilter(field=f, values=facet_fields[f]))
+
+        return result
+
+
 def solr_escape(string):
     result = re.sub(r'([+\-&|!(){}\[\]\^"~*?:\\\/])', r"\\\1", string)
     return re.sub(r"\s+", "\\\\ ", result)
 
 
-filter_to_facet = {
-    "availability": "availability",
-    "format": "format",
-    "subject": "topicStr",
-    "date_of_publication": "publishDateRange",
-    "language": "language",
-    "collection": "collection",
-    "academic_discipline": "hlb3Str",
-    "author": "authorStr",
-    "place_of_publication": "place_of_publication",
-    "region": "geographicStr",
-    "location": "building",
-    "library": "institution",
-}
+class BaseFilterQuery:
+    fh = catalog_filter_handler
 
-facet_to_filter = {}
-
-for filter_field in filter_to_facet.keys():
-    facet_to_filter[filter_to_facet[filter_field]] = filter_field
-
-
-def facet_field_for(f):
-    if f in filter_to_facet:
-        return filter_to_facet[f]
-
-
-def filter_field_for(f):
-    if f in facet_to_filter:
-        return facet_to_filter[f]
-
-
-class FilterQuery:
     def __init__(self, data: dict):
         self.data = data
         self.facets = {}
         for f in data["filters"]:
             field, value = f.split(":", 1)
-            facet = filter_to_facet[field] if field in filter_to_facet else None
+            facet = (
+                self.fh.filter_to_facet[field]
+                if field in self.fh.filter_to_facet
+                else None
+            )
             # if facet isn't in the facet list skip it
             if not facet:
                 continue
@@ -134,6 +184,26 @@ class FilterQuery:
             self.facets[facet].append(value)
 
         self.filter_param = [f.split(":", 1) for f in data["filters"]]
+
+    def basic_facet(self, field, values):
+        escaped = map(lambda v: solr_escape(v), values)
+        value = " AND ".join(escaped)
+        return f"{field}:({value})"
+
+
+class OnlinejournalsFilterQuery(BaseFilterQuery):
+    fh = onlinejournals_filter_handler
+
+    def query(self):
+        result = []
+        for field in self.facets.keys():
+            result.append(self.basic_facet(field, self.facets[field]))
+
+        return result
+
+
+class CatalogFilterQuery(BaseFilterQuery):
+    fh = catalog_filter_handler
 
     def query(self):
         result = []
@@ -194,11 +264,6 @@ class FilterQuery:
 
         return f"({result})"
 
-    def basic_facet(self, field, values):
-        escaped = map(lambda v: solr_escape(v), values)
-        value = " AND ".join(escaped)
-        return f"{field}:({value})"
-
 
 # problems with filter data.
 # 1. the fields aren't the correct names
@@ -207,7 +272,7 @@ class FilterQuery:
 # 4. availability has some special rules
 class Filter:
     def __init__(self, field: str, values: list):
-        self.field = filter_field_for(field)
+        self.field = self.fh.filter_field_for(field)
         self.values = self.get_values(values)
 
     def get_values(self, values):
@@ -217,10 +282,18 @@ class Filter:
         return result
 
 
-class AvailabilityFilter(Filter):
+class OnlinejournalsFilter(Filter):
+    fh = onlinejournals_filter_handler
+
+
+class CatalogFilter(Filter):
+    fh = catalog_filter_handler
+
+
+class AvailabilityFilter(CatalogFilter):
     def __init__(self, field: str, values: list, ht_search_only: bool):
         self.ht_search_only = ht_search_only
-        self.field = filter_field_for(field)
+        self.field = self.fh.filter_field_for(field)
         basic_values = self.get_values(values)
         self.values = self.get_availability_values(basic_values, ht_search_only)
 

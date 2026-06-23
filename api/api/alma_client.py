@@ -1,6 +1,6 @@
 import requests
 from api.services import S
-from prometheus_client import Histogram
+from api.metrics import ALMA_LOAN_HISTOGRAM
 import xml.etree.ElementTree as ET
 
 
@@ -9,11 +9,6 @@ class NotFoundError(Exception):
 
 
 class AlmaClient:
-    ALMA_LOAN_HISTOGRAM = Histogram(
-        "catalog_api_alma_loan_request_duration_seconds",
-        "Length of request for alma loan",
-    )
-
     base_url = S.alma_api_url
 
     def __init__(self) -> None:

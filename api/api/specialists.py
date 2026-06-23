@@ -1,12 +1,44 @@
 import requests
 from api.services import S
-from api.results import FilterQuery, solr_escape, Results
+from api.results import OnlinejournalsFilterQuery, CatalogFilterQuery, solr_escape
 
 
-def get_specialists(query_params: dict):
-    catalog_response = fetch_academic_disciplines(query_params)
+def get_catalog_specialists(query_params: dict):
+    response = fetch_catalog_academic_disciplines(query_params)
+    return calculate_specialists(response, query_params)
 
-    top_academic_disciplines = get_top_academic_disciplines(catalog_response)
+
+def get_onlinejournals_specialists(query_params: dict):
+    response = fetch_onlinejournals_academic_disciplines(query_params)
+    return calculate_specialists(response, query_params)
+
+
+def fetch_catalog_academic_disciplines(query_params: dict):
+    fq = CatalogFilterQuery(query_params)
+    parser_params = {
+        "query": query_params["query"],
+        "fq[]": fq.query(),
+    }
+    response = requests.Session().get(
+        f"{S.parser_url}/catalog/academic_disciplines", params=parser_params
+    )
+    return response.json()
+
+
+def fetch_onlinejournals_academic_disciplines(query_params: dict):
+    fq = OnlinejournalsFilterQuery(query_params)
+    parser_params = {
+        "query": query_params["query"],
+        "fq[]": fq.query(),
+    }
+    response = requests.Session().get(
+        f"{S.parser_url}/onlinejournals/academic_disciplines", params=parser_params
+    )
+    return response.json()
+
+
+def calculate_specialists(response, query_params: dict):
+    top_academic_disciplines = get_top_academic_disciplines(response)
 
     website_response = fetch_website_solr_specialists(
         website_solr_query_params(top_academic_disciplines, query_params)
@@ -18,33 +50,29 @@ def get_specialists(query_params: dict):
     }
 
 
-def fetch_academic_disciplines(query_params: dict):
-    fq = FilterQuery(query_params)
-    parser_params = {
-        "query": query_params["query"],
-        "fq[]": fq.query(),
-        "sort": Results.sort_map[query_params["sort"]],
-    }
-    response = requests.Session().get(
-        f"{S.parser_url}/catalog/academic_disciplines", params=parser_params
+def get_top_academic_disciplines(data: dict):
+    term_threshold = 25
+    term_counts = {}
+    for doc in data["response"]["docs"]:
+        if "hlb3Str" in doc:
+            for term in doc["hlb3Str"]:
+                if term in term_counts:
+                    term_counts[term] += 1
+                else:
+                    term_counts[term] = 1
+
+    result = []
+    for term in term_counts:
+        if term_counts[term] >= term_threshold:
+            result.append({"discipline": solr_escape(term), "count": term_counts[term]})
+    return result
+
+
+def fetch_website_solr_specialists(params):
+    resp = requests.Session().get(
+        f"{S.website_solr_url}/solr/www.lib/select", params=params
     )
-    return response.json()
-
-
-def specialist_response(data):
-    specialists = []
-    for person in data["response"]["docs"]:
-        specialists.append(
-            {
-                "name": person["title"],
-                "uniqname": person["ssfield_uniqname"],
-                "title": person.get("job_title", None),
-                "email": person["email"][0],
-                "phone": person.get("ssfield_phone", None),
-                "academic_disciplines": person["taxonomy_name"],
-            }
-        )
-    return specialists
+    return resp.json()
 
 
 def website_solr_query_params(top_academic_disciplines, query_params):
@@ -80,26 +108,17 @@ def website_solr_query_params(top_academic_disciplines, query_params):
     }
 
 
-def fetch_website_solr_specialists(params):
-    resp = requests.Session().get(
-        f"{S.website_solr_url}/solr/www.lib/select", params=params
-    )
-    return resp.json()
-
-
-def get_top_academic_disciplines(data: dict):
-    term_threshold = 25
-    term_counts = {}
-    for doc in data["response"]["docs"]:
-        if "hlb3Str" in doc:
-            for term in doc["hlb3Str"]:
-                if term in term_counts:
-                    term_counts[term] += 1
-                else:
-                    term_counts[term] = 1
-
-    result = []
-    for term in term_counts:
-        if term_counts[term] >= term_threshold:
-            result.append({"discipline": solr_escape(term), "count": term_counts[term]})
-    return result
+def specialist_response(data):
+    specialists = []
+    for person in data["response"]["docs"]:
+        specialists.append(
+            {
+                "name": person["title"],
+                "uniqname": person["ssfield_uniqname"],
+                "title": person.get("job_title", None),
+                "email": person["email"][0],
+                "phone": person.get("ssfield_phone", None),
+                "academic_disciplines": person["taxonomy_name"],
+            }
+        )
+    return specialists

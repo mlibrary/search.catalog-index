@@ -15,6 +15,22 @@ def solr_bib():
 
 
 @pytest.fixture()
+def onlinejournals_solr_bib():
+    bib = {}
+    with open("tests/fixtures/onlinejournal_solr.json") as data:
+        bib = json.load(data)
+    return bib
+
+
+@pytest.fixture()
+def onlinejournals_results():
+    bib = {}
+    with open("tests/fixtures/results/page1.json") as data:
+        bib = json.load(data)
+    return bib
+
+
+@pytest.fixture()
 def client():
     yield TestClient(app)
 
@@ -30,7 +46,7 @@ def loan_data():
 
 
 @responses.activate
-def test_get_record(client, valid_mms_id, solr_bib, loan_data):
+def test_get_catalog_record(client, valid_mms_id, solr_bib, loan_data):
     responses.get(
         f"{S.alma_api_url}/bibs/{valid_mms_id}/loans", json=loan_data, status=200
     )
@@ -44,3 +60,37 @@ def test_get_record(client, valid_mms_id, solr_bib, loan_data):
     subject = response.json()
     for field in expected:
         assert subject[field] == expected[field]
+
+
+@responses.activate
+def test_get_onlinejournals_record(
+    client, valid_mms_id, onlinejournals_solr_bib, loan_data
+):
+    responses.get(
+        f"{S.solr_url}/solr/biblio/select", json=onlinejournals_solr_bib, status=200
+    )
+
+    with open("tests/fixtures/onlinejournal.json") as data:
+        expected = json.load(data)
+
+    response = client.get(f"/onlinejournals/records/{valid_mms_id}")
+    assert response.status_code == 200
+    subject = response.json()
+
+    for field in expected:
+        assert subject[field] == expected[field]
+
+
+@responses.activate
+def test_get_onlinejournals_results(client, valid_mms_id, onlinejournals_results):
+    responses.get(
+        f"{S.parser_url}/onlinejournals/search",
+        json=onlinejournals_results,
+        status=200,
+    )
+
+    response = client.get("/onlinejournals/search", params={"query": "music"})
+    assert response.status_code == 200
+    subject = response.json()
+
+    assert subject["records"][0] is not None

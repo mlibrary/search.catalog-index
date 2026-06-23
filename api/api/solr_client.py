@@ -1,7 +1,7 @@
 import requests
 from requests.auth import HTTPBasicAuth
 from api.services import S
-from prometheus_client import Histogram
+from api.metrics import SOLR_HISTOGRAM
 
 
 class NotFoundError(Exception):
@@ -9,19 +9,24 @@ class NotFoundError(Exception):
 
 
 class SolrClient:
-    SOLR_HISTOGRAM = Histogram(
-        "catalog_api_solr_record_request_duration_seconds", "Length of solr requests"
-    )
-
     def __init__(self) -> None:
         self.session = requests.Session()
         self.base_url = f"{S.solr_url}/solr/biblio"
         if S.solr_cloud_on:
             self.session.auth = HTTPBasicAuth(S.solr_user, S.solr_password)
 
-    @SOLR_HISTOGRAM.time()
+    @SOLR_HISTOGRAM.labels(datastore="catalog").time()
     def get_record(self, id: str):
         params = {"q": f"id:{id}"}
+        url = f"{self.base_url}/select"
+        response = self.session.get(url, params=params)
+        if response.json()["response"]["numFound"] == 0:
+            raise NotFoundError()
+        return response.json()["response"]["docs"][0]
+
+    @SOLR_HISTOGRAM.labels(datastore="onlinejournals").time()
+    def get_onlinejournals_record(self, id: str):
+        params = {"q": f"id:{id} AND format:Serial AND location:ELEC"}
         url = f"{self.base_url}/select"
         response = self.session.get(url, params=params)
         if response.json()["response"]["numFound"] == 0:

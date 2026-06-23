@@ -20,6 +20,16 @@ def record_for(id: str) -> Record:
     return Record(data)
 
 
+def catalog_record_for(id: str) -> Record:
+    data = SolrClient().get_record(id)
+    return Record(data)
+
+
+def onlinejournals_record_for(id: str) -> Record:
+    data = SolrClient().get_onlinejournals_record(id)
+    return OnlinejournalsRecord(data)
+
+
 class SolrDoc:
     def __init__(self, data: dict):
         self.data = data
@@ -565,7 +575,10 @@ class BaseRecord(SolrDoc, MARC):
     def holdings(self):
         holdings_data = json.loads(self.data.get("hol"))
         loans = get_alma_loans(self.id, holdings_data)
-        return Holdings(holdings_data, bib_id=self.id, record=self.record, loans=loans)
+        holdings = Holdings(
+            holdings_data, bib_id=self.id, record=self.record, loans=loans
+        )
+        return holdings
 
 
 class TaggedCitation:
@@ -1294,6 +1307,29 @@ class Record(BaseRecord):
         self.data = data
         self.record = pymarc.parse_xml_to_array(io.StringIO(data["fullrecord"]))[0]
         BaseRecord.__init__(self, data)
+
+    @property
+    def citation(self):
+        return Citation(marc_record=self.record, base_record=self, solr_doc=self.data)
+
+
+class OnlinejournalsBaseRecord(BaseRecord):
+    @property
+    def holdings(self):
+        holdings_data = json.loads(self.data.get("hol"))
+        # don't need to look of loans
+        loans = []
+        holdings = Holdings(
+            holdings_data, bib_id=self.id, record=self.record, loans=loans
+        )
+        return holdings
+
+
+class OnlinejournalsRecord(OnlinejournalsBaseRecord):
+    def __init__(self, data: dict):
+        self.data = data
+        self.record = pymarc.parse_xml_to_array(io.StringIO(data["fullrecord"]))[0]
+        OnlinejournalsBaseRecord.__init__(self, data)
 
     @property
     def citation(self):

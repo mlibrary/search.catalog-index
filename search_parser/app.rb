@@ -11,29 +11,29 @@ require "debug" if S.app_env == "development"
 
 Metrics::Yabeda.configure!
 
-module SearchParser
-  CATALOG_CONFIG = YAML.safe_load_file("./config/catalog.yaml", aliases: true).freeze
-  CATALOG_BUILDER = MLibrarySearchParser::SearchBuilder.new(CATALOG_CONFIG)
-  FACETS = CATALOG_CONFIG["facets"].freeze
-
-  def self.build(query)
-    CATALOG_BUILDER.build(query)
+class SearchParser
+  def self.facets
+    @facets ||= self::CONFIG["facets"].freeze
   end
 
-  def self.facets
-    FACETS
+  def self.builder
+    @builder ||= MLibrarySearchParser::SearchBuilder.new(self::CONFIG)
+  end
+
+  def self.build(query)
+    builder.build(query)
   end
 
   def self.facet_params
     result = {}
 
-    FACETS.map do |field|
+    facets.each do |field|
       result["f.#{field}.facet.limit"] = "50"
       result["f.#{field}.facet.mincount"] = "1"
       result["f.#{field}.facet.offset"] = "0"
       result["f.#{field}.facet.sort"] = "count"
     end
-    result["facet.field"] = FACETS
+    result["facet.field"] = facets
     result["fl"] = "*,score"
     result["facet"] = true
 
@@ -53,6 +53,10 @@ module SearchParser
     str.gsub(/([+\-&|!(){}\[\]\^"~*?:\\\/])/, '\\\\\1')
   end
 
+  def self.datastore
+    name.to_s.split("::").last.downcase
+  end
+
   def self.solr_query(query:, rows:, start:, sort:, fq:)
     # how to handle fq:
     # fq":["topicStr:(Motion\\ pictures)","institution:(UM\\ Ann\\ Arbor\\ Libraries)","+(new_availability:physical OR new_availability:hathi_trust_full_text_or_electronic_holding)"]
@@ -68,23 +72,33 @@ module SearchParser
 
     result["qt"] = "standard" unless ["edismax", "dismax"].include?(result["qt"]) # code from spectrum so I don't forget. Don't know if we need this.
     result["qq"] = '"' + solr_escape(result["q"]) + '"'
-
+    S.logger.info("results_query", datastore: datastore, query: result)
     result
   end
 
-  def self.academic_discipline_solr_query(query:, sort:, fq:)
+  def self.academic_discipline_solr_query(query:, fq:)
     # how to handle fq:
     # fq":["topicStr:(Motion\\ pictures)","institution:(UM\\ Ann\\ Arbor\\ Libraries)","+(new_availability:physical OR new_availability:hathi_trust_full_text_or_electronic_holding)"]
     # sort comes from config/sorts.yml
     lp = MLibrarySearchParser::Transformer::Solr::LocalParams.new(build(query))
 
-    {
+    result = {
       rows: 100,
       start: 0,
-      sort: sort,
+      sort: "score desc",
       fq: fq,
       fl: "hlb3Str"
     }.merge(lp.params).with_indifferent_access
+    S.logger.info("academic_disciplines_query", datastore: datastore, query: result)
+    result
+  end
+
+  class Catalog < self
+    CONFIG = YAML.safe_load_file("./config/catalog.yaml", aliases: true).freeze
+  end
+
+  class Onlinejournals < self
+    CONFIG = YAML.safe_load_file("./config/onlinejournals.yaml", aliases: true).freeze
   end
 end
 
@@ -103,7 +117,7 @@ class SearchParser::Application < Sinatra::Base
         fq: params["fq"] || ["institution:(UM\\ Ann\\ Arbor\\ Libraries)", "+(availability:physical OR availability:hathi_trust_full_text_or_electronic_holding)"]
       }
       #      response = nil
-      solr_params = SearchParser.solr_query(**query_params)
+      solr_params = SearchParser::Catalog.solr_query(**query_params)
       #      Yabeda.catalog_solr_query_duration.measure do
       response = S.solr_conn.get("solr/#{S.solr_core}/select", solr_params)
       #      end
@@ -115,10 +129,47 @@ class SearchParser::Application < Sinatra::Base
       content_type :json
       query_params = {
         query: params["query"] || "",
-        sort: params["sort"] || "score desc",
         fq: params["fq"] || ["institution:(UM\\ Ann\\ Arbor\\ Libraries)", "+(availability:physical OR availability:hathi_trust_full_text_or_electronic_holding)"]
       }
-      solr_params = SearchParser.academic_discipline_solr_query(**query_params)
+      solr_params = SearchParser::Catalog.academic_discipline_solr_query(**query_params)
+
+      response = S.solr_conn.get("solr/#{S.solr_core}/select", solr_params)
+
+      response.body.to_json
+    end
+  end
+  namespace "/onlinejournals" do
+    get "/search" do
+      headers "metrics.route" => "catalog/search"
+      content_type :json
+      query_params = {
+        query: params["query"] || "",
+        rows: params["rows"] || 10,
+        start: params["start"] || 0,
+        sort: params["sort"] || "score desc",
+        fq: params["fq"] || []
+      }
+
+      query_params[:fq].push("location:ELEC")
+      query_params[:fq].push("format:Serial")
+      #      response = nil
+      solr_params = SearchParser::Onlinejournals.solr_query(**query_params)
+      #      Yabeda.catalog_solr_query_duration.measure do
+      response = S.solr_conn.get("solr/#{S.solr_core}/select", solr_params)
+      #      end
+      response.body.to_json
+    end
+
+    get "/academic_disciplines" do
+      headers "metrics.route" => "catalog/academic_disciplines"
+      content_type :json
+      query_params = {
+        query: params["query"] || "",
+        fq: params["fq"] || []
+      }
+      query_params[:fq].push("location:ELEC")
+      query_params[:fq].push("format:Serial")
+      solr_params = SearchParser::Onlinejournals.academic_discipline_solr_query(**query_params)
 
       response = S.solr_conn.get("solr/#{S.solr_core}/select", solr_params)
 
