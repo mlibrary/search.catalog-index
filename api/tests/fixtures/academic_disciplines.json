@@ -1,0 +1,36 @@
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":99,
+    "params":{
+      "q":"location:ELEC AND format:Serial",
+      "facet.limit":"-1",
+      "facet.field":["hlb3Str",
+        "hlb3Delimited"],
+      "rows":"0",
+      "facet":"on"}},
+  "response":{"numFound":416064,"start":0,"docs":[]
+  },
+  "facet_counts":{
+    "facet_queries":{},
+    "facet_fields":{
+      "hlb3Str":[
+        "Chemistry",4279,
+        "Science",23875,
+        "Chemical Engineering",2715,
+        "Organic Chemistry",242,
+        "Physical Chemistry",284,
+        "Physics",1497
+      ],
+      "hlb3Delimited":[
+        "Science | Chemical Engineering",2715,
+        "Science | Chemistry",2014,
+        "Science | Chemistry | Organic Chemistry",242,
+        "Science | Chemistry | Physical Chemistry",284,
+        "Science | Physics",1497
+      ]
+        },
+    "facet_ranges":{},
+    "facet_intervals":{},
+    "facet_heatmaps":{}}}
+
