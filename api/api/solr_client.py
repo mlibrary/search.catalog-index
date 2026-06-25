@@ -32,3 +32,15 @@ class SolrClient:
         if response.json()["response"]["numFound"] == 0:
             raise NotFoundError()
         return response.json()["response"]["docs"][0]
+
+    def get_onlinejournals_academic_disciplines(self):
+        params = {
+            "q": "format:Serial AND location:ELEC",
+            "facet": "on",
+            "facet.field": ["hlb3Str", "hlb3Delimited"],
+            "facet.limit": -1,
+            "rows": 0,
+        }
+        url = f"{self.base_url}/select"
+        response = self.session.get(url, params=params)
+        return response.json()["facet_counts"]["facet_fields"]

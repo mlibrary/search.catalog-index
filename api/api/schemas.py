@@ -399,6 +399,15 @@ class OnlinejournalsResults(Results):
     records: list[OnlinejournalsResultRecord]
 
 
+class BrowseAcademicDiscipline(BaseModel):
+    name: str
+    count: int
+    disciplines: list["BrowseAcademicDiscipline"] = []
+
+
+BrowseAcademicDiscipline.model_rebuild()
+
+
 class Sort(str, Enum):
     relevance = "relevance"
     date_asc = "date_asc"

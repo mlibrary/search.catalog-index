@@ -5,6 +5,7 @@ from api import schemas
 from api.solr_client import NotFoundError
 from api.record import onlinejournals_record_for
 from api.results import get_onlinejournals_results
+from api.academic_disciplines import get_onlinejournals_academic_disciplines
 from api import specialists
 
 router = APIRouter(prefix="/onlinejournals", tags=["onlinejournals"])
@@ -74,3 +75,8 @@ def get_specialists(
         }
     )
     return results
+
+
+@router.get("/academic_disciplines")
+def get_academic_disciplines() -> list[schemas.BrowseAcademicDiscipline]:
+    return get_onlinejournals_academic_disciplines()
