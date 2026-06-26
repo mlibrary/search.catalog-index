@@ -8,9 +8,7 @@ class NotFoundError(Exception):
     pass
 
 
-class AlmaClient:
-    base_url = S.alma_api_url
-
+class ExlibrisClient:
     def __init__(self) -> None:
         self.session = requests.Session()
         self.session.headers.update(
@@ -20,6 +18,21 @@ class AlmaClient:
                 "Content-Type": "application/json",
             }
         )
+
+    def get_error_string(self, error_string):
+        ns = {"alma": "http://com/exlibris/urm/general/xmlbeans"}
+        root = ET.fromstring(error_string)
+        result = []
+        for error in root.findall(".//alma:error", ns):
+            code = error.find("alma:errorCode", ns)
+            message = error.find("alma:errorMessage", ns)
+            result.append(f"code: {code.text}, message: {message.text}")
+
+        return " | ".join(result)
+
+
+class AlmaClient(ExlibrisClient):
+    base_url = S.alma_api_url
 
     @ALMA_LOAN_HISTOGRAM.time()
     def get_loans(self, mms_id: str):
@@ -36,7 +49,7 @@ class AlmaClient:
             total = result["total_record_count"]
         except requests.exceptions.HTTPError as e:
             S.logger.error(
-                f"HTTP error occurred: {e} {self.get_alma_error_string(response.text)}"
+                f"HTTP error occurred: {e} {self.get_error_string(response.text)}"
             )
         except requests.exceptions.RequestException as e:
             S.logger.error("A request error occurred:", e)
@@ -55,13 +68,28 @@ class AlmaClient:
 
         return result
 
-    def get_alma_error_string(self, error_string):
-        ns = {"alma": "http://com/exlibris/urm/general/xmlbeans"}
-        root = ET.fromstring(error_string)
-        result = []
-        for error in root.findall(".//alma:error", ns):
-            code = error.find("alma:errorCode", ns)
-            message = error.find("alma:errorMessage", ns)
-            result.append(f"code: {code.text}, message: {message.text}")
 
-        return " | ".join(result)
+class PrimoClient(ExlibrisClient):
+    base_url = S.primo_api_url
+
+    def get_record(self, id: str):
+        params = {
+            "q": f"id,exact,{id}",
+            "scope": "CentralIndex",
+            "tab": "CentralIndex",
+            "vid": "01UMICH_INST:UMICH",
+        }
+        url = f"{self.base_url}/search"
+        try:
+            response = self.session.get(url, params=params)
+            response.raise_for_status()
+            body = response.json()
+            if body["info"]["total"] == 0:
+                raise NotFoundError()
+            return body["docs"][0]
+        except requests.exceptions.HTTPError as e:
+            S.logger.error(
+                f"HTTP error occurred: {e} {self.get_error_string(response.text)}"
+            )
+        except requests.exceptions.RequestException as e:
+            S.logger.error("A request error occurred:", e)

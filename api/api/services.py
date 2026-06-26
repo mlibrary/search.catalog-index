@@ -16,6 +16,7 @@ class Services:
     solr_password: str
     parser_url: str
     alma_api_url: str
+    primo_api_url: str
     alma_api_key: str
     logger: logging.Logger
 
@@ -35,6 +36,7 @@ S = Services(
     solr_password=os.getenv("SOLR_PASSWORD") or "SolrRocks",
     parser_url=os.getenv("PARSER_URL") or "http://parser:4567",
     alma_api_url="https://api-na.hosted.exlibrisgroup.com/almaws/v1",
+    primo_api_url="https://api-na.hosted.exlibrisgroup.com/primo/v1",
     alma_api_key=os.getenv("ALMA_API_KEY") or "your_alma_api_key",
     logger=logging.getLogger(__name__),
 )

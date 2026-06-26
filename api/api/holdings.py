@@ -3,7 +3,7 @@ from urllib.parse import urlencode
 from dataclasses import dataclass
 from datetime import datetime
 from api.marc import Processor, FieldRuleset
-from api.alma_client import AlmaClient
+from api.exlibris_client import AlmaClient
 
 
 class AlmaDigitalItem:
