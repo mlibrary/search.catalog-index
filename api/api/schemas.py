@@ -126,6 +126,10 @@ class SearchField(TextField):
     search: list[FieldedSearchField]
 
 
+class BareSearchField(BareTextField):
+    search: list[FieldedSearchField]
+
+
 class PairedSearchField(BaseModel):
     transliterated: Optional[SearchField] = None
     original: SearchField
@@ -355,6 +359,25 @@ class OnlinejournalsResultRecord(ResultRecord):
 
 class OnlinejournalsRecord(Record):
     holdings: OnlinejournalsHoldings
+
+
+class ArticlesRecord(BaseModel):
+    id: str
+    title: list[BareTextField]
+    abstract: list[BareTextField]
+    author: list[BareSearchField]
+    publisher: list[BareTextField]
+    genre: list[BareTextField]
+    issn: list[BareTextField]
+    eissn: list[BareTextField]
+    isbn: list[BareTextField]
+    eisbn: list[BareTextField]
+    doi: list[BareTextField]
+    oclc: list[BareTextField]
+    pmid: list[BareTextField]
+    language: list[BareTextField]
+    subject: list[BareTextField]
+    edition: list[BareTextField]
 
 
 class Specialist(BaseModel):

@@ -23,6 +23,14 @@ def onlinejournals_solr_bib():
 
 
 @pytest.fixture()
+def articles_doc():
+    bib = {}
+    with open("tests/fixtures/article.json") as data:
+        bib = json.load(data)
+    return bib
+
+
+@pytest.fixture()
 def onlinejournals_results():
     bib = {}
     with open("tests/fixtures/results/page1.json") as data:
@@ -94,3 +102,16 @@ def test_get_onlinejournals_results(client, valid_mms_id, onlinejournals_results
     subject = response.json()
 
     assert subject["records"][0] is not None
+
+
+@responses.activate
+def test_get_articles_record(client, articles_doc):
+    responses.get(f"{S.primo_api_url}/search", json=articles_doc, status=200)
+
+    response = client.get("/articles/records/some_id")
+    assert response.status_code == 200
+    subject = response.json()
+    assert subject["id"] == "cdi_projectmuse_ebooks_9781400840458"
+    assert subject["title"] == [
+        {"text": "Banding Together: How Communities Create Genres in Popular Music"}
+    ]
