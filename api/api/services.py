@@ -18,6 +18,8 @@ class Services:
     parser_url: str
     alma_api_url: str
     primo_api_url: str
+    open_url_root: str
+    proxy_prefix: str
     alma_api_key: str
     logger: logging.Logger
 
@@ -39,6 +41,8 @@ S = Services(
     parser_url=os.getenv("PARSER_URL") or "http://parser:4567",
     alma_api_url="https://api-na.hosted.exlibrisgroup.com/almaws/v1",
     primo_api_url="https://api-na.hosted.exlibrisgroup.com/primo/v1",
+    open_url_root="https://mgetit.lib.umich.edu/resolve",
+    proxy_prefix="https://proxy.lib.umich.edu/login?qurl=",
     alma_api_key=os.getenv("ALMA_API_KEY") or "your_alma_api_key",
     logger=logging.getLogger(__name__),
 )

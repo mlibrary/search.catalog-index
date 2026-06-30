@@ -1,0 +1,247 @@
+{
+  "info": {
+    "totalResultsLocal": -1,
+    "totalResultsPC": 1,
+    "total": 1,
+    "first": 1,
+    "last": 1
+  },
+  "highlights": {
+    "termsUnion": []
+  },
+  "docs": [
+    {
+      "pnx": {
+        "links": {
+          "openurlfulltext": [
+            "$$Topenurlfull_article"
+          ],
+          "openurl": [
+            "$$Topenurl_article"
+          ],
+          "linktorsrc": [
+            "$$Uhttps://hdl.handle.net/2027/iau.31858029863564$$EView_record_in_HathiTrust$$FView_record_in_$$GHathiTrust$$Hfree_for_read$$Pomit_proxy_true"
+          ],
+          "thumbnail": [
+            "$$Tsyndetics_thumb_exl"
+          ],
+          "linktopdf": [
+            "$$Uhttps://hdl.handle.net/2027/iau.31858029863564$$EPDF$$P50$$Pomit_proxy_true$$Ghathitrust$$Hfree_for_read"
+          ]
+        },
+        "search": {
+          "title": [
+            "History : v.1-2 1912-13"
+          ],
+          "issn": [
+            "0018-2648"
+          ],
+          "fulltext": [
+            "true"
+          ],
+          "startdate": [
+            "1913"
+          ],
+          "enddate": [
+            "1913"
+          ],
+          "recordtype": [
+            "journal"
+          ],
+          "sourceid": [
+            "J3O"
+          ],
+          "recordid": [
+            "eNpjYeA0MDC00DUyM7FgZeA3NDEwNDE3sVDQ1y-yMDNmY2A3MjQzMTAx4WQQ98gsLskvqlSwUijTM9Q1UjC0NDTSNTTmYWBNS8wpTuWF0twM-m6uIc4euhmJJRmZJUWlxSXxYGZaZk5qcXxmYmm8saGFqYWBkSXQBlMzE2PSdQAAYgAwbQ"
+          ],
+          "scope": [
+            "J3O"
+          ],
+          "creationdate": [
+            "1913"
+          ],
+          "rsrctype": [
+            "journal"
+          ]
+        },
+        "delivery": {
+          "fulltext": [
+            "fulltext_linktorsrc"
+          ],
+          "delcategory": [
+            "Remote Search Resource"
+          ]
+        },
+        "display": {
+          "title": [
+            "History : v.1-2 1912-13"
+          ],
+          "language": [
+            "eng"
+          ],
+          "creationdate": [
+            "1913"
+          ],
+          "type": [
+            "journal"
+          ],
+          "source": [
+            "HathiTrust Digital Library Full View U.S. Only"
+          ],
+          "publisher": [
+            "England"
+          ],
+          "identifier": [
+            "ISSN: 0018-2648",
+            "OCLC: 2164044",
+            "LCCN: 14014748 //r863"
+          ],
+          "oa": [
+            "free_for_read"
+          ]
+        },
+        "addata": {
+          "format": [
+            "Journal"
+          ],
+          "issn": [
+            "0018-2648"
+          ],
+          "jtitle": [
+            "History : v.1-2 1912-13"
+          ],
+          "genre": [
+            "journal"
+          ],
+          "date": [
+            "1913"
+          ],
+          "risdate": [
+            "1913"
+          ],
+          "volume": [
+            "1-2"
+          ],
+          "ristype": [
+            "JOUR"
+          ],
+          "cop": [
+            "England"
+          ],
+          "oclcid": [
+            "2164044"
+          ],
+          "oa": [
+            "free_for_read"
+          ]
+        },
+        "facets": {
+          "language": [
+            "eng"
+          ],
+          "creationdate": [
+            "1913"
+          ],
+          "prefilter": [
+            "journals"
+          ],
+          "rsrctype": [
+            "journals"
+          ],
+          "collection": [
+            "HathiTrust Digital Library Full View U.S. Only"
+          ],
+          "toplevel": [
+            "online_resources"
+          ],
+          "frbrgroupid": [
+            "cdi_FETCH-hathitrust_hathifiles_iau_318580298635643"
+          ],
+          "frbrtype": [
+            "5"
+          ]
+        },
+        "sort": {
+          "title": [
+            "History : v.1-2 1912-13"
+          ],
+          "creationdate": [
+            "1913"
+          ]
+        },
+        "control": {
+          "recordtype": [
+            "journal"
+          ],
+          "sourceid": [
+            "hathitrust_J3O"
+          ],
+          "recordid": [
+            "cdi_hathitrust_hathifiles_iau_31858029863564"
+          ],
+          "addsrcrecordid": [
+            "eNpjYeA0MDC00DUyM7FgZeA3NDEwNDE3sVDQ1y-yMDNmY2A3MjQzMTAx4WQQ98gsLskvqlSwUijTM9Q1UjC0NDTSNTTmYWBNS8wpTuWF0twM-m6uIc4euhmJJRmZJUWlxSXxYGZaZk5qcXxmYmm8saGFqYWBkSXQBlMzE2PSdQAAYgAwbQ"
+          ],
+          "sourcerecordid": [
+            "iau_31858029863564"
+          ],
+          "originalsourceid": [
+            "FETCH-hathitrust_hathifiles_iau_318580298635643"
+          ],
+          "sourcetype": [
+            "Aggregation Database"
+          ],
+          "sourceformat": [
+            "XML"
+          ],
+          "sourcesystem": [
+            "Other"
+          ],
+          "iscdi": [
+            "true"
+          ],
+          "score": [
+            "0.0021737246"
+          ]
+        }
+      },
+      "delivery": {
+        "link": [],
+        "deliveryCategory": [
+          "Remote Search Resource"
+        ],
+        "availability": [
+          "fulltext_linktorsrc"
+        ],
+        "displayLocation": false,
+        "additionalLocations": false,
+        "physicalItemTextCodes": "",
+        "feDisplayOtherLocations": false,
+        "displayedAvailability": "true",
+        "holding": [],
+        "almaOpenurl": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2026-06-29 16:02:05&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-hathitrust_J3O&rft_val_fmt=info:ofi/fmt:kev:mtx:Journal&rft.genre=journal&rft.jtitle=History+%3A+v.1-2+1912-13&rft.date=1913&rft.volume=1-2&rft.issn=0018-2648&rft.place=England&rft_id=info:oclcnum/2164044&rft_dat=<hathitrust_J3O>iau_31858029863564</hathitrust_J3O>&svc_dat=viewit"
+      },
+      "context": "PC",
+      "adaptor": "Primo Central",
+      "extras": {
+        "citationTrails": {
+          "citing": [],
+          "citedby": []
+        },
+        "timesCited": {}
+      },
+      "@id": "https://na04.alma.exlibrisgroup.com/primaws/rest/pub/pnxs/PC/cdi_hathitrust_hathifiles_iau_31858029863564"
+    }
+  ],
+  "timelog": {
+    "PC_SEARCH_CALL_TIME": "132",
+    "PC_BUILD_JSON_AND_HIGLIGHTS": "12",
+    "PC_SEARCH_TIME_TOTAL": "144",
+    "BUILD_BLEND_AND_CACHE_RESULTS": 0,
+    "BUILD_COMBINED_RESULTS_MAP": 0,
+    "COMBINED_SEARCH_TIME": 5,
+    "PROCESS_COMBINED_RESULTS": 0,
+    "FEATURED_SEARCH_TIME": 0
+  },
+  "facets": []
+}
