@@ -1,4 +1,4 @@
-from api.solr_client import SolrClient
+from api.clients.solr_client import SolrClient
 
 
 def get_onlinejournals_academic_disciplines():

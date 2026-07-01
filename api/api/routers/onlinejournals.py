@@ -2,7 +2,7 @@ from typing import Annotated
 from fastapi import APIRouter, HTTPException, Query
 from api.metrics import REQUEST_HISTOGRAM
 from api import schemas
-from api.solr_client import NotFoundError
+from api.clients.solr_client import NotFoundError
 from api.record import onlinejournals_record_for
 from api.results import get_onlinejournals_results
 from api.academic_disciplines import get_onlinejournals_academic_disciplines

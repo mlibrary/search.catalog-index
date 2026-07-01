@@ -1,5 +1,5 @@
 from __future__ import annotations
-from api.solr_client import SolrClient
+from api.clients.solr_client import SolrClient
 from api.solr import SolrDocProcessor
 from api.marc import Processor, FieldRuleset, TRIM_CHARS
 from api.holdings import get_alma_loans

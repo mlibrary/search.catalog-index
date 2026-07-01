@@ -1,5 +1,5 @@
-from api.exlibris_client import PrimoClient
-from api.lib_key_client import LibKeyClient
+from api.clients.exlibris_client import PrimoClient
+from api.clients.lib_key_client import LibKeyClient
 import yaml
 from api.services import S
 from urllib.parse import parse_qsl, urlencode
