@@ -119,6 +119,10 @@ class Record:
     def edition(self):
         return self._multiple_plain_text(section="display", field="edition")
 
+    @property
+    def citation(self):
+        return Citation(self.doc)
+
     def _multiple_plain_text(self, section, field):
         values = self.doc.get_pnx_field_values(section, field)
         return [{"text": value} for value in values]
@@ -287,9 +291,8 @@ class CSL(BaseCSL):
         "web_resources": "webpage",
     }
 
-    def __init__(self, data):
-        self.data = data
-        self.doc = PrimoDoc(data)
+    def __init__(self, doc):
+        self.doc = doc
 
     @property
     def id(self):
@@ -380,8 +383,8 @@ class TaggedCitation:
 
 
 class Citation:
-    def __init__(self):
-        pass
+    def __init__(self, doc):
+        self.doc = doc
 
     @property
     def tagged(self):
@@ -389,4 +392,4 @@ class Citation:
 
     @property
     def csl(self):
-        return CSL()
+        return CSL(self.doc)

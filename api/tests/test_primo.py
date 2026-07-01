@@ -1,6 +1,6 @@
 import pytest
 import json
-from api.primo import Record, AlmaHolding, LibKeyHolding, CSL
+from api.primo import Record, AlmaHolding, LibKeyHolding, CSL, PrimoDoc
 from urllib.parse import parse_qs
 import re
 
@@ -52,7 +52,8 @@ def subject(article_doc):
 
 @pytest.fixture()
 def csl_subject(article_doc):
-    return CSL(article_doc)
+
+    return CSL(PrimoDoc(article_doc))
 
 
 class TestRecord:
@@ -291,7 +292,7 @@ class TestCSL:
     def test_has_issn(self, article_doc):
         article_doc["pnx"]["addata"]["issn"] = ["issn"]
         article_doc["pnx"]["addata"]["eissn"] = ["eissn"]
-        csl_subject = CSL(article_doc)
+        csl_subject = CSL(PrimoDoc(article_doc))
         assert csl_subject.issn == [
             "issn",
             "eissn",
@@ -311,12 +312,12 @@ class TestCSL:
 
     def test_author_literal(self, article_doc):
         article_doc["pnx"]["addata"]["au"] = ["Lena"]
-        csl_subject = CSL(article_doc)
+        csl_subject = CSL(PrimoDoc(article_doc))
         assert csl_subject.author == [{"literal": "Lena"}]
 
     def test_corporate_author(self, article_doc):
         article_doc["pnx"]["addata"]["aucorp"] = ["Lena, Jennifer C"]
-        csl_subject = CSL(article_doc)
+        csl_subject = CSL(PrimoDoc(article_doc))
         assert csl_subject.author == [
             {"family": "Lena", "given": "Jennifer C"},
             {"literal": "Lena, Jennifer C"},

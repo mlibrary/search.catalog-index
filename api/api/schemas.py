@@ -174,22 +174,38 @@ class CSL(BaseModel):
     id: str
     type: str
     title: str
-    edition: Optional[str]
-    collection_title: Optional[str]
+    author: Optional[list[CSLName | CSLLiteral]]
+    issued: Optional[CSLLiteral]
+    publisher: Optional[str]
     isbn: Optional[list[str]] = Field(serialization_alias="ISBN")
     issn: Optional[list[str]] = Field(serialization_alias="ISSN")
+    edition: Optional[str]
+
+
+class CatalogCSL(CSL):
+    collection_title: Optional[str]
     call_number: Optional[str]
     publisher_place: Optional[str]
-    publisher: Optional[str]
-    issued: Optional[CSLLiteral]
-    author: Optional[list[CSLName | CSLLiteral]]
     editor: Optional[list[CSLName | CSLLiteral]]
     number: Optional[str]
 
 
-class Citation(BaseModel):
+class ArticlesCSL(CSL):
+    page: Optional[str]
+    container_title: Optional[str]
+    volume: Optional[str]
+    issue: Optional[str]
+    genre: Optional[str]
+    doi: Optional[str]
+
+
+class CatalogCitation(BaseModel):
     tagged: list[TaggedCitation]
-    csl: CSL
+    csl: CatalogCSL
+
+
+class ArticlesCitation(BaseModel):
+    csl: ArticlesCSL
 
 
 ##########
@@ -269,7 +285,7 @@ class Record(BaseModel):
     indexing_date: datetime.date
     holdings: Holdings
     marc: dict
-    citation: Citation
+    citation: CatalogCitation
 
     model_config = ConfigDict(populate_by_name=True)
 
@@ -348,7 +364,7 @@ class ResultRecord(BaseModel):
     # indexing_date: datetime.date
     holdings: Holdings
     # marc: dict
-    citation: Citation
+    citation: CatalogCitation
 
     model_config = ConfigDict(populate_by_name=True)
 
@@ -385,6 +401,7 @@ class ArticlesRecord(BaseModel):
     subject: list[BareTextField]
     edition: list[BareTextField]
     holdings: list[ArticleHolding]
+    citation: ArticlesCitation
 
 
 class Specialist(BaseModel):
