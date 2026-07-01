@@ -1,5 +1,4 @@
-from typing import Annotated
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException
 from api.metrics import REQUEST_HISTOGRAM
 from api import schemas
 from api.clients.exlibris_client import NotFoundError

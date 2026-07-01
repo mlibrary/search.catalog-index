@@ -9,7 +9,7 @@ readme = "README.md"
 packages = [{include = "api"}]
 
 [tool.ruff]
-exclude = [".venv",".vscode",".vscode-server", ".local"]
+exclude = [".venv",".vscode",".vscode-server", ".local", ".cache"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
