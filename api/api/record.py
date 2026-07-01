@@ -3,6 +3,7 @@ from api.clients.solr_client import SolrClient
 from api.solr import SolrDocProcessor
 from api.marc import Processor, FieldRuleset, TRIM_CHARS
 from api.holdings import get_alma_loans
+from api.csl import BaseCSL
 import re
 import pymarc
 import io
@@ -959,7 +960,7 @@ class TaggedCitation:
         ]
 
 
-class CSL:
+class CSL(BaseCSL):
     TYPE_MAPPING = {
         "Article": "article-journal",
         "Archival Material": "article-journal",
@@ -1076,44 +1077,6 @@ class CSL:
         "Newsletter Article": "article",
     }
 
-    TYPE_ORDER = [
-        "article-journal",
-        "article-magazine",
-        "article-newspaper",
-        "bill",
-        "broadcast",
-        "chapter",
-        "dataset",
-        "entry-dictionary",
-        "entry-encyclopedia",
-        "figure",
-        "interview",
-        "legal_case",
-        "legislation",
-        "map",
-        "motion_picture",
-        "musical_score",
-        "pamphlet",
-        "paper-conference",
-        "patent",
-        "personal_communication",
-        "post-weblog",
-        "post",
-        "report",
-        "review-book",
-        "review",
-        "speech",
-        "thesis",
-        "treaty",
-        "webpage",
-        "graphic",
-        "song",
-        "entry",
-        "article",
-        "book",
-        "manuscript",  # putting this at the bottom because chicago-notes-bibliography doesn't render it
-    ]
-
     def __init__(self, base_record=None, marc_record=None, solr_doc={}):
         self.solr_processor = SolrDocProcessor(solr_doc)
         self.processor = Processor(marc_record)
@@ -1122,15 +1085,6 @@ class CSL:
     @property
     def id(self):
         return self.solr_processor.get("id")
-
-    @property
-    def type(self):
-        formats = self.solr_processor.get("format")
-        if formats:
-            types = [self.TYPE_MAPPING.get(f) for f in formats]
-            for t in self.TYPE_ORDER:
-                if t in types:
-                    return t
 
     @property
     def title(self):
@@ -1282,6 +1236,9 @@ class CSL:
         if self._get_base_content("report_number"):
             return self._get_base_content("report_number")
         return self._get_base_content("numbering")
+
+    def _formats(self):
+        return self.solr_processor.get("format")
 
     def _get_marc_contents(self, rulesets):
         result = self.processor.generate_unpaired_fields(rulesets)

@@ -3,6 +3,7 @@ from api.clients.lib_key_client import LibKeyClient
 import yaml
 from api.services import S
 from urllib.parse import parse_qsl, urlencode
+from api.csl import BaseCSL
 
 
 with open(f"{S.project_root}/config/primo_languages.yaml", "r") as file:
@@ -18,14 +19,28 @@ def record_for(id):
     return Record(data)
 
 
-class Record:
+class PrimoDoc:
     def __init__(self, data):
         self.data = data
         self.pnx = self.data.get("pnx", {})
 
+    def get_pnx_field_value(self, section, field):
+        values = self.get_pnx_field_values(section, field)
+        return values[0] if len(values) else None
+
+    def get_pnx_field_values(self, section, field):
+        return self.pnx.get(section, {}).get(field, [])
+
+
+class Record:
+    def __init__(self, data):
+        self.data = data
+        self.doc = PrimoDoc(data)
+        self.pnx = self.data.get("pnx", {})
+
     @property
     def id(self):
-        return self._get_field_value(section="control", field="recordid")
+        return self.doc.get_pnx_field_value(section="control", field="recordid")
 
     @property
     def title(self):
@@ -77,7 +92,7 @@ class Record:
     @property
     def language(self):
         result = []
-        for code in self._get_field_values("display", "language"):
+        for code in self.doc.get_pnx_field_values("display", "language"):
             if code in language_code_to_str:
                 result.append({"text": language_code_to_str[code]})
         return result
@@ -89,11 +104,11 @@ class Record:
     @property
     def author(self):
         result = []
-        for value in self._get_field_values("addata", "au"):
+        for value in self.doc.get_pnx_field_values("addata", "au"):
             result.append(
                 {"text": value, "search": [{"field": "author", "value": value}]}
             )
-        for value in self._get_field_values("addata", "aucorp"):
+        for value in self.doc.get_pnx_field_values("addata", "aucorp"):
             result.append(
                 {"text": value, "search": [{"field": "author", "value": value}]}
             )
@@ -104,25 +119,18 @@ class Record:
         return self._multiple_plain_text(section="display", field="edition")
 
     def _multiple_plain_text(self, section, field):
-        values = self._get_field_values(section, field)
+        values = self.doc.get_pnx_field_values(section, field)
         return [{"text": value} for value in values]
 
     def _plain_text(self, section, field):
-        value = self._get_field_value(section, field)
+        value = self.doc.get_pnx_field_value(section, field)
         return [{"text": value}] if value else []
-
-    def _get_field_value(self, section, field):
-        values = self._get_field_values(section, field)
-        return values[0] if len(values) else None
-
-    def _get_field_values(self, section, field):
-        return self.pnx.get(section, {}).get(field, [])
 
     @property
     def holdings(self):
         lib_key = get_lib_key_holding(
-            doi=self._get_field_value("addata", "doi"),
-            pmid=self._get_field_value("addata", "pmid"),
+            doi=self.doc.get_pnx_field_value("addata", "doi"),
+            pmid=self.doc.get_pnx_field_value("addata", "pmid"),
         )
         result = []
         if lib_key and lib_key.availability:
@@ -228,3 +236,158 @@ class LibKeyHolding:
     @property
     def url(self):
         return self.data.get("fullTextFile")
+
+
+class CSL(BaseCSL):
+    TYPE_MAPPING = {
+        "archival_material_manuscript": "manuscript",
+        "archival_material_manuscripts": "manuscript",
+        "article": "article-journal",
+        "articles": "article-journal",
+        "audio": "article",
+        "audios": "article",
+        "book": "book",
+        "book_chapter": "chapter",
+        "book_chapters": "chapter",
+        "books": "book",
+        "conference_proceeding": "paper-conference",
+        "conference_proceedings": "paper-conference",
+        "dataset": "dataset",
+        "datasets": "dataset",
+        "dissertation": "thesis",
+        "dissertations": "thesis",
+        "government_document": "article",
+        "government_documents": "article",
+        "image": "graphic",
+        "images": "graphic",
+        "journal": "article-journal",
+        "journals": "article-journal",
+        "magazinearticle": "article-magazine",
+        "magazinearticles": "article-magazine",
+        "newsletterarticle": "article",
+        "newsletterarticles": "article",
+        "newspaper_article": "article-newspaper",
+        "newspaper_articles": "article-newspaper",
+        "patent": "patent",
+        "patents": "patent",
+        "reference_entry": "article-journal",
+        "reference_entrys": "article-journal",
+        "report": "report",
+        "reports": "report",
+        "review": "review",
+        "reviews": "review",
+        "standard": "article",
+        "standards": "article",
+        "text_resource": "article",
+        "text_resources": "article",
+        "video": "motion_picture ",
+        "videos": "motion_picture",
+        "web_resource": "webpage",
+        "web_resources": "webpage",
+    }
+
+    def __init__(self, data):
+        self.data = data
+        self.doc = PrimoDoc(data)
+
+    @property
+    def id(self):
+        return self.doc.get_pnx_field_value("control", "recordid")
+
+    @property
+    def title(self):
+        return self.doc.get_pnx_field_value("display", "title")
+
+    # @property
+    # def type(self):
+    # types = self.doc.get_pnx_field_values(
+    # "display", "type"
+    # ) + self.doc.get_pnx_field_values("facets", "rsrctype")
+
+    # if types:
+    # csl_types = [self.TYPE_MAPPING.get(rt) for rt in types]
+    # for t in CSL_TYPE_ORDER:
+    # if t in csl_types:
+    # return t
+
+    # @property
+    # def author(self):
+    # return self.doc.get_pnx_field_value("display", "edition")
+
+    @property
+    def issued(self):
+        date_str = self.doc.get_pnx_field_value("display", "creationdate")
+        if date_str:
+            return {"literal": date_str}
+
+    @property
+    def page(self):
+        return self.doc.get_pnx_field_value("addata", "pages")
+
+    @property
+    def publisher(self):
+        return self.doc.get_pnx_field_value("display", "publisher")
+
+    @property
+    def container_title(self):
+        return self.doc.get_pnx_field_value("addata", "jtitle")
+
+    @property
+    def volume(self):
+        return self.doc.get_pnx_field_value("addata", "volume")
+
+    @property
+    def issue(self):
+        return self.doc.get_pnx_field_value("addata", "issue")
+
+    @property
+    def genre(self):
+        return self.doc.get_pnx_field_value("addata", "genre")
+
+    @property
+    def isbn(self):
+        result = self.doc.get_pnx_field_values(
+            "addata", "isbn"
+        ) + self.doc.get_pnx_field_values("addata", "eisbn")
+        return list(dict.fromkeys(result))
+
+    @property
+    def issn(self):
+        result = self.doc.get_pnx_field_values(
+            "addata", "issn"
+        ) + self.doc.get_pnx_field_values("addata", "eissn")
+        return list(dict.fromkeys(result))
+
+    @property
+    def doi(self):
+        return self.doc.get_pnx_field_value("addata", "doi")
+
+    @property
+    def edition(self):
+        return self.doc.get_pnx_field_value("display", "edition")
+
+    def _formats(self):
+        return self.doc.get_pnx_field_values(
+            "display", "type"
+        ) + self.doc.get_pnx_field_values("facets", "rsrctype")
+
+
+class TaggedCitation:
+    def __init__(self, data):
+        self.data = data
+
+    def to_list(self):
+        pass
+
+
+class Citation:
+    def __init__(self):
+        pass
+
+    @property
+    def tagged(self):
+        return TaggedCitation().to_list()
+
+    @property
+    def csl(self):
+        return CSL()

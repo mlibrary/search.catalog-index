@@ -1,6 +1,6 @@
 import pytest
 import json
-from api.primo import Record, AlmaHolding, LibKeyHolding
+from api.primo import Record, AlmaHolding, LibKeyHolding, CSL
 from urllib.parse import parse_qs
 import re
 
@@ -48,6 +48,11 @@ def lib_key_doc():
 @pytest.fixture()
 def subject(article_doc):
     return Record(article_doc)
+
+
+@pytest.fixture()
+def csl_subject(article_doc):
+    return CSL(article_doc)
 
 
 class TestRecord:
@@ -252,3 +257,51 @@ class TestLibkeyHolding:
         lib_key_doc["fullTextFile"] = "full_text_file_link"
         subject = LibKeyHolding(lib_key_doc)
         assert subject.url == "full_text_file_link"
+
+
+class TestCSL:
+    def test_has_id(self, csl_subject):
+        assert csl_subject.id == "cdi_projectmuse_ebooks_9781400840458"
+
+    def test_has_type(self, csl_subject):
+        assert csl_subject.type == "book"
+
+    def test_has_title(self, csl_subject):
+        assert (
+            csl_subject.title
+            == "Banding Together: How Communities Create Genres in Popular Music"
+        )
+
+    def test_has_edition(self, csl_subject):
+        assert csl_subject.edition == "1"
+
+    def test_has_genre(self, csl_subject):
+        assert csl_subject.genre == "book"
+
+    def test_has_isbn(self, csl_subject):
+        assert csl_subject.isbn == [
+            "9781400840458",
+            "1400840457",
+            "0691163383",
+            "0691150761",
+            "9780691150765",
+            "9780691163383",
+        ]
+
+    def test_has_issn(self, article_doc):
+        article_doc["pnx"]["addata"]["issn"] = ["issn"]
+        article_doc["pnx"]["addata"]["eissn"] = ["eissn"]
+        csl_subject = CSL(article_doc)
+        assert csl_subject.issn == [
+            "issn",
+            "eissn",
+        ]
+
+    def test_has_publisher(self, csl_subject):
+        assert csl_subject.publisher == "Princeton, N.J: Princeton University Press"
+
+    def test_issued(self, csl_subject):
+        assert csl_subject.issued == {"literal": "2012"}
+
+    def test_doi(self, csl_subject):
+        assert csl_subject.doi == "10.1515/9781400840458"
