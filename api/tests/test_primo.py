@@ -305,3 +305,19 @@ class TestCSL:
 
     def test_doi(self, csl_subject):
         assert csl_subject.doi == "10.1515/9781400840458"
+
+    def test_author(self, csl_subject):
+        assert csl_subject.author == [{"family": "Lena", "given": "Jennifer C"}]
+
+    def test_author_literal(self, article_doc):
+        article_doc["pnx"]["addata"]["au"] = ["Lena"]
+        csl_subject = CSL(article_doc)
+        assert csl_subject.author == [{"literal": "Lena"}]
+
+    def test_corporate_author(self, article_doc):
+        article_doc["pnx"]["addata"]["aucorp"] = ["Lena, Jennifer C"]
+        csl_subject = CSL(article_doc)
+        assert csl_subject.author == [
+            {"family": "Lena", "given": "Jennifer C"},
+            {"literal": "Lena, Jennifer C"},
+        ]

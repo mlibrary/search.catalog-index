@@ -1,6 +1,7 @@
 from api.clients.exlibris_client import PrimoClient
 from api.clients.lib_key_client import LibKeyClient
 import yaml
+import re
 from api.services import S
 from urllib.parse import parse_qsl, urlencode
 from api.csl import BaseCSL
@@ -298,21 +299,19 @@ class CSL(BaseCSL):
     def title(self):
         return self.doc.get_pnx_field_value("display", "title")
 
-    # @property
-    # def type(self):
-    # types = self.doc.get_pnx_field_values(
-    # "display", "type"
-    # ) + self.doc.get_pnx_field_values("facets", "rsrctype")
+    @property
+    def author(self):
+        result = []
+        for au in self.doc.get_pnx_field_values("addata", "au"):
+            if re.search(", ", au):
+                family, given = au.split(", ")
+                result.append({"family": family, "given": given})
+            else:
+                result.append({"literal": au})
+        for au in self.doc.get_pnx_field_values("addata", "aucorp"):
+            result.append({"literal": au})
 
-    # if types:
-    # csl_types = [self.TYPE_MAPPING.get(rt) for rt in types]
-    # for t in CSL_TYPE_ORDER:
-    # if t in csl_types:
-    # return t
-
-    # @property
-    # def author(self):
-    # return self.doc.get_pnx_field_value("display", "edition")
+        return result
 
     @property
     def issued(self):
