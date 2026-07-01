@@ -78,6 +78,7 @@ class PrimoClient(ExlibrisClient):
             "scope": "CentralIndex",
             "tab": "CentralIndex",
             "vid": "01UMICH_INST:UMICH",
+            "pcAvailability": "true",
         }
         url = f"{self.base_url}/search"
         try:

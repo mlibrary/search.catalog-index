@@ -19,6 +19,9 @@ class Services:
     alma_api_url: str
     primo_api_url: str
     open_url_root: str
+    lib_key_host: str
+    lib_key_library_id: str
+    lib_key_key: str
     proxy_prefix: str
     alma_api_key: str
     logger: logging.Logger
@@ -42,6 +45,9 @@ S = Services(
     alma_api_url="https://api-na.hosted.exlibrisgroup.com/almaws/v1",
     primo_api_url="https://api-na.hosted.exlibrisgroup.com/primo/v1",
     open_url_root="https://mgetit.lib.umich.edu/resolve",
+    lib_key_host=os.getenv("LIB_KEY_HOST") or "http://lib_key_host",
+    lib_key_library_id=os.getenv("LIB_KEY_LIBRARY_ID") or "lib_key_library_id",
+    lib_key_key=os.getenv("LIB_KEY_KEY") or "lib_key_key",
     proxy_prefix="https://proxy.lib.umich.edu/login?qurl=",
     alma_api_key=os.getenv("ALMA_API_KEY") or "your_alma_api_key",
     logger=logging.getLogger(__name__),

@@ -1,6 +1,6 @@
 import pytest
 import json
-from api.primo import Record, AlmaHolding
+from api.primo import Record, AlmaHolding, LibKeyHolding
 from urllib.parse import parse_qs
 import re
 
@@ -35,6 +35,14 @@ def naxos_music_article_doc():
     with open("tests/fixtures/naxos_music_article.json") as data:
         bib = json.load(data)
     return bib["docs"][0]
+
+
+@pytest.fixture()
+def lib_key_doc():
+    result = {}
+    with open("tests/fixtures/lib_key.json") as data:
+        result = json.load(data)
+    return result["data"]
 
 
 @pytest.fixture()
@@ -217,3 +225,30 @@ class TestAlmaHolding:
             ".*http://dl.moazine.com/viewer3/index.asp.*&article_page=1&articleid=source_record_id",
             subject.url,
         )
+
+
+class TestLibkeyHolding:
+    def test_has_lib_key_source(self, lib_key_doc):
+        subject = LibKeyHolding(lib_key_doc)
+        assert subject.source == "lib_key"
+
+    def test_has_availability(self, lib_key_doc):
+        subject = LibKeyHolding(lib_key_doc)
+        assert subject.availability == "full_text"
+
+    def test_availability_is_none_if_fullTextFile_is_empty_string(self, lib_key_doc):
+        lib_key_doc["fullTextFile"] = ""
+        subject = LibKeyHolding(lib_key_doc)
+        assert subject.availability is None
+
+    def test_availability_is_none_if_fullTextFile_is_not_there_at_all(
+        self, lib_key_doc
+    ):
+        del lib_key_doc["fullTextFile"]
+        subject = LibKeyHolding(lib_key_doc)
+        assert subject.availability is None
+
+    def test_url_is_fullTextFile_value(self, lib_key_doc):
+        lib_key_doc["fullTextFile"] = "full_text_file_link"
+        subject = LibKeyHolding(lib_key_doc)
+        assert subject.url == "full_text_file_link"

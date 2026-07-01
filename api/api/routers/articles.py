@@ -2,7 +2,7 @@ from typing import Annotated
 from fastapi import APIRouter, HTTPException, Query
 from api.metrics import REQUEST_HISTOGRAM
 from api import schemas
-from api.solr_client import NotFoundError
+from api.exlibris_client import NotFoundError
 from api.primo import record_for
 
 router = APIRouter(prefix="/articles", tags=["articles"])

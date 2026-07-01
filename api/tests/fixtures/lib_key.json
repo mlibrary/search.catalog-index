@@ -1,0 +1,30 @@
+{
+  "data": {
+    "id": 575310803,
+    "type": "articles",
+    "title": "Birds",
+    "date": "2023-06-13",
+    "authors": "Lerner, Lexi",
+    "inPress": false,
+    "abandoned": false,
+    "doi": "10.1001/jama.2023.8236",
+    "linkResolverOpenUrl": "https://mgetit.lib.umich.edu/?genre=article&aulast=Lerner&issn=0098-7484&title=JAMA%3A%20The%20Journal%20of%20the%20American%20Medical%20Association&atitle=Birds&volume=329&issue=22&spage=1990&epage=&date=2023-06-13&doi=10.1001%2Fjama.2023.8236&sid=LibKey",
+    "pmid": "37314273",
+    "openAccess": false,
+    "unpaywallUsable": false,
+    "fullTextFile": "https://libkey.io/libraries/186/articles/575310803/full-text-file?utm_source=api_1279&allow_speedbump=true",
+    "contentLocation": "https://libkey.io/libraries/186/articles/575310803/content-location?utm_source=api_1279&allow_speedbump=true",
+    "availableThroughBrowzine": true,
+    "hasSecondOrderRetractions": false,
+    "startPage": "1990",
+    "endPage": "",
+    "avoidUnpaywallPublisherLinks": true,
+    "browzineWebLink": "https://browzine.com/libraries/186/journals/10278/issues/522304306?showArticleInContext=doi:10.1001%2Fjama.2023.8236&utm_source=api_1279",
+    "bestIntegratorLink": {
+      "bestLink": "https://libkey.io/libraries/186/articles/575310803/full-text-file?utm_source=api_1279&allow_speedbump=true",
+      "linkType": "fullTextFile",
+      "linkCategory": "link",
+      "recommendedLinkText": "Download PDF"
+    }
+  }
+}

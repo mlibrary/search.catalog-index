@@ -1,4 +1,5 @@
 from api.exlibris_client import PrimoClient
+from api.lib_key_client import LibKeyClient
 import yaml
 from api.services import S
 from urllib.parse import parse_qsl, urlencode
@@ -117,6 +118,32 @@ class Record:
     def _get_field_values(self, section, field):
         return self.pnx.get(section, {}).get(field, [])
 
+    @property
+    def holdings(self):
+        lib_key = get_lib_key_holding(
+            doi=self._get_field_value("addata", "doi"),
+            pmid=self._get_field_value("addata", "pmid"),
+        )
+        result = []
+        if lib_key and lib_key.availability:
+            result.append(lib_key)
+        result.append(AlmaHolding(self.data))
+        return result
+
+
+def get_lib_key_holding(doi, pmid):
+    if not doi and not pmid:
+        return None
+
+    data = None
+    if pmid:
+        data = LibKeyClient().get_article(kind="pmid", value=pmid)
+    if doi and not data:
+        data = LibKeyClient().get_article(kind="doi", value=doi)
+
+    if data:
+        return LibKeyHolding(data)
+
 
 class AlmaHolding:
     source = "alma"
@@ -185,3 +212,19 @@ class AlmaHolding:
 
     def _additional_source_record_id(self):
         return self.data.get("pnx", {}).get("control", {}).get("addsrcrecordid", [])[0]
+
+
+class LibKeyHolding:
+    source = "lib_key"
+
+    def __init__(self, data):
+        self.data = data
+
+    @property
+    def availability(self):
+        if self.data.get("fullTextFile"):
+            return "full_text"
+
+    @property
+    def url(self):
+        return self.data.get("fullTextFile")

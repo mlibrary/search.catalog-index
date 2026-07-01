@@ -361,6 +361,12 @@ class OnlinejournalsRecord(Record):
     holdings: OnlinejournalsHoldings
 
 
+class ArticleHolding(BaseModel):
+    source: str
+    availability: str
+    url: str
+
+
 class ArticlesRecord(BaseModel):
     id: str
     title: list[BareTextField]
@@ -378,6 +384,7 @@ class ArticlesRecord(BaseModel):
     language: list[BareTextField]
     subject: list[BareTextField]
     edition: list[BareTextField]
+    holdings: list[ArticleHolding]
 
 
 class Specialist(BaseModel):
