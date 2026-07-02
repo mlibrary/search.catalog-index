@@ -443,21 +443,12 @@ class TaggedCitation:
     # The meta tags come from: https://www.zotero.org/support/dev/exposing_metadata
     TAG_MAPPING = [
         {"field": "id", "ris": ["ID"], "meta": ["id"]},
-        {
-            "section": "display",
-            "field": "title",
-            "ris": ["T1", "TI"],
-            "meta": ["title"],
-        },
+        {"field": "title", "ris": ["T1", "TI"], "meta": ["title"]},
         {"field": "authors", "ris": ["AU"], "meta": ["author"]},
         {"field": "corporate_authors", "ris": ["AU"], "meta": ["author"]},
-        {
-            "section": "display",
-            "field": "publisher",
-            "ris": ["PB"],
-            "meta": ["publisher"],
-        },
+        {"field": "publisher", "ris": ["PB"], "meta": ["publisher"]},
         {"field": "jtitle", "ris": ["JF", "JO"], "meta": ["journal_title"]},
+        {"field": "pages", "ris": ["SP"], "meta": ["pages"]},
         {"field": "volume", "ris": ["VL"], "meta": ["volume"]},
         {"field": "issue", "ris": ["IS"], "meta": ["issue"]},
         {"field": "isbn", "ris": ["SN"], "meta": ["isbn"]},
