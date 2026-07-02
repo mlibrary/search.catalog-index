@@ -1,6 +1,6 @@
 import pytest
 import json
-from api.primo import Record, AlmaHolding, LibKeyHolding, CSL, PrimoDoc
+from api.primo import Record, AlmaHolding, LibKeyHolding, CSL, PrimoDoc, TaggedCitation
 from urllib.parse import parse_qs
 import re
 
@@ -322,3 +322,60 @@ class TestCSL:
             {"family": "Lena", "given": "Jennifer C"},
             {"literal": "Lena, Jennifer C"},
         ]
+
+
+class TestTaggedCitation:
+    def test_handles_fetching_from_control(self, article_doc):
+        subject = TaggedCitation(PrimoDoc(article_doc))
+        assert subject.to_list(
+            [{"section": "control", "field": "recordid", "ris": ["ID"], "meta": ["id"]}]
+        )[1] == {
+            "content": "cdi_projectmuse_ebooks_9781400840458",
+            "ris": ["ID"],
+            "meta": ["id"],
+        }
+
+    def test_handles_fetching_from_addata_when_not_given_section_and_default_empty_list_for_ris_or_meta(
+        self, article_doc
+    ):
+        subject = TaggedCitation(PrimoDoc(article_doc))
+        assert subject.to_list([{"field": "abstract", "ris": ["AB"]}])[1] == {
+            "content": "This is the abstract",
+            "ris": ["AB"],
+            "meta": [],
+        }
+
+    def test_handles_multiple_authors(self, article_doc):
+        article_doc["pnx"]["addata"]["au"].append("Author, Second")
+        subject = TaggedCitation(PrimoDoc(article_doc))
+        tagged_list = subject.to_list(
+            [{"field": "au", "ris": ["AU"], "meta": ["author"]}]
+        )
+        assert tagged_list[1] == {
+            "content": "Lena, Jennifer C",
+            "ris": ["AU"],
+            "meta": ["author"],
+        }
+        assert tagged_list[2] == {
+            "content": "Author, Second",
+            "ris": ["AU"],
+            "meta": ["author"],
+        }
+
+    def test_has_type_GEN_when_no_matching_type(self, article_doc):
+        article_doc["pnx"]["display"]["type"] = ["whatever"]
+        article_doc["pnx"]["facets"]["rsrctype"] = ["whatever"]
+        subject = TaggedCitation(PrimoDoc(article_doc))
+        assert subject.to_list([])[0] == {
+            "content": "GEN",
+            "ris": ["TY"],
+            "meta": [],
+        }
+
+    def test_matches_when_there_is_a_match(self, article_doc):
+        subject = TaggedCitation(PrimoDoc(article_doc))
+        assert subject.to_list([])[0] == {
+            "content": "BOOK",
+            "ris": ["TY"],
+            "meta": [],
+        }

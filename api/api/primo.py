@@ -375,11 +375,117 @@ class CSL(BaseCSL):
 
 
 class TaggedCitation:
-    def __init__(self, data):
-        self.data = data
+    TAG_MAPPING = [
+        {"section": "control", "field": "recordid", "ris": ["ID"], "meta": ["id"]},
+        {
+            "section": "display",
+            "field": "title",
+            "ris": ["T1", "TI"],
+            "meta": ["title"],
+        },
+        {"field": "au", "ris": ["AU"], "meta": ["author"]},
+        {"field": "aucorp", "ris": ["AU"], "meta": ["author"]},
+        {
+            "section": "display",
+            "field": "publisher",
+            "ris": ["PB"],
+            "meta": ["publisher"],
+        },
+        {"field": "jtitle", "ris": ["JF", "JO"], "meta": ["journal_title"]},
+        {"field": "volume", "ris": ["VL"], "meta": ["volume"]},
+        {"field": "issue", "ris": ["IS"], "meta": ["issue"]},
+        {"field": "isbn", "ris": ["SN"], "meta": ["isbn"]},
+        {"field": "eisbn", "ris": ["SN"], "meta": ["isbn"]},
+        {"field": "issn", "ris": ["SN"], "meta": ["issn"]},
+        {"field": "eissn", "ris": ["SN"], "meta": ["eIssn"]},
+        {"field": "doi", "ris": ["DO"], "meta": ["doi"]},
+    ]
 
-    def to_list(self):
-        pass
+    TYPE_MAPPING = {
+        "archival_material_manuscript": "MANSCPT",
+        "archival_material_manuscripts": "MANSPCT",
+        "article": "JOUR",
+        "articles": "JOUR",
+        "audio": "SOUND",
+        "audios": "SOUND",
+        "book": "BOOK",
+        "book_chapter": "CHAP",
+        "book_chapters": "CHAP",
+        "books": "BOOK",
+        "conference_proceeding": "CONF",
+        "conference_proceedings": "CONF",
+        "dataset": "DBASE",
+        "datasets": "DBASE",
+        "dissertation": "THES",
+        "dissertations": "THES",
+        "government_document": "GOVDOC",
+        "government_documents": "GOVDOC",
+        "image": "ADVS",
+        "images": "ADVS",
+        "journal": "JOUR",
+        "journals": "JOUR",
+        "magazinearticle": "MGZN",
+        "magazinearticles": "MGZN",
+        "newsletterarticle": "NEWS",
+        "newsletterarticles": "NEWS",
+        "newspaper_article": "NEWS",
+        "newspaper_articles": "NEWS",
+        "patent": "PAT",
+        "patents": "PAT",
+        "reference_entry": "JOUR",
+        "reference_entrys": "JOUR",
+        "report": "RPRT",
+        "reports": "RPRT",
+        "review": "JOUR",
+        "reviews": "JOUR",
+        "standard": "JOUR",
+        "standards": "JOUR",
+        "text_resource": "JOUR",
+        "text_resources": "JOUR",
+        "video": "VIDEO",
+        "videos": "VIDEO",
+        "web_resource": "WEB",
+        "web_resources": "WEB",
+    }
+
+    def __init__(self, doc):
+        self.doc = doc
+
+    def to_list(self, tag_mapping=TAG_MAPPING):
+        result = [self._type()]
+        for element in tag_mapping:
+            contents = self.doc.get_pnx_field_values(
+                section=element.get("section", "addata"),
+                field=element.get("field"),
+            )
+
+            for content in contents:
+                result.append(
+                    {
+                        "content": content,
+                        "ris": element.get("ris", []),
+                        "meta": element.get("meta", []),
+                    }
+                )
+        return result
+
+    def _type(self):
+        formats = self.doc.get_pnx_field_values(
+            "display", "type"
+        ) + self.doc.get_pnx_field_values("facets", "rsrctype")
+
+        content = "GEN"
+        for f in formats:
+            c = self.TYPE_MAPPING.get(f)
+            if c:
+                content = c
+                break
+
+        return {
+            "content": content,
+            "ris": ["TY"],
+            "meta": [],
+        }
 
 
 class Citation:
