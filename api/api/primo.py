@@ -30,8 +30,19 @@ class PrimoDoc:
         return self.get_pnx_field_value(section="control", field="recordid")
 
     @property
+    def peer_reviewed(self):
+        return (
+            self.get_pnx_field_value(section="display", field="lds50")
+            == "peer_reviewed"
+        )
+
+    @property
     def title(self):
         return self.get_pnx_field_value(section="display", field="title")
+
+    @property
+    def journal_title(self):
+        return self.get_pnx_field_value("jtitle")
 
     @property
     def abstract(self):
@@ -40,6 +51,10 @@ class PrimoDoc:
     @property
     def publisher(self):
         return self.get_pnx_field_value(section="display", field="publisher")
+
+    @property
+    def publication_date(self):
+        return self.get_pnx_field_value(section="display", field="creationdate")
 
     @property
     def genre(self):
@@ -60,6 +75,18 @@ class PrimoDoc:
     @property
     def eisbn(self):
         return self.get_pnx_field_values("eisbn")
+
+    @property
+    def pages(self):
+        return self.get_pnx_field_value("pages")
+
+    @property
+    def volume(self):
+        return self.get_pnx_field_value("volume")
+
+    @property
+    def issue(self):
+        return self.get_pnx_field_value("issue")
 
     @property
     def doi(self):
@@ -122,11 +149,31 @@ class Record:
         return self.doc.id
 
     @property
+    def peer_reviewed(self):
+        return self.doc.peer_reviewed
+
+    @property
     def title(self):
         return self._plain_text(value=self.doc.title)
 
     # retracted
     # peer_reviewed
+
+    @property
+    def published_in(self):
+        values = []
+        if self.doc.journal_title:
+            values.append(self.doc.journal_title)
+        if self.doc.volume:
+            values.append(f"Volume {self.doc.volume}")
+        if self.doc.issue:
+            values.append(f"Issue {self.doc.issue}")
+        if self.doc.publication_date:
+            values.append(self.doc.publication_date)
+        if self.doc.pages:
+            values.append(f"pp. {self.doc.pages}")
+        value = ", ".join(values)
+        return self._plain_text(value=value)
 
     @property
     def abstract(self):
@@ -394,7 +441,7 @@ class CSL(BaseCSL):
 
     @property
     def page(self):
-        return self.doc.get_pnx_field_value("pages")
+        return self.doc.pages
 
     @property
     def publisher(self):
@@ -402,15 +449,15 @@ class CSL(BaseCSL):
 
     @property
     def container_title(self):
-        return self.doc.get_pnx_field_value("jtitle")
+        return self.doc.journal_title
 
     @property
     def volume(self):
-        return self.doc.get_pnx_field_value("volume")
+        return self.doc.volume
 
     @property
     def issue(self):
-        return self.doc.get_pnx_field_value("issue")
+        return self.doc.issue
 
     @property
     def genre(self):
@@ -447,7 +494,7 @@ class TaggedCitation:
         {"field": "authors", "ris": ["AU"], "meta": ["author"]},
         {"field": "corporate_authors", "ris": ["AU"], "meta": ["author"]},
         {"field": "publisher", "ris": ["PB"], "meta": ["publisher"]},
-        {"field": "jtitle", "ris": ["JF", "JO"], "meta": ["journal_title"]},
+        {"field": "journal_title", "ris": ["JF", "JO"], "meta": ["journal_title"]},
         {"field": "pages", "ris": ["SP"], "meta": ["pages"]},
         {"field": "volume", "ris": ["VL"], "meta": ["volume"]},
         {"field": "issue", "ris": ["IS"], "meta": ["issue"]},
@@ -516,7 +563,9 @@ class TaggedCitation:
         for element in tag_mapping:
             if hasattr(self.doc, element["field"]):
                 contents = getattr(self.doc, element["field"])
-                if type(contents) is str:
+                if contents is None:
+                    continue
+                elif type(contents) is str:
                     contents = [contents]
             else:
                 contents = self.doc.get_pnx_field_values(

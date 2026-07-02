@@ -66,6 +66,14 @@ class TestRecord:
             {"text": "Banding Together: How Communities Create Genres in Popular Music"}
         ]
 
+    def test_peer_reviewed_false(self, subject):
+        assert subject.peer_reviewed is False
+
+    def test_peer_reviewed_is_true(self, article_doc):
+        article_doc["pnx"]["display"]["lds50"] = ["peer_reviewed"]
+        subject = Record(article_doc)
+        assert subject.peer_reviewed is True
+
     # retracted
     # peer_reviewed
     def test_abstract(self, subject):

@@ -386,9 +386,11 @@ class ArticleHolding(BaseModel):
 
 class ArticlesRecord(BaseModel):
     id: str
+    peer_reviewed: bool
     title: list[BareTextField]
     abstract: list[BareTextField]
     author: list[BareSearchField]
+    published_in: list[BareTextField]
     publisher: list[BareTextField]
     genre: list[BareTextField]
     issn: list[BareTextField]
