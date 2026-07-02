@@ -387,6 +387,7 @@ class ArticleHolding(BaseModel):
 class ArticlesRecord(BaseModel):
     id: str
     peer_reviewed: bool
+    retraction_notice_url: Optional[str] = None
     title: list[BareTextField]
     abstract: list[BareTextField]
     author: list[BareSearchField]

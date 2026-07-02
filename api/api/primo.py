@@ -1,5 +1,6 @@
 from api.clients.exlibris_client import PrimoClient
 from api.clients.lib_key_client import LibKeyClient
+from functools import cached_property
 import yaml
 import re
 from api.services import S
@@ -153,11 +154,13 @@ class Record:
         return self.doc.peer_reviewed
 
     @property
+    def retraction_notice_url(self):
+        if self.lib_key_holding:
+            return self.lib_key_holding.retraction_notice_url
+
+    @property
     def title(self):
         return self._plain_text(value=self.doc.title)
-
-    # retracted
-    # peer_reviewed
 
     @property
     def published_in(self):
@@ -250,15 +253,18 @@ class Record:
 
     @property
     def holdings(self):
-        lib_key = get_lib_key_holding(
+        result = []
+        if self.lib_key_holding and self.lib_key_holding.availability:
+            result.append(self.lib_key_holding)
+        result.append(AlmaHolding(self.data))
+        return result
+
+    @cached_property
+    def lib_key_holding(self):
+        return get_lib_key_holding(
             doi=self.doc.doi,
             pmid=self.doc.pmid,
         )
-        result = []
-        if lib_key and lib_key.availability:
-            result.append(lib_key)
-        result.append(AlmaHolding(self.data))
-        return result
 
 
 def get_lib_key_holding(doi, pmid):
@@ -358,6 +364,10 @@ class LibKeyHolding:
     @property
     def url(self):
         return self.data.get("fullTextFile")
+
+    @property
+    def retraction_notice_url(self):
+        return self.data.get("retractionNoticeUrl")
 
 
 class CSL(BaseCSL):
