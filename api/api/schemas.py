@@ -205,6 +205,7 @@ class CatalogCitation(BaseModel):
 
 
 class ArticlesCitation(BaseModel):
+    tagged: list[TaggedCitation]
     csl: ArticlesCSL
 
 

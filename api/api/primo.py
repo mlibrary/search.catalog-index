@@ -540,6 +540,7 @@ class TaggedCitation:
                         "meta": element.get("meta", []),
                     }
                 )
+        result += self._end_record_tag()
         return result
 
     def _type(self):
@@ -556,6 +557,15 @@ class TaggedCitation:
             "meta": [],
         }
 
+    def _end_record_tag(self):
+        return [
+            {
+                "content": "",
+                "ris": ["ER"],
+                "meta": [],
+            },
+        ]
+
 
 class Citation:
     def __init__(self, doc):
@@ -563,7 +573,7 @@ class Citation:
 
     @property
     def tagged(self):
-        return TaggedCitation().to_list()
+        return TaggedCitation(self.doc).to_list()
 
     @property
     def csl(self):
