@@ -323,13 +323,26 @@ class TestCSL:
             {"literal": "Lena, Jennifer C"},
         ]
 
+    def test_container_title(self, article_doc):
+        article_doc["pnx"]["addata"]["jtitle"] = ["Journal Title"]
+        csl_subject = CSL(PrimoDoc(article_doc))
+        assert csl_subject.container_title == "Journal Title"
+
+    def test_volume(self, article_doc):
+        article_doc["pnx"]["addata"]["volume"] = ["Volume"]
+        csl_subject = CSL(PrimoDoc(article_doc))
+        assert csl_subject.volume == "Volume"
+
+    def test_issue(self, article_doc):
+        article_doc["pnx"]["addata"]["issue"] = ["Issue"]
+        csl_subject = CSL(PrimoDoc(article_doc))
+        assert csl_subject.issue == "Issue"
+
 
 class TestTaggedCitation:
-    def test_handles_fetching_from_control(self, article_doc):
+    def test_handles_fetching_primo_doc(self, article_doc):
         subject = TaggedCitation(PrimoDoc(article_doc))
-        assert subject.to_list(
-            [{"section": "control", "field": "recordid", "ris": ["ID"], "meta": ["id"]}]
-        )[1] == {
+        assert subject.to_list([{"field": "id", "ris": ["ID"], "meta": ["id"]}])[1] == {
             "content": "cdi_projectmuse_ebooks_9781400840458",
             "ris": ["ID"],
             "meta": ["id"],
@@ -338,10 +351,11 @@ class TestTaggedCitation:
     def test_handles_fetching_from_addata_when_not_given_section_and_default_empty_list_for_ris_or_meta(
         self, article_doc
     ):
+        article_doc["pnx"]["addata"]["jtitle"] = ["Journal Title"]
         subject = TaggedCitation(PrimoDoc(article_doc))
-        assert subject.to_list([{"field": "abstract", "ris": ["AB"]}])[1] == {
-            "content": "This is the abstract",
-            "ris": ["AB"],
+        assert subject.to_list([{"field": "jtitle", "ris": ["JF"]}])[1] == {
+            "content": "Journal Title",
+            "ris": ["JF"],
             "meta": [],
         }
 
@@ -349,7 +363,7 @@ class TestTaggedCitation:
         article_doc["pnx"]["addata"]["au"].append("Author, Second")
         subject = TaggedCitation(PrimoDoc(article_doc))
         tagged_list = subject.to_list(
-            [{"field": "au", "ris": ["AU"], "meta": ["author"]}]
+            [{"field": "authors", "ris": ["AU"], "meta": ["author"]}]
         )
         assert tagged_list[1] == {
             "content": "Lena, Jennifer C",

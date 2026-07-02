@@ -25,11 +25,89 @@ class PrimoDoc:
         self.data = data
         self.pnx = self.data.get("pnx", {})
 
-    def get_pnx_field_value(self, section, field):
-        values = self.get_pnx_field_values(section, field)
+    @property
+    def id(self):
+        return self.get_pnx_field_value(section="control", field="recordid")
+
+    @property
+    def title(self):
+        return self.get_pnx_field_value(section="display", field="title")
+
+    @property
+    def abstract(self):
+        return self.get_pnx_field_value(field="abstract")
+
+    @property
+    def publisher(self):
+        return self.get_pnx_field_value(section="display", field="publisher")
+
+    @property
+    def genre(self):
+        return self.get_pnx_field_value("genre")
+
+    @property
+    def issn(self):
+        return self.get_pnx_field_values("issn")
+
+    @property
+    def eissn(self):
+        return self.get_pnx_field_values("eissn")
+
+    @property
+    def isbn(self):
+        return self.get_pnx_field_values("isbn")
+
+    @property
+    def eisbn(self):
+        return self.get_pnx_field_values("eisbn")
+
+    @property
+    def doi(self):
+        return self.get_pnx_field_value("doi")
+
+    @property
+    def oclc(self):
+        return self.get_pnx_field_value("oclcid")
+
+    @property
+    def pmid(self):
+        return self.get_pnx_field_value("pmid")
+
+    @property
+    def subject(self):
+        return self.get_pnx_field_values(section="facets", field="topic")
+
+    @property
+    def edition(self):
+        return self.get_pnx_field_values(section="display", field="edition")
+
+    @property
+    def language(self):
+        result = []
+        for code in self.get_pnx_field_values(section="display", field="language"):
+            if code in language_code_to_str:
+                result.append(language_code_to_str[code])
+        return result
+
+    @property
+    def authors(self):
+        return self.get_pnx_field_values("au")
+
+    @property
+    def corporate_authors(self):
+        return self.get_pnx_field_values("aucorp")
+
+    @property
+    def formats(self):
+        return self.get_pnx_field_values(
+            section="display", field="type"
+        ) + self.get_pnx_field_values(section="facets", field="rsrctype")
+
+    def get_pnx_field_value(self, field, section="addata"):
+        values = self.get_pnx_field_values(section=section, field=field)
         return values[0] if len(values) else None
 
-    def get_pnx_field_values(self, section, field):
+    def get_pnx_field_values(self, field, section="addata"):
         return self.pnx.get(section, {}).get(field, [])
 
 
@@ -41,101 +119,93 @@ class Record:
 
     @property
     def id(self):
-        return self.doc.get_pnx_field_value(section="control", field="recordid")
+        return self.doc.id
 
     @property
     def title(self):
-        return self._plain_text(section="display", field="title")
+        return self._plain_text(value=self.doc.title)
 
     # retracted
     # peer_reviewed
 
     @property
     def abstract(self):
-        return self._plain_text(section="addata", field="abstract")
+        return self._plain_text(value=self.doc.abstract)
 
     @property
     def publisher(self):
-        return self._plain_text(section="display", field="publisher")
+        return self._plain_text(value=self.doc.publisher)
 
     @property
     def genre(self):
-        return self._plain_text(section="addata", field="genre")
+        return self._plain_text(value=self.doc.genre)
 
     @property
     def issn(self):
-        return self._multiple_plain_text(section="addata", field="issn")
+        return self._multiple_plain_text(values=self.doc.issn)
 
     @property
     def eissn(self):
-        return self._multiple_plain_text(section="addata", field="eissn")
+        return self._multiple_plain_text(values=self.doc.eissn)
 
     @property
     def isbn(self):
-        return self._multiple_plain_text(section="addata", field="isbn")
+        return self._multiple_plain_text(values=self.doc.isbn)
 
     @property
     def eisbn(self):
-        return self._multiple_plain_text(section="addata", field="eisbn")
+        return self._multiple_plain_text(values=self.doc.eisbn)
 
     @property
     def doi(self):
-        return self._plain_text(section="addata", field="doi")
+        return self._plain_text(value=self.doc.doi)
 
     @property
     def oclc(self):
-        return self._plain_text(section="addata", field="oclcid")
+        return self._plain_text(value=self.doc.oclc)
 
     @property
     def pmid(self):
-        return self._plain_text(section="addata", field="pmid")
+        return self._plain_text(value=self.doc.pmid)
 
     @property
     def language(self):
-        result = []
-        for code in self.doc.get_pnx_field_values("display", "language"):
-            if code in language_code_to_str:
-                result.append({"text": language_code_to_str[code]})
-        return result
+        return [{"text": language} for language in self.doc.language]
 
     @property
     def subject(self):
-        return self._multiple_plain_text(section="facets", field="topic")
+        return self._multiple_plain_text(values=self.doc.subject)
 
     @property
     def author(self):
-        result = []
-        for value in self.doc.get_pnx_field_values("addata", "au"):
-            result.append(
-                {"text": value, "search": [{"field": "author", "value": value}]}
-            )
-        for value in self.doc.get_pnx_field_values("addata", "aucorp"):
-            result.append(
-                {"text": value, "search": [{"field": "author", "value": value}]}
-            )
-        return result
+        return [
+            {"text": value, "search": [{"field": "author", "value": value}]}
+            for value in self.doc.authors + self.doc.corporate_authors
+        ]
 
     @property
     def edition(self):
-        return self._multiple_plain_text(section="display", field="edition")
+        return self._multiple_plain_text(values=self.doc.edition)
 
     @property
     def citation(self):
         return Citation(self.doc)
 
-    def _multiple_plain_text(self, section, field):
-        values = self.doc.get_pnx_field_values(section, field)
+    def _multiple_plain_text(self, section="addata", field=None, values=None):
+        if values is None:
+            values = self.doc.get_pnx_field_values(section=section, field=field)
         return [{"text": value} for value in values]
 
-    def _plain_text(self, section, field):
-        value = self.doc.get_pnx_field_value(section, field)
+    def _plain_text(self, section="addata", field=None, value=None):
+        if value is None:
+            value = self.doc.get_pnx_field_value(section=section, field=field)
         return [{"text": value}] if value else []
 
     @property
     def holdings(self):
         lib_key = get_lib_key_holding(
-            doi=self.doc.get_pnx_field_value("addata", "doi"),
-            pmid=self.doc.get_pnx_field_value("addata", "pmid"),
+            doi=self.doc.doi,
+            pmid=self.doc.pmid,
         )
         result = []
         if lib_key and lib_key.availability:
@@ -296,95 +366,91 @@ class CSL(BaseCSL):
 
     @property
     def id(self):
-        return self.doc.get_pnx_field_value("control", "recordid")
+        return self.doc.id
 
     @property
     def title(self):
-        return self.doc.get_pnx_field_value("display", "title")
+        return self.doc.title
 
     @property
     def author(self):
         result = []
-        for au in self.doc.get_pnx_field_values("addata", "au"):
+        for au in self.doc.authors:
             if re.search(", ", au):
                 family, given = au.split(", ")
                 result.append({"family": family, "given": given})
             else:
                 result.append({"literal": au})
-        for au in self.doc.get_pnx_field_values("addata", "aucorp"):
+        for au in self.doc.corporate_authors:
             result.append({"literal": au})
 
         return result
 
     @property
     def issued(self):
-        date_str = self.doc.get_pnx_field_value("display", "creationdate")
+        date_str = self.doc.get_pnx_field_value(section="display", field="creationdate")
         if date_str:
             return {"literal": date_str}
 
     @property
     def page(self):
-        return self.doc.get_pnx_field_value("addata", "pages")
+        return self.doc.get_pnx_field_value("pages")
 
     @property
     def publisher(self):
-        return self.doc.get_pnx_field_value("display", "publisher")
+        return self.doc.publisher
 
     @property
     def container_title(self):
-        return self.doc.get_pnx_field_value("addata", "jtitle")
+        return self.doc.get_pnx_field_value("jtitle")
 
     @property
     def volume(self):
-        return self.doc.get_pnx_field_value("addata", "volume")
+        return self.doc.get_pnx_field_value("volume")
 
     @property
     def issue(self):
-        return self.doc.get_pnx_field_value("addata", "issue")
+        return self.doc.get_pnx_field_value("issue")
 
     @property
     def genre(self):
-        return self.doc.get_pnx_field_value("addata", "genre")
+        return self.doc.genre
 
     @property
     def isbn(self):
-        result = self.doc.get_pnx_field_values(
-            "addata", "isbn"
-        ) + self.doc.get_pnx_field_values("addata", "eisbn")
+        result = self.doc.isbn + self.doc.eisbn
         return list(dict.fromkeys(result))
 
     @property
     def issn(self):
-        result = self.doc.get_pnx_field_values(
-            "addata", "issn"
-        ) + self.doc.get_pnx_field_values("addata", "eissn")
+        result = self.doc.issn + self.doc.eissn
         return list(dict.fromkeys(result))
 
     @property
     def doi(self):
-        return self.doc.get_pnx_field_value("addata", "doi")
+        return self.doc.doi
 
     @property
     def edition(self):
-        return self.doc.get_pnx_field_value("display", "edition")
+        if len(self.doc.edition):
+            return self.doc.edition[0]
 
     def _formats(self):
-        return self.doc.get_pnx_field_values(
-            "display", "type"
-        ) + self.doc.get_pnx_field_values("facets", "rsrctype")
+        return self.doc.formats
 
 
 class TaggedCitation:
+    # The meta tags come from: https://www.zotero.org/support/dev/exposing_metadata
     TAG_MAPPING = [
-        {"section": "control", "field": "recordid", "ris": ["ID"], "meta": ["id"]},
+        {"field": "id", "ris": ["ID"], "meta": ["id"]},
         {
             "section": "display",
             "field": "title",
             "ris": ["T1", "TI"],
             "meta": ["title"],
         },
-        {"field": "au", "ris": ["AU"], "meta": ["author"]},
-        {"field": "aucorp", "ris": ["AU"], "meta": ["author"]},
+        {"field": "authors", "ris": ["AU"], "meta": ["author"]},
+        {"field": "corporate_authors", "ris": ["AU"], "meta": ["author"]},
         {
             "section": "display",
             "field": "publisher",
@@ -399,6 +465,9 @@ class TaggedCitation:
         {"field": "issn", "ris": ["SN"], "meta": ["issn"]},
         {"field": "eissn", "ris": ["SN"], "meta": ["eIssn"]},
         {"field": "doi", "ris": ["DO"], "meta": ["doi"]},
+        {"field": "language", "ris": ["LA"], "meta": ["language"]},
+        {"field": "subject", "ris": ["KW"], "meta": ["keywords"]},
+        {"field": "abstract", "ris": ["AB", "N2"], "meta": ["abstract"]},
     ]
 
     TYPE_MAPPING = {
@@ -454,11 +523,15 @@ class TaggedCitation:
     def to_list(self, tag_mapping=TAG_MAPPING):
         result = [self._type()]
         for element in tag_mapping:
-            contents = self.doc.get_pnx_field_values(
-                section=element.get("section", "addata"),
-                field=element.get("field"),
-            )
-
+            if hasattr(self.doc, element["field"]):
+                contents = getattr(self.doc, element["field"])
+                if type(contents) is str:
+                    contents = [contents]
+            else:
+                contents = self.doc.get_pnx_field_values(
+                    section=element.get("section", "addata"),
+                    field=element.get("field"),
+                )
             for content in contents:
                 result.append(
                     {
@@ -470,12 +543,8 @@ class TaggedCitation:
         return result
 
     def _type(self):
-        formats = self.doc.get_pnx_field_values(
-            "display", "type"
-        ) + self.doc.get_pnx_field_values("facets", "rsrctype")
-
         content = "GEN"
-        for f in formats:
+        for f in self.doc.formats:
             c = self.TYPE_MAPPING.get(f)
             if c:
                 content = c
