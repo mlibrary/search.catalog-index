@@ -15,6 +15,7 @@ gem "yell", "~>2.0"
 gem "prometheus-client"
 gem "httparty"
 gem "webrick"
+gem "thor"
 
 gem "sftp", github: "mlibrary/sftp"
 gem "alma_rest_client", github: "mlibrary/alma_rest_client", tag: "v2.0.0"
