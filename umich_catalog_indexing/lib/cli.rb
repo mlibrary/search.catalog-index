@@ -5,10 +5,10 @@ class CLI < Thor
     true
   end
 
-  desc "debug METADATA_FILE_PATH", "produces flat file output from traject"
+  desc "index_a_file METADATA_FILE_PATH", "produces flat file output from traject"
   option :reader, aliases: ["r"], desc: "what kind of reader should be used", enum: ["xml", "json"], default: "xml"
-  option :writer, aliases: ["w"], desc: "what kind of writer should be used", enum: ["debug", "json", "null"], default: "debug"
-  def debug(metadata_file_path)
+  option :writer, aliases: ["w"], desc: "what kind of writer should be used", enum: ["debug", "json", "null", "solr"], default: "debug"
+  def index_a_file(metadata_file_path)
     config = [
       "indexers/settings.rb",
       "indexers/common.rb",
