@@ -2,6 +2,8 @@ require "thor"
 require "services"
 require "sidekiq_jobs"
 require "indexer/monthly"
+require "indexer/filter_zephir"
+require "indexer/index_latest"
 
 module Indexer
   class CLI < Thor
@@ -35,7 +37,7 @@ module Indexer
 
     desc "monthly SOURCE", "looks up the latest full metadata files and queues them up for the reindex solr"
     def monthly(source)
-      raise Thor::Error, "Error: argument must be alma or zephir" unless ["alma", "zephir"].include?(source)
+      check_source(source)
       Indexer::Monthly.public_send(source)
     end
 
@@ -56,5 +58,16 @@ module Indexer
       end
       fz.run(**config)
     end
+  end
+
+  def index_latest(source)
+    check_source(source)
+    Indexer::IndexLatest.public_send(source)
+  end
+
+  private
+
+  def check_source(source)
+    raise Thor::Error, "Error: argument must be alma or zephir" unless ["alma", "zephir"].include?(source)
   end
 end
