@@ -38,5 +38,23 @@ module Indexer
       raise Thor::Error, "Error: argument must be alma or zephir" unless ["alma", "zephir"].include?(source)
       Indexer::Monthly.public_send(source)
     end
+
+    desc "filter_zephir full||today||yyyy-mm-dd", "Filter zephir metadata for umich public domain that's not in alma."
+    def filter_zephir(date)
+      unless ["full", "today"].include?(date)
+        date = Date.parse(date)
+      end
+
+      fz = Indexer::FilterZephir
+      config = case date
+      when "full"
+        fz.full_config
+      when "today"
+        fz.today_config
+      else
+        fz.date_config(date)
+      end
+      fz.run(**config)
+    end
   end
 end

@@ -23,6 +23,9 @@ S.register(:hlb_path) do
   end
 end
 
+S.register(:ht_credentials) { "#{ENV.fetch("HT_USERNAME", "username")}:#{ENV.fetch("HT_PASSWORD", "password")}" }
+S.register(:ht_url) { ENV.fetch("HT_HOST", "http://mock-ht:4567") }
+
 S.register(:google_api_credentials) { ENV["GOOGLE_API_CREDENTIALS"] || "{}" }
 S.register(:floor_location_spreadsheet_id) { ENV["FLOOR_LOCATION_SPREADSHEET_ID"] || "" }
 S.register(:electronic_collections_ranking_spreadsheet_id) { ENV["ELECTRONIC_COLLECTIONS_RANKING_SPREADSHEET_ID"] || "" }
