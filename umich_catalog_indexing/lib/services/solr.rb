@@ -5,3 +5,4 @@ S.register(:solr_password) { ENV.fetch("SOLR_PASSWORD", "SolrRocks") }
 S.register(:processing_threads) { ENV.fetch("PROCESSING_THREADS", 1) }
 S.register(:supervisor_on?) { ENV["SUPERVISOR_ON"] == "true" }
 S.register(:sidekiq_supervisor_host) { ENV.fetch("SIDEKIQ_SUPERVISOR_HOST", "http://supervisor:3000") }
+S.register(:reindex_solr_url) { ENV.fetch("REINDEX_SOLR_URL", "http://solr:8983/solr/biblio") }
