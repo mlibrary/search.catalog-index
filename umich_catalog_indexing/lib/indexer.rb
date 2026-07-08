@@ -78,5 +78,38 @@ module Indexer
         Indexer::IndexUpdate.public_send(source, date: date, environment: options[:environment], async: options[:async], solrs: options[:solr_url])
       end
     end
+
+    desc "catch_up", "indexes the updates from a given date to today."
+    option :source, aliases: ["s"], desc: "Where is the metadata from?", enum: ["alma", "zephir"], required: true, repeatable: true
+    option :date, aliases: ["d"], desc: "Date from which to catchup from. Default is the first of the current month"
+    option :environment, aliases: ["e"], desc: "Which solr(s) to send the update to.", default: "reindex", enum: ["production", "reindex"]
+    option :solr_url, desc: "Specific solr url to send to. This overrides the solrs that would be used based on the environment option", repeatable: true
+    def catch_up
+      start_date = if options["date"].nil?
+        Date.new(Date.today.year, Date.today.month, 1) # First of the month
+      else
+        Date.parse(options["date"])
+      end
+
+      start_date.upto(DateTime.now) do |date|
+        date_string = date.strftime("%Y-%m-%d")
+        S.logger.info ""
+        S.logger.info "========================"
+        S.logger.info "Start #{date_string}"
+        S.logger.info "========================"
+        S.logger.info ""
+        options[:source].each do |source|
+          Indexer::IndexUpdate.public_send(source, date: date, environment: options[:environment], async: false, solrs: options[:solr_url])
+        end
+        S.logger.info ""
+        S.logger.info "========================"
+        S.logger.info "Finish #{date_string}"
+        S.logger.info "========================"
+        S.logger.info ""
+      end
+      S.logger.info "========================"
+      S.logger.info "Finish Catch up from #{start_date.strftime("%Y-%m-%d")}"
+      S.logger.info "========================"
+    end
   end
 end
