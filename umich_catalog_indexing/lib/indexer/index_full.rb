@@ -1,5 +1,5 @@
 module Indexer
-  module Monthly
+  module IndexFull
     def self.alma
       S.logger.info "Starting submission of Alma monthly full jobs"
 

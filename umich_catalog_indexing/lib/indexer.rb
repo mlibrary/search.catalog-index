@@ -1,9 +1,9 @@
 require "thor"
 require "services"
 require "sidekiq_jobs"
-require "indexer/monthly"
+require "indexer/index_full"
+require "indexer/index_update"
 require "indexer/filter_zephir"
-require "indexer/index_latest"
 
 module Indexer
   class CLI < Thor
@@ -35,10 +35,12 @@ module Indexer
       `bundle exec traject #{config_options} #{metadata_file_path}`
     end
 
-    desc "monthly SOURCE", "looks up the latest full metadata files and queues them up for the reindex solr"
-    def monthly(source)
-      check_source(source)
-      Indexer::Monthly.public_send(source)
+    desc "index_full SOURCE", "looks up the latest full metadata files and queues them up for the reindex solr"
+    option :source, aliases: ["s"], desc: "Where is the metadata from?", enum: ["alma", "zephir"], required: true, repeatable: true
+    def index_full
+      options[:source].each do |source|
+        Indexer::IndexFull.public_send(source)
+      end
     end
 
     desc "filter_zephir full||today||yyyy-mm-dd", "Filter zephir metadata for umich public domain that's not in alma."
@@ -58,16 +60,23 @@ module Indexer
       end
       fz.run(**config)
     end
-  end
 
-  def index_latest(source)
-    check_source(source)
-    Indexer::IndexLatest.public_send(source)
-  end
+    desc "index_update", "Looks up the update metadata files and queues them up for the production solrs"
+    option :source, aliases: ["s"], desc: "Where is the metadata from?", enum: ["alma", "zephir"], required: true, repeatable: true
+    option :date, aliases: ["d"], desc: "Date of file to index. If 'today' is passed, it will look up the most recent update for the source(s). For zephir files, it will look up yesterday's file.", default: "today"
+    option :environment, aliases: ["e"], desc: "Which solr(s) to send the update to. If async, production goes to the default queue, reindex goes to the reindex queue", default: "production", enum: ["production", "reindex"]
+    option :solr_url, desc: "Specific solr url to send to. This overrides the solrs that would be used based on the environment option", repeatable: true
+    option :async, aliases: ["a"], desc: "Send the job to run asynchronously or run it now", type: :boolean, default: true
+    def index_update
+      date = if options["date"] == "today"
+        Date.today
+      else
+        Date.parse(options["date"])
+      end
 
-  private
-
-  def check_source(source)
-    raise Thor::Error, "Error: argument must be alma or zephir" unless ["alma", "zephir"].include?(source)
+      options[:source].each do |source|
+        Indexer::IndexUpdate.public_send(source, date: date, environment: options[:environment], async: options[:async], solrs: options[:solr_url])
+      end
+    end
   end
 end
