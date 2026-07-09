@@ -10,10 +10,16 @@ SFTP.configure do |config|
 end
 
 S.register(:alma_update_dir_path) do
-  ENV.fetch("DAILY_ALMA_FILES_PATH", "bibs")
+  ENV.fetch("ALMA_UPDATE_DIR_PATH", "bibs")
+end
+S.register(:alma_full_dir_path) do
+  ENV.fetch("ALMA_FULL_DIR_PATH", "bibs")
 end
 S.register(:zephir_update_dir_path) do
   ENV.fetch("ZEPHIR_UPDATE_DIR_PATH", "bibs")
+end
+S.register(:zephir_full_dir_path) do
+  ENV.fetch("ZEPHIR_FULL_DIR_PATH", "bibs")
 end
 S.register(:alma_update_file_paths) do
   SFTP.client.ls(S.alma_update_dir_path)

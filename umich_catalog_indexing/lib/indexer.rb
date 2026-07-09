@@ -35,7 +35,7 @@ module Indexer
       `bundle exec traject #{config_options} #{metadata_file_path}`
     end
 
-    desc "index_full SOURCE", "looks up the latest full metadata files and queues them up for the reindex solr"
+    desc "index_full", "looks up the latest full metadata files and queues them up for the reindex solr"
     option :source, aliases: ["s"], desc: "Where is the metadata from?", enum: ["alma", "zephir"], required: true, repeatable: true
     def index_full
       options[:source].each do |source|
