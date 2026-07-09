@@ -20,18 +20,18 @@ jobs:
         env:
           FLOOR_LOCATION_SPREADSHEET_ID: ${{ vars.FLOOR_LOCATION_SPREADSHEET_ID }}
           GOOGLE_API_CREDENTIALS: ${{ secrets.GOOGLE_API_CREDENTIALS }}
-        run: indexer generate_translation_map --tm floor_location --force
+        run: bin/indexer generate_translation_map --tm floor_location --force
       - name: Fetch Electronic Collections Ranking Translation map
         working-directory: ./umich_catalog_indexing
         env:
           ELECTRONIC_COLLECTIONS_RANKING_SPREADSHEET_ID: ${{ vars.ELECTRONIC_COLLECTIONS_RANKING_SPREADSHEET_ID }}
           GOOGLE_API_CREDENTIALS: ${{ secrets.GOOGLE_API_CREDENTIALS }}
-        run: indexer generate_translation_map --tm electronic_collections_ranking --force
+        run: bin/indexer generate_translation_map --tm electronic_collections_ranking --force
       - name: Fetch Electronic Collections Translation map
         working-directory: ./umich_catalog_indexing
         env:
           ALMA_API_KEY: ${{ secrets.ALMA_API_KEY }}
-        run: indexer generate_translation_map.rb --tm electronic_collections --force
+        run: bin/indexer generate_translation_map.rb --tm electronic_collections --force
       - name: Get PR title
         run: echo "PR_TITLE=$(date +'%B %Y') translation map update" >> $GITHUB_ENV
       - name: Create Pull Request
