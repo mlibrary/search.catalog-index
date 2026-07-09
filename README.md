@@ -44,15 +44,23 @@ http://localhost:8983 for the solr admin panel
 http://localhost:9292/ for the sidekiq admin panel
 
 ## Trying it Out
-Some example commands that should work:
-```
-docker-compose run --rm indexer bundle exec irb -r ./lib/sidekiq_jobs.rb
 
-IndexIt.perform_async("search_daily_bibs/birds.tar.gz", "http://solr:8983/solr/biblio")
+This will index the birds file in sftp/bibs
+```
+docker-compose run --rm indexer indexer index_update -s alma -d 2022-02-10
+```
+
+This will index the zephir upd
+```
+docker-compose run --rm indexer indexer index_update -s zephir -d 2022-02-10
+```
+
+If you want to index items without a date in the file name you have to shell in and run some commands:
+```
+docker-compose run --rm web bundle exec irb -r ./lib/sidekiq_jobs.rb
 
 IndexIt.new.perform("search_daily_bibs/sample.tar.gz", "http://solr:8983/solr/biblio")
-
-IndexHathi.perform_async("zephir_upd_20220301.json.gz", "http://solr:8983/solr/biblio")
+IndexJson.perform_async("zephir_short.json.gz", "http://solr:8983/solr/biblio")
 ```
 
 
