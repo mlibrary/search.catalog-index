@@ -111,5 +111,20 @@ module Indexer
       S.logger.info "Finish Catch up from #{start_date.strftime("%Y-%m-%d")}"
       S.logger.info "========================"
     end
+
+    desc "generate_translation_map", "Generates the given translation map"
+    option :force, aliases: ["f"], desc: "Force generation of given translation map even if it is less than one day old", default: false, type: :boolean
+    option :tm, repeatable: true, enum: ["floor_location", "electronic_collections", "electronic_collections_ranking"], required: true
+    def generate_translation_map
+      tm_map = {
+        "floor_location" => Jobs::TranslationMapGenerator::FloorLocations,
+        "electronic_collections" => Jobs::TranslationMapGenerator::ElectronicCollections,
+        "electronic_collections_ranking" => Jobs::TranslationMapGenerator::ElectronicCollectionsRanking
+      }
+
+      options[:tm].each do |tm|
+        Jobs::TranslationMapGenerator.generate(generator: tm_map[tm], force: options["force"])
+      end
+    end
   end
 end
