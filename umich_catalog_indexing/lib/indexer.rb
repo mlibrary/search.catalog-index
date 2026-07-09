@@ -5,6 +5,10 @@ require "indexer/index_full"
 require "indexer/index_update"
 require "indexer/filter_zephir"
 
+def get_file_names(dir)
+  Dir.children("#{S.project_root}/#{dir}").map { |x| File.basename(x, ".rb") }
+end
+
 module Indexer
   class CLI < Thor
     def self.exit_on_failure?
@@ -12,8 +16,8 @@ module Indexer
     end
 
     desc "index_a_file METADATA_FILE_PATH", "produces flat file output from traject"
-    option :reader, aliases: ["r"], desc: "what kind of reader should be used", enum: ["xml", "json"], default: "xml"
-    option :writer, aliases: ["w"], desc: "what kind of writer should be used", enum: ["debug", "json", "null", "solr"], default: "debug"
+    option :reader, aliases: ["r"], desc: "what kind of reader should be used", enum: get_file_names("readers"), default: "xml"
+    option :writer, aliases: ["w"], desc: "what kind of writer should be used", enum: get_file_names("writers"), default: "debug"
     def index_a_file(metadata_file_path)
       config = [
         "indexers/settings.rb",
