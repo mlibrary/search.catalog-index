@@ -19,6 +19,7 @@ uvicorn = "^0.34.0"
 httpx = "^0.28.1"
 pymarc = "^5.2.3"
 prometheus-fastapi-instrumentator = "^7.1.0"
+pyyaml = "^6.0.3"
 
 
 [tool.poetry.group.dev.dependencies]
