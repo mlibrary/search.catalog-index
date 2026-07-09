@@ -20,7 +20,7 @@ jobs:
         env:
           FLOOR_LOCATION_SPREADSHEET_ID: ${{ vars.FLOOR_LOCATION_SPREADSHEET_ID }}
           GOOGLE_API_CREDENTIALS: ${{ secrets.GOOGLE_API_CREDENTIALS }}
-        run: indexer generate_translation_map --tm floor_location --force
+        run: bin/indexer generate_translation_map --tm floor_location --force
       - name: Fetch Electronic Collections Ranking Translation map
         working-directory: ./umich_catalog_indexing
         env:
