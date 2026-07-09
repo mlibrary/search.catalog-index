@@ -1,14 +1,12 @@
 name: Update Translation maps
-
-on: 
+on:
   workflow_dispatch:
   schedule:
-    - cron:  '0 8 1 * *' #8AM first of the month
-
+    - cron: '0 8 1 * *' #8AM first of the month
 jobs:
   update-translation-maps:
     runs-on: ubuntu-latest
-    env:  
+    env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/umich_catalog_indexing/Gemfile
     steps:
       - uses: actions/checkout@v4
@@ -22,23 +20,23 @@ jobs:
         env:
           FLOOR_LOCATION_SPREADSHEET_ID: ${{ vars.FLOOR_LOCATION_SPREADSHEET_ID }}
           GOOGLE_API_CREDENTIALS: ${{ secrets.GOOGLE_API_CREDENTIALS }}
-        run: bundle exec ruby bin/generate_translation_map.rb --force floor_location
+        run: indexer generate_translation_map --tm floor_location --force
       - name: Fetch Electronic Collections Ranking Translation map
         working-directory: ./umich_catalog_indexing
         env:
           ELECTRONIC_COLLECTIONS_RANKING_SPREADSHEET_ID: ${{ vars.ELECTRONIC_COLLECTIONS_RANKING_SPREADSHEET_ID }}
           GOOGLE_API_CREDENTIALS: ${{ secrets.GOOGLE_API_CREDENTIALS }}
-        run: bundle exec ruby bin/generate_translation_map.rb --force electronic_collections_ranking
+        run: indexer generate_translation_map --tm electronic_collections_ranking --force
       - name: Fetch Electronic Collections Translation map
         working-directory: ./umich_catalog_indexing
         env:
           ALMA_API_KEY: ${{ secrets.ALMA_API_KEY }}
-        run: bundle exec ruby bin/generate_translation_map.rb --force electronic_collections
+        run: indexer generate_translation_map.rb --tm electronic_collections --force
       - name: Get PR title
         run: echo "PR_TITLE=$(date +'%B %Y') translation map update" >> $GITHUB_ENV
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
-        with: 
+        with:
           commit-message: "config: update translation map(s)"
           title: ${{ env.PR_TITLE }}
           reviewers: niquerio
