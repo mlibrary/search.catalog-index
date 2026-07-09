@@ -625,18 +625,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990056261180106381':
-- collection_name: Accessible archives primary source material from 18th & 19th century periodicals.
-  interface_name: Accessible Archives
-  note: Accessible Archives. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://history-commons.net/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990165176600106381':
 - collection_name: EPS China data = EPS shu ju ping tai.
   interface_name: EPS China Data
@@ -1127,6 +1115,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'990161130700106381':
+- collection_name: Maruzen eBook Library.
+  interface_name: Maruzen eBook Library
+  note: Maruzen eBook Library. 1 concurrent user limit per title. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://elib.maruzen.co.jp/elib/html/BookList?6
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '990154140430106381':
 - collection_name: LAPOP
   interface_name: Latin American Public Opinion Project
@@ -1603,7 +1603,7 @@
 - collection_name: Brill Online E-Books Latin American Anarchist And Labour Periodicals Online
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/latin-american-anarchist-periodicals
+  link: https://www.degruyterbrill.com/database/lalp/start
   status: Available
   campuses:
   - ann_arbor
@@ -3385,7 +3385,7 @@
 - collection_name: EBSCOhost APA PsycARTICLES
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=pdhjnh,pdh
+  link: https://research.ebsco.com/c/mqk2bj/?db=pdh
   status: Available
   campuses:
   - ann_arbor
@@ -4131,7 +4131,7 @@
 - collection_name: Alt-PressWatch
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.proquest.com/altpresswatch?accountid=14667
+  link: https://www.proquest.com/altpresswatch
   status: Available
   campuses:
   - ann_arbor
@@ -5147,7 +5147,7 @@
 - collection_name: 'Brill Online E-Books Middle Eastern Manuscripts Online 1: Pioneer Orientalists'
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/memo-1-pioneer-orientalists
+  link: https://www.degruyterbrill.com/database/mm1o/start
   status: Available
   campuses:
   - ann_arbor
@@ -5159,7 +5159,7 @@
 - collection_name: 'Brill Online E-Books Middle Eastern Manuscripts Online 3: Arabic Manuscripts From The Hungarian Academy'
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/memo-3-arabic-manuscripts-from-the-hungarian-academy
+  link: https://www.degruyterbrill.com/database/mm3o/start
   status: Available
   campuses:
   - ann_arbor
@@ -5171,7 +5171,7 @@
 - collection_name: Brill Online E-Books Cold War Intelligence
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/cold-war-intelligence
+  link: https://www.degruyterbrill.com/database/cwio/start
   status: Available
   campuses:
   - ann_arbor
@@ -5538,7 +5538,7 @@
 '99187252471906381':
 - collection_name: DOAJ Directory of Open Access Journals
   interface_name: DOAJ Directory of Open Access Journals
-  note: DOAJ Directory of Open Access Journals. Link may lead to a DOAJ page. Use "Website" buttons on journal pages to go to the journal. Use "READ ONLINE" buttons on article pages to go to the article. Open access for all users.
+  note: DOAJ Directory of Open Access Journals. Link may lead to a DOAJ page. The "Website" button on the DOAJ page leads to the journal site. The "READ ONLINE" button should lead to the article on the journal site. Open access for all users.
   link: https://www.doaj.org/
   status: Available
   campuses:
@@ -6200,7 +6200,7 @@
 - collection_name: Classic Mexican Cinema
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/mexican-cinema
+  link: https://www.degruyterbrill.com/database/cmco/start
   status: Available
   campuses:
   - ann_arbor
@@ -7943,7 +7943,7 @@
 - collection_name: 'Prize Papers Online 1: American Revolutionary War and Fourth Anglo-Dutch War'
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/prize-papers-part-1-online
+  link: https://www.degruyterbrill.com/database/pp1o/start
   status: Available
   campuses:
   - ann_arbor
@@ -8303,7 +8303,7 @@
 - collection_name: Flavius Josephus Online
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://referenceworks.brillonline.com/browse/flavius-josephus-online
+  link: https://scholarlyeditions.brill.com/fjo/
   status: Available
   campuses:
   - ann_arbor
@@ -8327,7 +8327,7 @@
 - collection_name: Missionary Archives from Lesotho, 1832 - 2006
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/missionary-archives-from-lesotho-1832-2006
+  link: https://www.degruyterbrill.com/database/MALO/start
   status: Available
   campuses:
   - ann_arbor
@@ -8351,7 +8351,7 @@
 - collection_name: 'Prize Papers Online 2: Seven Years’ War and War of the Austrian Succession'
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/prize-papers-part-2-online
+  link: https://www.degruyterbrill.com/database/pp2o/start
   status: Available
   campuses:
   - ann_arbor
@@ -11683,7 +11683,7 @@
 - collection_name: 'Prize Papers Online 3: First, Second and Third Anglo-Dutch War and War of the Spanish Succession'
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/prize-papers-part-3-online
+  link: https://www.degruyterbrill.com/database/PP3O/start
   status: Available
   campuses:
   - ann_arbor
@@ -13374,7 +13374,7 @@
 - collection_name: Chinese Film and Newsreel Scripts from the Cultural Revolution Online
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/chinese-filmscript-and-advertisement-collection-19461985
+  link: https://www.degruyterbrill.com/database/cfso/start
   status: Available
   campuses:
   - ann_arbor
@@ -14296,6 +14296,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99187451605606381':
+- collection_name: Wright American Fiction (1851-1875)
+  interface_name: Indiana University
+  note: Indiana University. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://webapp1.dlib.indiana.edu/TEIgeneral/welcome.do?brand=wright
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '990052383650106381':
 - collection_name: China online journals
   interface_name: ''
@@ -14426,7 +14438,7 @@
 - collection_name: 'Middle Eastern Manuscripts Online 2: The Ottoman Legacy of Levinus Warner'
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/memo-2-the-ottoman-legacy-of-levinus-warner
+  link: https://www.degruyterbrill.com/database/mm2o/start
   status: Available
   campuses:
   - ann_arbor
@@ -17161,7 +17173,7 @@
 - collection_name: Dead Sea Scrolls Electronic Library Biblical Texts
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://referenceworks.brillonline.com/browse/dead-sea-scrolls-electronic-library-biblical-texts
+  link: https://scholarlyeditions.brill.com/dsbo/
   status: Available
   campuses:
   - ann_arbor
@@ -18107,7 +18119,7 @@
 - collection_name: The Guatemala Collection
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/the-guatemala-collection
+  link: https://www.degruyterbrill.com/database/guat/start
   status: Available
   campuses:
   - ann_arbor
@@ -18513,7 +18525,7 @@
 - collection_name: Revolución y Cultura, 1967–2009
   interface_name: Brill Primary Sources
   note: Brill Primary Sources. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/revolucion-y-cultura
+  link: https://www.degruyterbrill.com/database/recu/start
   status: Available
   campuses:
   - ann_arbor
@@ -18739,7 +18751,7 @@
 - collection_name: Codices Vossiani Latini Online
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/vossiani-latini
+  link: https://www.degruyterbrill.com/database/CVLO/html
   status: Available
   campuses:
   - ann_arbor
@@ -18751,7 +18763,7 @@
 - collection_name: U.S. Intelligence on the Middle East, 1945-2009
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/us-intelligence-on-the-middle-east
+  link: https://www.degruyterbrill.com/database/UMEO/start
   status: Available
   campuses:
   - ann_arbor
@@ -18763,7 +18775,7 @@
 - collection_name: Brill Online E-Books U.S. Intelligence On Asia, 1945-1991
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/us-intelligence-on-asia
+  link: https://www.degruyterbrill.com/database/USAO/start
   status: Available
   campuses:
   - ann_arbor
@@ -18775,7 +18787,7 @@
 - collection_name: The Daily Worker Online
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/the-daily-worker-online
+  link: https://www.degruyterbrill.com/database/WRKR/start
   status: Available
   campuses:
   - ann_arbor
@@ -18787,7 +18799,7 @@
 - collection_name: Brill Online E-Books Hungarian Reformation Ebook Collection
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/hungarian-reformation
+  link: https://www.degruyterbrill.com/database/huro/start
   status: Available
   campuses:
   - ann_arbor
@@ -18799,7 +18811,7 @@
 - collection_name: Brill Online E-Books Hebrew And Judeo-Arabic Printing In Baghdad
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/hebrew-and-judeoarabic-printing-in-baghdad
+  link: https://www.degruyterbrill.com/database/hpbo/start
   status: Available
   campuses:
   - ann_arbor
@@ -18823,7 +18835,7 @@
 - collection_name: Brill Online E-Books Israel'S Messenger Online
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/israels-messenger
+  link: https://www.degruyterbrill.com/database/ismo/start
   status: Available
   campuses:
   - ann_arbor
@@ -18847,7 +18859,7 @@
 - collection_name: Brill Online E-Books Moses Maimonides, Unparalleled Editions Online
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/moses-maimonides-unparalleled-editions
+  link: https://www.degruyterbrill.com/database/MMUO/start
   status: Available
   campuses:
   - ann_arbor
@@ -18871,7 +18883,7 @@
 - collection_name: Classic Brazilian Cinema Online
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/classic-brazilian-cinema-online
+  link: https://www.degruyterbrill.com/database/bco/start
   status: Available
   campuses:
   - ann_arbor
@@ -18883,7 +18895,7 @@
 - collection_name: Sephardic Editions, 1550-1820 Online
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/sephardic-editions-15501820
+  link: https://www.degruyterbrill.com/database/SEEO/start
   status: Available
   campuses:
   - ann_arbor
@@ -18895,7 +18907,7 @@
 - collection_name: Muslims in Russia
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/muslims-in-russia
+  link: https://www.degruyterbrill.com/database/mro/start
   status: Available
   campuses:
   - ann_arbor
@@ -18907,7 +18919,7 @@
 - collection_name: Mass Media in Russia, 1908-1918
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/mass-media-in-russia-19081918
+  link: https://www.degruyterbrill.com/database/mmro/start
   status: Available
   campuses:
   - ann_arbor
@@ -18919,7 +18931,7 @@
 - collection_name: Brill Online E-Books Imperial Russia'S Illustrated Press
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/imperial-russias-illustrated-press
+  link: https://www.degruyterbrill.com/database/irpo/start
   status: Available
   campuses:
   - ann_arbor
@@ -18943,7 +18955,7 @@
 - collection_name: Archives of the Church of Uganda Online
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/archives-of-the-church-of-uganda
+  link: https://www.degruyterbrill.com/database/ACUO/start
   status: Available
   campuses:
   - ann_arbor
@@ -18955,7 +18967,7 @@
 - collection_name: Brill Online E-Books Russian-Ottoman Relations Part 4
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/russianottoman-relations-part-4
+  link: https://www.degruyterbrill.com/database/ror4/start
   status: Available
   campuses:
   - ann_arbor
@@ -18967,7 +18979,7 @@
 - collection_name: Brill Online E-Books Russian-Ottoman Relations Part 3
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/russianottoman-relations-part-3
+  link: https://www.degruyterbrill.com/database/ror3/start
   status: Available
   campuses:
   - ann_arbor
@@ -18979,7 +18991,7 @@
 - collection_name: Brill Online E-Books Russian-Ottoman Relations Part 2
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/russianottoman-relations-part-2
+  link: https://www.degruyterbrill.com/database/ror2/start
   status: Available
   campuses:
   - ann_arbor
@@ -18991,7 +19003,7 @@
 - collection_name: Brill Online E-Books Russian-Ottoman Relations Part 1
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/russianottoman-relations-part-1
+  link: https://www.degruyterbrill.com/database/ror1/start
   status: Available
   campuses:
   - ann_arbor
@@ -19003,7 +19015,7 @@
 - collection_name: Early Western Korans
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/early-western-korans
+  link: https://www.degruyterbrill.com/database/ewko/start
   status: Available
   campuses:
   - ann_arbor
@@ -19309,7 +19321,7 @@
   - MIU
   - MIFLIC
 '99187747855506381':
-- collection_name: Office of Scientific & Technical Information (OSTI) Local
+- collection_name: Office of Scientific & Technical Information (OSTI)
   interface_name: OSTI
   note: OSTI. Open access for all users.
   link: https://www.osti.gov/
@@ -19562,7 +19574,7 @@
 - collection_name: New Pauly Online
   interface_name: Brill Online reference works
   note: Brill Online reference works. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://referenceworks.brillonline.com/browse/brill-s-new-pauly
+  link: https://referenceworks.brill.com/display/db/npoe
   status: Available
   campuses:
   - ann_arbor
@@ -20079,7 +20091,7 @@
 - collection_name: Human Rights Documents Online
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/human-rights-documents-online
+  link: https://www.degruyterbrill.com/database/hrdo/start
   status: Available
   campuses:
   - ann_arbor
@@ -20594,6 +20606,30 @@
   interface_name: Oxford University Press
   note: Oxford University Press. 5 concurrent user limit. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.oxfordartonline.com/benezit
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99188004484706381':
+- collection_name: 'History Commons The Liberator, Part II: 1835-1840'
+  interface_name: Coherent Digital
+  note: Coherent Digital. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://history-commons.net/modules/tl02/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99188004485206381':
+- collection_name: 'History Commons The Liberator, Part I: 1831-1835'
+  interface_name: Coherent Digital
+  note: Coherent Digital. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://history-commons.net/modules/tl01/
   status: Available
   campuses:
   - ann_arbor
@@ -22414,6 +22450,18 @@
   - ann_arbor
   institution_codes:
   - MIU
+'99188122748706381':
+- collection_name: West African Magazines (07-1221-00 CRL LICENS)
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://africacommons.net/modules/west-african-magazines/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99188125543106381':
 - collection_name: GIDEON Ebooks 2024
   interface_name: GIDEON Informatics, Inc.
@@ -22536,7 +22584,7 @@
 - collection_name: Mobilizing East Asia Online
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/mobilizing-east-asia-online
+  link: https://www.degruyterbrill.com/database/meao/start
   status: Available
   campuses:
   - ann_arbor
@@ -24134,17 +24182,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-- collection_name: 'BAR: British Archaeological Reports International Series 2026'
-  interface_name: ''
-  note: ''
-  link: ''
-  status: Not Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99188891169006381':
 - collection_name: UMPEBC University of Michigan Press eBooks 2025
   interface_name: University of Michigan Press
@@ -25575,7 +25612,7 @@
 - collection_name: 'Palestine: The British Mandate, 1917–1948'
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/palestine-the-british-mandate
+  link: https://www.degruyterbrill.com/database/bman/start
   status: Available
   campuses:
   - ann_arbor
@@ -25587,7 +25624,7 @@
 - collection_name: 'Palestine: The Legal Background'
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/palestine-the-legal-background
+  link: https://www.degruyterbrill.com/database/plst/start
   status: Available
   campuses:
   - ann_arbor
@@ -26621,7 +26658,7 @@
 - collection_name: 'Cuban Culture and Cultural Relations, 1959, The Vertical Archive of the Casa de las Américas, Part 4 : Music'
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-4
+  link: https://www.degruyterbrill.com/database/musi/start
   status: Available
   campuses:
   - ann_arbor
@@ -26633,7 +26670,7 @@
 - collection_name: 'Cuban Culture and Cultural Relations, 1959-, Part 3: Theater'
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-3
+  link: https://www.degruyterbrill.com/database/thea/start
   status: Available
   campuses:
   - ann_arbor
@@ -26645,7 +26682,7 @@
 - collection_name: 'Cuban Culture and Cultural Relations, 1959-, Part 2: Writers'
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations-part-2
+  link: https://www.degruyterbrill.com/database/cdla/start
   status: Available
   campuses:
   - ann_arbor
@@ -26657,7 +26694,7 @@
 - collection_name: 'Cuban Culture and Cultural Relations, 1959-The Vertical Archive of the Casa de las Américas, Part 1: “Casa y Cultura”'
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/cuban-culture-and-cultural-relations
+  link: https://www.degruyterbrill.com/database/cuba/start
   status: Available
   campuses:
   - ann_arbor
@@ -26785,7 +26822,7 @@
 - collection_name: The Hague Academy Collected Courses Online / Recueil des cours de l'Académie de La Haye en ligne
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://referenceworks.brillonline.com/browse/the-hague-academy-collected-courses
+  link: https://referenceworks.brill.com/display/db/haco
   status: Available
   campuses:
   - ann_arbor
@@ -28011,7 +28048,7 @@
 - collection_name: Sacramentum Mundi Online
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://referenceworks.brillonline.com/browse/sacramentum-mundi
+  link: https://referenceworks.brill.com/display/db/smuo
   status: Available
   campuses:
   - ann_arbor
@@ -28059,7 +28096,7 @@
 - collection_name: Hebrew, Judeo-Arabic, and Marathi Jewish Printing in India Online
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/hebrew-printing-in-india
+  link: https://www.degruyterbrill.com/database/hpio/start
   status: Available
   campuses:
   - ann_arbor
@@ -28071,7 +28108,7 @@
 - collection_name: Cuban Pre-Revolutionary Cinema
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.brill.com/cicu
+  link: https://www.degruyterbrill.com/database/cicu/start
   status: Available
   campuses:
   - ann_arbor
@@ -28553,7 +28590,7 @@
 - collection_name: Japan Year Books Online
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.brill.com/jybo
+  link: https://www.degruyterbrill.com/database/jybo/start
   status: Available
   campuses:
   - ann_arbor
@@ -28744,7 +28781,7 @@
 '99189136640806381':
 - collection_name: 中国近代文献图库 (1833-1949)
   interface_name: ''
-  note: Trial through 05/28/2026. Authorized U-M users (+ guests in U-M Libraries)
+  note: Access to this database restricted; authentication may be required. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.cnbksy.com/v2/search/picture
   status: Available
   campuses:
@@ -28756,7 +28793,7 @@
 '99189136640906381':
 - collection_name: 歷代書法碑帖集成
   interface_name: ''
-  note: Trial through 05/31/2026. Authorized U-M users (+ guests in U-M Libraries)
+  note: Authorized U-M users (+ guests in U-M Libraries)
   link: https://p.udpweb.com/waa
   status: Available
   campuses:
@@ -28959,7 +28996,7 @@
 - collection_name: French Revolutionary Opinions Online
   interface_name: ''
   note: Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/french-revolutionary-opinions
+  link: https://www.degruyterbrill.com/database/froo/start
   status: Available
   campuses:
   - ann_arbor
@@ -28995,7 +29032,7 @@
 - collection_name: Richard Wagner Online
   interface_name: ''
   note: Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/richard-wagner
+  link: https://www.degruyterbrill.com/database/wago/start
   status: Available
   campuses:
   - ann_arbor
@@ -29007,7 +29044,7 @@
 - collection_name: Reformation in Heidelberg Online, The
   interface_name: ''
   note: Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/reformation-in-heidelberg
+  link: https://www.degruyterbrill.com/database/RIHO/start
   status: Available
   campuses:
   - ann_arbor
@@ -29019,7 +29056,7 @@
 - collection_name: 'Cuban Periodicals: Cultural Magazines Published by Casa de las Américas, 1960–2009'
   interface_name: ''
   note: Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyterbrill.com/database/cicu/html
+  link: https://www.degruyterbrill.com/database/casa/start
   status: Available
   campuses:
   - ann_arbor
@@ -29031,7 +29068,7 @@
 - collection_name: Cine Cubano
   interface_name: ''
   note: Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyterbrill.com/database/cicu/html
+  link: https://www.degruyterbrill.com/database/cine/start
   status: Available
   campuses:
   - ann_arbor
@@ -29067,7 +29104,7 @@
 - collection_name: Seoul Press Online
   interface_name: ''
   note: Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyterbrill.com/database/spo/html
+  link: https://www.degruyterbrill.com/database/spo/start
   status: Available
   campuses:
   - ann_arbor
@@ -29079,7 +29116,7 @@
 - collection_name: Colonial Period Korea Online
   interface_name: ''
   note: Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyterbrill.com/database/cpko/html
+  link: https://www.degruyterbrill.com/database/cpko/start
   status: Available
   campuses:
   - ann_arbor
@@ -29162,7 +29199,7 @@
 '99189154110906381':
 - collection_name: GuideStar
   interface_name: GuideStar
-  note: GuideStar. Authorized U-M users (+ guests in U-M Libraries)
+  note: GuideStar. Some website features require a personal account. Authorized U-M users (+ guests in U-M Libraries)
   link: https://app.candid.org/ipl
   status: Available
   campuses:
@@ -29200,6 +29237,300 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.proquest.com/bible
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189154161506381':
+- collection_name: Supplementum Grammaticum Graecum Online
+  interface_name: Brill Online reference works
+  note: Brill Online reference works. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://brill.com/display/serial/SGG
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189154161706381':
+- collection_name: Philosophy in the Islamic World Online
+  interface_name: Brill Online reference works
+  note: Brill Online reference works. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.degruyterbrill.com/database/piw/start
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189154161906381':
+- collection_name: 'History of al-Ṭabarī Online: The Annals of the Prophets and Kings'
+  interface_name: Brill Primary Sources
+  note: Brill Primary Sources. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://referenceworks.brill.com/display/db/tabo
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189153994606381':
+- collection_name: Cambridge Ebooks Backlist Subject Collections - Physics and Astronomy
+  interface_name: ''
+  note: ''
+  link: https://www.cambridge.org/us/universitypress
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189154150106381':
+- collection_name: Kino
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://dlib.eastview.com/browse/udb/7050
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189154151006381':
+- collection_name: Novoe Russkoe Slovo
+  interface_name: ''
+  note: Authorized U-M users (+ guests in U-M Libraries)
+  link: https://dlib.eastview.com/browse/udb/3470
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189158719906381':
+- collection_name: Wiley All English Titles 2026
+  interface_name: Wiley Online Library
+  note: Wiley Online Library.
+  link: https://onlinelibrary.wiley.com/library-info/resources/discovery/kbart2019
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189163579806381':
+- collection_name: JSTOR University of Wisconsin Press Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163579906381':
+- collection_name: JSTOR University Press of Kentucky Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163580006381':
+- collection_name: JSTOR University Press of Kansas Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163580106381':
+- collection_name: JSTOR University Press of Florida Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163580206381':
+- collection_name: JSTOR University of Utah Press Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163580306381':
+- collection_name: JSTOR University of North Carolina Press Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163580406381':
+- collection_name: JSTOR University of Nebraska Press Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163580506381':
+- collection_name: JSTOR University Press of Mississippi Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163580606381':
+- collection_name: JSTOR University of Arizona Press Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163580706381':
+- collection_name: JSTOR Syracuse University Press Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163580806381':
+- collection_name: JSTOR Pluto Press Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163580906381':
+- collection_name: JSTOR Leuven University Press Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163581006381':
+- collection_name: JSTOR Indiana University Press Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163581106381':
+- collection_name: JSTOR Berghahn Books Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189163581206381':
+- collection_name: JSTOR University of Illinois Press Publisher Collection (Backlist)
+  interface_name: JSTOR
+  note: JSTOR. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.jstor.org
+  status: Available
+  campuses:
+  - ann_arbor
+  institution_codes:
+  - MIU
+'99189166899206381':
+- collection_name: 'Central Asia, Persia and Afghanistan: Afghanistan from the Civil War to World War Two, 1923-1949'
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.centralasiapersiaandafghanistan.amdigital.co.uk
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189166900806381':
+- collection_name: Caribbean Newspapers from the Twentieth Century
+  interface_name: AM (Adam Matthew)
+  note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.caribbeannewspapers.amdigital.co.uk
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189166979706381':
+- collection_name: Hongkong Weekly Press Online
+  interface_name: Brillonline
+  note: Brillonline.
+  link: https://www.degruyterbrill.com/database/hwpo/start
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189169497706381':
+- collection_name: Witchcraft and Magic in England, c. 1400–1920
+  interface_name: Microform Academic Publishers
+  note: Microform Academic Publishers. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://britishonlinearchives.com/collections/136/witchcraft-and-magic-in-england-c-1400-1920
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189181920506381':
+- collection_name: 'BAR: British Archaeological Reports British Series 2025'
+  interface_name: University of Michigan
+  note: University of Michigan. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.fulcrum.org/barpublishing/
   status: Available
   campuses:
   - ann_arbor
