@@ -58,7 +58,7 @@ services:
   sftp:
     image: 'atmoz/sftp'
     volumes:
-      - ./sftp/search_daily_bibs:/home/alma/search_daily_bibs
+      - ./sftp/bibs:/home/alma/bibs
       - ./sftp/ssh/ssh_client_rsa_key.pub:/home/alma/.ssh/keys/id_rsa.pub:ro
       - ./sftp/ssh/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key
       - ./sftp/ssh/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key
@@ -74,7 +74,7 @@ services:
       - HATHIFILES_MYSQL_CONNECTION=mysql2://root:pass@hathifiles/hathifiles
       - HT_HOST=https://www.hathitrust.org
       - REDIS_URL=redis://redis:6379
-  web:
+  indexer:
     build:
       context: umich_catalog_indexing/.
       target: development

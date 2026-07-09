@@ -29,9 +29,9 @@ Build it
 $ docker compose build
 ```
 
-Build the gems for the web service (the one that has traject)
+Build the gems for the indexer service (the one that has traject)
 ```
-$ docker compose run --rm web bundle install
+$ docker compose run --rm indexer bundle install
 ```
 
 Turn it on in detached mode
@@ -44,24 +44,30 @@ http://localhost:8983 for the solr admin panel
 http://localhost:9292/ for the sidekiq admin panel
 
 ## Trying it Out
-Some example commands that should work:
+
+This will index the birds file in sftp/bibs
+```
+docker-compose run --rm indexer indexer index_update -s alma -d 2022-02-10
+```
+
+This will index the zephir upd
+```
+docker-compose run --rm indexer indexer index_update -s zephir -d 2022-02-10
+```
+
+If you want to index items without a date in the file name you have to shell in and run some commands:
 ```
 docker-compose run --rm web bundle exec irb -r ./lib/sidekiq_jobs.rb
 
-IndexIt.perform_async("search_daily_bibs/birds.tar.gz", "http://solr:8983/solr/biblio")
-
 IndexIt.new.perform("search_daily_bibs/sample.tar.gz", "http://solr:8983/solr/biblio")
-
-IndexHathi.perform_async("zephir_upd_20220301.json.gz", "http://solr:8983/solr/biblio")
+IndexJson.perform_async("zephir_short.json.gz", "http://solr:8983/solr/biblio")
 ```
+
 
 If you have some ready-to-go marcxml, put it somewhere in the `umich_catalog_indexing` directory and 
 run the following while `docker-compose` is `up`:
 ```
-docker-compose run --rm web bundle exec traject -c /app/readers/xml.rb\
--c /app/writers/solr.rb -c /app/indexers/settings.rb\
--c /app/indexers/common.rb -c /app/indexers/common_ht.rb\ 
--c /app/indexers/subject_topic.rb -c /app/indexers/umich.rb\ 
--c /app/indexers/umich_alma.rb -u "http://solr:8983/solr/biblio"\
-/app/<path to your file relative to umich_catalog_indexing/>
+docker-compose run --rm indexer indexer index_a_file -w solr <path to your file relative to umich_catalog_indexing/>
 ```
+
+The `indexer index_a_file` command has several options for readers and writers
