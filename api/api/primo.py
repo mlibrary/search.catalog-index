@@ -55,7 +55,7 @@ class PrimoDoc:
 
     @property
     def publication_date(self):
-        return self.get_pnx_field_value(section="display", field="creationdate")
+        return self.get_pnx_field_value(section="search", field="creationdate")
 
     @property
     def genre(self):
