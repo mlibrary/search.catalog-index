@@ -163,20 +163,24 @@ class Record:
         return self._plain_text(value=self.doc.title)
 
     @property
-    def published_in(self):
-        values = []
-        if self.doc.journal_title:
-            values.append(self.doc.journal_title)
-        if self.doc.volume:
-            values.append(f"Volume {self.doc.volume}")
-        if self.doc.issue:
-            values.append(f"Issue {self.doc.issue}")
-        if self.doc.publication_date:
-            values.append(self.doc.publication_date)
-        if self.doc.pages:
-            values.append(f"pp. {self.doc.pages}")
-        value = ", ".join(values)
-        return self._plain_text(value=value)
+    def issue(self):
+        return self._plain_text(value=self.doc.issue)
+
+    @property
+    def volume(self):
+        return self._plain_text(value=self.doc.volume)
+
+    @property
+    def pages(self):
+        return self._plain_text(value=self.doc.pages)
+
+    @property
+    def journal_title(self):
+        return self._plain_text(value=self.doc.journal_title)
+
+    @property
+    def publication_date(self):
+        return self._plain_text(value=self.doc.publication_date)
 
     @property
     def abstract(self):

@@ -74,8 +74,6 @@ class TestRecord:
         subject = Record(article_doc)
         assert subject.peer_reviewed is True
 
-    # retracted
-    # peer_reviewed
     def test_abstract(self, subject):
         assert subject.abstract == [{"text": "This is the abstract"}]
 
@@ -150,6 +148,25 @@ class TestRecord:
 
     def test_edition(self, subject):
         assert subject.edition == [{"text": "1"}]
+
+    def test_issue(self, article_doc):
+        article_doc["pnx"]["addata"]["issue"] = ["Issue"]
+        assert Record(article_doc).issue == [{"text": "Issue"}]
+
+    def test_volume(self, article_doc):
+        article_doc["pnx"]["addata"]["volume"] = ["Volume"]
+        assert Record(article_doc).volume == [{"text": "Volume"}]
+
+    def test_pages(self, article_doc):
+        article_doc["pnx"]["addata"]["pages"] = ["Pages"]
+        assert Record(article_doc).pages == [{"text": "Pages"}]
+
+    def test_journal_title(self, article_doc):
+        article_doc["pnx"]["addata"]["jtitle"] = ["Journal Title"]
+        assert Record(article_doc).journal_title == [{"text": "Journal Title"}]
+
+    def test_publication_date(self, subject):
+        assert subject.publication_date == [{"text": "2012"}]
 
 
 class TestAlmaHolding:
