@@ -6,6 +6,7 @@ import re
 from api.services import S
 from urllib.parse import parse_qsl, urlencode
 from api.csl import BaseCSL
+from datetime import datetime
 
 
 with open(f"{S.project_root}/config/primo_languages.yaml", "r") as file:
@@ -574,6 +575,7 @@ class TaggedCitation:
 
     def to_list(self, tag_mapping=TAG_MAPPING):
         result = [self._type()]
+        result += self._non_record_tags()
         for element in tag_mapping:
             if hasattr(self.doc, element["field"]):
                 contents = getattr(self.doc, element["field"])
@@ -610,6 +612,25 @@ class TaggedCitation:
             "ris": ["TY"],
             "meta": [],
         }
+
+    def _non_record_tags(self):
+        return [
+            {
+                "content": "U-M Articles Search",
+                "ris": ["DB"],
+                "meta": [],
+            },
+            {
+                "content": "University of Michigan Library",
+                "ris": ["DP"],
+                "meta": [],
+            },
+            {
+                "content": datetime.now().strftime("%Y-%m-%d"),
+                "ris": ["Y2"],
+                "meta": ["online_date"],
+            },
+        ]
 
     def _end_record_tag(self):
         return [
