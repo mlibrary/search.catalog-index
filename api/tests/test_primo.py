@@ -367,7 +367,9 @@ class TestCSL:
 class TestTaggedCitation:
     def test_handles_fetching_primo_doc(self, article_doc):
         subject = TaggedCitation(PrimoDoc(article_doc))
-        assert subject.to_list([{"field": "id", "ris": ["ID"], "meta": ["id"]}])[1] == {
+        assert subject.to_list([{"field": "id", "ris": ["ID"], "meta": ["id"]}])[
+            -2
+        ] == {
             "content": "cdi_projectmuse_ebooks_9781400840458",
             "ris": ["ID"],
             "meta": ["id"],
@@ -377,8 +379,11 @@ class TestTaggedCitation:
         self, article_doc
     ):
         article_doc["pnx"]["addata"]["jtitle"] = ["Journal Title"]
-        subject = TaggedCitation(PrimoDoc(article_doc))
-        assert subject.to_list([{"field": "jtitle", "ris": ["JF"]}])[1] == {
+        subject = TaggedCitation(PrimoDoc(article_doc)).to_list(
+            [{"field": "jtitle", "ris": ["JF"]}]
+        )
+
+        assert subject[-2] == {
             "content": "Journal Title",
             "ris": ["JF"],
             "meta": [],
@@ -390,12 +395,12 @@ class TestTaggedCitation:
         tagged_list = subject.to_list(
             [{"field": "authors", "ris": ["AU"], "meta": ["author"]}]
         )
-        assert tagged_list[1] == {
+        assert tagged_list[-3] == {
             "content": "Lena, Jennifer C",
             "ris": ["AU"],
             "meta": ["author"],
         }
-        assert tagged_list[2] == {
+        assert tagged_list[-2] == {
             "content": "Author, Second",
             "ris": ["AU"],
             "meta": ["author"],
