@@ -540,7 +540,7 @@ class TestMARC:
     ################
     # contributors #
     ################
-    @pytest.mark.parametrize("tag", ["700", "710", "711"])
+    @pytest.mark.parametrize("tag", ["700", "710"])
     def test_contributors_with_indicator_2_not_2_and_no_t(self, tag):
         sfs = string.ascii_lowercase.replace("t", "") + "4"
         record = create_record_with_paired_field(tag=tag, subfields=sfs)
@@ -549,9 +549,26 @@ class TestMARC:
         expected = self.expected_paired_field(
             tag=tag,
             elements={
-                "text": "a b c d e f g j k l n p q u 4",
-                "search": [{"field": "author", "value": "a b c d g j k q u"}],
-                "browse": "a b c d g j k q u",
+                "text": "a b c d e g j n q u 4",
+                "search": [{"field": "author", "value": "a b c d g j n q u"}],
+                "browse": "a b c d g j n q u",
+            },
+        )
+
+        assert serialize(subject.contributors) == expected
+
+    @pytest.mark.parametrize("tag", ["711"])
+    def test_contributors_711_with_indicator_2_not_2_and_no_t(self, tag):
+        sfs = string.ascii_lowercase.replace("t", "") + "4"
+        record = create_record_with_paired_field(tag=tag, subfields=sfs)
+
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={
+                "text": "a b c d e g j n q u 4",
+                "search": [{"field": "author", "value": "a c d e g n q u"}],
+                "browse": "a c d e g n q u",
             },
         )
 

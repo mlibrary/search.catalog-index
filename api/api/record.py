@@ -276,18 +276,30 @@ class MARC:
 
     @property
     def contributors(self):
-        search_sfs = "abcdgjkqu"
-        ruleset = FieldRuleset(
-            tags=["700", "710", "711"],
-            search=[{"subfields": search_sfs, "field": "author"}],
-            text_sfs="abcdefgjklnpqu4",
-            browse_sfs=search_sfs,
-            filter=lambda field: (
-                not field.get_subfields("t") and field.indicator2 != "2"
+        def is_not_a_title(field: pymarc.Field) -> bool:
+            return not field.get_subfields("t") and field.indicator2 != "2"
+
+        display_sfs = "abcdegjnqu4"
+        search_sfs = "abcdgjnqu"
+        search2_sfs = "acdegnqu"
+        rulesets = (
+            FieldRuleset(
+                tags=["700", "710"],
+                search=[{"subfields": search_sfs, "field": "author"}],
+                text_sfs=display_sfs,
+                browse_sfs=search_sfs,
+                filter=is_not_a_title,
+            ),
+            FieldRuleset(
+                tags=["711"],
+                search=[{"subfields": search2_sfs, "field": "author"}],
+                text_sfs=display_sfs,
+                browse_sfs=search2_sfs,
+                filter=is_not_a_title,
             ),
         )
 
-        return self.processor.generate_paired_fields(tuple([ruleset]))
+        return self.processor.generate_paired_fields(tuple(rulesets))
 
     @property
     def created(self):
