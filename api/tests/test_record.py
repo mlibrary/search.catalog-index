@@ -541,7 +541,8 @@ class TestMARC:
     # contributors #
     ################
     @pytest.mark.parametrize("tag", ["700", "710"])
-    def test_contributors_with_indicator_2_not_2_and_no_t(self, tag):
+    def test_contributors_with_indicator_2_not_2_and_no_t_and_e_present(self, tag):
+        # this should not show 4
         sfs = string.ascii_lowercase.replace("t", "") + "4"
         record = create_record_with_paired_field(tag=tag, subfields=sfs)
 
@@ -549,7 +550,49 @@ class TestMARC:
         expected = self.expected_paired_field(
             tag=tag,
             elements={
-                "text": "a b c d e g j n q u 4",
+                "text": "a b c d e g j n q u",
+                "search": [{"field": "author", "value": "a b c d g j n q u"}],
+                "browse": "a b c d g j n q u",
+            },
+        )
+
+        assert serialize(subject.contributors) == expected
+
+    @pytest.mark.parametrize("tag", ["700", "710"])
+    def test_contributors_with_indicator_2_not_2_and_no_t_and_e_not_present(self, tag):
+        # this should show 4 (and not e because it is not there)
+        sfs = string.ascii_lowercase.replace("t", "") + "4"
+        sfs = sfs.replace("e", "")
+        record = create_record_with_paired_field(tag=tag, subfields=sfs)
+
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={
+                "text": "a b c d g j n q u 4",
+                "search": [{"field": "author", "value": "a b c d g j n q u"}],
+                "browse": "a b c d g j n q u",
+            },
+        )
+
+        assert serialize(subject.contributors) == expected
+
+    @pytest.mark.parametrize("tag", ["700", "710"])
+    def test_contributors_with_indicator_2_not_2_and_no_t_and_e_not_present_4_starts_with_http(
+        self, tag
+    ):
+        # this should show 4 (and not e because it is not there)
+        sfs = string.ascii_lowercase.replace("t", "") + "4"
+        sfs = sfs.replace("e", "")
+        record = create_record_with_paired_field(tag=tag, subfields=sfs)
+        record[tag]["4"] = "http://some-website"
+        record["880"]["4"] = "http://some-website"
+
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={
+                "text": "a b c d g j n q u",
                 "search": [{"field": "author", "value": "a b c d g j n q u"}],
                 "browse": "a b c d g j n q u",
             },
@@ -558,7 +601,8 @@ class TestMARC:
         assert serialize(subject.contributors) == expected
 
     @pytest.mark.parametrize("tag", ["711"])
-    def test_contributors_711_with_indicator_2_not_2_and_no_t(self, tag):
+    def test_contributors_711_with_indicator_2_not_2_and_no_t_and_e_present(self, tag):
+        # this should not show 4
         sfs = string.ascii_lowercase.replace("t", "") + "4"
         record = create_record_with_paired_field(tag=tag, subfields=sfs)
 
@@ -566,9 +610,53 @@ class TestMARC:
         expected = self.expected_paired_field(
             tag=tag,
             elements={
-                "text": "a b c d e g j n q u 4",
+                "text": "a b c d e g j n q u",
                 "search": [{"field": "author", "value": "a c d e g n q u"}],
                 "browse": "a c d e g n q u",
+            },
+        )
+
+        assert serialize(subject.contributors) == expected
+
+    @pytest.mark.parametrize("tag", ["711"])
+    def test_contributors_711_with_indicator_2_not_2_and_no_t_and_e_not_present(
+        self, tag
+    ):
+        # this should show 4 (but not e because it's not there)
+        sfs = string.ascii_lowercase.replace("t", "") + "4"
+        sfs = sfs.replace("e", "")
+        record = create_record_with_paired_field(tag=tag, subfields=sfs)
+
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={
+                "text": "a b c d g j n q u 4",
+                "search": [{"field": "author", "value": "a c d g n q u"}],
+                "browse": "a c d g n q u",
+            },
+        )
+
+        assert serialize(subject.contributors) == expected
+
+    @pytest.mark.parametrize("tag", ["711"])
+    def test_contributors_711_with_indicator_2_not_2_and_no_t_and_e_not_present_4_has_http(
+        self, tag
+    ):
+        # this should show 4 (but not e because it's not there)
+        sfs = string.ascii_lowercase.replace("t", "") + "4"
+        sfs = sfs.replace("e", "")
+        record = create_record_with_paired_field(tag=tag, subfields=sfs)
+        record["711"]["4"] = "http://some-website"
+        record["880"]["4"] = "http://some-website"
+
+        subject = MARC(record)
+        expected = self.expected_paired_field(
+            tag=tag,
+            elements={
+                "text": "a b c d g j n q u",
+                "search": [{"field": "author", "value": "a c d g n q u"}],
+                "browse": "a c d g n q u",
             },
         )
 
