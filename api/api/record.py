@@ -276,18 +276,58 @@ class MARC:
 
     @property
     def contributors(self):
-        search_sfs = "abcdgjkqu"
-        ruleset = FieldRuleset(
-            tags=["700", "710", "711"],
-            search=[{"subfields": search_sfs, "field": "author"}],
-            text_sfs="abcdefgjklnpqu4",
-            browse_sfs=search_sfs,
-            filter=lambda field: (
-                not field.get_subfields("t") and field.indicator2 != "2"
+
+        def is_not_a_title(field: pymarc.Field) -> bool:
+            return not field.get_subfields("t") and field.indicator2 != "2"
+
+        def has_valid_4(field: pymarc.Field) -> bool:
+            return not (
+                field.get_subfields("e")
+                or any(sf.startswith("http") for sf in field.get_subfields("4"))
+            )
+
+        def show_4(field: pymarc.Field) -> bool:
+            return has_valid_4(field) and is_not_a_title(field)
+
+        def do_not_show_4(field: pymarc.Field) -> bool:
+            return not has_valid_4(field) and is_not_a_title(field)
+
+        display_sfs = "abcdegjnqu"
+        display_sfs_with_4 = display_sfs + "4"
+        search_sfs = "abcdgjnqu"
+        search2_sfs = "acdegnqu"
+        rulesets = (
+            FieldRuleset(
+                tags=["700", "710"],
+                search=[{"subfields": search_sfs, "field": "author"}],
+                text_sfs=display_sfs_with_4,
+                browse_sfs=search_sfs,
+                filter=show_4,
+            ),
+            FieldRuleset(
+                tags=["711"],
+                search=[{"subfields": search2_sfs, "field": "author"}],
+                text_sfs=display_sfs_with_4,
+                browse_sfs=search2_sfs,
+                filter=show_4,
+            ),
+            FieldRuleset(
+                tags=["700", "710"],
+                search=[{"subfields": search_sfs, "field": "author"}],
+                text_sfs=display_sfs,
+                browse_sfs=search_sfs,
+                filter=do_not_show_4,
+            ),
+            FieldRuleset(
+                tags=["711"],
+                search=[{"subfields": search2_sfs, "field": "author"}],
+                text_sfs=display_sfs,
+                browse_sfs=search2_sfs,
+                filter=do_not_show_4,
             ),
         )
 
-        return self.processor.generate_paired_fields(tuple([ruleset]))
+        return self.processor.generate_paired_fields(tuple(rulesets))
 
     @property
     def created(self):
