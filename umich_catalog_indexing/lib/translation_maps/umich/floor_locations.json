@@ -395,7 +395,7 @@
         "library": "MUSIC",
         "collection": "MAIN",
         "start": "ml0001.00000",
-        "stop": "ml0005.00000.m8443z",
+        "stop": "ml0005.00000.s36z",
         "floor_key": "4",
         "text": "4th Floor",
         "type": "LC"
@@ -403,7 +403,7 @@
       {
         "library": "MUSIC",
         "collection": "MAIN",
-        "start": "ml0005.00000.m8445",
+        "start": "ml0005.00000.s37",
         "stop": "zz",
         "floor_key": "5",
         "text": "5th Floor",
