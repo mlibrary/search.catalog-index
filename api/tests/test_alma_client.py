@@ -1,7 +1,7 @@
 import responses
 import pytest
 import json
-from api.alma_client import AlmaClient
+from api.clients.exlibris_client import AlmaClient
 from api.services import S
 
 

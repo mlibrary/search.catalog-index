@@ -4,6 +4,7 @@ from prometheus_fastapi_instrumentator import Instrumentator
 
 from .routers import catalog
 from .routers import onlinejournals
+from .routers import articles
 
 app = FastAPI(
     title="Catalog Search API", description="REST API for Catalog Search Solr"
@@ -11,5 +12,6 @@ app = FastAPI(
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 app.include_router(catalog.router)
 app.include_router(onlinejournals.router)
+app.include_router(articles.router)
 
 Instrumentator().instrument(app).expose(app)

@@ -1,0 +1,251 @@
+{
+  "info": {
+    "totalResultsLocal": -1,
+    "totalResultsPC": 1,
+    "total": 1,
+    "first": 1,
+    "last": 1
+  },
+  "highlights": {
+    "termsUnion": []
+  },
+  "docs": [
+    {
+      "pnx": {
+        "links": {
+          "openurlfulltext": [
+            "$$Topenurlfull_article"
+          ],
+          "openurl": [
+            "$$Topenurl_article"
+          ],
+          "linktorsrc": [
+            "$$Tnaxos_music_libray$$EView_item_in_Naxos"
+          ],
+          "thumbnail": [
+            "$$Tsyndetics_thumb_exl"
+          ]
+        },
+        "search": {
+          "creator": [
+            "Hildegard of Bingen"
+          ],
+          "title": [
+            "HILDEGARD OF BINGEN: Dendermonde Codex, Vol. 1 (Psallentes, Abeele)"
+          ],
+          "subject": [
+            "Classical Music"
+          ],
+          "fulltext": [
+            "true"
+          ],
+          "general": [
+            "Naxos Digital Services US Inc"
+          ],
+          "startdate": [
+            "2021"
+          ],
+          "enddate": [
+            "2021"
+          ],
+          "recordtype": [
+            "audio"
+          ],
+          "sourceid": [
+            "ABVAC"
+          ],
+          "recordid": [
+            "eNotjMtOwzAUBbPpArX8g5cgNVWMm8ftLrVTN5JJESC2kR_XUiQ3QTGVyt9TAZszmlmcu4QfWyUaWb8KcjqQfdvJptsRgaPD-TzdlvDJ4XVNPqawIZQ8vEQdAo5fGNekNogBH1fJwusQ8f6fy-Tt0LzzY6pOsuW1SkdgMn0q0JbgGRhg4PMctLM6qyrwxrLcAWIJrkRvqTdZQQuWVajzDE3pt-goWybbv9dRX6fYf87DWc_fl9h3v_58iYPt1WDmW-3VngtKRSvZD1UWRGw"
+          ],
+          "scope": [
+            "ABVAC"
+          ],
+          "creationdate": [
+            "2021"
+          ],
+          "creatorcontrib": [
+            "Hildegard of Bingen"
+          ],
+          "rsrctype": [
+            "audio"
+          ]
+        },
+        "delivery": {
+          "fulltext": [
+            "fulltext_linktorsrc"
+          ],
+          "delcategory": [
+            "Remote Search Resource"
+          ]
+        },
+        "display": {
+          "creator": [
+            "Hildegard of Bingen"
+          ],
+          "title": [
+            "HILDEGARD OF BINGEN: Dendermonde Codex, Vol. 1 (Psallentes, Abeele)"
+          ],
+          "language": [
+            "eng"
+          ],
+          "creationdate": [
+            "2021"
+          ],
+          "type": [
+            "audio"
+          ],
+          "source": [
+            "Naxos Music Library (NML) US"
+          ],
+          "publisher": [
+            "Hong Kong: Naxos Digital Services US Inc"
+          ],
+          "subject": [
+            "Classical Music"
+          ]
+        },
+        "addata": {
+          "title": [
+            "HILDEGARD OF BINGEN: Dendermonde Codex, Vol. 1 (Psallentes, Abeele)"
+          ],
+          "genre": [
+            "unknown"
+          ],
+          "au": [
+            "Hildegard of Bingen"
+          ],
+          "date": [
+            "2021"
+          ],
+          "risdate": [
+            "2021"
+          ],
+          "ristype": [
+            "SOUND"
+          ],
+          "cop": [
+            "Hong Kong"
+          ],
+          "pub": [
+            "Naxos Digital Services US Inc"
+          ]
+        },
+        "facets": {
+          "language": [
+            "eng"
+          ],
+          "creationdate": [
+            "2021"
+          ],
+          "creatorcontrib": [
+            "Hildegard of Bingen"
+          ],
+          "topic": [
+            "Classical Music"
+          ],
+          "prefilter": [
+            "audios"
+          ],
+          "rsrctype": [
+            "audios"
+          ],
+          "collection": [
+            "Naxos Music Library (NML) US"
+          ],
+          "toplevel": [
+            "online_resources"
+          ],
+          "frbrgroupid": [
+            "cdi_FETCH-LOGICAL-n93G-26ec79f39b939f559adca0889fbc35d9ee79d7efc1fb0616308ea50eb7f4ed13"
+          ],
+          "frbrtype": [
+            "5"
+          ]
+        },
+        "sort": {
+          "title": [
+            "HILDEGARD OF BINGEN: Dendermonde Codex, Vol. 1 (Psallentes, Abeele)"
+          ],
+          "creationdate": [
+            "2021"
+          ],
+          "author": [
+            "Hildegard of Bingen"
+          ]
+        },
+        "control": {
+          "recordtype": [
+            "audio"
+          ],
+          "sourceid": [
+            "naxos_ABVAC"
+          ],
+          "recordid": [
+            "cdi_naxos_primaryus_Naxos_Music_Library_LBCD11DIG"
+          ],
+          "addsrcrecordid": [
+            "LBCD11DIG"
+          ],
+          "sourcerecordid": [
+            "LBCD11DIG"
+          ],
+          "originalsourceid": [
+            "FETCH-LOGICAL-n93G-26ec79f39b939f559adca0889fbc35d9ee79d7efc1fb0616308ea50eb7f4ed13"
+          ],
+          "sourcetype": [
+            "Publisher"
+          ],
+          "sourceformat": [
+            "XML"
+          ],
+          "sourcesystem": [
+            "Other"
+          ],
+          "iscdi": [
+            "true"
+          ],
+          "score": [
+            "0.0017577702"
+          ]
+        }
+      },
+      "delivery": {
+        "link": [],
+        "deliveryCategory": [
+          "Remote Search Resource"
+        ],
+        "availability": [
+          "fulltext_linktorsrc"
+        ],
+        "displayLocation": false,
+        "additionalLocations": false,
+        "physicalItemTextCodes": "",
+        "feDisplayOtherLocations": false,
+        "displayedAvailability": "true",
+        "holding": [],
+        "almaOpenurl": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2026-06-29 17:20:29&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-naxos_ABVAC&rft.genre=unknown&rft.au=Hildegard+of+Bingen&rft.date=2021&rft.pub=Naxos+Digital+Services+US+Inc&rft.place=Hong+Kong&rft_dat=<naxos_ABVAC>LBCD11DIG</naxos_ABVAC>&svc_dat=viewit"
+      },
+      "context": "PC",
+      "adaptor": "Primo Central",
+      "extras": {
+        "citationTrails": {
+          "citing": [],
+          "citedby": []
+        },
+        "timesCited": {}
+      },
+      "@id": "https://na04.alma.exlibrisgroup.com/primaws/rest/pub/pnxs/PC/cdi_naxos_primaryus_Naxos_Music_Library_LBCD11DIG"
+    }
+  ],
+  "timelog": {
+    "PC_SEARCH_CALL_TIME": "253",
+    "PC_BUILD_JSON_AND_HIGLIGHTS": "14",
+    "PC_SEARCH_TIME_TOTAL": "267",
+    "BUILD_BLEND_AND_CACHE_RESULTS": 1,
+    "BUILD_COMBINED_RESULTS_MAP": 267,
+    "COMBINED_SEARCH_TIME": 275,
+    "PROCESS_COMBINED_RESULTS": 0,
+    "FEATURED_SEARCH_TIME": 0
+  },
+  "facets": []
+}

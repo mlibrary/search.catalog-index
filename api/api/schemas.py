@@ -126,6 +126,10 @@ class SearchField(TextField):
     search: list[FieldedSearchField]
 
 
+class BareSearchField(BareTextField):
+    search: list[FieldedSearchField]
+
+
 class PairedSearchField(BaseModel):
     transliterated: Optional[SearchField] = None
     original: SearchField
@@ -170,22 +174,39 @@ class CSL(BaseModel):
     id: str
     type: str
     title: str
-    edition: Optional[str]
-    collection_title: Optional[str]
+    author: Optional[list[CSLName | CSLLiteral]]
+    issued: Optional[CSLLiteral]
+    publisher: Optional[str]
     isbn: Optional[list[str]] = Field(serialization_alias="ISBN")
     issn: Optional[list[str]] = Field(serialization_alias="ISSN")
+    edition: Optional[str]
+
+
+class CatalogCSL(CSL):
+    collection_title: Optional[str]
     call_number: Optional[str]
     publisher_place: Optional[str]
-    publisher: Optional[str]
-    issued: Optional[CSLLiteral]
-    author: Optional[list[CSLName | CSLLiteral]]
     editor: Optional[list[CSLName | CSLLiteral]]
     number: Optional[str]
 
 
-class Citation(BaseModel):
+class ArticlesCSL(CSL):
+    page: Optional[str]
+    container_title: Optional[str]
+    volume: Optional[str]
+    issue: Optional[str]
+    genre: Optional[str]
+    doi: Optional[str]
+
+
+class CatalogCitation(BaseModel):
     tagged: list[TaggedCitation]
-    csl: CSL
+    csl: CatalogCSL
+
+
+class ArticlesCitation(BaseModel):
+    tagged: list[TaggedCitation]
+    csl: ArticlesCSL
 
 
 ##########
@@ -265,7 +286,7 @@ class Record(BaseModel):
     indexing_date: datetime.date
     holdings: Holdings
     marc: dict
-    citation: Citation
+    citation: CatalogCitation
 
     model_config = ConfigDict(populate_by_name=True)
 
@@ -344,7 +365,7 @@ class ResultRecord(BaseModel):
     # indexing_date: datetime.date
     holdings: Holdings
     # marc: dict
-    citation: Citation
+    citation: CatalogCitation
 
     model_config = ConfigDict(populate_by_name=True)
 
@@ -355,6 +376,40 @@ class OnlinejournalsResultRecord(ResultRecord):
 
 class OnlinejournalsRecord(Record):
     holdings: OnlinejournalsHoldings
+
+
+class ArticleHolding(BaseModel):
+    source: str
+    availability: str
+    url: str
+
+
+class ArticlesRecord(BaseModel):
+    id: str
+    peer_reviewed: bool
+    retraction_notice_url: Optional[str] = None
+    title: list[BareTextField]
+    abstract: list[BareTextField]
+    author: list[BareSearchField]
+    journal_title: list[BareTextField]
+    issue: list[BareTextField]
+    volume: list[BareTextField]
+    pages: list[BareTextField]
+    publication_date: list[BareTextField]
+    publisher: list[BareTextField]
+    genre: list[BareTextField]
+    issn: list[BareTextField]
+    eissn: list[BareTextField]
+    isbn: list[BareTextField]
+    eisbn: list[BareTextField]
+    doi: list[BareTextField]
+    oclc: list[BareTextField]
+    pmid: list[BareTextField]
+    language: list[BareTextField]
+    subject: list[BareTextField]
+    edition: list[BareTextField]
+    holdings: list[ArticleHolding]
+    citation: ArticlesCitation
 
 
 class Specialist(BaseModel):
