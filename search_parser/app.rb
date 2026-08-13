@@ -100,6 +100,67 @@ class SearchParser
   class Onlinejournals < self
     CONFIG = YAML.safe_load_file("./config/onlinejournals.yaml", aliases: true).freeze
   end
+
+  class Articles < self
+    CONFIG = YAML.safe_load_file("./config/articles.yaml", aliases: true).freeze
+
+    def self.primo_fields
+      @facets ||= self::CONFIG["primo_fields"].freeze
+    end
+
+    def self.primo_q(query)
+      tree = build(query)
+      tree.children.map do |child|
+        parse_node(node: child)
+      end.join(",AND;")
+        .gsub(/,(AND|OR);,NOT;/, ",NOT;")
+        .gsub(/^,NOT;/, "any,contains,*,NOT;")
+    end
+
+    def self.parse_node(node:, field: "any", precision: "contains")
+      case node.node_type
+      when :tokens
+        [field, precision, node.text].join(",")
+      when :fielded
+        mapped_field = primo_fields[node.field]
+        parse_node(node: node.query, field: mapped_field["field"], precision: mapped_field["precision"])
+      when :and
+        node.children.map do |child|
+          parse_node(node: child)
+        end.join(",AND;")
+      when :or
+        if node_has_fielded_children?(node)
+          node.children.map do |child|
+            parse_node(node: child)
+          end.join(",OR;")
+        else
+          joined_keywords = node.children.map do |child|
+            extract_keywords(child)
+          end.join(" OR ")
+          [field, precision, "(#{joined_keywords})"].join(",")
+        end
+      when :not
+        result = node.children.map do |child|
+          parse_node(node: child)
+        end.join(",NOT;")
+        ",NOT;" + result
+      end
+    end
+
+    def self.extract_keywords(node)
+      if node.is_type?(:tokens)
+        node.text
+      elsif [:and, :or, :not].any? { |type| node.is_type?(type) }
+        "(" + node.children.map { |child| extract_keywords(child) }.join(" #{node.operator.to_s.upcase} ") + ")"
+      end
+    end
+
+    def self.node_has_fielded_children?(node)
+      return true if node.is_type?(:fielded)
+      return false if node.is_type?(:tokens)
+      node.children.any? { |child| node_has_fielded_children?(child) }
+    end
+  end
 end
 
 class SearchParser::Application < Sinatra::Base
@@ -197,6 +258,15 @@ class SearchParser::Application < Sinatra::Base
       response = S.solr_conn.get("solr/#{S.solr_core}/select", solr_params)
 
       response.body.to_json
+    end
+  end
+  namespace "/articles" do
+    get "/search" do
+      headers "metrics.route" => "articles/search"
+      content_type :json
+      {
+        query: params["query"] || ""
+      }
     end
   end
 end

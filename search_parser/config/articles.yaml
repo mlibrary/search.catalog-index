@@ -1,0 +1,48 @@
+search_field_default: any
+search_attr_defaults:
+  mm: $default_mm
+  mm.autoRelax: $mm.autoRelax
+  tie: $tie
+search_fields:
+  all_fields: &ALL_FIELDS
+    pf: .
+    qf: .
+  author: *ALL_FIELDS
+  title: *ALL_FIELDS
+  contributor: *ALL_FIELDS
+  subject: *ALL_FIELDS
+  isbn: *ALL_FIELDS
+  issn: *ALL_FIELDS
+  date: *ALL_FIELDS
+  allfields: *ALL_FIELDS
+  keyword: *ALL_FIELDS
+  keywords: *ALL_FIELDS
+  exact: *ALL_FIELDS
+  contains: *ALL_FIELDS
+  pmid: *ALL_FIELDS
+  any: *ALL_FIELDS
+solr_params:
+  default_mm: "2<-1 5<67%"
+  mm.autoRelax: true
+  tie: 0.1
+  facet.threads: 10
+#facets:
+primo_fields:
+  exact:
+    field: "any"
+    precision: "exact"
+  title:
+    field: "title"
+    precision: "contains"
+  author:
+    field: "creator"
+    precision: "contains"
+  subject:
+    field: "topic"
+    precision: "contains"
+  date:
+    field: "date"
+    precision: "contains"
+  issn:
+    field: "issn"
+    precision: "contains"
