@@ -447,7 +447,7 @@ class Results(BaseModel):
     limit: int
     offset: int
     total: int
-    sort: str
+    sort: str | None
 
 
 class OnlinejournalsResults(Results):

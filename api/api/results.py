@@ -33,6 +33,19 @@ def get_onlinejournals_results(query_params: dict):
     return OnlinejournalsResults(data=response.json(), query_params=query_params)
 
 
+def get_onlinejournals_browse_academic_discipline(query_params: dict):
+    parser_params = {
+        "start": query_params["offset"],
+        "rows": query_params["limit"],
+    }
+
+    response = requests.Session().get(
+        f"{S.parser_url}/onlinejournals/browse_academic_discipline/{query_params['academic_discipline']}",
+        params=parser_params,
+    )
+    return OnlinejournalsResults(data=response.json(), query_params=query_params)
+
+
 class FilterHandler:
     def __init__(self, filter_to_facet):
         self.filter_to_facet = filter_to_facet
@@ -108,7 +121,9 @@ class BaseResults:
 
     @property
     def sort(self):
-        return self.inverse_sort_map[self.data["responseHeader"]["params"]["sort"]]
+        response_sort = self.data["responseHeader"]["params"]["sort"]
+        if response_sort in self.inverse_sort_map:
+            return self.inverse_sort_map[response_sort]
 
 
 class CatalogResults(BaseResults):

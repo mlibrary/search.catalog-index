@@ -191,7 +191,7 @@ class SearchParser::Application < Sinatra::Base
       query_params[:fq].push("hlb3Str:\"#{academic_discipline}\"")
       bb_field = "#{academic_discipline.downcase.gsub(/\s+/, "_")}_bb"
 
-      query_params[:sort] = "#{bb_field} asc, titleSort asc"
+      query_params[:sort] = "#{bb_field} asc,titleSort asc"
       solr_params = SearchParser::Onlinejournals.solr_query(**query_params)
 
       response = S.solr_conn.get("solr/#{S.solr_core}/select", solr_params)
