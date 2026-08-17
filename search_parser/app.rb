@@ -140,7 +140,7 @@ class SearchParser::Application < Sinatra::Base
   end
   namespace "/onlinejournals" do
     get "/search" do
-      headers "metrics.route" => "catalog/search"
+      headers "metrics.route" => "onlinejournals/search"
       content_type :json
       query_params = {
         query: params["query"] || "",
@@ -161,7 +161,7 @@ class SearchParser::Application < Sinatra::Base
     end
 
     get "/academic_disciplines" do
-      headers "metrics.route" => "catalog/academic_disciplines"
+      headers "metrics.route" => "onlinejournals/academic_disciplines"
       content_type :json
       query_params = {
         query: params["query"] || "",
@@ -170,6 +170,29 @@ class SearchParser::Application < Sinatra::Base
       query_params[:fq].push("location:ELEC")
       query_params[:fq].push("format:Serial")
       solr_params = SearchParser::Onlinejournals.academic_discipline_solr_query(**query_params)
+
+      response = S.solr_conn.get("solr/#{S.solr_core}/select", solr_params)
+
+      response.body.to_json
+    end
+
+    get "/browse_academic_discipline/:academic_discipline" do |academic_discipline|
+      headers "metrics.route" => "onlinejournals/browse_academic_discipline"
+
+      content_type :json
+      query_params = {
+        query: "",
+        rows: params["rows"] || 10,
+        start: params["start"] || 0,
+        fq: []
+      }
+      query_params[:fq].push("location:ELEC")
+      query_params[:fq].push("format:Serial")
+      query_params[:fq].push("hlb3Str:\"#{academic_discipline}\"")
+      bb_field = "#{academic_discipline.downcase.gsub(/\s+/, "_")}_bb"
+
+      query_params[:sort] = "#{bb_field} asc, titleSort asc"
+      solr_params = SearchParser::Onlinejournals.solr_query(**query_params)
 
       response = S.solr_conn.get("solr/#{S.solr_core}/select", solr_params)
 
