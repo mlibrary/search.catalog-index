@@ -43,7 +43,11 @@ def get_onlinejournals_browse_academic_discipline(query_params: dict):
         f"{S.parser_url}/onlinejournals/browse_academic_discipline/{query_params['academic_discipline']}",
         params=parser_params,
     )
-    return OnlinejournalsResults(data=response.json(), query_params=query_params)
+    return OnlinejournalsResults(
+        data=response.json(),
+        query_params=query_params,
+        recommended_academic_discipline=query_params["academic_discipline"],
+    )
 
 
 class FilterHandler:
@@ -156,9 +160,22 @@ class CatalogResults(BaseResults):
 class OnlinejournalsResults(BaseResults):
     fh = onlinejournals_filter_handler
 
+    def __init__(
+        self, data: dict, query_params: dict, recommended_academic_discipline=None
+    ):
+        self.data = data
+        self.query_params = query_params
+        self.recommended_academic_discipline = recommended_academic_discipline
+
     @property
     def records(self):
-        return [OnlinejournalsRecord(data) for data in self.data["response"]["docs"]]
+        return [
+            OnlinejournalsRecord(
+                data=data,
+                recommended_academic_discipline=self.recommended_academic_discipline,
+            )
+            for data in self.data["response"]["docs"]
+        ]
 
     @property
     def filters(self):

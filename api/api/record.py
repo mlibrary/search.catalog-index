@@ -1314,7 +1314,7 @@ class OnlinejournalsBaseRecord(BaseRecord):
     @property
     def holdings(self):
         holdings_data = json.loads(self.data.get("hol"))
-        # don't need to look of loans
+        # don't need to look for loans
         loans = []
         holdings = Holdings(
             holdings_data, bib_id=self.id, record=self.record, loans=loans
@@ -1323,10 +1323,20 @@ class OnlinejournalsBaseRecord(BaseRecord):
 
 
 class OnlinejournalsRecord(OnlinejournalsBaseRecord):
-    def __init__(self, data: dict):
+    def __init__(self, data: dict, recommended_academic_discipline=None):
         self.data = data
         self.record = pymarc.parse_xml_to_array(io.StringIO(data["fullrecord"]))[0]
+        self.recommended_academic_discipline = recommended_academic_discipline
         OnlinejournalsBaseRecord.__init__(self, data)
+
+    @property
+    def recommended_resource(self):
+        if self.recommended_academic_discipline:
+            normalized_ad = re.sub(
+                r"\s+", "_", self.recommended_academic_discipline
+            ).lower()
+            result = SolrDocProcessor(self.data).get(f"{normalized_ad}_bb")
+            return bool(result)
 
     @property
     def citation(self):

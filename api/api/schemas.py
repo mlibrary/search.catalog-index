@@ -371,6 +371,7 @@ class ResultRecord(BaseModel):
 
 
 class OnlinejournalsResultRecord(ResultRecord):
+    recommended_resource: bool | None
     holdings: OnlinejournalsHoldings
 
 
