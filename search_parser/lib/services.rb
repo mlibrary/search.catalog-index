@@ -41,6 +41,10 @@ S.register(:log_level) do
   ENV["DEBUG"] ? :debug : :info
 end
 
+S.register(:primo_api_key) do
+  ENV["PRIMO_API_KEY"] || "primo_api_key"
+end
+
 SemanticLogger.default_level = S.log_level
 
 class ProductionFormatter < SemanticLogger::Formatters::Json

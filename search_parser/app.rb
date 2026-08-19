@@ -108,6 +108,20 @@ class SearchParser
       @facets ||= self::CONFIG["primo_fields"].freeze
     end
 
+    def self.primo_query(params)
+      {
+        q: primo_q(params[:q]),
+        qInclude: params[:qInclude],
+        sort: params[:sort],
+        offset: params[:offset],
+        limit: params[:limit],
+        scope: "CentralIndex",
+        tab: "CentralIndex",
+        vid: "01UMICH_INST:UMICH",
+        disableSplitFacets: "true"
+      }
+    end
+
     def self.primo_q(query)
       tree = build(query)
       tree.children.map do |child|
@@ -264,9 +278,27 @@ class SearchParser::Application < Sinatra::Base
     get "/search" do
       headers "metrics.route" => "articles/search"
       content_type :json
-      {
-        query: params["query"] || ""
+      query_params = {
+        q: params["q"] || "",
+        sort: params[:sort] || "rank",
+        offset: params[:offset] || 0,
+        limit: params[:limit] || 10
       }
+      [:qInclude, :qExclude, :pcAvailability].each do |field|
+        query_params[field] = params[field.to_s] if params[field.to_s]
+      end
+      conn = Faraday.new(
+        headers: {"Content-Type" => "application/json",
+                  "Accept" => "application/json",
+                  "Authorization" => "apikey #{S.primo_api_key}"}
+      ) do |f|
+        f.request :json
+        f.response :json
+      end
+
+      response = conn.get("https://api-na.hosted.exlibrisgroup.com/primo/v1/search", SearchParser::Articles.primo_query(query_params))
+      S.logger.info("primo_request", url: response.url.to_str)
+      response.body.to_json
     end
   end
 end
