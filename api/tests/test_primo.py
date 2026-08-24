@@ -1,6 +1,14 @@
 import pytest
 import json
-from api.primo import Record, AlmaHolding, LibKeyHolding, CSL, PrimoDoc, TaggedCitation
+from api.primo import (
+    Record,
+    AlmaHolding,
+    LibKeyHolding,
+    CSL,
+    PrimoDoc,
+    TaggedCitation,
+    ArticlesFilterQuery,
+)
 from urllib.parse import parse_qs
 import re
 
@@ -423,3 +431,74 @@ class TestTaggedCitation:
             "ris": ["TY"],
             "meta": [],
         }
+
+
+class TestArticlesFilterQuery:
+    def test_qInclude_for_subject(self):
+        expected = "facet_topic,exact,Musical Performances|,|facet_topic,exact,Other"
+        subject = ArticlesFilterQuery(
+            {"filters": ["subject:Musical Performances", "subject:Other"]}
+        ).qInclude()
+        assert subject == expected
+
+    def test_qInclude_for_format(self):
+        expected = "facet_rtype,exact,newspaper_articles"
+        subject = ArticlesFilterQuery(
+            {"filters": ["format:Newspaper Articles"]}
+        ).qInclude()
+        assert subject == expected
+
+    def test_qInclude_for_language(self):
+        expected = "facet_lang,exact,spa"
+        subject = ArticlesFilterQuery({"filters": ["language:Spanish"]}).qInclude()
+        assert subject == expected
+
+    def test_qInclude_handles_bogus_language_language(self):
+        expected = "facet_lang,exact,spa"
+        subject = ArticlesFilterQuery(
+            {"filters": ["language:SuchAFakeLanguage", "language:Spanish"]}
+        ).qInclude()
+        assert subject == expected
+
+    def test_qInclude_for_date(self):
+        expected = "facet_creationdate,exact,[2025 TO 2025]"
+        subject = ArticlesFilterQuery({"filters": ["date:2025"]}).qInclude()
+        assert subject == expected
+
+    def test_qInclude_for_open_access(self):
+        expected = "facet_tlevel,exact,open_access"
+        subject = ArticlesFilterQuery({"open_access": True, "filters": []}).qInclude()
+        assert subject == expected
+
+    def test_qInclude_for_online(self):
+        expected = "facet_tlevel,exact,online_resources"
+        subject = ArticlesFilterQuery({"online": True, "filters": []}).qInclude()
+        assert subject == expected
+
+    def test_qInclude_for_peer_reviewed(self):
+        expected = "facet_tlevel,exact,peer_reviewed"
+        subject = ArticlesFilterQuery({"peer_reviewed": True, "filters": []}).qInclude()
+        assert subject == expected
+
+    def test_qExclude_for_newspapers(self):
+        expected = "facet_rtype,exact,newspaper_articles"
+        subject = ArticlesFilterQuery(
+            {"exclude_newspapers": True, "filters": []}
+        ).qExclude()
+        assert subject == expected
+
+    def test_query_params(self):
+        expected = {
+            "qExclude": "facet_rtype,exact,newspaper_articles",
+            "pcAvailability": True,
+            "qInclude": "facet_tlevel,exact,peer_reviewed",
+        }
+        subject = ArticlesFilterQuery(
+            {
+                "exclude_newspapers": True,
+                "peer_reviewed": True,
+                "include_citation_only": True,
+                "filters": [],
+            }
+        ).query_params()
+        assert subject == expected

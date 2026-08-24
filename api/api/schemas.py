@@ -475,6 +475,12 @@ class Sort(str, Enum):
     title_desc = "title_desc"
 
 
+class ArticlesSort(str, Enum):
+    relevance = "relevance"
+    date_asc = "date_asc"
+    date_desc = "date_desc"
+
+
 class Response(BaseModel):
     detail: str
 

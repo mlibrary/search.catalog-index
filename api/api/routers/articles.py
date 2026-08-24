@@ -1,8 +1,9 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
+from typing import Annotated
 from api.metrics import REQUEST_HISTOGRAM
 from api import schemas
 from api.clients.exlibris_client import NotFoundError
-from api.primo import record_for
+from api.primo import record_for, get_results
 
 router = APIRouter(prefix="/articles", tags=["articles"])
 
@@ -29,3 +30,37 @@ def get_record(id: str) -> schemas.ArticlesRecord:
         return result
     except NotFoundError:
         raise HTTPException(status_code=404, detail="Item not found")
+
+
+@REQUEST_HISTOGRAM.labels(datastore="catalog", route="results").time()
+@router.get("/search", response_model_exclude_none=True)
+def get_search_results(
+    query: str = "",
+    offset: int = 0,
+    limit: int = 10,
+    include_citation_only: bool = False,
+    open_access: bool = False,
+    online: bool = False,
+    exclude_newspapers: bool = False,
+    peer_reviewed: bool = False,
+    filters: Annotated[list[str], Query()] = [],
+    sort: schemas.ArticlesSort = schemas.ArticlesSort.relevance,
+):
+    """
+    Does a search in catalog solr
+    """
+    results = get_results(
+        {
+            "query": query,
+            "offset": offset,
+            "limit": limit,
+            "include_citation_only": include_citation_only,
+            "open_access": open_access,
+            "online": online,
+            "exclude_newspapers": exclude_newspapers,
+            "peer_reviewed": peer_reviewed,
+            "filters": filters,
+            "sort": sort,
+        }
+    )
+    return results

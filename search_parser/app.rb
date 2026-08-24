@@ -109,9 +109,8 @@ class SearchParser
     end
 
     def self.primo_query(params)
-      {
+      results = {
         q: primo_q(params[:q]),
-        qInclude: params[:qInclude],
         sort: params[:sort],
         offset: params[:offset],
         limit: params[:limit],
@@ -120,6 +119,10 @@ class SearchParser
         vid: "01UMICH_INST:UMICH",
         disableSplitFacets: "true"
       }
+      [:qInclude, :qExclude, :pcAvailability].each do |field|
+        results[field] = params[field] if params[field]
+      end
+      results
     end
 
     def self.primo_q(query)
@@ -287,6 +290,7 @@ class SearchParser::Application < Sinatra::Base
       [:qInclude, :qExclude, :pcAvailability].each do |field|
         query_params[field] = params[field.to_s] if params[field.to_s]
       end
+      S.logger.info("primo_params", **query_params)
       conn = Faraday.new(
         headers: {"Content-Type" => "application/json",
                   "Accept" => "application/json",

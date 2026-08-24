@@ -217,13 +217,15 @@ class BaseFilterQuery:
 
         self.filter_param = [f.split(":", 1) for f in data["filters"]]
 
+
+class SolrFilterQuery(BaseFilterQuery):
     def basic_facet(self, field, values):
         escaped = map(lambda v: solr_escape(v), values)
         value = " AND ".join(escaped)
         return f"{field}:({value})"
 
 
-class OnlinejournalsFilterQuery(BaseFilterQuery):
+class OnlinejournalsFilterQuery(SolrFilterQuery):
     fh = onlinejournals_filter_handler
 
     def query(self):
@@ -234,7 +236,7 @@ class OnlinejournalsFilterQuery(BaseFilterQuery):
         return result
 
 
-class CatalogFilterQuery(BaseFilterQuery):
+class CatalogFilterQuery(SolrFilterQuery):
     fh = catalog_filter_handler
 
     def query(self):

@@ -7,6 +7,14 @@ from api.services import S
 from urllib.parse import parse_qsl, urlencode
 from api.csl import BaseCSL
 from datetime import datetime
+from api.results import BaseFilterQuery, FilterHandler
+import requests
+
+sort_map = {"relevance": "rank", "date_desc": "date_d", "date_asc": "date_a"}
+
+articles_filter_handler = FilterHandler(
+    {"subject": "topic", "language": "lang", "format": "rtype", "date": "creationdate"}
+)
 
 
 with open(f"{S.project_root}/config/primo_languages.yaml", "r") as file:
@@ -20,6 +28,87 @@ for code in language_code_to_str:
 def record_for(id):
     data = PrimoClient().get_record(id)
     return Record(data)
+
+
+def get_results(query_params):
+    parser_params = {
+        "q": query_params["query"],
+        "offset": query_params["offset"],
+        "limit": query_params["limit"],
+        "sort": sort_map[query_params["sort"]],
+    } | ArticlesFilterQuery(query_params).query_params()
+
+    print(ArticlesFilterQuery(query_params).query_params())
+
+    response = requests.Session().get(
+        f"{S.parser_url}/articles/search", params=parser_params
+    )
+
+    return response.json()
+
+
+class ArticlesFilterQuery(BaseFilterQuery):
+    fh = articles_filter_handler
+
+    def query_params(self):
+        result = {}
+        qInclude = self.qInclude()
+        if qInclude != "":
+            result["qInclude"] = qInclude
+        if self.qExclude():
+            result["qExclude"] = self.qExclude()
+        if self.pcAvailability():
+            result["pcAvailability"] = self.pcAvailability()
+
+        return result
+
+    def pcAvailability(self):
+        return self.data.get("include_citation_only", False)
+
+    def qInclude(self):
+        result = []
+        for field in self.facets.keys():
+            match field:
+                case "topic":
+                    for value in self.facets[field]:
+                        result.append(f"facet_{field},exact,{value}")
+                case "rtype":
+                    for value in self.facets[field]:
+                        normalized = re.sub(r"\s+", "_", value.lower())
+                        result.append(f"facet_{field},exact,{normalized}")
+                case "lang":
+                    for value in self.facets[field]:
+                        code = language_str_to_code.get(value, None)
+                        if code is None:
+                            continue
+                        result.append(f"facet_{field},exact,{code}")
+                case "creationdate":
+                    for value in self.facets[field]:
+                        normalized = f"[{value} TO {value}]"
+                        result.append(f"facet_{field},exact,{normalized}")
+        tlevel_map = {
+            "open_access": "open_access",
+            "online": "online_resources",
+            "peer_reviewed": "peer_reviewed",
+        }
+        for key in tlevel_map.keys():
+            if self.data.get(key, False):
+                result.append(f"facet_tlevel,exact,{tlevel_map[key]}")
+
+        return "|,|".join(result)
+
+    def qExclude(self):
+        if self.data.get("exclude_newspapers", False):
+            return "facet_rtype,exact,newspaper_articles"
+
+
+# parser_params = {
+# "q": query_params["query"],
+# "limit": query_params["limit"],
+# "offset": query_params["offset"],
+# "sort": sort_map[query_params["sort"]],
+# }
+# qInclude = get_qInclude(query_params["filters"])
 
 
 class PrimoDoc:
