@@ -371,6 +371,7 @@ class ResultRecord(BaseModel):
 
 
 class OnlinejournalsResultRecord(ResultRecord):
+    recommended_resource: bool | None
     holdings: OnlinejournalsHoldings
 
 
@@ -447,7 +448,7 @@ class Results(BaseModel):
     limit: int
     offset: int
     total: int
-    sort: str
+    sort: str | None
 
 
 class OnlinejournalsResults(Results):

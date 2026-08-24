@@ -4,7 +4,10 @@ from api.metrics import REQUEST_HISTOGRAM
 from api import schemas
 from api.clients.solr_client import NotFoundError
 from api.record import onlinejournals_record_for
-from api.results import get_onlinejournals_results
+from api.results import (
+    get_onlinejournals_results,
+    get_onlinejournals_browse_academic_discipline,
+)
 from api.academic_disciplines import get_onlinejournals_academic_disciplines
 from api import specialists
 
@@ -80,3 +83,18 @@ def get_specialists(
 @router.get("/academic_disciplines")
 def get_academic_disciplines() -> list[schemas.BrowseAcademicDiscipline]:
     return get_onlinejournals_academic_disciplines()
+
+
+@REQUEST_HISTOGRAM.labels(
+    datastore="onlinejournals", route="browse_academic_discipline"
+).time()
+@router.get(
+    "/browse_academic_discipline/{academic_discipline}",
+    response_model_exclude_none=True,
+)
+def get_browse_academic_discipline(
+    academic_discipline: str, offset: int = 0, limit: int = 10
+) -> schemas.OnlinejournalsResults:
+    return get_onlinejournals_browse_academic_discipline(
+        {"limit": limit, "offset": offset, "academic_discipline": academic_discipline}
+    )
