@@ -7,8 +7,9 @@ from api.services import S
 from urllib.parse import parse_qsl, urlencode
 from api.csl import BaseCSL
 from datetime import datetime
-from api.results import BaseFilterQuery, FilterHandler
+from api.results import BaseFilterQuery, FilterHandler, FilterValue
 import requests
+import string
 
 sort_map = {"relevance": "rank", "date_desc": "date_d", "date_asc": "date_a"}
 
@@ -23,6 +24,27 @@ with open(f"{S.project_root}/config/primo_languages.yaml", "r") as file:
 language_str_to_code = {}
 for code in language_code_to_str:
     language_str_to_code[language_code_to_str[code]] = code
+
+with open(f"{S.project_root}/config/primo_formats.yaml", "r") as file:
+    format_code_to_str = yaml.safe_load(file)
+
+format_str_to_code = {}
+for code in format_code_to_str:
+    format_str_to_code[format_code_to_str[code]] = code
+
+
+def format_code_to_string(code):
+    if code in format_code_to_str.keys():
+        return format_code_to_str[code]
+    else:
+        return string.capwords(re.sub("_", " ", code))
+
+
+def format_string_to_code(fmt_str):
+    if fmt_str in format_str_to_code.keys():
+        return format_str_to_code[fmt_str]
+    else:
+        return re.sub(r"\s+", "_", fmt_str.lower())
 
 
 def record_for(id):
@@ -44,7 +66,69 @@ def get_results(query_params):
         f"{S.parser_url}/articles/search", params=parser_params
     )
 
-    return response.json()
+    return Results(data=response.json(), query_params=query_params)
+
+
+class Filter:
+    def __init__(self, field, values):
+        self.field = field
+        self.values = self.get_values(values)
+
+    def get_values(self, values):
+        result = []
+        for value in values:
+            match self.field:
+                case "language":
+                    text = language_code_to_str[value["value"]]
+                case "format":
+                    text = format_code_to_string(value["value"])
+                case _:
+                    text = value["value"]
+
+            result.append(FilterValue(text=text, count=int(value["count"])))
+
+        return result
+
+
+class Results:
+    fh = articles_filter_handler
+
+    def __init__(self, data: dict, query_params: dict):
+        self.data = data
+        self.query_params = query_params
+
+    @property
+    def total(self):
+        return self.data.get("info", {}).get("total", 0)
+
+    @property
+    def limit(self):
+        return self.query_params["limit"]
+
+    @property
+    def offset(self):
+        return self.query_params["offset"]
+
+    @property
+    def sort(self):
+        return self.query_params["sort"]
+
+    @property
+    def records(self):
+        return [Record(data) for data in self.data["docs"]]
+
+    @property
+    def filters(self):
+        result = []
+        for facet in self.data["facets"]:
+            if facet["name"] in self.fh.facet_to_filter.keys():
+                result.append(
+                    Filter(
+                        field=self.fh.facet_to_filter[facet["name"]],
+                        values=facet["values"],
+                    )
+                )
+        return result
 
 
 class ArticlesFilterQuery(BaseFilterQuery):
@@ -74,7 +158,7 @@ class ArticlesFilterQuery(BaseFilterQuery):
                         result.append(f"facet_{field},exact,{value}")
                 case "rtype":
                     for value in self.facets[field]:
-                        normalized = re.sub(r"\s+", "_", value.lower())
+                        normalized = format_string_to_code(value)
                         result.append(f"facet_{field},exact,{normalized}")
                 case "lang":
                     for value in self.facets[field]:

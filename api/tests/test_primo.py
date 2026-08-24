@@ -8,6 +8,7 @@ from api.primo import (
     PrimoDoc,
     TaggedCitation,
     ArticlesFilterQuery,
+    Results,
 )
 from urllib.parse import parse_qs
 import re
@@ -16,7 +17,7 @@ import re
 @pytest.fixture()
 def article_doc():
     bib = {}
-    with open("tests/fixtures/article.json") as data:
+    with open("tests/fixtures/primo/article.json") as data:
         bib = json.load(data)
     return bib["docs"][0]
 
@@ -24,7 +25,7 @@ def article_doc():
 @pytest.fixture()
 def ht_article_doc():
     bib = {}
-    with open("tests/fixtures/ht_article.json") as data:
+    with open("tests/fixtures/primo/ht_article.json") as data:
         bib = json.load(data)
     return bib["docs"][0]
 
@@ -32,7 +33,7 @@ def ht_article_doc():
 @pytest.fixture()
 def naxos_video_article_doc():
     bib = {}
-    with open("tests/fixtures/naxos_video_article.json") as data:
+    with open("tests/fixtures/primo/naxos_video_article.json") as data:
         bib = json.load(data)
     return bib["docs"][0]
 
@@ -40,7 +41,7 @@ def naxos_video_article_doc():
 @pytest.fixture()
 def naxos_music_article_doc():
     bib = {}
-    with open("tests/fixtures/naxos_music_article.json") as data:
+    with open("tests/fixtures/primo/naxos_music_article.json") as data:
         bib = json.load(data)
     return bib["docs"][0]
 
@@ -48,9 +49,17 @@ def naxos_music_article_doc():
 @pytest.fixture()
 def lib_key_doc():
     result = {}
-    with open("tests/fixtures/lib_key.json") as data:
+    with open("tests/fixtures/primo/lib_key.json") as data:
         result = json.load(data)
     return result["data"]
+
+
+@pytest.fixture()
+def results():
+    result = {}
+    with open("tests/fixtures/primo/results.json") as data:
+        result = json.load(data)
+    return result
 
 
 @pytest.fixture()
@@ -502,3 +511,29 @@ class TestArticlesFilterQuery:
             }
         ).query_params()
         assert subject == expected
+
+
+class TestResults:
+    def test_total(self, results):
+        subject = Results(data=results, query_params={})
+        assert subject.total == 9073665
+
+    def test_limit(self, results):
+        subject = Results(data=results, query_params={"limit": 10})
+        assert subject.limit == 10
+
+    def test_offset(self, results):
+        subject = Results(data=results, query_params={"offset": 0})
+        assert subject.offset == 0
+
+    def test_sort(self, results):
+        subject = Results(data=results, query_params={"sort": "relevance"})
+        assert subject.sort == "relevance"
+
+    def test_filters(self, results):
+        subject = Results(data=results, query_params={})
+        first_filter = subject.filters[0]
+        first_filter_value = subject.filters[0].values[0]
+        assert first_filter.field == "language"
+        assert first_filter_value.text == "English"
+        assert first_filter_value.count == 8415627

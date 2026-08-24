@@ -413,6 +413,10 @@ class ArticlesRecord(BaseModel):
     citation: ArticlesCitation
 
 
+class ArticlesResultRecord(ArticlesRecord):
+    pass
+
+
 class Specialist(BaseModel):
     name: str
     uniqname: str
@@ -453,6 +457,10 @@ class Results(BaseModel):
 
 class OnlinejournalsResults(Results):
     records: list[OnlinejournalsResultRecord]
+
+
+class ArticlesResults(Results):
+    records: list[ArticlesResultRecord]
 
 
 class BrowseAcademicDiscipline(BaseModel):

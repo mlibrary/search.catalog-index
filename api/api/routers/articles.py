@@ -45,7 +45,7 @@ def get_search_results(
     peer_reviewed: bool = False,
     filters: Annotated[list[str], Query()] = [],
     sort: schemas.ArticlesSort = schemas.ArticlesSort.relevance,
-):
+) -> schemas.ArticlesResults:
     """
     Does a search in catalog solr
     """
