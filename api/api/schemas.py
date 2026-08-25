@@ -413,8 +413,33 @@ class ArticlesRecord(BaseModel):
     citation: ArticlesCitation
 
 
-class ArticlesResultRecord(ArticlesRecord):
-    pass
+class ArticlesResultRecord(BaseModel):
+    id: str
+    # formats: list[str]
+    peer_reviewed: bool
+    retraction_notice_url: Optional[str] = None
+    title: list[BareTextField]
+    abstract: list[BareTextField]
+    author: list[BareSearchField]
+    # journal_title: list[BareTextField]
+    # issue: list[BareTextField]
+    # volume: list[BareTextField]
+    pages: list[BareTextField]
+    publication_date: list[BareTextField]
+    publisher: list[BareTextField]
+    # genre: list[BareTextField]
+    # issn: list[BareTextField]
+    # eissn: list[BareTextField]
+    # isbn: list[BareTextField]
+    # eisbn: list[BareTextField]
+    # doi: list[BareTextField]
+    # oclc: list[BareTextField]
+    # pmid: list[BareTextField]
+    # language: list[BareTextField]
+    subject: list[BareTextField]
+    edition: list[BareTextField]
+    holdings: list[ArticleHolding]
+    citation: ArticlesCitation
 
 
 class Specialist(BaseModel):

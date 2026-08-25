@@ -47,6 +47,12 @@ def format_string_to_code(fmt_str):
         return re.sub(r"\s+", "_", fmt_str.lower())
 
 
+def remove_html_tags(text):
+    """Remove html tags from a string"""
+    clean = re.compile("<.*?>")
+    return re.sub(clean, "", text)
+
+
 def record_for(id):
     data = PrimoClient().get_record(id)
     return Record(data)
@@ -83,7 +89,7 @@ class Filter:
                 case "format":
                     text = format_code_to_string(value["value"])
                 case _:
-                    text = value["value"]
+                    text = remove_html_tags(value["value"])
 
             result.append(FilterValue(text=text, count=int(value["count"])))
 
@@ -310,7 +316,7 @@ class PrimoDoc:
         return values[0] if len(values) else None
 
     def get_pnx_field_values(self, field, section="addata"):
-        return self.pnx.get(section, {}).get(field, [])
+        return [remove_html_tags(f) for f in self.pnx.get(section, {}).get(field, [])]
 
 
 class Record:
