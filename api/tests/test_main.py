@@ -25,7 +25,7 @@ def onlinejournals_solr_bib():
 @pytest.fixture()
 def articles_doc():
     bib = {}
-    with open("tests/fixtures/article.json") as data:
+    with open("tests/fixtures/primo/article.json") as data:
         bib = json.load(data)
     return bib
 

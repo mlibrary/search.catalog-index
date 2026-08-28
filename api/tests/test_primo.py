@@ -1,6 +1,15 @@
 import pytest
 import json
-from api.primo import Record, AlmaHolding, LibKeyHolding, CSL, PrimoDoc, TaggedCitation
+from api.primo import (
+    Record,
+    AlmaHolding,
+    LibKeyHolding,
+    CSL,
+    PrimoDoc,
+    TaggedCitation,
+    ArticlesFilterQuery,
+    Results,
+)
 from urllib.parse import parse_qs
 import re
 
@@ -8,7 +17,7 @@ import re
 @pytest.fixture()
 def article_doc():
     bib = {}
-    with open("tests/fixtures/article.json") as data:
+    with open("tests/fixtures/primo/article.json") as data:
         bib = json.load(data)
     return bib["docs"][0]
 
@@ -16,7 +25,7 @@ def article_doc():
 @pytest.fixture()
 def ht_article_doc():
     bib = {}
-    with open("tests/fixtures/ht_article.json") as data:
+    with open("tests/fixtures/primo/ht_article.json") as data:
         bib = json.load(data)
     return bib["docs"][0]
 
@@ -24,7 +33,7 @@ def ht_article_doc():
 @pytest.fixture()
 def naxos_video_article_doc():
     bib = {}
-    with open("tests/fixtures/naxos_video_article.json") as data:
+    with open("tests/fixtures/primo/naxos_video_article.json") as data:
         bib = json.load(data)
     return bib["docs"][0]
 
@@ -32,7 +41,7 @@ def naxos_video_article_doc():
 @pytest.fixture()
 def naxos_music_article_doc():
     bib = {}
-    with open("tests/fixtures/naxos_music_article.json") as data:
+    with open("tests/fixtures/primo/naxos_music_article.json") as data:
         bib = json.load(data)
     return bib["docs"][0]
 
@@ -40,9 +49,17 @@ def naxos_music_article_doc():
 @pytest.fixture()
 def lib_key_doc():
     result = {}
-    with open("tests/fixtures/lib_key.json") as data:
+    with open("tests/fixtures/primo/lib_key.json") as data:
         result = json.load(data)
     return result["data"]
+
+
+@pytest.fixture()
+def results():
+    result = {}
+    with open("tests/fixtures/primo/results.json") as data:
+        result = json.load(data)
+    return result
 
 
 @pytest.fixture()
@@ -423,3 +440,100 @@ class TestTaggedCitation:
             "ris": ["TY"],
             "meta": [],
         }
+
+
+class TestArticlesFilterQuery:
+    def test_qInclude_for_subject(self):
+        expected = "facet_topic,exact,Musical Performances|,|facet_topic,exact,Other"
+        subject = ArticlesFilterQuery(
+            {"filters": ["subject:Musical Performances", "subject:Other"]}
+        ).qInclude()
+        assert subject == expected
+
+    def test_qInclude_for_format(self):
+        expected = "facet_rtype,exact,newspaper_articles"
+        subject = ArticlesFilterQuery(
+            {"filters": ["format:Newspaper Articles"]}
+        ).qInclude()
+        assert subject == expected
+
+    def test_qInclude_for_language(self):
+        expected = "facet_lang,exact,spa"
+        subject = ArticlesFilterQuery({"filters": ["language:Spanish"]}).qInclude()
+        assert subject == expected
+
+    def test_qInclude_handles_bogus_language_language(self):
+        expected = "facet_lang,exact,spa"
+        subject = ArticlesFilterQuery(
+            {"filters": ["language:SuchAFakeLanguage", "language:Spanish"]}
+        ).qInclude()
+        assert subject == expected
+
+    def test_qInclude_for_date(self):
+        expected = "facet_creationdate,exact,[2025 TO 2025]"
+        subject = ArticlesFilterQuery({"filters": ["date:2025"]}).qInclude()
+        assert subject == expected
+
+    def test_qInclude_for_open_access(self):
+        expected = "facet_tlevel,exact,open_access"
+        subject = ArticlesFilterQuery({"open_access": True, "filters": []}).qInclude()
+        assert subject == expected
+
+    def test_qInclude_for_online(self):
+        expected = "facet_tlevel,exact,online_resources"
+        subject = ArticlesFilterQuery({"online": True, "filters": []}).qInclude()
+        assert subject == expected
+
+    def test_qInclude_for_peer_reviewed(self):
+        expected = "facet_tlevel,exact,peer_reviewed"
+        subject = ArticlesFilterQuery({"peer_reviewed": True, "filters": []}).qInclude()
+        assert subject == expected
+
+    def test_qExclude_for_newspapers(self):
+        expected = "facet_rtype,exact,newspaper_articles"
+        subject = ArticlesFilterQuery(
+            {"exclude_newspapers": True, "filters": []}
+        ).qExclude()
+        assert subject == expected
+
+    def test_query_params(self):
+        expected = {
+            "qExclude": "facet_rtype,exact,newspaper_articles",
+            "pcAvailability": True,
+            "qInclude": "facet_tlevel,exact,peer_reviewed",
+        }
+        subject = ArticlesFilterQuery(
+            {
+                "exclude_newspapers": True,
+                "peer_reviewed": True,
+                "include_citation_only": True,
+                "filters": [],
+            }
+        ).query_params()
+        assert subject == expected
+
+
+class TestResults:
+    def test_total(self, results):
+        subject = Results(data=results, query_params={})
+        assert subject.total == 9073665
+
+    def test_limit(self, results):
+        subject = Results(data=results, query_params={"limit": 10})
+        assert subject.limit == 10
+
+    def test_offset(self, results):
+        subject = Results(data=results, query_params={"offset": 0})
+        assert subject.offset == 0
+
+    def test_sort(self, results):
+        subject = Results(data=results, query_params={"sort": "relevance"})
+        assert subject.sort == "relevance"
+
+    def test_filters(self, results):
+        subject = Results(data=results, query_params={})
+        first_filter = subject.filters[0]
+        first_filter_value = subject.filters[0].values[0]
+        assert first_filter.field == "language"
+        assert first_filter_value.text == "English"
+        assert first_filter_value.count == 8415627

@@ -7,6 +7,15 @@ from api.services import S
 from urllib.parse import parse_qsl, urlencode
 from api.csl import BaseCSL
 from datetime import datetime
+from api.results import BaseFilterQuery, FilterHandler, FilterValue
+import requests
+import string
+
+sort_map = {"relevance": "rank", "date_desc": "date_d", "date_asc": "date_a"}
+
+articles_filter_handler = FilterHandler(
+    {"subject": "topic", "language": "lang", "format": "rtype", "date": "creationdate"}
+)
 
 
 with open(f"{S.project_root}/config/primo_languages.yaml", "r") as file:
@@ -16,10 +25,180 @@ language_str_to_code = {}
 for code in language_code_to_str:
     language_str_to_code[language_code_to_str[code]] = code
 
+with open(f"{S.project_root}/config/primo_formats.yaml", "r") as file:
+    format_code_to_str = yaml.safe_load(file)
+
+format_str_to_code = {}
+for code in format_code_to_str:
+    format_str_to_code[format_code_to_str[code]] = code
+
+
+def format_code_to_string(code):
+    if code in format_code_to_str.keys():
+        return format_code_to_str[code]
+    else:
+        return string.capwords(re.sub("_", " ", code))
+
+
+def format_string_to_code(fmt_str):
+    if fmt_str in format_str_to_code.keys():
+        return format_str_to_code[fmt_str]
+    else:
+        return re.sub(r"\s+", "_", fmt_str.lower())
+
+
+def remove_html_tags(text):
+    """Remove html tags from a string"""
+    clean = re.compile("<.*?>")
+    return re.sub(clean, "", text)
+
 
 def record_for(id):
     data = PrimoClient().get_record(id)
     return Record(data)
+
+
+def get_results(query_params):
+    parser_params = {
+        "q": query_params["query"],
+        "offset": query_params["offset"],
+        "limit": query_params["limit"],
+        "sort": sort_map[query_params["sort"]],
+    } | ArticlesFilterQuery(query_params).query_params()
+
+    print(ArticlesFilterQuery(query_params).query_params())
+
+    response = requests.Session().get(
+        f"{S.parser_url}/articles/search", params=parser_params
+    )
+
+    return Results(data=response.json(), query_params=query_params)
+
+
+class Filter:
+    def __init__(self, field, values):
+        self.field = field
+        self.values = self.get_values(values)
+
+    def get_values(self, values):
+        result = []
+        for value in values:
+            match self.field:
+                case "language":
+                    text = language_code_to_str[value["value"]]
+                case "format":
+                    text = format_code_to_string(value["value"])
+                case _:
+                    text = remove_html_tags(value["value"])
+
+            result.append(FilterValue(text=text, count=int(value["count"])))
+
+        return result
+
+
+class Results:
+    fh = articles_filter_handler
+
+    def __init__(self, data: dict, query_params: dict):
+        self.data = data
+        self.query_params = query_params
+
+    @property
+    def total(self):
+        return self.data.get("info", {}).get("total", 0)
+
+    @property
+    def limit(self):
+        return self.query_params["limit"]
+
+    @property
+    def offset(self):
+        return self.query_params["offset"]
+
+    @property
+    def sort(self):
+        return self.query_params["sort"]
+
+    @property
+    def records(self):
+        return [Record(data) for data in self.data["docs"]]
+
+    @property
+    def filters(self):
+        result = []
+        for facet in self.data["facets"]:
+            if facet["name"] in self.fh.facet_to_filter.keys():
+                result.append(
+                    Filter(
+                        field=self.fh.facet_to_filter[facet["name"]],
+                        values=facet["values"],
+                    )
+                )
+        return result
+
+
+class ArticlesFilterQuery(BaseFilterQuery):
+    fh = articles_filter_handler
+
+    def query_params(self):
+        result = {}
+        qInclude = self.qInclude()
+        if qInclude != "":
+            result["qInclude"] = qInclude
+        if self.qExclude():
+            result["qExclude"] = self.qExclude()
+        if self.pcAvailability():
+            result["pcAvailability"] = self.pcAvailability()
+
+        return result
+
+    def pcAvailability(self):
+        return self.data.get("include_citation_only", False)
+
+    def qInclude(self):
+        result = []
+        for field in self.facets.keys():
+            match field:
+                case "topic":
+                    for value in self.facets[field]:
+                        result.append(f"facet_{field},exact,{value}")
+                case "rtype":
+                    for value in self.facets[field]:
+                        normalized = format_string_to_code(value)
+                        result.append(f"facet_{field},exact,{normalized}")
+                case "lang":
+                    for value in self.facets[field]:
+                        code = language_str_to_code.get(value, None)
+                        if code is None:
+                            continue
+                        result.append(f"facet_{field},exact,{code}")
+                case "creationdate":
+                    for value in self.facets[field]:
+                        normalized = f"[{value} TO {value}]"
+                        result.append(f"facet_{field},exact,{normalized}")
+        tlevel_map = {
+            "open_access": "open_access",
+            "online": "online_resources",
+            "peer_reviewed": "peer_reviewed",
+        }
+        for key in tlevel_map.keys():
+            if self.data.get(key, False):
+                result.append(f"facet_tlevel,exact,{tlevel_map[key]}")
+
+        return "|,|".join(result)
+
+    def qExclude(self):
+        if self.data.get("exclude_newspapers", False):
+            return "facet_rtype,exact,newspaper_articles"
+
+
+# parser_params = {
+# "q": query_params["query"],
+# "limit": query_params["limit"],
+# "offset": query_params["offset"],
+# "sort": sort_map[query_params["sort"]],
+# }
+# qInclude = get_qInclude(query_params["filters"])
 
 
 class PrimoDoc:
@@ -137,7 +316,7 @@ class PrimoDoc:
         return values[0] if len(values) else None
 
     def get_pnx_field_values(self, field, section="addata"):
-        return self.pnx.get(section, {}).get(field, [])
+        return [remove_html_tags(f) for f in self.pnx.get(section, {}).get(field, [])]
 
 
 class Record:

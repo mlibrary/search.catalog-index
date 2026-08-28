@@ -413,6 +413,35 @@ class ArticlesRecord(BaseModel):
     citation: ArticlesCitation
 
 
+class ArticlesResultRecord(BaseModel):
+    id: str
+    # formats: list[str]
+    peer_reviewed: bool
+    retraction_notice_url: Optional[str] = None
+    title: list[BareTextField]
+    abstract: list[BareTextField]
+    author: list[BareSearchField]
+    # journal_title: list[BareTextField]
+    # issue: list[BareTextField]
+    # volume: list[BareTextField]
+    pages: list[BareTextField]
+    publication_date: list[BareTextField]
+    publisher: list[BareTextField]
+    # genre: list[BareTextField]
+    # issn: list[BareTextField]
+    # eissn: list[BareTextField]
+    # isbn: list[BareTextField]
+    # eisbn: list[BareTextField]
+    # doi: list[BareTextField]
+    # oclc: list[BareTextField]
+    # pmid: list[BareTextField]
+    # language: list[BareTextField]
+    subject: list[BareTextField]
+    edition: list[BareTextField]
+    holdings: list[ArticleHolding]
+    citation: ArticlesCitation
+
+
 class Specialist(BaseModel):
     name: str
     uniqname: str
@@ -455,6 +484,10 @@ class OnlinejournalsResults(Results):
     records: list[OnlinejournalsResultRecord]
 
 
+class ArticlesResults(Results):
+    records: list[ArticlesResultRecord]
+
+
 class BrowseAcademicDiscipline(BaseModel):
     name: str
     count: int
@@ -473,6 +506,12 @@ class Sort(str, Enum):
     date_added = "date_added"
     title_asc = "title_asc"
     title_desc = "title_desc"
+
+
+class ArticlesSort(str, Enum):
+    relevance = "relevance"
+    date_asc = "date_asc"
+    date_desc = "date_desc"
 
 
 class Response(BaseModel):

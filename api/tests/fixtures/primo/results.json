@@ -1,0 +1,3824 @@
+{
+  "info": {
+    "totalResultsLocal": -1,
+    "totalResultsPC": 9073665,
+    "total": 9073665,
+    "first": 1,
+    "last": 10
+  },
+  "highlights": {
+    "snippet": [
+      "Music",
+      "music"
+    ],
+    "subject": [
+      "Music",
+      "MUSIC",
+      "music"
+    ],
+    "title": [
+      "music",
+      "Music",
+      "Music'"
+    ],
+    "termsUnion": [
+      "Music",
+      "music",
+      "MUSIC",
+      "Music'"
+    ]
+  },
+  "docs": [
+    {
+      "pnx": {
+        "links": {
+          "openurl": [
+            "$$Topenurl_article"
+          ],
+          "openurlfulltext": [
+            "$$Topenurlfull_article"
+          ],
+          "backlink": [
+            "$$Uhttps://cir.nii.ac.jp/crid/1970586434793753138$$DView record in CiNii$$Hfree_for_read$$Pomit_proxy_true"
+          ],
+          "thumbnail": [
+            "$$Uhttp://portal.igpublish.com/iglibrary/amazonbuffer/UCPB0001218_null_0_320.png"
+          ],
+          "linktohtml": [
+            "$$Uhttps://muse.jhu.edu/book/35641$$EHTML$$Gprojectmuse$$H$$Pomit_proxy_true"
+          ]
+        },
+        "display": {
+          "description": [
+            "K-Pop: Popular Music, Cultural Amnesia, and Economic Innovation in South Korea seeks at once to describe and explain the emergence of export-oriented South Korean popular music and to make sense of larger South Korean economic and cultural transformations. John Lie provides not only a history of South Korean popular music—the premodern background, Japanese colonial influence, post-Liberation American impact, and recent globalization—but also a description of K-pop as a system of economic innovation and cultural production. In doing so, he delves into the broader background of South Korea in this wonderfully informed history and analysis of a pop culture phenomenon sweeping the globe."
+          ],
+          "format": [
+            "248"
+          ],
+          "type": [
+            "book"
+          ],
+          "title": [
+            "K-pop: popular music, cultural amnesia, and economic innovation in South Korea"
+          ],
+          "source": [
+            "Project MUSE Books Collection 2015",
+            "CiNii Complete"
+          ],
+          "creator": [
+            "Lie, John"
+          ],
+          "edition": [
+            "1st ed."
+          ],
+          "publisher": [
+            "Oakland, Calif: University of California Press"
+          ],
+          "creationdate": [
+            "2014"
+          ],
+          "identifier": [
+            "ISBN: 0520283120",
+            "ISBN: 0520958942",
+            "ISBN: 9780520283121",
+            "ISBN: 0520283112",
+            "ISBN: 9780520283114",
+            "ISBN: 9780520958944",
+            "EISBN: 0520958942",
+            "EISBN: 9780520958944",
+            "DOI: 10.1525/9780520958944",
+            "OCLC: 891445654",
+            "LCCN: 2014023191",
+            "LCCallNum: ML3502.K6"
+          ],
+          "language": [
+            "eng"
+          ],
+          "rights": [
+            "2015 The Regents of the University of California"
+          ],
+          "snippet": [
+            "K-Pop: Popular Music, Cultural Amnesia, and Economic Innovation in South Korea seeks at once to describe and explain the emergence of export-oriented South Korean popular music and to make sense of larger...",
+            "K-Pop: Popular Music, Cultural Amnesia, and Economic Innovation in South Koreaseeks at once to describe and explain the emergence of export-oriented South Korean popular music and to make sense of larger...",
+            "...<![CDATA[ K-Pop: Popular Music, Cultural Amnesia, and Economic Innovation in South Korea seeks at once to describe and explain the emergence of export-oriented South Korean popular music and to make sense of larger...",
+            "'K-Pop' seeks at once to describe and explain the emergence of export-oriented South Korean popular music and to make sense of larger South Korean economic and cultural transformations..."
+          ],
+          "subject": [
+            "21st century popular music ;  Music ;  MUSIC / General ;  Music and globalization ;  Music and globalization -- Korea (South) ;  bands ;  contemporary music ;  contemporary pop music ;  cultural production ;  cultural studies ;  cultural transformation ;  dance ;  Economic aspects ;  economic transformation ;  economics ;  economy ;  export oriented music ;  Genres & Styles ;  History and criticism ;  japanese colonial influence ;  k pop ;  Korea (South) ;  korean pop ;  korean pop music ;  music ;  music studies ;  musicians ;  Pop Vocal ;  popular ;  Popular music ;  Popular music -- Economic aspects -- Korea (South) ;  Popular music -- Korea (South) -- History and criticism ;  Popular music -- Social aspects -- Korea (South) ;  post liberation american impact ;  premodern background ;  recent globalization ;  Social aspects ;  south korea ;  south korean culture ;  south korean history"
+          ]
+        },
+        "search": {
+          "description": [
+            "K-Pop: Popular Music, Cultural Amnesia, and Economic Innovation in South Korea seeks at once to describe and explain the emergence of export-oriented South Korean popular music and to make sense of larger South Korean economic and cultural transformations. John Lie provides not only a history of South Korean popular music—the premodern background, Japanese colonial influence, post-Liberation American impact, and recent globalization—but also a description of K-pop as a system of economic innovation and cultural production. In doing so, he delves into the broader background of South Korea in this wonderfully informed history and analysis of a pop culture phenomenon sweeping the globe."
+          ],
+          "fulltext": [
+            "true"
+          ],
+          "title": [
+            "K-pop: popular music, cultural amnesia, and economic innovation in South Korea"
+          ],
+          "creator": [
+            "Lie, John"
+          ],
+          "creationdate": [
+            "2014"
+          ],
+          "subject": [
+            "21st century popular music",
+            "Music",
+            "MUSIC / General",
+            "Music and globalization",
+            "Music and globalization -- Korea (South)",
+            "bands",
+            "contemporary music",
+            "contemporary pop music",
+            "cultural production",
+            "cultural studies",
+            "cultural transformation",
+            "dance",
+            "Economic aspects",
+            "economic transformation",
+            "economics",
+            "economy",
+            "export oriented music",
+            "Genres & Styles",
+            "History and criticism",
+            "japanese colonial influence",
+            "k pop",
+            "Korea (South)",
+            "korean pop",
+            "korean pop music",
+            "music",
+            "music studies",
+            "musicians",
+            "Pop Vocal",
+            "popular",
+            "Popular music",
+            "Popular music -- Economic aspects -- Korea (South)",
+            "Popular music -- Korea (South) -- History and criticism",
+            "Popular music -- Social aspects -- Korea (South)",
+            "post liberation american impact",
+            "premodern background",
+            "recent globalization",
+            "Social aspects",
+            "south korea",
+            "south korean culture",
+            "south korean history"
+          ],
+          "creatorcontrib": [
+            "Lie, John"
+          ],
+          "isbn": [
+            "0520283120",
+            "0520958942",
+            "9780520283121",
+            "0520283112",
+            "9780520283114",
+            "9780520958944",
+            "0520958942",
+            "9780520958944"
+          ],
+          "general": [
+            "University of California Press"
+          ],
+          "rsrctype": [
+            "book"
+          ],
+          "startdate": [
+            "2014"
+          ],
+          "enddate": [
+            "2014"
+          ],
+          "recordtype": [
+            "book"
+          ],
+          "sourceid": [
+            "RYH"
+          ],
+          "recordid": [
+            "eNp1kc1PwkAQxdcYjIAcvXoyMR7Qnf1gd47S4Eck0YN63XSXLRQKLd0i4b8XrJEQ42VmXvLLm7wZQs6B3oBk8haVppJRlBqFOCKtX8GOa8E0B0YbpMUoCMo4IJyQpkYQQvakOCWdEKaUUuBCKYlN0njuFnlxRhpJnAXf-elt8nE_eIseu8OXh6fobtiNFeMouy5B6pFq1MJKp0YInDPrBHNUJhwTC5YrZ1mC2EOKGpRnVEimrELLhOdtcl0bx2Hm12GSZ1Uwn5m3eT4L5iDenl3HWeXLkR-Xq812MPO4dH_Yq5otyny58qEy35bOL6oyzsygH4ECoKJ3QE69q-ar4M0_-y9rcpGmxqW7Cqio1D2xvR5yJTlwvcUuamwaqrw0tdPUuKrC5YQV5X5jOi5WNkvDJF2MTVGm2xwb8x699ncPYaD5F_2YhC4"
+          ],
+          "scope": [
+            "E05",
+            "RYH"
+          ]
+        },
+        "addata": {
+          "format": [
+            "book"
+          ],
+          "abstract": [
+            "K-Pop: Popular Music, Cultural Amnesia, and Economic Innovation in South Korea seeks at once to describe and explain the emergence of export-oriented South Korean popular music and to make sense of larger South Korean economic and cultural transformations. John Lie provides not only a history of South Korean popular music—the premodern background, Japanese colonial influence, post-Liberation American impact, and recent globalization—but also a description of K-pop as a system of economic innovation and cultural production. In doing so, he delves into the broader background of South Korea in this wonderfully informed history and analysis of a pop culture phenomenon sweeping the globe."
+          ],
+          "edition": [
+            "1st ed."
+          ],
+          "isbn": [
+            "0520283120",
+            "0520958942",
+            "9780520283121",
+            "0520283112",
+            "9780520283114",
+            "9780520958944"
+          ],
+          "au": [
+            "Lie, John"
+          ],
+          "btitle": [
+            "K-pop: popular music, cultural amnesia, and economic innovation in South Korea"
+          ],
+          "date": [
+            "2014"
+          ],
+          "risdate": [
+            "2014"
+          ],
+          "eisbn": [
+            "0520958942",
+            "9780520958944"
+          ],
+          "genre": [
+            "book"
+          ],
+          "ristype": [
+            "BOOK"
+          ],
+          "cop": [
+            "Oakland, Calif"
+          ],
+          "pub": [
+            "University of California Press"
+          ],
+          "oclcid": [
+            "891445654"
+          ],
+          "doi": [
+            "10.1525/9780520958944"
+          ],
+          "tpages": [
+            "248"
+          ]
+        },
+        "delivery": {
+          "fulltext": [
+            "fulltext"
+          ],
+          "delcategory": [
+            "Remote Search Resource"
+          ]
+        },
+        "facets": {
+          "creationdate": [
+            "2014"
+          ],
+          "language": [
+            "eng"
+          ],
+          "creatorcontrib": [
+            "Lie, John"
+          ],
+          "rsrctype": [
+            "books"
+          ],
+          "topic": [
+            "21st century popular music",
+            "<h>Music</h>",
+            "<h>MUSIC</h> / General",
+            "<h>Music</h> and globalization",
+            "<h>Music</h> and globalization -- Korea (South)",
+            "bands",
+            "contemporary music",
+            "contemporary pop music",
+            "cultural production",
+            "cultural studies",
+            "cultural transformation",
+            "dance",
+            "Economic aspects",
+            "economic transformation",
+            "economics",
+            "economy",
+            "export oriented music",
+            "Genres & Styles",
+            "History and criticism",
+            "japanese colonial influence",
+            "k pop",
+            "Korea (South)",
+            "korean pop",
+            "korean pop music",
+            "music",
+            "music studies",
+            "musicians",
+            "Pop Vocal",
+            "popular",
+            "Popular music",
+            "Popular music -- Economic aspects -- Korea (South)",
+            "Popular music -- Korea (South) -- History and criticism",
+            "Popular music -- Social aspects -- Korea (South)",
+            "post liberation american impact",
+            "premodern background",
+            "recent globalization",
+            "Social aspects",
+            "south korea",
+            "south korean culture",
+            "south korean history"
+          ],
+          "prefilter": [
+            "books"
+          ],
+          "collection": [
+            "University of California Press eBooks",
+            "CiNii Complete"
+          ],
+          "toplevel": [
+            "online_resources"
+          ],
+          "frbrgroupid": [
+            "cdi_FETCH-LOGICAL-a72395-cf90e908984b5c7d91332bc42c05f39fb1b37cb2f996909817e204527b79b24e3"
+          ],
+          "frbrtype": [
+            "5"
+          ]
+        },
+        "sort": {
+          "title": [
+            "K-pop"
+          ],
+          "creationdate": [
+            "2014"
+          ],
+          "author": [
+            "Lie, John"
+          ]
+        },
+        "control": {
+          "recordtype": [
+            "book"
+          ],
+          "sourceid": [
+            "jstor_proqu"
+          ],
+          "recordid": [
+            "cdi_proquest_ebookcentral_EBC1711046"
+          ],
+          "addsrcrecordid": [
+            "eNp1kc1PwkAQxdcYjIAcvXoyMR7Qnf1gd47S4Eck0YN63XSXLRQKLd0i4b8XrJEQ42VmXvLLm7wZQs6B3oBk8haVppJRlBqFOCKtX8GOa8E0B0YbpMUoCMo4IJyQpkYQQvakOCWdEKaUUuBCKYlN0njuFnlxRhpJnAXf-elt8nE_eIseu8OXh6fobtiNFeMouy5B6pFq1MJKp0YInDPrBHNUJhwTC5YrZ1mC2EOKGpRnVEimrELLhOdtcl0bx2Hm12GSZ1Uwn5m3eT4L5iDenl3HWeXLkR-Xq812MPO4dH_Yq5otyny58qEy35bOL6oyzsygH4ECoKJ3QE69q-ar4M0_-y9rcpGmxqW7Cqio1D2xvR5yJTlwvcUuamwaqrw0tdPUuKrC5YQV5X5jOi5WNkvDJF2MTVGm2xwb8x699ncPYaD5F_2YhC4"
+          ],
+          "sourcerecordid": [
+            "10.1525/j.ctt9qh2pr"
+          ],
+          "originalsourceid": [
+            "FETCH-LOGICAL-a72395-cf90e908984b5c7d91332bc42c05f39fb1b37cb2f996909817e204527b79b24e3"
+          ],
+          "sourcetype": [
+            "Aggregation Database"
+          ],
+          "sourceformat": [
+            "XML"
+          ],
+          "sourcesystem": [
+            "Other"
+          ],
+          "pqid": [
+            "EBC1711046"
+          ],
+          "jstorid": [
+            "10.1525/j.ctt9qh2pr"
+          ],
+          "iscdi": [
+            "true"
+          ],
+          "score": [
+            "0.0074786907"
+          ]
+        }
+      },
+      "delivery": {
+        "link": [
+          {
+            "@id": "_:0",
+            "linkType": "http://purl.org/pnx/linkType/thumbnail",
+            "linkURL": "http://portal.igpublish.com/iglibrary/amazonbuffer/UCPB0001218_null_0_320.png",
+            "displayLabel": "thumbnail"
+          }
+        ],
+        "deliveryCategory": [
+          "Remote Search Resource"
+        ],
+        "availability": [
+          "fulltext"
+        ],
+        "displayLocation": false,
+        "additionalLocations": false,
+        "physicalItemTextCodes": "",
+        "feDisplayOtherLocations": false,
+        "displayedAvailability": "true",
+        "holding": [],
+        "almaOpenurl": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2026-08-24 09:19:05&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-jstor_proqu&rft_val_fmt=info:ofi/fmt:kev:mtx:book&rft.genre=book&rft.btitle=K-pop%3A+popular+music%2C+cultural+amnesia%2C+and+economic+innovation+in+South+Korea&rft.au=Lie%2C+John&rft.date=2014&rft.isbn=0520283120&rft_id=info:doi/10.1525%2F9780520958944&rft.eisbn=0520958942&rft.edition=1st+ed.&rft.pub=University+of+California+Press&rft.place=Oakland%2C+Calif&rft_id=info:oclcnum/891445654&rft_dat=<jstor_proqu>10.1525%2Fj.ctt9qh2pr</jstor_proqu>&svc_dat=viewit&rft_pqid=EBC1711046&rft_jstor_id=10.1525%2Fj.ctt9qh2pr"
+      },
+      "context": "PC",
+      "adaptor": "Primo Central",
+      "extras": {
+        "citationTrails": {
+          "citing": [],
+          "citedby": []
+        },
+        "timesCited": {}
+      },
+      "@id": "https://na04.alma.exlibrisgroup.com/primaws/rest/pub/pnxs/PC/cdi_proquest_ebookcentral_EBC1711046"
+    },
+    {
+      "pnx": {
+        "links": {
+          "openurl": [
+            "$$Topenurl_article"
+          ],
+          "openurlfulltext": [
+            "$$Topenurlfull_article"
+          ],
+          "backlink": [
+            "$$Uhttps://cir.nii.ac.jp/crid/1970867909854795541$$DView record in CiNii$$Hfree_for_read$$Pomit_proxy_true"
+          ],
+          "thumbnail": [
+            "$$Uhttp://portal.igpublish.com/iglibrary/amazonbuffer/PUPB0001322_null_0_320.png"
+          ]
+        },
+        "display": {
+          "description": [
+            "Why do some music styles gain mass popularity while others thrive in small niches?Banding Togetherexplores this question and reveals the attributes that together explain the growth of twentieth-century American popular music. Drawing on a vast array of examples from sixty musical styles--ranging from rap and bluegrass to death metal and South Texas polka, and including several created outside the United States--Jennifer Lena uncovers the shared grammar that allows us to understand the cultural language and evolution of popular music.\nWhat are the common economic, organizational, ideological, and aesthetic traits among contemporary genres? Do genres follow patterns in their development? Lena discovers four dominant forms--Avant-garde, Scene-based, Industry-based, and Traditionalist--and two dominant trajectories that describe how American pop music genres develop. Outside the United States there exists a fifth form: the Government-purposed genre, which she examines in the music of China, Serbia, Nigeria, and Chile. Offering a rare analysis of how music communities operate, she looks at the shared obstacles and opportunities creative people face and reveals the ways in which people collaborate around ideas, artworks, individuals, and organizations that support their work."
+          ],
+          "format": [
+            "272"
+          ],
+          "type": [
+            "book"
+          ],
+          "title": [
+            "Banding Together: How Communities Create Genres in Popular Music"
+          ],
+          "source": [
+            "CiNii Complete",
+            "Princeton University Press eBook Package Backlist 2000-2013",
+            "eBook Academic Collection - North America"
+          ],
+          "creator": [
+            "Lena, Jennifer C"
+          ],
+          "edition": [
+            "1"
+          ],
+          "publisher": [
+            "Princeton, N.J: Princeton University Press"
+          ],
+          "creationdate": [
+            "2012"
+          ],
+          "identifier": [
+            "ISBN: 9781400840458",
+            "ISBN: 1400840457",
+            "ISBN: 0691163383",
+            "ISBN: 0691150761",
+            "ISBN: 9780691150765",
+            "ISBN: 9780691163383",
+            "EISBN: 9781400840458",
+            "EISBN: 1400840457",
+            "DOI: 10.1515/9781400840458",
+            "OCLC: 767502420",
+            "LCCN: 2011018691",
+            "LCCallNum: ML3918.P67L46 2012"
+          ],
+          "language": [
+            "eng"
+          ],
+          "rights": [
+            "2012 Princeton University Press"
+          ],
+          "snippet": [
+            "Why do some music styles gain mass popularity while others thrive in small niches..."
+          ],
+          "subject": [
+            "Music ;  MUSIC / General ;  Afrobeat ;  Art music ;  Bandleader ;  Billboard (magazine) ;  Boundary object ;  Case study ;  Classical music ;  Composer ;  Country music ;  Country rock ;  Dance music ;  Disc jockey ;  Doo-wop ;  Example (musician) ;  Fine art ;  Folk music ;  For Example ;  Gangsta rap ;  Genre ;  Glam rock ;  Gospel music ;  Graduate school ;  Grunge ;  Guitar ;  Hip hop music ;  Ideology ;  Independent record label ;  Jazz ;  JHB ;  Miles Davis ;  Music community ;  Music genre ;  Music history ;  Music industry ;  Music Is ;  Music publisher (popular music) ;  Musical History ;  Musician ;  Narrative ;  Nashville sound ;  Newport Folk Festival ;  Oligopoly ;  Outlaw country ;  Ozzy Osbourne ;  Parents Music Resource Center ;  Polka ;  Pop music ;  Popular music -- Social aspects ;  Popular music genres ;  Popular Culture ;  Popular music ;  Psychedelic rock ;  Punk rock ;  Rapper (electrostatic precipitation) ;  Rapper's Delight ;  Rapping ;  Record chart ;  Record label ;  Record producer ;  Recording studio ;  Reggae ;  Rock music ;  Social aspects ;  Social movement ;  SOCIAL SCIENCE ;  SOCIAL SCIENCE / Popular Culture ;  SOCIAL SCIENCE / Sociology / General ;  Social sciences ;  Social structure ;  Sociology ;  Southern gospel ;  Techno ;  Technology ;  The Byrds ;  Turbo-folk ;  Western swing"
+          ]
+        },
+        "search": {
+          "description": [
+            "Why do some music styles gain mass popularity while others thrive in small niches?Banding Togetherexplores this question and reveals the attributes that together explain the growth of twentieth-century American popular music. Drawing on a vast array of examples from sixty musical styles--ranging from rap and bluegrass to death metal and South Texas polka, and including several created outside the United States--Jennifer Lena uncovers the shared grammar that allows us to understand the cultural language and evolution of popular music.\nWhat are the common economic, organizational, ideological, and aesthetic traits among contemporary genres? Do genres follow patterns in their development? Lena discovers four dominant forms--Avant-garde, Scene-based, Industry-based, and Traditionalist--and two dominant trajectories that describe how American pop music genres develop. Outside the United States there exists a fifth form: the Government-purposed genre, which she examines in the music of China, Serbia, Nigeria, and Chile. Offering a rare analysis of how music communities operate, she looks at the shared obstacles and opportunities creative people face and reveals the ways in which people collaborate around ideas, artworks, individuals, and organizations that support their work."
+          ],
+          "fulltext": [
+            "true"
+          ],
+          "title": [
+            "Banding Together: How Communities Create Genres in Popular Music"
+          ],
+          "creator": [
+            "Lena, Jennifer C"
+          ],
+          "creationdate": [
+            "2012"
+          ],
+          "subject": [
+            "Music",
+            "MUSIC / General",
+            "Afrobeat",
+            "Art music",
+            "Bandleader",
+            "Billboard (magazine)",
+            "Boundary object",
+            "Case study",
+            "Classical music",
+            "Composer",
+            "Country music",
+            "Country rock",
+            "Dance music",
+            "Disc jockey",
+            "Doo-wop",
+            "Example (musician)",
+            "Fine art",
+            "Folk music",
+            "For Example",
+            "Gangsta rap",
+            "Genre",
+            "Glam rock",
+            "Gospel music",
+            "Graduate school",
+            "Grunge",
+            "Guitar",
+            "Hip hop music",
+            "Ideology",
+            "Independent record label",
+            "Jazz",
+            "JHB",
+            "Miles Davis",
+            "Music community",
+            "Music genre",
+            "Music history",
+            "Music industry",
+            "Music Is",
+            "Music publisher (popular music)",
+            "Musical History",
+            "Musician",
+            "Narrative",
+            "Nashville sound",
+            "Newport Folk Festival",
+            "Oligopoly",
+            "Outlaw country",
+            "Ozzy Osbourne",
+            "Parents Music Resource Center",
+            "Polka",
+            "Pop music",
+            "Popular music -- Social aspects",
+            "Popular music genres",
+            "Popular Culture",
+            "Popular music",
+            "Psychedelic rock",
+            "Punk rock",
+            "Rapper (electrostatic precipitation)",
+            "Rapper's Delight",
+            "Rapping",
+            "Record chart",
+            "Record label",
+            "Record producer",
+            "Recording studio",
+            "Reggae",
+            "Rock music",
+            "Social aspects",
+            "Social movement",
+            "SOCIAL SCIENCE",
+            "SOCIAL SCIENCE / Popular Culture",
+            "SOCIAL SCIENCE / Sociology / General",
+            "Social sciences",
+            "Social structure",
+            "Sociology",
+            "Southern gospel",
+            "Techno",
+            "Technology",
+            "The Byrds",
+            "Turbo-folk",
+            "Western swing"
+          ],
+          "creatorcontrib": [
+            "Lena, Jennifer C"
+          ],
+          "isbn": [
+            "9781400840458",
+            "1400840457",
+            "0691163383",
+            "0691150761",
+            "9780691150765",
+            "9780691163383",
+            "9781400840458",
+            "1400840457"
+          ],
+          "general": [
+            "Princeton University Press"
+          ],
+          "rsrctype": [
+            "book"
+          ],
+          "startdate": [
+            "2012"
+          ],
+          "enddate": [
+            "2012"
+          ],
+          "recordtype": [
+            "book"
+          ],
+          "sourceid": [
+            "I4C",
+            "RYH"
+          ],
+          "recordid": [
+            "eNp1kctvEzEQxo1QESWNxIUTQkKoUHEIeLw7fhybqDykSvRQuFper3ez6Wad2g5V-9fXsBEoVPgw9uj76fM8CHkB9AMg4EclJJSUypKWKB-R6V7--J_8gDxjFICC5AqekEPBBVJWMvqUTGNc0XwQqeLFIXk-N0PdDe3rS9-6tHThiBw0po9uursn5Mens8vFl9n5t89fF6fnMyM5cjmTlWgahAprJmvgtUVppDHGOnSSl0IqZV1tOVhVUwsNKKgqV5cNKsuVaooJeT8am3jlbuLS9ynqn72rvL-Keq-fv-yN6ZMLtWvD9jY_9NoE-4B9N7Kb4K-3Lib929K6IQXT67P5QlLGCpXBkz_gytm03kan__P9yx3pQu9ar0dIFMioyOrxqA5dp233K4ISVHKhqJJYCoVYQsZejdgqJh92FittUxIh3FVZf_tQB6pZQcU-tyu7azfbqu_iMq9Pb0KXZ3GrL75fzPN6ocgtTsibkbQmmj4Xptd-8G0wm2XUiKJgyIp7UQus3A"
+          ],
+          "scope": [
+            "I4C",
+            "E06",
+            "RYH",
+            "YSPEL"
+          ]
+        },
+        "addata": {
+          "format": [
+            "book"
+          ],
+          "abstract": [
+            "Why do some music styles gain mass popularity while others thrive in small niches?Banding Togetherexplores this question and reveals the attributes that together explain the growth of twentieth-century American popular music. Drawing on a vast array of examples from sixty musical styles--ranging from rap and bluegrass to death metal and South Texas polka, and including several created outside the United States--Jennifer Lena uncovers the shared grammar that allows us to understand the cultural language and evolution of popular music.\nWhat are the common economic, organizational, ideological, and aesthetic traits among contemporary genres? Do genres follow patterns in their development? Lena discovers four dominant forms--Avant-garde, Scene-based, Industry-based, and Traditionalist--and two dominant trajectories that describe how American pop music genres develop. Outside the United States there exists a fifth form: the Government-purposed genre, which she examines in the music of China, Serbia, Nigeria, and Chile. Offering a rare analysis of how music communities operate, she looks at the shared obstacles and opportunities creative people face and reveals the ways in which people collaborate around ideas, artworks, individuals, and organizations that support their work."
+          ],
+          "edition": [
+            "1"
+          ],
+          "isbn": [
+            "9781400840458",
+            "1400840457",
+            "0691163383",
+            "0691150761",
+            "9780691150765",
+            "9780691163383"
+          ],
+          "au": [
+            "Lena, Jennifer C"
+          ],
+          "btitle": [
+            "Banding Together: How Communities Create Genres in Popular Music"
+          ],
+          "date": [
+            "2012"
+          ],
+          "risdate": [
+            "2012"
+          ],
+          "eisbn": [
+            "9781400840458",
+            "1400840457"
+          ],
+          "genre": [
+            "book"
+          ],
+          "ristype": [
+            "BOOK"
+          ],
+          "cop": [
+            "Princeton, N.J"
+          ],
+          "pub": [
+            "Princeton University Press"
+          ],
+          "oclcid": [
+            "767502420"
+          ],
+          "doi": [
+            "10.1515/9781400840458"
+          ],
+          "tpages": [
+            "272"
+          ]
+        },
+        "delivery": {
+          "fulltext": [
+            "fulltext"
+          ],
+          "delcategory": [
+            "Remote Search Resource"
+          ]
+        },
+        "facets": {
+          "creationdate": [
+            "2012"
+          ],
+          "language": [
+            "eng"
+          ],
+          "creatorcontrib": [
+            "Lena, Jennifer C"
+          ],
+          "rsrctype": [
+            "books"
+          ],
+          "topic": [
+            "<h>Music</h>",
+            "<h>MUSIC</h> / General",
+            "Afrobeat",
+            "Art music",
+            "Bandleader",
+            "Billboard (magazine)",
+            "Boundary object",
+            "Case study",
+            "Classical music",
+            "Composer",
+            "Country music",
+            "Country rock",
+            "Dance music",
+            "Disc jockey",
+            "Doo-wop",
+            "Example (musician)",
+            "Fine art",
+            "Folk music",
+            "For Example",
+            "Gangsta rap",
+            "Genre",
+            "Glam rock",
+            "Gospel music",
+            "Graduate school",
+            "Grunge",
+            "Guitar",
+            "Hip hop music",
+            "Ideology",
+            "Independent record label",
+            "Jazz",
+            "JHB",
+            "Miles Davis",
+            "Music community",
+            "Music genre",
+            "Music history",
+            "Music industry",
+            "Music Is",
+            "Music publisher (popular music)",
+            "Musical History",
+            "Musician",
+            "Narrative",
+            "Nashville sound",
+            "Newport Folk Festival",
+            "Oligopoly",
+            "Outlaw country",
+            "Ozzy Osbourne",
+            "Parents Music Resource Center",
+            "Polka",
+            "Pop music",
+            "Popular <h>music</h> -- Social aspects",
+            "Popular <h>music</h> genres",
+            "Popular Culture",
+            "Popular music",
+            "Psychedelic rock",
+            "Punk rock",
+            "Rapper (electrostatic precipitation)",
+            "Rapper's Delight",
+            "Rapping",
+            "Record chart",
+            "Record label",
+            "Record producer",
+            "Recording studio",
+            "Reggae",
+            "Rock music",
+            "Social aspects",
+            "Social movement",
+            "SOCIAL SCIENCE",
+            "SOCIAL SCIENCE / Popular Culture",
+            "SOCIAL SCIENCE / Sociology / General",
+            "Social sciences",
+            "Social structure",
+            "Sociology",
+            "Southern gospel",
+            "Techno",
+            "Technology",
+            "The Byrds",
+            "Turbo-folk",
+            "Western swing"
+          ],
+          "prefilter": [
+            "books"
+          ],
+          "collection": [
+            "Casalini Torrossa eBooks Institutional Catalogue",
+            "Princeton University Press eBooks",
+            "CiNii Complete",
+            "Perlego"
+          ],
+          "toplevel": [
+            "online_resources"
+          ],
+          "frbrgroupid": [
+            "cdi_FETCH-LOGICAL-a86568-8b7ff51b5d28d16dc58a8aaace5e8647899cedc61c9d0c1f191bbed4f59c699f3"
+          ],
+          "frbrtype": [
+            "5"
+          ]
+        },
+        "sort": {
+          "title": [
+            "Banding Together"
+          ],
+          "creationdate": [
+            "2012"
+          ],
+          "author": [
+            "Lena, Jennifer C"
+          ]
+        },
+        "control": {
+          "recordtype": [
+            "book"
+          ],
+          "sourceid": [
+            "jstor_proje"
+          ],
+          "recordid": [
+            "cdi_projectmuse_ebooks_9781400840458"
+          ],
+          "addsrcrecordid": [
+            "eNp1kctvEzEQxo1QESWNxIUTQkKoUHEIeLw7fhybqDykSvRQuFper3ez6Wad2g5V-9fXsBEoVPgw9uj76fM8CHkB9AMg4EclJJSUypKWKB-R6V7--J_8gDxjFICC5AqekEPBBVJWMvqUTGNc0XwQqeLFIXk-N0PdDe3rS9-6tHThiBw0po9uursn5Mens8vFl9n5t89fF6fnMyM5cjmTlWgahAprJmvgtUVppDHGOnSSl0IqZV1tOVhVUwsNKKgqV5cNKsuVaooJeT8am3jlbuLS9ynqn72rvL-Keq-fv-yN6ZMLtWvD9jY_9NoE-4B9N7Kb4K-3Lib929K6IQXT67P5QlLGCpXBkz_gytm03kan__P9yx3pQu9ar0dIFMioyOrxqA5dp233K4ISVHKhqJJYCoVYQsZejdgqJh92FittUxIh3FVZf_tQB6pZQcU-tyu7azfbqu_iMq9Pb0KXZ3GrL75fzPN6ocgtTsibkbQmmj4Xptd-8G0wm2XUiKJgyIp7UQus3A"
+          ],
+          "sourcerecordid": [
+            "j.ctt7rrzb"
+          ],
+          "originalsourceid": [
+            "FETCH-LOGICAL-a86568-8b7ff51b5d28d16dc58a8aaace5e8647899cedc61c9d0c1f191bbed4f59c699f3"
+          ],
+          "sourcetype": [
+            "Aggregation Database"
+          ],
+          "sourceformat": [
+            "XML"
+          ],
+          "sourcesystem": [
+            "Other"
+          ],
+          "pqid": [
+            "EBC802239"
+          ],
+          "jstorid": [
+            "j.ctt7rrzb"
+          ],
+          "iscdi": [
+            "true"
+          ],
+          "casaid": [
+            "5573252"
+          ],
+          "score": [
+            "0.007417612"
+          ]
+        }
+      },
+      "delivery": {
+        "link": [
+          {
+            "@id": "_:0",
+            "linkType": "http://purl.org/pnx/linkType/thumbnail",
+            "linkURL": "http://portal.igpublish.com/iglibrary/amazonbuffer/PUPB0001322_null_0_320.png",
+            "displayLabel": "thumbnail"
+          }
+        ],
+        "deliveryCategory": [
+          "Remote Search Resource"
+        ],
+        "availability": [
+          "fulltext"
+        ],
+        "displayLocation": false,
+        "additionalLocations": false,
+        "physicalItemTextCodes": "",
+        "feDisplayOtherLocations": false,
+        "displayedAvailability": "true",
+        "holding": [],
+        "almaOpenurl": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2026-08-24 09:19:05&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-jstor_proje&rft_val_fmt=info:ofi/fmt:kev:mtx:book&rft.genre=book&rft.btitle=Banding+Together%3A+How+Communities+Create+Genres+in+Popular+Music&rft.au=Lena%2C+Jennifer+C&rft.date=2012&rft.isbn=9781400840458&rft_id=info:doi/10.1515%2F9781400840458&rft.eisbn=9781400840458&rft.edition=1&rft.pub=Princeton+University+Press&rft.place=Princeton%2C+N.J&rft_id=info:oclcnum/767502420&rft_dat=<jstor_proje>j.ctt7rrzb</jstor_proje>&svc_dat=viewit&rft_pqid=EBC802239&rft_jstor_id=j.ctt7rrzb"
+      },
+      "context": "PC",
+      "adaptor": "Primo Central",
+      "extras": {
+        "citationTrails": {
+          "citing": [],
+          "citedby": []
+        },
+        "timesCited": {}
+      },
+      "@id": "https://na04.alma.exlibrisgroup.com/primaws/rest/pub/pnxs/PC/cdi_projectmuse_ebooks_9781400840458"
+    },
+    {
+      "pnx": {
+        "links": {
+          "openurl": [
+            "$$Topenurl_article"
+          ],
+          "openurlfulltext": [
+            "$$Topenurlfull_article"
+          ],
+          "linktorsrc": [
+            "$$Uhttps://commons.datacite.org/doi.org/10.6084/m9.figshare.32796033$$EView_record_in_DataCite.org$$FView_record_in_$$GDataCite.org$$Hfree_for_read$$Pomit_proxy_true"
+          ],
+          "thumbnail": [
+            "$$Tsyndetics_thumb_exl"
+          ]
+        },
+        "display": {
+          "description": [
+            "Copyright (C) 2026 Mert Yücemöz 0000-0002-0829-0749"
+          ],
+          "type": [
+            "video"
+          ],
+          "title": [
+            "Music"
+          ],
+          "source": [
+            "DataCite (Open Access)"
+          ],
+          "creator": [
+            "Yucemoz, Mert"
+          ],
+          "publisher": [
+            "figshare"
+          ],
+          "creationdate": [
+            "2026"
+          ],
+          "identifier": [
+            "DOI: 10.6084/m9.figshare.32796033"
+          ],
+          "language": [
+            "eng"
+          ],
+          "oa": [
+            "free_for_read"
+          ],
+          "subject": [
+            "Music composition and improvisation"
+          ]
+        },
+        "search": {
+          "description": [
+            "Copyright (C) 2026 Mert Yücemöz 0000-0002-0829-0749"
+          ],
+          "fulltext": [
+            "true"
+          ],
+          "title": [
+            "Music"
+          ],
+          "creator": [
+            "Yucemoz, Mert"
+          ],
+          "creationdate": [
+            "2026"
+          ],
+          "subject": [
+            "Music composition and improvisation"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "creatorcontrib": [
+            "Yucemoz, Mert"
+          ],
+          "general": [
+            "figshare"
+          ],
+          "rsrctype": [
+            "video"
+          ],
+          "startdate": [
+            "20260625"
+          ],
+          "enddate": [
+            "20260625"
+          ],
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "DYCCY"
+          ],
+          "recordid": [
+            "eNpjYJAxNNAzM7Aw0c-11EvLTC_OSCxK1TM2Mrc0MzA25mRg9S0tzkzmYWBNS8wpTuWF0twMJm6uIc4euimJJYnJmSWp8QVFmbmJRZXxhgbxINPicy3jYabFw0wzJlMbAOfgMHM"
+          ],
+          "scope": [
+            "DYCCY",
+            "PQ8"
+          ]
+        },
+        "addata": {
+          "abstract": [
+            "Copyright (C) 2026 Mert Yücemöz 0000-0002-0829-0749"
+          ],
+          "title": [
+            "Music"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "oa": [
+            "free_for_read"
+          ],
+          "au": [
+            "Yucemoz, Mert"
+          ],
+          "date": [
+            "2026-06-25"
+          ],
+          "risdate": [
+            "2026"
+          ],
+          "genre": [
+            "unknown"
+          ],
+          "ristype": [
+            "VIDEO"
+          ],
+          "pub": [
+            "figshare"
+          ],
+          "doi": [
+            "10.6084/m9.figshare.32796033"
+          ]
+        },
+        "delivery": {
+          "fulltext": [
+            "fulltext_linktorsrc"
+          ],
+          "delcategory": [
+            "Remote Search Resource"
+          ]
+        },
+        "facets": {
+          "creationdate": [
+            "2026"
+          ],
+          "language": [
+            "eng"
+          ],
+          "creatorcontrib": [
+            "Yucemoz, Mert"
+          ],
+          "rsrctype": [
+            "videos"
+          ],
+          "topic": [
+            "<h>Music</h> composition and improvisation"
+          ],
+          "prefilter": [
+            "videos"
+          ],
+          "collection": [
+            "DataCite (Open Access)",
+            "DataCite"
+          ],
+          "toplevel": [
+            "online_resources"
+          ],
+          "frbrgroupid": [
+            "cdi_FETCH-datacite_primary_10_6084_m9_figshare_327960333"
+          ],
+          "frbrtype": [
+            "5"
+          ]
+        },
+        "sort": {
+          "title": [
+            "Music"
+          ],
+          "creationdate": [
+            "20260625"
+          ],
+          "author": [
+            "Yucemoz, Mert"
+          ]
+        },
+        "control": {
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "datacite_DYCCY"
+          ],
+          "recordid": [
+            "cdi_datacite_primary_10_6084_m9_figshare_32796033"
+          ],
+          "addsrcrecordid": [
+            "eNpjYJAxNNAzM7Aw0c-11EvLTC_OSCxK1TM2Mrc0MzA25mRg9S0tzkzmYWBNS8wpTuWF0twMJm6uIc4euimJJYnJmSWp8QVFmbmJRZXxhgbxINPicy3jYabFw0wzJlMbAOfgMHM"
+          ],
+          "sourcerecordid": [
+            "10_6084_m9_figshare_32796033"
+          ],
+          "originalsourceid": [
+            "FETCH-datacite_primary_10_6084_m9_figshare_327960333"
+          ],
+          "sourcetype": [
+            "Publisher"
+          ],
+          "sourceformat": [
+            "XML"
+          ],
+          "sourcesystem": [
+            "Other"
+          ],
+          "iscdi": [
+            "true"
+          ],
+          "score": [
+            "0.0074115517"
+          ]
+        }
+      },
+      "delivery": {
+        "link": [],
+        "deliveryCategory": [
+          "Remote Search Resource"
+        ],
+        "availability": [
+          "fulltext_linktorsrc"
+        ],
+        "displayLocation": false,
+        "additionalLocations": false,
+        "physicalItemTextCodes": "",
+        "feDisplayOtherLocations": false,
+        "displayedAvailability": "true",
+        "holding": [],
+        "almaOpenurl": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2026-08-24 09:19:05&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-datacite_DYCCY&rft.genre=unknown&rft.au=Yucemoz%2C+Mert&rft.date=2026-06-25&rft_id=info:doi/10.6084%2Fm9.figshare.32796033&rft.pub=figshare&rft_dat=<datacite_DYCCY>10_6084_m9_figshare_32796033</datacite_DYCCY>&svc_dat=viewit"
+      },
+      "context": "PC",
+      "adaptor": "Primo Central",
+      "extras": {
+        "citationTrails": {
+          "citing": [],
+          "citedby": []
+        },
+        "timesCited": {}
+      },
+      "@id": "https://na04.alma.exlibrisgroup.com/primaws/rest/pub/pnxs/PC/cdi_datacite_primary_10_6084_m9_figshare_32796033"
+    },
+    {
+      "pnx": {
+        "links": {
+          "openurl": [
+            "$$Topenurl_article"
+          ],
+          "openurlfulltext": [
+            "$$Topenurlfull_article"
+          ],
+          "backlink": [
+            "$$Uhttps://cir.nii.ac.jp/crid/1970867909824135062$$DView record in CiNii$$Hfree_for_read$$Pomit_proxy_true"
+          ],
+          "thumbnail": [
+            "$$Tsyndetics_thumb_exl"
+          ]
+        },
+        "display": {
+          "description": [
+            "We tend to take for granted the labels we put to different forms of music. This study considers the origins and implications of the way in which we categorize music. Whereas earlier ways of classifying music were based on its different functions, for the past two hundred years we have been obsessed with creativity and musical origins, and classify music along these lines. Matthew Gelbart argues that folk music and art music became meaningful concepts only in the late eighteenth and early nineteenth centuries, and only in relation to each other. He examines how cultural nationalism served as the earliest impetus in classifying music by origins, and how the notions of folk music and art music followed - in conjunction with changing conceptions of nature, and changing ideas about human creativity. Through tracing the history of these musical categories, the book confronts our assumptions about different kinds of music."
+          ],
+          "format": [
+            "301"
+          ],
+          "type": [
+            "book"
+          ],
+          "title": [
+            "The Invention of 'Folk Music' and 'Art Music': Emerging Categories from Ossian to Wagner"
+          ],
+          "source": [
+            "ACLS Humanities E-Book",
+            "CiNii Complete",
+            "eBook Academic Collection - North America"
+          ],
+          "creator": [
+            "Gelbart, Matthew"
+          ],
+          "edition": [
+            "1"
+          ],
+          "publisher": [
+            "Cambridge: Cambridge University Press"
+          ],
+          "creationdate": [
+            "2007"
+          ],
+          "identifier": [
+            "ISBN: 0521863031",
+            "ISBN: 9780521863032",
+            "ISBN: 0521178347",
+            "ISBN: 9780521178341",
+            "ISBN: 9780511354564",
+            "ISBN: 0511354568",
+            "EISBN: 9780511481918",
+            "EISBN: 0511481918",
+            "EISBN: 9780511353987",
+            "EISBN: 0511353987",
+            "EISBN: 9780511352829",
+            "EISBN: 0511352824",
+            "EISBN: 1107178231",
+            "EISBN: 9781107178236",
+            "DOI: 10.1017/CBO9780511481918",
+            "OCLC: 437193489",
+            "LCCN: 2008295498",
+            "LCCallNum: ML3545 (INTERNET)"
+          ],
+          "language": [
+            "eng"
+          ],
+          "relation": [
+            "New perspectives in music history and criticism"
+          ],
+          "rights": [
+            "Matthew Gelbart 2007"
+          ],
+          "snippet": [
+            "We tend to take for granted the labels we put to different forms of music. This study considers the origins and implications of the way in which we categorize music...",
+            "This book considers the origins and implications of the way in which we categorize music..."
+          ],
+          "subject": [
+            "Music - Europe - 19th century - History and criticism ;  Music -- Historiography ;  Folk music ;  Folk music -- History and criticism ;  Historiography ;  History and criticism ;  Music ;  Music -- Europe -- 18th century -- History and criticism ;  Music -- Europe -- 19th century -- History and criticism"
+          ]
+        },
+        "search": {
+          "description": [
+            "We tend to take for granted the labels we put to different forms of music. This study considers the origins and implications of the way in which we categorize music. Whereas earlier ways of classifying music were based on its different functions, for the past two hundred years we have been obsessed with creativity and musical origins, and classify music along these lines. Matthew Gelbart argues that folk music and art music became meaningful concepts only in the late eighteenth and early nineteenth centuries, and only in relation to each other. He examines how cultural nationalism served as the earliest impetus in classifying music by origins, and how the notions of folk music and art music followed - in conjunction with changing conceptions of nature, and changing ideas about human creativity. Through tracing the history of these musical categories, the book confronts our assumptions about different kinds of music."
+          ],
+          "fulltext": [
+            "true"
+          ],
+          "title": [
+            "The Invention of 'Folk Music' and 'Art Music': Emerging Categories from Ossian to Wagner"
+          ],
+          "creator": [
+            "Gelbart, Matthew"
+          ],
+          "creationdate": [
+            "2007"
+          ],
+          "subject": [
+            "Music - Europe - 19th century - History and criticism",
+            "Music -- Historiography",
+            "Folk music",
+            "Folk music -- History and criticism",
+            "Historiography",
+            "History and criticism",
+            "Music",
+            "Music -- Europe -- 18th century -- History and criticism",
+            "Music -- Europe -- 19th century -- History and criticism"
+          ],
+          "creatorcontrib": [
+            "Gelbart, Matthew",
+            "American Council of Learned Societies"
+          ],
+          "isbn": [
+            "0521863031",
+            "9780521863032",
+            "0521178347",
+            "9780521178341",
+            "9780511354564",
+            "0511354568",
+            "9780511481918",
+            "0511481918",
+            "9780511353987",
+            "0511353987",
+            "9780511352829",
+            "0511352824",
+            "1107178231",
+            "9781107178236"
+          ],
+          "general": [
+            "Cambridge University Press"
+          ],
+          "rsrctype": [
+            "book"
+          ],
+          "startdate": [
+            "20071011"
+          ],
+          "enddate": [
+            "20071011"
+          ],
+          "recordtype": [
+            "book"
+          ],
+          "sourceid": [
+            "RYH",
+            "HEP"
+          ],
+          "recordid": [
+            "eNqNkk1v1DAQho1QEW3ZO8ccECsOgRmPP4_tqi0rteqlcLUcr9MNm01KvCl_Hy9ZqSoIwRxsjeZ57ZlXw9hbhI8IqD8tzm-tNiARhUGL5gWbPctfshOQHI0iIDxiJxzAcCuFNa_YsSCNloSxr9kspW-QAw1xkMesvFvHYtk9xm7X9F3R18X8sm83xc2YmjAvfLcq5mfD7pC_YUe1b1OcHe5T9vXy4m7xuby-vVouzq5LrwwpUcoVV1rJKiptqyjMyte15lpFX2EgEnWIUeSaQGM9cClUFFJbIKqCqGtBp-zD9LBPm_gjrft2l9xjG6u-3ySXJ0cEjdpwUv9mn1z6P5Ykz95l1kzsuG3Curn33cMQU3L12IZh3Lqb5RdAeBZaENeSsvT9JH0Y-u9jTDv364eQXR586y7OF8SR-B58N4Fd07jQ7E-0Gkz2BqzhIvcCimeMJiz4bTU0q_voQj8cukZw-xVxv69IVpV_qKr-7_xP1PupbQ"
+          ],
+          "scope": [
+            "RYH",
+            "HEP"
+          ]
+        },
+        "addata": {
+          "format": [
+            "book"
+          ],
+          "abstract": [
+            "We tend to take for granted the labels we put to different forms of music. This study considers the origins and implications of the way in which we categorize music. Whereas earlier ways of classifying music were based on its different functions, for the past two hundred years we have been obsessed with creativity and musical origins, and classify music along these lines. Matthew Gelbart argues that folk music and art music became meaningful concepts only in the late eighteenth and early nineteenth centuries, and only in relation to each other. He examines how cultural nationalism served as the earliest impetus in classifying music by origins, and how the notions of folk music and art music followed - in conjunction with changing conceptions of nature, and changing ideas about human creativity. Through tracing the history of these musical categories, the book confronts our assumptions about different kinds of music."
+          ],
+          "edition": [
+            "1"
+          ],
+          "isbn": [
+            "0521863031",
+            "9780521863032",
+            "0521178347",
+            "9780521178341",
+            "9780511354564",
+            "0511354568"
+          ],
+          "au": [
+            "Gelbart, Matthew"
+          ],
+          "aucorp": [
+            "American Council of Learned Societies"
+          ],
+          "btitle": [
+            "The Invention of 'Folk Music' and 'Art Music': Emerging Categories from Ossian to Wagner"
+          ],
+          "seriestitle": [
+            "New perspectives in music history and criticism"
+          ],
+          "date": [
+            "2007-10-11"
+          ],
+          "risdate": [
+            "2007"
+          ],
+          "volume": [
+            "v.Series Number 16"
+          ],
+          "eisbn": [
+            "9780511481918",
+            "0511481918",
+            "9780511353987",
+            "0511353987",
+            "9780511352829",
+            "0511352824",
+            "1107178231",
+            "9781107178236"
+          ],
+          "genre": [
+            "book"
+          ],
+          "ristype": [
+            "BOOK"
+          ],
+          "cop": [
+            "Cambridge"
+          ],
+          "pub": [
+            "Cambridge University Press"
+          ],
+          "oclcid": [
+            "437193489"
+          ],
+          "doi": [
+            "10.1017/CBO9780511481918"
+          ],
+          "tpages": [
+            "301"
+          ]
+        },
+        "delivery": {
+          "fulltext": [
+            "fulltext"
+          ],
+          "delcategory": [
+            "Remote Search Resource"
+          ]
+        },
+        "facets": {
+          "creationdate": [
+            "2007"
+          ],
+          "language": [
+            "eng"
+          ],
+          "creatorcontrib": [
+            "Gelbart, Matthew",
+            "American Council of Learned Societies"
+          ],
+          "rsrctype": [
+            "books"
+          ],
+          "topic": [
+            "<h>Music</h> - Europe - 19th century - History and criticism",
+            "<h>Music</h> -- Historiography",
+            "Folk <h>music</h>",
+            "Folk music -- History and criticism",
+            "Historiography",
+            "History and criticism",
+            "Music",
+            "Music -- Europe -- 18th century -- History and criticism",
+            "Music -- Europe -- 19th century -- History and criticism"
+          ],
+          "prefilter": [
+            "books"
+          ],
+          "collection": [
+            "CiNii Complete",
+            "ACLS Humanities E-Book"
+          ],
+          "toplevel": [
+            "online_resources"
+          ],
+          "frbrgroupid": [
+            "cdi_FETCH-LOGICAL-a68364-5d26765be679be48daff7276eab1c334fcee46794189a02546e4579033bc4ff43"
+          ],
+          "frbrtype": [
+            "5"
+          ]
+        },
+        "sort": {
+          "title": [
+            "The Invention of 'Folk Music' and 'Art Music'"
+          ],
+          "creationdate": [
+            "20071011"
+          ],
+          "author": [
+            "Gelbart, Matthew"
+          ]
+        },
+        "control": {
+          "recordtype": [
+            "book"
+          ],
+          "sourceid": [
+            "proquest_umich"
+          ],
+          "recordid": [
+            "cdi_umichiganpress_fulcrum_MIU01000000000000007432753"
+          ],
+          "addsrcrecordid": [
+            "eNqNkk1v1DAQho1QEW3ZO8ccECsOgRmPP4_tqi0rteqlcLUcr9MNm01KvCl_Hy9ZqSoIwRxsjeZ57ZlXw9hbhI8IqD8tzm-tNiARhUGL5gWbPctfshOQHI0iIDxiJxzAcCuFNa_YsSCNloSxr9kspW-QAw1xkMesvFvHYtk9xm7X9F3R18X8sm83xc2YmjAvfLcq5mfD7pC_YUe1b1OcHe5T9vXy4m7xuby-vVouzq5LrwwpUcoVV1rJKiptqyjMyte15lpFX2EgEnWIUeSaQGM9cClUFFJbIKqCqGtBp-zD9LBPm_gjrft2l9xjG6u-3ySXJ0cEjdpwUv9mn1z6P5Ykz95l1kzsuG3Curn33cMQU3L12IZh3Lqb5RdAeBZaENeSsvT9JH0Y-u9jTDv364eQXR586y7OF8SR-B58N4Fd07jQ7E-0Gkz2BqzhIvcCimeMJiz4bTU0q_voQj8cukZw-xVxv69IVpV_qKr-7_xP1PupbQ"
+          ],
+          "sourcerecordid": [
+            "EBC321323"
+          ],
+          "originalsourceid": [
+            "FETCH-LOGICAL-a68364-5d26765be679be48daff7276eab1c334fcee46794189a02546e4579033bc4ff43"
+          ],
+          "sourcetype": [
+            "Aggregation Database"
+          ],
+          "sourceformat": [
+            "XML"
+          ],
+          "sourcesystem": [
+            "Other"
+          ],
+          "pqid": [
+            "EBC321323"
+          ],
+          "cupid": [
+            "10_1017_CBO9780511481918"
+          ],
+          "iscdi": [
+            "true"
+          ],
+          "score": [
+            "0.007405594"
+          ]
+        }
+      },
+      "delivery": {
+        "link": [],
+        "deliveryCategory": [
+          "Remote Search Resource"
+        ],
+        "availability": [
+          "fulltext"
+        ],
+        "displayLocation": false,
+        "additionalLocations": false,
+        "physicalItemTextCodes": "",
+        "feDisplayOtherLocations": false,
+        "displayedAvailability": "true",
+        "holding": [],
+        "almaOpenurl": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2026-08-24 09:19:05&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-proquest_umich&rft_val_fmt=info:ofi/fmt:kev:mtx:book&rft.genre=book&rft.btitle=The+Invention+of+%27Folk+Music%27+and+%27Art+Music%27%3A+Emerging+Categories+from+Ossian+to+Wagner&rft.au=Gelbart%2C+Matthew&rft.aucorp=American+Council+of+Learned+Societies&rft.date=2007-10-11&rft.volume=v.Series+Number+16&rft.isbn=0521863031&rft_id=info:doi/10.1017%2FCBO9780511481918&rft.eisbn=9780511481918&rft.edition=1&rft.pub=Cambridge+University+Press&rft.place=Cambridge&rft.series=New+perspectives+in+music+history+and+criticism&rft_id=info:oclcnum/437193489&rft_dat=<proquest_umich>EBC321323</proquest_umich>&svc_dat=viewit&rft_pqid=EBC321323&rft_cupid=10_1017_CBO9780511481918"
+      },
+      "context": "PC",
+      "adaptor": "Primo Central",
+      "extras": {
+        "citationTrails": {
+          "citing": [],
+          "citedby": []
+        },
+        "timesCited": {}
+      },
+      "@id": "https://na04.alma.exlibrisgroup.com/primaws/rest/pub/pnxs/PC/cdi_umichiganpress_fulcrum_MIU01000000000000007432753"
+    },
+    {
+      "pnx": {
+        "links": {
+          "openurl": [
+            "$$Topenurl_article"
+          ],
+          "openurlfulltext": [
+            "$$Topenurlfull_article"
+          ],
+          "linktorsrc": [
+            "$$Uhttps://commons.datacite.org/doi.org/10.5281/zenodo.20578986$$EView_record_in_DataCite.org$$FView_record_in_$$GDataCite.org$$Hfree_for_read$$Pomit_proxy_true"
+          ],
+          "thumbnail": [
+            "$$Tsyndetics_thumb_exl"
+          ]
+        },
+        "display": {
+          "description": [
+            "Copyright (C) 2026 Mert Yücemöz"
+          ],
+          "type": [
+            "video"
+          ],
+          "title": [
+            "Music"
+          ],
+          "source": [
+            "DataCite (Open Access)"
+          ],
+          "creator": [
+            "Yücemöz, Mert"
+          ],
+          "publisher": [
+            "Zenodo"
+          ],
+          "creationdate": [
+            "2026"
+          ],
+          "identifier": [
+            "DOI: 10.5281/zenodo.20578986"
+          ],
+          "language": [
+            "eng"
+          ],
+          "oa": [
+            "free_for_read"
+          ]
+        },
+        "search": {
+          "description": [
+            "Copyright (C) 2026 Mert Yücemöz"
+          ],
+          "fulltext": [
+            "true"
+          ],
+          "title": [
+            "Music"
+          ],
+          "creator": [
+            "Yücemöz, Mert"
+          ],
+          "creationdate": [
+            "2026"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "creatorcontrib": [
+            "Yücemöz, Mert"
+          ],
+          "general": [
+            "Zenodo"
+          ],
+          "rsrctype": [
+            "video"
+          ],
+          "startdate": [
+            "20260607"
+          ],
+          "enddate": [
+            "20260607"
+          ],
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "DYCCY"
+          ],
+          "recordid": [
+            "eNpjYBA3NNAzNbIw1K9KzctPydczMjA1t7C0MONkYPUtLc5M5mFgTUvMKU7lhdLcDPpuriHOHropiSWJyZklqfEFRZm5iUWV8YYG8SCD4iEGxcMMMiZdBwAcBSt2"
+          ],
+          "scope": [
+            "DYCCY",
+            "PQ8"
+          ]
+        },
+        "addata": {
+          "abstract": [
+            "Copyright (C) 2026 Mert Yücemöz"
+          ],
+          "title": [
+            "Music"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "oa": [
+            "free_for_read"
+          ],
+          "au": [
+            "Yücemöz, Mert"
+          ],
+          "date": [
+            "2026-06-07"
+          ],
+          "risdate": [
+            "2026"
+          ],
+          "genre": [
+            "unknown"
+          ],
+          "ristype": [
+            "VIDEO"
+          ],
+          "pub": [
+            "Zenodo"
+          ],
+          "doi": [
+            "10.5281/zenodo.20578986"
+          ]
+        },
+        "delivery": {
+          "fulltext": [
+            "fulltext_linktorsrc"
+          ],
+          "delcategory": [
+            "Remote Search Resource"
+          ]
+        },
+        "facets": {
+          "creationdate": [
+            "2026"
+          ],
+          "language": [
+            "eng"
+          ],
+          "creatorcontrib": [
+            "Yücemöz, Mert"
+          ],
+          "rsrctype": [
+            "videos"
+          ],
+          "prefilter": [
+            "videos"
+          ],
+          "collection": [
+            "DataCite (Open Access)",
+            "DataCite"
+          ],
+          "toplevel": [
+            "online_resources"
+          ],
+          "frbrgroupid": [
+            "cdi_FETCH-datacite_primary_10_5281_zenodo_205789863"
+          ],
+          "frbrtype": [
+            "5"
+          ]
+        },
+        "sort": {
+          "title": [
+            "Music"
+          ],
+          "creationdate": [
+            "20260607"
+          ],
+          "author": [
+            "Yücemöz, Mert"
+          ]
+        },
+        "control": {
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "datacite_DYCCY"
+          ],
+          "recordid": [
+            "cdi_datacite_primary_10_5281_zenodo_20578986"
+          ],
+          "addsrcrecordid": [
+            "eNpjYBA3NNAzNbIw1K9KzctPydczMjA1t7C0MONkYPUtLc5M5mFgTUvMKU7lhdLcDPpuriHOHropiSWJyZklqfEFRZm5iUWV8YYG8SCD4iEGxcMMMiZdBwAcBSt2"
+          ],
+          "sourcerecordid": [
+            "10_5281_zenodo_20578986"
+          ],
+          "originalsourceid": [
+            "FETCH-datacite_primary_10_5281_zenodo_205789863"
+          ],
+          "sourcetype": [
+            "Publisher"
+          ],
+          "sourceformat": [
+            "XML"
+          ],
+          "sourcesystem": [
+            "Other"
+          ],
+          "iscdi": [
+            "true"
+          ],
+          "score": [
+            "0.007352465"
+          ]
+        }
+      },
+      "delivery": {
+        "link": [],
+        "deliveryCategory": [
+          "Remote Search Resource"
+        ],
+        "availability": [
+          "fulltext_linktorsrc"
+        ],
+        "displayLocation": false,
+        "additionalLocations": false,
+        "physicalItemTextCodes": "",
+        "feDisplayOtherLocations": false,
+        "displayedAvailability": "true",
+        "holding": [],
+        "almaOpenurl": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2026-08-24 09:19:05&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-datacite_DYCCY&rft.genre=unknown&rft.au=Y%C3%BCcem%C3%B6z%2C+Mert&rft.date=2026-06-07&rft_id=info:doi/10.5281%2Fzenodo.20578986&rft.pub=Zenodo&rft_dat=<datacite_DYCCY>10_5281_zenodo_20578986</datacite_DYCCY>&svc_dat=viewit"
+      },
+      "context": "PC",
+      "adaptor": "Primo Central",
+      "extras": {
+        "citationTrails": {
+          "citing": [],
+          "citedby": []
+        },
+        "timesCited": {}
+      },
+      "@id": "https://na04.alma.exlibrisgroup.com/primaws/rest/pub/pnxs/PC/cdi_datacite_primary_10_5281_zenodo_20578986"
+    },
+    {
+      "pnx": {
+        "links": {
+          "openurl": [
+            "$$Topenurl_article"
+          ],
+          "openurlfulltext": [
+            "$$Topenurlfull_article"
+          ],
+          "linktorsrc": [
+            "$$Uhttps://commons.datacite.org/doi.org/10.5281/zenodo.20572962$$EView_record_in_DataCite.org$$FView_record_in_$$GDataCite.org$$Hfree_for_read$$Pomit_proxy_true"
+          ],
+          "thumbnail": [
+            "$$Tsyndetics_thumb_exl"
+          ]
+        },
+        "display": {
+          "description": [
+            "Copyright (C) 2026 Mert Yucemoz"
+          ],
+          "type": [
+            "video"
+          ],
+          "title": [
+            "Music"
+          ],
+          "source": [
+            "DataCite (Open Access)"
+          ],
+          "creator": [
+            "Yucemoz, Mert"
+          ],
+          "publisher": [
+            "Zenodo"
+          ],
+          "creationdate": [
+            "2026"
+          ],
+          "identifier": [
+            "DOI: 10.5281/zenodo.20572962"
+          ],
+          "language": [
+            "eng"
+          ],
+          "oa": [
+            "free_for_read"
+          ]
+        },
+        "search": {
+          "description": [
+            "Copyright (C) 2026 Mert Yucemoz"
+          ],
+          "fulltext": [
+            "true"
+          ],
+          "title": [
+            "Music"
+          ],
+          "creator": [
+            "Yucemoz, Mert"
+          ],
+          "creationdate": [
+            "2026"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "creatorcontrib": [
+            "Yucemoz, Mert"
+          ],
+          "general": [
+            "Zenodo"
+          ],
+          "rsrctype": [
+            "video"
+          ],
+          "startdate": [
+            "20260606"
+          ],
+          "enddate": [
+            "20260606"
+          ],
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "DYCCY"
+          ],
+          "recordid": [
+            "eNpjYBA3NNAzNbIw1K9KzctPydczMjA1N7I0M-JkYPUtLc5M5mFgTUvMKU7lhdLcDPpuriHOHropiSWJyZklqfEFRZm5iUWV8YYG8SCD4iEGxcMMMiZdBwATZStS"
+          ],
+          "scope": [
+            "DYCCY",
+            "PQ8"
+          ]
+        },
+        "addata": {
+          "abstract": [
+            "Copyright (C) 2026 Mert Yucemoz"
+          ],
+          "title": [
+            "Music"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "oa": [
+            "free_for_read"
+          ],
+          "au": [
+            "Yucemoz, Mert"
+          ],
+          "date": [
+            "2026-06-06"
+          ],
+          "risdate": [
+            "2026"
+          ],
+          "genre": [
+            "unknown"
+          ],
+          "ristype": [
+            "VIDEO"
+          ],
+          "pub": [
+            "Zenodo"
+          ],
+          "doi": [
+            "10.5281/zenodo.20572962"
+          ]
+        },
+        "delivery": {
+          "fulltext": [
+            "fulltext_linktorsrc"
+          ],
+          "delcategory": [
+            "Remote Search Resource"
+          ]
+        },
+        "facets": {
+          "creationdate": [
+            "2026"
+          ],
+          "language": [
+            "eng"
+          ],
+          "creatorcontrib": [
+            "Yucemoz, Mert"
+          ],
+          "rsrctype": [
+            "videos"
+          ],
+          "prefilter": [
+            "videos"
+          ],
+          "collection": [
+            "DataCite (Open Access)",
+            "DataCite"
+          ],
+          "toplevel": [
+            "online_resources"
+          ],
+          "frbrgroupid": [
+            "cdi_FETCH-datacite_primary_10_5281_zenodo_205729623"
+          ],
+          "frbrtype": [
+            "5"
+          ]
+        },
+        "sort": {
+          "title": [
+            "Music"
+          ],
+          "creationdate": [
+            "20260606"
+          ],
+          "author": [
+            "Yucemoz, Mert"
+          ]
+        },
+        "control": {
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "datacite_DYCCY"
+          ],
+          "recordid": [
+            "cdi_datacite_primary_10_5281_zenodo_20572962"
+          ],
+          "addsrcrecordid": [
+            "eNpjYBA3NNAzNbIw1K9KzctPydczMjA1N7I0M-JkYPUtLc5M5mFgTUvMKU7lhdLcDPpuriHOHropiSWJyZklqfEFRZm5iUWV8YYG8SCD4iEGxcMMMiZdBwATZStS"
+          ],
+          "sourcerecordid": [
+            "10_5281_zenodo_20572962"
+          ],
+          "originalsourceid": [
+            "FETCH-datacite_primary_10_5281_zenodo_205729623"
+          ],
+          "sourcetype": [
+            "Publisher"
+          ],
+          "sourceformat": [
+            "XML"
+          ],
+          "sourcesystem": [
+            "Other"
+          ],
+          "iscdi": [
+            "true"
+          ],
+          "score": [
+            "0.007351909"
+          ]
+        }
+      },
+      "delivery": {
+        "link": [],
+        "deliveryCategory": [
+          "Remote Search Resource"
+        ],
+        "availability": [
+          "fulltext_linktorsrc"
+        ],
+        "displayLocation": false,
+        "additionalLocations": false,
+        "physicalItemTextCodes": "",
+        "feDisplayOtherLocations": false,
+        "displayedAvailability": "true",
+        "holding": [],
+        "almaOpenurl": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2026-08-24 09:19:05&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-datacite_DYCCY&rft.genre=unknown&rft.au=Yucemoz%2C+Mert&rft.date=2026-06-06&rft_id=info:doi/10.5281%2Fzenodo.20572962&rft.pub=Zenodo&rft_dat=<datacite_DYCCY>10_5281_zenodo_20572962</datacite_DYCCY>&svc_dat=viewit"
+      },
+      "context": "PC",
+      "adaptor": "Primo Central",
+      "extras": {
+        "citationTrails": {
+          "citing": [],
+          "citedby": []
+        },
+        "timesCited": {}
+      },
+      "@id": "https://na04.alma.exlibrisgroup.com/primaws/rest/pub/pnxs/PC/cdi_datacite_primary_10_5281_zenodo_20572962"
+    },
+    {
+      "pnx": {
+        "links": {
+          "openurl": [
+            "$$Topenurl_article"
+          ],
+          "openurlfulltext": [
+            "$$Topenurlfull_article"
+          ],
+          "linktorsrc": [
+            "$$Uhttps://commons.datacite.org/doi.org/10.6084/m9.figshare.30686633$$EView_record_in_DataCite.org$$FView_record_in_$$GDataCite.org$$Hfree_for_read$$Pomit_proxy_true"
+          ],
+          "thumbnail": [
+            "$$Tsyndetics_thumb_exl"
+          ]
+        },
+        "display": {
+          "description": [
+            "Music composing. 0000-0002-0829-0749. Copyright."
+          ],
+          "type": [
+            "video"
+          ],
+          "title": [
+            "Music"
+          ],
+          "source": [
+            "DataCite (Open Access)"
+          ],
+          "creator": [
+            "Yucemoz, Mert"
+          ],
+          "publisher": [
+            "figshare"
+          ],
+          "creationdate": [
+            "2025"
+          ],
+          "identifier": [
+            "DOI: 10.6084/m9.figshare.30686633"
+          ],
+          "language": [
+            "eng"
+          ],
+          "snippet": [
+            "Music composing. 0000-0002-0829-0749. Copyright."
+          ],
+          "oa": [
+            "free_for_read"
+          ],
+          "subject": [
+            "Music composition and improvisation"
+          ]
+        },
+        "search": {
+          "description": [
+            "Music composing. 0000-0002-0829-0749. Copyright."
+          ],
+          "fulltext": [
+            "true"
+          ],
+          "title": [
+            "Music"
+          ],
+          "creator": [
+            "Yucemoz, Mert"
+          ],
+          "creationdate": [
+            "2025"
+          ],
+          "subject": [
+            "Music composition and improvisation"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "creatorcontrib": [
+            "Yucemoz, Mert"
+          ],
+          "general": [
+            "figshare"
+          ],
+          "rsrctype": [
+            "video"
+          ],
+          "startdate": [
+            "20251122"
+          ],
+          "enddate": [
+            "20251122"
+          ],
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "DYCCY"
+          ],
+          "recordid": [
+            "eNpjYJAxNNAzM7Aw0c-11EvLTC_OSCxK1TM2MLMwMzM25mRg9S0tzkzmYWBNS8wpTuWF0twMJm6uIc4euimJJYnJmSWp8QVFmbmJRZXxhgbxINPicy3jYabFw0wzJlMbAOlJMHk"
+          ],
+          "scope": [
+            "DYCCY",
+            "PQ8"
+          ]
+        },
+        "addata": {
+          "abstract": [
+            "Music composing. 0000-0002-0829-0749. Copyright."
+          ],
+          "title": [
+            "Music"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "oa": [
+            "free_for_read"
+          ],
+          "au": [
+            "Yucemoz, Mert"
+          ],
+          "date": [
+            "2025-11-22"
+          ],
+          "risdate": [
+            "2025"
+          ],
+          "genre": [
+            "unknown"
+          ],
+          "ristype": [
+            "VIDEO"
+          ],
+          "pub": [
+            "figshare"
+          ],
+          "doi": [
+            "10.6084/m9.figshare.30686633"
+          ]
+        },
+        "delivery": {
+          "fulltext": [
+            "fulltext_linktorsrc"
+          ],
+          "delcategory": [
+            "Remote Search Resource"
+          ]
+        },
+        "facets": {
+          "creationdate": [
+            "2025"
+          ],
+          "language": [
+            "eng"
+          ],
+          "creatorcontrib": [
+            "Yucemoz, Mert"
+          ],
+          "rsrctype": [
+            "videos"
+          ],
+          "topic": [
+            "<h>Music</h> composition and improvisation"
+          ],
+          "prefilter": [
+            "videos"
+          ],
+          "collection": [
+            "DataCite (Open Access)",
+            "DataCite"
+          ],
+          "toplevel": [
+            "online_resources"
+          ],
+          "frbrgroupid": [
+            "cdi_FETCH-datacite_primary_10_6084_m9_figshare_306866333"
+          ],
+          "frbrtype": [
+            "5"
+          ]
+        },
+        "sort": {
+          "title": [
+            "Music"
+          ],
+          "creationdate": [
+            "20251122"
+          ],
+          "author": [
+            "Yucemoz, Mert"
+          ]
+        },
+        "control": {
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "datacite_DYCCY"
+          ],
+          "recordid": [
+            "cdi_datacite_primary_10_6084_m9_figshare_30686633"
+          ],
+          "addsrcrecordid": [
+            "eNpjYJAxNNAzM7Aw0c-11EvLTC_OSCxK1TM2MLMwMzM25mRg9S0tzkzmYWBNS8wpTuWF0twMJm6uIc4euimJJYnJmSWp8QVFmbmJRZXxhgbxINPicy3jYabFw0wzJlMbAOlJMHk"
+          ],
+          "sourcerecordid": [
+            "10_6084_m9_figshare_30686633"
+          ],
+          "originalsourceid": [
+            "FETCH-datacite_primary_10_6084_m9_figshare_306866333"
+          ],
+          "sourcetype": [
+            "Publisher"
+          ],
+          "sourceformat": [
+            "XML"
+          ],
+          "sourcesystem": [
+            "Other"
+          ],
+          "iscdi": [
+            "true"
+          ],
+          "score": [
+            "0.0073078056"
+          ]
+        }
+      },
+      "delivery": {
+        "link": [],
+        "deliveryCategory": [
+          "Remote Search Resource"
+        ],
+        "availability": [
+          "fulltext_linktorsrc"
+        ],
+        "displayLocation": false,
+        "additionalLocations": false,
+        "physicalItemTextCodes": "",
+        "feDisplayOtherLocations": false,
+        "displayedAvailability": "true",
+        "holding": [],
+        "almaOpenurl": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2026-08-24 09:19:05&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-datacite_DYCCY&rft.genre=unknown&rft.au=Yucemoz%2C+Mert&rft.date=2025-11-22&rft_id=info:doi/10.6084%2Fm9.figshare.30686633&rft.pub=figshare&rft_dat=<datacite_DYCCY>10_6084_m9_figshare_30686633</datacite_DYCCY>&svc_dat=viewit"
+      },
+      "context": "PC",
+      "adaptor": "Primo Central",
+      "extras": {
+        "citationTrails": {
+          "citing": [],
+          "citedby": []
+        },
+        "timesCited": {}
+      },
+      "@id": "https://na04.alma.exlibrisgroup.com/primaws/rest/pub/pnxs/PC/cdi_datacite_primary_10_6084_m9_figshare_30686633"
+    },
+    {
+      "pnx": {
+        "links": {
+          "openurl": [
+            "$$Topenurl_article"
+          ],
+          "openurlfulltext": [
+            "$$Topenurlfull_article"
+          ],
+          "linktorsrc": [
+            "$$Uhttps://commons.datacite.org/doi.org/10.5281/zenodo.18441332$$EView_record_in_DataCite.org$$FView_record_in_$$GDataCite.org$$Hfree_for_read$$Pomit_proxy_true"
+          ],
+          "thumbnail": [
+            "$$Tsyndetics_thumb_exl"
+          ]
+        },
+        "display": {
+          "description": [
+            "Copyright (C) 0000-0002-0829-0749"
+          ],
+          "type": [
+            "video"
+          ],
+          "title": [
+            "Music"
+          ],
+          "source": [
+            "DataCite (Open Access)"
+          ],
+          "creator": [
+            "Yücemöz, Mert"
+          ],
+          "publisher": [
+            "Zenodo"
+          ],
+          "creationdate": [
+            "2026"
+          ],
+          "identifier": [
+            "DOI: 10.5281/zenodo.18441332"
+          ],
+          "language": [
+            "eng"
+          ],
+          "oa": [
+            "free_for_read"
+          ]
+        },
+        "search": {
+          "description": [
+            "Copyright (C) 0000-0002-0829-0749"
+          ],
+          "fulltext": [
+            "true"
+          ],
+          "title": [
+            "Music"
+          ],
+          "creator": [
+            "Yücemöz, Mert"
+          ],
+          "creationdate": [
+            "2026"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "creatorcontrib": [
+            "Yücemöz, Mert"
+          ],
+          "general": [
+            "Zenodo"
+          ],
+          "rsrctype": [
+            "video"
+          ],
+          "startdate": [
+            "20260131"
+          ],
+          "enddate": [
+            "20260131"
+          ],
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "DYCCY"
+          ],
+          "recordid": [
+            "eNpjYBA3NNAzNbIw1K9KzctPydcztDAxMTQ2NuJkYPUtLc5M5mFgTUvMKU7lhdLcDPpuriHOHropiSWJyZklqfEFRZm5iUWV8YYG8SCD4iEGxcMMMiZdBwAOkis9"
+          ],
+          "scope": [
+            "DYCCY",
+            "PQ8"
+          ]
+        },
+        "addata": {
+          "abstract": [
+            "Copyright (C) 0000-0002-0829-0749"
+          ],
+          "title": [
+            "Music"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "oa": [
+            "free_for_read"
+          ],
+          "au": [
+            "Yücemöz, Mert"
+          ],
+          "date": [
+            "2026-01-31"
+          ],
+          "risdate": [
+            "2026"
+          ],
+          "genre": [
+            "unknown"
+          ],
+          "ristype": [
+            "VIDEO"
+          ],
+          "pub": [
+            "Zenodo"
+          ],
+          "doi": [
+            "10.5281/zenodo.18441332"
+          ]
+        },
+        "delivery": {
+          "fulltext": [
+            "fulltext_linktorsrc"
+          ],
+          "delcategory": [
+            "Remote Search Resource"
+          ]
+        },
+        "facets": {
+          "creationdate": [
+            "2026"
+          ],
+          "language": [
+            "eng"
+          ],
+          "creatorcontrib": [
+            "Yücemöz, Mert"
+          ],
+          "rsrctype": [
+            "videos"
+          ],
+          "prefilter": [
+            "videos"
+          ],
+          "collection": [
+            "DataCite (Open Access)",
+            "DataCite"
+          ],
+          "toplevel": [
+            "online_resources"
+          ],
+          "frbrgroupid": [
+            "cdi_FETCH-datacite_primary_10_5281_zenodo_184413323"
+          ],
+          "frbrtype": [
+            "5"
+          ]
+        },
+        "sort": {
+          "title": [
+            "Music"
+          ],
+          "creationdate": [
+            "20260131"
+          ],
+          "author": [
+            "Yücemöz, Mert"
+          ]
+        },
+        "control": {
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "datacite_DYCCY"
+          ],
+          "recordid": [
+            "cdi_datacite_primary_10_5281_zenodo_18441332"
+          ],
+          "addsrcrecordid": [
+            "eNpjYBA3NNAzNbIw1K9KzctPydcztDAxMTQ2NuJkYPUtLc5M5mFgTUvMKU7lhdLcDPpuriHOHropiSWJyZklqfEFRZm5iUWV8YYG8SCD4iEGxcMMMiZdBwAOkis9"
+          ],
+          "sourcerecordid": [
+            "10_5281_zenodo_18441332"
+          ],
+          "originalsourceid": [
+            "FETCH-datacite_primary_10_5281_zenodo_184413323"
+          ],
+          "sourcetype": [
+            "Publisher"
+          ],
+          "sourceformat": [
+            "XML"
+          ],
+          "sourcesystem": [
+            "Other"
+          ],
+          "iscdi": [
+            "true"
+          ],
+          "score": [
+            "0.0072809197"
+          ]
+        }
+      },
+      "delivery": {
+        "link": [],
+        "deliveryCategory": [
+          "Remote Search Resource"
+        ],
+        "availability": [
+          "fulltext_linktorsrc"
+        ],
+        "displayLocation": false,
+        "additionalLocations": false,
+        "physicalItemTextCodes": "",
+        "feDisplayOtherLocations": false,
+        "displayedAvailability": "true",
+        "holding": [],
+        "almaOpenurl": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2026-08-24 09:19:05&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-datacite_DYCCY&rft.genre=unknown&rft.au=Y%C3%BCcem%C3%B6z%2C+Mert&rft.date=2026-01-31&rft_id=info:doi/10.5281%2Fzenodo.18441332&rft.pub=Zenodo&rft_dat=<datacite_DYCCY>10_5281_zenodo_18441332</datacite_DYCCY>&svc_dat=viewit"
+      },
+      "context": "PC",
+      "adaptor": "Primo Central",
+      "extras": {
+        "citationTrails": {
+          "citing": [],
+          "citedby": []
+        },
+        "timesCited": {}
+      },
+      "@id": "https://na04.alma.exlibrisgroup.com/primaws/rest/pub/pnxs/PC/cdi_datacite_primary_10_5281_zenodo_18441332"
+    },
+    {
+      "pnx": {
+        "links": {
+          "openurl": [
+            "$$Topenurl_article"
+          ],
+          "openurlfulltext": [
+            "$$Topenurlfull_article"
+          ],
+          "linktorsrc": [
+            "$$Uhttps://commons.datacite.org/doi.org/10.5281/zenodo.18433589$$EView_record_in_DataCite.org$$FView_record_in_$$GDataCite.org$$Hfree_for_read$$Pomit_proxy_true"
+          ],
+          "thumbnail": [
+            "$$Tsyndetics_thumb_exl"
+          ]
+        },
+        "display": {
+          "description": [
+            "Copyright (C) 0000-0002-0829-0749"
+          ],
+          "type": [
+            "video"
+          ],
+          "title": [
+            "Music"
+          ],
+          "source": [
+            "DataCite (Open Access)"
+          ],
+          "creator": [
+            "Yucemoz, Mert"
+          ],
+          "publisher": [
+            "Zenodo"
+          ],
+          "creationdate": [
+            "2026"
+          ],
+          "identifier": [
+            "DOI: 10.5281/zenodo.18433589"
+          ],
+          "language": [
+            "eng"
+          ],
+          "oa": [
+            "free_for_read"
+          ]
+        },
+        "search": {
+          "description": [
+            "Copyright (C) 0000-0002-0829-0749"
+          ],
+          "fulltext": [
+            "true"
+          ],
+          "title": [
+            "Music"
+          ],
+          "creator": [
+            "Yucemoz, Mert"
+          ],
+          "creationdate": [
+            "2026"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "creatorcontrib": [
+            "Yucemoz, Mert"
+          ],
+          "general": [
+            "Zenodo"
+          ],
+          "rsrctype": [
+            "video"
+          ],
+          "startdate": [
+            "20260130"
+          ],
+          "enddate": [
+            "20260130"
+          ],
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "DYCCY"
+          ],
+          "recordid": [
+            "eNpjYBA3NNAzNbIw1K9KzctPydcztDAxNja1sORkYPUtLc5M5mFgTUvMKU7lhdLcDPpuriHOHropiSWJyZklqfEFRZm5iUWV8YYG8SCD4iEGxcMMMiZdBwAZMCtq"
+          ],
+          "scope": [
+            "DYCCY",
+            "PQ8"
+          ]
+        },
+        "addata": {
+          "abstract": [
+            "Copyright (C) 0000-0002-0829-0749"
+          ],
+          "title": [
+            "Music"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "oa": [
+            "free_for_read"
+          ],
+          "au": [
+            "Yucemoz, Mert"
+          ],
+          "date": [
+            "2026-01-30"
+          ],
+          "risdate": [
+            "2026"
+          ],
+          "genre": [
+            "unknown"
+          ],
+          "ristype": [
+            "VIDEO"
+          ],
+          "pub": [
+            "Zenodo"
+          ],
+          "doi": [
+            "10.5281/zenodo.18433589"
+          ]
+        },
+        "delivery": {
+          "fulltext": [
+            "fulltext_linktorsrc"
+          ],
+          "delcategory": [
+            "Remote Search Resource"
+          ]
+        },
+        "facets": {
+          "creationdate": [
+            "2026"
+          ],
+          "language": [
+            "eng"
+          ],
+          "creatorcontrib": [
+            "Yucemoz, Mert"
+          ],
+          "rsrctype": [
+            "videos"
+          ],
+          "prefilter": [
+            "videos"
+          ],
+          "collection": [
+            "DataCite (Open Access)",
+            "DataCite"
+          ],
+          "toplevel": [
+            "online_resources"
+          ],
+          "frbrgroupid": [
+            "cdi_FETCH-datacite_primary_10_5281_zenodo_184335893"
+          ],
+          "frbrtype": [
+            "5"
+          ]
+        },
+        "sort": {
+          "title": [
+            "Music"
+          ],
+          "creationdate": [
+            "20260130"
+          ],
+          "author": [
+            "Yucemoz, Mert"
+          ]
+        },
+        "control": {
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "datacite_DYCCY"
+          ],
+          "recordid": [
+            "cdi_datacite_primary_10_5281_zenodo_18433589"
+          ],
+          "addsrcrecordid": [
+            "eNpjYBA3NNAzNbIw1K9KzctPydcztDAxNja1sORkYPUtLc5M5mFgTUvMKU7lhdLcDPpuriHOHropiSWJyZklqfEFRZm5iUWV8YYG8SCD4iEGxcMMMiZdBwAZMCtq"
+          ],
+          "sourcerecordid": [
+            "10_5281_zenodo_18433589"
+          ],
+          "originalsourceid": [
+            "FETCH-datacite_primary_10_5281_zenodo_184335893"
+          ],
+          "sourcetype": [
+            "Publisher"
+          ],
+          "sourceformat": [
+            "XML"
+          ],
+          "sourcesystem": [
+            "Other"
+          ],
+          "iscdi": [
+            "true"
+          ],
+          "score": [
+            "0.00728035"
+          ]
+        }
+      },
+      "delivery": {
+        "link": [],
+        "deliveryCategory": [
+          "Remote Search Resource"
+        ],
+        "availability": [
+          "fulltext_linktorsrc"
+        ],
+        "displayLocation": false,
+        "additionalLocations": false,
+        "physicalItemTextCodes": "",
+        "feDisplayOtherLocations": false,
+        "displayedAvailability": "true",
+        "holding": [],
+        "almaOpenurl": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2026-08-24 09:19:05&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-datacite_DYCCY&rft.genre=unknown&rft.au=Yucemoz%2C+Mert&rft.date=2026-01-30&rft_id=info:doi/10.5281%2Fzenodo.18433589&rft.pub=Zenodo&rft_dat=<datacite_DYCCY>10_5281_zenodo_18433589</datacite_DYCCY>&svc_dat=viewit"
+      },
+      "context": "PC",
+      "adaptor": "Primo Central",
+      "extras": {
+        "citationTrails": {
+          "citing": [],
+          "citedby": []
+        },
+        "timesCited": {}
+      },
+      "@id": "https://na04.alma.exlibrisgroup.com/primaws/rest/pub/pnxs/PC/cdi_datacite_primary_10_5281_zenodo_18433589"
+    },
+    {
+      "pnx": {
+        "links": {
+          "openurl": [
+            "$$Topenurl_article"
+          ],
+          "openurlfulltext": [
+            "$$Topenurlfull_article"
+          ],
+          "linktorsrc": [
+            "$$Uhttps://commons.datacite.org/doi.org/10.5281/zenodo.18022710$$EView_record_in_DataCite.org$$FView_record_in_$$GDataCite.org$$Hfree_for_read$$Pomit_proxy_true"
+          ],
+          "thumbnail": [
+            "$$Tsyndetics_thumb_exl"
+          ]
+        },
+        "display": {
+          "description": [
+            "Music composition. Copyright (C) Author 0000-0002-0829-0749."
+          ],
+          "type": [
+            "video"
+          ],
+          "title": [
+            "Music"
+          ],
+          "source": [
+            "DataCite (Open Access)"
+          ],
+          "creator": [
+            "Yucemoz, Mert"
+          ],
+          "publisher": [
+            "Zenodo"
+          ],
+          "creationdate": [
+            "2025"
+          ],
+          "identifier": [
+            "DOI: 10.5281/zenodo.18022710"
+          ],
+          "language": [
+            "eng"
+          ],
+          "snippet": [
+            "Music composition. Copyright (C) Author 0000-0002-0829-0749."
+          ],
+          "oa": [
+            "free_for_read"
+          ]
+        },
+        "search": {
+          "description": [
+            "Music composition. Copyright (C) Author 0000-0002-0829-0749."
+          ],
+          "fulltext": [
+            "true"
+          ],
+          "title": [
+            "Music"
+          ],
+          "creator": [
+            "Yucemoz, Mert"
+          ],
+          "creationdate": [
+            "2025"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "creatorcontrib": [
+            "Yucemoz, Mert"
+          ],
+          "general": [
+            "Zenodo"
+          ],
+          "rsrctype": [
+            "video"
+          ],
+          "startdate": [
+            "20251222"
+          ],
+          "enddate": [
+            "20251222"
+          ],
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "DYCCY"
+          ],
+          "recordid": [
+            "eNpjYBA3NNAzNbIw1K9KzctPydcztDAwMjI3NOBkYPUtLc5M5mFgTUvMKU7lhdLcDPpuriHOHropiSWJyZklqfEFRZm5iUWV8YYG8SCD4iEGxcMMMiZdBwAK2isu"
+          ],
+          "scope": [
+            "DYCCY",
+            "PQ8"
+          ]
+        },
+        "addata": {
+          "abstract": [
+            "Music composition. Copyright (C) Author 0000-0002-0829-0749."
+          ],
+          "title": [
+            "Music"
+          ],
+          "orcidid": [
+            "https://orcid.org/0000-0002-0829-0749"
+          ],
+          "oa": [
+            "free_for_read"
+          ],
+          "au": [
+            "Yucemoz, Mert"
+          ],
+          "date": [
+            "2025-12-22"
+          ],
+          "risdate": [
+            "2025"
+          ],
+          "genre": [
+            "unknown"
+          ],
+          "ristype": [
+            "VIDEO"
+          ],
+          "pub": [
+            "Zenodo"
+          ],
+          "doi": [
+            "10.5281/zenodo.18022710"
+          ]
+        },
+        "delivery": {
+          "fulltext": [
+            "fulltext_linktorsrc"
+          ],
+          "delcategory": [
+            "Remote Search Resource"
+          ]
+        },
+        "facets": {
+          "creationdate": [
+            "2025"
+          ],
+          "language": [
+            "eng"
+          ],
+          "creatorcontrib": [
+            "Yucemoz, Mert"
+          ],
+          "rsrctype": [
+            "videos"
+          ],
+          "prefilter": [
+            "videos"
+          ],
+          "collection": [
+            "DataCite (Open Access)",
+            "DataCite"
+          ],
+          "toplevel": [
+            "online_resources"
+          ],
+          "frbrgroupid": [
+            "cdi_FETCH-datacite_primary_10_5281_zenodo_180227103"
+          ],
+          "frbrtype": [
+            "5"
+          ]
+        },
+        "sort": {
+          "title": [
+            "Music"
+          ],
+          "creationdate": [
+            "20251222"
+          ],
+          "author": [
+            "Yucemoz, Mert"
+          ]
+        },
+        "control": {
+          "recordtype": [
+            "video"
+          ],
+          "sourceid": [
+            "datacite_DYCCY"
+          ],
+          "recordid": [
+            "cdi_datacite_primary_10_5281_zenodo_18022710"
+          ],
+          "addsrcrecordid": [
+            "eNpjYBA3NNAzNbIw1K9KzctPydcztDAwMjI3NOBkYPUtLc5M5mFgTUvMKU7lhdLcDPpuriHOHropiSWJyZklqfEFRZm5iUWV8YYG8SCD4iEGxcMMMiZdBwAK2isu"
+          ],
+          "sourcerecordid": [
+            "10_5281_zenodo_18022710"
+          ],
+          "originalsourceid": [
+            "FETCH-datacite_primary_10_5281_zenodo_180227103"
+          ],
+          "sourcetype": [
+            "Publisher"
+          ],
+          "sourceformat": [
+            "XML"
+          ],
+          "sourcesystem": [
+            "Other"
+          ],
+          "iscdi": [
+            "true"
+          ],
+          "score": [
+            "0.0072762077"
+          ]
+        }
+      },
+      "delivery": {
+        "link": [],
+        "deliveryCategory": [
+          "Remote Search Resource"
+        ],
+        "availability": [
+          "fulltext_linktorsrc"
+        ],
+        "displayLocation": false,
+        "additionalLocations": false,
+        "physicalItemTextCodes": "",
+        "feDisplayOtherLocations": false,
+        "displayedAvailability": "true",
+        "holding": [],
+        "almaOpenurl": "https://na04.alma.exlibrisgroup.com/view/uresolver/01UMICH_INST/openurl?ctx_enc=info:ofi/enc:UTF-8&ctx_id=10_1&ctx_tim=2026-08-24 09:19:05&ctx_ver=Z39.88-2004&url_ctx_fmt=info:ofi/fmt:kev:mtx:ctx&url_ver=Z39.88-2004&rfr_id=info:sid/primo.exlibrisgroup.com-datacite_DYCCY&rft.genre=unknown&rft.au=Yucemoz%2C+Mert&rft.date=2025-12-22&rft_id=info:doi/10.5281%2Fzenodo.18022710&rft.pub=Zenodo&rft_dat=<datacite_DYCCY>10_5281_zenodo_18022710</datacite_DYCCY>&svc_dat=viewit"
+      },
+      "context": "PC",
+      "adaptor": "Primo Central",
+      "extras": {
+        "citationTrails": {
+          "citing": [],
+          "citedby": []
+        },
+        "timesCited": {}
+      },
+      "@id": "https://na04.alma.exlibrisgroup.com/primaws/rest/pub/pnxs/PC/cdi_datacite_primary_10_5281_zenodo_18022710"
+    }
+  ],
+  "timelog": {
+    "PC_SEARCH_CALL_TIME": "959",
+    "PC_BUILD_JSON_AND_HIGLIGHTS": "77",
+    "PC_SEARCH_TIME_TOTAL": "1036",
+    "BUILD_BLEND_AND_CACHE_RESULTS": 0,
+    "BUILD_COMBINED_RESULTS_MAP": 1037,
+    "COMBINED_SEARCH_TIME": 1044,
+    "PROCESS_COMBINED_RESULTS": 0,
+    "FEATURED_SEARCH_TIME": 1
+  },
+  "facets": [
+    {
+      "name": "jtitle",
+      "values": [
+        {
+          "value": "Billboard",
+          "count": "572687"
+        },
+        {
+          "value": "The New York Times",
+          "count": "345724"
+        },
+        {
+          "value": "Knight-Ridder/Tribune Business News",
+          "count": "280631"
+        },
+        {
+          "value": "Back Stage",
+          "count": "245517"
+        },
+        {
+          "value": "The Stage and Television Today",
+          "count": "233554"
+        },
+        {
+          "value": "University Wire",
+          "count": "183976"
+        },
+        {
+          "value": "American Record Guide",
+          "count": "120478"
+        },
+        {
+          "value": "Pr Newswire",
+          "count": "104355"
+        },
+        {
+          "value": "Maximum Rocknroll",
+          "count": "103944"
+        },
+        {
+          "value": "Variety",
+          "count": "100249"
+        }
+      ]
+    },
+    {
+      "name": "lang",
+      "values": [
+        {
+          "value": "eng",
+          "count": "8415627"
+        },
+        {
+          "value": "chi",
+          "count": "314850"
+        },
+        {
+          "value": "fre",
+          "count": "107880"
+        },
+        {
+          "value": "spa",
+          "count": "87101"
+        },
+        {
+          "value": "ger",
+          "count": "82904"
+        },
+        {
+          "value": "kor",
+          "count": "40230"
+        },
+        {
+          "value": "ita",
+          "count": "24526"
+        },
+        {
+          "value": "jpn",
+          "count": "22020"
+        },
+        {
+          "value": "por",
+          "count": "20499"
+        },
+        {
+          "value": "tur",
+          "count": "4654"
+        },
+        {
+          "value": "pol",
+          "count": "3806"
+        },
+        {
+          "value": "bul",
+          "count": "2961"
+        },
+        {
+          "value": "swe",
+          "count": "2477"
+        },
+        {
+          "value": "dut",
+          "count": "2336"
+        },
+        {
+          "value": "ukr",
+          "count": "2092"
+        },
+        {
+          "value": "lat",
+          "count": "2026"
+        },
+        {
+          "value": "rus",
+          "count": "1922"
+        },
+        {
+          "value": "rum",
+          "count": "1906"
+        },
+        {
+          "value": "hrv",
+          "count": "1424"
+        },
+        {
+          "value": "ara",
+          "count": "1379"
+        }
+      ]
+    },
+    {
+      "name": "topic",
+      "values": [
+        {
+          "value": "Music",
+          "count": "992063"
+        },
+        {
+          "value": "Musical Performances",
+          "count": "493828"
+        },
+        {
+          "value": "Musicians & Conductors",
+          "count": "460626"
+        },
+        {
+          "value": "Classical Music",
+          "count": "326140"
+        },
+        {
+          "value": "Musical Recordings",
+          "count": "316624"
+        },
+        {
+          "value": "Sound Recordings",
+          "count": "203573"
+        },
+        {
+          "value": "Singers",
+          "count": "194630"
+        },
+        {
+          "value": "Bands",
+          "count": "191805"
+        },
+        {
+          "value": "Popular Music",
+          "count": "180793"
+        },
+        {
+          "value": "Motion Pictures",
+          "count": "170820"
+        },
+        {
+          "value": "Theater",
+          "count": "167640"
+        },
+        {
+          "value": "Arts & Humanities",
+          "count": "165268"
+        },
+        {
+          "value": "Jazz",
+          "count": "153419"
+        },
+        {
+          "value": "Music Festivals",
+          "count": "136768"
+        },
+        {
+          "value": "Music Industry",
+          "count": "132344"
+        },
+        {
+          "value": "Musical Instruments",
+          "count": "131367"
+        },
+        {
+          "value": "Physics",
+          "count": "120809"
+        },
+        {
+          "value": "Composers",
+          "count": "117176"
+        },
+        {
+          "value": "Musicians",
+          "count": "113469"
+        },
+        {
+          "value": "Opera",
+          "count": "104099"
+        }
+      ]
+    },
+    {
+      "name": "rtype",
+      "values": [
+        {
+          "value": "magazinearticle",
+          "count": "2974848"
+        },
+        {
+          "value": "newspaper_articles",
+          "count": "2116649"
+        },
+        {
+          "value": "articles",
+          "count": "1641387"
+        },
+        {
+          "value": "reviews",
+          "count": "509078"
+        },
+        {
+          "value": "book_chapters",
+          "count": "347362"
+        },
+        {
+          "value": "images",
+          "count": "241230"
+        },
+        {
+          "value": "audios",
+          "count": "235362"
+        },
+        {
+          "value": "reference_entrys",
+          "count": "196063"
+        },
+        {
+          "value": "patents",
+          "count": "168910"
+        },
+        {
+          "value": "text_resources",
+          "count": "123432"
+        },
+        {
+          "value": "archival_material_manuscripts",
+          "count": "112037"
+        },
+        {
+          "value": "scores",
+          "count": "94904"
+        },
+        {
+          "value": "books",
+          "count": "84546"
+        },
+        {
+          "value": "dissertations",
+          "count": "79902"
+        },
+        {
+          "value": "newsletterarticle",
+          "count": "32055"
+        },
+        {
+          "value": "videos",
+          "count": "25460"
+        },
+        {
+          "value": "transcripts",
+          "count": "24830"
+        },
+        {
+          "value": "conference_proceedings",
+          "count": "23280"
+        },
+        {
+          "value": "web_resources",
+          "count": "18612"
+        },
+        {
+          "value": "reports",
+          "count": "8380"
+        }
+      ]
+    },
+    {
+      "name": "domain",
+      "values": [
+        {
+          "value": "Gale General OneFile",
+          "count": "2463328"
+        },
+        {
+          "value": "Research Library",
+          "count": "2224782"
+        },
+        {
+          "value": "Gale Academic OneFile",
+          "count": "2179496"
+        },
+        {
+          "value": "Gale OneFile: Fine Arts",
+          "count": "2049405"
+        },
+        {
+          "value": "Global Newsstream",
+          "count": "1898826"
+        },
+        {
+          "value": "Music Periodicals Database",
+          "count": "1691539"
+        },
+        {
+          "value": "Gale Business: Insights",
+          "count": "1635478"
+        },
+        {
+          "value": "ABI/INFORM Collection",
+          "count": "1613989"
+        },
+        {
+          "value": "Single Journals",
+          "count": "1596825"
+        },
+        {
+          "value": "Gale OneFile: Business",
+          "count": "1537125"
+        },
+        {
+          "value": "EBSCOhost Academic Search Complete",
+          "count": "1465556"
+        },
+        {
+          "value": "Periodicals Index Online",
+          "count": "1397260"
+        },
+        {
+          "value": "Gale In Context: Biography",
+          "count": "1373080"
+        },
+        {
+          "value": "Gale In Context: College",
+          "count": "1335330"
+        },
+        {
+          "value": "Factiva - Classic",
+          "count": "1291997"
+        },
+        {
+          "value": "MasterFILE Complete",
+          "count": "1240427"
+        },
+        {
+          "value": "EBSCOhost OmniFile Full Text Select",
+          "count": "1150693"
+        },
+        {
+          "value": "Gale OneFile: Pop Culture Studies",
+          "count": "1035143"
+        },
+        {
+          "value": "EBSCOhost Business Source Complete",
+          "count": "1004975"
+        },
+        {
+          "value": "EBSCOhost Associates Programs Source",
+          "count": "983083"
+        }
+      ]
+    },
+    {
+      "name": "tlevel",
+      "values": [
+        {
+          "value": "open_access",
+          "count": "1116417"
+        },
+        {
+          "value": "peer_reviewed",
+          "count": "789176"
+        },
+        {
+          "value": "online_resources",
+          "count": "9073665"
+        }
+      ]
+    },
+    {
+      "name": "attribute",
+      "values": [
+        {
+          "value": "primary_source",
+          "count": "337929"
+        },
+        {
+          "value": "review_article",
+          "count": "28441"
+        },
+        {
+          "value": "preprint",
+          "count": "11200"
+        },
+        {
+          "value": "online_first",
+          "count": "717"
+        },
+        {
+          "value": "retracted_publication",
+          "count": "356"
+        },
+        {
+          "value": "retraction_notice",
+          "count": "276"
+        },
+        {
+          "value": "publication_corrigendum",
+          "count": "201"
+        },
+        {
+          "value": "open_educational_resource",
+          "count": "5"
+        },
+        {
+          "value": "publication_addendum",
+          "count": "2"
+        }
+      ]
+    },
+    {
+      "name": "newrecords",
+      "values": [
+        {
+          "value": "30 days back",
+          "count": "8256"
+        },
+        {
+          "value": "90 days back",
+          "count": "32432"
+        },
+        {
+          "value": "07 days back",
+          "count": "1099"
+        }
+      ]
+    },
+    {
+      "name": "creationdate",
+      "values": [
+        {
+          "value": "1001",
+          "count": "1"
+        },
+        {
+          "value": "1500",
+          "count": "1345"
+        },
+        {
+          "value": "1600",
+          "count": "496"
+        },
+        {
+          "value": "1700",
+          "count": "1492"
+        },
+        {
+          "value": "1800",
+          "count": "10902"
+        },
+        {
+          "value": "1900",
+          "count": "299346"
+        },
+        {
+          "value": "1910",
+          "count": "45500"
+        },
+        {
+          "value": "1920",
+          "count": "49561"
+        },
+        {
+          "value": "1930",
+          "count": "58108"
+        },
+        {
+          "value": "1940",
+          "count": "65915"
+        },
+        {
+          "value": "1950",
+          "count": "57260"
+        },
+        {
+          "value": "1951",
+          "count": "7224"
+        },
+        {
+          "value": "1952",
+          "count": "7159"
+        },
+        {
+          "value": "1953",
+          "count": "7274"
+        },
+        {
+          "value": "1954",
+          "count": "8411"
+        },
+        {
+          "value": "1955",
+          "count": "8596"
+        },
+        {
+          "value": "1956",
+          "count": "8436"
+        },
+        {
+          "value": "1957",
+          "count": "8883"
+        },
+        {
+          "value": "1958",
+          "count": "9160"
+        },
+        {
+          "value": "1959",
+          "count": "16459"
+        },
+        {
+          "value": "1960",
+          "count": "18552"
+        },
+        {
+          "value": "1961",
+          "count": "19944"
+        },
+        {
+          "value": "1962",
+          "count": "21282"
+        },
+        {
+          "value": "1963",
+          "count": "20367"
+        },
+        {
+          "value": "1964",
+          "count": "21362"
+        },
+        {
+          "value": "1965",
+          "count": "21467"
+        },
+        {
+          "value": "1966",
+          "count": "23369"
+        },
+        {
+          "value": "1967",
+          "count": "23914"
+        },
+        {
+          "value": "1968",
+          "count": "24759"
+        },
+        {
+          "value": "1969",
+          "count": "33782"
+        },
+        {
+          "value": "1970",
+          "count": "27629"
+        },
+        {
+          "value": "1971",
+          "count": "23709"
+        },
+        {
+          "value": "1972",
+          "count": "24328"
+        },
+        {
+          "value": "1973",
+          "count": "25702"
+        },
+        {
+          "value": "1974",
+          "count": "23820"
+        },
+        {
+          "value": "1975",
+          "count": "24997"
+        },
+        {
+          "value": "1976",
+          "count": "26140"
+        },
+        {
+          "value": "1977",
+          "count": "29066"
+        },
+        {
+          "value": "1978",
+          "count": "31354"
+        },
+        {
+          "value": "1979",
+          "count": "35454"
+        },
+        {
+          "value": "1980",
+          "count": "39018"
+        },
+        {
+          "value": "1981",
+          "count": "37013"
+        },
+        {
+          "value": "1982",
+          "count": "38796"
+        },
+        {
+          "value": "1983",
+          "count": "45600"
+        },
+        {
+          "value": "1984",
+          "count": "48590"
+        },
+        {
+          "value": "1985",
+          "count": "50951"
+        },
+        {
+          "value": "1986",
+          "count": "55705"
+        },
+        {
+          "value": "1987",
+          "count": "58740"
+        },
+        {
+          "value": "1988",
+          "count": "77621"
+        },
+        {
+          "value": "1989",
+          "count": "79929"
+        },
+        {
+          "value": "1990",
+          "count": "84164"
+        },
+        {
+          "value": "1991",
+          "count": "86889"
+        },
+        {
+          "value": "1992",
+          "count": "101880"
+        },
+        {
+          "value": "1993",
+          "count": "119167"
+        },
+        {
+          "value": "1994",
+          "count": "124714"
+        },
+        {
+          "value": "1995",
+          "count": "119557"
+        },
+        {
+          "value": "1996",
+          "count": "121534"
+        },
+        {
+          "value": "1997",
+          "count": "130773"
+        },
+        {
+          "value": "1998",
+          "count": "158496"
+        },
+        {
+          "value": "1999",
+          "count": "164943"
+        },
+        {
+          "value": "2000",
+          "count": "188024"
+        },
+        {
+          "value": "2001",
+          "count": "191740"
+        },
+        {
+          "value": "2002",
+          "count": "184200"
+        },
+        {
+          "value": "2003",
+          "count": "202624"
+        },
+        {
+          "value": "2004",
+          "count": "200892"
+        },
+        {
+          "value": "2005",
+          "count": "220774"
+        },
+        {
+          "value": "2006",
+          "count": "267681"
+        },
+        {
+          "value": "2007",
+          "count": "241948"
+        },
+        {
+          "value": "2008",
+          "count": "231291"
+        },
+        {
+          "value": "2009",
+          "count": "227263"
+        },
+        {
+          "value": "2010",
+          "count": "240868"
+        },
+        {
+          "value": "2011",
+          "count": "256924"
+        },
+        {
+          "value": "2012",
+          "count": "267183"
+        },
+        {
+          "value": "2013",
+          "count": "281605"
+        },
+        {
+          "value": "2014",
+          "count": "278922"
+        },
+        {
+          "value": "2015",
+          "count": "258399"
+        },
+        {
+          "value": "2016",
+          "count": "242905"
+        },
+        {
+          "value": "2017",
+          "count": "239285"
+        },
+        {
+          "value": "2018",
+          "count": "217919"
+        },
+        {
+          "value": "2019",
+          "count": "221517"
+        },
+        {
+          "value": "2020",
+          "count": "199359"
+        },
+        {
+          "value": "2021",
+          "count": "183348"
+        },
+        {
+          "value": "2022",
+          "count": "184210"
+        },
+        {
+          "value": "2023",
+          "count": "179582"
+        },
+        {
+          "value": "2024",
+          "count": "169166"
+        },
+        {
+          "value": "2025",
+          "count": "156929"
+        },
+        {
+          "value": "2026",
+          "count": "75865"
+        },
+        {
+          "value": "2027",
+          "count": "155"
+        },
+        {
+          "value": "2028",
+          "count": "4"
+        }
+      ]
+    }
+  ]
+}
