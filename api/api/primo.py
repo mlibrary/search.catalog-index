@@ -1,6 +1,5 @@
 from api.clients.exlibris_client import PrimoClient
 from api.clients.lib_key_client import LibKeyClient
-from functools import cached_property
 import yaml
 import re
 from api.services import S
@@ -54,9 +53,27 @@ def remove_html_tags(text):
     return re.sub(clean, "", text)
 
 
-def record_for(id):
+async def fetch_record(data):
+    return await Record.create(data)
+
+
+async def record_for(id):
     data = PrimoClient().get_record(id)
-    return Record(data)
+    return await fetch_record(data)
+
+
+async def get_lib_key_holding(doi, pmid):
+    if not doi and not pmid:
+        return None
+
+    data = None
+    if pmid:
+        data = await LibKeyClient().get_article(kind="pmid", value=pmid)
+    if doi and not data:
+        data = await LibKeyClient().get_article(kind="doi", value=doi)
+
+    if data:
+        return LibKeyHolding(data)
 
 
 async def get_results(query_params):
@@ -72,7 +89,7 @@ async def get_results(query_params):
     response = requests.Session().get(
         f"{S.parser_url}/articles/search", params=parser_params
     )
-    results = await Results(data=response.json(), query_params=query_params).output()
+    results = await Results.create(data=response.json(), query_params=query_params)
     return results
 
 
@@ -100,9 +117,15 @@ class Filter:
 class Results:
     fh = articles_filter_handler
 
-    def __init__(self, data: dict, query_params: dict):
+    @classmethod
+    async def create(cls, data: dict, query_params: dict):
+        records = await asyncio.gather(*map(fetch_record, data["docs"]))
+        return Results(data=data, query_params=query_params, records=records)
+
+    def __init__(self, data: dict, query_params: dict, records: list = []):
         self.data = data
         self.query_params = query_params
+        self.records = records
 
     @property
     def total(self):
@@ -120,11 +143,6 @@ class Results:
     def sort(self):
         return self.query_params["sort"]
 
-    @cached_property
-    async def records(self):
-        return await self.fetch_records()
-        # return [Record(data) for data in self.data["docs"]]
-
     @property
     def filters(self):
         result = []
@@ -137,21 +155,6 @@ class Results:
                     )
                 )
         return result
-
-    async def fetch_records(self):
-        results = await asyncio.gather(*map(fetch_record, self.data["docs"]))
-        return results
-
-    async def output(self):
-        results = {
-            "total": self.total,
-            "limit": self.limit,
-            "offset": self.offset,
-            "sort": self.sort,
-            "filters": self.filters,
-            "records": await self.records,
-        }
-        return results
 
 
 class ArticlesFilterQuery(BaseFilterQuery):
@@ -336,15 +339,24 @@ class PrimoDoc:
         return [remove_html_tags(f) for f in self.pnx.get(section, {}).get(field, [])]
 
 
-async def fetch_record(data):
-    return Record(data).output()
-
-
 class Record:
-    def __init__(self, data):
+    @classmethod
+    async def create(cls, data):
+        doc = PrimoDoc(data)
+        lib_key_holding = await get_lib_key_holding(
+            doi=doc.doi,
+            pmid=doc.pmid,
+        )
+        return Record(data=data, doc=doc, lib_key_holding=lib_key_holding)
+
+    def __init__(self, data, doc=None, lib_key_holding=None):
         self.data = data
-        self.doc = PrimoDoc(data)
+        if doc:
+            self.doc = doc
+        else:
+            self.doc = PrimoDoc(data)
         self.pnx = self.data.get("pnx", {})
+        self.lib_key_holding = lib_key_holding
 
     @property
     def id(self):
@@ -463,60 +475,6 @@ class Record:
             result.append(self.lib_key_holding)
         result.append(AlmaHolding(self.data))
         return result
-
-    @cached_property
-    def lib_key_holding(self):
-        return get_lib_key_holding(
-            doi=self.doc.doi,
-            pmid=self.doc.pmid,
-        )
-
-    def output(self):
-        result = {}
-        for field in [
-            "id",
-            "peer_reviewed",
-            "retraction_notice_url",
-            "title",
-            "issue",
-            "volume",
-            "pages",
-            "journal_title",
-            "publication_date",
-            "abstract",
-            "publisher",
-            "genre",
-            "issn",
-            "eissn",
-            "isbn",
-            "eisbn",
-            "doi",
-            "oclc",
-            "pmid",
-            "language",
-            "subject",
-            "author",
-            "edition",
-            "citation",
-            "holdings",
-        ]:
-            result[field] = getattr(self, field)
-
-        return result
-
-
-def get_lib_key_holding(doi, pmid):
-    if not doi and not pmid:
-        return None
-
-    data = None
-    if pmid:
-        data = LibKeyClient().get_article(kind="pmid", value=pmid)
-    if doi and not data:
-        data = LibKeyClient().get_article(kind="doi", value=doi)
-
-    if data:
-        return LibKeyHolding(data)
 
 
 class AlmaHolding:

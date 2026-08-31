@@ -19,15 +19,15 @@ class LibKeyClient:
             "Content-Type": "application/json",
         }
 
-    def get_article(self, kind, value):
+    async def get_article(self, kind, value):
         url = f"{S.lib_key_host}/public/v1/libraries/{S.lib_key_library_id}/articles/{kind}/{quote(value)}"
-        with httpx.Client(headers=self.headers) as client:
+        async with httpx.AsyncClient(headers=self.headers) as client:
             try:
-                response = client.get(url, timeout=0.5)
+                response = await client.get(url, timeout=0.5)
                 response.raise_for_status()
                 body = response.json()
                 return body["data"]
-            except httpx.HTTPStatusError as e:
+            except httpx.HTTPStatusError:
                 # S.logger.error(f"HTTP error occurred: {e}")
                 return None
             # except httpx.exceptions.RequestException as e:

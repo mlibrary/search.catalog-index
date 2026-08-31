@@ -19,14 +19,14 @@ router = APIRouter(prefix="/articles", tags=["articles"])
     response_model_exclude_none=True,
 )
 @REQUEST_HISTOGRAM.labels(datastore="articles", route="record").time()
-def get_record(id: str) -> schemas.ArticlesRecord:
+async def get_record(id: str) -> schemas.ArticlesRecord:
     """
     Gets a record from catalog solr. The record is fetched by the solr id, which
     is the mms_id for an Alma record or a htid with a 11 prefix for a HathiTrust
     record
     """
     try:
-        result = record_for(id)
+        result = await record_for(id)
         return result
     except NotFoundError:
         raise HTTPException(status_code=404, detail="Item not found")
