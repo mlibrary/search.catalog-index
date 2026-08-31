@@ -9,6 +9,14 @@ require_relative "lib/services"
 require_relative "lib/metrics"
 require "debug" if S.app_env == "development"
 
+require "opentelemetry/sdk"
+require "opentelemetry/instrumentation/all"
+require "opentelemetry-exporter-otlp"
+OpenTelemetry::SDK.configure do |c|
+  c.service_name = "search-parser"
+  c.use_all # enables all instrumentation!
+end
+
 Metrics::Yabeda.configure!
 
 class SearchParser
@@ -279,6 +287,7 @@ class SearchParser::Application < Sinatra::Base
   end
   namespace "/articles" do
     get "/search" do
+      S.logger.info("request", request.env["otel.rack.token_and_span"][1].parent_span_id)
       headers "metrics.route" => "articles/search"
       content_type :json
       query_params = {

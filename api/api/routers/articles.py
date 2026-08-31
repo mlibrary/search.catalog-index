@@ -33,8 +33,10 @@ def get_record(id: str) -> schemas.ArticlesRecord:
 
 
 @REQUEST_HISTOGRAM.labels(datastore="catalog", route="results").time()
-@router.get("/search", response_model_exclude_none=True)
-def get_search_results(
+@router.get(
+    "/search", response_model_exclude_none=True, response_model=schemas.ArticlesResults
+)
+async def get_search_results(
     query: str = "",
     offset: int = 0,
     limit: int = 10,
@@ -45,11 +47,11 @@ def get_search_results(
     peer_reviewed: bool = False,
     filters: Annotated[list[str], Query()] = [],
     sort: schemas.ArticlesSort = schemas.ArticlesSort.relevance,
-) -> schemas.ArticlesResults:
+):
     """
     Does a search in catalog solr
     """
-    results = get_results(
+    results = await get_results(
         {
             "query": query,
             "offset": offset,

@@ -10,6 +10,7 @@ from datetime import datetime
 from api.results import BaseFilterQuery, FilterHandler, FilterValue
 import requests
 import string
+import asyncio
 
 sort_map = {"relevance": "rank", "date_desc": "date_d", "date_asc": "date_a"}
 
@@ -58,7 +59,7 @@ def record_for(id):
     return Record(data)
 
 
-def get_results(query_params):
+async def get_results(query_params):
     parser_params = {
         "q": query_params["query"],
         "offset": query_params["offset"],
@@ -71,8 +72,8 @@ def get_results(query_params):
     response = requests.Session().get(
         f"{S.parser_url}/articles/search", params=parser_params
     )
-
-    return Results(data=response.json(), query_params=query_params)
+    results = await Results(data=response.json(), query_params=query_params).output()
+    return results
 
 
 class Filter:
@@ -119,9 +120,10 @@ class Results:
     def sort(self):
         return self.query_params["sort"]
 
-    @property
-    def records(self):
-        return [Record(data) for data in self.data["docs"]]
+    @cached_property
+    async def records(self):
+        return await self.fetch_records()
+        # return [Record(data) for data in self.data["docs"]]
 
     @property
     def filters(self):
@@ -135,6 +137,21 @@ class Results:
                     )
                 )
         return result
+
+    async def fetch_records(self):
+        results = await asyncio.gather(*map(fetch_record, self.data["docs"]))
+        return results
+
+    async def output(self):
+        results = {
+            "total": self.total,
+            "limit": self.limit,
+            "offset": self.offset,
+            "sort": self.sort,
+            "filters": self.filters,
+            "records": await self.records,
+        }
+        return results
 
 
 class ArticlesFilterQuery(BaseFilterQuery):
@@ -319,6 +336,10 @@ class PrimoDoc:
         return [remove_html_tags(f) for f in self.pnx.get(section, {}).get(field, [])]
 
 
+async def fetch_record(data):
+    return Record(data).output()
+
+
 class Record:
     def __init__(self, data):
         self.data = data
@@ -449,6 +470,39 @@ class Record:
             doi=self.doc.doi,
             pmid=self.doc.pmid,
         )
+
+    def output(self):
+        result = {}
+        for field in [
+            "id",
+            "peer_reviewed",
+            "retraction_notice_url",
+            "title",
+            "issue",
+            "volume",
+            "pages",
+            "journal_title",
+            "publication_date",
+            "abstract",
+            "publisher",
+            "genre",
+            "issn",
+            "eissn",
+            "isbn",
+            "eisbn",
+            "doi",
+            "oclc",
+            "pmid",
+            "language",
+            "subject",
+            "author",
+            "edition",
+            "citation",
+            "holdings",
+        ]:
+            result[field] = getattr(self, field)
+
+        return result
 
 
 def get_lib_key_holding(doi, pmid):
