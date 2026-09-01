@@ -27,9 +27,5 @@ class LibKeyClient:
                 response.raise_for_status()
                 body = response.json()
                 return body["data"]
-            except httpx.HTTPStatusError:
-                # S.logger.error(f"HTTP error occurred: {e}")
+            except httpx.HTTPError:
                 return None
-            # except httpx.exceptions.RequestException as e:
-            # S.logger.error(f"A request error occurred: {e}")
-            # return None
