@@ -11,6 +11,9 @@ packages = [{include = "api"}]
 [tool.ruff]
 exclude = [".venv",".vscode",".vscode-server", ".local", ".cache"]
 
+[tool.ruff.lint]
+ignore = ["E402"]
+
 [tool.poetry.dependencies]
 python = "^3.11"
 requests = "^2.31.0"
