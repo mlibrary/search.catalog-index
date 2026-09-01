@@ -287,7 +287,6 @@ class SearchParser::Application < Sinatra::Base
   end
   namespace "/articles" do
     get "/search" do
-      S.logger.info("request", request.env["otel.rack.token_and_span"][1].parent_span_id)
       headers "metrics.route" => "articles/search"
       content_type :json
       query_params = {
