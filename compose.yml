@@ -152,6 +152,14 @@ services:
     image: prom/pushgateway
     ports:
       - 9091:9091
+  jaeger:
+    image: jaegertracing/jaeger:latest
+    ports:
+      - 5778:5778
+      - 16686:16686
+      - 4317:4317
+      - 4318:4318
+      - 9411:9411
 volumes:
   gem_cache:
   support_gem_cache:

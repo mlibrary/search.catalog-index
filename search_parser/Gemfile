@@ -9,6 +9,9 @@ gem "canister"
 gem "pry" # for mlibrary_search_parser
 gem "activesupport"
 gem "faraday"
+gem "opentelemetry-sdk"
+gem "opentelemetry-instrumentation-all"
+gem "opentelemetry-exporter-otlp"
 
 gem "mlibrary_search_parser",
   git: "https://github.com/mlibrary/mlibrary_search_parser",
