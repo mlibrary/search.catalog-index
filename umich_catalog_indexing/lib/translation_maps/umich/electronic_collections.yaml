@@ -260,7 +260,7 @@
 - collection_name: Russian Islamic Studies
   interface_name: East View
   note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/udb/1890
+  link: https://online.infoteka.com/browse/udb/1890
   status: Available
   campuses:
   - ann_arbor
@@ -302,18 +302,6 @@
   - ann_arbor
   institution_codes:
   - MIU
-'990152201870106381':
-- collection_name: Russian Governmental Publications
-  interface_name: East View
-  note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/udb/5
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '990124736780106381':
 - collection_name: MyWorldAbroad
   interface_name: Intercultural Systems/Systèmes interculturels (ISSI)
@@ -1073,7 +1061,7 @@
 - collection_name: Newspapers of the North Caucasus, Abkhazia and South Ossetia
   interface_name: East View
   note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/udb/1210
+  link: https://online.infoteka.com/browse/udb/1210
   status: Available
   campuses:
   - ann_arbor
@@ -1331,8 +1319,8 @@
   - MIFLIC
 '990155077230106381':
 - collection_name: Great Lakes Digital Library
-  interface_name: University of Michigan Library
-  note: University of Michigan Library. Open access for all users.
+  interface_name: University of Michigan Library Digital Collections
+  note: University of Michigan Library Digital Collections. Open access for all users.
   link: https://quod.lib.umich.edu/g/glrr/
   status: Available
   campuses:
@@ -1755,18 +1743,6 @@
   interface_name: ProQuest
   note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
   link: http://gateway.proquest.com/openurl?url_ver=Z39.88-2004&res_dat=xri:bsc:&rft_dat=xri:bsc:contents:journals
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'990047134690106381':
-- collection_name: 'KISS : Hanʼguk ŭi haeksim chisik chŏngbo chawŏn.'
-  interface_name: Korean Studies Information
-  note: Korean Studies Information. Access to the Korean Studies Information online version restricted; authentication may be required.
-  link: http://kiss.kstudy.com/
   status: Available
   campuses:
   - ann_arbor
@@ -3339,7 +3315,7 @@
 - collection_name: Periodicals of Central Asia and the Caucasus (UDB-CAC)
   interface_name: Infoteka
   note: Infoteka. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/udb/1990
+  link: https://online.infoteka.com/browse/udb/1990
   status: Available
   campuses:
   - ann_arbor
@@ -3419,6 +3395,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99187252548006381':
+- collection_name: Russian Governmental Publications (UDB-GOV)
+  interface_name: Infoteka
+  note: Infoteka. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://online.infoteka.com/browse/udb/5
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99187252548206381':
 - collection_name: 'Gale OneFile: LegalTrac'
   interface_name: Gale
@@ -3490,10 +3478,10 @@
   - MIU
   - MIFLIC
 '99187252548806381':
-- collection_name: East View Russian Social Sciences and Humanities Periodicals (UDB-EDU)
+- collection_name: Infoteka Russian Social Sciences and Humanities Periodicals (UDB-EDU)
   interface_name: Infoteka
   note: Infoteka. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/udb/4
+  link: https://online.infoteka.com/browse/udb/4
   status: Available
   campuses:
   - ann_arbor
@@ -3505,7 +3493,7 @@
 - collection_name: Infoteka Russian Central Newspapers (UDB-COM)
   interface_name: Infoteka
   note: Infoteka. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://infoteka.com/
+  link: https://online.infoteka.com/browse/udb/1
   status: Available
   campuses:
   - ann_arbor
@@ -3517,7 +3505,7 @@
 - collection_name: Infoteka Russian Central and Regional Newspapers (UDB-REG)
   interface_name: Infoteka
   note: Infoteka. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/udb/2
+  link: https://online.infoteka.com/browse/udb/2
   status: Available
   campuses:
   - ann_arbor
@@ -5514,7 +5502,7 @@
   - MIU
   - MIFLIC
 '99187252471906381':
-- collection_name: DOAJ Directory of Open Access Journals
+- collection_name: DOAJ
   interface_name: DOAJ Directory of Open Access Journals
   note: DOAJ Directory of Open Access Journals. Link may lead to a DOAJ page. The "Website" button on the DOAJ page leads to the journal site. The "READ ONLINE" button should lead to the article on the journal site. Open access for all users.
   link: https://www.doaj.org/
@@ -5646,8 +5634,8 @@
   - MIU
   - MIFLIC
 - collection_name: Biodiversity Heritage Library - LOCAL
-  interface_name: ''
-  note: Open access for all users.
+  interface_name: Biodiversity Heritage Library
+  note: Biodiversity Heritage Library. Open access for all users.
   link: ''
   status: Not Available
   campuses:
@@ -6024,7 +6012,7 @@
 - collection_name: Infoteka Pravda Digital Archive (DA-PRA)
   interface_name: Infoteka
   note: Infoteka. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://infoteka.com/
+  link: https://online.infoteka.com/browse/udb/870
   status: Available
   campuses:
   - ann_arbor
@@ -6085,6 +6073,18 @@
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.firstworldwar.amdigital.co.uk/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99187252626006381':
+- collection_name: East View Cambridge Archive Editions Online
+  interface_name: East View Information Services
+  note: East View Information Services. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://dlib.eastview.com/browse/udb/1670
   status: Available
   campuses:
   - ann_arbor
@@ -6825,16 +6825,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187252591506381':
-- collection_name: 'JoVE Journal: Bioengineering'
-  interface_name: Journal of Visualized Experiments (JoVE)
-  note: Journal of Visualized Experiments (JoVE) Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.jove.com/journal/bioengineering
-  status: Available
-  campuses:
-  - ann_arbor
-  institution_codes:
-  - MIU
 '99187252591606381':
 - collection_name: 'JoVE Journal: Behavior'
   interface_name: Journal of Visualized Experiments (JoVE)
@@ -6965,7 +6955,7 @@
 - collection_name: Dental Historic Collection
   interface_name: University of Michigan Library
   note: University of Michigan Library. Open access for all users.
-  link: http://quod.lib.umich.edu/d/dentalj/
+  link: https://quod.lib.umich.edu/d/dentalj/
   status: Available
   campuses:
   - ann_arbor
@@ -7617,7 +7607,7 @@
 - collection_name: Issues & Controversies
   interface_name: InfoBase Publishers, Inc.
   note: InfoBase Publishers, Inc. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://online.infobaselearning.com/Direct.aspx?aid=16234&pid=WE57
+  link: https://online.infobaselearning.com/Direct.aspx?aid=16234&pid=WE57%20&%20aid=$$CUSTOMER_ID
   status: Available
   campuses:
   - ann_arbor
@@ -9097,18 +9087,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'99187252550706381':
-- collection_name: HarpWeek
-  interface_name: Harpweek
-  note: Harpweek.
-  link: http://app.harpweek.com/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99187252550906381':
 - collection_name: Short Story Index (H.W. Wilson)
   interface_name: EBSCOhost
@@ -9851,8 +9829,8 @@
   - MIFLIC
 '99187252558406381':
 - collection_name: arXiv.org
-  interface_name: Cornell University
-  note: Cornell University.
+  interface_name: arXiv
+  note: arXiv.
   link: https://arxiv.org/search/
   status: Available
   campuses:
@@ -12438,7 +12416,7 @@
 - collection_name: World News Digest
   interface_name: InfoBase Publishers, Inc.
   note: InfoBase Publishers, Inc. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://online.infobaselearning.com/Direct.aspx?aid=16234&pid=WE56
+  link: https://online.infobaselearning.com/Direct.aspx?aid=16234&pid=WE56%20&%20aid=$$CUSTOMER_ID
   status: Available
   campuses:
   - ann_arbor
@@ -13830,6 +13808,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99187415656106381':
+- collection_name: Black Abolitionist Papers
+  interface_name: ProQuest
+  note: ProQuest. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://www.proquest.com/bap
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99187415656406381':
 - collection_name: Coronavirus Research Database
   interface_name: ProQuest
@@ -14458,18 +14448,6 @@
   institution_codes:
   - MIU
   - MIFLIC
-'990151916810106381':
-- collection_name: Cambridge archive editions online.
-  interface_name: East View
-  note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/udb/1670
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99187478224806381':
 - collection_name: 'SAGE Research Methods Cases: Medicine and Health'
   interface_name: SAGE
@@ -14528,6 +14506,18 @@
   institution_codes:
   - MIU
   - MIFLIC
+'990039635000106381':
+- collection_name: Corpus of Middle English Prose and Verse
+  interface_name: University of Michigan
+  note: University of Michigan. Open access for all users.
+  link: https://quod.lib.umich.edu/c/cme/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99188865854206381':
 - collection_name: EZB-FREE-00999 freely available EZB journals
   interface_name: Ezb
@@ -14576,18 +14566,6 @@
   interface_name: LA84_Foundation
   note: LA84_Foundation. Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.la84.org/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99187493915606381':
-- collection_name: TVRain Research Database
-  interface_name: East View
-  note: East View. New programming was suspended as of March 3, 2022, but access to archived programming remains available. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://tvrain.tv/
   status: Available
   campuses:
   - ann_arbor
@@ -15849,6 +15827,18 @@
   interface_name: AM (Adam Matthew)
   note: AM (Adam Matthew) Authorized U-M users (+ guests in U-M Libraries)
   link: https://www.medievaltravel.amdigital.co.uk/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99187529288906381':
+- collection_name: Asia-Studies Full-text Online
+  interface_name: International_Information_Services
+  note: International_Information_Services. Open access for all users.
+  link: https://www.asia-studies.com/
   status: Available
   campuses:
   - ann_arbor
@@ -18020,7 +18010,7 @@
   - MIU
   - MIFLIC
 '99187703907206381':
-- collection_name: EBSCOhost Art & Architecture Source
+- collection_name: EBSCOhost Art Source
   interface_name: EBSCOhost
   note: EBSCOhost. Authorized U-M users (+ guests in U-M Libraries)
   link: https://search.ebscohost.com/login.aspx?profile=ehost&defaultdb=asu
@@ -18045,7 +18035,7 @@
 - collection_name: Ogonek (St. Petersburg) Digital Archive (1899-1918)
   interface_name: ''
   note: Access to the Ogonek (St. Petersburg) Digital Archive (1899-1918) online version restricted; authentication may be required.
-  link: https://dlib.eastview.com/browse/udb/3670
+  link: https://online.infoteka.com/browse/udb/3670
   status: Available
   campuses:
   - ann_arbor
@@ -18057,7 +18047,7 @@
 - collection_name: Soviet Woman Digital Archive (1945-1991)
   interface_name: East View Information Services
   note: East View Information Services. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/udb/3770
+  link: https://online.infoteka.com/browse/udb/3770
   status: Available
   campuses:
   - ann_arbor
@@ -18249,7 +18239,7 @@
 - collection_name: Infoteka Post-Perestroika Newspapers Digital Archive (DA-PPN)
   interface_name: Infoteka
   note: Infoteka. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://gpa.eastview.com/crl/ppn/
+  link: https://online.infoteka.com/browse/udb/5570
   status: Available
   campuses:
   - ann_arbor
@@ -18331,7 +18321,7 @@
 - collection_name: East View Russian Institute of Social Sciences Publications (UDB-INION)
   interface_name: East View
   note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/udb/4550
+  link: https://online.infoteka.com/browse/udb/4550
   status: Available
   campuses:
   - ann_arbor
@@ -18679,7 +18669,7 @@
 - collection_name: American Indian History Online
   interface_name: InfoBase Publishers, Inc.
   note: InfoBase Publishers, Inc. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://online.infobaselearning.com/Direct.aspx?aid=16234&pid=WE43
+  link: https://online.infobaselearning.com/Direct.aspx?aid=16234&pid=WE43%20&%20aid=$$CUSTOMER_ID
   status: Available
   campuses:
   - ann_arbor
@@ -18749,7 +18739,7 @@
 - collection_name: Codices Vossiani Latini Online
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://www.degruyterbrill.com/database/CVLO/html
+  link: https://www.degruyterbrill.com/database/CVLO/start
   status: Available
   campuses:
   - ann_arbor
@@ -18941,7 +18931,7 @@
 - collection_name: Archives Of The Presbyterian Church Of Cuba
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/archives-of-the-presbyterian-church-of-cuba-online
+  link: https://www.degruyterbrill.com/database/ccoc/start
   status: Available
   campuses:
   - ann_arbor
@@ -19956,7 +19946,7 @@
 - collection_name: Sovetskii Ekran Digital Archive
   interface_name: East View
   note: East View. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/books/6070
+  link: https://online.infoteka.com/browse/udb/6070
   status: Available
   campuses:
   - ann_arbor
@@ -19968,7 +19958,7 @@
 - collection_name: Infoteka Far Eastern Affairs Digital Archive (DA-FEA)
   interface_name: Infoteka
   note: Infoteka. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://infoteka.com/
+  link: https://online.infoteka.com/browse/udb/3530
   status: Available
   campuses:
   - ann_arbor
@@ -22458,18 +22448,6 @@
   - ann_arbor
   institution_codes:
   - MIU
-'99188122748706381':
-- collection_name: West African Magazines (07-1221-00 CRL LICENS)
-  interface_name: ''
-  note: Authorized U-M users (+ guests in U-M Libraries)
-  link: https://africacommons.net/modules/west-african-magazines/
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
 '99188125543106381':
 - collection_name: GIDEON Ebooks 2024
   interface_name: GIDEON Informatics, Inc.
@@ -25022,7 +25000,7 @@
 - collection_name: Illiustrirovannaia Rossiia Archive-to be replaced by full text
   interface_name: East View Information Services
   note: East View Information Services. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://dlib.eastview.com/browse/udb/3671
+  link: https://online.infoteka.com/browse/udb/3671
   status: Available
   campuses:
   - ann_arbor
@@ -27744,7 +27722,7 @@
 - collection_name: Sovetskaia Kul’tura Digital Archive (DA-SK)
   interface_name: Infoteka
   note: Infoteka. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://infoteka.com/
+  link: https://online.infoteka.com/browse/udb/1790
   status: Available
   campuses:
   - ann_arbor
@@ -28950,6 +28928,29 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99189138034106381':
+- collection_name: 'Oxford Bibliographies Online: Linguistics'
+  interface_name: ''
+  note: ''
+  link: ''
+  status: Not Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+- collection_name: 'Oxford Bibliographies Online: Linguistics'
+  interface_name: Oxford University Press
+  note: Oxford University Press.
+  link: https://academic.oup.com/reference/62381
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99189150018006381':
 - collection_name: 'Bloomsbury Open Collections: Gender & Sexuality 2026 (Frontlist)'
   interface_name: Bloomsbury Publishing Plc
@@ -29180,19 +29181,7 @@
 - collection_name: Archive of the Evangelical Theological Seminary of Cuba Online
   interface_name: ''
   note: Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/archive-of-the-evangelical-theological-seminary-of-cuba-online
-  status: Available
-  campuses:
-  - ann_arbor
-  - flint
-  institution_codes:
-  - MIU
-  - MIFLIC
-'99189153616606381':
-- collection_name: Archive of the Christian Student Movement of Cuba Online
-  interface_name: ''
-  note: Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/archive-of-the-christian-student-movement-of-cuba-online
+  link: https://www.degruyterbrill.com/database/ccoc/start
   status: Available
   campuses:
   - ann_arbor
@@ -29664,7 +29653,7 @@
 - collection_name: Brill Online E-Books French Revolutionary Opinions Online
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/french-revolutionary-opinions
+  link: https://www.degruyterbrill.com/database/FROO/start
   status: Available
   campuses:
   - ann_arbor
@@ -29676,7 +29665,7 @@
 - collection_name: 'Soviet Cinema: Archival Documents from RGALI 1923-1935'
   interface_name: Brill
   note: Brill. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/soviet-cinema-online-archival-documents-from-rgali-19231935
+  link: https://www.degruyterbrill.com/database/SCAO/start
   status: Available
   campuses:
   - ann_arbor
@@ -29700,7 +29689,7 @@
 - collection_name: Brill Online E-Books Richard Wagner Online
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/richard-wagner
+  link: https://www.degruyterbrill.com/database/wago/start
   status: Available
   campuses:
   - ann_arbor
@@ -29712,7 +29701,7 @@
 - collection_name: Brill Online E-Books Reformation In Heidelberg Online
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: http://primarysources.brillonline.com/browse/reformation-in-heidelberg
+  link: https://www.degruyterbrill.com/database/RIHO/start
   status: Available
   campuses:
   - ann_arbor
@@ -29736,7 +29725,7 @@
 - collection_name: Seoul Press Online
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://brill.com/display/db/spo
+  link: https://www.degruyterbrill.com/database/spo/start
   status: Available
   campuses:
   - ann_arbor
@@ -29760,7 +29749,7 @@
 - collection_name: 'Cuban Periodicals: Cultural Magazines Published by Casa de las Américas, 1960-2009'
   interface_name: Brillonline
   note: Brillonline. Authorized U-M users (+ guests in U-M Libraries)
-  link: https://primarysources.brillonline.com/browse/cuban-periodicals-cultural-magazines-published-by-casa-de-las-americas-1960-2009
+  link: https://www.degruyterbrill.com/database/casa/start
   status: Available
   campuses:
   - ann_arbor
@@ -29864,6 +29853,30 @@
   institution_codes:
   - MIU
   - MIFLIC
+'99189199658806381':
+- collection_name: 'Africa Commons: West African Magazines'
+  interface_name: Coherent Digital
+  note: Coherent Digital. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://africacommons.net/modules/west-african-magazines
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189199660606381':
+- collection_name: TV Rain
+  interface_name: Телеканал «Дождь»
+  note: Телеканал «Дождь. Open access for all users.
+  link: https://tvrain.tv/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
 '99189198795206381':
 - collection_name: 'Policy Commons: North American State, Provincial, and Territorial Governments'
   interface_name: Coherent Digital
@@ -29881,6 +29894,90 @@
   interface_name: Coherent Digital
   note: Coherent Digital. Authorized U-M users (+ guests in U-M Libraries)
   link: https://appliedsciencecommons.net/modules/global-technical-reports/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189199090806381':
+- collection_name: 'Applied Science Commons: Applied Psychology'
+  interface_name: Coherent Digital
+  note: Coherent Digital.
+  link: https://appliedsciencecommons.net/modules/applied-psychology
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189199090906381':
+- collection_name: 'Applied Science Commons: Applied Nursing and Allied Health'
+  interface_name: Coherent Digital
+  note: Coherent Digital.
+  link: https://appliedsciencecommons.net/modules/applied-nursing-and-allied-health/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189199092406381':
+- collection_name: Infoteka Illiustrirovannaia Rossiia Digital Archive
+  interface_name: Infoteka
+  note: Infoteka. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://online.infoteka.com/browse/udb/3671
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'990133904760106381':
+- collection_name: University of Michigan Herbarium Fungus Monographs
+  interface_name: University of Michigan Library Digital Collections
+  note: University of Michigan Library Digital Collections. Open access for all users.
+  link: https://quod.lib.umich.edu/f/fung1tc/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'990155026780106381':
+- collection_name: Center for Japanese Studies Publications
+  interface_name: Michigan Publishing
+  note: Michigan Publishing. Open access for all users.
+  link: https://quod.lib.umich.edu/c/cjs/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'990043802970106381':
+- collection_name: CIC e-publishing Venture
+  interface_name: University of Michigan Library
+  note: University of Michigan Library. Authorized U-M users (+ guests in U-M Libraries)
+  link: https://quod.lib.umich.edu/e/epv2/
+  status: Available
+  campuses:
+  - ann_arbor
+  - flint
+  institution_codes:
+  - MIU
+  - MIFLIC
+'99189201146306381':
+- collection_name: Yizkor Books
+  interface_name: New York Public Library
+  note: New York Public Library. Open access for all users.
+  link: http://bibpurl.oclc.org/web/31351
   status: Available
   campuses:
   - ann_arbor
