@@ -1,3 +1,8 @@
+# from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+from opentelemetry.instrumentation.auto_instrumentation import initialize
+
+initialize()
+
 from fastapi import FastAPI
 from fastapi.middleware.gzip import GZipMiddleware
 from prometheus_fastapi_instrumentator import Instrumentator
@@ -15,3 +20,4 @@ app.include_router(onlinejournals.router)
 app.include_router(articles.router)
 
 Instrumentator().instrument(app).expose(app)
+# FastAPIInstrumentor.instrument_app(app)
