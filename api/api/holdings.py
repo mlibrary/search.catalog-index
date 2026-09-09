@@ -398,6 +398,19 @@ class ClementsItem(ReservableItem):
         value = self.data.get("material_type")
         return mapping.get(value)
 
+    @property
+    def restricted(self):
+        rulesets = [
+            FieldRuleset(tags=["506"], text_sfs="abc"),
+        ]
+        return self._format_paired_fields(rulesets)
+
+    @property
+    def fields(self):
+        result = super().fields
+        result["accessrestricted"] = self.restricted
+        return result
+
 
 class PhysicalHolding:
     def __init__(

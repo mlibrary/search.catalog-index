@@ -557,6 +557,23 @@ class TestReservableItem:
         for key in base_reservable_item_fields.keys():
             assert subject[key][0] == base_reservable_item_fields[key]
 
+    def test_clements_restricted(self, record, physical_item):
+        record.add_field(
+            pymarc.Field(
+                tag="506",
+                indicators=pymarc.Indicators("0", "1"),
+                subfields=[
+                    pymarc.Subfield(code="a", value="a"),
+                    pymarc.Subfield(code="b", value="b"),
+                    pymarc.Subfield(code="c", value="c"),
+                    pymarc.Subfield(code="d", value="d"),
+                ],
+            )
+        )
+        subject = ClementsItem(record=record, physical_item_data=physical_item)
+        assert subject.restricted == "a b c"
+        assert subject.fields["accessrestricted"] == "a b c"
+
     def test_clements_genre(self, record, physical_item):
         subject = ClementsItem(record=record, physical_item_data=physical_item)
         assert subject.genre == "Book"
