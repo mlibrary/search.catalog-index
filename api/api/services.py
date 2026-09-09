@@ -9,6 +9,7 @@ class Services:
     Global Configuration Services
     """
 
+    app_env: str
     project_root: str
     solr_url: str
     website_solr_url: str
@@ -35,6 +36,7 @@ logging.basicConfig(
 
 
 S = Services(
+    app_env=os.getenv("APP_ENV") or "development",
     project_root=os.path.abspath(os.path.dirname(__file__)),
     solr_url=os.getenv("SOLR_URL") or "http://solr:8983",
     website_solr_url=os.getenv("WEBSITE_SOLR_URL") or "http://website-solr:8983",

@@ -1,7 +1,10 @@
-# from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
-from opentelemetry.instrumentation.auto_instrumentation import initialize
+from api.services import S
 
-initialize()
+if S.app_env != "test":
+    # from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+    from opentelemetry.instrumentation.auto_instrumentation import initialize
+
+    initialize()
 
 from fastapi import FastAPI
 from fastapi.middleware.gzip import GZipMiddleware
