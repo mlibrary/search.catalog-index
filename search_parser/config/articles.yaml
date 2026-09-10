@@ -40,9 +40,6 @@ primo_fields:
   subject:
     field: "topic"
     precision: "contains"
-  date:
-    field: "date"
-    precision: "contains"
   issn:
     field: "issn"
     precision: "contains"
