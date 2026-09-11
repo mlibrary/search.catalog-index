@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "catalog-api"
+name = "search-api"
 version = "0.1.0"
 description = "API for interacting with solr indexes for Library Search"
 authors = [
